@@ -24,15 +24,16 @@
  */
 package net.runelite.client;
 
+import lombok.extern.slf4j.Slf4j;
+import net.runelite.http.api.session.SessionClient;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.io.IOException;
 import java.util.UUID;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import lombok.extern.slf4j.Slf4j;
-import net.runelite.http.api.session.SessionClient;
 
 @Singleton
 @Slf4j
@@ -54,7 +55,7 @@ public class ClientSessionManager
 	public void start()
 	{
 		try
-		{
+		{//could fix it by changing the project version to the latest in http-api
 			sessionId = sessionClient.open();
 			log.debug("Opened session {}", sessionId);
 		}
