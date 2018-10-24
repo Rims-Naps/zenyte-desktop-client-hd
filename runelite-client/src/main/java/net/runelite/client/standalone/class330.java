@@ -60,7 +60,7 @@ public class class330 {
          var7 = (var6 >> 4 & 7) + class106.field992;
          var8 = (var6 & 7) + class232.field2288;
          if(var7 >= 0 && var8 >= 0 && var7 < 104 && var8 < 104) {
-            class102.method1757(var1.readUnsignedByte(), var7, var8, var5, -1, var3, var38, 0, -1);
+            class102.method1757(class315.plane, var7, var8, var5, -1, var3, var38, 0, -1);
          }
 
       } else {
@@ -322,7 +322,7 @@ public class class330 {
                         var8 = client.field3978[var6];
                         var9 = var1.readUnsignedShort128();
                         if(var3 >= 0 && var38 >= 0 && var3 < 104 && var38 < 104) {
-                           class102.method1757(var1.readUnsignedByte(), var3, var38, var8, var9, var6, var7, 0, -1);
+                           class102.method1757(class315.plane, var3, var38, var8, var9, var6, var7, 0, -1);
                         }
 
                      }

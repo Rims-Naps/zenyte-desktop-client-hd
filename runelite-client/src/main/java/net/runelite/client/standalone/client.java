@@ -4150,7 +4150,7 @@ public final class client extends class181 implements class27, RSClient {
                return true;
             }
 
-            if(ServerProt.field2325 == var1.field1151) {
+            if(ServerProt.UPDATE_ZONE_FULL_FOLLOWS == var1.field1151) {
                class232.field2288 = var3.readUnsigned128Byte();
                class106.field992 = var3.readUnsignedByteC();
 

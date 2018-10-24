@@ -160,7 +160,7 @@ public class ServerProt {
    @ObfuscatedSignature(
       signature = "Lfw;"
    )
-   public static final ServerProt field2325;
+   public static final ServerProt UPDATE_ZONE_FULL_FOLLOWS;
    @ObfuscatedName("by")
    @ObfuscatedSignature(
       signature = "Lfw;"
@@ -449,18 +449,18 @@ public class ServerProt {
       MESSAGE_GAME = new ServerProt(3, -1);
       VARP_LARGE = new ServerProt(4, 6);
       field2369 = new ServerProt(5, 4);
-      LOC_ADD = new ServerProt(6, 5);
+      LOC_ADD = new ServerProt(6, 4);
       IF_CLEARITEMS = new ServerProt(7, 4);
       SPOTANIM_SPECIFIC = new ServerProt(8, 6);
       IF_CLOSESUB = new ServerProt(9, 4);
       MESSAGE_PRIVATE = new ServerProt(10, -2);
       MAP_PROJANIM = new ServerProt(11, 15);
       AREA_SOUND = new ServerProt(12, 5);
-      LOC_DEL = new ServerProt(13, 3);
+      LOC_DEL = new ServerProt(13, 2);
       OBJ_DEL = new ServerProt(14, 3);
       OBJ_UPDATE = new ServerProt(15, 7);
       field2311 = new ServerProt(16, 1);
-      field2325 = new ServerProt(17, -2);
+      UPDATE_ZONE_FULL_FOLLOWS = new ServerProt(17, -2);
       field2326 = new ServerProt(18, -2);
       IF_SETTEXT = new ServerProt(19, -2);
       IF_SETOBJECT = new ServerProt(20, 10);

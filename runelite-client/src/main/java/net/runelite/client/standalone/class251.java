@@ -69,10 +69,10 @@ public class class251 {
       SPOTANIM_SPECIFIC = new class251(6);
       LOC_ANIM = new class251(4);
       AREA_SOUND = new class251(5);
-      LOC_DEL = new class251(3);
+      LOC_DEL = new class251(2);
       OBJ_DEL = new class251(3);
       OBJ_ADD = new class251(5);
-      LOC_ADD = new class251(5);
+      LOC_ADD = new class251(4);
    }
 
    @ObfuscatedSignature(
