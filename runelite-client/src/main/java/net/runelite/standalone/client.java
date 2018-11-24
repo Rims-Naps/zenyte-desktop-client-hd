@@ -6499,10 +6499,14 @@ public final class client extends GameEngine implements class146, RSClient {
                }
 
                if(class226.field3047[var2] != -1 && class59.field727[var2] == null) {
-                  class59.field727[var2] = class152.field1869.method4399(class226.field3047[var2], 0, class286.field3582[var2]);
-                  if(class59.field727[var2] == null) {
-                     var42 = false;
-                     ++field2344;
+                  try {
+                     class59.field727[var2] = class152.field1869.method4399(class226.field3047[var2], 0, class286.field3582[var2]);
+                     if (class59.field727[var2] == null) {
+                        var42 = false;
+                        ++field2344;
+                     }
+                  } catch (Exception e) {
+
                   }
                }
             }
