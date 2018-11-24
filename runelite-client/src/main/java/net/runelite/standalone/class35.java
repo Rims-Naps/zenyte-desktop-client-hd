@@ -1110,6 +1110,20 @@ public class class35 extends class197 {
                var15.field1085 = var1.method2265();
                var15.field1081 = 100;
             }
+
+             if ((var5 & 0x80) != 0) {//options
+                 int mask = var1.method2257();//read unsigned byte
+                 String[] options = var15.field2437.field3876;
+                 for (int i = 0; i < 5; i++) {
+                     if ((mask >> i & 0x1) != 0) {
+                         options[i] = var1.method2265();//read string.
+                         if (options[i].isEmpty()) {
+                             options[i] = null;
+                         }
+                     }
+                 }
+             }
+
          }
 
          for(var14 = 0; var14 < client.field2274; ++var14) {
