@@ -39,6 +39,7 @@ import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.Experience;
 import net.runelite.api.GameState;
+import net.runelite.api.IconID;
 import net.runelite.api.ItemComposition;
 import net.runelite.api.MessageNode;
 import net.runelite.api.events.ChatMessage;
@@ -183,6 +184,7 @@ public class ChatCommandsPlugin extends Plugin implements ChatboxInputListener
 
 		String message = setMessage.getValue();
 		MessageNode messageNode = setMessage.getMessageNode();
+		HiscoreEndpoint localEndpoint = getHiscoreEndpointType();
 
 		// clear RuneLite formatted message as the message node is
 		// being reused
@@ -191,7 +193,7 @@ public class ChatCommandsPlugin extends Plugin implements ChatboxInputListener
 		if (config.lvl() && message.toLowerCase().equals(TOTAL_LEVEL_COMMAND_STRING))
 		{
 			log.debug("Running total level lookup");
-			executor.submit(() -> playerSkillLookup(setMessage, "total"));
+			executor.submit(() -> playerSkillLookup(setMessage, localEndpoint, "total"));
 		}
 		else if (config.lvl() && message.toLowerCase().equals(CMB_COMMAND_STRING))
 		{
@@ -210,19 +212,19 @@ public class ChatCommandsPlugin extends Plugin implements ChatboxInputListener
 			String search = message.substring(LEVEL_COMMAND_STRING.length() + 1);
 
 			log.debug("Running level lookup for {}", search);
-			executor.submit(() -> playerSkillLookup(setMessage, search));
+			executor.submit(() -> playerSkillLookup(setMessage, localEndpoint, search));
 		}
 		else if (config.clue() && message.toLowerCase().equals(CLUES_COMMAND_STRING))
 		{
 			log.debug("Running lookup for overall clues");
-			executor.submit(() -> playerClueLookup(setMessage, "total"));
+			executor.submit(() -> playerClueLookup(setMessage, localEndpoint,  "total"));
 		}
 		else if (config.clue() && message.toLowerCase().startsWith(CLUES_COMMAND_STRING + " "))
 		{
 			String search = message.substring(CLUES_COMMAND_STRING.length() + 1);
 
 			log.debug("Running clue lookup for {}", search);
-			executor.submit(() -> playerClueLookup(setMessage, search));
+			executor.submit(() -> playerClueLookup(setMessage, localEndpoint, search));
 		}
 		else if (config.killcount() && message.toLowerCase().startsWith(KILLCOUNT_COMMAND_STRING + " "))
 		{
@@ -499,9 +501,10 @@ public class ChatCommandsPlugin extends Plugin implements ChatboxInputListener
 	 * response.
 	 *
 	 * @param setMessage The chat message containing the command.
+	 * @param local      HiscoreEndpoint for local player, needs to be sent in advance to avoid threading bugs
 	 * @param search     The item given with the command.
 	 */
-	private void playerSkillLookup(SetMessage setMessage, String search)
+	private void playerSkillLookup(SetMessage setMessage, HiscoreEndpoint local, String search)
 	{
 		search = SkillAbbreviations.getFullName(search);
 		final HiscoreSkill skill;
@@ -514,7 +517,7 @@ public class ChatCommandsPlugin extends Plugin implements ChatboxInputListener
 			return;
 		}
 
-		final HiscoreLookup lookup = getCorrectLookupFor(setMessage);
+		final HiscoreLookup lookup = getCorrectLookupFor(setMessage, local);
 
 		try
 		{
@@ -638,9 +641,9 @@ public class ChatCommandsPlugin extends Plugin implements ChatboxInputListener
 	 * for the requested clue-level (no arg if requesting total)
 	 * easy, medium, hard, elite, master
 	 */
-	private void playerClueLookup(SetMessage setMessage, String search)
+	private void playerClueLookup(SetMessage setMessage, HiscoreEndpoint local, String search)
 	{
-		final HiscoreLookup lookup = getCorrectLookupFor(setMessage);
+		final HiscoreLookup lookup = getCorrectLookupFor(setMessage, local);
 
 		try
 		{
@@ -717,9 +720,10 @@ public class ChatCommandsPlugin extends Plugin implements ChatboxInputListener
 	 * Gets correct lookup data for message
 	 *
 	 * @param setMessage chat message
+	 * @param local HiscoreEndpoint for local player, needs to be sent in advance to avoid threading bugs
 	 * @return hiscore lookup data
 	 */
-	private HiscoreLookup getCorrectLookupFor(final SetMessage setMessage)
+	private HiscoreLookup getCorrectLookupFor(final SetMessage setMessage, final HiscoreEndpoint local)
 	{
 		final String player;
 		final HiscoreEndpoint ironmanStatus;
@@ -727,7 +731,7 @@ public class ChatCommandsPlugin extends Plugin implements ChatboxInputListener
 		if (setMessage.getType().equals(ChatMessageType.PRIVATE_MESSAGE_SENT))
 		{
 			player = client.getLocalPlayer().getName();
-			ironmanStatus = getHiscoreEndpointType();
+			ironmanStatus = local;
 		}
 		else
 		{
@@ -808,15 +812,15 @@ public class ChatCommandsPlugin extends Plugin implements ChatboxInputListener
 	 */
 	private static HiscoreEndpoint getHiscoreEndpointByName(final String name)
 	{
-		if (name.contains("<img=2>"))
+		if (name.contains(IconID.IRONMAN.toString()))
 		{
 			return toEndPoint(AccountType.IRONMAN);
 		}
-		else if (name.contains("<img=3>"))
+		else if (name.contains(IconID.ULTIMATE_IRONMAN.toString()))
 		{
 			return toEndPoint(AccountType.ULTIMATE_IRONMAN);
 		}
-		else if (name.contains("<img=10>"))
+		else if (name.contains(IconID.HARDCORE_IRONMAN.toString()))
 		{
 			return toEndPoint(AccountType.HARDCORE_IRONMAN);
 		}

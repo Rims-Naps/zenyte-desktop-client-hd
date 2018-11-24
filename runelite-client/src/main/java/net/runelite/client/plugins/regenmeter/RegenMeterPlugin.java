@@ -98,7 +98,7 @@ public class RegenMeterPlugin extends Plugin
 	{
 		if (ev.getGameState() == GameState.HOPPING || ev.getGameState() == GameState.LOGIN_SCREEN)
 		{
-			ticksSinceHPRegen = 0; // For some reason this makes this accurate
+			ticksSinceHPRegen = -2; // For some reason this makes this accurate
 			ticksSinceSpecRegen = 0;
 		}
 	}
@@ -115,7 +115,7 @@ public class RegenMeterPlugin extends Plugin
 	}
 
 	@Subscribe
-	private void onTick(GameTick event)
+	public void onGameTick(GameTick event)
 	{
 		if (client.getVar(VarPlayer.SPECIAL_ATTACK_PERCENT) == 1000)
 		{

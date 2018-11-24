@@ -33,8 +33,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.client.standalone.client;
 import net.runelite.http.api.updatecheck.UpdateCheckClient;
+import net.runelite.standalone.client;
 
 @Slf4j
 @Singleton
@@ -55,6 +55,8 @@ public class ClientLoader
 
 	private static Applet loadRuneLite(final RSConfig config) throws ClassNotFoundException, InstantiationException, IllegalAccessException
 	{
+		// the injected client is a runtime scoped dependency
+		//final Class<?> clientClass = ClientLoader.class.getClassLoader().loadClass(config.getInitialClass());
 		return loadFromClass(config, client.class);
 	}
 
@@ -84,20 +86,7 @@ public class ClientLoader
 		try
 		{
 			final RSConfig config = clientConfigLoader.fetch();
-			final ClientUpdateCheckMode updateMode = updateCheckMode == ClientUpdateCheckMode.AUTO
-				? updateCheckClient.isOutdated() ? ClientUpdateCheckMode.VANILLA : ClientUpdateCheckMode.RUNELITE
-				: updateCheckMode;
-
-			switch (updateMode)
-			{
-				case RUNELITE:
-					return loadRuneLite(config);
-				default:
-				case VANILLA:
-					return loadVanilla(config);
-				case NONE:
-					return null;
-			}
+			return loadRuneLite(config);
 		}
 		catch (IOException | ClassNotFoundException | InstantiationException | IllegalAccessException e)
 		{

@@ -68,5 +68,5 @@ public class Constants
 	 */
 	public static final int MAX_Z = 4;
 
-	public static final int LOGO_Y_OFFSET = -5;
+	public static final int TILE_FLAG_BRIDGE = 2;
 }
