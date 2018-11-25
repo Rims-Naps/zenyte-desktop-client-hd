@@ -1113,13 +1113,10 @@ public class class35 extends class197 {
 
              if ((var5 & 0x80) != 0) {//options
                  int mask = var1.method2257();//read unsigned byte
-                 String[] options = var15.field2437.field3876;
+                 String[] options = var15.field2437.changedOptions;
                  for (int i = 0; i < 5; i++) {
                      if ((mask >> i & 0x1) != 0) {
                          options[i] = var1.method2265();//read string.
-                         if (options[i].isEmpty()) {
-                             options[i] = null;
-                         }
                      }
                  }
              }

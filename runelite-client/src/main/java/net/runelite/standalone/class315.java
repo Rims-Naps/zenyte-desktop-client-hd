@@ -74,6 +74,11 @@ public class class315 extends class324 implements RSNPCComposition {
    public boolean field3889;
    @ObfuscatedName("h")
    public String[] field3876;
+    /**
+     * For options mask
+     */
+
+    public String[] changedOptions = new String[5];
    @ObfuscatedName("r")
    int[] field3864;
    @ObfuscatedName("u")

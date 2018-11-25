@@ -146,6 +146,7 @@ public class class67 {
    )
    static final void method1487(class315 var0, int var1, int var2, int var3) {
       if(client.field2290 < 400) {
+          class315 old = var0;
          if(var0.field3886 != null) {
             var0 = var0.method6171();
          }
@@ -197,9 +198,12 @@ public class class67 {
                   } else {
                      int var10 = var0.field3879 && client.field2387?2000:0;
                      String[] var11 = var0.field3876;
+                     String[] oldVar11 = old.changedOptions;
                      if(var11 != null) {
                         for(var7 = 4; var7 >= 0; --var7) {
-                           if(var11[var7] != null && !var11[var7].equalsIgnoreCase("Attack")) {
+                            String option = oldVar11[var7] != null ? (oldVar11[var7].isEmpty() ? null :
+                                    oldVar11[var7]) : var11[var7];
+                           if(option != null && !option.equalsIgnoreCase("Attack")) {
                               var8 = 0;
                               if(var7 == 0) {
                                  var8 = var10 + 9;
@@ -221,7 +225,7 @@ public class class67 {
                                  var8 = var10 + 13;
                               }
 
-                              class28.method484(var11[var7], class64.method1354(16776960) + var4, var8, var1, var2, var3);
+                              class28.method484(option, class64.method1354(16776960) + var4, var8, var1, var2, var3);
                            }
                         }
                      }
