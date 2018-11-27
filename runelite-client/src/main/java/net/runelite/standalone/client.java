@@ -1701,7 +1701,7 @@ public final class client extends GameEngine implements class146, RSClient {
             }
 
             if(ServerProt.field2075 == var1.field1759) {
-               class4.method76(true, var1.field1764);
+               class4.buildRegion(true, var1.field1764);
                var1.field1759 = null;
                return true;
             }
@@ -2547,7 +2547,7 @@ public final class client extends GameEngine implements class146, RSClient {
             }
 
             if(ServerProt.field2040 == var1.field1759) {
-               class4.method76(false, var1.field1764);
+               class4.buildRegion(false, var1.field1764);
                var1.field1759 = null;
                return true;
             }
@@ -3797,7 +3797,7 @@ public final class client extends GameEngine implements class146, RSClient {
                      var29 = field2384.field1768;
                      field2398.method1219();
                      class194.method3933();
-                     class208.method4128(var2);
+                     class208.initializeGPI(var2);
                      if(var29 != var2.field1693) {
                         throw new RuntimeException();
                      }
@@ -3949,9 +3949,9 @@ public final class client extends GameEngine implements class146, RSClient {
                   }
 
                   class141.field1801 = null;
-                  class208.method4128(var2);
+                  class208.initializeGPI(var2);
                   class322.field3936 = -1;
-                  class4.method76(false, var2);
+                  class4.buildRegion(false, var2);
                   field2384.field1759 = null;
                }
 

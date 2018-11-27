@@ -549,7 +549,7 @@ public final class class208 implements RSWorldMapManager {
       signature = "(Lgl;I)V",
       garbageValue = "924642163"
    )
-   static final void method4128(class1 var0) {
+   static final void initializeGPI(class1 var0) {
       var0.method7();
       int var1 = client.field2186;
       class199 var10000 = client.field2269[var1] = new class199();

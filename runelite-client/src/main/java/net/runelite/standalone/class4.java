@@ -54,7 +54,7 @@ public class class4 extends class324 {
       signature = "(ZLgl;B)V",
       garbageValue = "4"
    )
-   static final void method76(boolean var0, class1 var1) {
+   static final void buildRegion(boolean var0, class1 var1) {
       client.field2212 = var0;
       int var2;
       int var3;
