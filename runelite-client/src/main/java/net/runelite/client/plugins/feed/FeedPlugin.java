@@ -46,12 +46,12 @@ import net.runelite.client.util.ImageUtil;
 import net.runelite.http.api.feed.FeedClient;
 import net.runelite.http.api.feed.FeedResult;
 
-@PluginDescriptor(
+/*@PluginDescriptor(
 	name = "News Feed",
 	description = "Show the latest RuneLite blog posts, OSRS news, and JMod Twitter posts",
 	tags = {"external", "integration", "panel", "twitter"},
 	loadWhenOutdated = true
-)
+)*/
 @Slf4j
 public class FeedPlugin extends Plugin
 {

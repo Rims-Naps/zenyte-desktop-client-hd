@@ -32,11 +32,11 @@ import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.util.ImageUtil;
 
-@PluginDescriptor(
+/*@PluginDescriptor(
 	name = "Info Panel",
 	description = "Enable the Info panel",
 	loadWhenOutdated = true
-)
+)*/
 public class InfoPlugin extends Plugin
 {
 	@Inject

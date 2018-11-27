@@ -84,10 +84,10 @@ import net.runelite.http.api.worlds.WorldResult;
 import net.runelite.http.api.worlds.WorldType;
 import org.apache.commons.lang3.ArrayUtils;
 
-@PluginDescriptor(
+/*@PluginDescriptor(
 	name = "World Hopper",
 	description = "Allows you to quickly hop worlds"
-)
+)*/
 @Slf4j
 public class WorldHopperPlugin extends Plugin
 {
