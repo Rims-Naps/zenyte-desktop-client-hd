@@ -30,6 +30,9 @@ import java.io.InputStream;
 import java.util.Properties;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -78,8 +81,14 @@ public class RuneLiteAPI
 		return WSBASE + getVersion() + "/ws";
 	}
 
-	public static String getVersion()
-	{
+	public static String getVersion() {
+	    String version = "1.5.1-SNAPSHOT";
+	    try {
+            Document document = Jsoup.connect("https://raw.githubusercontent.com/runelite/runelite/master/http-api/pom.xml").get();
+            version = document.select("parent").select("version").text();
+        } catch (IOException e) {
+	        e.printStackTrace();
+        }
 		return version;
 	}
 

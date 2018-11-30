@@ -85,6 +85,7 @@ public class HiscoreClient
 
 	private HiscoreResultBuilder lookupUsername(String username, HttpUrl hiscoreUrl) throws IOException
 	{
+		System.out.println("lookup");
 		HttpUrl url = hiscoreUrl.newBuilder()
 			.addQueryParameter("player", username)
 			.build();
@@ -112,7 +113,7 @@ public class HiscoreClient
 
 			responseStr = okresponse.body().string();
 		}
-
+		System.out.println(responseStr);
 		CSVParser parser = CSVParser.parse(responseStr, CSVFormat.DEFAULT);
 
 		HiscoreResultBuilder hiscoreBuilder = new HiscoreResultBuilder();

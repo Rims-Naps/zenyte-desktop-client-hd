@@ -45,7 +45,6 @@ public class UpdateCheckClient
 		HttpUrl url = RuneLiteAPI.getApiBase().newBuilder()
 			.addPathSegment("update-check")
 			.build();
-
 		logger.debug("Built URI: {}", url);
 
 		Request request = new Request.Builder()

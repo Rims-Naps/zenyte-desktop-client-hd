@@ -4649,7 +4649,7 @@ public final class client extends GameEngine implements class146, RSClient {
             byte var7 = 0;
 
             try {
-               class131.method2521("oldschool", var11, var7, 18);
+               class131.method2521("zenyte", var11, var7, 18);
             } catch (Exception var9) {
                class202.method4018((String)null, var9, -1983450225);
             }
