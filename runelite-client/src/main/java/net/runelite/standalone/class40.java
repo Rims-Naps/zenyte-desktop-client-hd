@@ -69,7 +69,7 @@ public class class40 extends class324 {
       signature = "(Lgm;III)V",
       garbageValue = "1130789086"
    )
-   void method720(class125 var1, int var2, int var3) {
+   void method720(Buffer var1, int var2, int var3) {
       if(var2 == 1) {
          this.field411 = var1.method2260();
       }
@@ -157,9 +157,9 @@ public class class40 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "1163409727"
    )
-   void method719(class125 var1, int var2) {
+   void method719(Buffer var1, int var2) {
       while(true) {
-         int var3 = var1.method2256();
+         int var3 = var1.readUnsignedByte();
          if(var3 == 0) {
             return;
          }

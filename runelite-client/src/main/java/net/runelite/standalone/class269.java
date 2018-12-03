@@ -58,9 +58,9 @@ public class class269 extends class324 {
       signature = "(Lgm;B)V",
       garbageValue = "-40"
    )
-   void method5318(class125 var1) {
+   void method5318(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }
@@ -83,34 +83,34 @@ public class class269 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "-1822828035"
    )
-   void method5319(class125 var1, int var2) {
+   void method5319(Buffer var1, int var2) {
       if(var2 == 1) {
-         this.field3466 = (char)var1.method2256();
+         this.field3466 = (char)var1.readUnsignedByte();
       } else if(var2 == 2) {
-         this.field3467 = (char)var1.method2256();
+         this.field3467 = (char)var1.readUnsignedByte();
       } else if(var2 == 3) {
-         this.field3468 = var1.method2265();
+         this.field3468 = var1.readString();
       } else if(var2 == 4) {
-         this.field3470 = var1.method2344();
+         this.field3470 = var1.readInt();
       } else {
          int var3;
          if(var2 == 5) {
-            this.field3472 = var1.method2258();
+            this.field3472 = var1.readShort();
             this.field3471 = new int[this.field3472];
             this.field3473 = new String[this.field3472];
 
             for(var3 = 0; var3 < this.field3472; ++var3) {
-               this.field3471[var3] = var1.method2344();
-               this.field3473[var3] = var1.method2265();
+               this.field3471[var3] = var1.readInt();
+               this.field3473[var3] = var1.readString();
             }
          } else if(var2 == 6) {
-            this.field3472 = var1.method2258();
+            this.field3472 = var1.readShort();
             this.field3471 = new int[this.field3472];
             this.field3465 = new int[this.field3472];
 
             for(var3 = 0; var3 < this.field3472; ++var3) {
-               this.field3471[var3] = var1.method2344();
-               this.field3465[var3] = var1.method2344();
+               this.field3471[var3] = var1.readInt();
+               this.field3465[var3] = var1.readInt();
             }
          }
       }

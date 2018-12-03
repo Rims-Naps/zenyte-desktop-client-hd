@@ -369,7 +369,7 @@ public abstract class class99 extends class102 implements RSActor {
          byte[] var9 = class244.field3280.method4398(33, var1, 444408472);
          var8 = new class244();
          if(var9 != null) {
-            var8.method4941(new class125(var9));
+            var8.method4941(new Buffer(var9));
          }
 
          class244.field3278.method1820(var8, (long)var1);
@@ -805,7 +805,7 @@ public abstract class class99 extends class102 implements RSActor {
       int var4;
       int var5;
       if(class193.field2750 == null) {
-         var3 = class138.field1782;
+         var3 = class138.spritesIndex;
          var4 = var3.method4421("sl_back");
          var5 = var3.method4400(var4, "");
          SpritePixels[] var2 = class103.method1851(var3, var4, var5);
@@ -814,7 +814,7 @@ public abstract class class99 extends class102 implements RSActor {
 
       class303[] var23;
       if(class23.field257 == null) {
-         var3 = class138.field1782;
+         var3 = class138.spritesIndex;
          var4 = var3.method4421("sl_flags");
          var5 = var3.method4400(var4, "");
          var23 = class159.method2957(var3, var4, var5);
@@ -822,7 +822,7 @@ public abstract class class99 extends class102 implements RSActor {
       }
 
       if(class89.field972 == null) {
-         var3 = class138.field1782;
+         var3 = class138.spritesIndex;
          var4 = var3.method4421("sl_arrows");
          var5 = var3.method4400(var4, "");
          var23 = class159.method2957(var3, var4, var5);
@@ -830,7 +830,7 @@ public abstract class class99 extends class102 implements RSActor {
       }
 
       if(class316.field3893 == null) {
-         var3 = class138.field1782;
+         var3 = class138.spritesIndex;
          var4 = var3.method4421("sl_stars");
          var5 = var3.method4400(var4, "");
          var23 = class159.method2957(var3, var4, var5);

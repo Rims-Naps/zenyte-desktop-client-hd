@@ -196,46 +196,46 @@ public class class318 implements Runnable {
       garbageValue = "1849962835"
    )
    static final void method6218() {
-      int var0 = class149.field1850 * 128 + 64;
+      int var0 = WorldMapData.field1850 * 128 + 64;
       int var1 = class36.field362 * 128 + 64;
       int var2 = class314.method6140(var0, var1, class260.field3393) - class276.field3504;
       if(class85.field912 < var0) {
-         class85.field912 = (var0 - class85.field912) * class208.field2887 / 1000 + class85.field912 + class175.field2135;
+         class85.field912 = (var0 - class85.field912) * WorldMapManager.field2887 / 1000 + class85.field912 + class175.field2135;
          if(class85.field912 > var0) {
             class85.field912 = var0;
          }
       }
 
       if(class85.field912 > var0) {
-         class85.field912 -= class208.field2887 * (class85.field912 - var0) / 1000 + class175.field2135;
+         class85.field912 -= WorldMapManager.field2887 * (class85.field912 - var0) / 1000 + class175.field2135;
          if(class85.field912 < var0) {
             class85.field912 = var0;
          }
       }
 
       if(class229.field3068 < var2) {
-         class229.field3068 = (var2 - class229.field3068) * class208.field2887 / 1000 + class229.field3068 + class175.field2135;
+         class229.field3068 = (var2 - class229.field3068) * WorldMapManager.field2887 / 1000 + class229.field3068 + class175.field2135;
          if(class229.field3068 > var2) {
             class229.field3068 = var2;
          }
       }
 
       if(class229.field3068 > var2) {
-         class229.field3068 -= class208.field2887 * (class229.field3068 - var2) / 1000 + class175.field2135;
+         class229.field3068 -= WorldMapManager.field2887 * (class229.field3068 - var2) / 1000 + class175.field2135;
          if(class229.field3068 < var2) {
             class229.field3068 = var2;
          }
       }
 
       if(class116.field1324 < var1) {
-         class116.field1324 = (var1 - class116.field1324) * class208.field2887 / 1000 + class116.field1324 + class175.field2135;
+         class116.field1324 = (var1 - class116.field1324) * WorldMapManager.field2887 / 1000 + class116.field1324 + class175.field2135;
          if(class116.field1324 > var1) {
             class116.field1324 = var1;
          }
       }
 
       if(class116.field1324 > var1) {
-         class116.field1324 -= class208.field2887 * (class116.field1324 - var1) / 1000 + class175.field2135;
+         class116.field1324 -= WorldMapManager.field2887 * (class116.field1324 - var1) / 1000 + class175.field2135;
          if(class116.field1324 < var1) {
             class116.field1324 = var1;
          }

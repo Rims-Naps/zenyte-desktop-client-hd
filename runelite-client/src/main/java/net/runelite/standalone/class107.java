@@ -308,7 +308,7 @@ public class class107 {
          byte[] var2 = class104.field1156.method4398(11, var0, -1932849649);
          var1 = new class104();
          if(var2 != null) {
-            var1.method1857(new class125(var2));
+            var1.method1857(new Buffer(var2));
          }
 
          var1.method1861();

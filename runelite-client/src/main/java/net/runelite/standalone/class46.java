@@ -42,14 +42,14 @@ public class class46 {
    @ObfuscatedSignature(
       signature = "(Lgm;)V"
    )
-   final void method881(class125 var1) {
-      this.field518 = var1.method2256();
+   final void method881(Buffer var1) {
+      this.field518 = var1.readUnsignedByte();
       this.field511 = new int[this.field518];
       this.field512 = new int[this.field518];
 
       for(int var2 = 0; var2 < this.field518; ++var2) {
-         this.field511[var2] = var1.method2258();
-         this.field512[var2] = var1.method2258();
+         this.field511[var2] = var1.readShort();
+         this.field512[var2] = var1.readShort();
       }
 
    }
@@ -77,10 +77,10 @@ public class class46 {
    @ObfuscatedSignature(
       signature = "(Lgm;)V"
    )
-   final void method880(class125 var1) {
-      this.field510 = var1.method2256();
-      this.field513 = var1.method2344();
-      this.field514 = var1.method2344();
+   final void method880(Buffer var1) {
+      this.field510 = var1.readUnsignedByte();
+      this.field513 = var1.readInt();
+      this.field514 = var1.readInt();
       this.method881(var1);
    }
 

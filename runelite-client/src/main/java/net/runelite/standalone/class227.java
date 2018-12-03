@@ -220,8 +220,8 @@ public class class227 extends class324 implements RSMessageNode {
       signature = "(Lgm;Lga;I)Lga;",
       garbageValue = "-1823903516"
    )
-   static final class235 method4570(class125 var0, class235 var1) {
-      int var2 = var0.method2256();
+   static final class235 method4570(Buffer var0, class235 var1) {
+      int var2 = var0.readUnsignedByte();
       int var3;
       if(var1 == null) {
          int var4 = var2 - 1;
@@ -235,13 +235,13 @@ public class class227 extends class324 implements RSMessageNode {
       }
 
       for(var3 = 0; var3 < var2; ++var3) {
-         boolean var7 = var0.method2256() == 1;
+         boolean var7 = var0.readUnsignedByte() == 1;
          int var5 = var0.method2260();
          Object var6;
          if(var7) {
-            var6 = new class196(var0.method2265());
+            var6 = new class196(var0.readString());
          } else {
-            var6 = new class228(var0.method2344());
+            var6 = new class228(var0.readInt());
          }
 
          var1.method4672((class197)var6, (long)var5);

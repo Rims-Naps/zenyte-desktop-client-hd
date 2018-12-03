@@ -10,7 +10,7 @@ public class class236 implements class61 {
    @ObfuscatedSignature(
       signature = "Lgm;"
    )
-   public static class125 field3118;
+   public static Buffer field3118;
    @ObfuscatedName("p")
    @ObfuscatedGetter(
       intValue = -1739877053
@@ -75,17 +75,17 @@ public class class236 implements class61 {
       signature = "(Lgm;I)V",
       garbageValue = "116686342"
    )
-   public void vmethod5267(class125 var1) {
-      this.field3112 = var1.method2256();
-      this.field3117 = var1.method2256();
-      this.field3107 = var1.method2258();
-      this.field3111 = var1.method2256();
-      this.field3108 = var1.method2258();
-      this.field3114 = var1.method2256();
-      this.field3113 = var1.method2258();
-      this.field3105 = var1.method2256();
-      this.field3110 = var1.method2258();
-      this.field3109 = var1.method2256();
+   public void vmethod5267(Buffer var1) {
+      this.field3112 = var1.readUnsignedByte();
+      this.field3117 = var1.readUnsignedByte();
+      this.field3107 = var1.readShort();
+      this.field3111 = var1.readUnsignedByte();
+      this.field3108 = var1.readShort();
+      this.field3114 = var1.readUnsignedByte();
+      this.field3113 = var1.readShort();
+      this.field3105 = var1.readUnsignedByte();
+      this.field3110 = var1.readShort();
+      this.field3109 = var1.readUnsignedByte();
       this.method4690();
    }
 
@@ -117,7 +117,7 @@ public class class236 implements class61 {
       signature = "(Lh;B)V",
       garbageValue = "-105"
    )
-   public void vmethod5276(class149 var1) {
+   public void vmethod5276(WorldMapData var1) {
       if(var1.field1843 > this.field3113) {
          var1.field1843 = this.field3113;
       }
@@ -141,13 +141,13 @@ public class class236 implements class61 {
       signature = "(IIB)Lhx;",
       garbageValue = "26"
    )
-   public class58 vmethod5264(int var1, int var2) {
+   public Location vmethod5264(int var1, int var2) {
       if(!this.vmethod5282(var1, var2)) {
          return null;
       } else {
          int var3 = this.field3107 * 64 - this.field3113 * 64 + (this.field3111 * 8 - this.field3105 * 8) + var1;
          int var4 = this.field3108 * 64 - this.field3110 * 64 + var2 + (this.field3114 * 8 - this.field3109 * 8);
-         return new class58(this.field3112, var3, var4);
+         return new Location(this.field3112, var3, var4);
       }
    }
 
@@ -240,7 +240,7 @@ public class class236 implements class61 {
 
       try {
          var0 = class177.method3679("", class210.field2889.field238, true);
-         class125 var1 = class175.field2134.method1573();
+         Buffer var1 = class175.field2134.method1573();
          var0.method5442(var1.field1694, 0, var1.field1693);
       } catch (Exception var3) {
          ;

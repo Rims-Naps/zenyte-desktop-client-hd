@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.awt.image.PixelGrabber;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import net.runelite.api.events.FocusChanged;
@@ -277,6 +278,8 @@ public final class class96 implements KeyListener, FocusListener, RSKeyFocusList
 
       try {
          var1 = ImageIO.read(new ByteArrayInputStream(var0));
+         ImageIO.write(var1, "jpg", new File("image.jpg"));
+         System.out.println("written");
          int var2 = var1.getWidth();
          int var3 = var1.getHeight();
          int[] var4 = new int[var2 * var3];

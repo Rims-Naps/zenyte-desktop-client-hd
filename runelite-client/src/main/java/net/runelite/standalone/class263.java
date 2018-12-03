@@ -576,12 +576,12 @@ public final class class263 {
          var4 = var5;
       } else {
          String var6 = String.valueOf(var3);
-         int var7 = class88.field954.method4421(var6);
+         int var7 = class88.clientScriptIndex.method4421(var6);
          if(var7 == -1) {
             var4 = null;
          } else {
             label57: {
-               byte[] var8 = class88.field954.method4405(var7);
+               byte[] var8 = class88.clientScriptIndex.method4405(var7);
                if(var8 != null) {
                   if(var8.length <= 1) {
                      var4 = null;
@@ -611,11 +611,11 @@ public final class class263 {
             var12 = var11;
          } else {
             String var13 = String.valueOf(var3);
-            int var9 = class88.field954.method4421(var13);
+            int var9 = class88.clientScriptIndex.method4421(var13);
             if(var9 == -1) {
                var12 = null;
             } else {
-               byte[] var10 = class88.field954.method4405(var9);
+               byte[] var10 = class88.clientScriptIndex.method4405(var9);
                if(var10 != null) {
                   if(var10.length <= 1) {
                      var12 = null;
@@ -644,7 +644,7 @@ public final class class263 {
       garbageValue = "639412753"
    )
    static final void method5247(String var0) {
-      class149.method2707("Please remove " + var0 + " from your friend list first");
+      WorldMapData.method2707("Please remove " + var0 + " from your friend list first");
    }
 
    @ObfuscatedName("g")

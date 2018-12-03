@@ -18,9 +18,9 @@ public class class84 {
       garbageValue = "105"
    )
    static final byte[] method1618(byte[] var0) {
-      class125 var1 = new class125(var0);
-      int var2 = var1.method2256();
-      int var3 = var1.method2344();
+      Buffer var1 = new Buffer(var0);
+      int var2 = var1.readUnsignedByte();
+      int var3 = var1.readInt();
       if(var3 < 0 || class217.field2969 != 0 && var3 > class217.field2969) {
          throw new RuntimeException();
       } else if(var2 == 0) {
@@ -28,7 +28,7 @@ public class class84 {
          var1.method2295(var4, 0, var3);
          return var4;
       } else {
-         int var6 = var1.method2344();
+         int var6 = var1.readInt();
          if(var6 >= 0 && (class217.field2969 == 0 || var6 <= class217.field2969)) {
             byte[] var5 = new byte[var6];
             if(var2 == 1) {
@@ -61,7 +61,7 @@ public class class84 {
             byte[] var3 = var0.method4398(35, var2, -202715873);
             class123.field1680[var2] = new class123(var2);
             if(var3 != null) {
-               class123.field1680[var2].method2199(new class125(var3));
+               class123.field1680[var2].method2199(new Buffer(var3));
                class123.field1680[var2].method2201();
             }
          }

@@ -88,7 +88,7 @@ public final class class230 {
    @ObfuscatedSignature(
       signature = "(Lgm;J)V"
    )
-   static void method4622(class125 var0, long var1) {
+   static void method4622(Buffer var0, long var1) {
       var1 /= 10L;
       if(var1 < 0L) {
          var1 = 0L;

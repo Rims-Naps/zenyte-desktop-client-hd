@@ -75,7 +75,7 @@ public class class313 {
 
       class12 var1 = class150.method2761(ClientProt.field3216, client.field2384.field1770);
       var1.field121.method2288(var0.length() + 1);
-      var1.field121.method2358(var0);
+      var1.field121.writeString(var0);
       client.field2384.method2573(var1);
    }
 }

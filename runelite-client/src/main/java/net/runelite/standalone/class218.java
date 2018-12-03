@@ -79,7 +79,7 @@ public class class218 {
       garbageValue = "-1478985334"
    )
    static final void method4501() {
-      class149.method2707("Your ignore list is full. Max of 100 for free users, and 400 for members");
+      WorldMapData.method2707("Your ignore list is full. Max of 100 for free users, and 400 for members");
    }
 
    @ObfuscatedName("ex")
@@ -87,7 +87,7 @@ public class class218 {
       signature = "(I)Lla;",
       garbageValue = "-1244352842"
    )
-   static class287 method4500() {
+   static WorldMap method4500() {
       return class199.field2812;
    }
 }

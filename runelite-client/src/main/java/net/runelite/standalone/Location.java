@@ -5,7 +5,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("hx")
-public class class58 {
+public class Location {
    @ObfuscatedName("l")
    @ObfuscatedGetter(
       intValue = 830474509
@@ -25,23 +25,23 @@ public class class58 {
    @ObfuscatedSignature(
       signature = "(Lhx;)V"
    )
-   public class58(class58 var1) {
+   public Location(Location var1) {
       this.field718 = var1.field718;
       this.field719 = var1.field719;
       this.field717 = var1.field717;
    }
 
-   public class58(int var1, int var2, int var3) {
+   public Location(int var1, int var2, int var3) {
       this.field718 = var1;
       this.field719 = var2;
       this.field717 = var3;
    }
 
-   public class58() {
+   public Location() {
       this.field718 = -1;
    }
 
-   public class58(int var1) {
+   public Location(int var1) {
       if(var1 == -1) {
          this.field718 = -1;
       } else {
@@ -86,7 +86,7 @@ public class class58 {
    }
 
    public boolean equals(Object var1) {
-      return this == var1?true:(!(var1 instanceof class58)?false:this.method1253((class58)var1));
+      return this == var1?true:(!(var1 instanceof Location)?false:this.method1253((Location)var1));
    }
 
    public String toString() {
@@ -98,7 +98,7 @@ public class class58 {
       signature = "(Lhx;I)Z",
       garbageValue = "-339655228"
    )
-   boolean method1253(class58 var1) {
+   boolean method1253(Location var1) {
       return this.field718 != var1.field718?false:(this.field719 != var1.field719?false:this.field717 == var1.field717);
    }
 }

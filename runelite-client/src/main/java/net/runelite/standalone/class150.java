@@ -44,7 +44,7 @@ public class class150 {
       garbageValue = "-68"
    )
    static void method2760() {
-      class47.field527.method4033();
-      class47.field536.method4033();
+      WorldMapRegion.field527.method4033();
+      WorldMapRegion.field536.method4033();
    }
 }

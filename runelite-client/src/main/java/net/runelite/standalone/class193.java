@@ -210,7 +210,7 @@ public class class193 {
             var3 = var1.method2332();
             byte var4 = var1.method2296();
             var5 = var1.method2460();
-            var6 = var1.method2258();
+            var6 = var1.readShort();
             var7 = var1.method2285();
             var8 = var7 >> 2;
             var9 = var7 & 3;
@@ -304,11 +304,11 @@ public class class193 {
             int var39;
             if(class329.field3974 == var0) {
                var37 = var1.method2287() * 4;
-               var3 = var1.method2258();
+               var3 = var1.readShort();
                var38 = var1.method2460();
                var5 = var1.method2287() * 4;
                var6 = var1.method2297();
-               var7 = var1.method2256();
+               var7 = var1.readUnsignedByte();
                var8 = var1.method2287();
                var9 = var1.method2268();
                var10 = var1.method2285();
@@ -330,7 +330,7 @@ public class class193 {
 
             } else {
                if(class329.field3978 == var0) {
-                  var37 = var1.method2256();
+                  var37 = var1.readUnsignedByte();
                   var3 = (var37 >> 4 & 7) + class252.field3336;
                   var38 = (var37 & 7) + class122.field1660;
                   var5 = var1.method2287();
@@ -359,7 +359,7 @@ public class class193 {
                   var6 = var1.method2286();
                   var7 = (var6 >> 4 & 7) + class252.field3336;
                   var8 = (var6 & 7) + class122.field1660;
-                  var9 = var1.method2258();
+                  var9 = var1.readShort();
                   if(var7 >= 0 && var8 >= 0 && var7 < 103 && var8 < 103) {
                      if(var5 == 0) {
                         class162 var34 = class269.field3464.method1947(class260.field3393, var7, var8);
@@ -413,10 +413,10 @@ public class class193 {
                   }
 
                } else if(class329.field3976 == var0) {
-                  var37 = var1.method2258();
+                  var37 = var1.readShort();
                   var3 = var1.method2285();
                   var38 = var1.method2460();
-                  var5 = var1.method2256();
+                  var5 = var1.readUnsignedByte();
                   var6 = (var5 >> 4 & 7) + class252.field3336;
                   var7 = (var5 & 7) + class122.field1660;
                   if(var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {

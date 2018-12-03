@@ -195,7 +195,7 @@ public final class class91 implements RSDecorativeObject {
          byte[] var2 = class244.field3280.method4398(33, var0, -1088106591);
          var1 = new class244();
          if(var2 != null) {
-            var1.method4941(new class125(var2));
+            var1.method4941(new Buffer(var2));
          }
 
          class244.field3278.method1820(var1, (long)var0);

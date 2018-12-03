@@ -53,7 +53,7 @@ public class class226 {
       if(!var0.equals("")) {
          class12 var1 = class150.method2761(ClientProt.field3234, client.field2384.field1770);
          var1.field121.method2288(class118.method2136(var0));
-         var1.field121.method2358(var0);
+         var1.field121.writeString(var0);
          client.field2384.method2573(var1);
       }
    }

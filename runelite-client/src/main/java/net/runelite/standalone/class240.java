@@ -16,10 +16,10 @@ public class class240 extends class197 {
    @ObfuscatedSignature(
       signature = "(Lgm;)V"
    )
-   class240(class125 var1) {
+   class240(Buffer var1) {
       var1.field1693 = var1.field1694.length - 3;
-      int var2 = var1.method2256();
-      int var3 = var1.method2258();
+      int var2 = var1.readUnsignedByte();
+      int var3 = var1.readShort();
       int var4 = var2 * 10 + 14;
       var1.field1693 = 0;
       int var5 = 0;
@@ -38,7 +38,7 @@ public class class240 extends class197 {
          var14 = -1;
 
          while(true) {
-            var15 = var1.method2256();
+            var15 = var1.readUnsignedByte();
             if(var15 != var14) {
                ++var4;
             }
@@ -100,7 +100,7 @@ public class class240 extends class197 {
 
       int var29;
       for(var29 = 0; var29 < var6; ++var29) {
-         var28 = var28 + var1.method2256() & 127;
+         var28 = var28 + var1.readUnsignedByte() & 127;
          if(var28 != 0 && var28 != 32) {
             if(var28 == 1) {
                ++var16;
@@ -176,9 +176,9 @@ public class class240 extends class197 {
       int var50 = var1.field1693;
       var1.field1693 += var5 * 3;
       this.field3143 = new byte[var4];
-      class125 var51 = new class125(this.field3143);
-      var51.method2334(1297377380);
-      var51.method2334(6);
+      Buffer var51 = new Buffer(this.field3143);
+      var51.writeByte(1297377380);
+      var51.writeByte(6);
       var51.method2242(var2 > 1?1:0);
       var51.method2242(var2);
       var51.method2242(var3);
@@ -195,7 +195,7 @@ public class class240 extends class197 {
 
       label220:
       for(int var60 = 0; var60 < var2; ++var60) {
-         var51.method2334(1297379947);
+         var51.writeByte(1297379947);
          var51.field1693 += 4;
          int var61 = var51.field1693;
          int var62 = -1;
@@ -424,6 +424,6 @@ public class class240 extends class197 {
    )
    static class240 method4730(class217 var0, int var1, int var2) {
       byte[] var3 = var0.method4398(var1, var2, -21929818);
-      return var3 == null?null:new class240(new class125(var3));
+      return var3 == null?null:new class240(new Buffer(var3));
    }
 }

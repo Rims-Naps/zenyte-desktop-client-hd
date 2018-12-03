@@ -19,11 +19,11 @@ public class class130 implements RSSoundEffect {
    @ObfuscatedSignature(
       signature = "(Lgm;)V"
    )
-   class130(class125 var1) {
+   class130(Buffer var1) {
       this.field1726 = new class11[10];
 
       for(int var2 = 0; var2 < 10; ++var2) {
-         int var3 = var1.method2256();
+         int var3 = var1.readUnsignedByte();
          if(var3 != 0) {
             --var1.field1693;
             this.field1726[var2] = new class11();
@@ -31,8 +31,8 @@ public class class130 implements RSSoundEffect {
          }
       }
 
-      this.field1728 = var1.method2258();
-      this.field1729 = var1.method2258();
+      this.field1728 = var1.readShort();
+      this.field1729 = var1.readShort();
    }
 
    @ObfuscatedName("l")
@@ -121,6 +121,6 @@ public class class130 implements RSSoundEffect {
    )
    public static class130 method2499(class217 var0, int var1, int var2) {
       byte[] var3 = var0.method4398(var1, var2, -313954055);
-      return var3 == null?null:new class130(new class125(var3));
+      return var3 == null?null:new class130(new Buffer(var3));
    }
 }

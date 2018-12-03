@@ -59,12 +59,12 @@ public class class305 {
       signature = "(ILhx;ZI)V",
       garbageValue = "-640327379"
    )
-   static void method6013(int var0, class58 var1, boolean var2) {
-      class149 var3 = class218.method4500().method5632(var0);
+   static void method6013(int var0, Location var1, boolean var2) {
+      WorldMapData var3 = class218.method4500().method5632(var0);
       int var4 = class32.field303.field2805;
       int var5 = (class32.field303.field1090 >> 7) + class229.field3067;
       int var6 = (class32.field303.field1072 >> 7) + class35.field360;
-      class58 var7 = new class58(var4, var5, var6);
+      Location var7 = new Location(var4, var5, var6);
       class218.method4500().method5537(var3, var7, var1, var2);
    }
 }

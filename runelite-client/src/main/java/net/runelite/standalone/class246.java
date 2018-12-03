@@ -18,7 +18,7 @@ public class class246 {
       garbageValue = "-441852182"
    )
    static void method4955(SpritePixels var0, int var1, int var2, int var3) {
-      class204 var4 = class47.field527;
+      class204 var4 = WorldMapRegion.field527;
       long var6 = (long)(var3 << 16 | var1 << 8 | var2);
       var4.method4032(var0, var6, var0.pixels.length * 4);
    }

@@ -23,7 +23,7 @@ public class class88 implements RSWorld {
    @ObfuscatedSignature(
       signature = "Lim;"
    )
-   static class6 field954;
+   static class6 clientScriptIndex;
    @ObfuscatedName("a")
    @ObfuscatedGetter(
       intValue = 1010996101
@@ -419,7 +419,7 @@ public class class88 implements RSWorld {
          class218.field2973 = null;
          class304.method5998(class187.field2547[var0], -1, var1, var2, var3, var4, var5, var6, var7);
          if(class218.field2973 != null) {
-            class304.method5998(class218.field2973, -1412584499, var1, var2, var3, var4, class149.field1849, class54.field661, var7);
+            class304.method5998(class218.field2973, -1412584499, var1, var2, var3, var4, WorldMapData.field1849, class54.field661, var7);
             class218.field2973 = null;
          }
 

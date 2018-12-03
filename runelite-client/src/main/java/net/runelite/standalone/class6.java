@@ -66,8 +66,8 @@ public class class6 extends class217 implements RSIndexData {
       int var8 = this.field80;
       if(class57.field714 != null) {
          class57.field714.field1693 = var8 * 8 + 5;
-         int var9 = class57.field714.method2344();
-         int var10 = class57.field714.method2344();
+         int var9 = class57.field714.readInt();
+         int var10 = class57.field714.readInt();
          this.method128(var9, var10);
       } else {
          class48.method1049((class6)null, 255, 255, 0, (byte)0, true);
@@ -101,15 +101,15 @@ public class class6 extends class217 implements RSIndexData {
             return;
          }
 
-         class125 var9 = new class125(class84.method1618(var3));
-         int var7 = var9.method2256();
+         Buffer var9 = new Buffer(class84.method1618(var3));
+         int var7 = var9.readUnsignedByte();
          if(var7 != 5 && var7 != 6) {
             throw new RuntimeException(var7 + "," + this.field80 + "," + var2);
          }
 
          int var8 = 0;
          if(var7 >= 6) {
-            var8 = var9.method2344();
+            var8 = var9.readInt();
          }
 
          if(var8 != this.field79) {

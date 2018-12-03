@@ -29,23 +29,23 @@ public class class141 extends class197 implements RSFrameMap {
 
    class141(int var1, byte[] var2) {
       this.field1796 = var1;
-      class125 var3 = new class125(var2);
-      this.field1797 = var3.method2256();
+      Buffer var3 = new Buffer(var2);
+      this.field1797 = var3.readUnsignedByte();
       this.field1798 = new int[this.field1797];
       this.field1799 = new int[this.field1797][];
 
       int var4;
       for(var4 = 0; var4 < this.field1797; ++var4) {
-         this.field1798[var4] = var3.method2256();
+         this.field1798[var4] = var3.readUnsignedByte();
       }
 
       for(var4 = 0; var4 < this.field1797; ++var4) {
-         this.field1799[var4] = new int[var3.method2256()];
+         this.field1799[var4] = new int[var3.readUnsignedByte()];
       }
 
       for(var4 = 0; var4 < this.field1797; ++var4) {
          for(int var5 = 0; var5 < this.field1799[var4].length; ++var5) {
-            this.field1799[var4][var5] = var3.method2256();
+            this.field1799[var4][var5] = var3.readUnsignedByte();
          }
       }
 

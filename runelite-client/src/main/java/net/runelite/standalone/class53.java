@@ -77,7 +77,7 @@ public class class53 {
       signature = "(Lgm;I)V",
       garbageValue = "1903194256"
    )
-   public void method1205(class125 var1) {
+   public void method1205(Buffer var1) {
       class230.method4622(var1, this.field651);
       class230.method4622(var1, this.field650);
       class230.method4622(var1, this.field652);

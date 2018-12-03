@@ -20,7 +20,7 @@ public class class295 implements class288 {
    static final void method5781(String var0, int var1) {
       class12 var2 = class150.method2761(ClientProt.field3193, client.field2384.field1770);
       var2.field121.method2288(class118.method2136(var0) + 1);
-      var2.field121.method2358(var0);
+      var2.field121.writeString(var0);
       var2.field121.method2288(var1);
       client.field2384.method2573(var2);
    }

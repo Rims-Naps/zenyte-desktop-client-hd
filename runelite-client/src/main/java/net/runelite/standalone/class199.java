@@ -24,7 +24,7 @@ public final class class199 extends class99 implements RSPlayer {
    @ObfuscatedSignature(
       signature = "Lla;"
    )
-   static class287 field2812;
+   static WorldMap field2812;
    @ObfuscatedName("af")
    @ObfuscatedGetter(
       intValue = 623345189
@@ -236,9 +236,9 @@ public final class class199 extends class99 implements RSPlayer {
       signature = "(Lgm;I)V",
       garbageValue = "410478966"
    )
-   final void method3948(class125 var1) {
+   final void method3948(Buffer var1) {
       var1.field1693 = 0;
-      int var2 = var1.method2256();
+      int var2 = var1.readUnsignedByte();
       this.field2829 = var1.method2257();
       this.field2803 = var1.method2257();
       int var3 = -1;
@@ -248,14 +248,14 @@ public final class class199 extends class99 implements RSPlayer {
       int var6;
       int var7;
       for(int var5 = 0; var5 < 12; ++var5) {
-         var6 = var1.method2256();
+         var6 = var1.readUnsignedByte();
          if(var6 == 0) {
             var4[var5] = 0;
          } else {
-            var7 = var1.method2256();
+            var7 = var1.readUnsignedByte();
             var4[var5] = var7 + (var6 << 8);
             if(var5 == 0 && var4[0] == 65535) {
-               var3 = var1.method2258();
+               var3 = var1.readShort();
                break;
             }
 
@@ -271,7 +271,7 @@ public final class class199 extends class99 implements RSPlayer {
       int[] var9 = new int[5];
 
       for(var6 = 0; var6 < 5; ++var6) {
-         var7 = var1.method2256();
+         var7 = var1.readUnsignedByte();
          if(var7 < 0 || var7 >= class327.field3963[var6].length) {
             var7 = 0;
          }
@@ -279,52 +279,52 @@ public final class class199 extends class99 implements RSPlayer {
          var9[var6] = var7;
       }
 
-      super.field1089 = var1.method2258();
+      super.field1089 = var1.readShort();
       if(super.field1089 == 65535) {
          super.field1089 = -1;
       }
 
-      super.field1127 = var1.method2258();
+      super.field1127 = var1.readShort();
       if(super.field1127 == 65535) {
          super.field1127 = -1;
       }
 
       super.field1122 = super.field1127;
-      super.field1103 = var1.method2258();
+      super.field1103 = var1.readShort();
       if(super.field1103 == 65535) {
          super.field1103 = -1;
       }
 
-      super.field1080 = var1.method2258();
+      super.field1080 = var1.readShort();
       if(super.field1080 == 65535) {
          super.field1080 = -1;
       }
 
-      super.field1077 = var1.method2258();
+      super.field1077 = var1.readShort();
       if(super.field1077 == 65535) {
          super.field1077 = -1;
       }
 
-      super.field1083 = var1.method2258();
+      super.field1083 = var1.readShort();
       if(super.field1083 == 65535) {
          super.field1083 = -1;
       }
 
-      super.field1084 = var1.method2258();
+      super.field1084 = var1.readShort();
       if(super.field1084 == 65535) {
          super.field1084 = -1;
       }
 
-      this.field2802 = new class158(var1.method2265(), class140.field1794);
+      this.field2802 = new class158(var1.readString(), class140.field1794);
       this.method3973();
       this.method3958();
       if(this == class32.field303) {
          class57.field706 = this.field2802.method2869();
       }
 
-      this.field2807 = var1.method2256();
-      this.field2822 = var1.method2258();
-      this.field2800 = var1.method2256() == 1;
+      this.field2807 = var1.readUnsignedByte();
+      this.field2822 = var1.readShort();
+      this.field2800 = var1.readUnsignedByte() == 1;
       if(client.field2155 == 0 && client.field2263 >= 2) {
          this.field2800 = false;
       }
@@ -709,7 +709,7 @@ public final class class199 extends class99 implements RSPlayer {
       signature = "(IZZZI)Lim;",
       garbageValue = "-1565771343"
    )
-   static class6 method3953(int var0, boolean var1, boolean var2, boolean var3) {
+   static class6 readIndex(int var0, boolean var1, boolean var2, boolean var3) {
       class263 var4 = null;
       if(class305.field3777 != null) {
          var4 = new class263(var0, class305.field3777, class95.field1024[var0], 1000000);

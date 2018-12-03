@@ -17,7 +17,7 @@ public class class202 extends class324 implements RSFrames {
    @ObfuscatedSignature(
       signature = "Lim;"
    )
-   static class6 field2840;
+   static class6 configsIndex;
    @ObfuscatedName("f")
    @ObfuscatedSignature(
       signature = "[Ldg;"

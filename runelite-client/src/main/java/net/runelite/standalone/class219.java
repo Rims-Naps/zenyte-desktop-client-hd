@@ -11,7 +11,7 @@ public class class219 {
    @ObfuscatedSignature(
       signature = "Lim;"
    )
-   static class6 field2982;
+   static class6 binaryIndex;
 
    @ObfuscatedName("c")
    @ObfuscatedSignature(

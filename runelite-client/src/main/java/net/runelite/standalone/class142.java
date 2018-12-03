@@ -184,9 +184,9 @@ final class class142 implements Comparator {
 
          if(var0 != 5 && var0 != 10) {
             if(var0 == 20) {
-               class316.method6200(class219.field2982, class138.field1782, true, client.field2161 == 11?4:0);
+               class316.method6200(class219.binaryIndex, class138.spritesIndex, true, client.field2161 == 11?4:0);
             } else if(var0 == 11) {
-               class316.method6200(class219.field2982, class138.field1782, false, 4);
+               class316.method6200(class219.binaryIndex, class138.spritesIndex, false, 4);
             } else if(class39.field395) {
                class39.field381 = null;
                class39.field374 = null;
@@ -215,7 +215,7 @@ final class class142 implements Comparator {
                class39.field395 = false;
             }
          } else {
-            class316.method6200(class219.field2982, class138.field1782, true, 0);
+            class316.method6200(class219.binaryIndex, class138.spritesIndex, true, 0);
          }
 
          client.field2161 = var0;
@@ -228,10 +228,10 @@ final class class142 implements Comparator {
       signature = "(Lgm;II)V",
       garbageValue = "-1485500695"
    )
-   public static void method2636(class125 var0, int var1) {
+   public static void method2636(Buffer var0, int var1) {
       class121 var2 = new class121();
-      var2.field1647 = var0.method2256();
-      var2.field1648 = var0.method2344();
+      var2.field1647 = var0.readUnsignedByte();
+      var2.field1648 = var0.readInt();
       var2.field1645 = new int[var2.field1647];
       var2.field1646 = new int[var2.field1647];
       var2.field1644 = new Field[var2.field1647];
@@ -241,27 +241,27 @@ final class class142 implements Comparator {
 
       for(int var3 = 0; var3 < var2.field1647; ++var3) {
          try {
-            int var4 = var0.method2256();
+            int var4 = var0.readUnsignedByte();
             String var5;
             String var6;
             int var7;
             if(var4 != 0 && var4 != 1 && var4 != 2) {
                if(var4 == 3 || var4 == 4) {
-                  var5 = var0.method2265();
-                  var6 = var0.method2265();
-                  var7 = var0.method2256();
+                  var5 = var0.readString();
+                  var6 = var0.readString();
+                  var7 = var0.readUnsignedByte();
                   String[] var8 = new String[var7];
 
                   for(int var9 = 0; var9 < var7; ++var9) {
-                     var8[var9] = var0.method2265();
+                     var8[var9] = var0.readString();
                   }
 
-                  String var20 = var0.method2265();
+                  String var20 = var0.readString();
                   byte[][] var10 = new byte[var7][];
                   int var12;
                   if(var4 == 3) {
                      for(int var11 = 0; var11 < var7; ++var11) {
-                        var12 = var0.method2344();
+                        var12 = var0.readInt();
                         var10[var11] = new byte[var12];
                         var0.method2295(var10[var11], 0, var12);
                      }
@@ -306,11 +306,11 @@ final class class142 implements Comparator {
                   var2.field1650[var3] = var10;
                }
             } else {
-               var5 = var0.method2265();
-               var6 = var0.method2265();
+               var5 = var0.readString();
+               var6 = var0.readString();
                var7 = 0;
                if(var4 == 1) {
-                  var7 = var0.method2344();
+                  var7 = var0.readInt();
                }
 
                var2.field1645[var3] = var4;

@@ -92,29 +92,29 @@ public class class27 {
    @ObfuscatedSignature(
       signature = "(Lgm;Lcl;)V"
    )
-   final void method468(class125 var1, class46 var2) {
-      int var3 = var1.method2256();
+   final void method468(Buffer var1, class46 var2) {
+      int var3 = var1.readUnsignedByte();
       this.field274[0] = var3 >> 4;
       this.field274[1] = var3 & 15;
       if(var3 != 0) {
-         this.field271[0] = var1.method2258();
-         this.field271[1] = var1.method2258();
-         int var4 = var1.method2256();
+         this.field271[0] = var1.readShort();
+         this.field271[1] = var1.readShort();
+         int var4 = var1.readUnsignedByte();
 
          int var5;
          int var6;
          for(var5 = 0; var5 < 2; ++var5) {
             for(var6 = 0; var6 < this.field274[var5]; ++var6) {
-               this.field269[var5][0][var6] = var1.method2258();
-               this.field270[var5][0][var6] = var1.method2258();
+               this.field269[var5][0][var6] = var1.readShort();
+               this.field270[var5][0][var6] = var1.readShort();
             }
          }
 
          for(var5 = 0; var5 < 2; ++var5) {
             for(var6 = 0; var6 < this.field274[var5]; ++var6) {
                if((var4 & 1 << var5 * 4 << var6) != 0) {
-                  this.field269[var5][1][var6] = var1.method2258();
-                  this.field270[var5][1][var6] = var1.method2258();
+                  this.field269[var5][1][var6] = var1.readShort();
+                  this.field270[var5][1][var6] = var1.readShort();
                } else {
                   this.field269[var5][1][var6] = this.field269[var5][0][var6];
                   this.field270[var5][1][var6] = this.field270[var5][0][var6];

@@ -81,17 +81,17 @@ public class class265 implements class61 {
       signature = "(Lgm;I)V",
       garbageValue = "116686342"
    )
-   public void vmethod5267(class125 var1) {
-      this.field3445 = var1.method2256();
-      this.field3436 = var1.method2256();
-      this.field3435 = var1.method2258();
-      this.field3437 = var1.method2258();
-      this.field3439 = var1.method2258();
-      this.field3440 = var1.method2258();
-      this.field3444 = var1.method2258();
-      this.field3442 = var1.method2258();
-      this.field3443 = var1.method2258();
-      this.field3446 = var1.method2258();
+   public void vmethod5267(Buffer var1) {
+      this.field3445 = var1.readUnsignedByte();
+      this.field3436 = var1.readUnsignedByte();
+      this.field3435 = var1.readShort();
+      this.field3437 = var1.readShort();
+      this.field3439 = var1.readShort();
+      this.field3440 = var1.readShort();
+      this.field3444 = var1.readShort();
+      this.field3442 = var1.readShort();
+      this.field3443 = var1.readShort();
+      this.field3446 = var1.readShort();
       this.method5274();
    }
 
@@ -123,7 +123,7 @@ public class class265 implements class61 {
       signature = "(Lh;B)V",
       garbageValue = "-105"
    )
-   public void vmethod5276(class149 var1) {
+   public void vmethod5276(WorldMapData var1) {
       if(var1.field1843 > this.field3444) {
          var1.field1843 = this.field3444;
       }
@@ -147,13 +147,13 @@ public class class265 implements class61 {
       signature = "(IIB)Lhx;",
       garbageValue = "26"
    )
-   public class58 vmethod5264(int var1, int var2) {
+   public Location vmethod5264(int var1, int var2) {
       if(!this.vmethod5282(var1, var2)) {
          return null;
       } else {
          int var3 = this.field3435 * 64 - this.field3444 * 64 + var1;
          int var4 = this.field3437 * 64 - this.field3442 * 64 + var2;
-         return new class58(this.field3445, var3, var4);
+         return new Location(this.field3445, var3, var4);
       }
    }
 
@@ -216,7 +216,7 @@ public class class265 implements class61 {
          byte[] var2 = class56.field704.method4398(15, var0, -1060101723);
          var1 = new class4();
          if(var2 != null) {
-            var1.method84(new class125(var2));
+            var1.method84(new Buffer(var2));
          }
 
          class4.field40.method1820(var1, (long)var0);

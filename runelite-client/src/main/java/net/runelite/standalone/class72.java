@@ -47,11 +47,11 @@ public class class72 extends class324 implements RSVarbit {
       signature = "(Lgm;II)V",
       garbageValue = "1888141964"
    )
-   void method1544(class125 var1, int var2) {
+   void method1544(Buffer var1, int var2) {
       if(var2 == 1) {
-         this.field828 = var1.method2258();
-         this.field830 = var1.method2256();
-         this.field831 = var1.method2256();
+         this.field828 = var1.readShort();
+         this.field830 = var1.readUnsignedByte();
+         this.field831 = var1.readUnsignedByte();
       }
 
    }
@@ -61,9 +61,9 @@ public class class72 extends class324 implements RSVarbit {
       signature = "(Lgm;B)V",
       garbageValue = "34"
    )
-   public void method1543(class125 var1) {
+   public void method1543(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }

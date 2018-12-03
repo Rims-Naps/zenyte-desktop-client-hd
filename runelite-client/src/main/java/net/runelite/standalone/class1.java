@@ -6,7 +6,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSPacketBuffer;
 
 @ObfuscatedName("gl")
-public final class class1 extends class125 implements RSPacketBuffer {
+public final class class1 extends Buffer implements RSPacketBuffer {
    @ObfuscatedName("m")
    static final int[] field12;
    @ObfuscatedName("r")

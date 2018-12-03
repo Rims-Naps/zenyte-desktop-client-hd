@@ -109,7 +109,7 @@ public class class316 {
       } else {
          class39.field398 = var3;
          class173.method3137();
-         /*byte[] var4 = var0.method4418("title.jpg", "");
+         /*byte[] var4 = var0.takeRecordByNames("title.jpg", "");
          class39.leftBackground = class96.method1774(var4);
          class107.rightBackground = class39.leftBackground.method220();*/
          Assets.init();

@@ -51,7 +51,7 @@ public class class255 extends class320 {
          }
       }
 
-      class125 var20 = new class125(var0);
+      Buffer var20 = new Buffer(var0);
 
       for(var10 = 0; var10 < 4; ++var10) {
          for(int var11 = 0; var11 < 64; ++var11) {
@@ -134,7 +134,7 @@ public class class255 extends class320 {
                class12 var7;
                if(var0 == 1) {
                   var7 = class150.method2761(ClientProt.field3224, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);
@@ -142,7 +142,7 @@ public class class255 extends class320 {
 
                if(var0 == 2) {
                   var7 = class150.method2761(ClientProt.field3177, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);
@@ -150,7 +150,7 @@ public class class255 extends class320 {
 
                if(var0 == 3) {
                   var7 = class150.method2761(ClientProt.field3204, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);
@@ -158,7 +158,7 @@ public class class255 extends class320 {
 
                if(var0 == 4) {
                   var7 = class150.method2761(ClientProt.field3192, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);
@@ -166,7 +166,7 @@ public class class255 extends class320 {
 
                if(var0 == 5) {
                   var7 = class150.method2761(ClientProt.field3196, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);
@@ -174,7 +174,7 @@ public class class255 extends class320 {
 
                if(var0 == 6) {
                   var7 = class150.method2761(ClientProt.field3191, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);
@@ -182,7 +182,7 @@ public class class255 extends class320 {
 
                if(var0 == 7) {
                   var7 = class150.method2761(ClientProt.field3241, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);
@@ -190,7 +190,7 @@ public class class255 extends class320 {
 
                if(var0 == 8) {
                   var7 = class150.method2761(ClientProt.field3172, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);
@@ -198,7 +198,7 @@ public class class255 extends class320 {
 
                if(var0 == 9) {
                   var7 = class150.method2761(ClientProt.field3240, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);
@@ -206,7 +206,7 @@ public class class255 extends class320 {
 
                if(var0 == 10) {
                   var7 = class150.method2761(ClientProt.field3248, client.field2384.field1770);
-                  var7.field121.method2334(var1);
+                  var7.field121.writeByte(var1);
                   var7.field121.method2242(var2);
                   var7.field121.method2242(var3);
                   client.field2384.method2573(var7);

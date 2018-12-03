@@ -8,7 +8,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSWorldMapData;
 
 @ObfuscatedName("h")
-public class class149 implements RSWorldMapData {
+public class WorldMapData implements RSWorldMapData {
    @ObfuscatedName("nm")
    @ObfuscatedGetter(
       intValue = 1690039883
@@ -37,7 +37,7 @@ public class class149 implements RSWorldMapData {
    )
    int field1843;
    @ObfuscatedName("l")
-   String field1838;
+   String safeName;
    @ObfuscatedName("s")
    @ObfuscatedGetter(
       intValue = 68760845
@@ -47,7 +47,7 @@ public class class149 implements RSWorldMapData {
    @ObfuscatedGetter(
       intValue = 670438557
    )
-   int field1847;
+   int fileId;
    @ObfuscatedName("r")
    @ObfuscatedGetter(
       intValue = 1043074569
@@ -64,20 +64,20 @@ public class class149 implements RSWorldMapData {
    @ObfuscatedSignature(
       signature = "Lhx;"
    )
-   class58 field1842;
+   Location location;
    @ObfuscatedName("e")
    @ObfuscatedGetter(
       intValue = 447055441
    )
    int field1848;
    @ObfuscatedName("w")
-   String field1845;
+   String name;
 
-   public class149() {
-      this.field1847 = -1;
+   public WorldMapData() {
+      this.fileId = -1;
       this.field1840 = -1;
       this.field1848 = -1;
-      this.field1842 = null;
+      this.location = null;
       this.field1843 = Integer.MAX_VALUE;
       this.field1844 = 0;
       this.field1839 = Integer.MAX_VALUE;
@@ -91,7 +91,7 @@ public class class149 implements RSWorldMapData {
       garbageValue = "1345359554"
    )
    public int method2705() {
-      return this.field1842.field719;
+      return this.location.field719;
    }
 
    @ObfuscatedName("z")
@@ -100,7 +100,7 @@ public class class149 implements RSWorldMapData {
       garbageValue = "-1902930857"
    )
    public String method2698() {
-      return this.field1845;
+      return this.name;
    }
 
    @ObfuscatedName("p")
@@ -132,7 +132,7 @@ public class class149 implements RSWorldMapData {
       signature = "(III)Lhx;",
       garbageValue = "-1214772113"
    )
-   public class58 method2712(int var1, int var2) {
+   public Location method2712(int var1, int var2) {
       Iterator var3 = this.field1841.iterator();
 
       class61 var4;
@@ -152,8 +152,8 @@ public class class149 implements RSWorldMapData {
       signature = "(Lgm;I)Lac;",
       garbageValue = "-345544303"
    )
-   class61 method2689(class125 var1) {
-      int var2 = var1.method2256();
+   class61 method2689(Buffer var1) {
+      int var2 = var1.readUnsignedByte();
       class32[] var3 = new class32[]{class32.field298, class32.field305, class32.field296, class32.field295};
       class32 var4 = (class32)class38.method678(var3, var2);
       Object var5 = null;
@@ -213,16 +213,16 @@ public class class149 implements RSWorldMapData {
       signature = "(Lgm;II)V",
       garbageValue = "1047760222"
    )
-   public void method2713(class125 var1, int var2) {
-      this.field1847 = var2;
-      this.field1838 = var1.method2265();
-      this.field1845 = var1.method2265();
-      this.field1842 = new class58(var1.method2344());
-      this.field1840 = var1.method2344();
-      var1.method2256();
-      this.field1837 = var1.method2256() == 1;
-      this.field1848 = var1.method2256();
-      int var3 = var1.method2256();
+   public void loadMapData(Buffer var1, int var2) {
+      this.fileId = var2;
+      this.safeName = var1.readString();
+      this.name = var1.readString();
+      this.location = new Location(var1.readInt());
+      this.field1840 = var1.readInt();
+      var1.readUnsignedByte();
+      this.field1837 = var1.readUnsignedByte() == 1;
+      this.field1848 = var1.readUnsignedByte();
+      int var3 = var1.readUnsignedByte();
       this.field1841 = new LinkedList();
 
       for(int var4 = 0; var4 < var3; ++var4) {
@@ -238,7 +238,7 @@ public class class149 implements RSWorldMapData {
       garbageValue = "9985"
    )
    public int method2726() {
-      return this.field1847;
+      return this.fileId;
    }
 
    @ObfuscatedName("u")
@@ -265,7 +265,7 @@ public class class149 implements RSWorldMapData {
       garbageValue = "-50"
    )
    public int method2733() {
-      return this.field1842.field717;
+      return this.location.field717;
    }
 
    public boolean surfaceContainsPosition(int var1, int var2) {
@@ -295,8 +295,8 @@ public class class149 implements RSWorldMapData {
       signature = "(I)Lhx;",
       garbageValue = "65599732"
    )
-   public class58 method2735() {
-      return new class58(this.field1842);
+   public Location method2735() {
+      return new Location(this.location);
    }
 
    @ObfuscatedName("d")
@@ -305,7 +305,7 @@ public class class149 implements RSWorldMapData {
       garbageValue = "-1660504817"
    )
    public String method2697() {
-      return this.field1838;
+      return this.safeName;
    }
 
    @ObfuscatedName("o")
@@ -332,7 +332,7 @@ public class class149 implements RSWorldMapData {
       garbageValue = "-1458528915"
    )
    public int method2706() {
-      return this.field1842.field718;
+      return this.location.field718;
    }
 
    @ObfuscatedName("e")
@@ -399,7 +399,7 @@ public class class149 implements RSWorldMapData {
       garbageValue = "1229095151"
    )
    static class230 method2757(int var0, int var1) {
-      class204 var2 = class47.field536;
+      class204 var2 = WorldMapRegion.field536;
       long var3 = (long)(0 | var0 << 8 | var1);
       return (class230)var2.method4028(var3);
    }

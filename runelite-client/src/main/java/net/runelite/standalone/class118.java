@@ -259,7 +259,7 @@ public class class118 implements Runnable {
          byte[] var2 = class269.field3469.method4398(8, var0, -2125037424);
          var1 = new class269();
          if(var2 != null) {
-            var1.method5318(new class125(var2));
+            var1.method5318(new Buffer(var2));
          }
 
          class269.field3474.method1820(var1, (long)var0);

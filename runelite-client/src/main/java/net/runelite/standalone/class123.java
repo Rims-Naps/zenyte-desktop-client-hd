@@ -158,23 +158,23 @@ public class class123 extends class324 implements RSArea {
       signature = "(Lgm;II)V",
       garbageValue = "2104259651"
    )
-   void method2200(class125 var1, int var2) {
+   void method2200(Buffer var1, int var2) {
       if(var2 == 1) {
          this.field1664 = var1.method2293();
       } else if(var2 == 2) {
          this.field1669 = var1.method2293();
       } else if(var2 == 3) {
-         this.field1668 = var1.method2265();
+         this.field1668 = var1.readString();
       } else if(var2 == 4) {
          this.field1665 = var1.method2260();
       } else if(var2 == 5) {
          var1.method2260();
       } else if(var2 == 6) {
-         this.field1672 = var1.method2256();
+         this.field1672 = var1.readUnsignedByte();
       } else {
          int var3;
          if(var2 == 7) {
-            var3 = var1.method2256();
+            var3 = var1.readUnsignedByte();
             if((var3 & 1) == 0) {
                ;
             }
@@ -183,11 +183,11 @@ public class class123 extends class324 implements RSArea {
                ;
             }
          } else if(var2 == 8) {
-            var1.method2256();
+            var1.readUnsignedByte();
          } else if(var2 >= 10 && var2 <= 14) {
-            this.field1681[var2 - 10] = var1.method2265();
+            this.field1681[var2 - 10] = var1.readString();
          } else if(var2 == 15) {
-            var3 = var1.method2256();
+            var3 = var1.readUnsignedByte();
             this.field1675 = new int[var3 * 2];
 
             int var4;
@@ -195,13 +195,13 @@ public class class123 extends class324 implements RSArea {
                this.field1675[var4] = var1.method2456();
             }
 
-            var1.method2344();
-            var4 = var1.method2256();
+            var1.readInt();
+            var4 = var1.readUnsignedByte();
             this.field1670 = new int[var4];
 
             int var5;
             for(var5 = 0; var5 < this.field1670.length; ++var5) {
-               this.field1670[var5] = var1.method2344();
+               this.field1670[var5] = var1.readInt();
             }
 
             this.field1683 = new byte[var3];
@@ -211,32 +211,32 @@ public class class123 extends class324 implements RSArea {
             }
          } else if(var2 != 16) {
             if(var2 == 17) {
-               this.field1674 = var1.method2265();
+               this.field1674 = var1.readString();
             } else if(var2 == 18) {
                var1.method2293();
             } else if(var2 == 19) {
-               this.field1684 = var1.method2258();
+               this.field1684 = var1.readShort();
             } else if(var2 == 21) {
-               var1.method2344();
+               var1.readInt();
             } else if(var2 == 22) {
-               var1.method2344();
+               var1.readInt();
             } else if(var2 == 23) {
-               var1.method2256();
-               var1.method2256();
-               var1.method2256();
+               var1.readUnsignedByte();
+               var1.readUnsignedByte();
+               var1.readUnsignedByte();
             } else if(var2 == 24) {
                var1.method2456();
                var1.method2456();
             } else if(var2 == 25) {
                var1.method2293();
             } else if(var2 == 28) {
-               var1.method2256();
+               var1.readUnsignedByte();
             } else if(var2 == 29) {
                class30[] var6 = new class30[]{class30.field283, class30.field287, class30.field284};
-               this.field1673 = (class30)class38.method678(var6, var1.method2256());
+               this.field1673 = (class30)class38.method678(var6, var1.readUnsignedByte());
             } else if(var2 == 30) {
                class63[] var7 = new class63[]{class63.field740, class63.field742, class63.field738};
-               this.field1667 = (class63)class38.method678(var7, var1.method2256());
+               this.field1667 = (class63)class38.method678(var7, var1.readUnsignedByte());
             }
          }
       }
@@ -285,9 +285,9 @@ public class class123 extends class324 implements RSArea {
       signature = "(Lgm;I)V",
       garbageValue = "-479665182"
    )
-   void method2199(class125 var1) {
+   void method2199(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }

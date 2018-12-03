@@ -59,35 +59,35 @@ public class class108 extends class175 {
       signature = "(Lgm;Lgm;I)V",
       garbageValue = "-1534728828"
    )
-   void method1893(class125 var1, class125 var2) {
-      int var3 = var2.method2256();
+   void method1893(Buffer var1, Buffer var2) {//regular map data
+      int var3 = var2.readUnsignedByte();
       if(var3 != class174.field2131.field2128) {
          throw new IllegalStateException("");
       } else {
-         super.field2146 = var2.method2256();
-         super.field2139 = var2.method2256();
-         super.field2150 = var2.method2258();
-         super.field2144 = var2.method2258();
-         this.field1174 = var2.method2256();
-         this.field1170 = var2.method2256();
-         super.field2138 = var2.method2258();
-         super.field2137 = var2.method2258();
-         this.field1172 = var2.method2256();
-         this.field1173 = var2.method2256();
+         super.field2146 = var2.readUnsignedByte();
+         super.field2139 = var2.readUnsignedByte();
+         super.field2150 = var2.readShort();
+         super.field2144 = var2.readShort();
+         this.field1174 = var2.readUnsignedByte();
+         this.field1170 = var2.readUnsignedByte();
+         super.field2138 = var2.readShort();
+         super.field2137 = var2.readShort();
+         this.field1172 = var2.readUnsignedByte();
+         this.field1173 = var2.readUnsignedByte();
          super.field2139 = Math.min(super.field2139, 4);
          super.field2140 = new short[1][64][64];
          super.field2141 = new short[super.field2139][64][64];
          super.field2142 = new byte[super.field2139][64][64];
          super.field2143 = new byte[super.field2139][64][64];
          super.field2149 = new class127[super.field2139][64][64][];
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          if(var3 != class286.field3577.field3578) {
             throw new IllegalStateException("");
          } else {
-            int var4 = var1.method2256();
-            int var5 = var1.method2256();
-            int var6 = var1.method2256();
-            int var7 = var1.method2256();
+            int var4 = var1.readUnsignedByte();
+            int var5 = var1.readUnsignedByte();
+            int var6 = var1.readUnsignedByte();
+            int var7 = var1.readUnsignedByte();
             if(var4 == super.field2138 && var5 == super.field2137 && var6 == this.field1172 && var7 == this.field1173) {
                for(int var8 = 0; var8 < 8; ++var8) {
                   for(int var9 = 0; var9 < 8; ++var9) {
@@ -205,7 +205,7 @@ public class class108 extends class175 {
          byte[] var4 = class93.field1012.method4398(4, var0, 548656037);
          var3 = new class93();
          if(var4 != null) {
-            var3.method1721(new class125(var4), var0);
+            var3.method1721(new Buffer(var4), var0);
          }
 
          var3.method1720();

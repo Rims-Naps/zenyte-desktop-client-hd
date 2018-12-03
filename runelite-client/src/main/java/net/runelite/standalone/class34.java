@@ -626,28 +626,28 @@ public class class34 extends class102 implements RSModelData {
 
    @ObfuscatedName("l")
    void method570(byte[] var1) {
-      class125 var2 = new class125(var1);
-      class125 var3 = new class125(var1);
-      class125 var4 = new class125(var1);
-      class125 var5 = new class125(var1);
-      class125 var6 = new class125(var1);
-      class125 var7 = new class125(var1);
-      class125 var8 = new class125(var1);
+      Buffer var2 = new Buffer(var1);
+      Buffer var3 = new Buffer(var1);
+      Buffer var4 = new Buffer(var1);
+      Buffer var5 = new Buffer(var1);
+      Buffer var6 = new Buffer(var1);
+      Buffer var7 = new Buffer(var1);
+      Buffer var8 = new Buffer(var1);
       var2.field1693 = var1.length - 23;
-      int var9 = var2.method2258();
-      int var10 = var2.method2258();
-      int var11 = var2.method2256();
-      int var12 = var2.method2256();
-      int var13 = var2.method2256();
-      int var14 = var2.method2256();
-      int var15 = var2.method2256();
-      int var16 = var2.method2256();
-      int var17 = var2.method2256();
-      int var18 = var2.method2258();
-      int var19 = var2.method2258();
-      int var20 = var2.method2258();
-      int var21 = var2.method2258();
-      int var22 = var2.method2258();
+      int var9 = var2.readShort();
+      int var10 = var2.readShort();
+      int var11 = var2.readUnsignedByte();
+      int var12 = var2.readUnsignedByte();
+      int var13 = var2.readUnsignedByte();
+      int var14 = var2.readUnsignedByte();
+      int var15 = var2.readUnsignedByte();
+      int var16 = var2.readUnsignedByte();
+      int var17 = var2.readUnsignedByte();
+      int var18 = var2.readShort();
+      int var19 = var2.readShort();
+      int var20 = var2.readShort();
+      int var21 = var2.readShort();
+      int var22 = var2.readShort();
       int var23 = 0;
       int var24 = 0;
       int var25 = 0;
@@ -790,7 +790,7 @@ public class class34 extends class102 implements RSModelData {
       int var54;
       int var55;
       for(var51 = 0; var51 < var9; ++var51) {
-         var52 = var2.method2256();
+         var52 = var2.readUnsignedByte();
          var53 = 0;
          if((var52 & 1) != 0) {
             var53 = var3.method2339();
@@ -813,7 +813,7 @@ public class class34 extends class102 implements RSModelData {
          var49 = this.field313[var51];
          var50 = this.field314[var51];
          if(var17 == 1) {
-            this.field334[var51] = var6.method2256();
+            this.field334[var51] = var6.readUnsignedByte();
          }
       }
 
@@ -826,7 +826,7 @@ public class class34 extends class102 implements RSModelData {
       var8.field1693 = var36;
 
       for(var51 = 0; var51 < var10; ++var51) {
-         this.field311[var51] = (short)var2.method2258();
+         this.field311[var51] = (short)var2.readShort();
          if(var12 == 1) {
             this.field319[var51] = var3.method2257();
          }
@@ -840,15 +840,15 @@ public class class34 extends class102 implements RSModelData {
          }
 
          if(var15 == 1) {
-            this.field349[var51] = var6.method2256();
+            this.field349[var51] = var6.readUnsignedByte();
          }
 
          if(var16 == 1) {
-            this.field324[var51] = (short)(var7.method2258() - 1);
+            this.field324[var51] = (short)(var7.readShort() - 1);
          }
 
          if(this.field322 != null && this.field324[var51] != -1) {
-            this.field322[var51] = (byte)(var8.method2256() - 1);
+            this.field322[var51] = (byte)(var8.readUnsignedByte() - 1);
          }
       }
 
@@ -861,7 +861,7 @@ public class class34 extends class102 implements RSModelData {
 
       int var56;
       for(var55 = 0; var55 < var10; ++var55) {
-         var56 = var3.method2256();
+         var56 = var3.readUnsignedByte();
          if(var56 == 1) {
             var51 = var2.method2339() + var54;
             var52 = var2.method2339() + var51;
@@ -912,20 +912,20 @@ public class class34 extends class102 implements RSModelData {
       for(var55 = 0; var55 < var11; ++var55) {
          var56 = this.field327[var55] & 255;
          if(var56 == 0) {
-            this.field328[var55] = (short)var2.method2258();
-            this.field329[var55] = (short)var2.method2258();
-            this.field330[var55] = (short)var2.method2258();
+            this.field328[var55] = (short)var2.readShort();
+            this.field329[var55] = (short)var2.readShort();
+            this.field330[var55] = (short)var2.readShort();
          }
       }
 
       var2.field1693 = var26;
-      var55 = var2.method2256();
+      var55 = var2.readUnsignedByte();
       if(var55 != 0) {
          new class226();
-         var2.method2258();
-         var2.method2258();
-         var2.method2258();
-         var2.method2344();
+         var2.readShort();
+         var2.readShort();
+         var2.readShort();
+         var2.readInt();
       }
 
    }
@@ -1478,24 +1478,24 @@ public class class34 extends class102 implements RSModelData {
    void method542(byte[] var1) {
       boolean var2 = false;
       boolean var3 = false;
-      class125 var4 = new class125(var1);
-      class125 var5 = new class125(var1);
-      class125 var6 = new class125(var1);
-      class125 var7 = new class125(var1);
-      class125 var8 = new class125(var1);
+      Buffer var4 = new Buffer(var1);
+      Buffer var5 = new Buffer(var1);
+      Buffer var6 = new Buffer(var1);
+      Buffer var7 = new Buffer(var1);
+      Buffer var8 = new Buffer(var1);
       var4.field1693 = var1.length - 18;
-      int var9 = var4.method2258();
-      int var10 = var4.method2258();
-      int var11 = var4.method2256();
-      int var12 = var4.method2256();
-      int var13 = var4.method2256();
-      int var14 = var4.method2256();
-      int var15 = var4.method2256();
-      int var16 = var4.method2256();
-      int var17 = var4.method2258();
-      int var18 = var4.method2258();
-      int var19 = var4.method2258();
-      int var20 = var4.method2258();
+      int var9 = var4.readShort();
+      int var10 = var4.readShort();
+      int var11 = var4.readUnsignedByte();
+      int var12 = var4.readUnsignedByte();
+      int var13 = var4.readUnsignedByte();
+      int var14 = var4.readUnsignedByte();
+      int var15 = var4.readUnsignedByte();
+      int var16 = var4.readUnsignedByte();
+      int var17 = var4.readShort();
+      int var18 = var4.readShort();
+      int var19 = var4.readShort();
+      int var20 = var4.readShort();
       byte var21 = 0;
       int var45 = var21 + var9;
       int var23 = var45;
@@ -1592,7 +1592,7 @@ public class class34 extends class102 implements RSModelData {
       int var41;
       int var42;
       for(var38 = 0; var38 < var9; ++var38) {
-         var39 = var4.method2256();
+         var39 = var4.readUnsignedByte();
          var40 = 0;
          if((var39 & 1) != 0) {
             var40 = var5.method2339();
@@ -1615,7 +1615,7 @@ public class class34 extends class102 implements RSModelData {
          var36 = this.field313[var38];
          var37 = this.field314[var38];
          if(var16 == 1) {
-            this.field334[var38] = var8.method2256();
+            this.field334[var38] = var8.readUnsignedByte();
          }
       }
 
@@ -1626,9 +1626,9 @@ public class class34 extends class102 implements RSModelData {
       var8.field1693 = var25;
 
       for(var38 = 0; var38 < var10; ++var38) {
-         this.field311[var38] = (short)var4.method2258();
+         this.field311[var38] = (short)var4.readShort();
          if(var12 == 1) {
-            var39 = var5.method2256();
+            var39 = var5.readUnsignedByte();
             if((var39 & 1) == 1) {
                this.field319[var38] = 1;
                var2 = true;
@@ -1658,7 +1658,7 @@ public class class34 extends class102 implements RSModelData {
          }
 
          if(var15 == 1) {
-            this.field349[var38] = var8.method2256();
+            this.field349[var38] = var8.readUnsignedByte();
          }
       }
 
@@ -1672,7 +1672,7 @@ public class class34 extends class102 implements RSModelData {
       int var43;
       int var44;
       for(var42 = 0; var42 < var10; ++var42) {
-         var43 = var5.method2256();
+         var43 = var5.readUnsignedByte();
          if(var43 == 1) {
             var38 = var4.method2339() + var41;
             var39 = var4.method2339() + var38;
@@ -1717,9 +1717,9 @@ public class class34 extends class102 implements RSModelData {
 
       for(var42 = 0; var42 < var11; ++var42) {
          this.field327[var42] = 0;
-         this.field328[var42] = (short)var4.method2258();
-         this.field329[var42] = (short)var4.method2258();
-         this.field330[var42] = (short)var4.method2258();
+         this.field328[var42] = (short)var4.readShort();
+         this.field329[var42] = (short)var4.readShort();
+         this.field330[var42] = (short)var4.readShort();
       }
 
       if(this.field322 != null) {

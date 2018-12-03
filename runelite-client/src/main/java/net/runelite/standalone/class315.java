@@ -340,9 +340,9 @@ public class class315 extends class324 implements RSNPCComposition {
       signature = "(Lgm;B)V",
       garbageValue = "-27"
    )
-   void method6150(class125 var1) {
+   void method6150(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }
@@ -481,73 +481,73 @@ public class class315 extends class324 implements RSNPCComposition {
       signature = "(Lgm;IB)V",
       garbageValue = "6"
    )
-   void method6151(class125 var1, int var2) {
+   void method6151(Buffer var1, int var2) {
       int var3;
       int var4;
       if(var2 == 1) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          this.field3863 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3863[var4] = var1.method2258();
+            this.field3863[var4] = var1.readShort();
          }
       } else if(var2 == 2) {
-         this.field3861 = var1.method2265();
+         this.field3861 = var1.readString();
       } else if(var2 == 12) {
-         this.field3862 = var1.method2256();
+         this.field3862 = var1.readUnsignedByte();
       } else if(var2 == 13) {
-         this.field3865 = var1.method2258();
+         this.field3865 = var1.readShort();
       } else if(var2 == 14) {
-         this.field3868 = var1.method2258();
+         this.field3868 = var1.readShort();
       } else if(var2 == 15) {
-         this.field3866 = var1.method2258();
+         this.field3866 = var1.readShort();
       } else if(var2 == 16) {
-         this.field3878 = var1.method2258();
+         this.field3878 = var1.readShort();
       } else if(var2 == 17) {
-         this.field3868 = var1.method2258();
-         this.field3869 = var1.method2258();
-         this.field3870 = var1.method2258();
-         this.field3890 = var1.method2258();
+         this.field3868 = var1.readShort();
+         this.field3869 = var1.readShort();
+         this.field3870 = var1.readShort();
+         this.field3890 = var1.readShort();
       } else if(var2 >= 30 && var2 < 35) {
-         this.field3876[var2 - 30] = var1.method2265();
+         this.field3876[var2 - 30] = var1.readString();
          this.actionsHook(var2 - 30);
          if(this.field3876[var2 - 30].equalsIgnoreCase("Hidden")) {
             this.field3876[var2 - 30] = null;
             this.actionsHook(var2 - 30);
          }
       } else if(var2 == 40) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          this.field3857 = new short[var3];
          this.field3859 = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3857[var4] = (short)var1.method2258();
-            this.field3859[var4] = (short)var1.method2258();
+            this.field3857[var4] = (short)var1.readShort();
+            this.field3859[var4] = (short)var1.readShort();
          }
       } else if(var2 == 41) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          this.field3874 = new short[var3];
          this.field3872 = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3874[var4] = (short)var1.method2258();
-            this.field3872[var4] = (short)var1.method2258();
+            this.field3874[var4] = (short)var1.readShort();
+            this.field3872[var4] = (short)var1.readShort();
          }
       } else if(var2 == 60) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          this.field3864 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3864[var4] = var1.method2258();
+            this.field3864[var4] = var1.readShort();
          }
       } else if(var2 == 93) {
          this.field3873 = false;
       } else if(var2 == 95) {
-         this.field3877 = var1.method2258();
+         this.field3877 = var1.readShort();
       } else if(var2 == 97) {
-         this.field3885 = var1.method2258();
+         this.field3885 = var1.readShort();
       } else if(var2 == 98) {
-         this.field3880 = var1.method2258();
+         this.field3880 = var1.readShort();
       } else if(var2 == 99) {
          this.field3881 = true;
       } else if(var2 == 100) {
@@ -555,9 +555,9 @@ public class class315 extends class324 implements RSNPCComposition {
       } else if(var2 == 101) {
          this.field3883 = var1.method2257() * 5;
       } else if(var2 == 102) {
-         this.field3884 = var1.method2258();
+         this.field3884 = var1.readShort();
       } else if(var2 == 103) {
-         this.field3860 = var1.method2258();
+         this.field3860 = var1.readShort();
       } else if(var2 != 106 && var2 != 118) {
          if(var2 == 107) {
             this.field3889 = false;
@@ -569,29 +569,29 @@ public class class315 extends class324 implements RSNPCComposition {
             this.field3892 = class227.method4570(var1, this.field3892);
          }
       } else {
-         this.field3887 = var1.method2258();
+         this.field3887 = var1.readShort();
          if(this.field3887 == 65535) {
             this.field3887 = -1;
          }
 
-         this.field3888 = var1.method2258();
+         this.field3888 = var1.readShort();
          if(this.field3888 == 65535) {
             this.field3888 = -1;
          }
 
          var3 = -1;
          if(var2 == 118) {
-            var3 = var1.method2258();
+            var3 = var1.readShort();
             if(var3 == 65535) {
                var3 = -1;
             }
          }
 
-         var4 = var1.method2256();
+         var4 = var1.readUnsignedByte();
          this.field3886 = new int[var4 + 2];
 
          for(int var5 = 0; var5 <= var4; ++var5) {
-            this.field3886[var5] = var1.method2258();
+            this.field3886[var5] = var1.readShort();
             if(this.field3886[var5] == 65535) {
                this.field3886[var5] = -1;
             }
@@ -615,7 +615,7 @@ public class class315 extends class324 implements RSNPCComposition {
       signature = "(Lgm;Ljava/lang/String;I)I",
       garbageValue = "1930788497"
    )
-   public static int method6188(class125 var0, String var1) {
+   public static int method6188(Buffer var0, String var1) {
       int var2 = var0.field1693;
       byte[] var3 = class329.method6325(var1);
       var0.method2449(var3.length);
@@ -629,7 +629,7 @@ public class class315 extends class324 implements RSNPCComposition {
       garbageValue = "1365269897"
    )
    static SpritePixels method6189(int var0, int var1, int var2) {
-      class204 var3 = class47.field527;
+      class204 var3 = WorldMapRegion.field527;
       long var4 = (long)(var2 << 16 | var0 << 8 | var1);
       return (SpritePixels)var3.method4028(var4);
    }

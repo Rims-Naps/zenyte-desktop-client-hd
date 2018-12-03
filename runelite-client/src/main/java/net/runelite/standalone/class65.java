@@ -34,24 +34,24 @@ public class class65 extends class197 implements RSTexture {
    @ObfuscatedSignature(
       signature = "(Lgm;)V"
    )
-   class65(class125 var1) {
+   class65(Buffer var1) {
       this.field763 = false;
-      this.field754 = var1.method2258();
-      this.field759 = var1.method2256() == 1;
-      int var2 = var1.method2256();
+      this.field754 = var1.readShort();
+      this.field759 = var1.readUnsignedByte() == 1;
+      int var2 = var1.readUnsignedByte();
       if(var2 >= 1 && var2 <= 4) {
          this.field756 = new int[var2];
 
          int var3;
          for(var3 = 0; var3 < var2; ++var3) {
-            this.field756[var3] = var1.method2258();
+            this.field756[var3] = var1.readShort();
          }
 
          if(var2 > 1) {
             this.field757 = new int[var2 - 1];
 
             for(var3 = 0; var3 < var2 - 1; ++var3) {
-               this.field757[var3] = var1.method2256();
+               this.field757[var3] = var1.readUnsignedByte();
             }
          }
 
@@ -59,18 +59,18 @@ public class class65 extends class197 implements RSTexture {
             this.field758 = new int[var2 - 1];
 
             for(var3 = 0; var3 < var2 - 1; ++var3) {
-               this.field758[var3] = var1.method2256();
+               this.field758[var3] = var1.readUnsignedByte();
             }
          }
 
          this.field750 = new int[var2];
 
          for(var3 = 0; var3 < var2; ++var3) {
-            this.field750[var3] = var1.method2344();
+            this.field750[var3] = var1.readInt();
          }
 
-         this.field760 = var1.method2256();
-         this.field751 = var1.method2256();
+         this.field760 = var1.readUnsignedByte();
+         this.field751 = var1.readUnsignedByte();
          this.field761 = null;
       } else {
          throw new RuntimeException();

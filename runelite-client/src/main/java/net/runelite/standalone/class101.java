@@ -35,9 +35,9 @@ public class class101 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "1016123430"
    )
-   void method1832(class125 var1, int var2) {
+   void method1832(Buffer var1, int var2) {
       if(var2 == 2) {
-         this.field1140 = var1.method2258();
+         this.field1140 = var1.readShort();
       }
 
    }
@@ -47,9 +47,9 @@ public class class101 extends class324 {
       signature = "(Lgm;B)V",
       garbageValue = "7"
    )
-   void method1831(class125 var1) {
+   void method1831(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }

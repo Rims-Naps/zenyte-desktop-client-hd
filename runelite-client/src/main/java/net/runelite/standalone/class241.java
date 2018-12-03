@@ -117,41 +117,41 @@ public class class241 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "1916457781"
    )
-   void method4740(class125 var1, int var2) {
+   void method4740(Buffer var1, int var2) {
       if(var2 == 1) {
-         this.field3146 = var1.method2256();
+         this.field3146 = var1.readUnsignedByte();
       } else {
          int var3;
          int var4;
          if(var2 == 2) {
-            var3 = var1.method2256();
+            var3 = var1.readUnsignedByte();
             this.field3149 = new int[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3149[var4] = var1.method2258();
+               this.field3149[var4] = var1.readShort();
             }
          } else if(var2 == 3) {
             this.field3155 = true;
          } else if(var2 == 40) {
-            var3 = var1.method2256();
+            var3 = var1.readUnsignedByte();
             this.field3150 = new short[var3];
             this.field3151 = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3150[var4] = (short)var1.method2258();
-               this.field3151[var4] = (short)var1.method2258();
+               this.field3150[var4] = (short)var1.readShort();
+               this.field3151[var4] = (short)var1.readShort();
             }
          } else if(var2 == 41) {
-            var3 = var1.method2256();
+            var3 = var1.readUnsignedByte();
             this.field3152 = new short[var3];
             this.field3147 = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3152[var4] = (short)var1.method2258();
-               this.field3147[var4] = (short)var1.method2258();
+               this.field3152[var4] = (short)var1.readShort();
+               this.field3147[var4] = (short)var1.readShort();
             }
          } else if(var2 >= 60 && var2 < 70) {
-            this.field3154[var2 - 60] = var1.method2258();
+            this.field3154[var2 - 60] = var1.readShort();
          }
       }
 
@@ -215,9 +215,9 @@ public class class241 extends class324 {
       signature = "(Lgm;I)V",
       garbageValue = "-82628385"
    )
-   void method4739(class125 var1) {
+   void method4739(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }

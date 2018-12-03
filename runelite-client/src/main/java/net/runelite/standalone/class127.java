@@ -57,7 +57,7 @@ public class class127 {
          var1 = new class315();
          var1.field3875 = var0;
          if(var2 != null) {
-            var1.method6150(new class125(var2));
+            var1.method6150(new Buffer(var2));
          }
 
          var1.method6149();
@@ -80,7 +80,7 @@ public class class127 {
          byte[] var8 = class72.field832.method4398(14, var0, -1087065750);
          var3 = new class72();
          if(var8 != null) {
-            var3.method1543(new class125(var8));
+            var3.method1543(new Buffer(var8));
          }
 
          class72.field827.method1820(var3, (long)var0);

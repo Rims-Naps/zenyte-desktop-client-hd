@@ -83,10 +83,10 @@ public class class78 {
    )
    public void method1584(class217 var1) {
       byte[] var2 = var1.method4405(class188.field2703.field2702);
-      class125 var3 = new class125(var2);
+      Buffer var3 = new Buffer(var2);
 
       while(true) {
-         int var4 = var3.method2256();
+         int var4 = var3.readUnsignedByte();
          if(var4 == 0) {
             return;
          }

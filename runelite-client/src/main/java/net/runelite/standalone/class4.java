@@ -26,9 +26,9 @@ public class class4 extends class324 {
       signature = "(Lgm;B)V",
       garbageValue = "-50"
    )
-   void method84(class125 var1) {
+   void method84(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }
@@ -42,7 +42,7 @@ public class class4 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "-184195944"
    )
-   void method82(class125 var1, int var2) {
+   void method82(Buffer var1, int var2) {
       if(var2 == 2) {
          this.field38 = true;
       }
@@ -65,12 +65,12 @@ public class class4 extends class324 {
       if(!client.field2212) {
          var2 = var1.method2332();
          var3 = var1.method2460();
-         int var4 = var1.method2258();
+         int var4 = var1.readShort();
          class286.field3582 = new int[var4][4];
 
          for(var5 = 0; var5 < var4; ++var5) {
             for(var6 = 0; var6 < 4; ++var6) {
-               class286.field3582[var5][var6] = var1.method2344();
+               class286.field3582[var5][var6] = var1.readInt();
             }
          }
 
@@ -95,8 +95,8 @@ public class class4 extends class324 {
                var8 = var7 + (var6 << 8);
                if(!var16 || var7 != 49 && var7 != 149 && var7 != 147 && var6 != 50 && (var6 != 49 || var7 != 47)) {
                   class23.field255[var4] = var8;
-                  class54.field697[var4] = class152.field1869.method4421("m" + var6 + "_" + var7);
-                  class226.field3047[var4] = class152.field1869.method4421("l" + var6 + "_" + var7);
+                  class54.field697[var4] = class152.mapsIndex.method4421("m" + var6 + "_" + var7);
+                  class226.field3047[var4] = class152.mapsIndex.method4421("l" + var6 + "_" + var7);
                   ++var4;
                }
             }
@@ -106,8 +106,8 @@ public class class4 extends class324 {
       } else {
          var2 = var1.method2460();
          var3 = var1.method2332();
-         boolean var15 = var1.method2256() == 1;
-         var5 = var1.method2258();
+         boolean var15 = var1.readUnsignedByte() == 1;
+         var5 = var1.readShort();
          var1.method7();
 
          int var9;
@@ -129,7 +129,7 @@ public class class4 extends class324 {
 
          for(var6 = 0; var6 < var5; ++var6) {
             for(var7 = 0; var7 < 4; ++var7) {
-               class286.field3582[var6][var7] = var1.method2344();
+               class286.field3582[var6][var7] = var1.readInt();
             }
          }
 
@@ -161,8 +161,8 @@ public class class4 extends class324 {
                         class23.field255[var5] = var12;
                         var13 = var12 >> 8 & 255;
                         int var14 = var12 & 255;
-                        class54.field697[var5] = class152.field1869.method4421("m" + var13 + "_" + var14);
-                        class226.field3047[var5] = class152.field1869.method4421("l" + var13 + "_" + var14);
+                        class54.field697[var5] = class152.mapsIndex.method4421("m" + var13 + "_" + var14);
+                        class226.field3047[var5] = class152.mapsIndex.method4421("l" + var13 + "_" + var14);
                         ++var5;
                      }
                   }

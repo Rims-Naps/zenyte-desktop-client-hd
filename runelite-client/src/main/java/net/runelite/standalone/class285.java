@@ -45,7 +45,7 @@ public class class285 {
          var1 = new class15();
          var1.field155 = var0;
          if(var2 != null) {
-            var1.method323(new class125(var2));
+            var1.method323(new Buffer(var2));
          }
 
          var1.method334();

@@ -17,7 +17,7 @@ public class class57 extends RuntimeException implements RSRunException {
    @ObfuscatedSignature(
       signature = "Lgm;"
    )
-   public static class125 field714;
+   public static Buffer field714;
    @ObfuscatedName("l")
    public static String field706;
    @ObfuscatedName("s")

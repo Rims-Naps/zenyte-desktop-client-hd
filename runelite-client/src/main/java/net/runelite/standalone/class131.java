@@ -10,7 +10,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("aw")
-public class class131 extends class149 {
+public class class131 extends WorldMapData {
    @ObfuscatedName("x")
    HashSet field1731;
    @ObfuscatedName("v")
@@ -23,9 +23,9 @@ public class class131 extends class149 {
       signature = "(Lgm;Lgm;Lgm;IZI)V",
       garbageValue = "-1795123622"
    )
-   void method2514(class125 var1, class125 var2, class125 var3, int var4, boolean var5) {
-      this.method2713(var1, var4);
-      int var6 = var3.method2258();
+   void initialize(Buffer var1, Buffer var2, Buffer var3, int var4, boolean var5) {
+      this.loadMapData(var1, var4);//decode worldmap details (name, etc)
+      int var6 = var3.readShort();
       this.field1731 = new HashSet(var6);
 
       int var7;
@@ -33,7 +33,7 @@ public class class131 extends class149 {
          class214 var8 = new class214();
 
          try {
-            var8.method4368(var2, var3);
+            var8.method4368(var2, var3);//decode something
          } catch (IllegalStateException var13) {
             continue;
          }
@@ -41,14 +41,14 @@ public class class131 extends class149 {
          this.field1731.add(var8);
       }
 
-      var7 = var3.method2258();
+      var7 = var3.readShort();
       this.field1734 = new HashSet(var7);
 
       for(int var11 = 0; var11 < var7; ++var11) {
          class108 var9 = new class108();
 
          try {
-            var9.method1893(var2, var3);
+            var9.method1893(var2, var3);//decode something
          } catch (IllegalStateException var12) {
             continue;
          }
@@ -64,14 +64,14 @@ public class class131 extends class149 {
       signature = "(Lgm;ZB)V",
       garbageValue = "13"
    )
-   void method2512(class125 var1, boolean var2) {
+   void method2512(Buffer var1, boolean var2) {
       this.field1730 = new LinkedList();
-      int var3 = var1.method2258();
+      int var3 = var1.readShort();
 
       for(int var4 = 0; var4 < var3; ++var4) {
          int var5 = var1.method2293();
-         class58 var6 = new class58(var1.method2344());
-         boolean var7 = var1.method2256() == 1;
+         Location var6 = new Location(var1.readInt());
+         boolean var7 = var1.readUnsignedByte() == 1;
          if(var2 || !var7) {
             this.field1730.add(new class184(var5, var6));
          }
@@ -87,7 +87,7 @@ public class class131 extends class149 {
    static final void method2522(String var0) {
       class12 var1 = class150.method2761(ClientProt.field3164, client.field2384.field1770);
       var1.field121.method2288(class118.method2136(var0));
-      var1.field121.method2358(var0);
+      var1.field121.writeString(var0);
       client.field2384.method2573(var1);
    }
 
@@ -154,9 +154,9 @@ public class class131 extends class149 {
             try {
                class283 var10 = new class283(class305.field3772, "rw", 10000L);
 
-               class125 var11;
+               Buffer var11;
                int var12;
-               for(var11 = new class125((int)var10.method5445()); var11.field1693 < var11.field1694.length; var11.field1693 += var12) {
+               for(var11 = new Buffer((int)var10.method5445()); var11.field1693 < var11.field1694.length; var11.field1693 += var12) {
                   var12 = var10.method5446(var11.field1694, var11.field1693, var11.field1694.length - var11.field1693);
                   if(var12 == -1) {
                      throw new IOException();
@@ -164,14 +164,14 @@ public class class131 extends class149 {
                }
 
                var11.field1693 = 0;
-               var12 = var11.method2256();
+               var12 = var11.readUnsignedByte();
                if(var12 < 1 || var12 > 3) {
                   throw new IOException("" + var12);
                }
 
                int var13 = 0;
                if(var12 > 1) {
-                  var13 = var11.method2256();
+                  var13 = var11.readUnsignedByte();
                }
 
                if(var12 <= 2) {

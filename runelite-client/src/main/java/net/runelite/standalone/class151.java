@@ -25,7 +25,7 @@ public final class class151 {
    @ObfuscatedSignature(
       signature = "Lat;"
    )
-   final class208 this$0;
+   final WorldMapManager this$0;
    @ObfuscatedName("w")
    @ObfuscatedGetter(
       intValue = 1886120661
@@ -35,7 +35,7 @@ public final class class151 {
    @ObfuscatedSignature(
       signature = "(Lat;)V"
    )
-   class151(class208 var1) {
+   class151(WorldMapManager var1) {
       this.this$0 = var1;
    }
 
@@ -117,25 +117,25 @@ public final class class151 {
          class39.field387 = "Prepared visibility map";
          class39.field375 = 10;
          client.field2183 = 30;
-      } else if(client.field2183 == 30) {
-         class286.field3576 = class199.method3953(0, false, true, true);
-         class193.field2749 = class199.method3953(1, false, true, true);
-         class202.field2840 = class199.method3953(2, true, false, true);
-         class233.field3084 = class199.method3953(3, false, true, true);
-         class203.field2849 = class199.method3953(4, false, true, true);
-         class152.field1869 = class199.method3953(5, true, true, true);
-         client.field2428 = class199.method3953(6, true, true, true);
-         class149.field1851 = class199.method3953(7, false, true, true);
-         class138.field1782 = class199.method3953(8, false, true, true);
-         class94.field1014 = class199.method3953(9, false, true, true);
-         class219.field2982 = class199.method3953(10, false, true, true);
-         class226.field3043 = class199.method3953(11, false, true, true);
-         class88.field954 = class199.method3953(12, false, true, true);
-         class20.field231 = class199.method3953(13, true, false, true);
-         class47.field535 = class199.method3953(14, false, true, true);
-         class119.field1640 = class199.method3953(15, false, true, true);
-         class174.field2126 = class199.method3953(16, true, true, true);
-         class99.field1132 = class199.method3953(17, true, true, true);
+      } else if(client.field2183 == 30) { //readindexes
+         class286.field3576 = class199.readIndex(0, false, true, true);
+         class193.field2749 = class199.readIndex(1, false, true, true);
+         class202.configsIndex = class199.readIndex(2, true, false, true);
+         class233.field3084 = class199.readIndex(3, false, true, true);
+         class203.field2849 = class199.readIndex(4, false, true, true);
+         class152.mapsIndex = class199.readIndex(5, true, true, true);
+         client.field2428 = class199.readIndex(6, true, true, true);
+         WorldMapData.field1851 = class199.readIndex(7, false, true, true);
+         class138.spritesIndex = class199.readIndex(8, false, true, true);
+         class94.field1014 = class199.readIndex(9, false, true, true);
+         class219.binaryIndex = class199.readIndex(10, false, true, true);
+         class226.field3043 = class199.readIndex(11, false, true, true);
+         class88.clientScriptIndex = class199.readIndex(12, false, true, true);
+         class20.fontsIndex = class199.readIndex(13, true, false, true);
+         WorldMapRegion.field535 = class199.readIndex(14, false, true, true);
+         class119.worldMapIndex = class199.readIndex(15, false, true, true);
+         class174.field2126 = class199.readIndex(16, true, true, true);
+         class99.field1132 = class199.readIndex(17, true, true, true);
          class39.field387 = "Connecting to update server";
          class39.field375 = 20;
          client.field2183 = 40;
@@ -146,7 +146,7 @@ public final class class151 {
             var27.method1377(9, 128);
             class175.field2147 = class79.method1589(GameEngine.field3741, 0, 22050);
             class175.field2147.method5718(var27);
-            class194.method3919(class119.field1640, class47.field535, class203.field2849, var27);
+            class194.method3919(class119.worldMapIndex, WorldMapRegion.field535, class203.field2849, var27);
             class49.field553 = class79.method1589(GameEngine.field3741, 1, 2048);
             class220.field2985 = new class262();
             class49.field553.method5718(class220.field2985);
@@ -154,7 +154,7 @@ public final class class151 {
             class39.field387 = "Prepared sound engine";
             class39.field375 = 35;
             client.field2183 = 50;
-            class126.field1704 = new class223(class138.field1782, class20.field231);
+            class126.field1704 = new class223(class138.spritesIndex, class20.fontsIndex);
          } else {
             int var1;
             if(client.field2183 == 50) {
@@ -176,7 +176,7 @@ public final class class151 {
                   client.field2183 = 60;
                }
             } else if(client.field2183 == 60) {
-               var21 = class308.method6052(class219.field2982, class138.field1782);
+               var21 = class308.method6052(class219.binaryIndex, class138.spritesIndex);
                byte var22 = 11;
                if(var21 < var22) {
                   class39.field387 = "Loading title screen - " + var21 * 100 / var22 + "%";
@@ -188,52 +188,52 @@ public final class class151 {
                   client.field2183 = 70;
                }
             } else if(client.field2183 == 70) {
-               if(!class202.field2840.method4403()) {
-                  class39.field387 = "Loading config - " + class202.field2840.method95() + "%";
+               if(!class202.configsIndex.method4403()) {
+                  class39.field387 = "Loading config - " + class202.configsIndex.method95() + "%";
                   class39.field375 = 60;
                } else {
-                  class6 var25 = class202.field2840;
+                  class6 var25 = class202.configsIndex;
                   class93.field1012 = var25;
-                  class6 var18 = class202.field2840;
+                  class6 var18 = class202.configsIndex;
                   class40.field418 = var18;
-                  class174.method3221(class202.field2840, class149.field1851);
-                  class32.method535(class202.field2840, class149.field1851, client.field2157);
-                  class247.method4956(class202.field2840, class149.field1851);
-                  class6 var2 = class202.field2840;
+                  class174.method3221(class202.configsIndex, WorldMapData.field1851);
+                  class32.method535(class202.configsIndex, WorldMapData.field1851, client.field2157);
+                  class247.method4956(class202.configsIndex, WorldMapData.field1851);
+                  class6 var2 = class202.configsIndex;
                   class20.field228 = var2;
-                  class215.method4382(class202.field2840, class149.field1851, client.field2156, class103.field1149);
-                  class6 var3 = class202.field2840;
+                  class215.method4382(class202.configsIndex, WorldMapData.field1851, client.field2156, class103.field1149);
+                  class6 var3 = class202.configsIndex;
                   class6 var4 = class286.field3576;
                   class6 var5 = class193.field2749;
                   class312.field3834 = var3;
                   class312.field3839 = var4;
                   class312.field3831 = var5;
-                  class6 var6 = class202.field2840;
-                  class6 var7 = class149.field1851;
+                  class6 var6 = class202.configsIndex;
+                  class6 var7 = WorldMapData.field1851;
                   class71.field825 = var6;
                   class95.field1027 = var7;
-                  class6 var8 = class202.field2840;
+                  class6 var8 = class202.configsIndex;
                   class72.field832 = var8;
-                  class176.method3675(class202.field2840);
-                  class112.method2110(class233.field3084, class149.field1851, class138.field1782, class20.field231);
-                  class80.method1600(class202.field2840);
-                  class6 var9 = class202.field2840;
+                  class176.method3675(class202.configsIndex);
+                  class112.method2110(class233.field3084, WorldMapData.field1851, class138.spritesIndex, class20.fontsIndex);
+                  class80.method1600(class202.configsIndex);
+                  class6 var9 = class202.configsIndex;
                   class269.field3469 = var9;
-                  class6 var10 = class202.field2840;
+                  class6 var10 = class202.configsIndex;
                   class25.field263 = var10;
-                  class6 var11 = class202.field2840;
+                  class6 var11 = class202.configsIndex;
                   class56.field704 = var11;
-                  class6 var12 = class202.field2840;
+                  class6 var12 = class202.configsIndex;
                   class104.field1156 = var12;
                   class267.field3459 = new class90();
-                  class6 var13 = class202.field2840;
-                  class6 var14 = class138.field1782;
-                  class6 var15 = class20.field231;
+                  class6 var13 = class202.configsIndex;
+                  class6 var14 = class138.spritesIndex;
+                  class6 var15 = class20.fontsIndex;
                   class224.field3016 = var13;
                   class224.field3033 = var14;
                   class224.field3011 = var15;
-                  class18.method382(class202.field2840, class138.field1782);
-                  class84.method1620(class202.field2840, class138.field1782);
+                  class18.method382(class202.configsIndex, class138.spritesIndex);
+                  class84.method1620(class202.configsIndex, class138.spritesIndex);
                   class39.field387 = "Loaded config";
                   class39.field375 = 60;
                   client.field2183 = 80;
@@ -241,67 +241,67 @@ public final class class151 {
             } else if(client.field2183 == 80) {
                var21 = 0;
                if(class307.field3798 == null) {
-                  class307.field3798 = class91.method1715(class138.field1782, class133.field1739.field867, 0, (byte)-76);
+                  class307.field3798 = class91.method1715(class138.spritesIndex, class133.field1739.field867, 0, (byte)-76);
                } else {
                   ++var21;
                }
 
                if(class85.field922 == null) {
-                  class85.field922 = class91.method1715(class138.field1782, class133.field1739.field863, 0, (byte)-60);
+                  class85.field922 = class91.method1715(class138.spritesIndex, class133.field1739.field863, 0, (byte)-60);
                } else {
                   ++var21;
                }
 
                if(class64.field748 == null) {
-                  class64.field748 = class159.method2957(class138.field1782, class133.field1739.field864, 0);
+                  class64.field748 = class159.method2957(class138.spritesIndex, class133.field1739.field864, 0);
                } else {
                   ++var21;
                }
 
                if(class86.field928 == null) {
-                  class86.field928 = class103.method1851(class138.field1782, class133.field1739.field870, 0);
+                  class86.field928 = class103.method1851(class138.spritesIndex, class133.field1739.field870, 0);
                } else {
                   ++var21;
                }
 
                if(class88.field962 == null) {
-                  class88.field962 = class103.method1851(class138.field1782, class133.field1739.field866, 0);
+                  class88.field962 = class103.method1851(class138.spritesIndex, class133.field1739.field866, 0);
                } else {
                   ++var21;
                }
 
                if(class170.field2023 == null) {
-                  class170.field2023 = class103.method1851(class138.field1782, class133.field1739.field862, 0);
+                  class170.field2023 = class103.method1851(class138.spritesIndex, class133.field1739.field862, 0);
                } else {
                   ++var21;
                }
 
                if(class222.field3000 == null) {
-                  class222.field3000 = class103.method1851(class138.field1782, class133.field1739.field868, 0);
+                  class222.field3000 = class103.method1851(class138.spritesIndex, class133.field1739.field868, 0);
                } else {
                   ++var21;
                }
 
                if(class184.field2505 == null) {
-                  class184.field2505 = class103.method1851(class138.field1782, class133.field1739.field869, 0);
+                  class184.field2505 = class103.method1851(class138.spritesIndex, class133.field1739.field869, 0);
                } else {
                   ++var21;
                }
 
                if(class272.field3484 == null) {
-                  class272.field3484 = class103.method1851(class138.field1782, class133.field1739.field865, 0);
+                  class272.field3484 = class103.method1851(class138.spritesIndex, class133.field1739.field865, 0);
                } else {
                   ++var21;
                }
 
                if(class270.field3476 == null) {
-                  class270.field3476 = class159.method2957(class138.field1782, class133.field1739.field871, 0);
+                  class270.field3476 = class159.method2957(class138.spritesIndex, class133.field1739.field871, 0);
                } else {
                   ++var21;
                }
 
                if(class275.field3501 == null) {
-                  class275.field3501 = class159.method2957(class138.field1782, class133.field1739.field872, 0);
+                  class275.field3501 = class159.method2957(class138.spritesIndex, class133.field1739.field872, 0);
                } else {
                   ++var21;
                }
@@ -326,7 +326,7 @@ public final class class151 {
                   class39.field387 = "Loading textures - " + "0%";
                   class39.field375 = 90;
                } else {
-                  class176.field2433 = new class266(class94.field1014, class138.field1782, 20, 0.8D, client.field2157?64:128);
+                  class176.field2433 = new class266(class94.field1014, class138.spritesIndex, 20, 0.8D, client.field2157?64:128);
                   class211.method4251(class176.field2433);
                   class211.method4252(0.8D);
                   client.field2183 = 100;
@@ -342,17 +342,17 @@ public final class class151 {
                   client.field2183 = 110;
                }
             } else if(client.field2183 == 110) {
-               class208.field2882 = new class277();
-               GameEngine.field3741.method2138(class208.field2882, 10);
+               WorldMapManager.field2882 = new class277();
+               GameEngine.field3741.method2138(WorldMapManager.field2882, 10);
                class39.field387 = "Loaded input handler";
                class39.field375 = 92;
                client.field2183 = 120;
             } else if(client.field2183 == 120) {
-               if(!class219.field2982.method4419("huffman", "")) {
+               if(!class219.binaryIndex.method4419("huffman", "")) {
                   class39.field387 = "Loading wordpack - " + 0 + "%";
                   class39.field375 = 94;
                } else {
-                  class250 var16 = new class250(class219.field2982.method4418("huffman", ""));
+                  class250 var16 = new class250(class219.binaryIndex.takeRecordByNames("huffman", ""));
                   class12.method196(var16);
                   class39.field387 = "Loaded wordpack";
                   class39.field375 = 94;
@@ -362,11 +362,11 @@ public final class class151 {
                if(!class233.field3084.method4403()) {
                   class39.field387 = "Loading interfaces - " + class233.field3084.method95() * 4 / 5 + "%";
                   class39.field375 = 96;
-               } else if(!class88.field954.method4403()) {
-                  class39.field387 = "Loading interfaces - " + (80 + class88.field954.method95() / 6) + "%";
+               } else if(!class88.clientScriptIndex.method4403()) {
+                  class39.field387 = "Loading interfaces - " + (80 + class88.clientScriptIndex.method95() / 6) + "%";
                   class39.field375 = 96;
-               } else if(!class20.field231.method4403()) {
-                  class39.field387 = "Loading interfaces - " + (96 + class20.field231.method95() / 50) + "%";
+               } else if(!class20.fontsIndex.method4403()) {
+                  class39.field387 = "Loading interfaces - " + (96 + class20.fontsIndex.method95() / 50) + "%";
                   class39.field375 = 96;
                } else {
                   class39.field387 = "Loaded interfaces";
@@ -379,7 +379,7 @@ public final class class151 {
                   class39.field387 = "Loading world map - " + class174.field2126.method4413(class308.field3808.field3809) / 10 + "%";
                } else {
                   if(class199.field2812 == null) {
-                     class199.field2812 = new class287();
+                     class199.field2812 = new WorldMap();
                      class199.field2812.method5488(class174.field2126, class172.field2117, client.field2205, class64.field748);
                   }
 
@@ -399,20 +399,20 @@ public final class class151 {
          byte var0 = 0;
          var21 = var0 + class286.field3576.method111() * 4 / 100;
          var21 += class193.field2749.method111() * 4 / 100;
-         var21 += class202.field2840.method111() * 2 / 100;
+         var21 += class202.configsIndex.method111() * 2 / 100;
          var21 += class233.field3084.method111() * 2 / 100;
          var21 += class203.field2849.method111() * 6 / 100;
-         var21 += class152.field1869.method111() * 4 / 100;
+         var21 += class152.mapsIndex.method111() * 4 / 100;
          var21 += client.field2428.method111() * 2 / 100;
-         var21 += class149.field1851.method111() * 57 / 100;
-         var21 += class138.field1782.method111() * 2 / 100;
+         var21 += WorldMapData.field1851.method111() * 57 / 100;
+         var21 += class138.spritesIndex.method111() * 2 / 100;
          var21 += class94.field1014.method111() * 2 / 100;
-         var21 += class219.field2982.method111() * 2 / 100;
+         var21 += class219.binaryIndex.method111() * 2 / 100;
          var21 += class226.field3043.method111() * 2 / 100;
-         var21 += class88.field954.method111() * 2 / 100;
-         var21 += class20.field231.method111() * 2 / 100;
-         var21 += class47.field535.method111() * 2 / 100;
-         var21 += class119.field1640.method111() * 2 / 100;
+         var21 += class88.clientScriptIndex.method111() * 2 / 100;
+         var21 += class20.fontsIndex.method111() * 2 / 100;
+         var21 += WorldMapRegion.field535.method111() * 2 / 100;
+         var21 += class119.worldMapIndex.method111() * 2 / 100;
          var21 += class174.field2126.method111() * 2 / 100;
          var21 += class99.field1132.method96() && class99.field1132.method4403()?1:0;
          if(var21 != 100) {
@@ -425,13 +425,13 @@ public final class class151 {
             class295.method5780(class286.field3576, "Animations");
             class295.method5780(class193.field2749, "Skeletons");
             class295.method5780(class203.field2849, "Sound FX");
-            class295.method5780(class152.field1869, "Maps");
+            class295.method5780(class152.mapsIndex, "Maps");
             class295.method5780(client.field2428, "Music Tracks");
-            class295.method5780(class149.field1851, "Models");
-            class295.method5780(class138.field1782, "Sprites");
+            class295.method5780(WorldMapData.field1851, "Models");
+            class295.method5780(class138.spritesIndex, "Sprites");
             class295.method5780(class226.field3043, "Music Jingles");
-            class295.method5780(class47.field535, "Music Samples");
-            class295.method5780(class119.field1640, "Music Patches");
+            class295.method5780(WorldMapRegion.field535, "Music Samples");
+            class295.method5780(class119.worldMapIndex, "Music Patches");
             class295.method5780(class174.field2126, "World Map");
             class133.field1739 = new class78();
             class133.field1739.method1584(class99.field1132);

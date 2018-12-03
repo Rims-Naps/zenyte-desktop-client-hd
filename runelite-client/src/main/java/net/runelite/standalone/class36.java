@@ -86,7 +86,7 @@ public abstract class class36 {
       int var3 = -1;
 
       for(int var4 = var1; var4 < var2; ++var4) {
-         var3 = var3 >>> 8 ^ class125.field1695[(var3 ^ var0[var4]) & 255];
+         var3 = var3 >>> 8 ^ Buffer.field1695[(var3 ^ var0[var4]) & 255];
       }
 
       var3 = ~var3;

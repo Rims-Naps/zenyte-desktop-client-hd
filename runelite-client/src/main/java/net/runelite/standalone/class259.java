@@ -176,7 +176,7 @@ public class class259 {
          byte[] var7 = class72.field832.method4398(14, var0, 1041808246);
          var2 = new class72();
          if(var7 != null) {
-            var2.method1543(new class125(var7));
+            var2.method1543(new Buffer(var7));
          }
 
          class72.field827.method1820(var2, (long)var0);

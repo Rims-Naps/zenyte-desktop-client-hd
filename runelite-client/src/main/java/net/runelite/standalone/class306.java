@@ -56,24 +56,24 @@ public class class306 extends class168 implements RSFriendContainer {
       signature = "(Lgm;IB)V",
       garbageValue = "53"
    )
-   public void method6019(class125 var1, int var2) {
+   public void method6019(Buffer var1, int var2) {
       while(true) {
          if(var1.field1693 < var2) {
-            boolean var3 = var1.method2256() == 1;
-            class158 var4 = new class158(var1.method2265(), this.field3788);
-            class158 var5 = new class158(var1.method2265(), this.field3788);
-            int var6 = var1.method2258();
-            int var7 = var1.method2256();
-            int var8 = var1.method2256();
+            boolean var3 = var1.readUnsignedByte() == 1;
+            class158 var4 = new class158(var1.readString(), this.field3788);
+            class158 var5 = new class158(var1.readString(), this.field3788);
+            int var6 = var1.readShort();
+            int var7 = var1.readUnsignedByte();
+            int var8 = var1.readUnsignedByte();
             boolean var9 = (var8 & 2) != 0;
             boolean var10 = (var8 & 1) != 0;
             if(var6 > 0) {
-               var1.method2265();
-               var1.method2256();
-               var1.method2344();
+               var1.readString();
+               var1.readUnsignedByte();
+               var1.readInt();
             }
 
-            var1.method2265();
+            var1.readString();
             if(var4 != null && var4.method2870()) {
                class73 var11 = (class73)this.method3032(var4);
                if(var3) {

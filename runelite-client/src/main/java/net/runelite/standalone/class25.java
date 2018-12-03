@@ -31,9 +31,9 @@ public class class25 extends class324 {
       signature = "(Lgm;B)V",
       garbageValue = "-10"
    )
-   void method452(class125 var1) {
+   void method452(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }
@@ -47,7 +47,7 @@ public class class25 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "-1144596178"
    )
-   void method450(class125 var1, int var2) {
+   void method450(Buffer var1, int var2) {
       if(var2 == 2) {
          this.field265 = true;
       }

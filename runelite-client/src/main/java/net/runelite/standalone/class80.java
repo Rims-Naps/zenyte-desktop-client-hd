@@ -82,9 +82,9 @@ public class class80 extends class197 implements RSCombatInfo1 {
                      class187.field2547[var0][var2] = new class187();
                      class187.field2547[var0][var2].field2621 = var2 + (var0 << 16);
                      if(var3[0] == -1) {
-                        class187.field2547[var0][var2].method3768(new class125(var3));
+                        class187.field2547[var0][var2].method3768(new Buffer(var3));
                      } else {
-                        class187.field2547[var0][var2].method3795(new class125(var3));
+                        class187.field2547[var0][var2].method3795(new Buffer(var3));
                      }
                   }
                }

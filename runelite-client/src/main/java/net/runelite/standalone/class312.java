@@ -202,9 +202,9 @@ public class class312 extends class324 implements RSSequence {
       signature = "(Lgm;I)V",
       garbageValue = "-1166655253"
    )
-   void method6096(class125 var1) {
+   void method6096(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }
@@ -452,66 +452,66 @@ public class class312 extends class324 implements RSSequence {
       signature = "(Lgm;II)V",
       garbageValue = "1619814780"
    )
-   void method6097(class125 var1, int var2) {
+   void method6097(Buffer var1, int var2) {
       int var3;
       int var4;
       if(var2 == 1) {
-         var3 = var1.method2258();
+         var3 = var1.readShort();
          this.field3836 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3836[var4] = var1.method2258();
+            this.field3836[var4] = var1.readShort();
          }
 
          this.field3844 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3844[var4] = var1.method2258();
+            this.field3844[var4] = var1.readShort();
          }
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3844[var4] += var1.method2258() << 16;
+            this.field3844[var4] += var1.readShort() << 16;
          }
       } else if(var2 == 2) {
-         this.field3838 = var1.method2258();
+         this.field3838 = var1.readShort();
       } else if(var2 == 3) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          this.field3846 = new int[var3 + 1];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3846[var4] = var1.method2256();
+            this.field3846[var4] = var1.readUnsignedByte();
          }
 
          this.field3846[var3] = 9999999;
       } else if(var2 == 4) {
          this.field3842 = true;
       } else if(var2 == 5) {
-         this.field3841 = var1.method2256();
+         this.field3841 = var1.readUnsignedByte();
       } else if(var2 == 6) {
-         this.field3847 = var1.method2258();
+         this.field3847 = var1.readShort();
       } else if(var2 == 7) {
-         this.field3843 = var1.method2258();
+         this.field3843 = var1.readShort();
       } else if(var2 == 8) {
-         this.field3840 = var1.method2256();
+         this.field3840 = var1.readUnsignedByte();
       } else if(var2 == 9) {
-         this.field3845 = var1.method2256();
+         this.field3845 = var1.readUnsignedByte();
       } else if(var2 == 10) {
-         this.field3829 = var1.method2256();
+         this.field3829 = var1.readUnsignedByte();
       } else if(var2 == 11) {
-         this.field3830 = var1.method2256();
+         this.field3830 = var1.readUnsignedByte();
       } else if(var2 == 12) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          this.field3835 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3835[var4] = var1.method2258();
+            this.field3835[var4] = var1.readShort();
          }
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3835[var4] += var1.method2258() << 16;
+            this.field3835[var4] += var1.readShort() << 16;
          }
       } else if(var2 == 13) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          this.field3837 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {

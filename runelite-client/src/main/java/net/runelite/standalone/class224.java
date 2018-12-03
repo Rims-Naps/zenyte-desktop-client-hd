@@ -189,9 +189,9 @@ public class class224 extends class324 {
       signature = "(Lgm;I)V",
       garbageValue = "-1827082512"
    )
-   void method4524(class125 var1) {
+   void method4524(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }
@@ -315,7 +315,7 @@ public class class224 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "457061005"
    )
-   void method4525(class125 var1, int var2) {
+   void method4525(Buffer var1, int var2) {
       if(var2 == 1) {
          this.field3019 = var1.method2293();
       } else if(var2 == 2) {
@@ -333,41 +333,41 @@ public class class224 extends class324 {
       } else if(var2 == 8) {
          this.field3022 = var1.method2266();
       } else if(var2 == 9) {
-         this.field3021 = var1.method2258();
+         this.field3021 = var1.readShort();
       } else if(var2 == 10) {
          this.field3027 = var1.method2456();
       } else if(var2 == 11) {
          this.field3028 = 0;
       } else if(var2 == 12) {
-         this.field3030 = var1.method2256();
+         this.field3030 = var1.readUnsignedByte();
       } else if(var2 == 13) {
          this.field3031 = var1.method2456();
       } else if(var2 == 14) {
-         this.field3028 = var1.method2258();
+         this.field3028 = var1.readShort();
       } else if(var2 == 17 || var2 == 18) {
-         this.field3029 = var1.method2258();
+         this.field3029 = var1.readShort();
          if(this.field3029 == 65535) {
             this.field3029 = -1;
          }
 
-         this.field3034 = var1.method2258();
+         this.field3034 = var1.readShort();
          if(this.field3034 == 65535) {
             this.field3034 = -1;
          }
 
          int var3 = -1;
          if(var2 == 18) {
-            var3 = var1.method2258();
+            var3 = var1.readShort();
             if(var3 == 65535) {
                var3 = -1;
             }
          }
 
-         int var4 = var1.method2256();
+         int var4 = var1.readUnsignedByte();
          this.field3025 = new int[var4 + 2];
 
          for(int var5 = 0; var5 <= var4; ++var5) {
-            this.field3025[var5] = var1.method2258();
+            this.field3025[var5] = var1.readShort();
             if(this.field3025[var5] == 65535) {
                this.field3025[var5] = -1;
             }

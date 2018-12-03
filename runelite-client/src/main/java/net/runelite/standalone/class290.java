@@ -31,6 +31,6 @@ public class class290 extends class320 {
       garbageValue = "-32841725"
    )
    static final void method5706(String var0) {
-      class149.method2707("Please remove " + var0 + " from your ignore list first");
+      WorldMapData.method2707("Please remove " + var0 + " from your ignore list first");
    }
 }

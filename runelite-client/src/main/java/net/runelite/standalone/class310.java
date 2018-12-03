@@ -68,14 +68,14 @@ public class class310 extends class320 {
       class193.field2749.method4414();
       class233.field3084.method4414();
       class203.field2849.method4414();
-      class152.field1869.method4414();
+      class152.mapsIndex.method4414();
       client.field2428.method4414();
-      class149.field1851.method4414();
-      class138.field1782.method4414();
+      WorldMapData.field1851.method4414();
+      class138.spritesIndex.method4414();
       class94.field1014.method4414();
-      class219.field2982.method4414();
+      class219.binaryIndex.method4414();
       class226.field3043.method4414();
-      class88.field954.method4414();
+      class88.clientScriptIndex.method4414();
       class269.field3464.method1925();
 
       for(int var0 = 0; var0 < 4; ++var0) {

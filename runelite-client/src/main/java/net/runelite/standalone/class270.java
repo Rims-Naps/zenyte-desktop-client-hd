@@ -41,7 +41,7 @@ public class class270 {
       signature = "(Lgm;[BI)V",
       garbageValue = "-565718118"
    )
-   public void method5332(class125 var1, byte[] var2) {
+   public void method5332(Buffer var1, byte[] var2) {
       if(var1.field1694[var1.field1693] == 31 && var1.field1694[var1.field1693 + 1] == -117) {
          if(this.field3481 == null) {
             this.field3481 = new Inflater(true);

@@ -63,7 +63,7 @@ public abstract class class217 implements RSIndexDataBase {
    @ObfuscatedGetter(
       intValue = 829165449
    )
-   public int field2953;
+   public int crc;
    @ObfuscatedName("e")
    @ObfuscatedSignature(
       signature = "Lgc;"
@@ -254,19 +254,19 @@ public abstract class class217 implements RSIndexDataBase {
    void method4396(byte[] var1) {
       int var3 = var1.length;
       int var2 = class36.method653(var1, 0, var3);
-      this.field2953 = var2;
-      class125 var4 = new class125(class84.method1618(var1));
-      int var5 = var4.method2256();
+      this.crc = var2;
+      Buffer var4 = new Buffer(class84.method1618(var1));
+      int var5 = var4.readUnsignedByte();
       if(var5 >= 5 && var5 <= 7) {
          if(var5 >= 6) {
-            var4.method2344();
+            var4.readInt();
          }
 
-         int var6 = var4.method2256();
+         int var6 = var4.readUnsignedByte();
          if(var5 >= 7) {
             this.field2965 = var4.method2272();
          } else {
-            this.field2965 = var4.method2258();
+            this.field2965 = var4.readShort();
          }
 
          int var7 = 0;
@@ -282,7 +282,7 @@ public abstract class class217 implements RSIndexDataBase {
             }
          } else {
             for(var9 = 0; var9 < this.field2965; ++var9) {
-               this.field2954[var9] = var7 += var4.method2258();
+               this.field2954[var9] = var7 += var4.readShort();
                if(this.field2954[var9] > var8) {
                   var8 = this.field2954[var9];
                }
@@ -299,22 +299,22 @@ public abstract class class217 implements RSIndexDataBase {
             this.field2959 = new int[var8 + 1];
 
             for(var9 = 0; var9 < this.field2965; ++var9) {
-               this.field2959[this.field2954[var9]] = var4.method2344();
+               this.field2959[this.field2954[var9]] = var4.readInt();
             }
 
             this.field2956 = new class68(this.field2959);
          }
 
          for(var9 = 0; var9 < this.field2965; ++var9) {
-            this.field2957[this.field2954[var9]] = var4.method2344();
+            this.field2957[this.field2954[var9]] = var4.readInt();
          }
 
          for(var9 = 0; var9 < this.field2965; ++var9) {
-            this.field2958[this.field2954[var9]] = var4.method2344();
+            this.field2958[this.field2954[var9]] = var4.readInt();
          }
 
          for(var9 = 0; var9 < this.field2965; ++var9) {
-            this.field2966[this.field2954[var9]] = var4.method2258();
+            this.field2966[this.field2954[var9]] = var4.readShort();
          }
 
          int var10;
@@ -348,7 +348,7 @@ public abstract class class217 implements RSIndexDataBase {
                this.field2955[var10] = new int[var11];
 
                for(var13 = 0; var13 < var11; ++var13) {
-                  var14 = this.field2955[var10][var13] = var7 += var4.method2258();
+                  var14 = this.field2955[var10][var13] = var7 += var4.readShort();
                   if(var14 > var12) {
                      var12 = var14;
                   }
@@ -368,7 +368,7 @@ public abstract class class217 implements RSIndexDataBase {
                this.field2961[var10] = new int[this.field2964[var10].length];
 
                for(var12 = 0; var12 < var11; ++var12) {
-                  this.field2961[var10][this.field2955[var10][var12]] = var4.method2344();
+                  this.field2961[var10][this.field2955[var10][var12]] = var4.readInt();
                }
 
                this.field2962[var10] = new class68(this.field2961[var10]);
@@ -446,7 +446,7 @@ public abstract class class217 implements RSIndexDataBase {
             byte[] var18;
             if(var2 != null && (var2[0] != 0 || var2[1] != 0 || var2[2] != 0 || var2[3] != 0)) {
                var18 = class252.method5078(this.field2963[var1], true);
-               class125 var8 = new class125(var18);
+               Buffer var8 = new Buffer(var18);
                var8.method2463(var2, 5, var8.field1694.length);
             } else {
                var18 = class252.method5078(this.field2963[var1], false);
@@ -462,7 +462,7 @@ public abstract class class217 implements RSIndexDataBase {
                --var9;
                int var10 = var20[var9] & 255;
                var9 -= var3 * var10 * 4;
-               class125 var11 = new class125(var20);
+               Buffer var11 = new Buffer(var20);
                int[] var12 = new int[var3];
                var11.field1693 = var9;
 
@@ -472,7 +472,7 @@ public abstract class class217 implements RSIndexDataBase {
                   var14 = 0;
 
                   for(var15 = 0; var15 < var3; ++var15) {
-                     var14 += var11.method2344();
+                     var14 += var11.readInt();
                      var12[var15] += var14;
                   }
                }
@@ -491,7 +491,7 @@ public abstract class class217 implements RSIndexDataBase {
                   int var16 = 0;
 
                   for(int var17 = 0; var17 < var3; ++var17) {
-                     var16 += var11.method2344();
+                     var16 += var11.readInt();
                      System.arraycopy(var20, var14, var19[var17], var12[var17], var16);
                      var12[var17] += var16;
                      var14 += var16;
@@ -661,11 +661,12 @@ public abstract class class217 implements RSIndexDataBase {
       signature = "(Ljava/lang/String;Ljava/lang/String;I)[B",
       garbageValue = "231489877"
    )
-   public byte[] method4418(String var1, String var2) {
+   public byte[] takeRecordByNames(String var1, String var2) {
       var1 = var1.toLowerCase();
       var2 = var2.toLowerCase();
       int var3 = this.field2956.method1492(class205.method4047(var1));
       int var4 = this.field2962[var3].method1492(class205.method4047(var2));
+      System.out.println("[" + var1 + ":" + var3 + "] [" + var2 + ":" + var4 + "]");
       return this.method4398(var3, var4, -67742742);
    }
 
@@ -748,7 +749,7 @@ public abstract class class217 implements RSIndexDataBase {
       signature = "(Lgm;I)Ljava/lang/String;",
       garbageValue = "1639178141"
    )
-   public static String method4432(class125 var0) {
+   public static String method4432(Buffer var0) {
       String var1;
       try {
          int var2 = var0.method2270();

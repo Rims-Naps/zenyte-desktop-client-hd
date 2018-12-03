@@ -14,7 +14,7 @@ public class class294 {
    @ObfuscatedSignature(
       signature = "Lhx;"
    )
-   public class58 field3680;
+   public Location field3680;
    @ObfuscatedName("f")
    @ObfuscatedGetter(
       intValue = 733802741
@@ -24,12 +24,12 @@ public class class294 {
    @ObfuscatedSignature(
       signature = "Lhx;"
    )
-   public class58 field3678;
+   public Location field3678;
 
    @ObfuscatedSignature(
       signature = "(ILhx;Lhx;)V"
    )
-   public class294(int var1, class58 var2, class58 var3) {
+   public class294(int var1, Location var2, Location var3) {
       this.field3679 = var1;
       this.field3680 = var2;
       this.field3678 = var3;
@@ -61,19 +61,19 @@ public class class294 {
             class296.field3696 = class179.field2454.method2234(new URL(class82.field905));
          } else if(class296.field3696.method6191()) {
             byte[] var0 = class296.field3696.method6190();
-            class125 var1 = new class125(var0);
-            var1.method2344();
-            class88.field944 = var1.method2258();
+            Buffer var1 = new Buffer(var0);
+            var1.readInt();
+            class88.field944 = var1.readShort();
             class88.field947 = new class88[class88.field944];
 
             class88 var3;
             for(int var2 = 0; var2 < class88.field944; var3.field961 = var2++) {
                var3 = class88.field947[var2] = new class88();
-               var3.field958 = var1.method2258();
-               var3.field953 = var1.method2344();
-               var3.field955 = var1.method2265();
-               var3.field956 = var1.method2265();
-               var3.field957 = var1.method2256();
+               var3.field958 = var1.readShort();
+               var3.field953 = var1.readInt();
+               var3.field955 = var1.readString();
+               var3.field956 = var1.readString();
+               var3.field957 = var1.readUnsignedByte();
                var3.field952 = var1.method2456();
                var3.playerCountChanged(-1);
             }
@@ -99,7 +99,7 @@ public class class294 {
       if(class250.field3328 != null) {
          class12 var1 = class150.method2761(ClientProt.field3169, client.field2384.field1770);
          var1.field121.method2288(class118.method2136(var0));
-         var1.field121.method2358(var0);
+         var1.field121.writeString(var0);
          client.field2384.method2573(var1);
       }
    }

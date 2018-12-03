@@ -43,7 +43,7 @@ public class class113 extends class320 {
          byte[] var2 = class278.field3518.method4398(16, var0, 927269169);
          var1 = new class278();
          if(var2 != null) {
-            var1.method5386(new class125(var2));
+            var1.method5386(new Buffer(var2));
          }
 
          class278.field3515.method1820(var1, (long)var0);
@@ -64,7 +64,7 @@ public class class113 extends class320 {
          byte[] var2 = class40.field418.method4398(1, var0, 70368649);
          var1 = new class40();
          if(var2 != null) {
-            var1.method719(new class125(var2), var0);
+            var1.method719(new Buffer(var2), var0);
          }
 
          var1.method721();

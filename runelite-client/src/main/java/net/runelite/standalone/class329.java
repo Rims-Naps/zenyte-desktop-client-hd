@@ -129,7 +129,7 @@ public class class329 {
                if(var9 != 32767) {
                   var10 = var0.method2270();
                   var11 = var0.method2285();
-                  var12 = var9 > 0?var0.method2256():var11;
+                  var12 = var9 > 0?var0.readUnsignedByte():var11;
                   var2.method1804(var8, client.field2165, var9, var10, var11, var12);
                } else {
                   var2.method1791(var8);
@@ -167,7 +167,7 @@ public class class329 {
          var2.field1117 = var0.method2290();
          var2.field1118 = var0.method2460() + client.field2165;
          var2.field1119 = var0.method2268() + client.field2165;
-         var2.field1113 = var0.method2258();
+         var2.field1113 = var0.readShort();
          if(var2.field2826) {
             var2.field1126 += var2.field2827;
             var2.field1116 += var2.field2806;
@@ -186,7 +186,7 @@ public class class329 {
       }
 
       if((var3 & 32) != 0) {
-         var2.field1085 = var0.method2265();
+         var2.field1085 = var0.readString();
          if(var2.field1085.charAt(0) == '~') {
             var2.field1085 = var2.field1085.substring(1);
             ServerProt.method3131(2, var2.field2802.method2869(), var2.field1085);
@@ -211,7 +211,7 @@ public class class329 {
       if((var3 & 1) != 0) {
          var5 = var0.method2287();
          byte[] var13 = new byte[var5];
-         class125 var14 = new class125(var13);
+         Buffer var14 = new Buffer(var13);
          var0.method2295(var13, 0, var5);
          class152.field1888[var1] = var14;
          var2.method3948(var14);
@@ -232,9 +232,9 @@ public class class329 {
 
       if((var3 & 16) != 0) {
          var5 = var0.method2460();
-         class222 var19 = (class222)class38.method678(class198.method3946(), var0.method2256());
+         class222 var19 = (class222)class38.method678(class198.method3946(), var0.readUnsignedByte());
          boolean var17 = var0.method2286() == 1;
-         var8 = var0.method2256();
+         var8 = var0.readUnsignedByte();
          var9 = var0.field1693;
          if(var2.field2802 != null && var2.field2801 != null) {
             boolean var18 = false;
@@ -272,17 +272,17 @@ public class class329 {
 
       if((var3 & 256) != 0) {
          for(var5 = 0; var5 < 3; ++var5) {
-            var2.field2813[var5] = var0.method2265();
+            var2.field2813[var5] = var0.readString();
          }
       }
 
       if((var3 & 128) != 0) {
-         var5 = var0.method2258();
+         var5 = var0.readShort();
          if(var5 == 65535) {
             var5 = -1;
          }
 
-         var6 = var0.method2256();
+         var6 = var0.readUnsignedByte();
          class147.method2675(var2, var5, var6);
       }
 

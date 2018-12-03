@@ -84,7 +84,7 @@ public class class327 implements RSPlayerComposition {
             int var11;
             for(int var10 = 0; var10 < 12; ++var10) {
                var11 = var7[var10];
-               if(var11 >= 256 && var11 < 512 && !class125.method2472(var11 - 256).method4741()) {
+               if(var11 >= 256 && var11 < 512 && !Buffer.method2472(var11 - 256).method4741()) {
                   var9 = true;
                }
 
@@ -112,7 +112,7 @@ public class class327 implements RSPlayerComposition {
                   var13 = var7[var12];
                   class34 var14;
                   if(var13 >= 256 && var13 < 512) {
-                     var14 = class125.method2472(var13 - 256).method4742();
+                     var14 = Buffer.method2472(var13 - 256).method4742();
                      if(var14 != null) {
                         var16[var11++] = var14;
                      }
@@ -230,7 +230,7 @@ public class class327 implements RSPlayerComposition {
                   }
                }
 
-               var4 = class125.method2472(var3);
+               var4 = Buffer.method2472(var3);
             } while(var4 == null || var4.field3155 || var1 + (this.field3964?7:0) != var4.field3146);
 
             this.field3962[field3965[var1]] = var3 + 256;
@@ -261,7 +261,7 @@ public class class327 implements RSPlayerComposition {
 
          for(int var5 = 0; var5 < 7; ++var5) {
             for(int var6 = 0; var6 < class241.field3145; ++var6) {
-               class241 var7 = class125.method2472(var6);
+               class241 var7 = Buffer.method2472(var6);
                if(var7 != null && !var7.field3155 && var7.field3146 == (var3?7:0) + var5) {
                   var1[field3965[var5]] = var6 + 256;
                   break;
@@ -291,7 +291,7 @@ public class class327 implements RSPlayerComposition {
          int var3;
          for(int var2 = 0; var2 < 12; ++var2) {
             var3 = this.field3962[var2];
-            if(var3 >= 256 && var3 < 512 && !class125.method2472(var3 - 256).method4743()) {
+            if(var3 >= 256 && var3 < 512 && !Buffer.method2472(var3 - 256).method4743()) {
                var1 = true;
             }
 
@@ -311,7 +311,7 @@ public class class327 implements RSPlayerComposition {
                var5 = this.field3962[var4];
                class34 var6;
                if(var5 >= 256 && var5 < 512) {
-                  var6 = class125.method2472(var5 - 256).method4761();
+                  var6 = Buffer.method2472(var5 - 256).method4761();
                   if(var6 != null) {
                      var7[var3++] = var6;
                   }
@@ -386,7 +386,7 @@ public class class327 implements RSPlayerComposition {
       signature = "(Lgm;B)V",
       garbageValue = "-15"
    )
-   public void method6287(class125 var1) {
+   public void method6287(Buffer var1) {
       var1.method2288(this.field3964?1:0);
 
       int var2;

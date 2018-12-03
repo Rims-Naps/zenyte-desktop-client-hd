@@ -236,7 +236,7 @@ public class class229 {
          byte[] var2 = class224.field3016.method4398(32, var0, 644655751);
          var1 = new class224();
          if(var2 != null) {
-            var1.method4524(new class125(var2));
+            var1.method4524(new Buffer(var2));
          }
 
          class224.field3012.method1820(var1, (long)var0);
@@ -280,24 +280,24 @@ public class class229 {
    )
    static class296 method4604(byte[] var0) {
       class296 var1 = new class296();
-      class125 var2 = new class125(var0);
+      Buffer var2 = new Buffer(var0);
       var2.field1693 = var2.field1694.length - 2;
-      int var3 = var2.method2258();
+      int var3 = var2.readShort();
       int var4 = var2.field1694.length - 2 - var3 - 12;
       var2.field1693 = var4;
-      int var5 = var2.method2344();
-      var1.field3691 = var2.method2258();
-      var1.field3700 = var2.method2258();
-      var1.field3693 = var2.method2258();
-      var1.field3692 = var2.method2258();
-      int var6 = var2.method2256();
+      int var5 = var2.readInt();
+      var1.field3691 = var2.readShort();
+      var1.field3700 = var2.readShort();
+      var1.field3693 = var2.readShort();
+      var1.field3692 = var2.readShort();
+      int var6 = var2.readUnsignedByte();
       int var7;
       int var8;
       if(var6 > 0) {
          var1.field3695 = var1.method5783(var6);
 
          for(var7 = 0; var7 < var6; ++var7) {
-            var8 = var2.method2258();
+            var8 = var2.readShort();
             int var9;
             int var11;
             if(var8 > 0) {
@@ -317,8 +317,8 @@ public class class229 {
             var1.field3695[var7] = var13;
 
             while(var8-- > 0) {
-               var11 = var2.method2344();
-               int var12 = var2.method2344();
+               var11 = var2.readInt();
+               int var12 = var2.readInt();
                var13.method4672(new class228(var12), (long)var11);
             }
          }
@@ -331,13 +331,13 @@ public class class229 {
       var1.field3690 = new String[var5];
 
       for(var7 = 0; var2.field1693 < var4; var1.field3697[var7++] = var8) {
-         var8 = var2.method2258();
+         var8 = var2.readShort();
          if(var8 == 3) {
-            var1.field3690[var7] = var2.method2265();
+            var1.field3690[var7] = var2.readString();
          } else if(var8 < 100 && var8 != 21 && var8 != 38 && var8 != 39) {
-            var1.field3689[var7] = var2.method2344();
+            var1.field3689[var7] = var2.readInt();
          } else {
-            var1.field3689[var7] = var2.method2256();
+            var1.field3689[var7] = var2.readUnsignedByte();
          }
       }
 

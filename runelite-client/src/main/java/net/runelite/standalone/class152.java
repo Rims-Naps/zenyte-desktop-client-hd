@@ -39,7 +39,7 @@ public class class152 {
    @ObfuscatedSignature(
       signature = "Lim;"
    )
-   static class6 field1869;
+   static class6 mapsIndex;
    @ObfuscatedName("a")
    @ObfuscatedGetter(
       intValue = 380079455
@@ -49,19 +49,19 @@ public class class152 {
    @ObfuscatedSignature(
       signature = "Lgm;"
    )
-   static class125 field1883;
+   static Buffer field1883;
    @ObfuscatedName("e")
    @ObfuscatedSignature(
       signature = "[Lgm;"
    )
-   static class125[] field1888;
+   static Buffer[] field1888;
    @ObfuscatedName("w")
    static byte[] field1871;
 
    static {
       field1871 = new byte[2048];
       field1877 = new byte[2048];
-      field1888 = new class125[2048];
+      field1888 = new Buffer[2048];
       field1874 = 0;
       field1875 = new int[2048];
       field1876 = 0;
@@ -71,6 +71,6 @@ public class class152 {
       field1880 = new int[2048];
       field1881 = 0;
       field1878 = new int[2048];
-      field1883 = new class125(new byte[5000]);
+      field1883 = new Buffer(new byte[5000]);
    }
 }

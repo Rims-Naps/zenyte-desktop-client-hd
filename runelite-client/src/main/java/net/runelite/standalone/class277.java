@@ -131,7 +131,7 @@ public class class277 implements Runnable {
                      class308.field3811 -= 2;
                      var4 = class249.field3312[class308.field3811];
                      var5 = class249.field3312[class308.field3811 + 1];
-                     var13 = class20.field231.method4398(var5, 0, 549820083);
+                     var13 = class20.fontsIndex.method4398(var5, 0, 549820083);
                      var14 = new class299(var13);
                      class249.field3312[++class308.field3811 - 1] = var14.method3812(var3, var4);
                      return 1;
@@ -140,7 +140,7 @@ public class class277 implements Runnable {
                      class308.field3811 -= 2;
                      var4 = class249.field3312[class308.field3811];
                      var5 = class249.field3312[class308.field3811 + 1];
-                     var13 = class20.field231.method4398(var5, 0, -32568540);
+                     var13 = class20.fontsIndex.method4398(var5, 0, -32568540);
                      var14 = new class299(var13);
                      class249.field3312[++class308.field3811 - 1] = var14.method3857(var3, var4);
                      return 1;

@@ -202,9 +202,9 @@ public enum class49 implements class26 {
                   for(var3 = 0; var3 < class152.field1881; ++var3) {
                      var4 = class152.field1878[var3];
                      var7 = client.field2269[var4];
-                     var6 = var0.method2256();
+                     var6 = var0.readUnsignedByte();
                      if((var6 & 8) != 0) {
-                        var6 += var0.method2256() << 8;
+                        var6 += var0.readUnsignedByte() << 8;
                      }
 
                      class329.method6324(var0, var4, var7, var6);

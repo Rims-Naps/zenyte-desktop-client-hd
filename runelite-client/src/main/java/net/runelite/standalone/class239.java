@@ -90,7 +90,7 @@ public class class239 {
    @ObfuscatedSignature(
       signature = "Lgm;"
    )
-   public static class125 field3125;
+   public static Buffer field3125;
    @ObfuscatedName("t")
    public static CRC32 field3137;
    @ObfuscatedName("e")
@@ -110,7 +110,7 @@ public class class239 {
       field3133 = 0;
       field3131 = new class98(4096);
       field3123 = 0;
-      field3125 = new class125(8);
+      field3125 = new Buffer(8);
       field3136 = 0;
       field3137 = new CRC32();
       field3138 = new class6[256];

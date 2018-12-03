@@ -20,7 +20,7 @@ public class class138 {
    @ObfuscatedSignature(
       signature = "Lim;"
    )
-   static class6 field1782;
+   static class6 spritesIndex;
    @ObfuscatedName("ev")
    static SecureRandom field1779;
    @ObfuscatedName("l")
@@ -46,9 +46,9 @@ public class class138 {
       signature = "(Lgm;Z)V",
       garbageValue = "1"
    )
-   public class138(class125 var1, boolean var2) {
-      int var3 = var1.method2258();
-      boolean var4 = var1.method2256() == 1;
+   public class138(Buffer var1, boolean var2) {
+      int var3 = var1.readShort();
+      boolean var4 = var1.readUnsignedByte() == 1;
       byte var5;
       if(var4) {
          var5 = 1;
@@ -56,7 +56,7 @@ public class class138 {
          var5 = 0;
       }
 
-      int var6 = var1.method2258();
+      int var6 = var1.readShort();
       this.field1783 = new ArrayList(var6);
 
       for(int var7 = 0; var7 < var6; ++var7) {

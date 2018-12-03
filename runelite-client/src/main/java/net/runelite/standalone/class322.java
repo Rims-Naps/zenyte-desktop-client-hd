@@ -106,7 +106,7 @@ public class class322 extends class197 implements RSWidgetNode {
          var2.write("data1=req");
          var2.flush();
          InputStream var3 = var1.getInputStream();
-         class125 var4 = new class125(new byte[1000]);
+         Buffer var4 = new Buffer(new byte[1000]);
 
          do {
             int var5 = var3.read(var4.field1694, var4.field1693, 1000 - var4.field1693);

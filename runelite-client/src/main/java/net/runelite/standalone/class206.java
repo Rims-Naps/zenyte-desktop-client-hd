@@ -189,7 +189,7 @@ public class class206 {
    static void method4091(File var0, File var1) {
       try {
          class283 var2 = new class283(class305.field3772, "rw", 10000L);
-         class125 var3 = new class125(500);
+         Buffer var3 = new Buffer(500);
          var3.method2288(3);
          var3.method2288(var1 != null?1:0);
          var3.method2250(var0.getPath());

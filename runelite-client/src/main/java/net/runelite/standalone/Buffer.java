@@ -7,7 +7,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSBuffer;
 
 @ObfuscatedName("gm")
-public class class125 extends class197 implements RSBuffer {
+public class Buffer extends class197 implements RSBuffer {
    @ObfuscatedName("e")
    static long[] field1697;
    @ObfuscatedName("w")
@@ -56,12 +56,12 @@ public class class125 extends class197 implements RSBuffer {
 
    }
 
-   public class125(int var1) {
+   public Buffer(int var1) {
       this.field1694 = class133.method2559(var1);
       this.field1693 = 0;
    }
 
-   public class125(byte[] var1) {
+   public Buffer(byte[] var1) {
       this.field1694 = var1;
       this.field1693 = 0;
    }
@@ -81,7 +81,7 @@ public class class125 extends class197 implements RSBuffer {
       signature = "(I)I",
       garbageValue = "-1669910584"
    )
-   public int method2258() {
+   public int readShort() {
       this.field1693 += 2;
       return (this.field1694[this.field1693 - 1] & 255) + ((this.field1694[this.field1693 - 2] & 255) << 8);
    }
@@ -92,7 +92,7 @@ public class class125 extends class197 implements RSBuffer {
       garbageValue = "-1666916552"
    )
    public int method2272() {
-      return this.field1694[this.field1693] < 0?this.method2344() & Integer.MAX_VALUE:this.method2258();
+      return this.field1694[this.field1693] < 0?this.readInt() & Integer.MAX_VALUE:this.readShort();
    }
 
    @ObfuscatedName("k")
@@ -146,7 +146,7 @@ public class class125 extends class197 implements RSBuffer {
       signature = "(I)I",
       garbageValue = "337964448"
    )
-   public int method2344() {
+   public int readInt() {
       this.field1693 += 4;
       return ((this.field1694[this.field1693 - 3] & 255) << 16) + (this.field1694[this.field1693 - 1] & 255) + ((this.field1694[this.field1693 - 2] & 255) << 8) + ((this.field1694[this.field1693 - 4] & 255) << 24);
    }
@@ -205,7 +205,7 @@ public class class125 extends class197 implements RSBuffer {
       signature = "(Ljava/lang/String;I)V",
       garbageValue = "2059236948"
    )
-   public void method2358(String var1) {
+   public void writeString(String var1) {
       int var2 = var1.indexOf(0);
       if(var2 >= 0) {
          throw new IllegalArgumentException("");
@@ -252,7 +252,7 @@ public class class125 extends class197 implements RSBuffer {
    )
    public int method2339() {
       int var1 = this.field1694[this.field1693] & 255;
-      return var1 < 128?this.method2256() - 64:this.method2258() - 49152;
+      return var1 < 128?this.readUnsignedByte() - 64:this.readShort() - 49152;
    }
 
    @ObfuscatedName("bn")
@@ -303,7 +303,7 @@ public class class125 extends class197 implements RSBuffer {
          ++this.field1693;
          return null;
       } else {
-         return this.method2265();
+         return this.readString();
       }
    }
 
@@ -321,7 +321,7 @@ public class class125 extends class197 implements RSBuffer {
       signature = "(II)V",
       garbageValue = "807916187"
    )
-   public void method2334(int var1) {
+   public void writeByte(int var1) {
       this.field1694[++this.field1693 - 1] = (byte)(var1 >> 24);
       this.field1694[++this.field1693 - 1] = (byte)(var1 >> 16);
       this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
@@ -334,7 +334,7 @@ public class class125 extends class197 implements RSBuffer {
       garbageValue = "1660024796"
    )
    public boolean method2439() {
-      return (this.method2256() & 1) == 1;
+      return (this.readUnsignedByte() & 1) == 1;
    }
 
    @ObfuscatedName("bo")
@@ -419,8 +419,8 @@ public class class125 extends class197 implements RSBuffer {
       int var5 = (var3 - var2) / 8;
 
       for(int var6 = 0; var6 < var5; ++var6) {
-         int var7 = this.method2344();
-         int var8 = this.method2344();
+         int var7 = this.readInt();
+         int var8 = this.readInt();
          int var9 = -957401312;
          int var10 = -1640531527;
 
@@ -430,8 +430,8 @@ public class class125 extends class197 implements RSBuffer {
          }
 
          this.field1693 -= 8;
-         this.method2334(var7);
-         this.method2334(var8);
+         this.writeByte(var7);
+         this.writeByte(var8);
       }
 
       this.field1693 = var4;
@@ -497,7 +497,7 @@ public class class125 extends class197 implements RSBuffer {
    public boolean method2281() {
       this.field1693 -= 4;
       int var1 = class36.method653(this.field1694, 0, this.field1693);
-      int var2 = this.method2344();
+      int var2 = this.readInt();
       return var2 == var1;
    }
 
@@ -533,7 +533,7 @@ public class class125 extends class197 implements RSBuffer {
    )
    public int method2280(int var1) {
       int var2 = class36.method653(this.field1694, var1, this.field1693);
-      this.method2334(var2);
+      this.writeByte(var2);
       return var2;
    }
 
@@ -552,7 +552,7 @@ public class class125 extends class197 implements RSBuffer {
       signature = "(B)I",
       garbageValue = "1"
    )
-   public int method2256() {
+   public int readUnsignedByte() {
       return this.field1694[++this.field1693 - 1] & 255;
    }
 
@@ -590,7 +590,7 @@ public class class125 extends class197 implements RSBuffer {
       signature = "(I)Ljava/lang/String;",
       garbageValue = "1823533455"
    )
-   public String method2265() {
+   public String readString() {
       int var1 = this.field1693;
 
       while(this.field1694[++this.field1693 - 1] != 0) {
@@ -608,7 +608,7 @@ public class class125 extends class197 implements RSBuffer {
    )
    public int method2270() {
       int var1 = this.field1694[this.field1693] & 255;
-      return var1 < 128?this.method2256():this.method2258() - 32768;
+      return var1 < 128?this.readUnsignedByte():this.readShort() - 32768;
    }
 
    @ObfuscatedName("ab")
@@ -618,9 +618,9 @@ public class class125 extends class197 implements RSBuffer {
    )
    public int method2293() {
       if(this.field1694[this.field1693] < 0) {
-         return this.method2344() & Integer.MAX_VALUE;
+         return this.readInt() & Integer.MAX_VALUE;
       } else {
-         int var1 = this.method2258();
+         int var1 = this.readShort();
          return var1 == 32767?-1:var1;
       }
    }
@@ -650,8 +650,8 @@ public class class125 extends class197 implements RSBuffer {
       garbageValue = "1066388238"
    )
    public long method2349() {
-      long var1 = (long)this.method2344() & 4294967295L;
-      long var3 = (long)this.method2344() & 4294967295L;
+      long var1 = (long)this.readInt() & 4294967295L;
+      long var3 = (long)this.readInt() & 4294967295L;
       return var3 + (var1 << 32);
    }
 
@@ -838,8 +838,8 @@ public class class125 extends class197 implements RSBuffer {
       int var5 = (var3 - var2) / 8;
 
       for(int var6 = 0; var6 < var5; ++var6) {
-         int var7 = this.method2344();
-         int var8 = this.method2344();
+         int var7 = this.readInt();
+         int var8 = this.readInt();
          int var9 = 0;
          int var10 = -1640531527;
 
@@ -849,8 +849,8 @@ public class class125 extends class197 implements RSBuffer {
          }
 
          this.field1693 -= 8;
-         this.method2334(var7);
-         this.method2334(var8);
+         this.writeByte(var7);
+         this.writeByte(var8);
       }
 
       this.field1693 = var4;
@@ -892,8 +892,8 @@ public class class125 extends class197 implements RSBuffer {
       this.field1693 = 0;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         int var4 = this.method2344();
-         int var5 = this.method2344();
+         int var4 = this.readInt();
+         int var5 = this.readInt();
          int var6 = 0;
          int var7 = -1640531527;
 
@@ -903,8 +903,8 @@ public class class125 extends class197 implements RSBuffer {
          }
 
          this.field1693 -= 8;
-         this.method2334(var4);
-         this.method2334(var5);
+         this.writeByte(var4);
+         this.writeByte(var5);
       }
 
    }
@@ -937,8 +937,8 @@ public class class125 extends class197 implements RSBuffer {
       this.field1693 = 0;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         int var4 = this.method2344();
-         int var5 = this.method2344();
+         int var4 = this.readInt();
+         int var5 = this.readInt();
          int var6 = -957401312;
          int var7 = -1640531527;
 
@@ -948,8 +948,8 @@ public class class125 extends class197 implements RSBuffer {
          }
 
          this.field1693 -= 8;
-         this.method2334(var4);
-         this.method2334(var5);
+         this.writeByte(var4);
+         this.writeByte(var5);
       }
 
    }
@@ -967,7 +967,7 @@ public class class125 extends class197 implements RSBuffer {
          byte[] var2 = class241.field3144.method4398(3, var0, -1263782348);
          var1 = new class241();
          if(var2 != null) {
-            var1.method4739(new class125(var2));
+            var1.method4739(new Buffer(var2));
          }
 
          class241.field3148.method1820(var1, (long)var0);

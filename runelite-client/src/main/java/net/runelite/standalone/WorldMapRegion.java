@@ -11,7 +11,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("k")
-public class class47 {
+public class WorldMapRegion {
    @ObfuscatedName("p")
    @ObfuscatedSignature(
       signature = "Lgq;"
@@ -31,7 +31,7 @@ public class class47 {
    @ObfuscatedSignature(
       signature = "Lhx;"
    )
-   static final class58 field538;
+   static final Location field538;
    @ObfuscatedName("j")
    HashMap field533;
    @ObfuscatedName("z")
@@ -69,10 +69,10 @@ public class class47 {
    static {
       field527 = new class204(37748736, 256);
       field536 = new class204(256, 256);
-      field538 = new class58();
+      field538 = new Location();
    }
 
-   class47(int var1, int var2, int var3, HashMap var4) {
+   WorldMapRegion(int var1, int var2, int var3, HashMap var4) {
       this.field529 = var1;
       this.field532 = var2;
       this.field540 = new LinkedList();
@@ -113,8 +113,8 @@ public class class47 {
       signature = "(II[Lk;S)Lo;",
       garbageValue = "9639"
    )
-   class230 method904(int var1, int var2, class47[] var3) {
-      class230 var4 = class149.method2757(var1, var2);
+   class230 method904(int var1, int var2, WorldMapRegion[] var3) {
+      class230 var4 = WorldMapData.method2757(var1, var2);
       if(var4 == null) {
          var4 = this.method902(var3);
          class204 var5 = field536;
@@ -130,7 +130,7 @@ public class class47 {
       signature = "(IIIIIILk;Lam;B)V",
       garbageValue = "109"
    )
-   void method908(int var1, int var2, int var3, int var4, int var5, int var6, class47 var7, class229 var8) {
+   void method908(int var1, int var2, int var3, int var4, int var5, int var6, WorldMapRegion var7, class229 var8) {
       for(int var9 = 0; var9 < var5; ++var9) {
          for(int var10 = 0; var10 < var6; ++var10) {
             int var11 = var7.method929(var9 + var1, var10 + var2);
@@ -213,7 +213,7 @@ public class class47 {
 
       while(var7.hasNext()) {
          Entry var8 = (Entry)var7.next();
-         class58 var9 = (class58)var8.getKey();
+         Location var9 = (Location)var8.getKey();
          int var10 = (int)((float)var9.field719 * var5 + (float)var1 - var6);
          int var11 = (int)((float)(var2 + var4) - (float)var9.field717 * var5 - var6);
          class23 var12 = (class23)var8.getValue();
@@ -312,7 +312,7 @@ public class class47 {
                   if(var10 != null) {
                      if(var9.field1682 != var10.field258) {
                         class23 var16 = new class23(var9.field1682, var10.field248, var10.field259, this.method925(var9));
-                        this.field533.put(new class58(field538), var16);
+                        this.field533.put(new Location(field538), var16);
                         var10 = var16;
                      }
 
@@ -322,17 +322,17 @@ public class class47 {
                      return;
                   }
 
-                  class58 var11 = new class58(var4, this.field529 * 64 + var1, this.field532 * 64 + var2);
-                  class58 var12 = null;
+                  Location var11 = new Location(var4, this.field529 * 64 + var1, this.field532 * 64 + var2);
+                  Location var12 = null;
                   if(this.field531 != null) {
-                     var12 = new class58(this.field531.field2146 + var4, this.field531.field2150 * 64 + var1, var2 + this.field531.field2144 * 64);
+                     var12 = new Location(this.field531.field2146 + var4, this.field531.field2150 * 64 + var1, var2 + this.field531.field2144 * 64);
                   } else {
                      Iterator var13 = this.field540.iterator();
 
                      while(var13.hasNext()) {
                         class108 var14 = (class108)var13.next();
                         if(var14.method1894(var1, var2)) {
-                           var12 = new class58(var4 + var14.field2146, var14.field2150 * 64 + var1 + var14.method1895() * 8, var2 + var14.field2144 * 64 + var14.method1914() * 8);
+                           var12 = new Location(var4 + var14.field2146, var14.field2150 * 64 + var1 + var14.method1895() * 8, var2 + var14.field2144 * 64 + var14.method1914() * 8);
                            break;
                         }
                      }
@@ -340,7 +340,7 @@ public class class47 {
 
                   if(var12 != null) {
                      var10 = new class23(var9.field1682, var12, var11, this.method925(var9));
-                     this.field533.put(new class58(field538), var10);
+                     this.field533.put(new Location(field538), var10);
                      return;
                   }
                }
@@ -420,7 +420,7 @@ public class class47 {
       for(int var6 = var1; var6 < var3 + var1; ++var6) {
          label54:
          for(int var7 = var2; var7 < var2 + var4; ++var7) {
-            class58 var8 = new class58(0, var6, var7);
+            Location var8 = new Location(0, var6, var7);
 
             for(int var9 = 0; var9 < var5.field2139; ++var9) {
                class127[] var10 = var5.field2149[var9][var6][var7];
@@ -431,13 +431,13 @@ public class class47 {
                      class127 var13 = var11[var12];
                      class123 var14 = this.method923(var13.field1707);
                      if(var14 != null) {
-                        class58 var15 = new class58(var9, this.field529 * 64 + var6, this.field532 * 64 + var7);
-                        class58 var16 = null;
+                        Location var15 = new Location(var9, this.field529 * 64 + var6, this.field532 * 64 + var7);
+                        Location var16 = null;
                         if(this.field531 != null) {
-                           var16 = new class58(this.field531.field2146 + var9, var6 + this.field531.field2150 * 64, var7 + this.field531.field2144 * 64);
+                           var16 = new Location(this.field531.field2146 + var9, var6 + this.field531.field2150 * 64, var7 + this.field531.field2144 * 64);
                         } else {
                            class108 var17 = (class108)var5;
-                           var16 = new class58(var9 + var17.field2146, var6 + var17.field2150 * 64 + var17.method1895() * 8, var17.field2144 * 64 + var7 + var17.method1914() * 8);
+                           var16 = new Location(var9 + var17.field2146, var6 + var17.field2150 * 64 + var17.method1895() * 8, var17.field2144 * 64 + var7 + var17.method1914() * 8);
                         }
 
                         class23 var18 = new class23(var14.field1682, var16, var15, this.method925(var14));
@@ -509,7 +509,7 @@ public class class47 {
       signature = "([Lk;Lam;I)V",
       garbageValue = "1222996099"
    )
-   void method944(class47[] var1, class229 var2) {
+   void method944(WorldMapRegion[] var1, class229 var2) {
       class49[] var3 = new class49[]{class49.field554, class49.field557, class49.field552, class49.field555, class49.field556, class49.field561, class49.field559, class49.field551};
       class49[] var5 = var3;
 
@@ -594,7 +594,7 @@ public class class47 {
       signature = "(Las;[Lk;[Lle;Lo;S)V",
       garbageValue = "-12000"
    )
-   void method899(class210 var1, class47[] var2, class303[] var3, class230 var4) {
+   void method899(class210 var1, WorldMapRegion[] var2, class303[] var3, class230 var4) {
       int var5;
       int var6;
       for(var5 = 0; var5 < 64; ++var5) {
@@ -729,7 +729,7 @@ public class class47 {
       signature = "(ILas;[Lk;[Lle;B)V",
       garbageValue = "8"
    )
-   void method1004(int var1, class210 var2, class47[] var3, class303[] var4) {
+   void method1004(int var1, class210 var2, WorldMapRegion[] var3, class303[] var4) {
       this.field534 = var1;
       if(this.field531 != null || !this.field540.isEmpty()) {
          if(class315.method6189(this.field529, this.field532, var1) == null) {
@@ -883,7 +883,7 @@ public class class47 {
       signature = "([Lk;B)Lo;",
       garbageValue = "1"
    )
-   class230 method902(class47[] var1) {
+   class230 method902(WorldMapRegion[] var1) {
       class229 var2 = new class229(64, 64);
       if(this.field531 != null) {
          this.method907(0, 0, 64, 64, this.field531, var2);

@@ -46,32 +46,32 @@ public class class77 implements RSPreferences {
    @ObfuscatedSignature(
       signature = "(Lgm;)V"
    )
-   class77(class125 var1) {
+   class77(Buffer var1) {
       this.field859 = 1;
       this.field858 = null;
       this.field861 = false;
       this.field853 = new LinkedHashMap();
       if(var1 != null && var1.field1694 != null) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 >= 0 && var2 <= field857) {
-            if(var1.method2256() == 1) {
+            if(var1.readUnsignedByte() == 1) {
                this.field854 = true;
             }
 
             if(var2 > 1) {
-               this.field855 = var1.method2256() == 1;
+               this.field855 = var1.readUnsignedByte() == 1;
             }
 
             if(var2 > 3) {
-               this.field859 = var1.method2256();
+               this.field859 = var1.readUnsignedByte();
             }
 
             if(var2 > 2) {
-               int var3 = var1.method2256();
+               int var3 = var1.readUnsignedByte();
 
                for(int var4 = 0; var4 < var3; ++var4) {
-                  int var5 = var1.method2344();
-                  int var6 = var1.method2344();
+                  int var5 = var1.readInt();
+                  int var6 = var1.readInt();
                   this.field853.put(Integer.valueOf(var5), Integer.valueOf(var6));
                }
             }
@@ -97,8 +97,8 @@ public class class77 implements RSPreferences {
       signature = "(I)Lgm;",
       garbageValue = "1992408959"
    )
-   class125 method1573() {
-      class125 var1 = new class125(100);
+   Buffer method1573() {
+      Buffer var1 = new Buffer(100);
       var1.method2288(field857);
       var1.method2288(this.field854?1:0);
       var1.method2288(this.field855?1:0);
@@ -108,11 +108,11 @@ public class class77 implements RSPreferences {
 
       while(var2.hasNext()) {
          Entry var3 = (Entry)var2.next();
-         var1.method2334(((Integer)var3.getKey()).intValue());
-         var1.method2334(((Integer)var3.getValue()).intValue());
+         var1.writeByte(((Integer)var3.getKey()).intValue());
+         var1.writeByte(((Integer)var3.getValue()).intValue());
       }
 
-      var1.method2358(this.field858 != null?this.field858:"");
+      var1.writeString(this.field858 != null?this.field858:"");
       var1.method2247(this.field861);
       return var1;
    }

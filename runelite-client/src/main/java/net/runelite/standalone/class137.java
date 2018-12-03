@@ -31,7 +31,7 @@ public class class137 {
    @ObfuscatedSignature(
       signature = "Lgm;"
    )
-   class125 field1761;
+   Buffer field1761;
    @ObfuscatedName("f")
    @ObfuscatedSignature(
       signature = "Lfo;"
@@ -78,7 +78,7 @@ public class class137 {
    class137() {
       this.field1763 = new class41();
       this.field1760 = 0;
-      this.field1761 = new class125(5000);
+      this.field1761 = new Buffer(5000);
       this.field1764 = new class1(40000);
       this.field1759 = null;
       this.field1768 = 0;

@@ -492,7 +492,7 @@ public class class3 implements RSCollisionData {
          byte[] var2 = class312.field3834.method4398(12, var0, 24177547);
          var1 = new class312();
          if(var2 != null) {
-            var1.method6096(new class125(var2));
+            var1.method6096(new Buffer(var2));
          }
 
          var1.method6104();

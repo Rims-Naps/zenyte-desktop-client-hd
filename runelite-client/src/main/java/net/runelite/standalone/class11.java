@@ -331,12 +331,12 @@ public class class11 {
    @ObfuscatedSignature(
       signature = "(Lgm;)V"
    )
-   final void method181(class125 var1) {
+   final void method181(Buffer var1) {
       this.field107 = new class46();
       this.field107.method880(var1);
       this.field95 = new class46();
       this.field95.method880(var1);
-      int var2 = var1.method2256();
+      int var2 = var1.readUnsignedByte();
       if(var2 != 0) {
          --var1.field1693;
          this.field96 = new class46();
@@ -345,7 +345,7 @@ public class class11 {
          this.field112.method880(var1);
       }
 
-      var2 = var1.method2256();
+      var2 = var1.readUnsignedByte();
       if(var2 != 0) {
          --var1.field1693;
          this.field98 = new class46();
@@ -354,7 +354,7 @@ public class class11 {
          this.field99.method880(var1);
       }
 
-      var2 = var1.method2256();
+      var2 = var1.readUnsignedByte();
       if(var2 != 0) {
          --var1.field1693;
          this.field100 = new class46();
@@ -376,8 +376,8 @@ public class class11 {
 
       this.field105 = var1.method2270();
       this.field106 = var1.method2270();
-      this.field113 = var1.method2258();
-      this.field110 = var1.method2258();
+      this.field113 = var1.readShort();
+      this.field110 = var1.readShort();
       this.field108 = new class27();
       this.field119 = new class46();
       this.field108.method468(var1, this.field119);

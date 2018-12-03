@@ -260,7 +260,7 @@ public final class class283 implements RSFileOnDisk {
          var1 = new class71();
          var1.field820 = var0;
          if(var2 != null) {
-            var1.method1527(new class125(var2));
+            var1.method1527(new Buffer(var2));
          }
 
          class71.field811.method1820(var1, (long)var0);

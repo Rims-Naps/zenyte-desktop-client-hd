@@ -87,7 +87,7 @@ public class class275 implements class273 {
          byte[] var2 = class20.field228.method4398(34, var0, -1700331856);
          var1 = new class20();
          if(var2 != null) {
-            var1.method404(new class125(var2));
+            var1.method404(new Buffer(var2));
          }
 
          var1.method410();

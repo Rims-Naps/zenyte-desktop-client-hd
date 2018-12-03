@@ -40,9 +40,9 @@ public class class278 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "439756199"
    )
-   void method5388(class125 var1, int var2) {
+   void method5388(Buffer var1, int var2) {
       if(var2 == 5) {
-         this.field3513 = var1.method2258();
+         this.field3513 = var1.readShort();
       }
 
    }
@@ -52,9 +52,9 @@ public class class278 extends class324 {
       signature = "(Lgm;I)V",
       garbageValue = "-2117448778"
    )
-   void method5386(class125 var1) {
+   void method5386(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }

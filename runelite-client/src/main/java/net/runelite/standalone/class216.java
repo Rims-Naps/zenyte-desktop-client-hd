@@ -292,13 +292,13 @@ public final class class216 {
       signature = "(Lgm;IIIIIIB)V",
       garbageValue = "-16"
    )
-   static final void method4389(class125 var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+   static final void method4389(Buffer var0, int var1, int var2, int var3, int var4, int var5, int var6) {
       int var7;
       if(var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
          class185.field2512[var1][var2][var3] = 0;
 
          while(true) {
-            var7 = var0.method2256();
+            var7 = var0.readUnsignedByte();
             if(var7 == 0) {
                if(var1 == 0) {
                   int[] var8 = class185.field2522[0][var2];
@@ -320,7 +320,7 @@ public final class class216 {
             }
 
             if(var7 == 1) {
-               int var14 = var0.method2256();
+               int var14 = var0.readUnsignedByte();
                if(var14 == 1) {
                   var14 = 0;
                }
@@ -345,18 +345,18 @@ public final class class216 {
          }
       } else {
          while(true) {
-            var7 = var0.method2256();
+            var7 = var0.readUnsignedByte();
             if(var7 == 0) {
                break;
             }
 
             if(var7 == 1) {
-               var0.method2256();
+               var0.readUnsignedByte();
                break;
             }
 
             if(var7 <= 49) {
-               var0.method2256();
+               var0.readUnsignedByte();
             }
          }
       }

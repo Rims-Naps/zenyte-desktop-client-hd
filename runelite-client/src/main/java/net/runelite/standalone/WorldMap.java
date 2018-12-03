@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import net.runelite.api.Point;
-import net.runelite.api.WorldMapData;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
@@ -17,7 +16,7 @@ import net.runelite.rs.api.RSWorldMapData;
 import net.runelite.rs.api.RSWorldMapManager;
 
 @ObfuscatedName("la")
-public class class287 implements RSRenderOverview {
+public class WorldMap implements RSRenderOverview {
    @ObfuscatedName("p")
    @ObfuscatedSignature(
       signature = "Lkq;"
@@ -42,7 +41,7 @@ public class class287 implements RSRenderOverview {
    @ObfuscatedSignature(
       signature = "Lh;"
    )
-   class149 field3633;
+   WorldMapData field3633;
    @ObfuscatedName("ar")
    boolean field3626;
    @ObfuscatedName("k")
@@ -106,7 +105,7 @@ public class class287 implements RSRenderOverview {
    @ObfuscatedSignature(
       signature = "Lat;"
    )
-   class208 field3601;
+   WorldMapManager field3601;
    @ObfuscatedName("ai")
    HashSet field3630;
    @ObfuscatedName("y")
@@ -118,7 +117,7 @@ public class class287 implements RSRenderOverview {
    @ObfuscatedSignature(
       signature = "Lh;"
    )
-   class149 field3600;
+   WorldMapData field3600;
    @ObfuscatedName("be")
    final int[] field3615;
    @ObfuscatedName("x")
@@ -183,7 +182,7 @@ public class class287 implements RSRenderOverview {
    @ObfuscatedSignature(
       signature = "Lh;"
    )
-   class149 field3598;
+   WorldMapData field3598;
    @ObfuscatedName("ad")
    @ObfuscatedGetter(
       intValue = 269267657
@@ -234,7 +233,7 @@ public class class287 implements RSRenderOverview {
    @ObfuscatedSignature(
       signature = "Lhx;"
    )
-   class58 field3586;
+   Location field3586;
    @ObfuscatedName("aj")
    HashSet field3596;
 
@@ -244,7 +243,7 @@ public class class287 implements RSRenderOverview {
       field3604 = class74.field842;
    }
 
-   public class287() {
+   public WorldMap() {
       this.field3605 = -1;
       this.field3642 = -1;
       this.field3609 = -1;
@@ -334,9 +333,9 @@ public class class287 implements RSRenderOverview {
       signature = "(Lh;I)V",
       garbageValue = "-328620867"
    )
-   void method5617(class149 var1) {
+   void method5617(WorldMapData var1) {
       this.field3633 = var1;
-      this.field3601 = new class208(this.field3606, this.field3595);
+      this.field3601 = new WorldMapManager(this.field3606, this.field3595);
       this.field3602.method2612(this.field3633.method2697());
    }
 
@@ -409,7 +408,7 @@ public class class287 implements RSRenderOverview {
       signature = "(IILhx;Lhx;I)V",
       garbageValue = "1316026379"
    )
-   public void method5664(int var1, int var2, class58 var3, class58 var4) {
+   public void method5664(int var1, int var2, Location var3, Location var4) {
       class194 var5 = new class194();
       class294 var6 = new class294(var2, var3, var4);
       var5.method3920(new Object[]{var6});
@@ -507,7 +506,7 @@ public class class287 implements RSRenderOverview {
       signature = "(Lh;I)V",
       garbageValue = "-34734081"
    )
-   void method5606(class149 var1) {
+   void method5606(WorldMapData var1) {
       if(this.field3633 == null || var1 != this.field3633) {
          this.method5617(var1);
          this.method5557(-1, -1, -1);
@@ -677,9 +676,9 @@ public class class287 implements RSRenderOverview {
       this.field3597 = new HashMap(var6.length);
 
       for(int var7 = 0; var7 < var6.length; ++var7) {
-         class125 var8 = new class125(this.field3590.method4398(var5, var6[var7], 1123144256));
-         class149 var9 = new class149();
-         var9.method2713(var8, var6[var7]);
+         Buffer var8 = new Buffer(this.field3590.method4398(var5, var6[var7], 1123144256));
+         WorldMapData var9 = new WorldMapData();
+         var9.loadMapData(var8, var6[var7]);
          this.field3597.put(var9.method2697(), var9);
          if(var9.method2741()) {
             this.field3598 = var9;
@@ -838,8 +837,8 @@ public class class287 implements RSRenderOverview {
       this.method5496(var1, var2, var3);
    }
 
-   public void initializeWorldMap(WorldMapData var1) {
-      this.method5617((class149)var1);
+   public void initializeWorldMap(net.runelite.api.WorldMapData var1) {
+      this.method5617((WorldMapData)var1);
    }
 
    @ObfuscatedName("ak")
@@ -877,16 +876,16 @@ public class class287 implements RSRenderOverview {
       signature = "(IIII)Lh;",
       garbageValue = "-1307363583"
    )
-   public class149 method5542(int var1, int var2, int var3) {
+   public WorldMapData method5542(int var1, int var2, int var3) {
       Iterator var4 = this.field3597.values().iterator();
 
-      class149 var5;
+      WorldMapData var5;
       do {
          if(!var4.hasNext()) {
             return null;
          }
 
-         var5 = (class149)var4.next();
+         var5 = (WorldMapData)var4.next();
       } while(!var5.method2690(var1, var2, var3));
 
       return var5;
@@ -898,7 +897,7 @@ public class class287 implements RSRenderOverview {
       garbageValue = "1137086625"
    )
    public void method5500(int var1, int var2, int var3, boolean var4) {
-      class149 var5 = this.method5542(var1, var2, var3);
+      WorldMapData var5 = this.method5542(var1, var2, var3);
       if(var5 == null) {
          if(!var4) {
             return;
@@ -944,7 +943,7 @@ public class class287 implements RSRenderOverview {
          this.method5622(var1, var2, var3, var4, var7);
       } else {
          if(!this.field3601.method4139()) {
-            this.field3601.method4115(this.field3590, this.field3633.method2697(), client.field2156);
+            this.field3601.load(this.field3590, this.field3633.method2697(), client.field2156);
             if(!this.field3601.method4139()) {
                return;
             }
@@ -964,7 +963,7 @@ public class class287 implements RSRenderOverview {
 
          int var8 = (int)Math.ceil((double)((float)var3 / this.field3624));
          int var9 = (int)Math.ceil((double)((float)var4 / this.field3624));
-         this.field3601.method4117(this.field3603 - var8 / 2, this.field3618 - var9 / 2, var8 / 2 + this.field3603, var9 / 2 + this.field3618, var1, var2, var3 + var1, var2 + var4);
+         this.field3601.drawMapRegion(this.field3603 - var8 / 2, this.field3618 - var9 / 2, var8 / 2 + this.field3603, var9 / 2 + this.field3618, var1, var2, var3 + var1, var2 + var4);
          if(!this.field3619) {
             boolean var10 = false;
             if(var5 - this.field3632 > 100) {
@@ -972,7 +971,7 @@ public class class287 implements RSRenderOverview {
                var10 = true;
             }
 
-            this.field3601.method4118(this.field3603 - var8 / 2, this.field3618 - var9 / 2, var8 / 2 + this.field3603, var9 / 2 + this.field3618, var1, var2, var3 + var1, var2 + var4, this.field3630, this.field3616, this.field3587, this.field3614, var10);
+            this.field3601.drawMapIcons(this.field3603 - var8 / 2, this.field3618 - var9 / 2, var8 / 2 + this.field3603, var9 / 2 + this.field3618, var1, var2, var3 + var1, var2 + var4, this.field3630, this.field3616, this.field3587, this.field3614, var10);
          }
 
          this.method5611(var1, var2, var3, var4, var8, var9);
@@ -1082,7 +1081,7 @@ public class class287 implements RSRenderOverview {
       signature = "(B)Lhx;",
       garbageValue = "75"
    )
-   public class58 method5525() {
+   public Location method5525() {
       return this.field3633 == null?null:this.field3633.method2712(this.method5523(), this.method5524());
    }
 
@@ -1109,7 +1108,7 @@ public class class287 implements RSRenderOverview {
       signature = "(B)Lh;",
       garbageValue = "56"
    )
-   public class149 method5503() {
+   public WorldMapData method5503() {
       return this.field3633;
    }
 
@@ -1128,7 +1127,7 @@ public class class287 implements RSRenderOverview {
       garbageValue = "346884099"
    )
    public void method5504(int var1) {
-      class149 var2 = this.method5632(var1);
+      WorldMapData var2 = this.method5632(var1);
       if(var2 != null) {
          this.method5606(var2);
       }
@@ -1172,7 +1171,7 @@ public class class287 implements RSRenderOverview {
       signature = "(ILhx;I)Lhx;",
       garbageValue = "-1543923399"
    )
-   public class58 method5535(int var1, class58 var2) {
+   public Location method5535(int var1, Location var2) {
       if(!this.field3602.method2605()) {
          return null;
       } else if(!this.field3601.method4139()) {
@@ -1227,7 +1226,7 @@ public class class287 implements RSRenderOverview {
       signature = "(Lh;Lhx;Lhx;ZI)V",
       garbageValue = "-50267692"
    )
-   public void method5537(class149 var1, class58 var2, class58 var3, boolean var4) {
+   public void method5537(WorldMapData var1, Location var2, Location var3, boolean var4) {
       if(var1 != null) {
          if(this.field3633 == null || var1 != this.field3633) {
             this.method5617(var1);
@@ -1247,16 +1246,16 @@ public class class287 implements RSRenderOverview {
       signature = "(II)Lh;",
       garbageValue = "-1697049345"
    )
-   public class149 method5632(int var1) {
+   public WorldMapData method5632(int var1) {
       Iterator var2 = this.field3597.values().iterator();
 
-      class149 var3;
+      WorldMapData var3;
       do {
          if(!var2.hasNext()) {
             return null;
          }
 
-         var3 = (class149)var2.next();
+         var3 = (WorldMapData)var2.next();
       } while(var3.method2726() != var1);
 
       return var3;
@@ -1312,7 +1311,7 @@ public class class287 implements RSRenderOverview {
    public void method5511(int var1, int var2, int var3, int var4) {
       if(this.field3602.method2605()) {
          if(!this.field3601.method4139()) {
-            this.field3601.method4115(this.field3590, this.field3633.method2697(), client.field2156);
+            this.field3601.load(this.field3590, this.field3633.method2697(), client.field2156);
             if(!this.field3601.method4139()) {
                return;
             }
@@ -1337,8 +1336,8 @@ public class class287 implements RSRenderOverview {
       garbageValue = "73"
    )
    public void method5490() {
-      class47.field527.method4029(5);
-      class47.field536.method4029(5);
+      WorldMapRegion.field527.method4029(5);
+      WorldMapRegion.field536.method4029(5);
    }
 
    @ObfuscatedName("bl")

@@ -82,7 +82,7 @@ public class class174 {
       class121 var1 = (class121)class140.field1793.method745();
       if(var1 != null) {
          int var2 = var0.field1693;
-         var0.method2334(var1.field1648);
+         var0.writeByte(var1.field1648);
 
          for(int var3 = 0; var3 < var1.field1647; ++var3) {
             if(var1.field1646[var3] != 0) {
@@ -96,7 +96,7 @@ public class class174 {
                      var5 = var1.field1644[var3];
                      var6 = Reflection.getInt(var5, (Object)null);
                      var0.method2288(0);
-                     var0.method2334(var6);
+                     var0.writeByte(var6);
                   } else if(var4 == 1) {
                      var5 = var1.field1644[var3];
                      Reflection.setInt(var5, (Object)null, var1.field1643[var3]);
@@ -105,7 +105,7 @@ public class class174 {
                      var5 = var1.field1644[var3];
                      var6 = var5.getModifiers();
                      var0.method2288(0);
-                     var0.method2334(var6);
+                     var0.writeByte(var6);
                   }
 
                   Method var25;
@@ -114,7 +114,7 @@ public class class174 {
                         var25 = var1.field1649[var3];
                         var6 = var25.getModifiers();
                         var0.method2288(0);
-                        var0.method2334(var6);
+                        var0.writeByte(var6);
                      }
                   } else {
                      var25 = var1.field1649[var3];
@@ -134,7 +134,7 @@ public class class174 {
                         var0.method2246(((Number)var11).longValue());
                      } else if(var11 instanceof String) {
                         var0.method2288(2);
-                        var0.method2358((String)var11);
+                        var0.writeString((String)var11);
                      } else {
                         var0.method2288(4);
                      }

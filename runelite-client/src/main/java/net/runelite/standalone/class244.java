@@ -123,29 +123,29 @@ public class class244 extends class324 implements RSCombatInfo2 {
       signature = "(Lgm;IB)V",
       garbageValue = "87"
    )
-   void method4928(class125 var1, int var2) {
+   void method4928(Buffer var1, int var2) {
       if(var2 == 1) {
-         var1.method2258();
+         var1.readShort();
       } else if(var2 == 2) {
-         this.field3284 = var1.method2256();
+         this.field3284 = var1.readUnsignedByte();
       } else if(var2 == 3) {
-         this.field3282 = var1.method2256();
+         this.field3282 = var1.readUnsignedByte();
       } else if(var2 == 4) {
          this.field3283 = 0;
       } else if(var2 == 5) {
-         this.field3285 = var1.method2258();
+         this.field3285 = var1.readShort();
       } else if(var2 == 6) {
-         var1.method2256();
+         var1.readUnsignedByte();
       } else if(var2 == 7) {
          this.field3286 = var1.method2293();
       } else if(var2 == 8) {
          this.field3287 = var1.method2293();
       } else if(var2 == 11) {
-         this.field3283 = var1.method2258();
+         this.field3283 = var1.readShort();
       } else if(var2 == 14) {
-         this.field3279 = var1.method2256();
+         this.field3279 = var1.readUnsignedByte();
       } else if(var2 == 15) {
-         this.field3277 = var1.method2256();
+         this.field3277 = var1.readUnsignedByte();
       }
 
    }
@@ -182,9 +182,9 @@ public class class244 extends class324 implements RSCombatInfo2 {
       signature = "(Lgm;I)V",
       garbageValue = "911400937"
    )
-   public void method4941(class125 var1) {
+   public void method4941(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }

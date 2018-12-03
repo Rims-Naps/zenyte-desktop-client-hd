@@ -75,7 +75,7 @@ public final class class185 {
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
          int var4 = var3 * 32 + 15 + 128;
-         int var5 = class149.method2740(var4);
+         int var5 = WorldMapData.method2740(var4);
          int var6 = class211.field2920[var4];
          int var8 = var1 - 334;
          if(var8 < 0) {

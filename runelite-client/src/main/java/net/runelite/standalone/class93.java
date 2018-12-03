@@ -85,9 +85,9 @@ public class class93 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "1617476895"
    )
-   public void method1721(class125 var1, int var2) {
+   public void method1721(Buffer var1, int var2) {
       while(true) {
-         int var3 = var1.method2256();
+         int var3 = var1.readUnsignedByte();
          if(var3 == 0) {
             return;
          }
@@ -183,11 +183,11 @@ public class class93 extends class324 {
       signature = "(Lgm;IIS)V",
       garbageValue = "6627"
    )
-   void method1719(class125 var1, int var2, int var3) {
+   void method1719(Buffer var1, int var2, int var3) {
       if(var2 == 1) {
          this.field1001 = var1.method2260();
       } else if(var2 == 2) {
-         this.field1002 = var1.method2256();
+         this.field1002 = var1.readUnsignedByte();
       } else if(var2 == 5) {
          this.field1000 = false;
       } else if(var2 == 7) {

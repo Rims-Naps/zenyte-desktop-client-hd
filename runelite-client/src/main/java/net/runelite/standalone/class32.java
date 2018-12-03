@@ -121,7 +121,7 @@ public enum class32 implements class26 {
       }
 
       if(var6 != -1 && var7 != null) {
-         class208.method4155(var7, class64.method1354(16748608) + var1.field446, var6, var1.field429, var2, var0.field2621, var4);
+         WorldMapManager.method4155(var7, class64.method1354(16748608) + var1.field446, var6, var1.field429, var2, var0.field2621, var4);
       }
 
    }

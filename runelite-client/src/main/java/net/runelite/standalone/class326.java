@@ -53,7 +53,7 @@ public class class326 extends class324 {
             int var5 = class249.field3312[class308.field3811 + 1];
             class12 var6 = class150.method2761(ClientProt.field3253, client.field2384.field1770);
             var6.field121.method2288(class118.method2136(var3) + 2);
-            var6.field121.method2358(var3);
+            var6.field121.writeString(var3);
             var6.field121.method2288(var4 - 1);
             var6.field121.method2288(var5);
             client.field2384.method2573(var6);
@@ -64,7 +64,7 @@ public class class326 extends class324 {
                class308.field3811 -= 2;
                var10 = class249.field3312[class308.field3811];
                var4 = class249.field3312[class308.field3811 + 1];
-               class227 var15 = class47.method1036(var10, var4);
+               class227 var15 = WorldMapRegion.method1036(var10, var4);
                if(var15 != null) {
                   class249.field3312[++class308.field3811 - 1] = var15.field3056;
                   class249.field3312[++class308.field3811 - 1] = var15.field3048;
@@ -244,7 +244,7 @@ public class class326 extends class324 {
                class12 var11 = class150.method2761(ClientProt.field3181, client.field2384.field1770);
                var11.field121.method2242(0);
                int var13 = var11.field121.field1693;
-               var11.field121.method2358(var3);
+               var11.field121.writeString(var3);
                class315.method6188(var11.field121, var12);
                var11.field121.method2253(var11.field121.field1693 - var13);
                client.field2384.method2573(var11);

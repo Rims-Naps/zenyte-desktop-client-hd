@@ -10,7 +10,7 @@ public class class119 {
    @ObfuscatedSignature(
       signature = "Lim;"
    )
-   static class6 field1640;
+   static class6 worldMapIndex;
    @ObfuscatedName("x")
    @ObfuscatedGetter(
       intValue = 969829275

@@ -60,7 +60,7 @@ public class class266 implements class8, RSTextureProvider {
       this.field3456 = new class65[var1.method4435(0)];
 
       for(int var9 = 0; var9 < var8; ++var9) {
-         class125 var10 = new class125(var1.method4398(0, var7[var9], -199223155));
+         Buffer var10 = new Buffer(var1.method4398(0, var7[var9], -199223155));
          this.field3456[var7[var9]] = new class65(var10);
       }
 

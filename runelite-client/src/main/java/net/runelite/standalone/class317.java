@@ -31,13 +31,13 @@ public class class317 {
    @ObfuscatedSignature(
       signature = "(Lgm;BI)V"
    )
-   class317(class125 var1, byte var2, int var3) {
-      this.field3902 = var1.method2265();
-      this.field3903 = var1.method2265();
-      this.field3900 = var1.method2258();
+   class317(Buffer var1, byte var2, int var3) {
+      this.field3902 = var1.readString();
+      this.field3903 = var1.readString();
+      this.field3900 = var1.readShort();
       this.field3905 = var1.method2349();
-      int var4 = var1.method2344();
-      int var5 = var1.method2344();
+      int var4 = var1.readInt();
+      int var5 = var1.readInt();
       this.field3899 = new class307();
       this.field3899.method6036(2);
       this.field3899.method6041(var2);
@@ -248,7 +248,7 @@ public class class317 {
       signature = "(Lgm;IB)V",
       garbageValue = "-70"
    )
-   public static void method6213(class125 var0, int var1) {
+   public static void method6213(Buffer var0, int var1) {
       if(class305.field3779 != null) {
          try {
             class305.field3779.method387(0L);

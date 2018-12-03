@@ -27,7 +27,7 @@ public class class184 {
    @ObfuscatedSignature(
       signature = "Lhx;"
    )
-   class58 field2509;
+   Location field2509;
    @ObfuscatedName("f")
    @ObfuscatedGetter(
       intValue = -1177274657
@@ -37,7 +37,7 @@ public class class184 {
    @ObfuscatedSignature(
       signature = "(ILhx;)V"
    )
-   class184(int var1, class58 var2) {
+   class184(int var1, Location var2) {
       this.field2508 = var1;
       this.field2509 = var2;
    }

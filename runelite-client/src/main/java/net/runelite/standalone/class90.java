@@ -28,9 +28,9 @@ public class class90 implements RSVarcs {
 
    class90() {
       this.field981 = false;
-      this.field979 = new int[class202.field2840.method4435(19)];
+      this.field979 = new int[class202.configsIndex.method4435(19)];
       this.onVarCIntChanged(-1);
-      this.field976 = new String[class202.field2840.method4435(15)];
+      this.field976 = new String[class202.configsIndex.method4435(15)];
       this.onVarCStrChanged(-1);
       this.field982 = new boolean[this.field979.length];
 
@@ -85,7 +85,7 @@ public class class90 implements RSVarcs {
             }
          }
 
-         class125 var9 = new class125(var2);
+         Buffer var9 = new Buffer(var2);
          var9.method2288(1);
          var9.method2242(var3);
 
@@ -93,7 +93,7 @@ public class class90 implements RSVarcs {
          for(var6 = 0; var6 < this.field979.length; ++var6) {
             if(this.field982[var6] && this.field979[var6] != -1) {
                var9.method2242(var6);
-               var9.method2334(this.field979[var6]);
+               var9.writeByte(this.field979[var6]);
             }
          }
 
@@ -102,7 +102,7 @@ public class class90 implements RSVarcs {
          for(var6 = 0; var6 < this.field976.length; ++var6) {
             if(this.field978[var6] && this.field976[var6] != null) {
                var9.method2242(var6);
-               var9.method2358(this.field976[var6]);
+               var9.writeString(this.field976[var6]);
             }
          }
 
@@ -182,35 +182,35 @@ public class class90 implements RSVarcs {
             }
          }
 
-         class125 var13 = new class125(var2);
+         Buffer var13 = new Buffer(var2);
          if(var13.field1694.length - var13.field1693 < 1) {
             return;
          }
 
-         int var14 = var13.method2256();
+         int var14 = var13.readUnsignedByte();
          if(var14 < 0 || var14 > 1) {
             return;
          }
 
-         int var15 = var13.method2258();
+         int var15 = var13.readShort();
 
          int var7;
          int var8;
          int var9;
          for(var7 = 0; var7 < var15; ++var7) {
-            var8 = var13.method2258();
-            var9 = var13.method2344();
+            var8 = var13.readShort();
+            var9 = var13.readInt();
             if(this.field982[var8]) {
                this.field979[var8] = var9;
                this.onVarCIntChanged(var8);
             }
          }
 
-         var7 = var13.method2258();
+         var7 = var13.readShort();
 
          for(var8 = 0; var8 < var7; ++var8) {
-            var9 = var13.method2258();
-            String var10 = var13.method2265();
+            var9 = var13.readShort();
+            String var10 = var13.readString();
             if(this.field978[var9]) {
                this.field976[var9] = var10;
                this.onVarCStrChanged(var9);

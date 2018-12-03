@@ -483,7 +483,7 @@ public class class111 implements RSScene {
          for(int var5 = 0; var5 < var4.field1205; ++var5) {
             class195 var6 = var4.field1217[var5];
             long var8 = var6.field2785;
-            boolean var7 = class149.method2687(var8) == 2;
+            boolean var7 = WorldMapData.method2687(var8) == 2;
             if(var7 && var2 == var6.field2779 && var3 == var6.field2781) {
                return var6.field2785;
             }
@@ -1454,7 +1454,7 @@ public class class111 implements RSScene {
          for(int var5 = 0; var5 < var4.field1205; ++var5) {
             class195 var6 = var4.field1217[var5];
             long var8 = var6.field2785;
-            boolean var7 = class149.method2687(var8) == 2;
+            boolean var7 = WorldMapData.method2687(var8) == 2;
             if(var7 && var2 == var6.field2779 && var3 == var6.field2781) {
                this.method1940(var6);
                return;
@@ -2080,7 +2080,7 @@ public class class111 implements RSScene {
          for(int var5 = 0; var5 < var4.field1205; ++var5) {
             class195 var6 = var4.field1217[var5];
             long var8 = var6.field2785;
-            boolean var7 = class149.method2687(var8) == 2;
+            boolean var7 = WorldMapData.method2687(var8) == 2;
             if(var7 && var2 == var6.field2779 && var3 == var6.field2781) {
                return var6;
             }
@@ -2660,7 +2660,7 @@ public class class111 implements RSScene {
             for(int var6 = 0; var6 < var5.field1205; ++var6) {
                class195 var7 = var5.field1217[var6];
                long var9 = var7.field2785;
-               boolean var8 = class149.method2687(var9) == 2;
+               boolean var8 = WorldMapData.method2687(var9) == 2;
                if(var8 && var7.field2779 == var1 && var2 == var7.field2781) {
                   --var7.field2775;
                }

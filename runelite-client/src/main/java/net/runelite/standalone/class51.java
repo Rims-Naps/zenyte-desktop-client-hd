@@ -17,7 +17,7 @@ public class class51 {
    @ObfuscatedSignature(
       signature = "Lgm;"
    )
-   class125 field572;
+   Buffer field572;
    @ObfuscatedName("r")
    long field571;
    @ObfuscatedName("a")
@@ -32,19 +32,19 @@ public class class51 {
    }
 
    class51(byte[] var1) {
-      this.field572 = new class125((byte[])null);
+      this.field572 = new Buffer((byte[])null);
       this.method1075(var1);
    }
 
    class51() {
-      this.field572 = new class125((byte[])null);
+      this.field572 = new Buffer((byte[])null);
    }
 
    @ObfuscatedName("z")
    int method1108(int var1, int var2) {
       int var4;
       if(var2 == 255) {
-         int var7 = this.field572.method2256();
+         int var7 = this.field572.readUnsignedByte();
          var4 = this.field572.method2263();
          if(var7 == 47) {
             this.field572.field1693 += var4;
@@ -65,11 +65,11 @@ public class class51 {
          byte var3 = field563[var2 - 128];
          var4 = var2;
          if(var3 >= 1) {
-            var4 = var2 | this.field572.method2256() << 8;
+            var4 = var2 | this.field572.readUnsignedByte() << 8;
          }
 
          if(var3 >= 2) {
-            var4 |= this.field572.method2256() << 16;
+            var4 |= this.field572.readUnsignedByte() << 16;
          }
 
          return var4;
@@ -104,16 +104,16 @@ public class class51 {
    void method1075(byte[] var1) {
       this.field572.field1694 = var1;
       this.field572.field1693 = 10;
-      int var2 = this.field572.method2258();
-      this.field564 = this.field572.method2258();
+      int var2 = this.field572.readShort();
+      this.field564 = this.field572.readShort();
       this.field569 = 500000;
       this.field565 = new int[var2];
 
       int var3;
       int var5;
       for(var3 = 0; var3 < var2; this.field572.field1693 += var5) {
-         int var4 = this.field572.method2344();
-         var5 = this.field572.method2344();
+         int var4 = this.field572.readInt();
+         var5 = this.field572.readInt();
          if(var4 == 1297379947) {
             this.field565[var3] = this.field572.field1693;
             ++var3;

@@ -59,7 +59,7 @@ public class class292 extends class330 implements RSIgnore {
          class218.method4500().method5500(var3, var9, var5, true);
          return 1;
       } else {
-         class149 var11;
+         WorldMapData var11;
          if(var0 == 6601) {
             var3 = class249.field3312[--class308.field3811];
             String var16 = "";
@@ -85,21 +85,21 @@ public class class292 extends class330 implements RSIgnore {
             class249.field3312[++class308.field3811 - 1] = class218.method4500().method5610()?1:0;
             return 1;
          } else {
-            class58 var15;
+            Location var15;
             if(var0 == 6606) {
-               var15 = new class58(class249.field3312[--class308.field3811]);
+               var15 = new Location(class249.field3312[--class308.field3811]);
                class218.method4500().method5597(var15.field719, var15.field717);
                return 1;
             } else if(var0 == 6607) {
-               var15 = new class58(class249.field3312[--class308.field3811]);
+               var15 = new Location(class249.field3312[--class308.field3811]);
                class218.method4500().method5624(var15.field719, var15.field717);
                return 1;
             } else if(var0 == 6608) {
-               var15 = new class58(class249.field3312[--class308.field3811]);
+               var15 = new Location(class249.field3312[--class308.field3811]);
                class218.method4500().method5521(var15.field718, var15.field719, var15.field717);
                return 1;
             } else if(var0 == 6609) {
-               var15 = new class58(class249.field3312[--class308.field3811]);
+               var15 = new Location(class249.field3312[--class308.field3811]);
                class218.method4500().method5522(var15.field718, var15.field719, var15.field717);
                return 1;
             } else if(var0 == 6610) {
@@ -107,7 +107,7 @@ public class class292 extends class330 implements RSIgnore {
                class249.field3312[++class308.field3811 - 1] = class218.method4500().method5524();
                return 1;
             } else {
-               class149 var13;
+               WorldMapData var13;
                if(var0 == 6611) {
                   var3 = class249.field3312[--class308.field3811];
                   var13 = class218.method4500().method5632(var3);
@@ -171,7 +171,7 @@ public class class292 extends class330 implements RSIgnore {
                   class249.field3312[++class308.field3811 - 1] = class218.method4500().method5502();
                   return 1;
                } else if(var0 == 6617) {
-                  var15 = new class58(class249.field3312[--class308.field3811]);
+                  var15 = new Location(class249.field3312[--class308.field3811]);
                   var13 = class218.method4500().method5503();
                   if(var13 == null) {
                      class249.field3312[++class308.field3811 - 1] = -1;
@@ -190,9 +190,9 @@ public class class292 extends class330 implements RSIgnore {
                      return 1;
                   }
                } else {
-                  class58 var7;
+                  Location var7;
                   if(var0 == 6618) {
-                     var15 = new class58(class249.field3312[--class308.field3811]);
+                     var15 = new Location(class249.field3312[--class308.field3811]);
                      var13 = class218.method4500().method5503();
                      if(var13 == null) {
                         class249.field3312[++class308.field3811 - 1] = -1;
@@ -209,23 +209,23 @@ public class class292 extends class330 implements RSIgnore {
                         return 1;
                      }
                   } else {
-                     class58 var12;
+                     Location var12;
                      if(var0 == 6619) {
                         class308.field3811 -= 2;
                         var3 = class249.field3312[class308.field3811];
-                        var12 = new class58(class249.field3312[class308.field3811 + 1]);
+                        var12 = new Location(class249.field3312[class308.field3811 + 1]);
                         class305.method6013(var3, var12, false);
                         return 1;
                      } else if(var0 == 6620) {
                         class308.field3811 -= 2;
                         var3 = class249.field3312[class308.field3811];
-                        var12 = new class58(class249.field3312[class308.field3811 + 1]);
+                        var12 = new Location(class249.field3312[class308.field3811 + 1]);
                         class305.method6013(var3, var12, true);
                         return 1;
                      } else if(var0 == 6621) {
                         class308.field3811 -= 2;
                         var3 = class249.field3312[class308.field3811];
-                        var12 = new class58(class249.field3312[class308.field3811 + 1]);
+                        var12 = new Location(class249.field3312[class308.field3811 + 1]);
                         var11 = class218.method4500().method5632(var3);
                         if(var11 == null) {
                            class249.field3312[++class308.field3811 - 1] = 0;
@@ -239,7 +239,7 @@ public class class292 extends class330 implements RSIgnore {
                         class249.field3312[++class308.field3811 - 1] = class218.method4500().method5527();
                         return 1;
                      } else if(var0 == 6623) {
-                        var15 = new class58(class249.field3312[--class308.field3811]);
+                        var15 = new Location(class249.field3312[--class308.field3811]);
                         var13 = class218.method4500().method5542(var15.field718, var15.field719, var15.field717);
                         if(var13 == null) {
                            class249.field3312[++class308.field3811 - 1] = -1;
@@ -309,7 +309,7 @@ public class class292 extends class330 implements RSIgnore {
                            } else if(var0 == 6638) {
                               class308.field3811 -= 2;
                               var3 = class249.field3312[class308.field3811];
-                              var12 = new class58(class249.field3312[class308.field3811 + 1]);
+                              var12 = new Location(class249.field3312[class308.field3811 + 1]);
                               var7 = class218.method4500().method5535(var3, var12);
                               if(var7 == null) {
                                  class249.field3312[++class308.field3811 - 1] = -1;

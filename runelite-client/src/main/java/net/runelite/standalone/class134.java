@@ -37,7 +37,7 @@ public class class134 extends class161 {
    public static void method2561(boolean var0) {
       if(class239.field3135 != null) {
          try {
-            class125 var1 = new class125(4);
+            Buffer var1 = new Buffer(4);
             var1.method2288(var0?2:3);
             var1.method2412(0);
             class239.field3135.vmethod2791(var1.field1694, 0, 4);

@@ -23,34 +23,34 @@ public class class253 {
       garbageValue = "-1561003737"
    )
    static void method5080(byte[] var0) {
-      class125 var1 = new class125(var0);
+      Buffer var1 = new Buffer(var0);
       var1.field1693 = var0.length - 2;
-      class212.field2926 = var1.method2258();
+      class212.field2926 = var1.readShort();
       class42.field476 = new int[class212.field2926];
       class212.field2925 = new int[class212.field2926];
       class212.field2922 = new int[class212.field2926];
       class192.field2745 = new int[class212.field2926];
       class191.field2740 = new byte[class212.field2926][];
       var1.field1693 = var0.length - 7 - class212.field2926 * 8;
-      class212.field2927 = var1.method2258();
-      class212.field2924 = var1.method2258();
-      int var2 = (var1.method2256() & 255) + 1;
+      class212.field2927 = var1.readShort();
+      class212.field2924 = var1.readShort();
+      int var2 = (var1.readUnsignedByte() & 255) + 1;
 
       int var3;
       for(var3 = 0; var3 < class212.field2926; ++var3) {
-         class42.field476[var3] = var1.method2258();
+         class42.field476[var3] = var1.readShort();
       }
 
       for(var3 = 0; var3 < class212.field2926; ++var3) {
-         class212.field2925[var3] = var1.method2258();
+         class212.field2925[var3] = var1.readShort();
       }
 
       for(var3 = 0; var3 < class212.field2926; ++var3) {
-         class212.field2922[var3] = var1.method2258();
+         class212.field2922[var3] = var1.readShort();
       }
 
       for(var3 = 0; var3 < class212.field2926; ++var3) {
-         class192.field2745[var3] = var1.method2258();
+         class192.field2745[var3] = var1.readShort();
       }
 
       var1.field1693 = var0.length - 7 - class212.field2926 * 8 - (var2 - 1) * 3;
@@ -71,7 +71,7 @@ public class class253 {
          int var6 = var4 * var5;
          byte[] var7 = new byte[var6];
          class191.field2740[var3] = var7;
-         int var8 = var1.method2256();
+         int var8 = var1.readUnsignedByte();
          int var9;
          if(var8 == 0) {
             for(var9 = 0; var9 < var6; ++var9) {
@@ -94,7 +94,7 @@ public class class253 {
       garbageValue = "1846703706"
    )
    static final void method5079(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, class111 var8, class3[] var9) {
-      class125 var10 = new class125(var0);
+      Buffer var10 = new Buffer(var0);
       int var11 = -1;
 
       while(true) {
@@ -116,13 +116,13 @@ public class class253 {
             int var15 = var13 & 63;
             int var16 = var13 >> 6 & 63;
             int var17 = var13 >> 12;
-            int var18 = var10.method2256();
+            int var18 = var10.readUnsignedByte();
             int var19 = var18 >> 2;
             int var20 = var18 & 3;
             if(var17 == var4 && var16 >= var5 && var16 < var5 + 8 && var15 >= var6 && var15 < var6 + 8) {
                class15 var21 = class285.method5484(var11);
                int var22 = var2 + class194.method3929(var16 & 7, var15 & 7, var7, var21.field150, var21.field193, var20);
-               int var23 = var3 + class208.method4158(var16 & 7, var15 & 7, var7, var21.field150, var21.field193, var20);
+               int var23 = var3 + WorldMapManager.method4158(var16 & 7, var15 & 7, var7, var21.field150, var21.field193, var20);
                if(var22 > 0 && var23 > 0 && var22 < 103 && var23 < 103) {
                   int var24 = var1;
                   if((class185.field2512[1][var22][var23] & 2) == 2) {

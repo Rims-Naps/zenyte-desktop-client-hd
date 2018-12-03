@@ -19,7 +19,7 @@ public class class20 extends class324 {
    @ObfuscatedSignature(
       signature = "Lim;"
    )
-   static class6 field231;
+   static class6 fontsIndex;
    @ObfuscatedName("w")
    @ObfuscatedSignature(
       signature = "Lga;"
@@ -65,7 +65,7 @@ public class class20 extends class324 {
       signature = "(Lgm;IB)V",
       garbageValue = "-59"
    )
-   void method405(class125 var1, int var2) {
+   void method405(Buffer var1, int var2) {
       if(var2 == 249) {
          this.field229 = class227.method4570(var1, this.field229);
       }
@@ -86,9 +86,9 @@ public class class20 extends class324 {
       signature = "(Lgm;I)V",
       garbageValue = "-1491263996"
    )
-   void method404(class125 var1) {
+   void method404(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }

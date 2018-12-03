@@ -72,7 +72,7 @@ final class class95 implements Comparator {
             }
 
             class12 var12 = class150.method2761(ClientProt.field3173, client.field2384.field1770);
-            var12.field121.method2334(var10);
+            var12.field121.writeByte(var10);
             client.field2384.method2573(var12);
             return 1;
          } else {
@@ -81,14 +81,14 @@ final class class95 implements Comparator {
                var3 = class249.field3313[--class103.field1146];
                var14 = class150.method2761(ClientProt.field3251, client.field2384.field1770);
                var14.field121.method2288(var3.length() + 1);
-               var14.field121.method2358(var3);
+               var14.field121.writeString(var3);
                client.field2384.method2573(var14);
                return 1;
             } else if(var0 == 3106) {
                var3 = class249.field3313[--class103.field1146];
                var14 = class150.method2761(ClientProt.field3188, client.field2384.field1770);
                var14.field121.method2288(var3.length() + 1);
-               var14.field121.method2358(var3);
+               var14.field121.writeString(var3);
                client.field2384.method2573(var14);
                return 1;
             } else {
@@ -147,9 +147,9 @@ final class class95 implements Comparator {
                   } else {
                      class12 var6 = class150.method2761(ClientProt.field3184, client.field2384.field1770);
                      var6.field121.method2242(1 + class118.method2136(var7) + class118.method2136(var5));
-                     var6.field121.method2358(var7);
+                     var6.field121.writeString(var7);
                      var6.field121.method2288(var15);
-                     var6.field121.method2358(var5);
+                     var6.field121.writeString(var5);
                      client.field2384.method2573(var6);
                      return 1;
                   }

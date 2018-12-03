@@ -142,7 +142,7 @@ public class class64 {
          }
 
          if(var4 == 1 || var4 == 2 && var9.field435 == 1) {
-            class150.field1858.method3832(class208.method4123(var1), 0, 9, 16776960, 1);
+            class150.field1858.method3832(WorldMapManager.method4123(var1), 0, 9, 16776960, 1);
          }
 
          if(!var5) {
@@ -163,7 +163,7 @@ public class class64 {
       garbageValue = "97"
    )
    static final void method1355() {
-      class149.method2707("You can\'t add yourself to your own friend list");
+      WorldMapData.method2707("You can\'t add yourself to your own friend list");
    }
 
    @ObfuscatedName("e")

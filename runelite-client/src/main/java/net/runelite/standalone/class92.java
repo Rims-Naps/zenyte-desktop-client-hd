@@ -16,7 +16,7 @@ public class class92 {
       garbageValue = "821328278"
    )
    static final void method1716() {
-      class149.method2707("You can\'t add yourself to your own ignore list");
+      WorldMapData.method2707("You can\'t add yourself to your own ignore list");
    }
 
    @ObfuscatedName("e")

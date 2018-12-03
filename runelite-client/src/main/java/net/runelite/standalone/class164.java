@@ -74,7 +74,7 @@ public class class164 {
          var1 = new class42();
          var1.field429 = var0;
          if(var2 != null) {
-            var1.method771(new class125(var2));
+            var1.method771(new Buffer(var2));
          }
 
          var1.method776();
@@ -275,7 +275,7 @@ public class class164 {
          }
 
          var5 = client.field2223 & 2047;
-         class255.method5125(class267.field3457, class118.field1632, class148.field1834, var28, var5, class149.method2740(var28), var3);
+         class255.method5125(class267.field3457, class118.field1632, class148.field1834, var28, var5, WorldMapData.method2740(var28), var3);
       }
 
       int var6;

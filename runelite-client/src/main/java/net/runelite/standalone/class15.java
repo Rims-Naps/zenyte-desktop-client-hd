@@ -447,9 +447,9 @@ public class class15 extends class324 implements RSObjectComposition {
       signature = "(Lgm;I)V",
       garbageValue = "-1911540066"
    )
-   void method323(class125 var1) {
+   void method323(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }
@@ -686,11 +686,11 @@ public class class15 extends class324 implements RSObjectComposition {
       signature = "(Lgm;II)V",
       garbageValue = "-143499992"
    )
-   void method319(class125 var1, int var2) {
+   void method319(Buffer var1, int var2) {
       int var3;
       int var4;
       if(var2 == 1) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          if(var3 > 0) {
             if(this.field156 != null && !field175) {
                var1.field1693 += 3 * var3;
@@ -699,15 +699,15 @@ public class class15 extends class324 implements RSObjectComposition {
                this.field156 = new int[var3];
 
                for(var4 = 0; var4 < var3; ++var4) {
-                  this.field156[var4] = var1.method2258();
-                  this.field176[var4] = var1.method2256();
+                  this.field156[var4] = var1.readShort();
+                  this.field176[var4] = var1.readUnsignedByte();
                }
             }
          }
       } else if(var2 == 2) {
-         this.field147 = var1.method2265();
+         this.field147 = var1.readString();
       } else if(var2 == 5) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          if(var3 > 0) {
             if(this.field156 != null && !field175) {
                var1.field1693 += var3 * 2;
@@ -716,21 +716,21 @@ public class class15 extends class324 implements RSObjectComposition {
                this.field156 = new int[var3];
 
                for(var4 = 0; var4 < var3; ++var4) {
-                  this.field156[var4] = var1.method2258();
+                  this.field156[var4] = var1.readShort();
                }
             }
          }
       } else if(var2 == 14) {
-         this.field150 = var1.method2256();
+         this.field150 = var1.readUnsignedByte();
       } else if(var2 == 15) {
-         this.field193 = var1.method2256();
+         this.field193 = var1.readUnsignedByte();
       } else if(var2 == 17) {
          this.field173 = 0;
          this.field166 = false;
       } else if(var2 == 18) {
          this.field166 = false;
       } else if(var2 == 19) {
-         this.field167 = var1.method2256();
+         this.field167 = var1.readUnsignedByte();
       } else if(var2 == 21) {
          this.field168 = 0;
       } else if(var2 == 22) {
@@ -738,55 +738,55 @@ public class class15 extends class324 implements RSObjectComposition {
       } else if(var2 == 23) {
          this.field164 = true;
       } else if(var2 == 24) {
-         this.field171 = var1.method2258();
+         this.field171 = var1.readShort();
          if(this.field171 == 65535) {
             this.field171 = -1;
          }
       } else if(var2 == 27) {
          this.field173 = 1;
       } else if(var2 == 28) {
-         this.field172 = var1.method2256();
+         this.field172 = var1.readUnsignedByte();
       } else if(var2 == 29) {
          this.field183 = var1.method2257();
       } else if(var2 == 39) {
          this.field174 = var1.method2257();
       } else if(var2 >= 30 && var2 < 35) {
-         this.field178[var2 - 30] = var1.method2265();
+         this.field178[var2 - 30] = var1.readString();
          if(this.field178[var2 - 30].equalsIgnoreCase("Hidden")) {
             this.field178[var2 - 30] = null;
          }
       } else if(var2 == 40) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          this.field159 = new short[var3];
          this.field196 = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field159[var4] = (short)var1.method2258();
-            this.field196[var4] = (short)var1.method2258();
+            this.field159[var4] = (short)var1.readShort();
+            this.field196[var4] = (short)var1.readShort();
          }
       } else if(var2 == 41) {
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          this.field161 = new short[var3];
          this.field162 = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field161[var4] = (short)var1.method2258();
-            this.field162[var4] = (short)var1.method2258();
+            this.field161[var4] = (short)var1.readShort();
+            this.field162[var4] = (short)var1.readShort();
          }
       } else if(var2 == 62) {
          this.field177 = true;
       } else if(var2 == 64) {
          this.field165 = false;
       } else if(var2 == 65) {
-         this.field180 = var1.method2258();
+         this.field180 = var1.readShort();
       } else if(var2 == 66) {
-         this.field181 = var1.method2258();
+         this.field181 = var1.readShort();
       } else if(var2 == 67) {
-         this.field163 = var1.method2258();
+         this.field163 = var1.readShort();
       } else if(var2 == 68) {
-         this.field158 = var1.method2258();
+         this.field158 = var1.readShort();
       } else if(var2 == 69) {
-         var1.method2256();
+         var1.readUnsignedByte();
       } else if(var2 == 70) {
          this.field179 = var1.method2456();
       } else if(var2 == 71) {
@@ -798,52 +798,52 @@ public class class15 extends class324 implements RSObjectComposition {
       } else if(var2 == 74) {
          this.field187 = true;
       } else if(var2 == 75) {
-         this.field188 = var1.method2256();
+         this.field188 = var1.readUnsignedByte();
       } else if(var2 != 77 && var2 != 92) {
          if(var2 == 78) {
-            this.field192 = var1.method2258();
-            this.field151 = var1.method2256();
+            this.field192 = var1.readShort();
+            this.field151 = var1.readUnsignedByte();
          } else if(var2 == 79) {
-            this.field194 = var1.method2258();
-            this.field195 = var1.method2258();
-            this.field151 = var1.method2256();
-            var3 = var1.method2256();
+            this.field194 = var1.readShort();
+            this.field195 = var1.readShort();
+            this.field151 = var1.readUnsignedByte();
+            var3 = var1.readUnsignedByte();
             this.field160 = new int[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field160[var4] = var1.method2258();
+               this.field160[var4] = var1.readShort();
             }
          } else if(var2 == 81) {
-            this.field168 = var1.method2256() * 256;
+            this.field168 = var1.readUnsignedByte() * 256;
          } else if(var2 == 82) {
-            this.field148 = var1.method2258();
+            this.field148 = var1.readShort();
          } else if(var2 == 249) {
             this.field197 = class227.method4570(var1, this.field197);
          }
       } else {
-         this.field190 = var1.method2258();
+         this.field190 = var1.readShort();
          if(this.field190 == 65535) {
             this.field190 = -1;
          }
 
-         this.field191 = var1.method2258();
+         this.field191 = var1.readShort();
          if(this.field191 == 65535) {
             this.field191 = -1;
          }
 
          var3 = -1;
          if(var2 == 92) {
-            var3 = var1.method2258();
+            var3 = var1.readShort();
             if(var3 == 65535) {
                var3 = -1;
             }
          }
 
-         var4 = var1.method2256();
+         var4 = var1.readUnsignedByte();
          this.field189 = new int[var4 + 2];
 
          for(int var5 = 0; var5 <= var4; ++var5) {
-            this.field189[var5] = var1.method2258();
+            this.field189[var5] = var1.readShort();
             if(this.field189[var5] == 65535) {
                this.field189[var5] = -1;
             }

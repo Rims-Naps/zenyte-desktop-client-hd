@@ -39,6 +39,6 @@ public class class28 {
       garbageValue = "-1614940408"
    )
    public static final void method484(String var0, String var1, int var2, int var3, int var4, int var5) {
-      class208.method4155(var0, var1, var2, var3, var4, var5, false);
+      WorldMapManager.method4155(var0, var1, var2, var3, var4, var5, false);
    }
 }

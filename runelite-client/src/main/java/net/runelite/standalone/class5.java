@@ -153,7 +153,7 @@ public class class5 extends class197 {
       signature = "(Lgm;I)V",
       garbageValue = "470741095"
    )
-   public void method88(class125 var1) {
+   public void method88(Buffer var1) {
       var1.method2288(7);
       var1.method2288(this.field53);
       var1.method2288(this.field54?1:0);
@@ -179,10 +179,10 @@ public class class5 extends class197 {
       var1.method2288(this.field72);
 
       for(int var2 = 0; var2 < this.field67.length; ++var2) {
-         var1.method2334(this.field67[var2]);
+         var1.writeByte(this.field67[var2]);
       }
 
-      var1.method2334(this.field76);
+      var1.writeByte(this.field76);
       var1.method2249(this.field77);
    }
 }

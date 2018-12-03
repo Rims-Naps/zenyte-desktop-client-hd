@@ -91,9 +91,9 @@ public class class71 extends class324 {
       signature = "(Lgm;I)V",
       garbageValue = "16711680"
    )
-   void method1527(class125 var1) {
+   void method1527(Buffer var1) {
       while(true) {
-         int var2 = var1.method2256();
+         int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
             return;
          }
@@ -168,41 +168,41 @@ public class class71 extends class324 {
       signature = "(Lgm;II)V",
       garbageValue = "1752020775"
    )
-   void method1534(class125 var1, int var2) {
+   void method1534(Buffer var1, int var2) {
       if(var2 == 1) {
-         this.field814 = var1.method2258();
+         this.field814 = var1.readShort();
       } else if(var2 == 2) {
-         this.field813 = var1.method2258();
+         this.field813 = var1.readShort();
       } else if(var2 == 4) {
-         this.field816 = var1.method2258();
+         this.field816 = var1.readShort();
       } else if(var2 == 5) {
-         this.field821 = var1.method2258();
+         this.field821 = var1.readShort();
       } else if(var2 == 6) {
-         this.field822 = var1.method2258();
+         this.field822 = var1.readShort();
       } else if(var2 == 7) {
-         this.field823 = var1.method2256();
+         this.field823 = var1.readUnsignedByte();
       } else if(var2 == 8) {
-         this.field815 = var1.method2256();
+         this.field815 = var1.readUnsignedByte();
       } else {
          int var3;
          int var4;
          if(var2 == 40) {
-            var3 = var1.method2256();
+            var3 = var1.readUnsignedByte();
             this.field810 = new short[var3];
             this.field817 = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field810[var4] = (short)var1.method2258();
-               this.field817[var4] = (short)var1.method2258();
+               this.field810[var4] = (short)var1.readShort();
+               this.field817[var4] = (short)var1.readShort();
             }
          } else if(var2 == 41) {
-            var3 = var1.method2256();
+            var3 = var1.readUnsignedByte();
             this.field818 = new short[var3];
             this.field819 = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field818[var4] = (short)var1.method2258();
-               this.field819[var4] = (short)var1.method2258();
+               this.field818[var4] = (short)var1.readShort();
+               this.field819[var4] = (short)var1.readShort();
             }
          }
       }

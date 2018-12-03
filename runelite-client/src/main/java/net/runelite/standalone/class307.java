@@ -48,13 +48,13 @@ public class class307 implements RSGrandExchangeOffer {
       signature = "(Lgm;Z)V",
       garbageValue = "0"
    )
-   public class307(class125 var1, boolean var2) {
+   public class307(Buffer var1, boolean var2) {
       this.field3800 = var1.method2257();
-      this.field3792 = var1.method2258();
-      this.field3799 = var1.method2344();
-      this.field3794 = var1.method2344();
-      this.field3795 = var1.method2344();
-      this.field3796 = var1.method2344();
+      this.field3792 = var1.readShort();
+      this.field3799 = var1.readInt();
+      this.field3794 = var1.readInt();
+      this.field3795 = var1.readInt();
+      this.field3796 = var1.readInt();
    }
 
    @ObfuscatedName("l")
@@ -134,7 +134,7 @@ public class class307 implements RSGrandExchangeOffer {
       signature = "(Lgm;II)V",
       garbageValue = "999388232"
    )
-   static void method6051(class125 var0, int var1) {
+   static void method6051(Buffer var0, int var1) {
       byte[] var2 = var0.field1694;
       if(client.field2254 == null) {
          client.field2254 = new byte[24];
@@ -150,6 +150,6 @@ public class class307 implements RSGrandExchangeOffer {
       garbageValue = "2037429194"
    )
    static final void method6050() {
-      class149.method2707("Your friend list is full. Max of 200 for free users, and 400 for members");
+      WorldMapData.method2707("Your friend list is full. Max of 200 for free users, and 400 for members");
    }
 }

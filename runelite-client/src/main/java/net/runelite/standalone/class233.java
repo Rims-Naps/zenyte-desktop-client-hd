@@ -96,21 +96,21 @@ public class class233 implements class61 {
       signature = "(Lgm;I)V",
       garbageValue = "116686342"
    )
-   public void vmethod5267(class125 var1) {
-      this.field3087 = var1.method2256();
-      this.field3096 = var1.method2256();
-      this.field3086 = var1.method2258();
-      this.field3094 = var1.method2256();
-      this.field3092 = var1.method2256();
-      this.field3085 = var1.method2258();
-      this.field3098 = var1.method2256();
-      this.field3093 = var1.method2256();
-      this.field3097 = var1.method2258();
-      this.field3088 = var1.method2256();
-      this.field3090 = var1.method2256();
-      this.field3089 = var1.method2258();
-      this.field3095 = var1.method2256();
-      this.field3091 = var1.method2256();
+   public void vmethod5267(Buffer var1) {
+      this.field3087 = var1.readUnsignedByte();
+      this.field3096 = var1.readUnsignedByte();
+      this.field3086 = var1.readShort();
+      this.field3094 = var1.readUnsignedByte();
+      this.field3092 = var1.readUnsignedByte();
+      this.field3085 = var1.readShort();
+      this.field3098 = var1.readUnsignedByte();
+      this.field3093 = var1.readUnsignedByte();
+      this.field3097 = var1.readShort();
+      this.field3088 = var1.readUnsignedByte();
+      this.field3090 = var1.readUnsignedByte();
+      this.field3089 = var1.readShort();
+      this.field3095 = var1.readUnsignedByte();
+      this.field3091 = var1.readUnsignedByte();
       this.method4647();
    }
 
@@ -142,7 +142,7 @@ public class class233 implements class61 {
       signature = "(Lh;B)V",
       garbageValue = "-105"
    )
-   public void vmethod5276(class149 var1) {
+   public void vmethod5276(WorldMapData var1) {
       if(var1.field1843 > this.field3097) {
          var1.field1843 = this.field3097;
       }
@@ -166,13 +166,13 @@ public class class233 implements class61 {
       signature = "(IIB)Lhx;",
       garbageValue = "26"
    )
-   public class58 vmethod5264(int var1, int var2) {
+   public Location vmethod5264(int var1, int var2) {
       if(!this.vmethod5282(var1, var2)) {
          return null;
       } else {
          int var3 = this.field3086 * 64 - this.field3097 * 64 + (this.field3094 * 8 - this.field3088 * 8) + var1;
          int var4 = this.field3085 * 64 - this.field3089 * 64 + var2 + (this.field3098 * 8 - this.field3095 * 8);
-         return new class58(this.field3087, var3, var4);
+         return new Location(this.field3087, var3, var4);
       }
    }
 

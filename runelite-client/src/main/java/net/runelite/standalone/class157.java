@@ -400,17 +400,17 @@ public class class157 extends class197 {
 
    @ObfuscatedName("e")
    void method2845(byte[] var1) {
-      class125 var2 = new class125(var1);
-      this.field1908 = var2.method2344();
-      this.field1909 = var2.method2344();
-      this.field1910 = var2.method2344();
-      this.field1912 = var2.method2344();
+      Buffer var2 = new Buffer(var1);
+      this.field1908 = var2.readInt();
+      this.field1909 = var2.readInt();
+      this.field1910 = var2.readInt();
+      this.field1912 = var2.readInt();
       if(this.field1912 < 0) {
          this.field1912 = ~this.field1912;
          this.field1911 = true;
       }
 
-      int var3 = var2.method2344();
+      int var3 = var2.readInt();
       this.field1930 = new byte[var3][];
 
       for(int var4 = 0; var4 < var3; ++var4) {
@@ -418,7 +418,7 @@ public class class157 extends class197 {
 
          int var6;
          do {
-            var6 = var2.method2256();
+            var6 = var2.readUnsignedByte();
             var5 += var6;
          } while(var6 >= 255);
 

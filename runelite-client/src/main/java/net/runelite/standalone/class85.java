@@ -451,7 +451,7 @@ public class class85 {
                   var1.method3879("Click to switch", var35 / 2 + var33, var23 / 2 + var34 + 12, 16777215, 0);
                }
             } else {
-               class210.field2892 = class124.method2237(class138.field1782, "sl_button", "");
+               class210.field2892 = class124.method2237(class138.spritesIndex, "sl_button", "");
             }
          }
 

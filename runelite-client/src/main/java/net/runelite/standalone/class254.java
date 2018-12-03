@@ -114,8 +114,8 @@ public class class254 extends class168 implements RSClanMemberManager {
       signature = "(Lgm;B)V",
       garbageValue = "-19"
    )
-   public final void method5086(class125 var1) {
-      this.method5084(var1.method2265());
+   public final void method5086(Buffer var1) {
+      this.method5084(var1.readString());
       long var2 = var1.method2349();
       long var5 = var2;
       String var4;
@@ -146,16 +146,16 @@ public class class254 extends class168 implements RSClanMemberManager {
 
       this.method5111(var4);
       this.field3344 = var1.method2257();
-      var7 = var1.method2256();
+      var7 = var1.readUnsignedByte();
       if(var7 != 255) {
          this.method3027();
 
          for(int var8 = 0; var8 < var7; ++var8) {
-            class272 var9 = (class272)this.method3036(new class158(var1.method2265(), this.field3348));
-            int var10 = var1.method2258();
+            class272 var9 = (class272)this.method3036(new class158(var1.readString(), this.field3348));
+            int var10 = var1.readShort();
             var9.method1338(var10, ++this.field3347 - 1);
             var9.field733 = var1.method2257();
-            var1.method2265();
+            var1.readString();
             this.method5090(var9);
          }
 
@@ -176,9 +176,9 @@ public class class254 extends class168 implements RSClanMemberManager {
       signature = "(Lgm;S)V",
       garbageValue = "381"
    )
-   public final void method5087(class125 var1) {
-      class158 var2 = new class158(var1.method2265(), this.field3348);
-      int var3 = var1.method2258();
+   public final void method5087(Buffer var1) {
+      class158 var2 = new class158(var1.readString(), this.field3348);
+      int var3 = var1.readShort();
       byte var4 = var1.method2257();
       boolean var5 = false;
       if(var4 == -128) {
@@ -196,7 +196,7 @@ public class class254 extends class168 implements RSClanMemberManager {
             this.method3035(var6);
          }
       } else {
-         var1.method2265();
+         var1.readString();
          var6 = (class272)this.method3032(var2);
          if(var6 == null) {
             if(this.method3041() > super.field2015) {

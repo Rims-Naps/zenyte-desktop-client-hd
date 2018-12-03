@@ -239,7 +239,7 @@ public class class276 implements Comparator {
                                  byte[] var50 = class93.field1012.method4398(4, var34, 1004336283);
                                  var35 = new class93();
                                  if(var50 != null) {
-                                    var35.method1721(new class125(var50), var34);
+                                    var35.method1721(new Buffer(var50), var34);
                                  }
 
                                  var35.method1720();
@@ -275,7 +275,7 @@ public class class276 implements Comparator {
                               byte[] var49 = class93.field1012.method4398(4, var36, -1676938535);
                               var37 = new class93();
                               if(var49 != null) {
-                                 var37.method1721(new class125(var49), var36);
+                                 var37.method1721(new Buffer(var49), var36);
                               }
 
                               var37.method1720();

@@ -10,7 +10,7 @@ public interface class61 {
       signature = "(Lgm;I)V",
       garbageValue = "116686342"
    )
-   void vmethod5267(class125 var1);
+   void vmethod5267(Buffer var1);
 
    @ObfuscatedName("l")
    @ObfuscatedSignature(
@@ -31,14 +31,14 @@ public interface class61 {
       signature = "(Lh;B)V",
       garbageValue = "-105"
    )
-   void vmethod5276(class149 var1);
+   void vmethod5276(WorldMapData var1);
 
    @ObfuscatedName("e")
    @ObfuscatedSignature(
       signature = "(IIB)Lhx;",
       garbageValue = "26"
    )
-   class58 vmethod5264(int var1, int var2);
+   Location vmethod5264(int var1, int var2);
 
    @ObfuscatedName("w")
    @ObfuscatedSignature(

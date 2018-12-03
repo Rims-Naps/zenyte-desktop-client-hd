@@ -160,30 +160,30 @@ public class class124 implements Runnable {
          } else {
             String var4 = class39.field386;
             Random var5 = new Random();
-            class125 var6 = new class125(128);
-            class125 var7 = new class125(128);
+            Buffer var6 = new Buffer(128);
+            Buffer var7 = new Buffer(128);
             int[] var8 = new int[]{var5.nextInt(), var5.nextInt(), (int)(var1 >> 32), (int)var1};
             var6.method2288(10);
 
             int var9;
             for(var9 = 0; var9 < 4; ++var9) {
-               var6.method2334(var5.nextInt());
+               var6.writeByte(var5.nextInt());
             }
 
-            var6.method2334(var8[0]);
-            var6.method2334(var8[1]);
+            var6.writeByte(var8[0]);
+            var6.writeByte(var8[1]);
             var6.method2246(var1);
             var6.method2246(0L);
 
             for(var9 = 0; var9 < 4; ++var9) {
-               var6.method2334(var5.nextInt());
+               var6.writeByte(var5.nextInt());
             }
 
             var6.method2279(class17.field210, class17.field204);
             var7.method2288(10);
 
             for(var9 = 0; var9 < 3; ++var9) {
-               var7.method2334(var5.nextInt());
+               var7.writeByte(var5.nextInt());
             }
 
             var7.method2246(var5.nextLong());
@@ -221,11 +221,11 @@ public class class124 implements Runnable {
                var9 += 8 - var9 % 8;
             }
 
-            class125 var26 = new class125(var9);
-            var26.method2358(var4);
+            Buffer var26 = new Buffer(var9);
+            var26.writeString(var4);
             var26.field1693 = var9;
             var26.method2275(var8);
-            class125 var20 = new class125(var26.field1693 + var6.field1693 + var7.field1693 + 5);
+            Buffer var20 = new Buffer(var26.field1693 + var6.field1693 + var7.field1693 + 5);
             var20.method2288(2);
             var20.method2288(var6.field1693);
             var20.method2251(var6.field1694, 0, var6.field1693);
@@ -248,7 +248,7 @@ public class class124 implements Runnable {
                var17.write("data2=" + class122.method2197(var14) + "&dest=" + class122.method2197("passwordchoice.ws"));
                var17.flush();
                InputStream var18 = var16.getInputStream();
-               var20 = new class125(new byte[1000]);
+               var20 = new Buffer(new byte[1000]);
 
                while(true) {
                   int var19 = var18.read(var20.field1694, var20.field1693, 1000 - var20.field1693);
@@ -328,7 +328,7 @@ public class class124 implements Runnable {
    public static class303 method2237(class217 var0, String var1, String var2) {
       int var3 = var0.method4421(var1);
       int var4 = var0.method4400(var3, var2);
-      return class125.method2473(var0, var3, var4);
+      return Buffer.method2473(var0, var3, var4);
    }
 
    @ObfuscatedName("l")

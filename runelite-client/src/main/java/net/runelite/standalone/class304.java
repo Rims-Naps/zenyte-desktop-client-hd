@@ -111,7 +111,7 @@ public class class304 {
                if(var10 == client.field2326) {
                   if(var1 != -1412584499 && !var10.field2646) {
                      class218.field2973 = var0;
-                     class149.field1849 = var6;
+                     WorldMapData.field1849 = var6;
                      class54.field661 = var7;
                      continue;
                   }

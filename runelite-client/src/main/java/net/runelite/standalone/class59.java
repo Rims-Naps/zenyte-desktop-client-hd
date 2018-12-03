@@ -52,13 +52,13 @@ public class class59 implements class61 {
       signature = "(Lgm;I)V",
       garbageValue = "116686342"
    )
-   public void vmethod5267(class125 var1) {
-      this.field728 = var1.method2256();
-      this.field722 = var1.method2256();
-      this.field724 = var1.method2258();
-      this.field726 = var1.method2258();
-      this.field725 = var1.method2258();
-      this.field721 = var1.method2258();
+   public void vmethod5267(Buffer var1) {
+      this.field728 = var1.readUnsignedByte();
+      this.field722 = var1.readUnsignedByte();
+      this.field724 = var1.readShort();
+      this.field726 = var1.readShort();
+      this.field725 = var1.readShort();
+      this.field721 = var1.readShort();
       this.method1277();
    }
 
@@ -90,7 +90,7 @@ public class class59 implements class61 {
       signature = "(Lh;B)V",
       garbageValue = "-105"
    )
-   public void vmethod5276(class149 var1) {
+   public void vmethod5276(WorldMapData var1) {
       if(var1.field1843 > this.field725) {
          var1.field1843 = this.field725;
       }
@@ -114,13 +114,13 @@ public class class59 implements class61 {
       signature = "(IIB)Lhx;",
       garbageValue = "26"
    )
-   public class58 vmethod5264(int var1, int var2) {
+   public Location vmethod5264(int var1, int var2) {
       if(!this.vmethod5282(var1, var2)) {
          return null;
       } else {
          int var3 = this.field724 * 64 - this.field725 * 64 + var1;
          int var4 = this.field726 * 64 - this.field721 * 64 + var2;
-         return new class58(this.field728, var3, var4);
+         return new Location(this.field728, var3, var4);
       }
    }
 

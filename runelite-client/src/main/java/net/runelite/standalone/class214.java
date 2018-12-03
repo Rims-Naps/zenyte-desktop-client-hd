@@ -17,29 +17,29 @@ public class class214 extends class175 {
       signature = "(Lgm;Lgm;I)V",
       garbageValue = "1377930482"
    )
-   void method4368(class125 var1, class125 var2) {
-      int var3 = var2.method2256();
+   void method4368(Buffer var1, Buffer var2) {//worldmap data
+      int var3 = var2.readUnsignedByte();
       if(var3 != class174.field2133.field2128) {
          throw new IllegalStateException("");
       } else {
-         super.field2146 = var2.method2256();
-         super.field2139 = var2.method2256();
-         super.field2150 = var2.method2258();
-         super.field2144 = var2.method2258();
-         super.field2138 = var2.method2258();
-         super.field2137 = var2.method2258();
+         super.field2146 = var2.readUnsignedByte();
+         super.field2139 = var2.readUnsignedByte();
+         super.field2150 = var2.readShort();
+         super.field2144 = var2.readShort();
+         super.field2138 = var2.readShort();
+         super.field2137 = var2.readShort();
          super.field2139 = Math.min(super.field2139, 4);
          super.field2140 = new short[1][64][64];
          super.field2141 = new short[super.field2139][64][64];
          super.field2142 = new byte[super.field2139][64][64];
          super.field2143 = new byte[super.field2139][64][64];
          super.field2149 = new class127[super.field2139][64][64][];
-         var3 = var1.method2256();
+         var3 = var1.readUnsignedByte();
          if(var3 != class286.field3581.field3578) {
             throw new IllegalStateException("");
          } else {
-            int var4 = var1.method2256();
-            int var5 = var1.method2256();
+            int var4 = var1.readUnsignedByte();
+            int var5 = var1.readUnsignedByte();
             if(var4 == super.field2138 && var5 == super.field2137) {
                for(int var6 = 0; var6 < 64; ++var6) {
                   for(int var7 = 0; var7 < 64; ++var7) {

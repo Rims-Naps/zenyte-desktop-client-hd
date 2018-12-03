@@ -132,13 +132,13 @@ public class class159 implements RSFriendManager {
             } else if(class32.field303.field2802.equals(var2)) {
                class64.method1355();
             } else if(this.method2897(var2, false)) {
-               class149.method2707(var1 + " is already on your friend list");
+               WorldMapData.method2707(var1 + " is already on your friend list");
             } else if(this.method2898(var2)) {
                class290.method5706(var1);
             } else {
                class12 var3 = class150.method2761(ClientProt.field3197, client.field2384.field1770);
                var3.field121.method2288(class118.method2136(var1));
-               var3.field121.method2358(var1);
+               var3.field121.writeString(var1);
                client.field2384.method2573(var3);
             }
          }
@@ -159,7 +159,7 @@ public class class159 implements RSFriendManager {
                client.field2404 = client.field2338;
                class12 var3 = class150.method2761(ClientProt.field3210, client.field2384.field1770);
                var3.field121.method2288(class118.method2136(var1));
-               var3.field121.method2358(var1);
+               var3.field121.writeString(var1);
                client.field2384.method2573(var3);
             }
 
@@ -222,7 +222,7 @@ public class class159 implements RSFriendManager {
                client.field2404 = client.field2338;
                class12 var3 = class150.method2761(ClientProt.field3228, client.field2384.field1770);
                var3.field121.method2288(class118.method2136(var1));
-               var3.field121.method2358(var1);
+               var3.field121.writeString(var1);
                client.field2384.method2573(var3);
             }
 
@@ -245,7 +245,7 @@ public class class159 implements RSFriendManager {
             } else if(class32.field303.field2802.equals(var2)) {
                class92.method1716();
             } else if(this.method2898(var2)) {
-               class149.method2707(var1 + " is already on your ignore list");
+               WorldMapData.method2707(var1 + " is already on your ignore list");
             } else if(this.method2897(var2, false)) {
                class263.method5247(var1);
             } else {
@@ -280,7 +280,7 @@ public class class159 implements RSFriendManager {
       signature = "(Lgm;IB)V",
       garbageValue = "17"
    )
-   final void method2894(class125 var1, int var2) {
+   final void method2894(Buffer var1, int var2) {
       this.field1946.method6019(var1, var2);
       this.field1952 = 2;
       class177.method3680();
