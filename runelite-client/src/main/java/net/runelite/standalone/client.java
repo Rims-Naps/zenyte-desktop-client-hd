@@ -2682,12 +2682,15 @@ public final class client extends GameEngine implements class146, RSClient {
                return true;
             }
 
-            if(ServerProt.field2042 == var1.field1759) {
-               var52 = var3.readString();
-               class212.method4358(var52, true, false);
-               var1.field1759 = null;
-               return true;
-            }
+             if(ServerProt.field2042 == var1.field1759) {
+                 byte[] var37 = new byte[var1.field1768];
+                 var3.method0(var37, 0, var37.length);
+                 Buffer var50 = new Buffer(var37);
+                 var52 = var50.readString();
+                 class212.method4358(var52, true, false);
+                 var1.field1759 = null;
+                 return true;
+             }
 
             if(ServerProt.field2052 == var1.field1759) {
                for(var45 = 0; var45 < field2269.length; ++var45) {
