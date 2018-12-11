@@ -99,16 +99,16 @@ public class class233 implements class61 {
    public void vmethod5267(Buffer var1) {
       this.field3087 = var1.readUnsignedByte();
       this.field3096 = var1.readUnsignedByte();
-      this.field3086 = var1.readShort();
+      this.field3086 = var1.readUnsignedShort();
       this.field3094 = var1.readUnsignedByte();
       this.field3092 = var1.readUnsignedByte();
-      this.field3085 = var1.readShort();
+      this.field3085 = var1.readUnsignedShort();
       this.field3098 = var1.readUnsignedByte();
       this.field3093 = var1.readUnsignedByte();
-      this.field3097 = var1.readShort();
+      this.field3097 = var1.readUnsignedShort();
       this.field3088 = var1.readUnsignedByte();
       this.field3090 = var1.readUnsignedByte();
-      this.field3089 = var1.readShort();
+      this.field3089 = var1.readUnsignedShort();
       this.field3095 = var1.readUnsignedByte();
       this.field3091 = var1.readUnsignedByte();
       this.method4647();

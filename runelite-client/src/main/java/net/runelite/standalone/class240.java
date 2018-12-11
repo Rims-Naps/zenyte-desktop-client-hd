@@ -17,11 +17,11 @@ public class class240 extends class197 {
       signature = "(Lgm;)V"
    )
    class240(Buffer var1) {
-      var1.field1693 = var1.field1694.length - 3;
+      var1.position = var1.field1694.length - 3;
       int var2 = var1.readUnsignedByte();
-      int var3 = var1.readShort();
+      int var3 = var1.readUnsignedShort();
       int var4 = var2 * 10 + 14;
-      var1.field1693 = 0;
+      var1.position = 0;
       int var5 = 0;
       int var6 = 0;
       int var7 = 0;
@@ -75,15 +75,15 @@ public class class240 extends class197 {
       var4 += var5 * 5;
       var4 += (var7 + var8 + var6 + var9 + var11) * 2;
       var4 = var4 + var10 + var12;
-      var13 = var1.field1693;
+      var13 = var1.position;
       var14 = var2 + var5 + var6 + var7 + var8 + var9 + var10 + var11 + var12;
 
       for(var15 = 0; var15 < var14; ++var15) {
          var1.method2263();
       }
 
-      var4 += var1.field1693 - var13;
-      var15 = var1.field1693;
+      var4 += var1.position - var13;
+      var15 = var1.position;
       int var16 = 0;
       int var17 = 0;
       int var18 = 0;
@@ -133,48 +133,48 @@ public class class240 extends class197 {
       }
 
       var29 = 0;
-      int var30 = var1.field1693;
-      var1.field1693 += var26;
-      int var31 = var1.field1693;
-      var1.field1693 += var11;
-      int var32 = var1.field1693;
-      var1.field1693 += var10;
-      int var33 = var1.field1693;
-      var1.field1693 += var9;
-      int var34 = var1.field1693;
-      var1.field1693 += var16;
-      int var35 = var1.field1693;
-      var1.field1693 += var18;
-      int var36 = var1.field1693;
-      var1.field1693 += var20;
-      int var37 = var1.field1693;
-      var1.field1693 += var7 + var8 + var11;
-      int var38 = var1.field1693;
-      var1.field1693 += var7;
-      int var39 = var1.field1693;
-      var1.field1693 += var27;
-      int var40 = var1.field1693;
-      var1.field1693 += var8;
-      int var41 = var1.field1693;
-      var1.field1693 += var17;
-      int var42 = var1.field1693;
-      var1.field1693 += var19;
-      int var43 = var1.field1693;
-      var1.field1693 += var21;
-      int var44 = var1.field1693;
-      var1.field1693 += var12;
-      int var45 = var1.field1693;
-      var1.field1693 += var9;
-      int var46 = var1.field1693;
-      var1.field1693 += var22;
-      int var47 = var1.field1693;
-      var1.field1693 += var23;
-      int var48 = var1.field1693;
-      var1.field1693 += var24;
-      int var49 = var1.field1693;
-      var1.field1693 += var25;
-      int var50 = var1.field1693;
-      var1.field1693 += var5 * 3;
+      int var30 = var1.position;
+      var1.position += var26;
+      int var31 = var1.position;
+      var1.position += var11;
+      int var32 = var1.position;
+      var1.position += var10;
+      int var33 = var1.position;
+      var1.position += var9;
+      int var34 = var1.position;
+      var1.position += var16;
+      int var35 = var1.position;
+      var1.position += var18;
+      int var36 = var1.position;
+      var1.position += var20;
+      int var37 = var1.position;
+      var1.position += var7 + var8 + var11;
+      int var38 = var1.position;
+      var1.position += var7;
+      int var39 = var1.position;
+      var1.position += var27;
+      int var40 = var1.position;
+      var1.position += var8;
+      int var41 = var1.position;
+      var1.position += var17;
+      int var42 = var1.position;
+      var1.position += var19;
+      int var43 = var1.position;
+      var1.position += var21;
+      int var44 = var1.position;
+      var1.position += var12;
+      int var45 = var1.position;
+      var1.position += var9;
+      int var46 = var1.position;
+      var1.position += var22;
+      int var47 = var1.position;
+      var1.position += var23;
+      int var48 = var1.position;
+      var1.position += var24;
+      int var49 = var1.position;
+      var1.position += var25;
+      int var50 = var1.position;
+      var1.position += var5 * 3;
       this.field3143 = new byte[var4];
       Buffer var51 = new Buffer(this.field3143);
       var51.writeByte(1297377380);
@@ -182,7 +182,7 @@ public class class240 extends class197 {
       var51.method2242(var2 > 1?1:0);
       var51.method2242(var2);
       var51.method2242(var3);
-      var1.field1693 = var13;
+      var1.position = var13;
       int var52 = 0;
       int var53 = 0;
       int var54 = 0;
@@ -196,8 +196,8 @@ public class class240 extends class197 {
       label220:
       for(int var60 = 0; var60 < var2; ++var60) {
          var51.writeByte(1297379947);
-         var51.field1693 += 4;
-         int var61 = var51.field1693;
+         var51.position += 4;
+         int var61 = var51.position;
          int var62 = -1;
 
          while(true) {
@@ -214,7 +214,7 @@ public class class240 extends class197 {
 
                   var51.method2288(47);
                   var51.method2288(0);
-                  var51.method2399(var51.field1693 - var61);
+                  var51.method2399(var51.position - var61);
                   continue label220;
                }
 
@@ -422,7 +422,7 @@ public class class240 extends class197 {
    @ObfuscatedSignature(
       signature = "(Lik;II)Lhg;"
    )
-   static class240 method4730(class217 var0, int var1, int var2) {
+   static class240 method4730(Js5Index var0, int var1, int var2) {
       byte[] var3 = var0.method4398(var1, var2, -21929818);
       return var3 == null?null:new class240(new Buffer(var3));
    }

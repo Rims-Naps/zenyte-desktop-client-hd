@@ -4,7 +4,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.rs.api.RSIndexedSprite;
 
 @ObfuscatedName("le")
-public final class class303 extends class173 implements RSIndexedSprite {
+public final class class303 extends Rasterizer2D implements RSIndexedSprite {
    @ObfuscatedName("p")
    public int field3764;
    @ObfuscatedName("c")
@@ -169,79 +169,79 @@ public final class class303 extends class173 implements RSIndexedSprite {
          var4 = (var12 + ((var6 << 16) - var8) - 1) / var12;
       }
 
-      var13 = var1 + var2 * class173.field2119;
-      int var14 = class173.field2119 - var3;
-      if(var2 + var4 > class173.field2123) {
-         var4 -= var2 + var4 - class173.field2123;
+      var13 = var1 + var2 * Rasterizer2D.field2119;
+      int var14 = Rasterizer2D.field2119 - var3;
+      if(var2 + var4 > Rasterizer2D.field2123) {
+         var4 -= var2 + var4 - Rasterizer2D.field2123;
       }
 
       int var15;
-      if(var2 < class173.field2122) {
-         var15 = class173.field2122 - var2;
+      if(var2 < Rasterizer2D.field2122) {
+         var15 = Rasterizer2D.field2122 - var2;
          var4 -= var15;
-         var13 += var15 * class173.field2119;
+         var13 += var15 * Rasterizer2D.field2119;
          var8 += var12 * var15;
       }
 
-      if(var3 + var1 > class173.field2125) {
-         var15 = var3 + var1 - class173.field2125;
+      if(var3 + var1 > Rasterizer2D.field2125) {
+         var15 = var3 + var1 - Rasterizer2D.field2125;
          var3 -= var15;
          var14 += var15;
       }
 
-      if(var1 < class173.field2124) {
-         var15 = class173.field2124 - var1;
+      if(var1 < Rasterizer2D.field2124) {
+         var15 = Rasterizer2D.field2124 - var1;
          var3 -= var15;
          var13 += var15;
          var7 += var11 * var15;
          var14 += var15;
       }
 
-      method5985(class173.field2121, this.field3760, this.field3758, var7, var8, var13, var14, var3, var4, var11, var12, var5);
+      method5985(Rasterizer2D.field2121, this.field3760, this.field3758, var7, var8, var13, var14, var3, var4, var11, var12, var5);
    }
 
    @ObfuscatedName("w")
    public void method5980(int var1, int var2) {
       var1 += this.field3761;
       var2 += this.field3757;
-      int var3 = var1 + var2 * class173.field2119;
+      int var3 = var1 + var2 * Rasterizer2D.field2119;
       int var4 = 0;
       int var5 = this.field3762;
       int var6 = this.field3759;
-      int var7 = class173.field2119 - var6;
+      int var7 = Rasterizer2D.field2119 - var6;
       int var8 = 0;
       int var9;
-      if(var2 < class173.field2122) {
-         var9 = class173.field2122 - var2;
+      if(var2 < Rasterizer2D.field2122) {
+         var9 = Rasterizer2D.field2122 - var2;
          var5 -= var9;
-         var2 = class173.field2122;
+         var2 = Rasterizer2D.field2122;
          var4 += var9 * var6;
-         var3 += var9 * class173.field2119;
+         var3 += var9 * Rasterizer2D.field2119;
       }
 
-      if(var5 + var2 > class173.field2123) {
-         var5 -= var5 + var2 - class173.field2123;
+      if(var5 + var2 > Rasterizer2D.field2123) {
+         var5 -= var5 + var2 - Rasterizer2D.field2123;
       }
 
-      if(var1 < class173.field2124) {
-         var9 = class173.field2124 - var1;
+      if(var1 < Rasterizer2D.field2124) {
+         var9 = Rasterizer2D.field2124 - var1;
          var6 -= var9;
-         var1 = class173.field2124;
+         var1 = Rasterizer2D.field2124;
          var4 += var9;
          var3 += var9;
          var8 += var9;
          var7 += var9;
       }
 
-      if(var6 + var1 > class173.field2125) {
-         var9 = var6 + var1 - class173.field2125;
+      if(var6 + var1 > Rasterizer2D.field2125) {
+         var9 = var6 + var1 - Rasterizer2D.field2125;
          var6 -= var9;
          var8 += var9;
          var7 += var9;
       }
 
       if(var6 > 0 && var5 > 0) {
-         method5991(class173.field2121, this.field3760, this.field3758, var4, var3, var6, var5, var7, var8);
+         method5991(Rasterizer2D.field2121, this.field3760, this.field3758, var4, var3, var6, var5, var7, var8);
       }
    }
 

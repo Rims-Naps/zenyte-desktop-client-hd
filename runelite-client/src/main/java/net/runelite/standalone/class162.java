@@ -250,9 +250,9 @@ public final class class162 implements RSWallObject {
             var8 = var3 * var6 * 512 / (var10 * 334);
             var9 = (var2 - var8) / 2;
             if(var4) {
-               class173.method3151();
-               class173.method3167(var0, var1, var9, var3, -16777216);
-               class173.method3167(var0 + var2 - var9, var1, var9, var3, -16777216);
+               Rasterizer2D.method3151();
+               Rasterizer2D.method3167(var0, var1, var9, var3, -16777216);
+               Rasterizer2D.method3167(var0 + var2 - var9, var1, var9, var3, -16777216);
             }
 
             var0 += var9;
@@ -266,9 +266,9 @@ public final class class162 implements RSWallObject {
             var8 = var10 * var2 * 334 / (var6 * 512);
             var9 = (var3 - var8) / 2;
             if(var4) {
-               class173.method3151();
-               class173.method3167(var0, var1, var2, var9, -16777216);
-               class173.method3167(var0, var3 + var1 - var9, var2, var9, -16777216);
+               Rasterizer2D.method3151();
+               Rasterizer2D.method3167(var0, var1, var2, var9, -16777216);
+               Rasterizer2D.method3167(var0, var3 + var1 - var9, var2, var9, -16777216);
             }
 
             var1 += var9;

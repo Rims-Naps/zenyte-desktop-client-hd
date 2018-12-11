@@ -90,7 +90,7 @@ public final class class103 {
       signature = "(Lik;IIB)[Llp;",
       garbageValue = "-26"
    )
-   public static SpritePixels[] method1851(class217 var0, int var1, int var2) {
+   public static SpritePixels[] method1851(Js5Index var0, int var1, int var2) {
       byte[] var4 = var0.method4398(var1, var2, -206190060);
       boolean var3;
       if(var4 == null) {

@@ -6,7 +6,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("af")
-public class class23 {
+public class MapIcon {
    @ObfuscatedName("bz")
    @ObfuscatedSignature(
       signature = "[Lle;"
@@ -70,7 +70,7 @@ public class class23 {
    @ObfuscatedSignature(
       signature = "(ILhx;Lhx;Li;)V"
    )
-   class23(int var1, Location var2, Location var3, class107 var4) {
+   MapIcon(int var1, Location var2, Location var3, class107 var4) {
       this.field258 = var1;
       this.field248 = var2;
       this.field259 = var3;

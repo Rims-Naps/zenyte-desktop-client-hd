@@ -24,38 +24,15 @@
  */
 #version 330
 
-uniform sampler2DArray textures;
-uniform vec2 textureOffsets[64];
-uniform float brightness;
-uniform float smoothBanding;
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec2 aTexCoord;
 
-in vec4 Color;
-in float fHsl;
-in vec4 fUv;
+out vec2 TexCoord;
 
-out vec4 FragColor;
+void main()
+{
+	gl_Position = vec4(aPos, 1.0);
 
-#include hsl_to_rgb.glsl
-
-void main() {
-  float n = fUv.x;
-
-  int hsl = int(fHsl);
-  vec3 rgb = hslToRgb(hsl) * smoothBanding + Color.rgb * (1.f - smoothBanding);
-  vec4 smoothColor = vec4(rgb, Color.a);
-
-  if (n > 0.0) {
-    n -= 1.0;
-    int textureIdx = int(n);
-
-    vec2 uv = fUv.yz;
-    vec2 animatedUv = uv + textureOffsets[textureIdx];
-
-    vec4 textureColor = texture(textures, vec3(animatedUv, n));
-    vec4 textureColorBrightness = pow(textureColor, vec4(brightness, brightness, brightness, 1.0f));
-
-    FragColor = textureColorBrightness * smoothColor;
-  } else {
-    FragColor = smoothColor;
-  }
+	// Flip the UV because it's pre-flipped in the ui texture buffer, but we don't need it to be flipped here.
+	TexCoord = vec2(aTexCoord.x, 1 - aTexCoord.y);
 }

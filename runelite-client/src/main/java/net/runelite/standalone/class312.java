@@ -13,7 +13,7 @@ public class class312 extends class324 implements RSSequence {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field3839;
+   public static Js5Index field3839;
    @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "Lgd;"
@@ -23,7 +23,7 @@ public class class312 extends class324 implements RSSequence {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field3834;
+   public static Js5Index field3834;
    @ObfuscatedName("e")
    @ObfuscatedSignature(
       signature = "Lgd;"
@@ -33,7 +33,7 @@ public class class312 extends class324 implements RSSequence {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field3831;
+   public static Js5Index field3831;
    @ObfuscatedName("j")
    @ObfuscatedGetter(
       intValue = -1242202945
@@ -456,24 +456,24 @@ public class class312 extends class324 implements RSSequence {
       int var3;
       int var4;
       if(var2 == 1) {
-         var3 = var1.readShort();
+         var3 = var1.readUnsignedShort();
          this.field3836 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3836[var4] = var1.readShort();
+            this.field3836[var4] = var1.readUnsignedShort();
          }
 
          this.field3844 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3844[var4] = var1.readShort();
+            this.field3844[var4] = var1.readUnsignedShort();
          }
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3844[var4] += var1.readShort() << 16;
+            this.field3844[var4] += var1.readUnsignedShort() << 16;
          }
       } else if(var2 == 2) {
-         this.field3838 = var1.readShort();
+         this.field3838 = var1.readUnsignedShort();
       } else if(var2 == 3) {
          var3 = var1.readUnsignedByte();
          this.field3846 = new int[var3 + 1];
@@ -488,9 +488,9 @@ public class class312 extends class324 implements RSSequence {
       } else if(var2 == 5) {
          this.field3841 = var1.readUnsignedByte();
       } else if(var2 == 6) {
-         this.field3847 = var1.readShort();
+         this.field3847 = var1.readUnsignedShort();
       } else if(var2 == 7) {
-         this.field3843 = var1.readShort();
+         this.field3843 = var1.readUnsignedShort();
       } else if(var2 == 8) {
          this.field3840 = var1.readUnsignedByte();
       } else if(var2 == 9) {
@@ -504,11 +504,11 @@ public class class312 extends class324 implements RSSequence {
          this.field3835 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3835[var4] = var1.readShort();
+            this.field3835[var4] = var1.readUnsignedShort();
          }
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3835[var4] += var1.readShort() << 16;
+            this.field3835[var4] += var1.readUnsignedShort() << 16;
          }
       } else if(var2 == 13) {
          var3 = var1.readUnsignedByte();

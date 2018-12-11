@@ -147,10 +147,10 @@ public class class77 implements RSPreferences {
       int var3;
       int var4;
       if(var0 == 100) {
-         class308.field3811 -= 3;
-         var3 = class249.field3312[class308.field3811];
-         var4 = class249.field3312[class308.field3811 + 1];
-         int var5 = class249.field3312[class308.field3811 + 2];
+         MapCacheArchiveNames.field3811 -= 3;
+         var3 = class249.field3312[MapCacheArchiveNames.field3811];
+         var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+         int var5 = class249.field3312[MapCacheArchiveNames.field3811 + 2];
          if(var4 == 0) {
             throw new RuntimeException();
          } else {
@@ -197,22 +197,22 @@ public class class77 implements RSPreferences {
             class230.method4617(var10);
             return 1;
          } else if(var0 == 102) {
-            var9 = class48.method1047(class249.field3312[--class308.field3811]);
+            var9 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
             var9.field2688 = null;
             class230.method4617(var9);
             return 1;
          } else if(var0 != 200) {
             if(var0 == 201) {
-               var9 = class48.method1047(class249.field3312[--class308.field3811]);
+               var9 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
                if(var9 != null) {
-                  class249.field3312[++class308.field3811 - 1] = 1;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 1;
                   if(var2) {
                      class3.field36 = var9;
                   } else {
                      class284.field3565 = var9;
                   }
                } else {
-                  class249.field3312[++class308.field3811 - 1] = 0;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 0;
                }
 
                return 1;
@@ -220,19 +220,19 @@ public class class77 implements RSPreferences {
                return 2;
             }
          } else {
-            class308.field3811 -= 2;
-            var3 = class249.field3312[class308.field3811];
-            var4 = class249.field3312[class308.field3811 + 1];
+            MapCacheArchiveNames.field3811 -= 2;
+            var3 = class249.field3312[MapCacheArchiveNames.field3811];
+            var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
             class187 var11 = class174.method3220(var3, var4);
             if(var11 != null && var4 != -1) {
-               class249.field3312[++class308.field3811 - 1] = 1;
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 1;
                if(var2) {
                   class3.field36 = var11;
                } else {
                   class284.field3565 = var11;
                }
             } else {
-               class249.field3312[++class308.field3811 - 1] = 0;
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 0;
             }
 
             return 1;

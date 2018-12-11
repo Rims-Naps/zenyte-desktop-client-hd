@@ -57,7 +57,7 @@ public abstract class class31 {
                var8 = (int)(var4 >>> 0 & 127L);
                var10 = GameEngine.method5966(var4);
                class199 var11 = client.field2269[client.field2343];
-               class175.method3241(var11, client.field2343, var8, var10);
+               WorldMapNode.method3241(var11, client.field2343, var8, var10);
             }
 
             return;
@@ -75,9 +75,9 @@ public abstract class class31 {
                int var30 = class178.method3682(class298.field3710[var8]);
                int var21 = var30;
                if(var19 == 2 && class269.field3464.method1955(class260.field3393, var15, var16, var28) >= 0) {
-                  class15 var22 = class285.method5484(var30);
-                  if(var22.field189 != null) {
-                     var22 = var22.method325();
+                  ObjectDef var22 = class285.getObjectDef(var30);
+                  if(var22.multiLocs != null) {
+                     var22 = var22.getMultiLoc();
                   }
 
                   if(var22 == null) {
@@ -150,7 +150,7 @@ public abstract class class31 {
                      for(var40 = 0; var40 < var23; ++var40) {
                         var26 = client.field2269[var38[var40]];
                         if(var26 != null && var35.field1090 == var26.field1090 && var35.field1072 == var26.field1072) {
-                           class175.method3241(var26, var38[var40], var15, var17);
+                           WorldMapNode.method3241(var26, var38[var40], var15, var17);
                         }
                      }
                   }
@@ -178,13 +178,13 @@ public abstract class class31 {
                      for(var40 = 0; var40 < var23; ++var40) {
                         var26 = client.field2269[var38[var40]];
                         if(var26 != null && var36 != var26 && var36.field1090 == var26.field1090 && var36.field1072 == var26.field1072) {
-                           class175.method3241(var26, var38[var40], var15, var17);
+                           WorldMapNode.method3241(var26, var38[var40], var15, var17);
                         }
                      }
                   }
 
                   if(var21 != client.field2343) {
-                     class175.method3241(var36, var21, var15, var17);
+                     WorldMapNode.method3241(var36, var21, var15, var17);
                   } else {
                      var4 = var28;
                   }

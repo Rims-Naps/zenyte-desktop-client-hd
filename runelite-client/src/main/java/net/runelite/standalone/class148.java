@@ -10,7 +10,7 @@ public abstract class class148 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field1833;
+   static Js5Index field1833;
    @ObfuscatedName("ho")
    @ObfuscatedGetter(
       intValue = -663104395

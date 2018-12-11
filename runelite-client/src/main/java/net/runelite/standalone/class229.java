@@ -281,15 +281,15 @@ public class class229 {
    static class296 method4604(byte[] var0) {
       class296 var1 = new class296();
       Buffer var2 = new Buffer(var0);
-      var2.field1693 = var2.field1694.length - 2;
-      int var3 = var2.readShort();
+      var2.position = var2.field1694.length - 2;
+      int var3 = var2.readUnsignedShort();
       int var4 = var2.field1694.length - 2 - var3 - 12;
-      var2.field1693 = var4;
+      var2.position = var4;
       int var5 = var2.readInt();
-      var1.field3691 = var2.readShort();
-      var1.field3700 = var2.readShort();
-      var1.field3693 = var2.readShort();
-      var1.field3692 = var2.readShort();
+      var1.field3691 = var2.readUnsignedShort();
+      var1.field3700 = var2.readUnsignedShort();
+      var1.field3693 = var2.readUnsignedShort();
+      var1.field3692 = var2.readUnsignedShort();
       int var6 = var2.readUnsignedByte();
       int var7;
       int var8;
@@ -297,7 +297,7 @@ public class class229 {
          var1.field3695 = var1.method5783(var6);
 
          for(var7 = 0; var7 < var6; ++var7) {
-            var8 = var2.readShort();
+            var8 = var2.readUnsignedShort();
             int var9;
             int var11;
             if(var8 > 0) {
@@ -324,14 +324,14 @@ public class class229 {
          }
       }
 
-      var2.field1693 = 0;
+      var2.position = 0;
       var2.method2264();
       var1.field3697 = new int[var5];
       var1.field3689 = new int[var5];
       var1.field3690 = new String[var5];
 
-      for(var7 = 0; var2.field1693 < var4; var1.field3697[var7++] = var8) {
-         var8 = var2.readShort();
+      for(var7 = 0; var2.position < var4; var1.field3697[var7++] = var8) {
+         var8 = var2.readUnsignedShort();
          if(var8 == 3) {
             var1.field3690[var7] = var2.readString();
          } else if(var8 < 100 && var8 != 21 && var8 != 38 && var8 != 39) {

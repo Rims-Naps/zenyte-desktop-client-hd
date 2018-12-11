@@ -338,7 +338,7 @@ public class class11 {
       this.field95.method880(var1);
       int var2 = var1.readUnsignedByte();
       if(var2 != 0) {
-         --var1.field1693;
+         --var1.position;
          this.field96 = new class46();
          this.field96.method880(var1);
          this.field112 = new class46();
@@ -347,7 +347,7 @@ public class class11 {
 
       var2 = var1.readUnsignedByte();
       if(var2 != 0) {
-         --var1.field1693;
+         --var1.position;
          this.field98 = new class46();
          this.field98.method880(var1);
          this.field99 = new class46();
@@ -356,7 +356,7 @@ public class class11 {
 
       var2 = var1.readUnsignedByte();
       if(var2 != 0) {
-         --var1.field1693;
+         --var1.position;
          this.field100 = new class46();
          this.field100.method880(var1);
          this.field101 = new class46();
@@ -376,8 +376,8 @@ public class class11 {
 
       this.field105 = var1.method2270();
       this.field106 = var1.method2270();
-      this.field113 = var1.readShort();
-      this.field110 = var1.readShort();
+      this.field113 = var1.readUnsignedShort();
+      this.field110 = var1.readUnsignedShort();
       this.field108 = new class27();
       this.field119 = new class46();
       this.field108.method468(var1, this.field119);

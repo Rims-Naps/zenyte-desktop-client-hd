@@ -464,15 +464,15 @@ public class class293 {
    )
    static int method5771(int var0, class296 var1, boolean var2) {
       if(var0 == 3200) {
-         class308.field3811 -= 3;
-         class225.method4556(class249.field3312[class308.field3811], class249.field3312[class308.field3811 + 1], class249.field3312[class308.field3811 + 2]);
+         MapCacheArchiveNames.field3811 -= 3;
+         class225.method4556(class249.field3312[MapCacheArchiveNames.field3811], class249.field3312[MapCacheArchiveNames.field3811 + 1], class249.field3312[MapCacheArchiveNames.field3811 + 2]);
          return 1;
       } else if(var0 == 3201) {
-         class230.method4619(class249.field3312[--class308.field3811]);
+         class230.method4619(class249.field3312[--MapCacheArchiveNames.field3811]);
          return 1;
       } else if(var0 == 3202) {
-         class308.field3811 -= 2;
-         class96.method1765(class249.field3312[class308.field3811], class249.field3312[class308.field3811 + 1]);
+         MapCacheArchiveNames.field3811 -= 2;
+         class96.method1765(class249.field3312[MapCacheArchiveNames.field3811], class249.field3312[MapCacheArchiveNames.field3811 + 1]);
          return 1;
       } else {
          return 2;
@@ -536,7 +536,7 @@ public class class293 {
                   }
                }
 
-               class315 var10001 = class127.method2480(var1.method8(14));
+               class315 var10001 = WorldMapGameObject.method2480(var1.method8(14));
                var4.onCompositionChanged((RSNPCComposition)var10001);
                var4.field2437 = var10001;
                var4.field1075 = var4.field2437.field3862;

@@ -26,22 +26,22 @@ public class class218 {
    static final void method4496(int var0, int var1, int var2, int var3, int var4) {
       class270.field3476[0].method5980(var0, var1);
       class270.field3476[1].method5980(var0, var3 + var1 - 16);
-      class173.method3167(var0, var1 + 16, 16, var3 - 32, client.field2159);
+      Rasterizer2D.method3167(var0, var1 + 16, 16, var3 - 32, client.field2159);
       int var5 = var3 * (var3 - 32) / var4;
       if(var5 < 8) {
          var5 = 8;
       }
 
       int var6 = (var3 - 32 - var5) * var2 / (var4 - var3);
-      class173.method3167(var0, var6 + var1 + 16, 16, var5, client.field2217);
-      class173.method3206(var0, var6 + var1 + 16, var5, client.field2219);
-      class173.method3206(var0 + 1, var6 + var1 + 16, var5, client.field2219);
-      class173.method3213(var0, var6 + var1 + 16, 16, client.field2219);
-      class173.method3213(var0, var6 + var1 + 17, 16, client.field2219);
-      class173.method3206(var0 + 15, var6 + var1 + 16, var5, client.field2285);
-      class173.method3206(var0 + 14, var6 + var1 + 17, var5 - 1, client.field2285);
-      class173.method3213(var0, var6 + var5 + var1 + 15, 16, client.field2285);
-      class173.method3213(var0 + 1, var6 + var5 + var1 + 14, 15, client.field2285);
+      Rasterizer2D.method3167(var0, var6 + var1 + 16, 16, var5, client.field2217);
+      Rasterizer2D.method3206(var0, var6 + var1 + 16, var5, client.field2219);
+      Rasterizer2D.method3206(var0 + 1, var6 + var1 + 16, var5, client.field2219);
+      Rasterizer2D.method3213(var0, var6 + var1 + 16, 16, client.field2219);
+      Rasterizer2D.method3213(var0, var6 + var1 + 17, 16, client.field2219);
+      Rasterizer2D.method3206(var0 + 15, var6 + var1 + 16, var5, client.field2285);
+      Rasterizer2D.method3206(var0 + 14, var6 + var1 + 17, var5 - 1, client.field2285);
+      Rasterizer2D.method3213(var0, var6 + var5 + var1 + 15, 16, client.field2285);
+      Rasterizer2D.method3213(var0 + 1, var6 + var5 + var1 + 14, 15, client.field2285);
    }
 
    @ObfuscatedName("l")

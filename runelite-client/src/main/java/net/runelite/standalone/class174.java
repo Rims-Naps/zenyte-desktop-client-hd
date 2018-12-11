@@ -35,7 +35,7 @@ public class class174 {
    @ObfuscatedSignature(
       signature = "Lim;"
    )
-   static class6 field2126;
+   static class6 worldMapIndex;
    @ObfuscatedName("w")
    @ObfuscatedGetter(
       intValue = -1090993069
@@ -81,7 +81,7 @@ public class class174 {
    public static void method3222(class1 var0) {
       class121 var1 = (class121)class140.field1793.method745();
       if(var1 != null) {
-         int var2 = var0.field1693;
+         int var2 = var0.position;
          var0.writeByte(var1.field1648);
 
          for(int var3 = 0; var3 < var1.field1647; ++var3) {
@@ -177,7 +177,7 @@ public class class174 {
       signature = "(Lik;Lik;I)V",
       garbageValue = "-1486835951"
    )
-   public static void method3221(class217 var0, class217 var1) {
+   public static void method3221(Js5Index var0, Js5Index var1) {
       class241.field3144 = var0;
       class241.field3153 = var1;
       class241.field3145 = class241.field3144.method4435(3);

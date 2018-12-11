@@ -5,7 +5,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("az")
-public class class308 {
+public class MapCacheArchiveNames {
    @ObfuscatedName("p")
    @ObfuscatedGetter(
       intValue = 1365269897
@@ -15,40 +15,40 @@ public class class308 {
    @ObfuscatedSignature(
       signature = "Laz;"
    )
-   public static final class308 field3804;
+   public static final MapCacheArchiveNames field3804;
    @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "Laz;"
    )
-   public static final class308 field3806;
+   public static final MapCacheArchiveNames field3806;
    @ObfuscatedName("f")
    @ObfuscatedSignature(
       signature = "Laz;"
    )
-   public static final class308 field3808;
+   public static final MapCacheArchiveNames field3808;
    @ObfuscatedName("e")
    @ObfuscatedSignature(
       signature = "Laz;"
    )
-   public static final class308 field3803;
+   public static final MapCacheArchiveNames field3803;
    @ObfuscatedName("w")
    @ObfuscatedSignature(
       signature = "Laz;"
    )
-   public static final class308 field3807;
+   public static final MapCacheArchiveNames field3807;
    @ObfuscatedName("a")
-   public final String field3809;
+   public final String name;
 
    static {
-      field3808 = new class308("details");
-      field3804 = new class308("compositemap");
-      field3807 = new class308("compositetexture");
-      field3806 = new class308("area");
-      field3803 = new class308("labels");
+      field3808 = new MapCacheArchiveNames("details");
+      field3804 = new MapCacheArchiveNames("compositemap");
+      field3807 = new MapCacheArchiveNames("compositetexture");
+      field3806 = new MapCacheArchiveNames("area");
+      field3803 = new MapCacheArchiveNames("labels");
    }
 
-   class308(String var1) {
-      this.field3809 = var1;
+   MapCacheArchiveNames(String var1) {
+      this.name = var1;
    }
 
    @ObfuscatedName("im")
@@ -65,7 +65,7 @@ public class class308 {
       signature = "(Lik;Lik;I)I",
       garbageValue = "-846110006"
    )
-   static int method6052(class217 var0, class217 var1) {
+   static int method6052(Js5Index var0, Js5Index var1) {
       int var2 = 0;
       if(var0.method4419("title.jpg", "")) {
          ++var2;

@@ -4,7 +4,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("dz")
-public class class211 extends class173 {
+public class class211 extends Rasterizer2D {
    @ObfuscatedName("j")
    static int field2910;
    @ObfuscatedName("k")
@@ -623,11 +623,11 @@ public class class211 extends class173 {
          field2919 = new int[var4];
       }
 
-      var4 = var0 + class173.field2119 * var1;
+      var4 = var0 + Rasterizer2D.field2119 * var1;
 
       for(var5 = 0; var5 < field2910; ++var5) {
          field2919[var5] = var4;
-         var4 += class173.field2119;
+         var4 += Rasterizer2D.field2119;
       }
 
    }
@@ -635,8 +635,8 @@ public class class211 extends class173 {
    @ObfuscatedName("s")
    public static final void method4250(int var0, int var1) {
       int var2 = field2919[0];
-      int var3 = var2 / class173.field2119;
-      int var4 = var2 - var3 * class173.field2119;
+      int var3 = var2 / Rasterizer2D.field2119;
+      int var4 = var2 - var3 * Rasterizer2D.field2119;
       field2907 = var0 - var4;
       field2897 = var1 - var3;
       field2915 = -field2907;
@@ -647,7 +647,7 @@ public class class211 extends class173 {
 
    @ObfuscatedName("f")
    public static final void method4247() {
-      method4248(class173.field2124, class173.field2122, class173.field2125, class173.field2123);
+      method4248(Rasterizer2D.field2124, Rasterizer2D.field2122, Rasterizer2D.field2125, Rasterizer2D.field2123);
    }
 
    @ObfuscatedName("r")
@@ -1149,17 +1149,17 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4259(class173.field2121, var0, var6, 0, var5 >> 14, var4 >> 14);
+                           method4259(Rasterizer2D.field2121, var0, var6, 0, var5 >> 14, var4 >> 14);
                            var5 += var9;
                            var4 += var8;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4259(class173.field2121, var0, var6, 0, var5 >> 14, var3 >> 14);
+                     method4259(Rasterizer2D.field2121, var0, var6, 0, var5 >> 14, var3 >> 14);
                      var5 += var9;
                      var3 += var7;
-                     var0 += class173.field2119;
+                     var0 += Rasterizer2D.field2119;
                   }
                } else {
                   var2 -= var1;
@@ -1175,17 +1175,17 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4259(class173.field2121, var0, var6, 0, var4 >> 14, var5 >> 14);
+                           method4259(Rasterizer2D.field2121, var0, var6, 0, var4 >> 14, var5 >> 14);
                            var5 += var9;
                            var4 += var8;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4259(class173.field2121, var0, var6, 0, var3 >> 14, var5 >> 14);
+                     method4259(Rasterizer2D.field2121, var0, var6, 0, var3 >> 14, var5 >> 14);
                      var5 += var9;
                      var3 += var7;
-                     var0 += class173.field2119;
+                     var0 += Rasterizer2D.field2119;
                   }
                }
             } else {
@@ -1216,17 +1216,17 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4259(class173.field2121, var0, var6, 0, var3 >> 14, var5 >> 14);
+                           method4259(Rasterizer2D.field2121, var0, var6, 0, var3 >> 14, var5 >> 14);
                            var5 += var8;
                            var3 += var7;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4259(class173.field2121, var0, var6, 0, var3 >> 14, var4 >> 14);
+                     method4259(Rasterizer2D.field2121, var0, var6, 0, var3 >> 14, var4 >> 14);
                      var4 += var9;
                      var3 += var7;
-                     var0 += class173.field2119;
+                     var0 += Rasterizer2D.field2119;
                   }
                } else {
                   var1 -= var2;
@@ -1242,17 +1242,17 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4259(class173.field2121, var0, var6, 0, var5 >> 14, var3 >> 14);
+                           method4259(Rasterizer2D.field2121, var0, var6, 0, var5 >> 14, var3 >> 14);
                            var5 += var8;
                            var3 += var7;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4259(class173.field2121, var0, var6, 0, var4 >> 14, var3 >> 14);
+                     method4259(Rasterizer2D.field2121, var0, var6, 0, var4 >> 14, var3 >> 14);
                      var4 += var9;
                      var3 += var7;
-                     var0 += class173.field2119;
+                     var0 += Rasterizer2D.field2119;
                   }
                }
             }
@@ -1295,17 +1295,17 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4259(class173.field2121, var1, var6, 0, var3 >> 14, var5 >> 14);
+                           method4259(Rasterizer2D.field2121, var1, var6, 0, var3 >> 14, var5 >> 14);
                            var3 += var7;
                            var5 += var9;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4259(class173.field2121, var1, var6, 0, var3 >> 14, var4 >> 14);
+                     method4259(Rasterizer2D.field2121, var1, var6, 0, var3 >> 14, var4 >> 14);
                      var3 += var7;
                      var4 += var8;
-                     var1 += class173.field2119;
+                     var1 += Rasterizer2D.field2119;
                   }
                } else {
                   var0 -= var2;
@@ -1321,17 +1321,17 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4259(class173.field2121, var1, var6, 0, var5 >> 14, var3 >> 14);
+                           method4259(Rasterizer2D.field2121, var1, var6, 0, var5 >> 14, var3 >> 14);
                            var3 += var7;
                            var5 += var9;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4259(class173.field2121, var1, var6, 0, var4 >> 14, var3 >> 14);
+                     method4259(Rasterizer2D.field2121, var1, var6, 0, var4 >> 14, var3 >> 14);
                      var3 += var7;
                      var4 += var8;
-                     var1 += class173.field2119;
+                     var1 += Rasterizer2D.field2119;
                   }
                }
             } else {
@@ -1362,17 +1362,17 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4259(class173.field2121, var1, var6, 0, var3 >> 14, var4 >> 14);
+                           method4259(Rasterizer2D.field2121, var1, var6, 0, var3 >> 14, var4 >> 14);
                            var3 += var9;
                            var4 += var8;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4259(class173.field2121, var1, var6, 0, var5 >> 14, var4 >> 14);
+                     method4259(Rasterizer2D.field2121, var1, var6, 0, var5 >> 14, var4 >> 14);
                      var5 += var7;
                      var4 += var8;
-                     var1 += class173.field2119;
+                     var1 += Rasterizer2D.field2119;
                   }
                } else {
                   var2 -= var0;
@@ -1388,17 +1388,17 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4259(class173.field2121, var1, var6, 0, var4 >> 14, var3 >> 14);
+                           method4259(Rasterizer2D.field2121, var1, var6, 0, var4 >> 14, var3 >> 14);
                            var3 += var9;
                            var4 += var8;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4259(class173.field2121, var1, var6, 0, var4 >> 14, var5 >> 14);
+                     method4259(Rasterizer2D.field2121, var1, var6, 0, var4 >> 14, var5 >> 14);
                      var5 += var7;
                      var4 += var8;
-                     var1 += class173.field2119;
+                     var1 += Rasterizer2D.field2119;
                   }
                }
             }
@@ -1440,17 +1440,17 @@ public class class211 extends class173 {
                            return;
                         }
 
-                        method4259(class173.field2121, var2, var6, 0, var4 >> 14, var3 >> 14);
+                        method4259(Rasterizer2D.field2121, var2, var6, 0, var4 >> 14, var3 >> 14);
                         var4 += var8;
                         var3 += var7;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                      }
                   }
 
-                  method4259(class173.field2121, var2, var6, 0, var4 >> 14, var5 >> 14);
+                  method4259(Rasterizer2D.field2121, var2, var6, 0, var4 >> 14, var5 >> 14);
                   var4 += var8;
                   var5 += var9;
-                  var2 += class173.field2119;
+                  var2 += Rasterizer2D.field2119;
                }
             } else {
                var1 -= var0;
@@ -1466,17 +1466,17 @@ public class class211 extends class173 {
                            return;
                         }
 
-                        method4259(class173.field2121, var2, var6, 0, var3 >> 14, var4 >> 14);
+                        method4259(Rasterizer2D.field2121, var2, var6, 0, var3 >> 14, var4 >> 14);
                         var4 += var8;
                         var3 += var7;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                      }
                   }
 
-                  method4259(class173.field2121, var2, var6, 0, var5 >> 14, var4 >> 14);
+                  method4259(Rasterizer2D.field2121, var2, var6, 0, var5 >> 14, var4 >> 14);
                   var4 += var8;
                   var5 += var9;
-                  var2 += class173.field2119;
+                  var2 += Rasterizer2D.field2119;
                }
             }
          } else {
@@ -1507,17 +1507,17 @@ public class class211 extends class173 {
                            return;
                         }
 
-                        method4259(class173.field2121, var2, var6, 0, var4 >> 14, var5 >> 14);
+                        method4259(Rasterizer2D.field2121, var2, var6, 0, var4 >> 14, var5 >> 14);
                         var4 += var7;
                         var5 += var9;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                      }
                   }
 
-                  method4259(class173.field2121, var2, var6, 0, var3 >> 14, var5 >> 14);
+                  method4259(Rasterizer2D.field2121, var2, var6, 0, var3 >> 14, var5 >> 14);
                   var3 += var8;
                   var5 += var9;
-                  var2 += class173.field2119;
+                  var2 += Rasterizer2D.field2119;
                }
             } else {
                var0 -= var1;
@@ -1533,17 +1533,17 @@ public class class211 extends class173 {
                            return;
                         }
 
-                        method4259(class173.field2121, var2, var6, 0, var5 >> 14, var4 >> 14);
+                        method4259(Rasterizer2D.field2121, var2, var6, 0, var5 >> 14, var4 >> 14);
                         var4 += var7;
                         var5 += var9;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                      }
                   }
 
-                  method4259(class173.field2121, var2, var6, 0, var5 >> 14, var3 >> 14);
+                  method4259(Rasterizer2D.field2121, var2, var6, 0, var5 >> 14, var3 >> 14);
                   var3 += var8;
                   var5 += var9;
-                  var2 += class173.field2119;
+                  var2 += Rasterizer2D.field2119;
                }
             }
          }
@@ -1723,19 +1723,19 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4272(class173.field2121, var0, 0, 0, var4 >> 14, var5 >> 14, var6, var19);
+                              method4272(Rasterizer2D.field2121, var0, 0, 0, var4 >> 14, var5 >> 14, var6, var19);
                               var5 += var17;
                               var4 += var15;
                               var6 += var20;
-                              var0 += class173.field2119;
+                              var0 += Rasterizer2D.field2119;
                            }
                         }
 
-                        method4272(class173.field2121, var0, 0, 0, var3 >> 14, var5 >> 14, var6, var19);
+                        method4272(Rasterizer2D.field2121, var0, 0, 0, var3 >> 14, var5 >> 14, var6, var19);
                         var5 += var17;
                         var3 += var16;
                         var6 += var20;
-                        var0 += class173.field2119;
+                        var0 += Rasterizer2D.field2119;
                      }
                   } else {
                      var2 -= var1;
@@ -1751,19 +1751,19 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4272(class173.field2121, var0, 0, 0, var5 >> 14, var4 >> 14, var6, var19);
+                              method4272(Rasterizer2D.field2121, var0, 0, 0, var5 >> 14, var4 >> 14, var6, var19);
                               var5 += var17;
                               var4 += var15;
                               var6 += var20;
-                              var0 += class173.field2119;
+                              var0 += Rasterizer2D.field2119;
                            }
                         }
 
-                        method4272(class173.field2121, var0, 0, 0, var5 >> 14, var3 >> 14, var6, var19);
+                        method4272(Rasterizer2D.field2121, var0, 0, 0, var5 >> 14, var3 >> 14, var6, var19);
                         var5 += var17;
                         var3 += var16;
                         var6 += var20;
-                        var0 += class173.field2119;
+                        var0 += Rasterizer2D.field2119;
                      }
                   }
                } else {
@@ -1795,19 +1795,19 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4272(class173.field2121, var0, 0, 0, var5 >> 14, var3 >> 14, var6, var19);
+                              method4272(Rasterizer2D.field2121, var0, 0, 0, var5 >> 14, var3 >> 14, var6, var19);
                               var5 += var15;
                               var3 += var16;
                               var6 += var20;
-                              var0 += class173.field2119;
+                              var0 += Rasterizer2D.field2119;
                            }
                         }
 
-                        method4272(class173.field2121, var0, 0, 0, var4 >> 14, var3 >> 14, var6, var19);
+                        method4272(Rasterizer2D.field2121, var0, 0, 0, var4 >> 14, var3 >> 14, var6, var19);
                         var4 += var17;
                         var3 += var16;
                         var6 += var20;
-                        var0 += class173.field2119;
+                        var0 += Rasterizer2D.field2119;
                      }
                   } else {
                      var1 -= var2;
@@ -1823,19 +1823,19 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4272(class173.field2121, var0, 0, 0, var3 >> 14, var5 >> 14, var6, var19);
+                              method4272(Rasterizer2D.field2121, var0, 0, 0, var3 >> 14, var5 >> 14, var6, var19);
                               var5 += var15;
                               var3 += var16;
                               var6 += var20;
-                              var0 += class173.field2119;
+                              var0 += Rasterizer2D.field2119;
                            }
                         }
 
-                        method4272(class173.field2121, var0, 0, 0, var3 >> 14, var4 >> 14, var6, var19);
+                        method4272(Rasterizer2D.field2121, var0, 0, 0, var3 >> 14, var4 >> 14, var6, var19);
                         var4 += var17;
                         var3 += var16;
                         var6 += var20;
-                        var0 += class173.field2119;
+                        var0 += Rasterizer2D.field2119;
                      }
                   }
                }
@@ -1880,19 +1880,19 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4272(class173.field2121, var1, 0, 0, var5 >> 14, var3 >> 14, var7, var19);
+                              method4272(Rasterizer2D.field2121, var1, 0, 0, var5 >> 14, var3 >> 14, var7, var19);
                               var3 += var16;
                               var5 += var17;
                               var7 += var20;
-                              var1 += class173.field2119;
+                              var1 += Rasterizer2D.field2119;
                            }
                         }
 
-                        method4272(class173.field2121, var1, 0, 0, var4 >> 14, var3 >> 14, var7, var19);
+                        method4272(Rasterizer2D.field2121, var1, 0, 0, var4 >> 14, var3 >> 14, var7, var19);
                         var3 += var16;
                         var4 += var15;
                         var7 += var20;
-                        var1 += class173.field2119;
+                        var1 += Rasterizer2D.field2119;
                      }
                   } else {
                      var0 -= var2;
@@ -1908,19 +1908,19 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4272(class173.field2121, var1, 0, 0, var3 >> 14, var5 >> 14, var7, var19);
+                              method4272(Rasterizer2D.field2121, var1, 0, 0, var3 >> 14, var5 >> 14, var7, var19);
                               var3 += var16;
                               var5 += var17;
                               var7 += var20;
-                              var1 += class173.field2119;
+                              var1 += Rasterizer2D.field2119;
                            }
                         }
 
-                        method4272(class173.field2121, var1, 0, 0, var3 >> 14, var4 >> 14, var7, var19);
+                        method4272(Rasterizer2D.field2121, var1, 0, 0, var3 >> 14, var4 >> 14, var7, var19);
                         var3 += var16;
                         var4 += var15;
                         var7 += var20;
-                        var1 += class173.field2119;
+                        var1 += Rasterizer2D.field2119;
                      }
                   }
                } else {
@@ -1952,19 +1952,19 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4272(class173.field2121, var1, 0, 0, var3 >> 14, var4 >> 14, var7, var19);
+                              method4272(Rasterizer2D.field2121, var1, 0, 0, var3 >> 14, var4 >> 14, var7, var19);
                               var3 += var17;
                               var4 += var15;
                               var7 += var20;
-                              var1 += class173.field2119;
+                              var1 += Rasterizer2D.field2119;
                            }
                         }
 
-                        method4272(class173.field2121, var1, 0, 0, var5 >> 14, var4 >> 14, var7, var19);
+                        method4272(Rasterizer2D.field2121, var1, 0, 0, var5 >> 14, var4 >> 14, var7, var19);
                         var5 += var16;
                         var4 += var15;
                         var7 += var20;
-                        var1 += class173.field2119;
+                        var1 += Rasterizer2D.field2119;
                      }
                   } else {
                      var2 -= var0;
@@ -1980,19 +1980,19 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4272(class173.field2121, var1, 0, 0, var4 >> 14, var3 >> 14, var7, var19);
+                              method4272(Rasterizer2D.field2121, var1, 0, 0, var4 >> 14, var3 >> 14, var7, var19);
                               var3 += var17;
                               var4 += var15;
                               var7 += var20;
-                              var1 += class173.field2119;
+                              var1 += Rasterizer2D.field2119;
                            }
                         }
 
-                        method4272(class173.field2121, var1, 0, 0, var4 >> 14, var5 >> 14, var7, var19);
+                        method4272(Rasterizer2D.field2121, var1, 0, 0, var4 >> 14, var5 >> 14, var7, var19);
                         var5 += var16;
                         var4 += var15;
                         var7 += var20;
-                        var1 += class173.field2119;
+                        var1 += Rasterizer2D.field2119;
                      }
                   }
                }
@@ -2036,19 +2036,19 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4272(class173.field2121, var2, 0, 0, var4 >> 14, var3 >> 14, var8, var19);
+                           method4272(Rasterizer2D.field2121, var2, 0, 0, var4 >> 14, var3 >> 14, var8, var19);
                            var4 += var15;
                            var3 += var16;
                            var8 += var20;
-                           var2 += class173.field2119;
+                           var2 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4272(class173.field2121, var2, 0, 0, var4 >> 14, var5 >> 14, var8, var19);
+                     method4272(Rasterizer2D.field2121, var2, 0, 0, var4 >> 14, var5 >> 14, var8, var19);
                      var4 += var15;
                      var5 += var17;
                      var8 += var20;
-                     var2 += class173.field2119;
+                     var2 += Rasterizer2D.field2119;
                   }
                } else {
                   var1 -= var0;
@@ -2064,19 +2064,19 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4272(class173.field2121, var2, 0, 0, var3 >> 14, var4 >> 14, var8, var19);
+                           method4272(Rasterizer2D.field2121, var2, 0, 0, var3 >> 14, var4 >> 14, var8, var19);
                            var4 += var15;
                            var3 += var16;
                            var8 += var20;
-                           var2 += class173.field2119;
+                           var2 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4272(class173.field2121, var2, 0, 0, var5 >> 14, var4 >> 14, var8, var19);
+                     method4272(Rasterizer2D.field2121, var2, 0, 0, var5 >> 14, var4 >> 14, var8, var19);
                      var4 += var15;
                      var5 += var17;
                      var8 += var20;
-                     var2 += class173.field2119;
+                     var2 += Rasterizer2D.field2119;
                   }
                }
             } else {
@@ -2108,19 +2108,19 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4272(class173.field2121, var2, 0, 0, var4 >> 14, var5 >> 14, var8, var19);
+                           method4272(Rasterizer2D.field2121, var2, 0, 0, var4 >> 14, var5 >> 14, var8, var19);
                            var4 += var16;
                            var5 += var17;
                            var8 += var20;
-                           var2 += class173.field2119;
+                           var2 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4272(class173.field2121, var2, 0, 0, var3 >> 14, var5 >> 14, var8, var19);
+                     method4272(Rasterizer2D.field2121, var2, 0, 0, var3 >> 14, var5 >> 14, var8, var19);
                      var3 += var15;
                      var5 += var17;
                      var8 += var20;
-                     var2 += class173.field2119;
+                     var2 += Rasterizer2D.field2119;
                   }
                } else {
                   var0 -= var1;
@@ -2136,19 +2136,19 @@ public class class211 extends class173 {
                               return;
                            }
 
-                           method4272(class173.field2121, var2, 0, 0, var5 >> 14, var4 >> 14, var8, var19);
+                           method4272(Rasterizer2D.field2121, var2, 0, 0, var5 >> 14, var4 >> 14, var8, var19);
                            var4 += var16;
                            var5 += var17;
                            var8 += var20;
-                           var2 += class173.field2119;
+                           var2 += Rasterizer2D.field2119;
                         }
                      }
 
-                     method4272(class173.field2121, var2, 0, 0, var5 >> 14, var3 >> 14, var8, var19);
+                     method4272(Rasterizer2D.field2121, var2, 0, 0, var5 >> 14, var3 >> 14, var8, var19);
                      var3 += var15;
                      var5 += var17;
                      var8 += var20;
-                     var2 += class173.field2119;
+                     var2 += Rasterizer2D.field2119;
                   }
                }
             }
@@ -2251,22 +2251,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4263(class173.field2121, var19, 0, 0, var0, var5 >> 14, var4 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                                 method4263(Rasterizer2D.field2121, var19, 0, 0, var0, var5 >> 14, var4 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                                  var5 += var28;
                                  var4 += var27;
                                  var6 += var31;
-                                 var0 += class173.field2119;
+                                 var0 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4263(class173.field2121, var19, 0, 0, var0, var5 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                           method4263(Rasterizer2D.field2121, var19, 0, 0, var0, var5 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                            var5 += var28;
                            var3 += var26;
                            var6 += var31;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2285,22 +2285,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4263(class173.field2121, var19, 0, 0, var0, var4 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                                 method4263(Rasterizer2D.field2121, var19, 0, 0, var0, var4 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                                  var5 += var28;
                                  var4 += var27;
                                  var6 += var31;
-                                 var0 += class173.field2119;
+                                 var0 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4263(class173.field2121, var19, 0, 0, var0, var3 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                           method4263(Rasterizer2D.field2121, var19, 0, 0, var0, var3 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                            var5 += var28;
                            var3 += var26;
                            var6 += var31;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2339,22 +2339,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4263(class173.field2121, var19, 0, 0, var0, var3 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                                 method4263(Rasterizer2D.field2121, var19, 0, 0, var0, var3 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                                  var5 += var27;
                                  var3 += var26;
                                  var6 += var31;
-                                 var0 += class173.field2119;
+                                 var0 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4263(class173.field2121, var19, 0, 0, var0, var3 >> 14, var4 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                           method4263(Rasterizer2D.field2121, var19, 0, 0, var0, var3 >> 14, var4 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                            var4 += var28;
                            var3 += var26;
                            var6 += var31;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2373,22 +2373,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4263(class173.field2121, var19, 0, 0, var0, var5 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                                 method4263(Rasterizer2D.field2121, var19, 0, 0, var0, var5 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                                  var5 += var27;
                                  var3 += var26;
                                  var6 += var31;
-                                 var0 += class173.field2119;
+                                 var0 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4263(class173.field2121, var19, 0, 0, var0, var4 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                           method4263(Rasterizer2D.field2121, var19, 0, 0, var0, var4 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                            var4 += var28;
                            var3 += var26;
                            var6 += var31;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2440,22 +2440,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4263(class173.field2121, var19, 0, 0, var1, var3 >> 14, var5 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                                 method4263(Rasterizer2D.field2121, var19, 0, 0, var1, var3 >> 14, var5 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                                  var3 += var26;
                                  var5 += var28;
                                  var7 += var31;
-                                 var1 += class173.field2119;
+                                 var1 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4263(class173.field2121, var19, 0, 0, var1, var3 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                           method4263(Rasterizer2D.field2121, var19, 0, 0, var1, var3 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                            var3 += var26;
                            var4 += var27;
                            var7 += var31;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2474,22 +2474,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4263(class173.field2121, var19, 0, 0, var1, var5 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                                 method4263(Rasterizer2D.field2121, var19, 0, 0, var1, var5 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                                  var3 += var26;
                                  var5 += var28;
                                  var7 += var31;
-                                 var1 += class173.field2119;
+                                 var1 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4263(class173.field2121, var19, 0, 0, var1, var4 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                           method4263(Rasterizer2D.field2121, var19, 0, 0, var1, var4 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                            var3 += var26;
                            var4 += var27;
                            var7 += var31;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2528,22 +2528,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4263(class173.field2121, var19, 0, 0, var1, var3 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                                 method4263(Rasterizer2D.field2121, var19, 0, 0, var1, var3 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                                  var3 += var28;
                                  var4 += var27;
                                  var7 += var31;
-                                 var1 += class173.field2119;
+                                 var1 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4263(class173.field2121, var19, 0, 0, var1, var5 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                           method4263(Rasterizer2D.field2121, var19, 0, 0, var1, var5 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                            var5 += var26;
                            var4 += var27;
                            var7 += var31;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2562,22 +2562,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4263(class173.field2121, var19, 0, 0, var1, var4 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                                 method4263(Rasterizer2D.field2121, var19, 0, 0, var1, var4 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                                  var3 += var28;
                                  var4 += var27;
                                  var7 += var31;
-                                 var1 += class173.field2119;
+                                 var1 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4263(class173.field2121, var19, 0, 0, var1, var4 >> 14, var5 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                           method4263(Rasterizer2D.field2121, var19, 0, 0, var1, var4 >> 14, var5 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                            var5 += var26;
                            var4 += var27;
                            var7 += var31;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2628,22 +2628,22 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4263(class173.field2121, var19, 0, 0, var2, var4 >> 14, var3 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                              method4263(Rasterizer2D.field2121, var19, 0, 0, var2, var4 >> 14, var3 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                               var4 += var27;
                               var3 += var26;
                               var8 += var31;
-                              var2 += class173.field2119;
+                              var2 += Rasterizer2D.field2119;
                               var32 += var34;
                               var35 += var37;
                               var38 += var40;
                            }
                         }
 
-                        method4263(class173.field2121, var19, 0, 0, var2, var4 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                        method4263(Rasterizer2D.field2121, var19, 0, 0, var2, var4 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                         var4 += var27;
                         var5 += var28;
                         var8 += var31;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                         var32 += var34;
                         var35 += var37;
                         var38 += var40;
@@ -2662,22 +2662,22 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4263(class173.field2121, var19, 0, 0, var2, var3 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                              method4263(Rasterizer2D.field2121, var19, 0, 0, var2, var3 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                               var4 += var27;
                               var3 += var26;
                               var8 += var31;
-                              var2 += class173.field2119;
+                              var2 += Rasterizer2D.field2119;
                               var32 += var34;
                               var35 += var37;
                               var38 += var40;
                            }
                         }
 
-                        method4263(class173.field2121, var19, 0, 0, var2, var5 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                        method4263(Rasterizer2D.field2121, var19, 0, 0, var2, var5 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                         var4 += var27;
                         var5 += var28;
                         var8 += var31;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                         var32 += var34;
                         var35 += var37;
                         var38 += var40;
@@ -2716,22 +2716,22 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4263(class173.field2121, var19, 0, 0, var2, var4 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                              method4263(Rasterizer2D.field2121, var19, 0, 0, var2, var4 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                               var4 += var26;
                               var5 += var28;
                               var8 += var31;
-                              var2 += class173.field2119;
+                              var2 += Rasterizer2D.field2119;
                               var32 += var34;
                               var35 += var37;
                               var38 += var40;
                            }
                         }
 
-                        method4263(class173.field2121, var19, 0, 0, var2, var3 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                        method4263(Rasterizer2D.field2121, var19, 0, 0, var2, var3 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                         var3 += var27;
                         var5 += var28;
                         var8 += var31;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                         var32 += var34;
                         var35 += var37;
                         var38 += var40;
@@ -2750,22 +2750,22 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4263(class173.field2121, var19, 0, 0, var2, var5 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                              method4263(Rasterizer2D.field2121, var19, 0, 0, var2, var5 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                               var4 += var26;
                               var5 += var28;
                               var8 += var31;
-                              var2 += class173.field2119;
+                              var2 += Rasterizer2D.field2119;
                               var32 += var34;
                               var35 += var37;
                               var38 += var40;
                            }
                         }
 
-                        method4263(class173.field2121, var19, 0, 0, var2, var5 >> 14, var3 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                        method4263(Rasterizer2D.field2121, var19, 0, 0, var2, var5 >> 14, var3 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                         var3 += var27;
                         var5 += var28;
                         var8 += var31;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                         var32 += var34;
                         var35 += var37;
                         var38 += var40;
@@ -2872,22 +2872,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4261(class173.field2121, var19, 0, 0, var0, var5 >> 14, var4 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                                 method4261(Rasterizer2D.field2121, var19, 0, 0, var0, var5 >> 14, var4 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                                  var5 += var28;
                                  var4 += var27;
                                  var6 += var31;
-                                 var0 += class173.field2119;
+                                 var0 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4261(class173.field2121, var19, 0, 0, var0, var5 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                           method4261(Rasterizer2D.field2121, var19, 0, 0, var0, var5 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                            var5 += var28;
                            var3 += var26;
                            var6 += var31;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2906,22 +2906,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4261(class173.field2121, var19, 0, 0, var0, var4 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                                 method4261(Rasterizer2D.field2121, var19, 0, 0, var0, var4 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                                  var5 += var28;
                                  var4 += var27;
                                  var6 += var31;
-                                 var0 += class173.field2119;
+                                 var0 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4261(class173.field2121, var19, 0, 0, var0, var3 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                           method4261(Rasterizer2D.field2121, var19, 0, 0, var0, var3 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                            var5 += var28;
                            var3 += var26;
                            var6 += var31;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2960,22 +2960,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4261(class173.field2121, var19, 0, 0, var0, var5 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                                 method4261(Rasterizer2D.field2121, var19, 0, 0, var0, var5 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                                  var5 += var27;
                                  var3 += var26;
                                  var6 += var31;
-                                 var0 += class173.field2119;
+                                 var0 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4261(class173.field2121, var19, 0, 0, var0, var4 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                           method4261(Rasterizer2D.field2121, var19, 0, 0, var0, var4 >> 14, var3 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                            var4 += var28;
                            var3 += var26;
                            var6 += var31;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -2994,22 +2994,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4261(class173.field2121, var19, 0, 0, var0, var3 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                                 method4261(Rasterizer2D.field2121, var19, 0, 0, var0, var3 >> 14, var5 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                                  var5 += var27;
                                  var3 += var26;
                                  var6 += var31;
-                                 var0 += class173.field2119;
+                                 var0 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4261(class173.field2121, var19, 0, 0, var0, var3 >> 14, var4 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
+                           method4261(Rasterizer2D.field2121, var19, 0, 0, var0, var3 >> 14, var4 >> 14, var6, var30, var32, var35, var38, var33, var36, var39);
                            var4 += var28;
                            var3 += var26;
                            var6 += var31;
-                           var0 += class173.field2119;
+                           var0 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -3061,22 +3061,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4261(class173.field2121, var19, 0, 0, var1, var3 >> 14, var5 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                                 method4261(Rasterizer2D.field2121, var19, 0, 0, var1, var3 >> 14, var5 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                                  var3 += var26;
                                  var5 += var28;
                                  var7 += var31;
-                                 var1 += class173.field2119;
+                                 var1 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4261(class173.field2121, var19, 0, 0, var1, var3 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                           method4261(Rasterizer2D.field2121, var19, 0, 0, var1, var3 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                            var3 += var26;
                            var4 += var27;
                            var7 += var31;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -3095,22 +3095,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4261(class173.field2121, var19, 0, 0, var1, var5 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                                 method4261(Rasterizer2D.field2121, var19, 0, 0, var1, var5 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                                  var3 += var26;
                                  var5 += var28;
                                  var7 += var31;
-                                 var1 += class173.field2119;
+                                 var1 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4261(class173.field2121, var19, 0, 0, var1, var4 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                           method4261(Rasterizer2D.field2121, var19, 0, 0, var1, var4 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                            var3 += var26;
                            var4 += var27;
                            var7 += var31;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -3149,22 +3149,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4261(class173.field2121, var19, 0, 0, var1, var3 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                                 method4261(Rasterizer2D.field2121, var19, 0, 0, var1, var3 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                                  var3 += var28;
                                  var4 += var27;
                                  var7 += var31;
-                                 var1 += class173.field2119;
+                                 var1 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4261(class173.field2121, var19, 0, 0, var1, var5 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                           method4261(Rasterizer2D.field2121, var19, 0, 0, var1, var5 >> 14, var4 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                            var5 += var26;
                            var4 += var27;
                            var7 += var31;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -3183,22 +3183,22 @@ public class class211 extends class173 {
                                     return;
                                  }
 
-                                 method4261(class173.field2121, var19, 0, 0, var1, var4 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                                 method4261(Rasterizer2D.field2121, var19, 0, 0, var1, var4 >> 14, var3 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                                  var3 += var28;
                                  var4 += var27;
                                  var7 += var31;
-                                 var1 += class173.field2119;
+                                 var1 += Rasterizer2D.field2119;
                                  var32 += var34;
                                  var35 += var37;
                                  var38 += var40;
                               }
                            }
 
-                           method4261(class173.field2121, var19, 0, 0, var1, var4 >> 14, var5 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
+                           method4261(Rasterizer2D.field2121, var19, 0, 0, var1, var4 >> 14, var5 >> 14, var7, var30, var32, var35, var38, var33, var36, var39);
                            var5 += var26;
                            var4 += var27;
                            var7 += var31;
-                           var1 += class173.field2119;
+                           var1 += Rasterizer2D.field2119;
                            var32 += var34;
                            var35 += var37;
                            var38 += var40;
@@ -3249,22 +3249,22 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4261(class173.field2121, var19, 0, 0, var2, var4 >> 14, var3 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                              method4261(Rasterizer2D.field2121, var19, 0, 0, var2, var4 >> 14, var3 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                               var4 += var27;
                               var3 += var26;
                               var8 += var31;
-                              var2 += class173.field2119;
+                              var2 += Rasterizer2D.field2119;
                               var32 += var34;
                               var35 += var37;
                               var38 += var40;
                            }
                         }
 
-                        method4261(class173.field2121, var19, 0, 0, var2, var4 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                        method4261(Rasterizer2D.field2121, var19, 0, 0, var2, var4 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                         var4 += var27;
                         var5 += var28;
                         var8 += var31;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                         var32 += var34;
                         var35 += var37;
                         var38 += var40;
@@ -3283,22 +3283,22 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4261(class173.field2121, var19, 0, 0, var2, var3 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                              method4261(Rasterizer2D.field2121, var19, 0, 0, var2, var3 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                               var4 += var27;
                               var3 += var26;
                               var8 += var31;
-                              var2 += class173.field2119;
+                              var2 += Rasterizer2D.field2119;
                               var32 += var34;
                               var35 += var37;
                               var38 += var40;
                            }
                         }
 
-                        method4261(class173.field2121, var19, 0, 0, var2, var5 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                        method4261(Rasterizer2D.field2121, var19, 0, 0, var2, var5 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                         var4 += var27;
                         var5 += var28;
                         var8 += var31;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                         var32 += var34;
                         var35 += var37;
                         var38 += var40;
@@ -3337,22 +3337,22 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4261(class173.field2121, var19, 0, 0, var2, var4 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                              method4261(Rasterizer2D.field2121, var19, 0, 0, var2, var4 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                               var4 += var26;
                               var5 += var28;
                               var8 += var31;
-                              var2 += class173.field2119;
+                              var2 += Rasterizer2D.field2119;
                               var32 += var34;
                               var35 += var37;
                               var38 += var40;
                            }
                         }
 
-                        method4261(class173.field2121, var19, 0, 0, var2, var3 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                        method4261(Rasterizer2D.field2121, var19, 0, 0, var2, var3 >> 14, var5 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                         var3 += var27;
                         var5 += var28;
                         var8 += var31;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                         var32 += var34;
                         var35 += var37;
                         var38 += var40;
@@ -3371,22 +3371,22 @@ public class class211 extends class173 {
                                  return;
                               }
 
-                              method4261(class173.field2121, var19, 0, 0, var2, var5 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                              method4261(Rasterizer2D.field2121, var19, 0, 0, var2, var5 >> 14, var4 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                               var4 += var26;
                               var5 += var28;
                               var8 += var31;
-                              var2 += class173.field2119;
+                              var2 += Rasterizer2D.field2119;
                               var32 += var34;
                               var35 += var37;
                               var38 += var40;
                            }
                         }
 
-                        method4261(class173.field2121, var19, 0, 0, var2, var5 >> 14, var3 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
+                        method4261(Rasterizer2D.field2121, var19, 0, 0, var2, var5 >> 14, var3 >> 14, var8, var30, var32, var35, var38, var33, var36, var39);
                         var3 += var27;
                         var5 += var28;
                         var8 += var31;
-                        var2 += class173.field2119;
+                        var2 += Rasterizer2D.field2119;
                         var32 += var34;
                         var35 += var37;
                         var38 += var40;

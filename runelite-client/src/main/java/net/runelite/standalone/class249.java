@@ -66,49 +66,49 @@ public class class249 {
    static int method5055(int var0, class296 var1, boolean var2) {
       class187 var3 = var2?class3.field36:class284.field3565;
       if(var0 == 1600) {
-         field3312[++class308.field3811 - 1] = var3.field2579;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2579;
          return 1;
       } else if(var0 == 1601) {
-         field3312[++class308.field3811 - 1] = var3.field2580;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2580;
          return 1;
       } else if(var0 == 1602) {
          field3313[++class103.field1146 - 1] = var3.field2619;
          return 1;
       } else if(var0 == 1603) {
-         field3312[++class308.field3811 - 1] = var3.field2581;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2581;
          return 1;
       } else if(var0 == 1604) {
-         field3312[++class308.field3811 - 1] = var3.field2582;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2582;
          return 1;
       } else if(var0 == 1605) {
-         field3312[++class308.field3811 - 1] = var3.field2612;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2612;
          return 1;
       } else if(var0 == 1606) {
-         field3312[++class308.field3811 - 1] = var3.field2687;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2687;
          return 1;
       } else if(var0 == 1607) {
-         field3312[++class308.field3811 - 1] = var3.field2671;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2671;
          return 1;
       } else if(var0 == 1608) {
-         field3312[++class308.field3811 - 1] = var3.field2610;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2610;
          return 1;
       } else if(var0 == 1609) {
-         field3312[++class308.field3811 - 1] = var3.field2652;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2652;
          return 1;
       } else if(var0 == 1610) {
-         field3312[++class308.field3811 - 1] = var3.field2558;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2558;
          return 1;
       } else if(var0 == 1611) {
-         field3312[++class308.field3811 - 1] = var3.field2633;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2633;
          return 1;
       } else if(var0 == 1612) {
-         field3312[++class308.field3811 - 1] = var3.field2584;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2584;
          return 1;
       } else if(var0 == 1613) {
-         field3312[++class308.field3811 - 1] = var3.field2588.vmethod6234();
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2588.vmethod6234();
          return 1;
       } else if(var0 == 1614) {
-         field3312[++class308.field3811 - 1] = var3.field2616?1:0;
+         field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2616?1:0;
          return 1;
       } else {
          return 2;

@@ -65,7 +65,7 @@ public class class4 extends class324 {
       if(!client.field2212) {
          var2 = var1.method2332();
          var3 = var1.method2460();
-         int var4 = var1.readShort();
+         int var4 = var1.readUnsignedShort();
          class286.field3582 = new int[var4][4];
 
          for(var5 = 0; var5 < var4; ++var5) {
@@ -74,7 +74,7 @@ public class class4 extends class324 {
             }
          }
 
-         class23.field255 = new int[var4];
+         MapIcon.field255 = new int[var4];
          class54.field697 = new int[var4];
          class226.field3047 = new int[var4];
          class178.field2452 = new byte[var4][];
@@ -94,9 +94,9 @@ public class class4 extends class324 {
             for(var7 = (var2 - 6) / 8; var7 <= (var2 + 6) / 8; ++var7) {
                var8 = var7 + (var6 << 8);
                if(!var16 || var7 != 49 && var7 != 149 && var7 != 147 && var6 != 50 && (var6 != 49 || var7 != 47)) {
-                  class23.field255[var4] = var8;
-                  class54.field697[var4] = class152.mapsIndex.method4421("m" + var6 + "_" + var7);
-                  class226.field3047[var4] = class152.mapsIndex.method4421("l" + var6 + "_" + var7);
+                  MapIcon.field255[var4] = var8;
+                  class54.field697[var4] = class152.mapsIndex.getGroupId("m" + var6 + "_" + var7);
+                  class226.field3047[var4] = class152.mapsIndex.getGroupId("l" + var6 + "_" + var7);
                   ++var4;
                }
             }
@@ -107,7 +107,7 @@ public class class4 extends class324 {
          var2 = var1.method2460();
          var3 = var1.method2332();
          boolean var15 = var1.readUnsignedByte() == 1;
-         var5 = var1.readShort();
+         var5 = var1.readUnsignedShort();
          var1.method7();
 
          int var9;
@@ -133,7 +133,7 @@ public class class4 extends class324 {
             }
          }
 
-         class23.field255 = new int[var5];
+         MapIcon.field255 = new int[var5];
          class54.field697 = new int[var5];
          class226.field3047 = new int[var5];
          class178.field2452 = new byte[var5][];
@@ -151,18 +151,18 @@ public class class4 extends class324 {
 
                      int var13;
                      for(var13 = 0; var13 < var5; ++var13) {
-                        if(class23.field255[var13] == var12) {
+                        if(MapIcon.field255[var13] == var12) {
                            var12 = -1;
                            break;
                         }
                      }
 
                      if(var12 != -1) {
-                        class23.field255[var5] = var12;
+                        MapIcon.field255[var5] = var12;
                         var13 = var12 >> 8 & 255;
                         int var14 = var12 & 255;
-                        class54.field697[var5] = class152.mapsIndex.method4421("m" + var13 + "_" + var14);
-                        class226.field3047[var5] = class152.mapsIndex.method4421("l" + var13 + "_" + var14);
+                        class54.field697[var5] = class152.mapsIndex.getGroupId("m" + var13 + "_" + var14);
+                        class226.field3047[var5] = class152.mapsIndex.getGroupId("l" + var13 + "_" + var14);
                         ++var5;
                      }
                   }

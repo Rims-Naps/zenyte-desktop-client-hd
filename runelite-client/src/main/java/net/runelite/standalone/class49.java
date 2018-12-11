@@ -83,7 +83,7 @@ public enum class49 implements class26 {
       garbageValue = "1"
    )
    static final void method1051(class1 var0, int var1) {
-      int var2 = var0.field1693;
+      int var2 = var0.position;
       class152.field1881 = 0;
       int var3 = 0;
       var0.method7();
@@ -210,8 +210,8 @@ public enum class49 implements class26 {
                      class329.method6324(var0, var4, var7, var6);
                   }
 
-                  if(var0.field1693 - var2 != var1) {
-                     throw new RuntimeException(var0.field1693 - var2 + " " + var1);
+                  if(var0.position - var2 != var1) {
+                     throw new RuntimeException(var0.position - var2 + " " + var1);
                   }
                }
             }

@@ -3,7 +3,7 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 
 @ObfuscatedName("lz")
-public class class173 extends class324 {
+public class Rasterizer2D extends class324 {
    @ObfuscatedName("af")
    public static int field2119;
    @ObfuscatedName("ag")

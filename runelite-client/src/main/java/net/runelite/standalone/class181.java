@@ -102,22 +102,22 @@ public class class181 {
    static int method3699(int var0, class296 var1, boolean var2) {
       class187 var3 = var2?class3.field36:class284.field3565;
       if(var0 == 1500) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2634;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2634;
          return 1;
       } else if(var0 == 1501) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2572;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2572;
          return 1;
       } else if(var0 == 1502) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2573;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2573;
          return 1;
       } else if(var0 == 1503) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2574;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2574;
          return 1;
       } else if(var0 == 1504) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2583?1:0;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2583?1:0;
          return 1;
       } else if(var0 == 1505) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2577;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2577;
          return 1;
       } else {
          return 2;

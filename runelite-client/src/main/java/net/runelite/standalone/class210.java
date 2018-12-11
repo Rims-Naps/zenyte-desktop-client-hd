@@ -287,7 +287,7 @@ public class class210 {
       if(var7 != 0 && this.field2894 != 0 && this.field2890 != null) {
          var8 = this.method4203(var8, var7);
          var7 = this.method4204(var7);
-         class173.method3148(var1, var2, var5, var6, var3, var4, this.field2890[var7 - 1][var8], this.field2894, true);
+         Rasterizer2D.method3148(var1, var2, var5, var6, var3, var4, this.field2890[var7 - 1][var8], this.field2894, true);
       }
    }
 

@@ -21,7 +21,7 @@ public class class17 {
       signature = "(Lik;Lik;IZI)Let;",
       garbageValue = "1151852438"
    )
-   public static class202 method366(class217 var0, class217 var1, int var2, boolean var3) {
+   public static class202 method366(Js5Index var0, Js5Index var1, int var2, boolean var3) {
       boolean var4 = true;
       int[] var5 = var0.method4475(var2);
 
@@ -93,7 +93,7 @@ public class class17 {
       }
 
       class138.field1776 = var4;
-      class214.field2934 = var5;
+      WorldMapRegion.field2934 = var5;
       client.field2200 = var2;
       class246.field3300 = client.field2290 * 15 + 22;
    }

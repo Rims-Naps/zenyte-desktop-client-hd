@@ -24,36 +24,36 @@ public class class253 {
    )
    static void method5080(byte[] var0) {
       Buffer var1 = new Buffer(var0);
-      var1.field1693 = var0.length - 2;
-      class212.field2926 = var1.readShort();
+      var1.position = var0.length - 2;
+      class212.field2926 = var1.readUnsignedShort();
       class42.field476 = new int[class212.field2926];
       class212.field2925 = new int[class212.field2926];
       class212.field2922 = new int[class212.field2926];
       class192.field2745 = new int[class212.field2926];
       class191.field2740 = new byte[class212.field2926][];
-      var1.field1693 = var0.length - 7 - class212.field2926 * 8;
-      class212.field2927 = var1.readShort();
-      class212.field2924 = var1.readShort();
+      var1.position = var0.length - 7 - class212.field2926 * 8;
+      class212.field2927 = var1.readUnsignedShort();
+      class212.field2924 = var1.readUnsignedShort();
       int var2 = (var1.readUnsignedByte() & 255) + 1;
 
       int var3;
       for(var3 = 0; var3 < class212.field2926; ++var3) {
-         class42.field476[var3] = var1.readShort();
+         class42.field476[var3] = var1.readUnsignedShort();
       }
 
       for(var3 = 0; var3 < class212.field2926; ++var3) {
-         class212.field2925[var3] = var1.readShort();
+         class212.field2925[var3] = var1.readUnsignedShort();
       }
 
       for(var3 = 0; var3 < class212.field2926; ++var3) {
-         class212.field2922[var3] = var1.readShort();
+         class212.field2922[var3] = var1.readUnsignedShort();
       }
 
       for(var3 = 0; var3 < class212.field2926; ++var3) {
-         class192.field2745[var3] = var1.readShort();
+         class192.field2745[var3] = var1.readUnsignedShort();
       }
 
-      var1.field1693 = var0.length - 7 - class212.field2926 * 8 - (var2 - 1) * 3;
+      var1.position = var0.length - 7 - class212.field2926 * 8 - (var2 - 1) * 3;
       class225.field3040 = new int[var2];
 
       for(var3 = 1; var3 < var2; ++var3) {
@@ -63,7 +63,7 @@ public class class253 {
          }
       }
 
-      var1.field1693 = 0;
+      var1.position = 0;
 
       for(var3 = 0; var3 < class212.field2926; ++var3) {
          int var4 = class212.field2922[var3];
@@ -120,7 +120,7 @@ public class class253 {
             int var19 = var18 >> 2;
             int var20 = var18 & 3;
             if(var17 == var4 && var16 >= var5 && var16 < var5 + 8 && var15 >= var6 && var15 < var6 + 8) {
-               class15 var21 = class285.method5484(var11);
+               ObjectDef var21 = class285.getObjectDef(var11);
                int var22 = var2 + class194.method3929(var16 & 7, var15 & 7, var7, var21.field150, var21.field193, var20);
                int var23 = var3 + WorldMapManager.method4158(var16 & 7, var15 & 7, var7, var21.field150, var21.field193, var20);
                if(var22 > 0 && var23 > 0 && var22 < 103 && var23 < 103) {

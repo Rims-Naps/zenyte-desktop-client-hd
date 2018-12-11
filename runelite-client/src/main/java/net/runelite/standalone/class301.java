@@ -49,7 +49,7 @@ public class class301 {
          int[] var19 = class32.field304.pixels;
          var26 = var1 * 4 + (103 - var2) * 2048 + 24624;
          var14 = class178.method3682(var5);
-         class15 var15 = class285.method5484(var14);
+         ObjectDef var15 = class285.getObjectDef(var14);
          if(var15.field158 != -1) {
             class303 var16 = class64.field748[var15.field158];
             if(var16 != null) {
@@ -126,7 +126,7 @@ public class class301 {
          var8 = var7 >> 6 & 3;
          var9 = var7 & 31;
          var10 = class178.method3682(var5);
-         class15 var20 = class285.method5484(var10);
+         ObjectDef var20 = class285.getObjectDef(var10);
          if(var20.field158 != -1) {
             class303 var28 = class64.field748[var20.field158];
             if(var28 != null) {
@@ -165,7 +165,7 @@ public class class301 {
       var5 = class269.field3464.method1992(var0, var1, var2);
       if(var5 != 0L) {
          var7 = class178.method3682(var5);
-         class15 var21 = class285.method5484(var7);
+         ObjectDef var21 = class285.getObjectDef(var7);
          if(var21.field158 != -1) {
             class303 var22 = class64.field748[var21.field158];
             if(var22 != null) {

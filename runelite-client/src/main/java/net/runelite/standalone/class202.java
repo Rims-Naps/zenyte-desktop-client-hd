@@ -27,7 +27,7 @@ public class class202 extends class324 implements RSFrames {
    @ObfuscatedSignature(
       signature = "(Lik;Lik;IZ)V"
    )
-   class202(class217 var1, class217 var2, int var3, boolean var4) {
+   class202(Js5Index var1, Js5Index var2, int var3, boolean var4) {
       class70 var5 = new class70();
       int var6 = var1.method4435(var3);
       this.field2844 = new class0[var6];

@@ -22,7 +22,7 @@ public class class220 {
       signature = "(Lik;II)Lle;",
       garbageValue = "2067816732"
    )
-   public static class303 method4514(class217 var0, int var1) {
+   public static class303 method4514(Js5Index var0, int var1) {
       if(!class311.method6094(var0, var1)) {
          return null;
       } else {

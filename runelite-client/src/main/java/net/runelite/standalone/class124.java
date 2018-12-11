@@ -223,16 +223,16 @@ public class class124 implements Runnable {
 
             Buffer var26 = new Buffer(var9);
             var26.writeString(var4);
-            var26.field1693 = var9;
+            var26.position = var9;
             var26.method2275(var8);
-            Buffer var20 = new Buffer(var26.field1693 + var6.field1693 + var7.field1693 + 5);
+            Buffer var20 = new Buffer(var26.position + var6.position + var7.position + 5);
             var20.method2288(2);
-            var20.method2288(var6.field1693);
-            var20.method2251(var6.field1694, 0, var6.field1693);
-            var20.method2288(var7.field1693);
-            var20.method2251(var7.field1694, 0, var7.field1693);
-            var20.method2242(var26.field1693);
-            var20.method2251(var26.field1694, 0, var26.field1693);
+            var20.method2288(var6.position);
+            var20.method2251(var6.field1694, 0, var6.position);
+            var20.method2288(var7.position);
+            var20.method2251(var7.field1694, 0, var7.position);
+            var20.method2242(var26.position);
+            var20.method2251(var26.field1694, 0, var26.position);
             byte[] var13 = var20.field1694;
             String var22 = class179.method3689(var13, 0, var13.length);
             String var14 = var22;
@@ -251,7 +251,7 @@ public class class124 implements Runnable {
                var20 = new Buffer(new byte[1000]);
 
                while(true) {
-                  int var19 = var18.read(var20.field1694, var20.field1693, 1000 - var20.field1693);
+                  int var19 = var18.read(var20.field1694, var20.position, 1000 - var20.position);
                   if(var19 == -1) {
                      var17.close();
                      var18.close();
@@ -267,11 +267,11 @@ public class class124 implements Runnable {
                      } else {
                         var20.method2276(var8);
 
-                        while(var20.field1693 > 0 && var20.field1694[var20.field1693 - 1] == 0) {
-                           --var20.field1693;
+                        while(var20.position > 0 && var20.field1694[var20.position - 1] == 0) {
+                           --var20.position;
                         }
 
-                        var23 = new String(var20.field1694, 0, var20.field1693);
+                        var23 = new String(var20.field1694, 0, var20.position);
                         if(class107.method1886(var23)) {
                            class212.method4358(var23, true, false);
                            var3 = 2;
@@ -282,8 +282,8 @@ public class class124 implements Runnable {
                      break;
                   }
 
-                  var20.field1693 += var19;
-                  if(var20.field1693 >= 1000) {
+                  var20.position += var19;
+                  if(var20.position >= 1000) {
                      var3 = 5;
                      break;
                   }
@@ -325,9 +325,9 @@ public class class124 implements Runnable {
       signature = "(Lik;Ljava/lang/String;Ljava/lang/String;B)Lle;",
       garbageValue = "-2"
    )
-   public static class303 method2237(class217 var0, String var1, String var2) {
-      int var3 = var0.method4421(var1);
-      int var4 = var0.method4400(var3, var2);
+   public static class303 method2237(Js5Index var0, String var1, String var2) {
+      int var3 = var0.getGroupId(var1);
+      int var4 = var0.getChild(var3, var2);
       return Buffer.method2473(var0, var3, var4);
    }
 

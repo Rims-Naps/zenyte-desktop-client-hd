@@ -22,7 +22,7 @@ public class class123 extends class324 implements RSArea {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field1671;
+   static Js5Index field1671;
    @ObfuscatedName("w")
    @ObfuscatedGetter(
       intValue = -1616296645
@@ -36,7 +36,7 @@ public class class123 extends class324 implements RSArea {
    @ObfuscatedName("z")
    public String[] field1681;
    @ObfuscatedName("p")
-   public String field1668;
+   public String text;
    @ObfuscatedName("i")
    @ObfuscatedGetter(
       intValue = 192841577
@@ -164,7 +164,7 @@ public class class123 extends class324 implements RSArea {
       } else if(var2 == 2) {
          this.field1669 = var1.method2293();
       } else if(var2 == 3) {
-         this.field1668 = var1.readString();
+         this.text = var1.readString();
       } else if(var2 == 4) {
          this.field1665 = var1.method2260();
       } else if(var2 == 5) {
@@ -215,7 +215,7 @@ public class class123 extends class324 implements RSArea {
             } else if(var2 == 18) {
                var1.method2293();
             } else if(var2 == 19) {
-               this.field1684 = var1.readShort();
+               this.field1684 = var1.readUnsignedShort();
             } else if(var2 == 21) {
                var1.readInt();
             } else if(var2 == 22) {

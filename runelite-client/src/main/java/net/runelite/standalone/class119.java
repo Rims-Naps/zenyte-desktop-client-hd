@@ -10,7 +10,7 @@ public class class119 {
    @ObfuscatedSignature(
       signature = "Lim;"
    )
-   static class6 worldMapIndex;
+   static class6 field1640;
    @ObfuscatedName("x")
    @ObfuscatedGetter(
       intValue = 969829275
@@ -144,8 +144,8 @@ public class class119 {
    )
    static void method2158() {
       if(class39.field386 == null || class39.field386.length() <= 0) {
-         if(class175.field2134.field858 != null) {
-            class39.field386 = class175.field2134.field858;
+         if(WorldMapNode.field2134.field858 != null) {
+            class39.field386 = WorldMapNode.field2134.field858;
             client.onUsernameChanged(-1);
             client.field2192 = true;
          } else {

@@ -47,7 +47,7 @@ public class class51 {
          int var7 = this.field572.readUnsignedByte();
          var4 = this.field572.method2263();
          if(var7 == 47) {
-            this.field572.field1693 += var4;
+            this.field572.position += var4;
             return 1;
          } else if(var7 == 81) {
             int var5 = this.field572.method2260();
@@ -55,10 +55,10 @@ public class class51 {
             int var6 = this.field570[var1];
             this.field571 += (long)var6 * (long)(this.field569 - var5);
             this.field569 = var5;
-            this.field572.field1693 += var4;
+            this.field572.position += var4;
             return 2;
          } else {
-            this.field572.field1693 += var4;
+            this.field572.position += var4;
             return 3;
          }
       } else {
@@ -78,12 +78,12 @@ public class class51 {
 
    @ObfuscatedName("p")
    void method1073() {
-      this.field572.field1693 = -1;
+      this.field572.position = -1;
    }
 
    @ObfuscatedName("c")
    void method1080(int var1) {
-      this.field566[var1] = this.field572.field1693;
+      this.field566[var1] = this.field572.position;
    }
 
    @ObfuscatedName("l")
@@ -103,19 +103,19 @@ public class class51 {
    @ObfuscatedName("f")
    void method1075(byte[] var1) {
       this.field572.field1694 = var1;
-      this.field572.field1693 = 10;
-      int var2 = this.field572.readShort();
-      this.field564 = this.field572.readShort();
+      this.field572.position = 10;
+      int var2 = this.field572.readUnsignedShort();
+      this.field564 = this.field572.readUnsignedShort();
       this.field569 = 500000;
       this.field565 = new int[var2];
 
       int var3;
       int var5;
-      for(var3 = 0; var3 < var2; this.field572.field1693 += var5) {
+      for(var3 = 0; var3 < var2; this.field572.position += var5) {
          int var4 = this.field572.readInt();
          var5 = this.field572.readInt();
          if(var4 == 1297379947) {
-            this.field565[var3] = this.field572.field1693;
+            this.field565[var3] = this.field572.position;
             ++var3;
          }
       }
@@ -145,9 +145,9 @@ public class class51 {
       for(int var4 = 0; var4 < var3; ++var4) {
          this.field570[var4] = 0;
          this.field568[var4] = 0;
-         this.field572.field1693 = this.field565[var4];
+         this.field572.position = this.field565[var4];
          this.method1082(var4);
-         this.field566[var4] = this.field572.field1693;
+         this.field566[var4] = this.field572.position;
       }
 
    }
@@ -181,12 +181,12 @@ public class class51 {
 
    @ObfuscatedName("d")
    int method1084(int var1) {
-      byte var2 = this.field572.field1694[this.field572.field1693];
+      byte var2 = this.field572.field1694[this.field572.position];
       int var5;
       if(var2 < 0) {
          var5 = var2 & 255;
          this.field568[var1] = var5;
-         ++this.field572.field1693;
+         ++this.field572.position;
       } else {
          var5 = this.field568[var1];
       }
@@ -196,15 +196,15 @@ public class class51 {
       } else {
          int var3 = this.field572.method2263();
          if(var5 == 247 && var3 > 0) {
-            int var4 = this.field572.field1694[this.field572.field1693] & 255;
+            int var4 = this.field572.field1694[this.field572.position] & 255;
             if(var4 >= 241 && var4 <= 243 || var4 == 246 || var4 == 248 || var4 >= 250 && var4 <= 252 || var4 == 254) {
-               ++this.field572.field1693;
+               ++this.field572.position;
                this.field568[var1] = var4;
                return this.method1108(var1, var4);
             }
          }
 
-         this.field572.field1693 += var3;
+         this.field572.position += var3;
          return 0;
       }
    }
@@ -224,7 +224,7 @@ public class class51 {
 
    @ObfuscatedName("e")
    void method1088(int var1) {
-      this.field572.field1693 = this.field566[var1];
+      this.field572.position = this.field566[var1];
    }
 
    @ObfuscatedName("w")

@@ -16,7 +16,7 @@ public class class259 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   class217 field3378;
+   Js5Index field3378;
    @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "Lgp;"
@@ -26,7 +26,7 @@ public class class259 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   class217 field3383;
+   Js5Index field3383;
    @ObfuscatedName("w")
    @ObfuscatedSignature(
       signature = "Lgp;"
@@ -36,7 +36,7 @@ public class class259 {
    @ObfuscatedSignature(
       signature = "(Lik;Lik;)V"
    )
-   public class259(class217 var1, class217 var2) {
+   public class259(Js5Index var1, Js5Index var2) {
       this.field3382 = new class98(256);
       this.field3380 = new class98(256);
       this.field3383 = var1;

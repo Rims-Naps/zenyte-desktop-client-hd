@@ -167,7 +167,7 @@ public class class329 {
          var2.field1117 = var0.method2290();
          var2.field1118 = var0.method2460() + client.field2165;
          var2.field1119 = var0.method2268() + client.field2165;
-         var2.field1113 = var0.readShort();
+         var2.field1113 = var0.readUnsignedShort();
          if(var2.field2826) {
             var2.field1126 += var2.field2827;
             var2.field1116 += var2.field2806;
@@ -235,7 +235,7 @@ public class class329 {
          class222 var19 = (class222)class38.method678(class198.method3946(), var0.readUnsignedByte());
          boolean var17 = var0.method2286() == 1;
          var8 = var0.readUnsignedByte();
-         var9 = var0.field1693;
+         var9 = var0.position;
          if(var2.field2802 != null && var2.field2801 != null) {
             boolean var18 = false;
             if(var19.field2999 && class202.field2845.method2898(var2.field2802)) {
@@ -243,10 +243,10 @@ public class class329 {
             }
 
             if(!var18 && client.field2329 == 0 && !var2.field2800) {
-               class152.field1883.field1693 = 0;
+               class152.field1883.position = 0;
                var0.method2295(class152.field1883.field1694, 0, var8);
-               class152.field1883.field1693 = 0;
-               String var15 = class190.method3813(class264.method5250(class217.method4432(class152.field1883)));
+               class152.field1883.position = 0;
+               String var15 = class190.method3813(class264.method5250(Js5Index.method4432(class152.field1883)));
                var2.field1085 = var15.trim();
                var2.field1079 = var5 >> 8;
                var2.field1088 = var5 & 255;
@@ -267,7 +267,7 @@ public class class329 {
             }
          }
 
-         var0.field1693 = var8 + var9;
+         var0.position = var8 + var9;
       }
 
       if((var3 & 256) != 0) {
@@ -277,7 +277,7 @@ public class class329 {
       }
 
       if((var3 & 128) != 0) {
-         var5 = var0.readShort();
+         var5 = var0.readUnsignedShort();
          if(var5 == 65535) {
             var5 = -1;
          }

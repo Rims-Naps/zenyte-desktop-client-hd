@@ -55,10 +55,10 @@ public class class59 implements class61 {
    public void vmethod5267(Buffer var1) {
       this.field728 = var1.readUnsignedByte();
       this.field722 = var1.readUnsignedByte();
-      this.field724 = var1.readShort();
-      this.field726 = var1.readShort();
-      this.field725 = var1.readShort();
-      this.field721 = var1.readShort();
+      this.field724 = var1.readUnsignedShort();
+      this.field726 = var1.readUnsignedShort();
+      this.field725 = var1.readUnsignedShort();
+      this.field721 = var1.readUnsignedShort();
       this.method1277();
    }
 

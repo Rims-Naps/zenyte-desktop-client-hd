@@ -287,7 +287,7 @@ public enum class264 implements class26 {
                      if(var9.field2562 == 1400) {
                         class199.field2812.method5653(var10, var11, var9.field2573, var9.field2574, var17, var18);
                      } else {
-                        class108.method1906(var9, var17 - var10, var18 - var11);
+                        WorldMapChunk.method1906(var9, var17 - var10, var18 - var11);
                      }
                   }
 
@@ -324,7 +324,7 @@ public enum class264 implements class26 {
                               class255.method5124(var20 + 1, var9.field2621, var9.field2620, var9.field2676, "");
                            } else if(var20 == 10) {
                               class103.method1853();
-                              class174.method3219(var9.field2621, var9.field2620, class217.method4493(class203.method4026(var9)), var9.field2676);
+                              class174.method3219(var9.field2621, var9.field2620, Js5Index.method4493(class203.method4026(var9)), var9.field2676);
                               client.field2311 = class151.method2763(var9);
                               if(client.field2311 == null) {
                                  client.field2311 = "null";
@@ -655,7 +655,7 @@ public enum class264 implements class26 {
                      }
 
                      if(var9.field2582 > var9.field2574) {
-                        class23.method439(var9, var10 + var9.field2573, var11, var9.field2574, var9.field2582, class163.field1975, class163.field1976);
+                        MapIcon.method439(var9, var10 + var9.field2573, var11, var9.field2574, var9.field2582, class163.field1975, class163.field1976);
                      }
                   }
 

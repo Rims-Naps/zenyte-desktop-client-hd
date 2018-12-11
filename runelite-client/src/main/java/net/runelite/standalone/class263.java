@@ -305,10 +305,10 @@ public final class class263 {
             int var39 = class178.method3682(var7);
             int var40 = var12 & 31;
             int var41 = var12 >> 6 & 3;
-            class15 var13;
+            ObjectDef var13;
             if(var1 == 0) {
                class269.field3464.method1942(var0, var2, var3);
-               var13 = class285.method5484(var39);
+               var13 = class285.getObjectDef(var39);
                if(var13.field173 != 0) {
                   client.field2211[var0].method50(var2, var3, var40, var41, var13.field166);
                }
@@ -320,7 +320,7 @@ public final class class263 {
 
             if(var1 == 2) {
                class269.field3464.method1944(var0, var2, var3);
-               var13 = class285.method5484(var39);
+               var13 = class285.getObjectDef(var39);
                if(var2 + var13.field150 > 103 || var3 + var13.field150 > 103 || var2 + var13.field193 > 103 || var3 + var13.field193 > 103) {
                   return;
                }
@@ -332,7 +332,7 @@ public final class class263 {
 
             if(var1 == 3) {
                class269.field3464.method1945(var0, var2, var3);
-               var13 = class285.method5484(var39);
+               var13 = class285.getObjectDef(var39);
                if(var13.field173 == 1) {
                   client.field2211[var0].method52(var2, var3);
                }
@@ -347,7 +347,7 @@ public final class class263 {
 
             class111 var42 = class269.field3464;
             class3 var14 = client.field2211[var0];
-            class15 var15 = class285.method5484(var4);
+            ObjectDef var15 = class285.getObjectDef(var4);
             int var16;
             int var17;
             if(var5 != 1 && var5 != 3) {
@@ -390,7 +390,7 @@ public final class class263 {
 
             Object var29;
             if(var6 == 22) {
-               if(var15.field171 == -1 && var15.field189 == null) {
+               if(var15.field171 == -1 && var15.multiLocs == null) {
                   var29 = var15.method322(22, var5, var22, var24, var23, var25);
                } else {
                   var29 = new class321(var4, 22, var5, var12, var2, var3, var15.field171, true, (class102)null);
@@ -402,7 +402,7 @@ public final class class263 {
                }
             } else if(var6 != 10 && var6 != 11) {
                if(var6 >= 12) {
-                  if(var15.field171 == -1 && var15.field189 == null) {
+                  if(var15.field171 == -1 && var15.multiLocs == null) {
                      var29 = var15.method322(var6, var5, var22, var24, var23, var25);
                   } else {
                      var29 = new class321(var4, var6, var5, var12, var2, var3, var15.field171, true, (class102)null);
@@ -413,7 +413,7 @@ public final class class263 {
                      var14.method45(var2, var3, var16, var17, var15.field166);
                   }
                } else if(var6 == 0) {
-                  if(var15.field171 == -1 && var15.field189 == null) {
+                  if(var15.field171 == -1 && var15.multiLocs == null) {
                      var29 = var15.method322(0, var5, var22, var24, var23, var25);
                   } else {
                      var29 = new class321(var4, 0, var5, var12, var2, var3, var15.field171, true, (class102)null);
@@ -424,7 +424,7 @@ public final class class263 {
                      var14.method44(var2, var3, var6, var5, var15.field166);
                   }
                } else if(var6 == 1) {
-                  if(var15.field171 == -1 && var15.field189 == null) {
+                  if(var15.field171 == -1 && var15.multiLocs == null) {
                      var29 = var15.method322(1, var5, var22, var24, var23, var25);
                   } else {
                      var29 = new class321(var4, 1, var5, var12, var2, var3, var15.field171, true, (class102)null);
@@ -440,7 +440,7 @@ public final class class263 {
                      var35 = var5 + 1 & 3;
                      Object var30;
                      Object var31;
-                     if(var15.field171 == -1 && var15.field189 == null) {
+                     if(var15.field171 == -1 && var15.multiLocs == null) {
                         var30 = var15.method322(2, var5 + 4, var22, var24, var23, var25);
                         var31 = var15.method322(2, var35, var22, var24, var23, var25);
                      } else {
@@ -453,7 +453,7 @@ public final class class263 {
                         var14.method44(var2, var3, var6, var5, var15.field166);
                      }
                   } else if(var6 == 3) {
-                     if(var15.field171 == -1 && var15.field189 == null) {
+                     if(var15.field171 == -1 && var15.multiLocs == null) {
                         var29 = var15.method322(3, var5, var22, var24, var23, var25);
                      } else {
                         var29 = new class321(var4, 3, var5, var12, var2, var3, var15.field171, true, (class102)null);
@@ -464,7 +464,7 @@ public final class class263 {
                         var14.method44(var2, var3, var6, var5, var15.field166);
                      }
                   } else if(var6 == 9) {
-                     if(var15.field171 == -1 && var15.field189 == null) {
+                     if(var15.field171 == -1 && var15.multiLocs == null) {
                         var29 = var15.method322(var6, var5, var22, var24, var23, var25);
                      } else {
                         var29 = new class321(var4, var6, var5, var12, var2, var3, var15.field171, true, (class102)null);
@@ -475,7 +475,7 @@ public final class class263 {
                         var14.method45(var2, var3, var16, var17, var15.field166);
                      }
                   } else if(var6 == 4) {
-                     if(var15.field171 == -1 && var15.field189 == null) {
+                     if(var15.field171 == -1 && var15.multiLocs == null) {
                         var29 = var15.method322(4, var5, var22, var24, var23, var25);
                      } else {
                         var29 = new class321(var4, 4, var5, var12, var2, var3, var15.field171, true, (class102)null);
@@ -489,10 +489,10 @@ public final class class263 {
                         var35 = 16;
                         var36 = var42.method1951(var0, var2, var3);
                         if(0L != var36) {
-                           var35 = class285.method5484(class178.method3682(var36)).field172;
+                           var35 = class285.getObjectDef(class178.method3682(var36)).field172;
                         }
 
-                        if(var15.field171 == -1 && var15.field189 == null) {
+                        if(var15.field171 == -1 && var15.multiLocs == null) {
                            var32 = var15.method322(4, var5, var22, var24, var23, var25);
                         } else {
                            var32 = new class321(var4, 4, var5, var12, var2, var3, var15.field171, true, (class102)null);
@@ -503,10 +503,10 @@ public final class class263 {
                         var35 = 8;
                         var36 = var42.method1951(var0, var2, var3);
                         if(0L != var36) {
-                           var35 = class285.method5484(class178.method3682(var36)).field172 / 2;
+                           var35 = class285.getObjectDef(class178.method3682(var36)).field172 / 2;
                         }
 
-                        if(var15.field171 == -1 && var15.field189 == null) {
+                        if(var15.field171 == -1 && var15.multiLocs == null) {
                            var32 = var15.method322(4, var5 + 4, var22, var24, var23, var25);
                         } else {
                            var32 = new class321(var4, 4, var5 + 4, var12, var2, var3, var15.field171, true, (class102)null);
@@ -515,7 +515,7 @@ public final class class263 {
                         var42.method1934(var0, var2, var3, var23, (class102)var32, (class102)null, 256, var5, var35 * class185.field2526[var5], var35 * class185.field2523[var5], var26, var28);
                      } else if(var6 == 7) {
                         int var38 = var5 + 2 & 3;
-                        if(var15.field171 == -1 && var15.field189 == null) {
+                        if(var15.field171 == -1 && var15.multiLocs == null) {
                            var29 = var15.method322(4, var38 + 4, var22, var24, var23, var25);
                         } else {
                            var29 = new class321(var4, 4, var38 + 4, var12, var2, var3, var15.field171, true, (class102)null);
@@ -526,12 +526,12 @@ public final class class263 {
                         var35 = 8;
                         var36 = var42.method1951(var0, var2, var3);
                         if(var36 != 0L) {
-                           var35 = class285.method5484(class178.method3682(var36)).field172 / 2;
+                           var35 = class285.getObjectDef(class178.method3682(var36)).field172 / 2;
                         }
 
                         int var34 = var5 + 2 & 3;
                         Object var33;
-                        if(var15.field171 == -1 && var15.field189 == null) {
+                        if(var15.field171 == -1 && var15.multiLocs == null) {
                            var32 = var15.method322(4, var5 + 4, var22, var24, var23, var25);
                            var33 = var15.method322(4, var34 + 4, var22, var24, var23, var25);
                         } else {
@@ -544,7 +544,7 @@ public final class class263 {
                   }
                }
             } else {
-               if(var15.field171 == -1 && var15.field189 == null) {
+               if(var15.field171 == -1 && var15.multiLocs == null) {
                   var29 = var15.method322(10, var5, var22, var24, var23, var25);
                } else {
                   var29 = new class321(var4, 10, var5, var12, var2, var3, var15.field171, true, (class102)null);
@@ -576,7 +576,7 @@ public final class class263 {
          var4 = var5;
       } else {
          String var6 = String.valueOf(var3);
-         int var7 = class88.clientScriptIndex.method4421(var6);
+         int var7 = class88.clientScriptIndex.getGroupId(var6);
          if(var7 == -1) {
             var4 = null;
          } else {
@@ -611,7 +611,7 @@ public final class class263 {
             var12 = var11;
          } else {
             String var13 = String.valueOf(var3);
-            int var9 = class88.clientScriptIndex.method4421(var13);
+            int var9 = class88.clientScriptIndex.getGroupId(var13);
             if(var9 == -1) {
                var12 = null;
             } else {

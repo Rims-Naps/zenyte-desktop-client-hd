@@ -101,7 +101,7 @@ public class class80 extends class197 implements RSCombatInfo1 {
       signature = "(Lik;B)V",
       garbageValue = "0"
    )
-   public static void method1600(class217 var0) {
+   public static void method1600(Js5Index var0) {
       class101.field1138 = var0;
    }
 }

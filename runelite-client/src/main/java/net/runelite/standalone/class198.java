@@ -74,7 +74,7 @@ public class class198 extends class324 {
    )
    static void method3945() {
       class12 var0 = class150.method2761(ClientProt.field3158, client.field2384.field1770);
-      var0.field121.method2288(class214.method4379());
+      var0.field121.method2288(WorldMapRegion.method4379());
       var0.field121.method2242(class167.field2010);
       var0.field121.method2242(class193.field2748);
       client.field2384.method2573(var0);

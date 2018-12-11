@@ -6,7 +6,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSObjectComposition;
 
 @ObfuscatedName("jq")
-public class class15 extends class324 implements RSObjectComposition {
+public class ObjectDef extends class324 implements RSObjectComposition {
    @ObfuscatedName("p")
    @ObfuscatedSignature(
       signature = "[Ldb;"
@@ -21,7 +21,7 @@ public class class15 extends class324 implements RSObjectComposition {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field182;
+   static Js5Index field182;
    @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "Lgd;"
@@ -43,13 +43,13 @@ public class class15 extends class324 implements RSObjectComposition {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field149;
+   static Js5Index field149;
    @ObfuscatedName("af")
    public String[] field178;
    @ObfuscatedName("j")
    short[] field162;
    @ObfuscatedName("ar")
-   public int[] field189;
+   public int[] multiLocs;
    @ObfuscatedName("k")
    public boolean field164;
    @ObfuscatedName("ag")
@@ -197,7 +197,7 @@ public class class15 extends class324 implements RSObjectComposition {
    @ObfuscatedGetter(
       intValue = -2082139581
    )
-   public int field148;
+   public int mapIconDef;
    @ObfuscatedName("au")
    @ObfuscatedGetter(
       intValue = -1461214103
@@ -218,7 +218,7 @@ public class class15 extends class324 implements RSObjectComposition {
       field154 = new class34[4];
    }
 
-   class15() {
+   ObjectDef() {
       this.field147 = "null";
       this.field150 = 1;
       this.field193 = 1;
@@ -233,7 +233,7 @@ public class class15 extends class324 implements RSObjectComposition {
       this.field183 = 0;
       this.field174 = 0;
       this.field178 = new String[5];
-      this.field148 = -1;
+      this.mapIconDef = -1;
       this.field158 = -1;
       this.field177 = false;
       this.field165 = true;
@@ -511,12 +511,12 @@ public class class15 extends class324 implements RSObjectComposition {
       garbageValue = "-1049701256"
    )
    public boolean method328() {
-      if(this.field189 == null) {
+      if(this.multiLocs == null) {
          return this.field192 != -1 || this.field160 != null;
       } else {
-         for(int var1 = 0; var1 < this.field189.length; ++var1) {
-            if(this.field189[var1] != -1) {
-               class15 var2 = class285.method5484(this.field189[var1]);
+         for(int var1 = 0; var1 < this.multiLocs.length; ++var1) {
+            if(this.multiLocs[var1] != -1) {
+               ObjectDef var2 = class285.getObjectDef(this.multiLocs[var1]);
                if(var2.field192 != -1 || var2.field160 != null) {
                   return true;
                }
@@ -571,7 +571,7 @@ public class class15 extends class324 implements RSObjectComposition {
    }
 
    public int getMapIconId() {
-      return this.field148;
+      return this.mapIconDef;
    }
 
    public int getMapSceneId() {
@@ -579,11 +579,11 @@ public class class15 extends class324 implements RSObjectComposition {
    }
 
    public int[] getImpostorIds() {
-      return this.field189;
+      return this.multiLocs;
    }
 
    public RSObjectComposition getImpostor() {
-      return this.method325();
+      return this.getMultiLoc();
    }
 
    @ObfuscatedName("x")
@@ -591,7 +591,7 @@ public class class15 extends class324 implements RSObjectComposition {
       signature = "(I)Ljq;",
       garbageValue = "61832687"
    )
-   public final class15 method325() {
+   public final ObjectDef getMultiLoc() {
       int var1 = -1;
       if(this.field190 != -1) {
          var1 = class259.method5178(this.field190);
@@ -600,13 +600,13 @@ public class class15 extends class324 implements RSObjectComposition {
       }
 
       int var2;
-      if(var1 >= 0 && var1 < this.field189.length - 1) {
-         var2 = this.field189[var1];
+      if(var1 >= 0 && var1 < this.multiLocs.length - 1) {
+         var2 = this.multiLocs[var1];
       } else {
-         var2 = this.field189[this.field189.length - 1];
+         var2 = this.multiLocs[this.multiLocs.length - 1];
       }
 
-      return var2 != -1?class285.method5484(var2):null;
+      return var2 != -1?class285.getObjectDef(var2):null;
    }
 
    @ObfuscatedName("v")
@@ -693,13 +693,13 @@ public class class15 extends class324 implements RSObjectComposition {
          var3 = var1.readUnsignedByte();
          if(var3 > 0) {
             if(this.field156 != null && !field175) {
-               var1.field1693 += 3 * var3;
+               var1.position += 3 * var3;
             } else {
                this.field176 = new int[var3];
                this.field156 = new int[var3];
 
                for(var4 = 0; var4 < var3; ++var4) {
-                  this.field156[var4] = var1.readShort();
+                  this.field156[var4] = var1.readUnsignedShort();
                   this.field176[var4] = var1.readUnsignedByte();
                }
             }
@@ -710,13 +710,13 @@ public class class15 extends class324 implements RSObjectComposition {
          var3 = var1.readUnsignedByte();
          if(var3 > 0) {
             if(this.field156 != null && !field175) {
-               var1.field1693 += var3 * 2;
+               var1.position += var3 * 2;
             } else {
                this.field176 = null;
                this.field156 = new int[var3];
 
                for(var4 = 0; var4 < var3; ++var4) {
-                  this.field156[var4] = var1.readShort();
+                  this.field156[var4] = var1.readUnsignedShort();
                }
             }
          }
@@ -738,7 +738,7 @@ public class class15 extends class324 implements RSObjectComposition {
       } else if(var2 == 23) {
          this.field164 = true;
       } else if(var2 == 24) {
-         this.field171 = var1.readShort();
+         this.field171 = var1.readUnsignedShort();
          if(this.field171 == 65535) {
             this.field171 = -1;
          }
@@ -761,8 +761,8 @@ public class class15 extends class324 implements RSObjectComposition {
          this.field196 = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field159[var4] = (short)var1.readShort();
-            this.field196[var4] = (short)var1.readShort();
+            this.field159[var4] = (short)var1.readUnsignedShort();
+            this.field196[var4] = (short)var1.readUnsignedShort();
          }
       } else if(var2 == 41) {
          var3 = var1.readUnsignedByte();
@@ -770,21 +770,21 @@ public class class15 extends class324 implements RSObjectComposition {
          this.field162 = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field161[var4] = (short)var1.readShort();
-            this.field162[var4] = (short)var1.readShort();
+            this.field161[var4] = (short)var1.readUnsignedShort();
+            this.field162[var4] = (short)var1.readUnsignedShort();
          }
       } else if(var2 == 62) {
          this.field177 = true;
       } else if(var2 == 64) {
          this.field165 = false;
       } else if(var2 == 65) {
-         this.field180 = var1.readShort();
+         this.field180 = var1.readUnsignedShort();
       } else if(var2 == 66) {
-         this.field181 = var1.readShort();
+         this.field181 = var1.readUnsignedShort();
       } else if(var2 == 67) {
-         this.field163 = var1.readShort();
+         this.field163 = var1.readUnsignedShort();
       } else if(var2 == 68) {
-         this.field158 = var1.readShort();
+         this.field158 = var1.readUnsignedShort();
       } else if(var2 == 69) {
          var1.readUnsignedByte();
       } else if(var2 == 70) {
@@ -801,55 +801,55 @@ public class class15 extends class324 implements RSObjectComposition {
          this.field188 = var1.readUnsignedByte();
       } else if(var2 != 77 && var2 != 92) {
          if(var2 == 78) {
-            this.field192 = var1.readShort();
+            this.field192 = var1.readUnsignedShort();
             this.field151 = var1.readUnsignedByte();
          } else if(var2 == 79) {
-            this.field194 = var1.readShort();
-            this.field195 = var1.readShort();
+            this.field194 = var1.readUnsignedShort();
+            this.field195 = var1.readUnsignedShort();
             this.field151 = var1.readUnsignedByte();
             var3 = var1.readUnsignedByte();
             this.field160 = new int[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field160[var4] = var1.readShort();
+               this.field160[var4] = var1.readUnsignedShort();
             }
          } else if(var2 == 81) {
             this.field168 = var1.readUnsignedByte() * 256;
          } else if(var2 == 82) {
-            this.field148 = var1.readShort();
+            this.mapIconDef = var1.readUnsignedShort();
          } else if(var2 == 249) {
             this.field197 = class227.method4570(var1, this.field197);
          }
       } else {
-         this.field190 = var1.readShort();
+         this.field190 = var1.readUnsignedShort();
          if(this.field190 == 65535) {
             this.field190 = -1;
          }
 
-         this.field191 = var1.readShort();
+         this.field191 = var1.readUnsignedShort();
          if(this.field191 == 65535) {
             this.field191 = -1;
          }
 
          var3 = -1;
          if(var2 == 92) {
-            var3 = var1.readShort();
+            var3 = var1.readUnsignedShort();
             if(var3 == 65535) {
                var3 = -1;
             }
          }
 
          var4 = var1.readUnsignedByte();
-         this.field189 = new int[var4 + 2];
+         this.multiLocs = new int[var4 + 2];
 
          for(int var5 = 0; var5 <= var4; ++var5) {
-            this.field189[var5] = var1.readShort();
-            if(this.field189[var5] == 65535) {
-               this.field189[var5] = -1;
+            this.multiLocs[var5] = var1.readUnsignedShort();
+            if(this.multiLocs[var5] == 65535) {
+               this.multiLocs[var5] = -1;
             }
          }
 
-         this.field189[var4 + 1] = var3;
+         this.multiLocs[var4 + 1] = var3;
       }
 
    }

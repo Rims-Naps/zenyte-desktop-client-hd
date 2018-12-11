@@ -7,7 +7,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSIndexData;
 
 @ObfuscatedName("im")
-public class class6 extends class217 implements RSIndexData {
+public class class6 extends Js5Index implements RSIndexData {
    @ObfuscatedName("af")
    static CRC32 field84;
    @ObfuscatedName("k")
@@ -65,7 +65,7 @@ public class class6 extends class217 implements RSIndexData {
       this.field82 = var6;
       int var8 = this.field80;
       if(class57.field714 != null) {
-         class57.field714.field1693 = var8 * 8 + 5;
+         class57.field714.position = var8 * 8 + 5;
          int var9 = class57.field714.readInt();
          int var10 = class57.field714.readInt();
          this.method128(var9, var10);
@@ -233,7 +233,7 @@ public class class6 extends class217 implements RSIndexData {
          long var3 = (long)(var2 + 16711680);
          int var1;
          if(class239.field3134 != null && class239.field3134.field2792 == var3) {
-            var1 = class236.field3118.field1693 * 99 / (class236.field3118.field1694.length - class239.field3134.field3954) + 1;
+            var1 = class236.field3118.position * 99 / (class236.field3118.field1694.length - class239.field3134.field3954) + 1;
          } else {
             var1 = 0;
          }
@@ -277,7 +277,7 @@ public class class6 extends class217 implements RSIndexData {
          long var4 = (long)((var3 << 16) + var1);
          int var2;
          if(class239.field3134 != null && var4 == class239.field3134.field2792) {
-            var2 = class236.field3118.field1693 * 99 / (class236.field3118.field1694.length - class239.field3134.field3954) + 1;
+            var2 = class236.field3118.position * 99 / (class236.field3118.field1694.length - class239.field3134.field3954) + 1;
          } else {
             var2 = 0;
          }

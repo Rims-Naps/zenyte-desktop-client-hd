@@ -11,7 +11,7 @@ public class class224 extends class324 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field3033;
+   public static Js5Index field3033;
    @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "Lgd;"
@@ -21,7 +21,7 @@ public class class224 extends class324 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field3016;
+   public static Js5Index field3016;
    @ObfuscatedName("a")
    @ObfuscatedSignature(
       signature = "Lgd;"
@@ -36,7 +36,7 @@ public class class224 extends class324 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field3011;
+   public static Js5Index field3011;
    @ObfuscatedName("aj")
    static GarbageCollectorMXBean field3018;
    @ObfuscatedName("j")
@@ -333,7 +333,7 @@ public class class224 extends class324 {
       } else if(var2 == 8) {
          this.field3022 = var1.method2266();
       } else if(var2 == 9) {
-         this.field3021 = var1.readShort();
+         this.field3021 = var1.readUnsignedShort();
       } else if(var2 == 10) {
          this.field3027 = var1.method2456();
       } else if(var2 == 11) {
@@ -343,21 +343,21 @@ public class class224 extends class324 {
       } else if(var2 == 13) {
          this.field3031 = var1.method2456();
       } else if(var2 == 14) {
-         this.field3028 = var1.readShort();
+         this.field3028 = var1.readUnsignedShort();
       } else if(var2 == 17 || var2 == 18) {
-         this.field3029 = var1.readShort();
+         this.field3029 = var1.readUnsignedShort();
          if(this.field3029 == 65535) {
             this.field3029 = -1;
          }
 
-         this.field3034 = var1.readShort();
+         this.field3034 = var1.readUnsignedShort();
          if(this.field3034 == 65535) {
             this.field3034 = -1;
          }
 
          int var3 = -1;
          if(var2 == 18) {
-            var3 = var1.readShort();
+            var3 = var1.readUnsignedShort();
             if(var3 == 65535) {
                var3 = -1;
             }
@@ -367,7 +367,7 @@ public class class224 extends class324 {
          this.field3025 = new int[var4 + 2];
 
          for(int var5 = 0; var5 <= var4; ++var5) {
-            this.field3025[var5] = var1.readShort();
+            this.field3025[var5] = var1.readUnsignedShort();
             if(this.field3025[var5] == 65535) {
                this.field3025[var5] = -1;
             }

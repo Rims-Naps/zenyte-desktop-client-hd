@@ -20,7 +20,7 @@ public class class269 extends class324 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field3469;
+   public static Js5Index field3469;
    @ObfuscatedName("p")
    public int[] field3471;
    @ObfuscatedName("c")
@@ -95,7 +95,7 @@ public class class269 extends class324 {
       } else {
          int var3;
          if(var2 == 5) {
-            this.field3472 = var1.readShort();
+            this.field3472 = var1.readUnsignedShort();
             this.field3471 = new int[this.field3472];
             this.field3473 = new String[this.field3472];
 
@@ -104,7 +104,7 @@ public class class269 extends class324 {
                this.field3473[var3] = var1.readString();
             }
          } else if(var2 == 6) {
-            this.field3472 = var1.readShort();
+            this.field3472 = var1.readUnsignedShort();
             this.field3471 = new int[this.field3472];
             this.field3465 = new int[this.field3472];
 

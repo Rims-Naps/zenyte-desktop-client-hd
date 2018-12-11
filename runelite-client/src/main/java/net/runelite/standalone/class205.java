@@ -237,6 +237,6 @@ public class class205 extends class309 {
       }
 
       String var4 = "runescape.com";
-      return var2 + var0 + "." + var4 + "/l=" + client.field2158 + "/a=" + class23.field254 + var3 + "/";
+      return var2 + var0 + "." + var4 + "/l=" + client.field2158 + "/a=" + MapIcon.field254 + var3 + "/";
    }
 }

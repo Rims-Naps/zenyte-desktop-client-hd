@@ -22,40 +22,57 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#version 330
 
-uniform sampler2DArray textures;
-uniform vec2 textureOffsets[64];
-uniform float brightness;
-uniform float smoothBanding;
+ #define PI 3.1415926535897932384626433832795f
+ #define UNIT PI / 1024.0f
 
-in vec4 Color;
-in float fHsl;
-in vec4 fUv;
+ layout(std140) uniform uniforms {
+   int cameraYaw;
+   int cameraPitch;
+   int centerX;
+   int centerY;
+   int zoom;
+   int cameraX;
+   int cameraY;
+   int cameraZ;
+   ivec2 sinCosTable[2048];
+ };
 
-out vec4 FragColor;
+ struct modelinfo {
+   int offset;   // offset into buffer
+   int uvOffset; // offset into uv buffer
+   int length;   // length in faces
+   int idx;      // write idx in target buffer
+   int flags;    // radius, orientation
+   int x;        // scene position x
+   int y;        // scene position y
+   int z;        // scene position z
+ };
 
-#include hsl_to_rgb.glsl
+ layout(std430, binding = 0) readonly buffer modelbuffer_in {
+   modelinfo ol[];
+ };
 
-void main() {
-  float n = fUv.x;
+ layout(std430, binding = 1) readonly buffer vertexbuffer_in {
+   ivec4 vb[];
+ };
 
-  int hsl = int(fHsl);
-  vec3 rgb = hslToRgb(hsl) * smoothBanding + Color.rgb * (1.f - smoothBanding);
-  vec4 smoothColor = vec4(rgb, Color.a);
+ layout(std430, binding = 2) readonly buffer tempvertexbuffer_in {
+   ivec4 tempvb[];
+ };
 
-  if (n > 0.0) {
-    n -= 1.0;
-    int textureIdx = int(n);
+ layout(std430, binding = 3) writeonly buffer vertex_out {
+   ivec4 vout[];
+ };
 
-    vec2 uv = fUv.yz;
-    vec2 animatedUv = uv + textureOffsets[textureIdx];
+ layout(std430, binding = 4) writeonly buffer uv_out {
+   vec4 uvout[];
+ };
 
-    vec4 textureColor = texture(textures, vec3(animatedUv, n));
-    vec4 textureColorBrightness = pow(textureColor, vec4(brightness, brightness, brightness, 1.0f));
+ layout(std430, binding = 5) readonly buffer uvbuffer_in {
+   vec4 uv[];
+ };
 
-    FragColor = textureColorBrightness * smoothColor;
-  } else {
-    FragColor = smoothColor;
-  }
-}
+ layout(std430, binding = 6) readonly buffer tempuvbuffer_in {
+   vec4 tempuv[];
+ };

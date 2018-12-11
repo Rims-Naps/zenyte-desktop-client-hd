@@ -1470,9 +1470,9 @@ public final class client extends GameEngine implements class146, RSClient {
          var2 = super.field3725;
       }
 
-      if(class175.field2134 != null) {
+      if(WorldMapNode.field2134 != null) {
          try {
-            class248.method4960(class302.field3755, "resize", new Object[]{Integer.valueOf(class214.method4379())});
+            class248.method4960(class302.field3755, "resize", new Object[]{Integer.valueOf(WorldMapRegion.method4379())});
          } catch (Throwable var4) {
             ;
          }
@@ -1506,7 +1506,7 @@ public final class client extends GameEngine implements class146, RSClient {
                   var1.field1766 = false;
                }
 
-               var3.field1693 = 0;
+               var3.position = 0;
                if(var3.method38()) {
                   if(!var2.vmethod2817(1)) {
                      return false;
@@ -1520,7 +1520,7 @@ public final class client extends GameEngine implements class146, RSClient {
                ServerProt[] var4 = class213.method4365();
                var5 = var3.method17();
                if(var5 < 0 || var5 >= var4.length) {
-                  throw new IOException(var5 + " " + var3.field1693);
+                  throw new IOException(var5 + " " + var3.position);
                }
 
                var1.field1759 = var4[var5];
@@ -1542,15 +1542,15 @@ public final class client extends GameEngine implements class146, RSClient {
                }
 
                var1.method2586().vmethod2803(var3.field1694, 0, 2);
-               var3.field1693 = 0;
-               var1.field1768 = var3.readShort();
+               var3.position = 0;
+               var1.field1768 = var3.readUnsignedShort();
             }
 
             if(!var2.vmethod2817(var1.field1768)) {
                return false;
             }
 
-            var3.field1693 = 0;
+            var3.position = 0;
             var2.vmethod2803(var3.field1694, 0, var1.field1768);
             var1.field1767 = 0;
             field2398.method1199();
@@ -1581,7 +1581,7 @@ public final class client extends GameEngine implements class146, RSClient {
             if(ServerProt.field2078 == var1.field1759) {
                var38 = var3.readString();
                var17 = var3.method2349();
-               var19 = (long)var3.readShort();
+               var19 = (long)var3.readUnsignedShort();
                var9 = (long)var3.method2260();
                class222 var42 = (class222)class38.method678(class198.method3946(), var3.readUnsignedByte());
                var12 = var9 + (var19 << 32);
@@ -1601,7 +1601,7 @@ public final class client extends GameEngine implements class146, RSClient {
                if(!var44 && field2329 == 0) {
                   field2372[field2373] = var12;
                   field2373 = (field2373 + 1) % 100;
-                  String var21 = class190.method3813(class264.method5250(class217.method4432(var3)));
+                  String var21 = class190.method3813(class264.method5250(Js5Index.method4432(var3)));
                   if(var42.field2992 != -1) {
                      class96.method1753(9, class164.method3009(var42.field2992) + var38, var21, class124.method2230(var17));
                   } else {
@@ -1615,7 +1615,7 @@ public final class client extends GameEngine implements class146, RSClient {
 
             if(ServerProt.field2034 == var1.field1759) {
                var38 = var3.readString();
-               var17 = (long)var3.readShort();
+               var17 = (long)var3.readUnsignedShort();
                var19 = (long)var3.method2260();
                class222 var22 = (class222)class38.method678(class198.method3946(), var3.readUnsignedByte());
                long var10 = var19 + (var17 << 32);
@@ -1635,7 +1635,7 @@ public final class client extends GameEngine implements class146, RSClient {
                if(!var23 && field2329 == 0) {
                   field2372[field2373] = var10;
                   field2373 = (field2373 + 1) % 100;
-                  String var24 = class190.method3813(class264.method5250(class217.method4432(var3)));
+                  String var24 = class190.method3813(class264.method5250(Js5Index.method4432(var3)));
                   byte var14;
                   if(var22.field2998) {
                      var14 = 7;
@@ -1737,8 +1737,8 @@ public final class client extends GameEngine implements class146, RSClient {
                field2397 = true;
                WorldMapData.field1850 = var3.readUnsignedByte();
                class36.field362 = var3.readUnsignedByte();
-               class276.field3504 = var3.readShort();
-               class175.field2135 = var3.readUnsignedByte();
+               class276.field3504 = var3.readUnsignedShort();
+               WorldMapNode.field2135 = var3.readUnsignedByte();
                WorldMapManager.field2887 = var3.readUnsignedByte();
                if(WorldMapManager.field2887 >= 100) {
                   class85.field912 = WorldMapData.field1850 * 128 + 64;
@@ -1759,7 +1759,7 @@ public final class client extends GameEngine implements class146, RSClient {
             class187 var48;
             if(ServerProt.field2044 == var1.field1759) {
                var45 = var3.readInt();
-               var5 = var3.readShort();
+               var5 = var3.readUnsignedShort();
                if(var5 == 65535) {
                   var5 = -1;
                }
@@ -1891,7 +1891,7 @@ public final class client extends GameEngine implements class146, RSClient {
                }
 
                var6 = var3.method2305();
-               var7 = var3.readShort();
+               var7 = var3.readUnsignedShort();
                if(var7 == 65535) {
                   var7 = -1;
                }
@@ -1914,9 +1914,9 @@ public final class client extends GameEngine implements class146, RSClient {
                class122.field1660 = var3.method2287();
                class252.field3336 = var3.method2286();
 
-               while(var3.field1693 < var1.field1768) {
+               while(var3.position < var1.field1768) {
                   var45 = var3.readUnsignedByte();
-                  class329 var58 = class23.method442()[var45];
+                  class329 var58 = MapIcon.method442()[var45];
                   class193.method3911(var58);
                }
 
@@ -1950,7 +1950,7 @@ public final class client extends GameEngine implements class146, RSClient {
             class187 var30;
             if(ServerProt.field2024 == var1.field1759) {
                var45 = var3.readInt();
-               var5 = var3.readShort();
+               var5 = var3.readUnsignedShort();
                if(var45 < -70000) {
                   var5 += 32768;
                }
@@ -1961,9 +1961,9 @@ public final class client extends GameEngine implements class146, RSClient {
                   var30 = null;
                }
 
-               for(; var3.field1693 < var1.field1768; WorldMapManager.method4154(var5, var7, var26 - 1, var27)) {
+               for(; var3.position < var1.field1768; WorldMapManager.method4154(var5, var7, var26 - 1, var27)) {
                   var7 = var3.method2270();
-                  var26 = var3.readShort();
+                  var26 = var3.readUnsignedShort();
                   var27 = 0;
                   if(var26 != 0) {
                      var27 = var3.readUnsignedByte();
@@ -2066,7 +2066,7 @@ public final class client extends GameEngine implements class146, RSClient {
             int var31;
             if(ServerProt.field2094 == var1.field1759) {
                var45 = var3.readInt();
-               var5 = var3.readShort();
+               var5 = var3.readUnsignedShort();
                if(var45 < -70000) {
                   var5 += 32768;
                }
@@ -2084,11 +2084,11 @@ public final class client extends GameEngine implements class146, RSClient {
                   }
                }
 
-               class214.method4378(var5);
-               var7 = var3.readShort();
+               WorldMapRegion.method4378(var5);
+               var7 = var3.readUnsignedShort();
 
                for(var26 = 0; var26 < var7; ++var26) {
-                  var27 = var3.readShort();
+                  var27 = var3.readUnsignedShort();
                   var31 = var3.readUnsignedByte();
                   if(var31 == 255) {
                      var31 = var3.method2305();
@@ -2151,7 +2151,7 @@ public final class client extends GameEngine implements class146, RSClient {
             }
 
             if(ServerProt.field2028 == var1.field1759) {
-               var45 = var3.readShort();
+               var45 = var3.readUnsignedShort();
                var5 = var3.readInt();
                class81.field896[var45] = var5;
                if(class81.field898[var45] != var5) {
@@ -2159,7 +2159,7 @@ public final class client extends GameEngine implements class146, RSClient {
                   settingsChanged(var45);
                }
 
-               WorldMapRegion.method896(var45);
+               SomeWorldMapObject.method896(var45);
                field2339[++field2340 - 1 & 31] = var45;
                var1.field1759 = null;
                return true;
@@ -2181,9 +2181,9 @@ public final class client extends GameEngine implements class146, RSClient {
             }
 
             if(ServerProt.field2073 == var1.field1759) {
-               var45 = var3.field1693 + var1.field1768;
-               var5 = var3.readShort();
-               var6 = var3.readShort();
+               var45 = var3.position + var1.field1768;
+               var5 = var3.readUnsignedShort();
+               var6 = var3.readUnsignedShort();
                if(var5 != field2313) {
                   field2313 = var5;
                   this.method3261(false);
@@ -2198,7 +2198,7 @@ public final class client extends GameEngine implements class146, RSClient {
                class322 var28;
                for(; var6-- > 0; var28.field3935 = true) {
                   var7 = var3.readInt();
-                  var26 = var3.readShort();
+                  var26 = var3.readUnsignedShort();
                   var27 = var3.readUnsignedByte();
                   var28 = (class322)field2412.method1776((long)var7);
                   if(var28 != null && var26 != var28.field3937) {
@@ -2221,10 +2221,10 @@ public final class client extends GameEngine implements class146, RSClient {
 
                field2355 = new class98(512);
 
-               while(var3.field1693 < var45) {
+               while(var3.position < var45) {
                   var7 = var3.readInt();
-                  var26 = var3.readShort();
-                  var27 = var3.readShort();
+                  var26 = var3.readUnsignedShort();
+                  var27 = var3.readUnsignedShort();
                   var31 = var3.readInt();
 
                   for(int var32 = var26; var32 <= var27; ++var32) {
@@ -2264,7 +2264,7 @@ public final class client extends GameEngine implements class146, RSClient {
                field2397 = true;
                class159.field1954 = var3.readUnsignedByte();
                class265.field3447 = var3.readUnsignedByte();
-               class43.field484 = var3.readShort();
+               class43.field484 = var3.readUnsignedShort();
                class12.field129 = var3.readUnsignedByte();
                class225.field3038 = var3.readUnsignedByte();
                if(class225.field3038 >= 100) {
@@ -2330,9 +2330,9 @@ public final class client extends GameEngine implements class146, RSClient {
             }
 
             if(ServerProt.field2100 == var1.field1759) {
-               var3.field1693 += 28;
+               var3.position += 28;
                if(var3.method2281()) {
-                  class307.method6051(var3, var3.field1693 - 28);
+                  class307.method6051(var3, var3.position - 28);
                }
 
                var1.field1759 = null;
@@ -2418,7 +2418,7 @@ public final class client extends GameEngine implements class146, RSClient {
             if(ServerProt.field2087 == var1.field1759) {
                field2173 = var3.readUnsignedByte();
                if(field2173 == 1) {
-                  field2280 = var3.readShort();
+                  field2280 = var3.readUnsignedShort();
                }
 
                if(field2173 >= 2 && field2173 <= 6) {
@@ -2448,13 +2448,13 @@ public final class client extends GameEngine implements class146, RSClient {
                   }
 
                   field2173 = 2;
-                  field2176 = var3.readShort();
-                  field2320 = var3.readShort();
+                  field2176 = var3.readUnsignedShort();
+                  field2320 = var3.readUnsignedShort();
                   field2423 = var3.readUnsignedByte();
                }
 
                if(field2173 == 10) {
-                  field2220 = var3.readShort();
+                  field2220 = var3.readUnsignedShort();
                }
 
                var1.field1759 = null;
@@ -2500,7 +2500,7 @@ public final class client extends GameEngine implements class146, RSClient {
 
             if(ServerProt.field2048 == var1.field1759) {
                var38 = var3.readString();
-               var29 = class190.method3813(class264.method5250(class217.method4432(var3)));
+               var29 = class190.method3813(class264.method5250(Js5Index.method4432(var3)));
                ServerProt.method3131(6, var38, var29);
                var1.field1759 = null;
                return true;
@@ -2577,7 +2577,7 @@ public final class client extends GameEngine implements class146, RSClient {
                   if(class81.field898[var45] != class81.field896[var45]) {
                      class81.field898[var45] = class81.field896[var45];
                      settingsChanged(var45);
-                     WorldMapRegion.method896(var45);
+                     SomeWorldMapObject.method896(var45);
                      field2339[++field2340 - 1 & 31] = var45;
                   }
                }
@@ -2664,9 +2664,9 @@ public final class client extends GameEngine implements class146, RSClient {
             }
 
             if(ServerProt.field2089 == var1.field1759) {
-               var45 = var3.readShort();
+               var45 = var3.readUnsignedShort();
                var5 = var3.readUnsignedByte();
-               var6 = var3.readShort();
+               var6 = var3.readUnsignedShort();
                class225.method4556(var45, var5, var6);
                var1.field1759 = null;
                return true;
@@ -2734,9 +2734,9 @@ public final class client extends GameEngine implements class146, RSClient {
                if(var3.readUnsignedByte() == 0) {
                   field2420[var45] = new class307();
                   onGrandExchangeOffersChanged(var45);
-                  var3.field1693 += 18;
+                  var3.position += 18;
                } else {
-                  --var3.field1693;
+                  --var3.position;
                   field2420[var45] = new class307(var3, false);
                   onGrandExchangeOffersChanged(var45);
                }
@@ -2812,7 +2812,7 @@ public final class client extends GameEngine implements class146, RSClient {
             if(ServerProt.field2071 == var1.field1759) {
                class88 var35 = new class88();
                var35.field955 = var3.readString();
-               var35.field958 = var3.readShort();
+               var35.field958 = var3.readUnsignedShort();
                var5 = var3.readInt();
                var35.field953 = var5;
                class142.method2635(45);
@@ -2824,7 +2824,7 @@ public final class client extends GameEngine implements class146, RSClient {
             }
 
             if(ServerProt.field2096 == var1.field1759) {
-               field2172 = var3.readShort() * 30;
+               field2172 = var3.readUnsignedShort() * 30;
                field2350 = field2338;
                var1.field1759 = null;
                return true;
@@ -2839,7 +2839,7 @@ public final class client extends GameEngine implements class146, RSClient {
                   settingsChanged(var5);
                }
 
-               WorldMapRegion.method896(var5);
+               SomeWorldMapObject.method896(var5);
                field2339[++field2340 - 1 & 31] = var5;
                var1.field1759 = null;
                return true;
@@ -2991,12 +2991,12 @@ public final class client extends GameEngine implements class146, RSClient {
    protected final void vmethod5857(boolean var1) {
       this.methodDraw(var1);
       boolean var2 = class129.method2496();
-      if(var2 && field2393 && class175.field2147 != null) {
-         class175.field2147.method5717();
+      if(var2 && field2393 && WorldMapNode.field2147 != null) {
+         WorldMapNode.field2147.method5717();
       }
 
       if((field2161 == 10 || field2161 == 20 || field2161 == 30) && field2366 != 0L && class321.method6252() > field2366) {
-         class109.method1920(class214.method4379());
+         class109.method1920(WorldMapRegion.method4379());
       }
 
       int var3;
@@ -3020,23 +3020,23 @@ public final class client extends GameEngine implements class146, RSClient {
                }
 
                var3 = (field2207 * 50 - field2344 * 50) / field2207;
-               class214.method4369("Loading - please wait." + "<br>" + " (" + var3 + "%" + ")", false);
+               WorldMapRegion.method4369("Loading - please wait." + "<br>" + " (" + var3 + "%" + ")", false);
             } else if(field2210 == 2) {
                if(field2202 > field2209) {
                   field2209 = field2202;
                }
 
                var3 = (field2209 * 50 - field2202 * 50) / field2209 + 50;
-               class214.method4369("Loading - please wait." + "<br>" + " (" + var3 + "%" + ")", false);
+               WorldMapRegion.method4369("Loading - please wait." + "<br>" + " (" + var3 + "%" + ")", false);
             } else {
-               class214.method4369("Loading - please wait.", false);
+               WorldMapRegion.method4369("Loading - please wait.", false);
             }
          } else if(field2161 == 30) {
             this.method3313();
          } else if(field2161 == 40) {
-            class214.method4369("Connection lost" + "<br>" + "Please wait - attempting to reestablish", false);
+            WorldMapRegion.method4369("Connection lost" + "<br>" + "Please wait - attempting to reestablish", false);
          } else if(field2161 == 45) {
-            class214.method4369("Please wait...", false);
+            WorldMapRegion.method4369("Please wait...", false);
          }
       } else {
          class85.method1628(class172.field2117, class103.field1149, class194.field2772, var1);
@@ -3092,7 +3092,7 @@ public final class client extends GameEngine implements class146, RSClient {
       }
 
       Hooks.drawAfterWidgets();
-      class173.method3151();
+      Rasterizer2D.method3151();
       if(field2258) {
          if(field2257 == 1) {
             class184.field2505[field2245 / 100].method215(field2370 - 8, field2255 - 8);
@@ -3129,13 +3129,13 @@ public final class client extends GameEngine implements class146, RSClient {
          }
       } else {
          var1 = class138.field1776;
-         var2 = class214.field2934;
+         var2 = WorldMapRegion.field2934;
          var3 = field2200;
          int var4 = class246.field3300;
          int var5 = 6116423;
-         class173.method3167(var1, var2, var3, var4, var5);
-         class173.method3167(var1 + 1, var2 + 1, var3 - 2, 16, 0);
-         class173.method3149(var1 + 1, var2 + 18, var3 - 2, var4 - 19, 0);
+         Rasterizer2D.method3167(var1, var2, var3, var4, var5);
+         Rasterizer2D.method3167(var1 + 1, var2 + 1, var3 - 2, 16, 0);
+         Rasterizer2D.method3149(var1 + 1, var2 + 18, var3 - 2, var4 - 19, 0);
          class172.field2117.method3832("Choose Option", var1 + 3, var2 + 14, var5, -1);
          int var6 = class163.field1975;
          int var7 = class163.field1976;
@@ -3150,20 +3150,20 @@ public final class client extends GameEngine implements class146, RSClient {
             class172.field2117.method3832(class249.method5057(var8), var1 + 3, var9, var10, 0);
          }
 
-         class277.method5384(class138.field1776, class214.field2934, field2200, class246.field3300);
+         class277.method5384(class138.field1776, WorldMapRegion.field2934, field2200, class246.field3300);
       }
 
       if(field2365 == 3) {
          for(var1 = 0; var1 < field2356; ++var1) {
             if(field2168[var1]) {
-               class173.method3145(field2322[var1], field2362[var1], field2363[var1], field2364[var1], 16711935, 128);
+               Rasterizer2D.method3145(field2322[var1], field2362[var1], field2363[var1], field2364[var1], 16711935, 128);
             } else if(field2287[var1]) {
-               class173.method3145(field2322[var1], field2362[var1], field2363[var1], field2364[var1], 16711680, 128);
+               Rasterizer2D.method3145(field2322[var1], field2362[var1], field2363[var1], field2364[var1], 16711680, 128);
             }
          }
       }
 
-      class23.method441(class260.field3393, class32.field303.field1090, class32.field303.field1072, field2410);
+      MapIcon.method441(class260.field3393, class32.field303.field1090, class32.field303.field1072, field2410);
       field2410 = 0;
    }
 
@@ -3198,8 +3198,8 @@ public final class client extends GameEngine implements class146, RSClient {
       }
 
       class93.field1003 = null;
-      if(class175.field2147 != null) {
-         class175.field2147.method5722();
+      if(WorldMapNode.field2147 != null) {
+         WorldMapNode.field2147.method5722();
       }
 
       if(class49.field553 != null) {
@@ -3294,10 +3294,10 @@ public final class client extends GameEngine implements class146, RSClient {
                if(var16 != 1 && (class225.field3039 || var16 != 4)) {
                   var2 = class163.field1975;
                   var13 = class163.field1976;
-                  if(var2 < class138.field1776 - 10 || var2 > field2200 + class138.field1776 + 10 || var13 < class214.field2934 - 10 || var13 > class214.field2934 + class246.field3300 + 10) {
+                  if(var2 < class138.field1776 - 10 || var2 > field2200 + class138.field1776 + 10 || var13 < WorldMapRegion.field2934 - 10 || var13 > WorldMapRegion.field2934 + class246.field3300 + 10) {
                      field2360 = false;
                      var14 = class138.field1776;
-                     var5 = class214.field2934;
+                     var5 = WorldMapRegion.field2934;
                      var17 = field2200;
                      var7 = class246.field3300;
 
@@ -3311,7 +3311,7 @@ public final class client extends GameEngine implements class146, RSClient {
 
                if(var16 == 1 || !class225.field3039 && var16 == 4) {
                   var2 = class138.field1776;
-                  var13 = class214.field2934;
+                  var13 = WorldMapRegion.field2934;
                   var14 = field2200;
                   var5 = class163.field1980;
                   var17 = class163.field1984;
@@ -3330,7 +3330,7 @@ public final class client extends GameEngine implements class146, RSClient {
 
                   field2360 = false;
                   var18 = class138.field1776;
-                  var9 = class214.field2934;
+                  var9 = WorldMapRegion.field2934;
                   int var10 = field2200;
                   int var11 = class246.field3300;
 
@@ -3465,15 +3465,15 @@ public final class client extends GameEngine implements class146, RSClient {
             var3.field121.method2288(class275.field3502.field3498);
             field2384.method2573(var3);
             field2384.method2591();
-            var2.field1693 = 0;
+            var2.position = 0;
             field2187 = 3;
          }
 
          int var4;
          boolean var13;
          if(field2187 == 3) {
-            if(class175.field2147 != null) {
-               class175.field2147.method5720();
+            if(WorldMapNode.field2147 != null) {
+               WorldMapNode.field2147.method5720();
             }
 
             if(class49.field553 != null) {
@@ -3487,8 +3487,8 @@ public final class client extends GameEngine implements class146, RSClient {
 
             if(var13) {
                var4 = ((class36)var1).vmethod2793();
-               if(class175.field2147 != null) {
-                  class175.field2147.method5720();
+               if(WorldMapNode.field2147 != null) {
+                  WorldMapNode.field2147.method5720();
                }
 
                if(class49.field553 != null) {
@@ -3500,27 +3500,27 @@ public final class client extends GameEngine implements class146, RSClient {
                   return;
                }
 
-               var2.field1693 = 0;
+               var2.position = 0;
                field2187 = 4;
             }
          }
 
          int var29;
          if(field2187 == 4) {
-            if(var2.field1693 < 8) {
+            if(var2.position < 8) {
                var29 = ((class36)var1).vmethod2789();
-               if(var29 > 8 - var2.field1693) {
-                  var29 = 8 - var2.field1693;
+               if(var29 > 8 - var2.position) {
+                  var29 = 8 - var2.position;
                }
 
                if(var29 > 0) {
-                  ((class36)var1).vmethod2803(var2.field1694, var2.field1693, var29);
-                  var2.field1693 += var29;
+                  ((class36)var1).vmethod2803(var2.field1694, var2.position, var29);
+                  var2.position += var29;
                }
             }
 
-            if(var2.field1693 == 8) {
-               var2.field1693 = 0;
+            if(var2.position == 8) {
+               var2.position = 0;
                class283.field3563 = var2.method2349();
                field2187 = 5;
             }
@@ -3528,11 +3528,11 @@ public final class client extends GameEngine implements class146, RSClient {
 
          int var6;
          if(field2187 == 5) {
-            field2384.field1764.field1693 = 0;
+            field2384.field1764.position = 0;
             field2384.method2571();
             class1 var22 = new class1(500);
             int[] var14 = new int[]{class138.field1779.nextInt(), class138.field1779.nextInt(), class138.field1779.nextInt(), class138.field1779.nextInt()};
-            var22.field1693 = 0;
+            var22.position = 0;
             var22.method2288(1);
             var22.writeByte(var14[0]);
             var22.writeByte(var14[1]);
@@ -3548,15 +3548,15 @@ public final class client extends GameEngine implements class146, RSClient {
                var22.method2288(field2191.vmethod6234());
                switch(field2191.field15) {
                case 0:
-                  var22.field1693 += 4;
+                  var22.position += 4;
                   break;
                case 1:
-                  var22.writeByte(((Integer)class175.field2134.field853.get(Integer.valueOf(class143.method2637(class39.field386)))).intValue());
+                  var22.writeByte(((Integer)WorldMapNode.field2134.field853.get(Integer.valueOf(class143.method2637(class39.field386)))).intValue());
                   break;
                case 2:
                case 3:
                   var22.method2412(class84.field909);
-                  ++var22.field1693;
+                  ++var22.position;
                }
 
                var22.method2288(class319.field3919.vmethod6234());
@@ -3566,7 +3566,7 @@ public final class client extends GameEngine implements class146, RSClient {
             var22.method2279(class178.field2449, class178.field2447);
             class102.field1142 = var14;
             class12 var5 = class59.method1280();
-            var5.field121.field1693 = 0;
+            var5.field121.position = 0;
             if(field2161 == 40) {
                var5.field121.method2288(class275.field3497.field3498);
             } else {
@@ -3574,10 +3574,10 @@ public final class client extends GameEngine implements class146, RSClient {
             }
 
             var5.field121.method2242(0);
-            var6 = var5.field121.field1693;
+            var6 = var5.field121.position;
             var5.field121.writeByte(176);
-            var5.field121.method2251(var22.field1694, 0, var22.field1693);
-            int var7 = var5.field121.field1693;
+            var5.field121.method2251(var22.field1694, 0, var22.position);
+            int var7 = var5.field121.position;
             var5.field121.writeString(class39.field386);
             var5.field121.method2288((field2367?1:0) << 1 | (field2157?1:0));
             var5.field121.method2242(class167.field2010);
@@ -3610,7 +3610,7 @@ public final class client extends GameEngine implements class146, RSClient {
             }
 
             var5.field121.writeString(class193.field2752);
-            var5.field121.writeByte(class23.field254);
+            var5.field121.writeByte(MapIcon.field254);
             Buffer var9 = new Buffer(class229.field3061.method90());
             class229.field3061.method88(var9);
             var5.field121.method2251(var9.field1694, 0, var9.field1694.length);
@@ -3630,12 +3630,12 @@ public final class client extends GameEngine implements class146, RSClient {
             var5.field121.writeByte(class226.field3043.crc);
             var5.field121.writeByte(class88.clientScriptIndex.crc);
             var5.field121.writeByte(class20.fontsIndex.crc);
-            var5.field121.writeByte(WorldMapRegion.field535.crc);
-            var5.field121.writeByte(class119.worldMapIndex.crc);
-            var5.field121.writeByte(class174.field2126.crc);
+            var5.field121.writeByte(SomeWorldMapObject.field535.crc);
+            var5.field121.writeByte(class119.field1640.crc);
+            var5.field121.writeByte(class174.worldMapIndex.crc);
             var5.field121.writeByte(class99.field1132.crc);
-            var5.field121.method2277(var14, var7, var5.field121.field1693);
-            var5.field121.method2253(var5.field121.field1693 - var6);
+            var5.field121.method2277(var14, var7, var5.field121.position);
+            var5.field121.method2253(var5.field121.position - var6);
             field2384.method2573(var5);
             field2384.method2591();
             field2384.field1770 = new class216(var14);
@@ -3680,7 +3680,7 @@ public final class client extends GameEngine implements class146, RSClient {
 
          if(field2187 == 8 && ((class36)var1).vmethod2789() >= class124.field1692) {
             ((class36)var1).vmethod2803(var2.field1694, 0, class124.field1692);
-            var2.field1693 = 0;
+            var2.position = 0;
             field2187 = 6;
          }
 
@@ -3706,7 +3706,7 @@ public final class client extends GameEngine implements class146, RSClient {
             if(field2187 == 12 && ((class36)var1).vmethod2789() >= class164.field1988) {
                var13 = ((class36)var1).vmethod2793() == 1;
                ((class36)var1).vmethod2803(var2.field1694, 0, 4);
-               var2.field1693 = 0;
+               var2.position = 0;
                boolean var24 = false;
                if(var13) {
                   var4 = var2.method12() << 24;
@@ -3714,19 +3714,19 @@ public final class client extends GameEngine implements class146, RSClient {
                   var4 |= var2.method12() << 8;
                   var4 |= var2.method12();
                   var16 = class143.method2637(class39.field386);
-                  if(class175.field2134.field853.size() >= 10 && !class175.field2134.field853.containsKey(Integer.valueOf(var16))) {
-                     Iterator var17 = class175.field2134.field853.entrySet().iterator();
+                  if(WorldMapNode.field2134.field853.size() >= 10 && !WorldMapNode.field2134.field853.containsKey(Integer.valueOf(var16))) {
+                     Iterator var17 = WorldMapNode.field2134.field853.entrySet().iterator();
                      var17.next();
                      var17.remove();
                   }
 
-                  class175.field2134.field853.put(Integer.valueOf(var16), Integer.valueOf(var4));
+                  WorldMapNode.field2134.field853.put(Integer.valueOf(var16), Integer.valueOf(var4));
                }
 
                if(field2192) {
-                  class175.field2134.field858 = class39.field386;
+                  WorldMapNode.field2134.field858 = class39.field386;
                } else {
-                  class175.field2134.field858 = null;
+                  WorldMapNode.field2134.field858 = null;
                }
 
                class236.method4709();
@@ -3737,18 +3737,18 @@ public final class client extends GameEngine implements class146, RSClient {
                field2186 += ((class36)var1).vmethod2793();
                field2271 = ((class36)var1).vmethod2793();
                ((class36)var1).vmethod2803(var2.field1694, 0, 1);
-               var2.field1693 = 0;
+               var2.position = 0;
                ServerProt[] var26 = class213.method4365();
                var6 = var2.method17();
                if(var6 < 0 || var6 >= var26.length) {
-                  throw new IOException(var6 + " " + var2.field1693);
+                  throw new IOException(var6 + " " + var2.position);
                }
 
                field2384.field1759 = var26[var6];
                field2384.field1768 = field2384.field1759.field2050;
                ((class36)var1).vmethod2803(var2.field1694, 0, 2);
-               var2.field1693 = 0;
-               field2384.field1768 = var2.readShort();
+               var2.position = 0;
+               field2384.field1768 = var2.readUnsignedShort();
 
                try {
                   client var18 = class302.field3755;
@@ -3762,17 +3762,17 @@ public final class client extends GameEngine implements class146, RSClient {
 
             if(field2187 != 13) {
                if(field2187 == 14 && ((class36)var1).vmethod2789() >= 2) {
-                  var2.field1693 = 0;
+                  var2.position = 0;
                   ((class36)var1).vmethod2803(var2.field1694, 0, 2);
-                  var2.field1693 = 0;
-                  class44.field487 = var2.readShort();
+                  var2.position = 0;
+                  class44.field487 = var2.readUnsignedShort();
                   field2187 = 15;
                }
 
                if(field2187 == 15 && ((class36)var1).vmethod2789() >= class44.field487) {
-                  var2.field1693 = 0;
+                  var2.position = 0;
                   ((class36)var1).vmethod2803(var2.field1694, 0, class44.field487);
-                  var2.field1693 = 0;
+                  var2.position = 0;
                   String var25 = var2.readString();
                   String var31 = var2.readString();
                   String var27 = var2.readString();
@@ -3787,18 +3787,18 @@ public final class client extends GameEngine implements class146, RSClient {
                      }
 
                      ((class36)var1).vmethod2803(var2.field1694, 0, 2);
-                     var2.field1693 = 0;
-                     field2384.field1768 = var2.readShort();
+                     var2.position = 0;
+                     field2384.field1768 = var2.readUnsignedShort();
                   }
 
                   if(((class36)var1).vmethod2789() >= field2384.field1768) {
                      ((class36)var1).vmethod2803(var2.field1694, 0, field2384.field1768);
-                     var2.field1693 = 0;
+                     var2.position = 0;
                      var29 = field2384.field1768;
                      field2398.method1219();
                      class194.method3933();
                      WorldMapManager.initializeGPI(var2);
-                     if(var29 != var2.field1693) {
+                     if(var29 != var2.position) {
                         throw new RuntimeException();
                      }
                   }
@@ -3821,7 +3821,7 @@ public final class client extends GameEngine implements class146, RSClient {
                }
             } else {
                if(((class36)var1).vmethod2789() >= field2384.field1768) {
-                  var2.field1693 = 0;
+                  var2.position = 0;
                   ((class36)var1).vmethod2803(var2.field1694, 0, field2384.field1768);
                   field2398.method1206();
                   field2166 = 1L;
@@ -3841,7 +3841,7 @@ public final class client extends GameEngine implements class146, RSClient {
                   field2377 = -1L;
                   class140.field1793 = new class41();
                   field2384.method2571();
-                  field2384.field1764.field1693 = 0;
+                  field2384.field1764.position = 0;
                   field2384.field1759 = null;
                   field2384.field1769 = null;
                   field2384.field1758 = null;
@@ -3911,7 +3911,7 @@ public final class client extends GameEngine implements class146, RSClient {
                   class267.field3459.method1710();
                   field2323 = -1;
                   if(field2313 != -1) {
-                     class127.method2484(field2313);
+                     WorldMapGameObject.method2484(field2313);
                   }
 
                   for(class322 var23 = (class322)field2412.method1783(); var23 != null; var23 = (class322)field2412.method1779()) {
@@ -4395,7 +4395,7 @@ public final class client extends GameEngine implements class146, RSClient {
    }
 
    public void setObjectCompositionLowDetail(boolean var1) {
-      class15.field175 = var1;
+      ObjectDef.field175 = var1;
    }
 
    public RSSpritePixels createItemSprite(int var1, int var2, int var3, int var4, int var5, boolean var6) {
@@ -4631,7 +4631,7 @@ public final class client extends GameEngine implements class146, RSClient {
                      field2206 = Integer.parseInt(var5);
                      break;
                   case 14:
-                     class23.field254 = Integer.parseInt(var5);
+                     MapIcon.field254 = Integer.parseInt(var5);
                      break;
                   case 15:
                      field2155 = Integer.parseInt(var5);
@@ -5472,7 +5472,7 @@ public final class client extends GameEngine implements class146, RSClient {
    }
 
    public RSNodeCache getCachedModels2() {
-      return class15.field153;
+      return ObjectDef.field153;
    }
 
    public RSArea[] getMapAreas() {
@@ -5496,11 +5496,11 @@ public final class client extends GameEngine implements class146, RSClient {
    }
 
    public void setIntStackSize(int var1) {
-      class308.field3811 = var1;
+      MapCacheArchiveNames.field3811 = var1;
    }
 
    public int getIntStackSize() {
-      return class308.field3811;
+      return MapCacheArchiveNames.field3811;
    }
 
    public RSItemComposition getItemDefinition(int var1) {
@@ -5532,7 +5532,7 @@ public final class client extends GameEngine implements class146, RSClient {
    }
 
    public RSSpritePixels[] getSprites(IndexDataBase var1, int var2, int var3) {
-      return class103.method1851((class217)var1, var2, var3);
+      return class103.method1851((Js5Index)var1, var2, var3);
    }
 
    public Map getChatLineMap() {
@@ -5680,39 +5680,39 @@ public final class client extends GameEngine implements class146, RSClient {
    }
 
    public int[] getGraphicsPixels() {
-      return class173.field2121;
+      return Rasterizer2D.field2121;
    }
 
    public int getGraphicsPixelsWidth() {
-      return class173.field2119;
+      return Rasterizer2D.field2119;
    }
 
    public int getGraphicsPixelsHeight() {
-      return class173.field2120;
+      return Rasterizer2D.field2120;
    }
 
    public int getStartY() {
-      return class173.field2122;
+      return Rasterizer2D.field2122;
    }
 
    public int getEndY() {
-      return class173.field2123;
+      return Rasterizer2D.field2123;
    }
 
    public int getStartX() {
-      return class173.field2124;
+      return Rasterizer2D.field2124;
    }
 
    public int getEndX() {
-      return class173.field2125;
+      return Rasterizer2D.field2125;
    }
 
    public RSPreferences getPreferences() {
-      return class175.field2134;
+      return WorldMapNode.field2134;
    }
 
    public RSObjectComposition getObjectDefinition(int var1) {
-      return class285.method5484(var1);
+      return class285.getObjectDef(var1);
    }
 
    public void changeWorld(World var1) {
@@ -5740,7 +5740,7 @@ public final class client extends GameEngine implements class146, RSClient {
    }
 
    public int[] getMapRegions() {
-      return class23.field255;
+      return MapIcon.field255;
    }
 
    public RSNodeCache getWidgetSpriteCache() {
@@ -6044,7 +6044,7 @@ public final class client extends GameEngine implements class146, RSClient {
    }
 
    public RSNPCComposition getNpcDefinition(int var1) {
-      return class127.method2480(var1);
+      return WorldMapGameObject.method2480(var1);
    }
 
    public int getBaseX() {
@@ -6147,27 +6147,27 @@ public final class client extends GameEngine implements class146, RSClient {
                      int var10;
                      int var12;
                      if(var7 > 0) {
-                        var8 = var7 - class239.field3125.field1693;
+                        var8 = var7 - class239.field3125.position;
                         if(var8 > var18) {
                            var8 = var18;
                         }
 
-                        class239.field3135.vmethod2803(class239.field3125.field1694, class239.field3125.field1693, var8);
+                        class239.field3135.vmethod2803(class239.field3125.field1694, class239.field3125.position, var8);
                         if(class239.field3139 != 0) {
                            for(var9 = 0; var9 < var8; ++var9) {
-                              class239.field3125.field1694[class239.field3125.field1693 + var9] ^= class239.field3139;
+                              class239.field3125.field1694[class239.field3125.position + var9] ^= class239.field3139;
                            }
                         }
 
-                        class239.field3125.field1693 += var8;
-                        if(class239.field3125.field1693 < var7) {
+                        class239.field3125.position += var8;
+                        if(class239.field3125.position < var7) {
                            break;
                         }
 
                         if(class239.field3134 == null) {
-                           class239.field3125.field1693 = 0;
+                           class239.field3125.position = 0;
                            var9 = class239.field3125.readUnsignedByte();
-                           var10 = class239.field3125.readShort();
+                           var10 = class239.field3125.readUnsignedShort();
                            int var11 = class239.field3125.readUnsignedByte();
                            var12 = class239.field3125.readInt();
                            long var13 = (long)(var10 + (var9 << 16));
@@ -6188,11 +6188,11 @@ public final class client extends GameEngine implements class146, RSClient {
                            class236.field3118.method2288(var11);
                            class236.field3118.writeByte(var12);
                            class239.field3136 = 8;
-                           class239.field3125.field1693 = 0;
+                           class239.field3125.position = 0;
                         } else if(class239.field3136 == 0) {
                            if(class239.field3125.field1694[0] == -1) {
                               class239.field3136 = 1;
-                              class239.field3125.field1693 = 0;
+                              class239.field3125.position = 0;
                            } else {
                               class239.field3134 = null;
                            }
@@ -6200,31 +6200,31 @@ public final class client extends GameEngine implements class146, RSClient {
                      } else {
                         var8 = class236.field3118.field1694.length - class239.field3134.field3954;
                         var9 = 512 - class239.field3136;
-                        if(var9 > var8 - class236.field3118.field1693) {
-                           var9 = var8 - class236.field3118.field1693;
+                        if(var9 > var8 - class236.field3118.position) {
+                           var9 = var8 - class236.field3118.position;
                         }
 
                         if(var9 > var18) {
                            var9 = var18;
                         }
 
-                        class239.field3135.vmethod2803(class236.field3118.field1694, class236.field3118.field1693, var9);
+                        class239.field3135.vmethod2803(class236.field3118.field1694, class236.field3118.position, var9);
                         if(class239.field3139 != 0) {
                            for(var10 = 0; var10 < var9; ++var10) {
-                              class236.field3118.field1694[class236.field3118.field1693 + var10] ^= class239.field3139;
+                              class236.field3118.field1694[class236.field3118.position + var10] ^= class239.field3139;
                            }
                         }
 
-                        class236.field3118.field1693 += var9;
+                        class236.field3118.position += var9;
                         class239.field3136 += var9;
-                        if(var8 == class236.field3118.field1693) {
+                        if(var8 == class236.field3118.position) {
                            if(16711935L == class239.field3134.field2792) {
                               class57.field714 = class236.field3118;
 
                               for(var10 = 0; var10 < 256; ++var10) {
                                  class6 var19 = class239.field3138[var10];
                                  if(var19 != null) {
-                                    class57.field714.field1693 = var10 * 8 + 5;
+                                    class57.field714.position = var10 * 8 + 5;
                                     var12 = class57.field714.readInt();
                                     int var20 = class57.field714.readInt();
                                     var19.method128(var12, var20);
@@ -6449,8 +6449,8 @@ public final class client extends GameEngine implements class146, RSClient {
                for(var2 = 0; var2 < class178.field2452.length; ++var2) {
                   byte[] var3 = class59.field727[var2];
                   if(var3 != null) {
-                     var25 = (class23.field255[var2] >> 8) * 64 - class229.field3067;
-                     var5 = (class23.field255[var2] & 255) * 64 - class35.field360;
+                     var25 = (MapIcon.field255[var2] >> 8) * 64 - class229.field3067;
+                     var5 = (MapIcon.field255[var2] & 255) * 64 - class35.field360;
                      if(field2212) {
                         var25 = 10;
                         var5 = 10;
@@ -6486,7 +6486,7 @@ public final class client extends GameEngine implements class146, RSClient {
                               var18 = var25 + var16;
                               var19 = var15 + var5;
                               if(var18 > 0 && var19 > 0 && var18 < 103 && var19 < 103) {
-                                 class15 var20 = class285.method5484(var10);
+                                 ObjectDef var20 = class285.getObjectDef(var10);
                                  if(var17 != 22 || !field2157 || var20.field167 != 0 || var20.field173 == 1 || var20.field186) {
                                     if(!var20.method329()) {
                                        ++field2202;
@@ -6513,7 +6513,7 @@ public final class client extends GameEngine implements class146, RSClient {
                   field2210 = 2;
                } else {
                   if(field2210 != 0) {
-                     class214.method4369("Loading - please wait." + "<br>" + " (" + 100 + "%" + ")", true);
+                     WorldMapRegion.method4369("Loading - please wait." + "<br>" + " (" + 100 + "%" + ")", true);
                   }
 
                   class185.method3733();
@@ -6562,12 +6562,12 @@ public final class client extends GameEngine implements class146, RSClient {
                         byte[] var27;
                         if(var26 >= var2) {
                            for(var26 = 0; var26 < var2; ++var26) {
-                              var25 = (class23.field255[var26] >> 8) * 64 - class229.field3067;
-                              var5 = (class23.field255[var26] & 255) * 64 - class35.field360;
+                              var25 = (MapIcon.field255[var26] >> 8) * 64 - class229.field3067;
+                              var5 = (MapIcon.field255[var26] & 255) * 64 - class35.field360;
                               var27 = class178.field2452[var26];
                               if(var27 == null && class118.field1631 < 800) {
                                  class185.method3733();
-                                 WorldMapRegion.method1034(var25, var5, 64, 64);
+                                 SomeWorldMapObject.method1034(var25, var5, 64, 64);
                               }
                            }
 
@@ -6581,8 +6581,8 @@ public final class client extends GameEngine implements class146, RSClient {
 
                               byte[] var4 = class59.field727[var26];
                               if(var4 != null) {
-                                 var5 = (class23.field255[var26] >> 8) * 64 - class229.field3067;
-                                 var6 = (class23.field255[var26] & 255) * 64 - class35.field360;
+                                 var5 = (MapIcon.field255[var26] >> 8) * 64 - class229.field3067;
+                                 var6 = (MapIcon.field255[var26] & 255) * 64 - class35.field360;
                                  class185.method3733();
                                  class111 var29 = class269.field3464;
                                  class3[] var30 = field2211;
@@ -6634,8 +6634,8 @@ public final class client extends GameEngine implements class146, RSClient {
                            }
                         }
 
-                        var25 = (class23.field255[var26] >> 8) * 64 - class229.field3067;
-                        var5 = (class23.field255[var26] & 255) * 64 - class35.field360;
+                        var25 = (MapIcon.field255[var26] >> 8) * 64 - class229.field3067;
+                        var5 = (MapIcon.field255[var26] & 255) * 64 - class35.field360;
                         var27 = class178.field2452[var26];
                         if(var27 != null) {
                            class185.method3733();
@@ -6692,7 +6692,7 @@ public final class client extends GameEngine implements class146, RSClient {
                               for(var25 = 0; var25 < 13; ++var25) {
                                  var5 = field2213[0][var26][var25];
                                  if(var5 == -1) {
-                                    WorldMapRegion.method1034(var26 * 8, var25 * 8, 8, 8);
+                                    SomeWorldMapObject.method1034(var26 * 8, var25 * 8, 8, 8);
                                  }
                               }
                            }
@@ -6717,8 +6717,8 @@ public final class client extends GameEngine implements class146, RSClient {
                                        var10 = var6 >> 3 & 2047;
                                        var11 = (var32 / 8 << 8) + var10 / 8;
 
-                                       for(var12 = 0; var12 < class23.field255.length; ++var12) {
-                                          if(class23.field255[var12] == var11 && class59.field727[var12] != null) {
+                                       for(var12 = 0; var12 < MapIcon.field255.length; ++var12) {
+                                          if(MapIcon.field255[var12] == var11 && class59.field727[var12] != null) {
                                              class253.method5079(class59.field727[var12], var26, var25 * 8, var5 * 8, var7, (var32 & 7) * 8, (var10 & 7) * 8, var39, class269.field3464, field2211);
                                              break;
                                           }
@@ -6744,8 +6744,8 @@ public final class client extends GameEngine implements class146, RSClient {
                                  var11 = var7 >> 3 & 2047;
                                  var12 = (var10 / 8 << 8) + var11 / 8;
 
-                                 for(var41 = 0; var41 < class23.field255.length; ++var41) {
-                                    if(class23.field255[var41] == var12 && class178.field2452[var41] != null) {
+                                 for(var41 = 0; var41 < MapIcon.field255.length; ++var41) {
+                                    if(MapIcon.field255[var41] == var12 && class178.field2452[var41] != null) {
                                        class255.method5128(class178.field2452[var41], var26, var25 * 8, var5 * 8, var39, (var10 & 7) * 8, (var11 & 7) * 8, var32, field2211);
                                        var38 = true;
                                        break;
@@ -6818,7 +6818,7 @@ public final class client extends GameEngine implements class146, RSClient {
 
                   class185.method3733();
                   class310.method6087();
-                  class15.field157.method1816();
+                  ObjectDef.field157.method1816();
                   class12 var37;
                   if(class302.field3755.method5934()) {
                      var37 = class150.method2761(ClientProt.field3165, field2384.field1770);
@@ -6996,14 +6996,14 @@ public final class client extends GameEngine implements class146, RSClient {
          ;
       }
 
-      class175.field2134 = var5;
+      WorldMapNode.field2134 = var5;
       this.method5836();
-      class23.method440(this, class231.field3081);
+      MapIcon.method440(this, class231.field3081);
       if(field2155 != 0) {
          field2171 = true;
       }
 
-      class109.method1920(class175.field2134.field859);
+      class109.method1920(WorldMapNode.field2134.field859);
       class202.field2845 = new class159(class140.field1794);
    }
 
@@ -7048,18 +7048,18 @@ public final class client extends GameEngine implements class146, RSClient {
             while(class3.method75()) {
                var14 = class150.method2761(ClientProt.field3247, field2384.field1770);
                var14.field121.method2288(0);
-               var2 = var14.field121.field1693;
+               var2 = var14.field121.position;
                class174.method3222(var14.field121);
-               var14.field121.method2254(var14.field121.field1693 - var2);
+               var14.field121.method2254(var14.field121.position - var2);
                field2384.method2573(var14);
             }
 
             if(field2398.field653) {
                var14 = class150.method2761(ClientProt.field3160, field2384.field1770);
                var14.field121.method2288(0);
-               var2 = var14.field121.field1693;
+               var2 = var14.field121.position;
                field2398.method1205(var14.field121);
-               var14.field121.method2254(var14.field121.field1693 - var2);
+               var14.field121.method2254(var14.field121.position - var2);
                field2384.method2573(var14);
                field2398.method1203();
             }
@@ -7085,7 +7085,7 @@ public final class client extends GameEngine implements class146, RSClient {
                   var5 = 0;
                   var6 = 0;
 
-                  for(var7 = 0; var7 < WorldMapManager.field2882.field3509 && (var15 == null || var15.field121.field1693 - var3 < 246); ++var7) {
+                  for(var7 = 0; var7 < WorldMapManager.field2882.field3509 && (var15 == null || var15.field121.position - var3 < 246); ++var7) {
                      var4 = var7;
                      var8 = WorldMapManager.field2882.field3507[var7];
                      if(var8 < -1) {
@@ -7105,8 +7105,8 @@ public final class client extends GameEngine implements class146, RSClient {
                         if(var15 == null) {
                            var15 = class150.method2761(ClientProt.field3190, field2384.field1770);
                            var15.field121.method2288(0);
-                           var3 = var15.field121.field1693;
-                           var15.field121.field1693 += 2;
+                           var3 = var15.field121.position;
+                           var15.field121.position += 2;
                            var5 = 0;
                            var6 = 0;
                         }
@@ -7155,12 +7155,12 @@ public final class client extends GameEngine implements class146, RSClient {
                   }
 
                   if(var15 != null) {
-                     var15.field121.method2254(var15.field121.field1693 - var3);
-                     var7 = var15.field121.field1693;
-                     var15.field121.field1693 = var3;
+                     var15.field121.method2254(var15.field121.position - var3);
+                     var7 = var15.field121.position;
+                     var15.field121.position = var3;
                      var15.field121.method2288(var5 / var6);
                      var15.field121.method2288(var5 % var6);
-                     var15.field121.field1693 = var7;
+                     var15.field121.position = var7;
                      field2384.method2573(var15);
                   }
 
@@ -7208,7 +7208,7 @@ public final class client extends GameEngine implements class146, RSClient {
             if(class96.field1047 > 0) {
                var14 = class150.method2761(ClientProt.field3211, field2384.field1770);
                var14.field121.method2242(0);
-               var2 = var14.field121.field1693;
+               var2 = var14.field121.position;
                long var19 = class321.method6252();
 
                for(var5 = 0; var5 < class96.field1047; ++var5) {
@@ -7222,7 +7222,7 @@ public final class client extends GameEngine implements class146, RSClient {
                   var14.field121.method2412((int)var21);
                }
 
-               var14.field121.method2253(var14.field121.field1693 - var2);
+               var14.field121.method2253(var14.field121.position - var2);
                field2384.method2573(var14);
             }
 
@@ -7323,7 +7323,7 @@ public final class client extends GameEngine implements class146, RSClient {
                      long var23 = class269.field3464.method1992(class260.field3393, var6, var7);
                      if(0L != var23) {
                         var10 = class178.method3682(var23);
-                        var11 = class285.method5484(var10).field148;
+                        var11 = class285.getObjectDef(var10).mapIconDef;
                         if(var11 >= 0) {
                            field2382[field2379] = class133.method2550(var11).method2202(false);
                            field2190[field2379] = var6;
@@ -7933,7 +7933,7 @@ public final class client extends GameEngine implements class146, RSClient {
 
                   class239.field3135 = var10;
                   class134.method2561(var2);
-                  class239.field3125.field1693 = 0;
+                  class239.field3125.position = 0;
                   class239.field3134 = null;
                   class236.field3118 = null;
                   class239.field3136 = 0;
@@ -8116,7 +8116,7 @@ public final class client extends GameEngine implements class146, RSClient {
       }
 
       if(var4 != null) {
-         class308.field3811 = 0;
+         MapCacheArchiveNames.field3811 = 0;
          class103.field1146 = 0;
          currentScriptPC = -1;
          var18 = -1;
@@ -8274,15 +8274,15 @@ public final class client extends GameEngine implements class146, RSClient {
                               }
 
                               if(var31 == 0) {
-                                 class249.field3312[++class308.field3811 - 1] = var7[var18];
+                                 class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var7[var18];
                               } else if(var31 == 1) {
                                  var12 = var7[var18];
-                                 class249.field3312[++class308.field3811 - 1] = class81.field898[var12];
+                                 class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class81.field898[var12];
                               } else if(var31 == 2) {
                                  var12 = var7[var18];
-                                 class81.field898[var12] = class249.field3312[--class308.field3811];
+                                 class81.field898[var12] = class249.field3312[--MapCacheArchiveNames.field3811];
                                  settingsChanged(var12);
-                                 WorldMapRegion.method896(var12);
+                                 SomeWorldMapObject.method896(var12);
                               } else if(var31 == 3) {
                                  class249.field3313[++class103.field1146 - 1] = ((class296)var4).field3690[var18];
                               } else {
@@ -8297,32 +8297,32 @@ public final class client extends GameEngine implements class146, RSClient {
                                     currentScriptPC = var18 + var10001;
                                     var18 = var10000;
                                  } else if(var31 == 7) {
-                                    class308.field3811 -= 2;
-                                    if(class249.field3312[class308.field3811] != class249.field3312[class308.field3811 + 1]) {
+                                    MapCacheArchiveNames.field3811 -= 2;
+                                    if(class249.field3312[MapCacheArchiveNames.field3811] != class249.field3312[MapCacheArchiveNames.field3811 + 1]) {
                                        var10001 = var7[var18];
                                        var10000 = var18 + var7[var18];
                                        currentScriptPC = var18 + var10001;
                                        var18 = var10000;
                                     }
                                  } else if(var31 == 8) {
-                                    class308.field3811 -= 2;
-                                    if(class249.field3312[class308.field3811] == class249.field3312[class308.field3811 + 1]) {
+                                    MapCacheArchiveNames.field3811 -= 2;
+                                    if(class249.field3312[MapCacheArchiveNames.field3811] == class249.field3312[MapCacheArchiveNames.field3811 + 1]) {
                                        var10001 = var7[var18];
                                        var10000 = var18 + var7[var18];
                                        currentScriptPC = var18 + var10001;
                                        var18 = var10000;
                                     }
                                  } else if(var31 == 9) {
-                                    class308.field3811 -= 2;
-                                    if(class249.field3312[class308.field3811] < class249.field3312[class308.field3811 + 1]) {
+                                    MapCacheArchiveNames.field3811 -= 2;
+                                    if(class249.field3312[MapCacheArchiveNames.field3811] < class249.field3312[MapCacheArchiveNames.field3811 + 1]) {
                                        var10001 = var7[var18];
                                        var10000 = var18 + var7[var18];
                                        currentScriptPC = var18 + var10001;
                                        var18 = var10000;
                                     }
                                  } else if(var31 == 10) {
-                                    class308.field3811 -= 2;
-                                    if(class249.field3312[class308.field3811] > class249.field3312[class308.field3811 + 1]) {
+                                    MapCacheArchiveNames.field3811 -= 2;
+                                    if(class249.field3312[MapCacheArchiveNames.field3811] > class249.field3312[MapCacheArchiveNames.field3811 + 1]) {
                                        var10001 = var7[var18];
                                        var10000 = var18 + var7[var18];
                                        currentScriptPC = var18 + var10001;
@@ -8343,30 +8343,30 @@ public final class client extends GameEngine implements class146, RSClient {
                                     class95.field1023 = var36.field2438;
                                  } else if(var31 == 25) {
                                     var12 = var7[var18];
-                                    class249.field3312[++class308.field3811 - 1] = class259.method5178(var12);
+                                    class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class259.method5178(var12);
                                  } else if(var31 == 27) {
                                     var12 = var7[var18];
-                                    class127.method2483(var12, class249.field3312[--class308.field3811]);
+                                    WorldMapGameObject.method2483(var12, class249.field3312[--MapCacheArchiveNames.field3811]);
                                  } else if(var31 == 31) {
-                                    class308.field3811 -= 2;
-                                    if(class249.field3312[class308.field3811] <= class249.field3312[class308.field3811 + 1]) {
+                                    MapCacheArchiveNames.field3811 -= 2;
+                                    if(class249.field3312[MapCacheArchiveNames.field3811] <= class249.field3312[MapCacheArchiveNames.field3811 + 1]) {
                                        var10001 = var7[var18];
                                        var10000 = var18 + var7[var18];
                                        currentScriptPC = var18 + var10001;
                                        var18 = var10000;
                                     }
                                  } else if(var31 == 32) {
-                                    class308.field3811 -= 2;
-                                    if(class249.field3312[class308.field3811] >= class249.field3312[class308.field3811 + 1]) {
+                                    MapCacheArchiveNames.field3811 -= 2;
+                                    if(class249.field3312[MapCacheArchiveNames.field3811] >= class249.field3312[MapCacheArchiveNames.field3811 + 1]) {
                                        var10001 = var7[var18];
                                        var10000 = var18 + var7[var18];
                                        currentScriptPC = var18 + var10001;
                                        var18 = var10000;
                                     }
                                  } else if(var31 == 33) {
-                                    class249.field3312[++class308.field3811 - 1] = class249.field3311[var7[var18]];
+                                    class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class249.field3311[var7[var18]];
                                  } else if(var31 == 34) {
-                                    class249.field3311[var7[var18]] = class249.field3312[--class308.field3811];
+                                    class249.field3311[var7[var18]] = class249.field3312[--MapCacheArchiveNames.field3811];
                                  } else if(var31 == 35) {
                                     class249.field3313[++class103.field1146 - 1] = class95.field1023[var7[var18]];
                                  } else if(var31 == 36) {
@@ -8381,7 +8381,7 @@ public final class client extends GameEngine implements class146, RSClient {
                                        return;
                                     }
 
-                                    --class308.field3811;
+                                    --MapCacheArchiveNames.field3811;
                                  } else if(var31 == 39) {
                                     --class103.field1146;
                                  } else {
@@ -8392,13 +8392,13 @@ public final class client extends GameEngine implements class146, RSClient {
                                              return;
                                           }
 
-                                          class249.field3312[++class308.field3811 - 1] = class267.field3459.method1683(var7[var18]);
+                                          class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class267.field3459.method1683(var7[var18]);
                                        } else if(var31 == 43) {
-                                          class267.field3459.method1682(var7[var18], class249.field3312[--class308.field3811]);
+                                          class267.field3459.method1682(var7[var18], class249.field3312[--MapCacheArchiveNames.field3811]);
                                        } else if(var31 == 44) {
                                           var12 = var7[var18] >> 16;
                                           var21 = var7[var18] & 65535;
-                                          int var22 = class249.field3312[--class308.field3811];
+                                          int var22 = class249.field3312[--MapCacheArchiveNames.field3811];
                                           if(var22 < 0 || var22 > 5000) {
                                              throw new RuntimeException();
                                           }
@@ -8418,7 +8418,7 @@ public final class client extends GameEngine implements class146, RSClient {
                                           }
 
                                           var12 = var7[var18];
-                                          var21 = class249.field3312[--class308.field3811];
+                                          var21 = class249.field3312[--MapCacheArchiveNames.field3811];
                                           if(var21 < 0) {
                                              break;
                                           }
@@ -8430,16 +8430,16 @@ public final class client extends GameEngine implements class146, RSClient {
                                              break;
                                           }
 
-                                          class249.field3312[++class308.field3811 - 1] = class249.field3320[var12][var21];
+                                          class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class249.field3320[var12][var21];
                                        } else if(var31 == 46) {
                                           var12 = var7[var18];
-                                          class308.field3811 -= 2;
-                                          var21 = class249.field3312[class308.field3811];
+                                          MapCacheArchiveNames.field3811 -= 2;
+                                          var21 = class249.field3312[MapCacheArchiveNames.field3811];
                                           if(var21 < 0 || var21 >= class249.field3315[var12]) {
                                              throw new RuntimeException();
                                           }
 
-                                          class249.field3320[var12][var21] = class249.field3312[class308.field3811 + 1];
+                                          class249.field3320[var12][var21] = class249.field3312[MapCacheArchiveNames.field3811 + 1];
                                        } else if(var31 == 47) {
                                           if(var2 <= 1) {
                                              return;
@@ -8459,7 +8459,7 @@ public final class client extends GameEngine implements class146, RSClient {
                                           }
 
                                           class235 var34 = ((class296)var4).field3695[var7[var18]];
-                                          class228 var32 = (class228)var34.method4670((long)class249.field3312[--class308.field3811]);
+                                          class228 var32 = (class228)var34.method4670((long)class249.field3312[--MapCacheArchiveNames.field3811]);
                                           if(var32 != null) {
                                              var18 = currentScriptPC = var18 + var32.field3057;
                                           }
@@ -8471,7 +8471,7 @@ public final class client extends GameEngine implements class146, RSClient {
                                        String[] var15 = new String[var13.field3700];
 
                                        for(var16 = 0; var16 < var13.field3693; ++var16) {
-                                          var14[var16] = class249.field3312[var16 + (class308.field3811 - var13.field3693)];
+                                          var14[var16] = class249.field3312[var16 + (MapCacheArchiveNames.field3811 - var13.field3693)];
                                        }
 
                                        for(var16 = 0; var16 < var13.field3692; ++var16) {
@@ -8482,7 +8482,7 @@ public final class client extends GameEngine implements class146, RSClient {
                                           var15[var16] = class249.field3313[var16 + (class103.field1146 - var13.field3692)];
                                        }
 
-                                       class308.field3811 -= var13.field3693;
+                                       MapCacheArchiveNames.field3811 -= var13.field3693;
                                        class103.field1146 -= var13.field3692;
                                        class177 var20 = new class177();
                                        var20.field2441 = (class296)var4;
@@ -8586,7 +8586,7 @@ public final class client extends GameEngine implements class146, RSClient {
    @ObfuscatedSignature(
       signature = "(Lik;IIB)Llp;"
    )
-   public static SpritePixels copy$getSpriteAsSpritePixels(class217 var0, int var1, int var2, byte var3) {
+   public static SpritePixels copy$getSpriteAsSpritePixels(Js5Index var0, int var1, int var2, byte var3) {
       byte[] var5 = var0.method4398(var1, var2, -2010426741);
       boolean var4;
       if(var5 == null) {
@@ -9060,7 +9060,7 @@ public final class client extends GameEngine implements class146, RSClient {
                            }
 
                            class103.method1853();
-                           class174.method3219(var1, var0, class217.method4493(class203.method4026(var17)), var17.field2676);
+                           class174.method3219(var1, var0, Js5Index.method4493(class203.method4026(var17)), var17.field2676);
                            field2306 = 0;
                            field2311 = class151.method2763(var17);
                            if(field2311 == null) {
@@ -9091,7 +9091,7 @@ public final class client extends GameEngine implements class146, RSClient {
                               var13 = var15.field2645[0][1];
                               class81.field898[var13] = 1 - class81.field898[var13];
                               settingsChanged(var13);
-                              WorldMapRegion.method896(var13);
+                              SomeWorldMapObject.method896(var13);
                            }
                         } else if(var2 == 29) {
                            if(var8 <= 0) {
@@ -9111,7 +9111,7 @@ public final class client extends GameEngine implements class146, RSClient {
 
                                  class81.field898[var13] = var15.field2678[0];
                                  settingsChanged(var13);
-                                 WorldMapRegion.method896(var13);
+                                 SomeWorldMapObject.method896(var13);
                               }
                            }
                         } else if(var2 == 30) {
@@ -9564,7 +9564,7 @@ public final class client extends GameEngine implements class146, RSClient {
 
    public static void copy$raster2d7(int var0, int var1, int var2, int var3, int var4, int var5, byte[] var6, int var7, boolean var8) {
       if(var0 + var2 >= 0 && var3 + var1 >= 0) {
-         if(var0 < class173.field2119 && var1 < class173.field2120) {
+         if(var0 < Rasterizer2D.field2119 && var1 < Rasterizer2D.field2120) {
             int var9 = 0;
             int var10 = 0;
             if(var0 < 0) {
@@ -9577,16 +9577,16 @@ public final class client extends GameEngine implements class146, RSClient {
                var3 += var1;
             }
 
-            if(var0 + var2 > class173.field2119) {
-               var2 = class173.field2119 - var0;
+            if(var0 + var2 > Rasterizer2D.field2119) {
+               var2 = Rasterizer2D.field2119 - var0;
             }
 
-            if(var3 + var1 > class173.field2120) {
-               var3 = class173.field2120 - var1;
+            if(var3 + var1 > Rasterizer2D.field2120) {
+               var3 = Rasterizer2D.field2120 - var1;
             }
 
             int var11 = var6.length / var7;
-            int var12 = class173.field2119 - var2;
+            int var12 = Rasterizer2D.field2119 - var2;
             int var13 = var4 >>> 24;
             int var14 = var5 >>> 24;
             int var15;
@@ -9595,23 +9595,23 @@ public final class client extends GameEngine implements class146, RSClient {
             int var18;
             int var19;
             if(!var8 || var13 == 255 && var14 == 255) {
-               var15 = var0 + var9 + (var10 + var1) * class173.field2119;
+               var15 = var0 + var9 + (var10 + var1) * Rasterizer2D.field2119;
 
                for(var16 = var10 + var1; var16 < var3 + var10 + var1; ++var16) {
                   for(var17 = var0 + var9; var17 < var0 + var9 + var2; ++var17) {
                      var18 = (var16 - var1) % var11;
                      var19 = (var17 - var0) % var7;
                      if(var6[var19 + var18 * var7] != 0) {
-                        class173.field2121[var15++] = var5;
+                        Rasterizer2D.field2121[var15++] = var5;
                      } else {
-                        class173.field2121[var15++] = var4;
+                        Rasterizer2D.field2121[var15++] = var4;
                      }
                   }
 
                   var15 += var12;
                }
             } else {
-               var15 = var0 + var9 + (var10 + var1) * class173.field2119;
+               var15 = var0 + var9 + (var10 + var1) * Rasterizer2D.field2119;
 
                for(var16 = var10 + var1; var16 < var3 + var10 + var1; ++var16) {
                   for(var17 = var0 + var9; var17 < var0 + var9 + var2; ++var17) {
@@ -9624,9 +9624,9 @@ public final class client extends GameEngine implements class146, RSClient {
 
                      int var21 = var20 >>> 24;
                      int var22 = 255 - var21;
-                     int var23 = class173.field2121[var15];
+                     int var23 = Rasterizer2D.field2121[var15];
                      int var24 = (var21 * (var20 & 65280) + var22 * (var23 & 65280) & 16711680) + ((var20 & 16711935) * var21 + (var23 & 16711935) * var22 & -16711936) >> 8;
-                     class173.field2121[var15++] = var24;
+                     Rasterizer2D.field2121[var15++] = var24;
                   }
 
                   var15 += var12;
@@ -9908,34 +9908,34 @@ public final class client extends GameEngine implements class146, RSClient {
       if(var2 > 0 && var3 > 0) {
          int var8 = 0;
          int var9 = 65536 / var3;
-         if(var0 < class173.field2124) {
-            var2 -= class173.field2124 - var0;
-            var0 = class173.field2124;
+         if(var0 < Rasterizer2D.field2124) {
+            var2 -= Rasterizer2D.field2124 - var0;
+            var0 = Rasterizer2D.field2124;
          }
 
-         if(var1 < class173.field2122) {
-            var8 += (class173.field2122 - var1) * var9;
-            var3 -= class173.field2122 - var1;
-            var1 = class173.field2122;
+         if(var1 < Rasterizer2D.field2122) {
+            var8 += (Rasterizer2D.field2122 - var1) * var9;
+            var3 -= Rasterizer2D.field2122 - var1;
+            var1 = Rasterizer2D.field2122;
          }
 
-         if(var0 + var2 > class173.field2125) {
-            var2 = class173.field2125 - var0;
+         if(var0 + var2 > Rasterizer2D.field2125) {
+            var2 = Rasterizer2D.field2125 - var0;
          }
 
-         if(var3 + var1 > class173.field2123) {
-            var3 = class173.field2123 - var1;
+         if(var3 + var1 > Rasterizer2D.field2123) {
+            var3 = Rasterizer2D.field2123 - var1;
          }
 
-         int var10 = class173.field2119 - var2;
-         int var11 = class173.field2119 * var1 + var0;
+         int var10 = Rasterizer2D.field2119 - var2;
+         int var11 = Rasterizer2D.field2119 * var1 + var0;
 
          for(int var12 = -var3; var12 < 0; ++var12) {
             int var13 = 65536 - var8 >> 8;
             int var14 = var8 >> 8;
             int var15 = (var13 * var6 + var14 * var7 & 65280) >>> 8;
             if(var15 == 0) {
-               var11 += class173.field2119;
+               var11 += Rasterizer2D.field2119;
                var8 += var9;
             } else {
                int var16 = (var13 * (var4 & 65280) + var14 * (var5 & 65280) & 16711680) + (var13 * (var4 & 16711935) + var14 * (var5 & 16711935) & -16711936) >>> 8;
@@ -9943,12 +9943,12 @@ public final class client extends GameEngine implements class146, RSClient {
                int var18 = ((var16 & 16711935) * var15 >> 8 & 16711935) + (var15 * (var16 & 65280) >> 8 & 65280);
 
                for(int var19 = -var2; var19 < 0; ++var19) {
-                  int var20 = class173.field2121[var11];
+                  int var20 = Rasterizer2D.field2121[var11];
                   if(var20 == 0) {
-                     class173.field2121[var11++] = var18;
+                     Rasterizer2D.field2121[var11++] = var18;
                   } else {
                      var20 = ((var20 & 16711935) * var17 >> 8 & 16711935) + (var17 * (var20 & 65280) >> 8 & 65280);
-                     class173.field2121[var11++] = var18 + var20;
+                     Rasterizer2D.field2121[var11++] = var18 + var20;
                   }
                }
 
@@ -10067,7 +10067,7 @@ public final class client extends GameEngine implements class146, RSClient {
       class187 var3;
       if(var0 >= 2000) {
          var0 -= 1000;
-         var3 = class48.method1047(class249.field3312[--class308.field3811]);
+         var3 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
       } else {
          var3 = var2?class3.field36:class284.field3565;
       }
@@ -10075,9 +10075,9 @@ public final class client extends GameEngine implements class146, RSClient {
       String var4 = class249.field3313[--class103.field1146];
       int[] var5 = null;
       if(var4.length() > 0 && var4.charAt(var4.length() - 1) == 'Y') {
-         int var6 = class249.field3312[--class308.field3811];
+         int var6 = class249.field3312[--MapCacheArchiveNames.field3811];
          if(var6 > 0) {
-            for(var5 = new int[var6]; var6-- > 0; var5[var6] = class249.field3312[--class308.field3811]) {
+            for(var5 = new int[var6]; var6-- > 0; var5[var6] = class249.field3312[--MapCacheArchiveNames.field3811]) {
                ;
             }
          }
@@ -10092,11 +10092,11 @@ public final class client extends GameEngine implements class146, RSClient {
          if(var4.charAt(var7 - 1) == 's') {
             var8[var7] = class249.field3313[--class103.field1146];
          } else {
-            var8[var7] = new Integer(class249.field3312[--class308.field3811]);
+            var8[var7] = new Integer(class249.field3312[--MapCacheArchiveNames.field3811]);
          }
       }
 
-      var7 = class249.field3312[--class308.field3811];
+      var7 = class249.field3312[--MapCacheArchiveNames.field3811];
       if(var7 != -1) {
          var8[0] = new Integer(var7);
       } else {

@@ -16,7 +16,7 @@ public class Buffer extends class197 implements RSBuffer {
    @ObfuscatedGetter(
       intValue = 2028894137
    )
-   public int field1693;
+   public int position;
    @ObfuscatedName("f")
    public byte[] field1694;
 
@@ -58,12 +58,12 @@ public class Buffer extends class197 implements RSBuffer {
 
    public Buffer(int var1) {
       this.field1694 = class133.method2559(var1);
-      this.field1693 = 0;
+      this.position = 0;
    }
 
    public Buffer(byte[] var1) {
       this.field1694 = var1;
-      this.field1693 = 0;
+      this.position = 0;
    }
 
    @ObfuscatedName("bc")
@@ -72,8 +72,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-319067683"
    )
    public int method2304() {
-      this.field1693 += 4;
-      return ((this.field1694[this.field1693 - 2] & 255) << 24) + ((this.field1694[this.field1693 - 4] & 255) << 8) + (this.field1694[this.field1693 - 3] & 255) + ((this.field1694[this.field1693 - 1] & 255) << 16);
+      this.position += 4;
+      return ((this.field1694[this.position - 2] & 255) << 24) + ((this.field1694[this.position - 4] & 255) << 8) + (this.field1694[this.position - 3] & 255) + ((this.field1694[this.position - 1] & 255) << 16);
    }
 
    @ObfuscatedName("af")
@@ -81,9 +81,9 @@ public class Buffer extends class197 implements RSBuffer {
       signature = "(I)I",
       garbageValue = "-1669910584"
    )
-   public int readShort() {
-      this.field1693 += 2;
-      return (this.field1694[this.field1693 - 1] & 255) + ((this.field1694[this.field1693 - 2] & 255) << 8);
+   public int readUnsignedShort() {
+      this.position += 2;
+      return (this.field1694[this.position - 1] & 255) + ((this.field1694[this.position - 2] & 255) << 8);
    }
 
    @ObfuscatedName("ar")
@@ -92,7 +92,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1666916552"
    )
    public int method2272() {
-      return this.field1694[this.field1693] < 0?this.readInt() & Integer.MAX_VALUE:this.readShort();
+      return this.field1694[this.position] < 0?this.readInt() & Integer.MAX_VALUE:this.readUnsignedShort();
    }
 
    @ObfuscatedName("k")
@@ -101,7 +101,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "495584415"
    )
    public void method2254(int var1) {
-      this.field1694[this.field1693 - var1 - 1] = (byte)var1;
+      this.field1694[this.position - var1 - 1] = (byte)var1;
    }
 
    @ObfuscatedName("bz")
@@ -110,10 +110,10 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-189868685"
    )
    public void method2302(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 16);
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 24);
-      this.field1694[++this.field1693 - 1] = (byte)var1;
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 16);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 24);
+      this.field1694[++this.position - 1] = (byte)var1;
+      this.field1694[++this.position - 1] = (byte)(var1 >> 8);
    }
 
    @ObfuscatedName("ag")
@@ -122,7 +122,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "86"
    )
    public byte method2257() {
-      return this.field1694[++this.field1693 - 1];
+      return this.field1694[++this.position - 1];
    }
 
    @ObfuscatedName("aq")
@@ -131,10 +131,10 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "15656"
    )
    public int method2263() {
-      byte var1 = this.field1694[++this.field1693 - 1];
+      byte var1 = this.field1694[++this.position - 1];
 
       int var2;
-      for(var2 = 0; var1 < 0; var1 = this.field1694[++this.field1693 - 1]) {
+      for(var2 = 0; var1 < 0; var1 = this.field1694[++this.position - 1]) {
          var2 = (var2 | var1 & 127) << 7;
       }
 
@@ -147,8 +147,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "337964448"
    )
    public int readInt() {
-      this.field1693 += 4;
-      return ((this.field1694[this.field1693 - 3] & 255) << 16) + (this.field1694[this.field1693 - 1] & 255) + ((this.field1694[this.field1693 - 2] & 255) << 8) + ((this.field1694[this.field1693 - 4] & 255) << 24);
+      this.position += 4;
+      return ((this.field1694[this.position - 3] & 255) << 16) + (this.field1694[this.position - 1] & 255) + ((this.field1694[this.position - 2] & 255) << 8) + ((this.field1694[this.position - 4] & 255) << 24);
    }
 
    @ObfuscatedName("ax")
@@ -158,7 +158,7 @@ public class Buffer extends class197 implements RSBuffer {
    )
    public void method2295(byte[] var1, int var2, int var3) {
       for(int var4 = var2; var4 < var3 + var2; ++var4) {
-         var1[var4] = this.field1694[++this.field1693 - 1];
+         var1[var4] = this.field1694[++this.position - 1];
       }
 
    }
@@ -169,8 +169,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1579961553"
    )
    public int method2297() {
-      this.field1693 += 2;
-      int var1 = ((this.field1694[this.field1693 - 1] & 255) << 8) + (this.field1694[this.field1693 - 2] & 255);
+      this.position += 2;
+      int var1 = ((this.field1694[this.position - 1] & 255) << 8) + (this.field1694[this.position - 2] & 255);
       if(var1 > 32767) {
          var1 -= 65536;
       }
@@ -184,10 +184,10 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-436378201"
    )
    public void method2301(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
-      this.field1694[++this.field1693 - 1] = (byte)var1;
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 24);
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 16);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 8);
+      this.field1694[++this.position - 1] = (byte)var1;
+      this.field1694[++this.position - 1] = (byte)(var1 >> 24);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 16);
    }
 
    @ObfuscatedName("bv")
@@ -196,8 +196,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "19783"
    )
    public int method2460() {
-      this.field1693 += 2;
-      return (this.field1694[this.field1693 - 1] - 128 & 255) + ((this.field1694[this.field1693 - 2] & 255) << 8);
+      this.position += 2;
+      return (this.field1694[this.position - 1] - 128 & 255) + ((this.field1694[this.position - 2] & 255) << 8);
    }
 
    @ObfuscatedName("z")
@@ -210,8 +210,8 @@ public class Buffer extends class197 implements RSBuffer {
       if(var2 >= 0) {
          throw new IllegalArgumentException("");
       } else {
-         this.field1693 += class219.method4505(var1, 0, var1.length(), this.field1694, this.field1693);
-         this.field1694[++this.field1693 - 1] = 0;
+         this.position += class219.method4505(var1, 0, var1.length(), this.field1694, this.position);
+         this.field1694[++this.position - 1] = 0;
       }
    }
 
@@ -221,8 +221,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1688693684"
    )
    public void method2369(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(var1 + 128);
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
+      this.field1694[++this.position - 1] = (byte)(var1 + 128);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 8);
    }
 
    @ObfuscatedName("bu")
@@ -231,18 +231,18 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-11"
    )
    public int method2332() {
-      this.field1693 += 2;
-      return ((this.field1694[this.field1693 - 1] & 255) << 8) + (this.field1694[this.field1693 - 2] - 128 & 255);
+      this.position += 2;
+      return ((this.field1694[this.position - 1] & 255) << 8) + (this.field1694[this.position - 2] - 128 & 255);
    }
 
    @ObfuscatedName("p")
    public void method2371(long var1) {
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 40));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 32));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 24));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 16));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 8));
-      this.field1694[++this.field1693 - 1] = (byte)((int)var1);
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 40));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 32));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 24));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 16));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 8));
+      this.field1694[++this.position - 1] = (byte)((int)var1);
    }
 
    @ObfuscatedName("ao")
@@ -251,8 +251,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-5"
    )
    public int method2339() {
-      int var1 = this.field1694[this.field1693] & 255;
-      return var1 < 128?this.readUnsignedByte() - 64:this.readShort() - 49152;
+      int var1 = this.field1694[this.position] & 255;
+      return var1 < 128?this.readUnsignedByte() - 64:this.readUnsignedShort() - 49152;
    }
 
    @ObfuscatedName("bn")
@@ -261,8 +261,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1215602946"
    )
    public int method2268() {
-      this.field1693 += 2;
-      return ((this.field1694[this.field1693 - 1] & 255) << 8) + (this.field1694[this.field1693 - 2] & 255);
+      this.position += 2;
+      return ((this.field1694[this.position - 1] & 255) << 8) + (this.field1694[this.position - 2] & 255);
    }
 
    @ObfuscatedName("an")
@@ -271,14 +271,14 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-53"
    )
    public void method2279(BigInteger var1, BigInteger var2) {
-      int var3 = this.field1693;
-      this.field1693 = 0;
+      int var3 = this.position;
+      this.position = 0;
       byte[] var4 = new byte[var3];
       this.method2295(var4, 0, var3);
       BigInteger var5 = new BigInteger(var4);
       BigInteger var6 = var5.modPow(var1, var2);
       byte[] var7 = var6.toByteArray();
-      this.field1693 = 0;
+      this.position = 0;
       this.method2242(var7.length);
       this.method2251(var7, 0, var7.length);
    }
@@ -289,8 +289,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-62"
    )
    public void method2253(int var1) {
-      this.field1694[this.field1693 - var1 - 2] = (byte)(var1 >> 8);
-      this.field1694[this.field1693 - var1 - 1] = (byte)var1;
+      this.field1694[this.position - var1 - 2] = (byte)(var1 >> 8);
+      this.field1694[this.position - var1 - 1] = (byte)var1;
    }
 
    @ObfuscatedName("aa")
@@ -299,8 +299,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1926143832"
    )
    public String method2264() {
-      if(this.field1694[this.field1693] == 0) {
-         ++this.field1693;
+      if(this.field1694[this.position] == 0) {
+         ++this.position;
          return null;
       } else {
          return this.readString();
@@ -313,7 +313,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "50"
    )
    public int method2285() {
-      return this.field1694[++this.field1693 - 1] - 128 & 255;
+      return this.field1694[++this.position - 1] - 128 & 255;
    }
 
    @ObfuscatedName("c")
@@ -322,10 +322,10 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "807916187"
    )
    public void writeByte(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 24);
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 16);
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
-      this.field1694[++this.field1693 - 1] = (byte)var1;
+      this.field1694[++this.position - 1] = (byte)(var1 >> 24);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 16);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 8);
+      this.field1694[++this.position - 1] = (byte)var1;
    }
 
    @ObfuscatedName("aw")
@@ -343,7 +343,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-639331412"
    )
    public void method2283(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(0 - var1);
+      this.field1694[++this.position - 1] = (byte)(0 - var1);
    }
 
    @ObfuscatedName("l")
@@ -365,20 +365,20 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "124"
    )
    public void method2242(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
-      this.field1694[++this.field1693 - 1] = (byte)var1;
+      this.field1694[++this.position - 1] = (byte)(var1 >> 8);
+      this.field1694[++this.position - 1] = (byte)var1;
    }
 
    @ObfuscatedName("r")
    public void method2246(long var1) {
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 56));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 48));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 40));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 32));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 24));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 16));
-      this.field1694[++this.field1693 - 1] = (byte)((int)(var1 >> 8));
-      this.field1694[++this.field1693 - 1] = (byte)((int)var1);
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 56));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 48));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 40));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 32));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 24));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 16));
+      this.field1694[++this.position - 1] = (byte)((int)(var1 >> 8));
+      this.field1694[++this.position - 1] = (byte)((int)var1);
    }
 
    @ObfuscatedName("u")
@@ -388,7 +388,7 @@ public class Buffer extends class197 implements RSBuffer {
    )
    public void method2251(byte[] var1, int var2, int var3) {
       for(int var4 = var2; var4 < var3 + var2; ++var4) {
-         this.field1694[++this.field1693 - 1] = var1[var4];
+         this.field1694[++this.position - 1] = var1[var4];
       }
 
    }
@@ -399,8 +399,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "510295331"
    )
    public int method2298() {
-      this.field1693 += 2;
-      int var1 = ((this.field1694[this.field1693 - 1] & 255) << 8) + (this.field1694[this.field1693 - 2] - 128 & 255);
+      this.position += 2;
+      int var1 = ((this.field1694[this.position - 1] & 255) << 8) + (this.field1694[this.position - 2] - 128 & 255);
       if(var1 > 32767) {
          var1 -= 65536;
       }
@@ -414,8 +414,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1529210597"
    )
    public void method2463(int[] var1, int var2, int var3) {
-      int var4 = this.field1693;
-      this.field1693 = var2;
+      int var4 = this.position;
+      this.position = var2;
       int var5 = (var3 - var2) / 8;
 
       for(int var6 = 0; var6 < var5; ++var6) {
@@ -429,12 +429,12 @@ public class Buffer extends class197 implements RSBuffer {
             var9 -= var10;
          }
 
-         this.field1693 -= 8;
+         this.position -= 8;
          this.writeByte(var7);
          this.writeByte(var8);
       }
 
-      this.field1693 = var4;
+      this.position = var4;
    }
 
    @ObfuscatedName("m")
@@ -476,7 +476,7 @@ public class Buffer extends class197 implements RSBuffer {
    }
 
    public int getOffset() {
-      return this.field1693;
+      return this.position;
    }
 
    @ObfuscatedName("bd")
@@ -485,8 +485,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1633617537"
    )
    public int method2303() {
-      this.field1693 += 4;
-      return (this.field1694[this.field1693 - 4] & 255) + ((this.field1694[this.field1693 - 3] & 255) << 8) + ((this.field1694[this.field1693 - 2] & 255) << 16) + ((this.field1694[this.field1693 - 1] & 255) << 24);
+      this.position += 4;
+      return (this.field1694[this.position - 4] & 255) + ((this.field1694[this.position - 3] & 255) << 8) + ((this.field1694[this.position - 2] & 255) << 16) + ((this.field1694[this.position - 1] & 255) << 24);
    }
 
    @ObfuscatedName("ak")
@@ -495,8 +495,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1877577137"
    )
    public boolean method2281() {
-      this.field1693 -= 4;
-      int var1 = class36.method653(this.field1694, 0, this.field1693);
+      this.position -= 4;
+      int var1 = class36.method653(this.field1694, 0, this.position);
       int var2 = this.readInt();
       return var2 == var1;
    }
@@ -507,7 +507,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1882579123"
    )
    public void method2282(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(var1 + 128);
+      this.field1694[++this.position - 1] = (byte)(var1 + 128);
    }
 
    @ObfuscatedName("v")
@@ -520,9 +520,9 @@ public class Buffer extends class197 implements RSBuffer {
       if(var2 >= 0) {
          throw new IllegalArgumentException("");
       } else {
-         this.field1694[++this.field1693 - 1] = 0;
-         this.field1693 += class219.method4505(var1, 0, var1.length(), this.field1694, this.field1693);
-         this.field1694[++this.field1693 - 1] = 0;
+         this.field1694[++this.position - 1] = 0;
+         this.position += class219.method4505(var1, 0, var1.length(), this.field1694, this.position);
+         this.field1694[++this.position - 1] = 0;
       }
    }
 
@@ -532,7 +532,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1664490613"
    )
    public int method2280(int var1) {
-      int var2 = class36.method653(this.field1694, var1, this.field1693);
+      int var2 = class36.method653(this.field1694, var1, this.position);
       this.writeByte(var2);
       return var2;
    }
@@ -543,8 +543,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-2093413461"
    )
    public int method2299() {
-      this.field1693 += 3;
-      return (this.field1694[this.field1693 - 3] & 255) + ((this.field1694[this.field1693 - 2] & 255) << 8) + ((this.field1694[this.field1693 - 1] & 255) << 16);
+      this.position += 3;
+      return (this.field1694[this.position - 3] & 255) + ((this.field1694[this.position - 2] & 255) << 8) + ((this.field1694[this.position - 1] & 255) << 16);
    }
 
    @ObfuscatedName("av")
@@ -553,7 +553,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1"
    )
    public int readUnsignedByte() {
-      return this.field1694[++this.field1693 - 1] & 255;
+      return this.field1694[++this.position - 1] & 255;
    }
 
    @ObfuscatedName("bs")
@@ -562,7 +562,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-2046558421"
    )
    public int method2287() {
-      return 128 - this.field1694[++this.field1693 - 1] & 255;
+      return 128 - this.field1694[++this.position - 1] & 255;
    }
 
    @ObfuscatedName("bw")
@@ -571,8 +571,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "842963668"
    )
    public void method2255(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)var1;
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
+      this.field1694[++this.position - 1] = (byte)var1;
+      this.field1694[++this.position - 1] = (byte)(var1 >> 8);
    }
 
    @ObfuscatedName("at")
@@ -581,8 +581,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "520366755"
    )
    public int method2260() {
-      this.field1693 += 3;
-      return ((this.field1694[this.field1693 - 3] & 255) << 16) + (this.field1694[this.field1693 - 1] & 255) + ((this.field1694[this.field1693 - 2] & 255) << 8);
+      this.position += 3;
+      return ((this.field1694[this.position - 3] & 255) << 16) + (this.field1694[this.position - 1] & 255) + ((this.field1694[this.position - 2] & 255) << 8);
    }
 
    @ObfuscatedName("as")
@@ -591,13 +591,13 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1823533455"
    )
    public String readString() {
-      int var1 = this.field1693;
+      int var1 = this.position;
 
-      while(this.field1694[++this.field1693 - 1] != 0) {
+      while(this.field1694[++this.position - 1] != 0) {
          ;
       }
 
-      int var2 = this.field1693 - var1 - 1;
+      int var2 = this.position - var1 - 1;
       return var2 == 0?"":class225.method4566(this.field1694, var1, var2);
    }
 
@@ -607,8 +607,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "147090242"
    )
    public int method2270() {
-      int var1 = this.field1694[this.field1693] & 255;
-      return var1 < 128?this.readUnsignedByte():this.readShort() - 32768;
+      int var1 = this.field1694[this.position] & 255;
+      return var1 < 128?this.readUnsignedByte():this.readUnsignedShort() - 32768;
    }
 
    @ObfuscatedName("ab")
@@ -617,10 +617,10 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1495660911"
    )
    public int method2293() {
-      if(this.field1694[this.field1693] < 0) {
+      if(this.field1694[this.position] < 0) {
          return this.readInt() & Integer.MAX_VALUE;
       } else {
-         int var1 = this.readShort();
+         int var1 = this.readUnsignedShort();
          return var1 == 32767?-1:var1;
       }
    }
@@ -631,8 +631,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1970753705"
    )
    public int method2305() {
-      this.field1693 += 4;
-      return ((this.field1694[this.field1693 - 1] & 255) << 8) + ((this.field1694[this.field1693 - 4] & 255) << 16) + (this.field1694[this.field1693 - 2] & 255) + ((this.field1694[this.field1693 - 3] & 255) << 24);
+      this.position += 4;
+      return ((this.field1694[this.position - 1] & 255) << 8) + ((this.field1694[this.position - 4] & 255) << 16) + (this.field1694[this.position - 2] & 255) + ((this.field1694[this.position - 3] & 255) << 24);
    }
 
    @ObfuscatedName("bm")
@@ -641,7 +641,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "163758376"
    )
    public byte method2296() {
-      return (byte)(0 - this.field1694[++this.field1693 - 1]);
+      return (byte)(0 - this.field1694[++this.position - 1]);
    }
 
    @ObfuscatedName("am")
@@ -661,10 +661,10 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "970118866"
    )
    public void method2399(int var1) {
-      this.field1694[this.field1693 - var1 - 4] = (byte)(var1 >> 24);
-      this.field1694[this.field1693 - var1 - 3] = (byte)(var1 >> 16);
-      this.field1694[this.field1693 - var1 - 2] = (byte)(var1 >> 8);
-      this.field1694[this.field1693 - var1 - 1] = (byte)var1;
+      this.field1694[this.position - var1 - 4] = (byte)(var1 >> 24);
+      this.field1694[this.position - var1 - 3] = (byte)(var1 >> 16);
+      this.field1694[this.position - var1 - 2] = (byte)(var1 >> 8);
+      this.field1694[this.position - var1 - 1] = (byte)var1;
    }
 
    @ObfuscatedName("bx")
@@ -673,7 +673,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1840428759"
    )
    public void method2284(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(128 - var1);
+      this.field1694[++this.position - 1] = (byte)(128 - var1);
    }
 
    @ObfuscatedName("g")
@@ -696,9 +696,9 @@ public class Buffer extends class197 implements RSBuffer {
          }
       }
 
-      this.field1694[++this.field1693 - 1] = 0;
+      this.field1694[++this.position - 1] = 0;
       this.method2318(var4);
-      this.field1693 += class255.method5126(this.field1694, this.field1693, var1);
+      this.position += class255.method5126(this.field1694, this.position, var1);
    }
 
    @ObfuscatedName("ad")
@@ -707,16 +707,16 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "32"
    )
    public String method2267() {
-      byte var1 = this.field1694[++this.field1693 - 1];
+      byte var1 = this.field1694[++this.position - 1];
       if(var1 != 0) {
          throw new IllegalStateException("");
       } else {
          int var2 = this.method2263();
-         if(var2 + this.field1693 > this.field1694.length) {
+         if(var2 + this.position > this.field1694.length) {
             throw new IllegalStateException("");
          } else {
-            String var3 = class199.method3995(this.field1694, this.field1693, var2);
-            this.field1693 += var2;
+            String var3 = class199.method3995(this.field1694, this.position, var2);
+            this.position += var2;
             return var3;
          }
       }
@@ -745,10 +745,10 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1962567493"
    )
    public void method2300(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)var1;
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 16);
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 24);
+      this.field1694[++this.position - 1] = (byte)var1;
+      this.field1694[++this.position - 1] = (byte)(var1 >> 8);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 16);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 24);
    }
 
    @ObfuscatedName("bg")
@@ -757,7 +757,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1165888935"
    )
    public byte method2290() {
-      return (byte)(128 - this.field1694[++this.field1693 - 1]);
+      return (byte)(128 - this.field1694[++this.position - 1]);
    }
 
    @ObfuscatedName("bq")
@@ -766,8 +766,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1807384811"
    )
    public void method2292(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
-      this.field1694[++this.field1693 - 1] = (byte)(var1 + 128);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 8);
+      this.field1694[++this.position - 1] = (byte)(var1 + 128);
    }
 
    @ObfuscatedName("ba")
@@ -776,7 +776,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1715335234"
    )
    public byte method2434() {
-      return (byte)(this.field1694[++this.field1693 - 1] - 128);
+      return (byte)(this.field1694[++this.position - 1] - 128);
    }
 
    @ObfuscatedName("bh")
@@ -786,7 +786,7 @@ public class Buffer extends class197 implements RSBuffer {
    )
    public void method2306(byte[] var1, int var2, int var3) {
       for(int var4 = var2; var4 < var3 + var2; ++var4) {
-         var1[var4] = (byte)(this.field1694[++this.field1693 - 1] - 128);
+         var1[var4] = (byte)(this.field1694[++this.position - 1] - 128);
       }
 
    }
@@ -812,17 +812,17 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1628577912"
    )
    public String method2266() {
-      byte var1 = this.field1694[++this.field1693 - 1];
+      byte var1 = this.field1694[++this.position - 1];
       if(var1 != 0) {
          throw new IllegalStateException("");
       } else {
-         int var2 = this.field1693;
+         int var2 = this.position;
 
-         while(this.field1694[++this.field1693 - 1] != 0) {
+         while(this.field1694[++this.position - 1] != 0) {
             ;
          }
 
-         int var3 = this.field1693 - var2 - 1;
+         int var3 = this.position - var2 - 1;
          return var3 == 0?"":class225.method4566(this.field1694, var2, var3);
       }
    }
@@ -833,8 +833,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "35"
    )
    public void method2277(int[] var1, int var2, int var3) {
-      int var4 = this.field1693;
-      this.field1693 = var2;
+      int var4 = this.position;
+      this.position = var2;
       int var5 = (var3 - var2) / 8;
 
       for(int var6 = 0; var6 < var5; ++var6) {
@@ -848,12 +848,12 @@ public class Buffer extends class197 implements RSBuffer {
             var9 += var10;
          }
 
-         this.field1693 -= 8;
+         this.position -= 8;
          this.writeByte(var7);
          this.writeByte(var8);
       }
 
-      this.field1693 = var4;
+      this.position = var4;
    }
 
    @ObfuscatedName("e")
@@ -862,9 +862,9 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1367310678"
    )
    public void method2412(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 16);
-      this.field1694[++this.field1693 - 1] = (byte)(var1 >> 8);
-      this.field1694[++this.field1693 - 1] = (byte)var1;
+      this.field1694[++this.position - 1] = (byte)(var1 >> 16);
+      this.field1694[++this.position - 1] = (byte)(var1 >> 8);
+      this.field1694[++this.position - 1] = (byte)var1;
    }
 
    @ObfuscatedName("az")
@@ -873,8 +873,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-9"
    )
    public int method2456() {
-      this.field1693 += 2;
-      int var1 = (this.field1694[this.field1693 - 1] & 255) + ((this.field1694[this.field1693 - 2] & 255) << 8);
+      this.position += 2;
+      int var1 = (this.field1694[this.position - 1] & 255) + ((this.field1694[this.position - 2] & 255) << 8);
       if(var1 > 32767) {
          var1 -= 65536;
       }
@@ -888,8 +888,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-2139456249"
    )
    public void method2275(int[] var1) {
-      int var2 = this.field1693 / 8;
-      this.field1693 = 0;
+      int var2 = this.position / 8;
+      this.position = 0;
 
       for(int var3 = 0; var3 < var2; ++var3) {
          int var4 = this.readInt();
@@ -902,7 +902,7 @@ public class Buffer extends class197 implements RSBuffer {
             var6 += var7;
          }
 
-         this.field1693 -= 8;
+         this.position -= 8;
          this.writeByte(var4);
          this.writeByte(var5);
       }
@@ -915,7 +915,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "925770886"
    )
    public void method2288(int var1) {
-      this.field1694[++this.field1693 - 1] = (byte)var1;
+      this.field1694[++this.position - 1] = (byte)var1;
    }
 
    @ObfuscatedName("bl")
@@ -924,7 +924,7 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "-1489307247"
    )
    public int method2286() {
-      return 0 - this.field1694[++this.field1693 - 1] & 255;
+      return 0 - this.field1694[++this.position - 1] & 255;
    }
 
    @ObfuscatedName("aj")
@@ -933,8 +933,8 @@ public class Buffer extends class197 implements RSBuffer {
       garbageValue = "1008044673"
    )
    public void method2276(int[] var1) {
-      int var2 = this.field1693 / 8;
-      this.field1693 = 0;
+      int var2 = this.position / 8;
+      this.position = 0;
 
       for(int var3 = 0; var3 < var2; ++var3) {
          int var4 = this.readInt();
@@ -947,7 +947,7 @@ public class Buffer extends class197 implements RSBuffer {
             var6 -= var7;
          }
 
-         this.field1693 -= 8;
+         this.position -= 8;
          this.writeByte(var4);
          this.writeByte(var5);
       }
@@ -980,7 +980,7 @@ public class Buffer extends class197 implements RSBuffer {
       signature = "(Lik;III)Lle;",
       garbageValue = "-857734859"
    )
-   static class303 method2473(class217 var0, int var1, int var2) {
+   static class303 method2473(Js5Index var0, int var1, int var2) {
       byte[] var4 = var0.method4398(var1, var2, -1476342148);
       boolean var3;
       if(var4 == null) {

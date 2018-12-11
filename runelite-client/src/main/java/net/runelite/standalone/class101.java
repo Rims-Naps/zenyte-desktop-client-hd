@@ -15,7 +15,7 @@ public class class101 extends class324 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field1138;
+   static Js5Index field1138;
    @ObfuscatedName("w")
    @ObfuscatedGetter(
       intValue = -1193379705
@@ -37,7 +37,7 @@ public class class101 extends class324 {
    )
    void method1832(Buffer var1, int var2) {
       if(var2 == 2) {
-         this.field1140 = var1.readShort();
+         this.field1140 = var1.readUnsignedShort();
       }
 
    }

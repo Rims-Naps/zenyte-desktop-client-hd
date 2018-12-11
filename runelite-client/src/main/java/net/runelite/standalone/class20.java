@@ -14,7 +14,7 @@ public class class20 extends class324 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field228;
+   public static Js5Index field228;
    @ObfuscatedName("dk")
    @ObfuscatedSignature(
       signature = "Lim;"

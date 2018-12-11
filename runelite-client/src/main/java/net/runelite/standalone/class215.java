@@ -122,9 +122,9 @@ public final class class215 implements RSGroundObject {
    static int method4381(int var0, class296 var1, boolean var2) {
       int var3;
       if(var0 == 5504) {
-         class308.field3811 -= 2;
-         var3 = class249.field3312[class308.field3811];
-         int var4 = class249.field3312[class308.field3811 + 1];
+         MapCacheArchiveNames.field3811 -= 2;
+         var3 = class249.field3312[MapCacheArchiveNames.field3811];
+         int var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
          if(!client.field2397) {
             client.field2222 = var3;
             client.onCameraPitchTargetChanged(-1);
@@ -133,13 +133,13 @@ public final class class215 implements RSGroundObject {
 
          return 1;
       } else if(var0 == 5505) {
-         class249.field3312[++class308.field3811 - 1] = client.field2222;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2222;
          return 1;
       } else if(var0 == 5506) {
-         class249.field3312[++class308.field3811 - 1] = client.field2223;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2223;
          return 1;
       } else if(var0 == 5530) {
-         var3 = class249.field3312[--class308.field3811];
+         var3 = class249.field3312[--MapCacheArchiveNames.field3811];
          if(var3 < 0) {
             var3 = 0;
          }
@@ -147,7 +147,7 @@ public final class class215 implements RSGroundObject {
          client.field2229 = var3;
          return 1;
       } else if(var0 == 5531) {
-         class249.field3312[++class308.field3811 - 1] = client.field2229;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2229;
          return 1;
       } else {
          return 2;
@@ -159,7 +159,7 @@ public final class class215 implements RSGroundObject {
       signature = "(Lik;Lik;ZLkn;I)V",
       garbageValue = "502257140"
    )
-   public static void method4382(class217 var0, class217 var1, boolean var2, class299 var3) {
+   public static void method4382(Js5Index var0, Js5Index var1, boolean var2, class299 var3) {
       class42.field424 = var0;
       class148.field1833 = var1;
       class213.field2928 = var2;

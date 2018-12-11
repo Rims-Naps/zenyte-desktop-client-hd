@@ -21,7 +21,7 @@ public class class84 {
       Buffer var1 = new Buffer(var0);
       int var2 = var1.readUnsignedByte();
       int var3 = var1.readInt();
-      if(var3 < 0 || class217.field2969 != 0 && var3 > class217.field2969) {
+      if(var3 < 0 || Js5Index.field2969 != 0 && var3 > Js5Index.field2969) {
          throw new RuntimeException();
       } else if(var2 == 0) {
          byte[] var4 = new byte[var3];
@@ -29,12 +29,12 @@ public class class84 {
          return var4;
       } else {
          int var6 = var1.readInt();
-         if(var6 >= 0 && (class217.field2969 == 0 || var6 <= class217.field2969)) {
+         if(var6 >= 0 && (Js5Index.field2969 == 0 || var6 <= Js5Index.field2969)) {
             byte[] var5 = new byte[var6];
             if(var2 == 1) {
                class257.method5140(var5, var6, var0, var3, 9);
             } else {
-               class217.field2952.method5332(var1, var5);
+               Js5Index.field2952.method5332(var1, var5);
             }
 
             return var5;
@@ -49,7 +49,7 @@ public class class84 {
       signature = "(Lik;Lik;I)Z",
       garbageValue = "-1388287097"
    )
-   public static boolean method1620(class217 var0, class217 var1) {
+   public static boolean method1620(Js5Index var0, Js5Index var1) {
       class123.field1671 = var1;
       if(!var0.method4403()) {
          return false;

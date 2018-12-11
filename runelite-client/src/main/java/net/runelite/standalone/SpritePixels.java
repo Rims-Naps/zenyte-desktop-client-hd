@@ -9,7 +9,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSSpritePixels;
 
 @ObfuscatedName("lp")
-public final class SpritePixels extends class173 implements RSSpritePixels {
+public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
    @ObfuscatedName("c")
    public int maxHeight;
    @ObfuscatedName("l")
@@ -70,44 +70,44 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
    public void method221(int var1, int var2, int var3) {
       var1 += this.offsetX;
       var2 += this.offsetY;
-      int var4 = var1 + var2 * class173.field2119;
+      int var4 = var1 + var2 * Rasterizer2D.field2119;
       int var5 = 0;
       int var6 = this.height;
       int var7 = this.width;
-      int var8 = class173.field2119 - var7;
+      int var8 = Rasterizer2D.field2119 - var7;
       int var9 = 0;
       int var10;
-      if(var2 < class173.field2122) {
-         var10 = class173.field2122 - var2;
+      if(var2 < Rasterizer2D.field2122) {
+         var10 = Rasterizer2D.field2122 - var2;
          var6 -= var10;
-         var2 = class173.field2122;
+         var2 = Rasterizer2D.field2122;
          var5 += var10 * var7;
-         var4 += var10 * class173.field2119;
+         var4 += var10 * Rasterizer2D.field2119;
       }
 
-      if(var6 + var2 > class173.field2123) {
-         var6 -= var6 + var2 - class173.field2123;
+      if(var6 + var2 > Rasterizer2D.field2123) {
+         var6 -= var6 + var2 - Rasterizer2D.field2123;
       }
 
-      if(var1 < class173.field2124) {
-         var10 = class173.field2124 - var1;
+      if(var1 < Rasterizer2D.field2124) {
+         var10 = Rasterizer2D.field2124 - var1;
          var7 -= var10;
-         var1 = class173.field2124;
+         var1 = Rasterizer2D.field2124;
          var5 += var10;
          var4 += var10;
          var9 += var10;
          var8 += var10;
       }
 
-      if(var7 + var1 > class173.field2125) {
-         var10 = var7 + var1 - class173.field2125;
+      if(var7 + var1 > Rasterizer2D.field2125) {
+         var10 = var7 + var1 - Rasterizer2D.field2125;
          var7 -= var10;
          var9 += var10;
          var8 += var10;
       }
 
       if(var7 > 0 && var6 > 0) {
-         method222(class173.field2121, this.pixels, 0, var5, var4, var7, var6, var8, var9, var3);
+         method222(Rasterizer2D.field2121, this.pixels, 0, var5, var4, var7, var6, var8, var9, var3);
       }
    }
 
@@ -115,37 +115,37 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
    public void method225(int var1, int var2, int var3) {
       var1 += this.offsetX;
       var2 += this.offsetY;
-      int var4 = var1 + var2 * class173.field2119;
+      int var4 = var1 + var2 * Rasterizer2D.field2119;
       int var5 = 0;
       int var6 = this.height;
       int var7 = this.width;
-      int var8 = class173.field2119 - var7;
+      int var8 = Rasterizer2D.field2119 - var7;
       int var9 = 0;
       int var10;
-      if(var2 < class173.field2122) {
-         var10 = class173.field2122 - var2;
+      if(var2 < Rasterizer2D.field2122) {
+         var10 = Rasterizer2D.field2122 - var2;
          var6 -= var10;
-         var2 = class173.field2122;
+         var2 = Rasterizer2D.field2122;
          var5 += var10 * var7;
-         var4 += var10 * class173.field2119;
+         var4 += var10 * Rasterizer2D.field2119;
       }
 
-      if(var6 + var2 > class173.field2123) {
-         var6 -= var6 + var2 - class173.field2123;
+      if(var6 + var2 > Rasterizer2D.field2123) {
+         var6 -= var6 + var2 - Rasterizer2D.field2123;
       }
 
-      if(var1 < class173.field2124) {
-         var10 = class173.field2124 - var1;
+      if(var1 < Rasterizer2D.field2124) {
+         var10 = Rasterizer2D.field2124 - var1;
          var7 -= var10;
-         var1 = class173.field2124;
+         var1 = Rasterizer2D.field2124;
          var5 += var10;
          var4 += var10;
          var9 += var10;
          var8 += var10;
       }
 
-      if(var7 + var1 > class173.field2125) {
-         var10 = var7 + var1 - class173.field2125;
+      if(var7 + var1 > Rasterizer2D.field2125) {
+         var10 = var7 + var1 - Rasterizer2D.field2125;
          var7 -= var10;
          var9 += var10;
          var8 += var10;
@@ -153,9 +153,9 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
 
       if(var7 > 0 && var6 > 0) {
          if(var3 == 256) {
-            method305(0, 0, 0, class173.field2121, this.pixels, var5, 0, var4, 0, var7, var6, var8, var9);
+            method305(0, 0, 0, Rasterizer2D.field2121, this.pixels, var5, 0, var4, 0, var7, var6, var8, var9);
          } else {
-            method227(0, 0, 0, class173.field2121, this.pixels, var5, 0, var4, 0, var7, var6, var8, var9, var3);
+            method227(0, 0, 0, Rasterizer2D.field2121, this.pixels, var5, 0, var4, 0, var7, var6, var8, var9, var3);
          }
 
       }
@@ -168,26 +168,26 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
          int var6 = (var3 * (this.offsetX + this.width) + this.maxWidth - 1) / this.maxWidth + var1;
          int var7 = var2 + var4 * this.offsetY / this.maxHeight;
          int var8 = var2 + (this.maxHeight + (this.offsetY + this.height) * var4 - 1) / this.maxHeight;
-         if(var5 < class173.field2124) {
-            var5 = class173.field2124;
+         if(var5 < Rasterizer2D.field2124) {
+            var5 = Rasterizer2D.field2124;
          }
 
-         if(var6 > class173.field2125) {
-            var6 = class173.field2125;
+         if(var6 > Rasterizer2D.field2125) {
+            var6 = Rasterizer2D.field2125;
          }
 
-         if(var7 < class173.field2122) {
-            var7 = class173.field2122;
+         if(var7 < Rasterizer2D.field2122) {
+            var7 = Rasterizer2D.field2122;
          }
 
-         if(var8 > class173.field2123) {
-            var8 = class173.field2123;
+         if(var8 > Rasterizer2D.field2123) {
+            var8 = Rasterizer2D.field2123;
          }
 
          if(var5 < var6 && var7 < var8) {
-            int var9 = var5 + var7 * class173.field2119;
-            int var10 = class173.field2119 - (var6 - var5);
-            if(var9 < class173.field2121.length) {
+            int var9 = var5 + var7 * Rasterizer2D.field2119;
+            int var10 = Rasterizer2D.field2119 - (var6 - var5);
+            if(var9 < Rasterizer2D.field2121.length) {
                for(int var11 = var7; var11 < var8; ++var11) {
                   for(int var12 = var5; var12 < var6; ++var12) {
                      int var13 = var12 - var1 << 4;
@@ -266,7 +266,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                               var28 = 1;
                            }
 
-                           class173.field2121[var9] = var28 | -16777216;
+                           Rasterizer2D.field2121[var9] = var28 | -16777216;
                         }
 
                         ++var9;
@@ -309,7 +309,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
          var14 = var14 * var8 >> 8;
          int var15 = var12 * var13 + var11 * var14 + (var5 << 16);
          int var16 = var12 * var14 - var11 * var13 + (var6 << 16);
-         int var17 = var1 + var2 * class173.field2119;
+         int var17 = var1 + var2 * Rasterizer2D.field2119;
 
          for(var2 = 0; var2 < var4; ++var2) {
             int var18 = var9[var2];
@@ -318,14 +318,14 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
             int var21 = var16 - var13 * var18;
 
             for(var1 = -var10[var2]; var1 < 0; ++var1) {
-               class173.field2121[var19++] = this.pixels[this.width * (var21 >> 16) + (var20 >> 16)] | -16777216;
+               Rasterizer2D.field2121[var19++] = this.pixels[this.width * (var21 >> 16) + (var20 >> 16)] | -16777216;
                var20 += var14;
                var21 -= var13;
             }
 
             var15 += var13;
             var16 += var14;
-            var17 += class173.field2119;
+            var17 += Rasterizer2D.field2119;
          }
       } catch (Exception var23) {
          ;
@@ -360,7 +360,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
          var10000 = var5 - var1;
       }
 
-      int var13 = var3 + var11 + (var9 + var2 + var4) * class173.field2119 + var1;
+      int var13 = var3 + var11 + (var9 + var2 + var4) * Rasterizer2D.field2119 + var1;
       int var14 = var9 + var2;
 
       for(int var15 = var9; var15 < var10; ++var15) {
@@ -385,13 +385,13 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
          for(int var20 = var19; var20 < var12; ++var20) {
             int var21 = this.pixels[var20 + var15 * this.width];
             if(var21 != 0) {
-               class173.field2121[var18++] = var21 | -16777216;
+               Rasterizer2D.field2121[var18++] = var21 | -16777216;
             } else {
                ++var18;
             }
          }
 
-         var13 += class173.field2119;
+         var13 += Rasterizer2D.field2119;
       }
 
    }
@@ -524,35 +524,35 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
             var4 = (var13 + ((var7 << 16) - var9) - 1) / var13;
          }
 
-         var14 = var1 + var2 * class173.field2119;
-         int var15 = class173.field2119 - var3;
-         if(var2 + var4 > class173.field2123) {
-            var4 -= var2 + var4 - class173.field2123;
+         var14 = var1 + var2 * Rasterizer2D.field2119;
+         int var15 = Rasterizer2D.field2119 - var3;
+         if(var2 + var4 > Rasterizer2D.field2123) {
+            var4 -= var2 + var4 - Rasterizer2D.field2123;
          }
 
          int var16;
-         if(var2 < class173.field2122) {
-            var16 = class173.field2122 - var2;
+         if(var2 < Rasterizer2D.field2122) {
+            var16 = Rasterizer2D.field2122 - var2;
             var4 -= var16;
-            var14 += var16 * class173.field2119;
+            var14 += var16 * Rasterizer2D.field2119;
             var9 += var13 * var16;
          }
 
-         if(var3 + var1 > class173.field2125) {
-            var16 = var3 + var1 - class173.field2125;
+         if(var3 + var1 > Rasterizer2D.field2125) {
+            var16 = var3 + var1 - Rasterizer2D.field2125;
             var3 -= var16;
             var15 += var16;
          }
 
-         if(var1 < class173.field2124) {
-            var16 = class173.field2124 - var1;
+         if(var1 < Rasterizer2D.field2124) {
+            var16 = Rasterizer2D.field2124 - var1;
             var3 -= var16;
             var14 += var16;
             var8 += var12 * var16;
             var15 += var16;
          }
 
-         method203(class173.field2121, this.pixels, 0, var8, var9, var14, var15, var3, var4, var12, var13, var6, var5);
+         method203(Rasterizer2D.field2121, this.pixels, 0, var8, var9, var14, var15, var3, var4, var12, var13, var6, var5);
       }
    }
 
@@ -646,44 +646,44 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
    public void method215(int var1, int var2) {
       var1 += this.offsetX;
       var2 += this.offsetY;
-      int var3 = var1 + var2 * class173.field2119;
+      int var3 = var1 + var2 * Rasterizer2D.field2119;
       int var4 = 0;
       int var5 = this.height;
       int var6 = this.width;
-      int var7 = class173.field2119 - var6;
+      int var7 = Rasterizer2D.field2119 - var6;
       int var8 = 0;
       int var9;
-      if(var2 < class173.field2122) {
-         var9 = class173.field2122 - var2;
+      if(var2 < Rasterizer2D.field2122) {
+         var9 = Rasterizer2D.field2122 - var2;
          var5 -= var9;
-         var2 = class173.field2122;
+         var2 = Rasterizer2D.field2122;
          var4 += var9 * var6;
-         var3 += var9 * class173.field2119;
+         var3 += var9 * Rasterizer2D.field2119;
       }
 
-      if(var5 + var2 > class173.field2123) {
-         var5 -= var5 + var2 - class173.field2123;
+      if(var5 + var2 > Rasterizer2D.field2123) {
+         var5 -= var5 + var2 - Rasterizer2D.field2123;
       }
 
-      if(var1 < class173.field2124) {
-         var9 = class173.field2124 - var1;
+      if(var1 < Rasterizer2D.field2124) {
+         var9 = Rasterizer2D.field2124 - var1;
          var6 -= var9;
-         var1 = class173.field2124;
+         var1 = Rasterizer2D.field2124;
          var4 += var9;
          var3 += var9;
          var8 += var9;
          var7 += var9;
       }
 
-      if(var6 + var1 > class173.field2125) {
-         var9 = var6 + var1 - class173.field2125;
+      if(var6 + var1 > Rasterizer2D.field2125) {
+         var9 = var6 + var1 - Rasterizer2D.field2125;
          var6 -= var9;
          var8 += var9;
          var7 += var9;
       }
 
       if(var6 > 0 && var5 > 0) {
-         method232(class173.field2121, this.pixels, 0, var4, var3, var6, var5, var7, var8);
+         method232(Rasterizer2D.field2121, this.pixels, 0, var4, var3, var6, var5, var7, var8);
       }
    }
 
@@ -719,28 +719,28 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
             var4 = (var13 + ((var7 << 16) - var9) - 1) / var13;
          }
 
-         var14 = var1 + var2 * class173.field2119;
-         int var15 = class173.field2119 - var3;
-         if(var2 + var4 > class173.field2123) {
-            var4 -= var2 + var4 - class173.field2123;
+         var14 = var1 + var2 * Rasterizer2D.field2119;
+         int var15 = Rasterizer2D.field2119 - var3;
+         if(var2 + var4 > Rasterizer2D.field2123) {
+            var4 -= var2 + var4 - Rasterizer2D.field2123;
          }
 
          int var16;
-         if(var2 < class173.field2122) {
-            var16 = class173.field2122 - var2;
+         if(var2 < Rasterizer2D.field2122) {
+            var16 = Rasterizer2D.field2122 - var2;
             var4 -= var16;
-            var14 += var16 * class173.field2119;
+            var14 += var16 * Rasterizer2D.field2119;
             var9 += var13 * var16;
          }
 
-         if(var3 + var1 > class173.field2125) {
-            var16 = var3 + var1 - class173.field2125;
+         if(var3 + var1 > Rasterizer2D.field2125) {
+            var16 = var3 + var1 - Rasterizer2D.field2125;
             var3 -= var16;
             var15 += var16;
          }
 
-         if(var1 < class173.field2124) {
-            var16 = class173.field2124 - var1;
+         if(var1 < Rasterizer2D.field2124) {
+            var16 = Rasterizer2D.field2124 - var1;
             var3 -= var16;
             var14 += var16;
             var8 += var12 * var16;
@@ -748,9 +748,9 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
          }
 
          if(var5 == 256) {
-            method246(0, 0, 0, var8, this.pixels, class173.field2121, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6);
+            method246(0, 0, 0, var8, this.pixels, Rasterizer2D.field2121, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6);
          } else {
-            method229(0, 0, 0, var8, this.pixels, class173.field2121, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6, var5);
+            method229(0, 0, 0, var8, this.pixels, Rasterizer2D.field2121, 0, 0, -var4, var9, var14, var15, var3, var12, var13, var6, var5);
          }
 
       }
@@ -767,7 +767,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
          var13 = var13 * var9 >> 8;
          int var14 = var11 * var12 + var10 * var13 + (var5 << 16);
          int var15 = var11 * var13 - var10 * var12 + (var6 << 16);
-         int var16 = var1 + var2 * class173.field2119;
+         int var16 = var1 + var2 * Rasterizer2D.field2119;
 
          for(var2 = 0; var2 < var4; ++var2) {
             int var17 = var16;
@@ -777,7 +777,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
             for(var1 = -var3; var1 < 0; ++var1) {
                int var20 = this.pixels[this.width * (var19 >> 16) + (var18 >> 16)];
                if(var20 != 0) {
-                  class173.field2121[var17++] = var20 | -16777216;
+                  Rasterizer2D.field2121[var17++] = var20 | -16777216;
                } else {
                   ++var17;
                }
@@ -788,7 +788,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
 
             var14 += var12;
             var15 += var13;
-            var16 += class173.field2119;
+            var16 += Rasterizer2D.field2119;
          }
       } catch (Exception var22) {
          ;
@@ -800,44 +800,44 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
    public void method213(int var1, int var2) {
       var1 += this.offsetX;
       var2 += this.offsetY;
-      int var3 = var1 + var2 * class173.field2119;
+      int var3 = var1 + var2 * Rasterizer2D.field2119;
       int var4 = 0;
       int var5 = this.height;
       int var6 = this.width;
-      int var7 = class173.field2119 - var6;
+      int var7 = Rasterizer2D.field2119 - var6;
       int var8 = 0;
       int var9;
-      if(var2 < class173.field2122) {
-         var9 = class173.field2122 - var2;
+      if(var2 < Rasterizer2D.field2122) {
+         var9 = Rasterizer2D.field2122 - var2;
          var5 -= var9;
-         var2 = class173.field2122;
+         var2 = Rasterizer2D.field2122;
          var4 += var9 * var6;
-         var3 += var9 * class173.field2119;
+         var3 += var9 * Rasterizer2D.field2119;
       }
 
-      if(var5 + var2 > class173.field2123) {
-         var5 -= var5 + var2 - class173.field2123;
+      if(var5 + var2 > Rasterizer2D.field2123) {
+         var5 -= var5 + var2 - Rasterizer2D.field2123;
       }
 
-      if(var1 < class173.field2124) {
-         var9 = class173.field2124 - var1;
+      if(var1 < Rasterizer2D.field2124) {
+         var9 = Rasterizer2D.field2124 - var1;
          var6 -= var9;
-         var1 = class173.field2124;
+         var1 = Rasterizer2D.field2124;
          var4 += var9;
          var3 += var9;
          var8 += var9;
          var7 += var9;
       }
 
-      if(var6 + var1 > class173.field2125) {
-         var9 = var6 + var1 - class173.field2125;
+      if(var6 + var1 > Rasterizer2D.field2125) {
+         var9 = var6 + var1 - Rasterizer2D.field2125;
          var6 -= var9;
          var8 += var9;
          var7 += var9;
       }
 
       if(var6 > 0 && var5 > 0) {
-         method214(class173.field2121, this.pixels, var4, var3, var6, var5, var7, var8);
+         method214(Rasterizer2D.field2121, this.pixels, var4, var3, var6, var5, var7, var8);
       }
    }
 
@@ -848,44 +848,44 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
       } else {
          var1 += this.offsetX;
          var2 += this.offsetY;
-         int var5 = var1 + var2 * class173.field2119;
+         int var5 = var1 + var2 * Rasterizer2D.field2119;
          int var6 = 0;
          int var7 = this.height;
          int var8 = this.width;
-         int var9 = class173.field2119 - var8;
+         int var9 = Rasterizer2D.field2119 - var8;
          int var10 = 0;
          int var11;
-         if(var2 < class173.field2122) {
-            var11 = class173.field2122 - var2;
+         if(var2 < Rasterizer2D.field2122) {
+            var11 = Rasterizer2D.field2122 - var2;
             var7 -= var11;
-            var2 = class173.field2122;
+            var2 = Rasterizer2D.field2122;
             var6 += var11 * var8;
-            var5 += var11 * class173.field2119;
+            var5 += var11 * Rasterizer2D.field2119;
          }
 
-         if(var7 + var2 > class173.field2123) {
-            var7 -= var7 + var2 - class173.field2123;
+         if(var7 + var2 > Rasterizer2D.field2123) {
+            var7 -= var7 + var2 - Rasterizer2D.field2123;
          }
 
-         if(var1 < class173.field2124) {
-            var11 = class173.field2124 - var1;
+         if(var1 < Rasterizer2D.field2124) {
+            var11 = Rasterizer2D.field2124 - var1;
             var8 -= var11;
-            var1 = class173.field2124;
+            var1 = Rasterizer2D.field2124;
             var6 += var11;
             var5 += var11;
             var10 += var11;
             var9 += var11;
          }
 
-         if(var8 + var1 > class173.field2125) {
-            var11 = var8 + var1 - class173.field2125;
+         if(var8 + var1 > Rasterizer2D.field2125) {
+            var11 = var8 + var1 - Rasterizer2D.field2125;
             var8 -= var11;
             var10 += var11;
             var9 += var11;
          }
 
          if(var8 > 0 && var7 > 0) {
-            method216(class173.field2121, this.pixels, 0, var6, var5, var8, var7, var9, var10, var3, var4);
+            method216(Rasterizer2D.field2121, this.pixels, 0, var6, var5, var8, var7, var9, var10, var3, var4);
          }
       }
    }
@@ -922,35 +922,35 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
             var4 = (var12 + ((var6 << 16) - var8) - 1) / var12;
          }
 
-         var13 = var1 + var2 * class173.field2119;
-         int var14 = class173.field2119 - var3;
-         if(var2 + var4 > class173.field2123) {
-            var4 -= var2 + var4 - class173.field2123;
+         var13 = var1 + var2 * Rasterizer2D.field2119;
+         int var14 = Rasterizer2D.field2119 - var3;
+         if(var2 + var4 > Rasterizer2D.field2123) {
+            var4 -= var2 + var4 - Rasterizer2D.field2123;
          }
 
          int var15;
-         if(var2 < class173.field2122) {
-            var15 = class173.field2122 - var2;
+         if(var2 < Rasterizer2D.field2122) {
+            var15 = Rasterizer2D.field2122 - var2;
             var4 -= var15;
-            var13 += var15 * class173.field2119;
+            var13 += var15 * Rasterizer2D.field2119;
             var8 += var12 * var15;
          }
 
-         if(var3 + var1 > class173.field2125) {
-            var15 = var3 + var1 - class173.field2125;
+         if(var3 + var1 > Rasterizer2D.field2125) {
+            var15 = var3 + var1 - Rasterizer2D.field2125;
             var3 -= var15;
             var14 += var15;
          }
 
-         if(var1 < class173.field2124) {
-            var15 = class173.field2124 - var1;
+         if(var1 < Rasterizer2D.field2124) {
+            var15 = Rasterizer2D.field2124 - var1;
             var3 -= var15;
             var13 += var15;
             var7 += var11 * var15;
             var14 += var15;
          }
 
-         method218(class173.field2121, this.pixels, 0, var7, var8, var13, var14, var3, var4, var11, var12, var5);
+         method218(Rasterizer2D.field2121, this.pixels, 0, var7, var8, var13, var14, var3, var4, var11, var12, var5);
       }
    }
 
@@ -1034,27 +1034,27 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
          var20 = var20 + 15 >> 4;
          var21 >>= 4;
          var22 = var22 + 15 >> 4;
-         if(var19 < class173.field2124) {
-            var19 = class173.field2124;
+         if(var19 < Rasterizer2D.field2124) {
+            var19 = Rasterizer2D.field2124;
          }
 
-         if(var20 > class173.field2125) {
-            var20 = class173.field2125;
+         if(var20 > Rasterizer2D.field2125) {
+            var20 = Rasterizer2D.field2125;
          }
 
-         if(var21 < class173.field2122) {
-            var21 = class173.field2122;
+         if(var21 < Rasterizer2D.field2122) {
+            var21 = Rasterizer2D.field2122;
          }
 
-         if(var22 > class173.field2123) {
-            var22 = class173.field2123;
+         if(var22 > Rasterizer2D.field2123) {
+            var22 = Rasterizer2D.field2123;
          }
 
          var20 = var19 - var20;
          if(var20 < 0) {
             var22 = var21 - var22;
             if(var22 < 0) {
-               int var23 = var19 + var21 * class173.field2119;
+               int var23 = var19 + var21 * Rasterizer2D.field2119;
                double var24 = 1.6777216E7D / (double)var6;
                int var26 = (int)Math.floor(Math.sin(var7) * var24 + 0.5D);
                int var27 = (int)Math.floor(Math.cos(var7) * var24 + 0.5D);
@@ -1071,7 +1071,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                int var38;
                if(var27 == 0) {
                   if(var26 == 0) {
-                     for(var33 = var22; var33 < 0; var23 += class173.field2119) {
+                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D.field2119) {
                         var34 = var23;
                         var35 = var30;
                         var36 = var31;
@@ -1080,7 +1080,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                            for(; var37 < 0; ++var37) {
                               var38 = this.pixels[(var35 >> 12) + (var36 >> 12) * this.width];
                               if(var38 != 0) {
-                                 class173.field2121[var34++] = var38 | -16777216;
+                                 Rasterizer2D.field2121[var34++] = var38 | -16777216;
                               } else {
                                  ++var34;
                               }
@@ -1090,7 +1090,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                         ++var33;
                      }
                   } else if(var26 < 0) {
-                     for(var33 = var22; var33 < 0; var23 += class173.field2119) {
+                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D.field2119) {
                         var34 = var23;
                         var35 = var30;
                         var36 = (var28 * var26 >> 4) + var31;
@@ -1110,7 +1110,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                            while(var37 < 0) {
                               var38 = this.pixels[(var35 >> 12) + (var36 >> 12) * this.width];
                               if(var38 != 0) {
-                                 class173.field2121[var34++] = var38 | -16777216;
+                                 Rasterizer2D.field2121[var34++] = var38 | -16777216;
                               } else {
                                  ++var34;
                               }
@@ -1124,7 +1124,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                         var30 -= var26;
                      }
                   } else {
-                     for(var33 = var22; var33 < 0; var23 += class173.field2119) {
+                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D.field2119) {
                         var34 = var23;
                         var35 = var30;
                         var36 = (var28 * var26 >> 4) + var31;
@@ -1144,7 +1144,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                            while(var37 < 0) {
                               var38 = this.pixels[(var35 >> 12) + (var36 >> 12) * this.width];
                               if(var38 != 0) {
-                                 class173.field2121[var34++] = var38 | -16777216;
+                                 Rasterizer2D.field2121[var34++] = var38 | -16777216;
                               } else {
                                  ++var34;
                               }
@@ -1160,7 +1160,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                   }
                } else if(var27 < 0) {
                   if(var26 == 0) {
-                     for(var33 = var22; var33 < 0; var23 += class173.field2119) {
+                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D.field2119) {
                         var34 = var23;
                         var35 = (var28 * var27 >> 4) + var30;
                         var36 = var31;
@@ -1180,7 +1180,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                            while(var37 < 0) {
                               var38 = this.pixels[(var35 >> 12) + (var36 >> 12) * this.width];
                               if(var38 != 0) {
-                                 class173.field2121[var34++] = var38 | -16777216;
+                                 Rasterizer2D.field2121[var34++] = var38 | -16777216;
                               } else {
                                  ++var34;
                               }
@@ -1194,7 +1194,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                         var31 += var27;
                      }
                   } else if(var26 < 0) {
-                     for(var33 = var22; var33 < 0; var23 += class173.field2119) {
+                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D.field2119) {
                         var34 = var23;
                         var35 = (var28 * var27 >> 4) + var30;
                         var36 = (var28 * var26 >> 4) + var31;
@@ -1226,7 +1226,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                         while(var37 < 0) {
                            var38 = this.pixels[(var35 >> 12) + (var36 >> 12) * this.width];
                            if(var38 != 0) {
-                              class173.field2121[var34++] = var38 | -16777216;
+                              Rasterizer2D.field2121[var34++] = var38 | -16777216;
                            } else {
                               ++var34;
                            }
@@ -1241,7 +1241,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                         var31 += var27;
                      }
                   } else {
-                     for(var33 = var22; var33 < 0; var23 += class173.field2119) {
+                     for(var33 = var22; var33 < 0; var23 += Rasterizer2D.field2119) {
                         var34 = var23;
                         var35 = (var28 * var27 >> 4) + var30;
                         var36 = (var28 * var26 >> 4) + var31;
@@ -1273,7 +1273,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                         while(var37 < 0) {
                            var38 = this.pixels[(var35 >> 12) + (var36 >> 12) * this.width];
                            if(var38 != 0) {
-                              class173.field2121[var34++] = var38 | -16777216;
+                              Rasterizer2D.field2121[var34++] = var38 | -16777216;
                            } else {
                               ++var34;
                            }
@@ -1289,7 +1289,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                      }
                   }
                } else if(var26 == 0) {
-                  for(var33 = var22; var33 < 0; var23 += class173.field2119) {
+                  for(var33 = var22; var33 < 0; var23 += Rasterizer2D.field2119) {
                      var34 = var23;
                      var35 = (var28 * var27 >> 4) + var30;
                      var36 = var31;
@@ -1309,7 +1309,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                         while(var37 < 0) {
                            var38 = this.pixels[(var35 >> 12) + (var36 >> 12) * this.width];
                            if(var38 != 0) {
-                              class173.field2121[var34++] = var38 | -16777216;
+                              Rasterizer2D.field2121[var34++] = var38 | -16777216;
                            } else {
                               ++var34;
                            }
@@ -1323,7 +1323,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                      var31 += var27;
                   }
                } else if(var26 < 0) {
-                  for(var33 = var22; var33 < 0; var23 += class173.field2119) {
+                  for(var33 = var22; var33 < 0; var23 += Rasterizer2D.field2119) {
                      var34 = var23;
                      var35 = (var28 * var27 >> 4) + var30;
                      var36 = (var28 * var26 >> 4) + var31;
@@ -1355,7 +1355,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                      while(var37 < 0) {
                         var38 = this.pixels[(var35 >> 12) + (var36 >> 12) * this.width];
                         if(var38 != 0) {
-                           class173.field2121[var34++] = var38 | -16777216;
+                           Rasterizer2D.field2121[var34++] = var38 | -16777216;
                         } else {
                            ++var34;
                         }
@@ -1370,7 +1370,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                      var31 += var27;
                   }
                } else {
-                  for(var33 = var22; var33 < 0; var23 += class173.field2119) {
+                  for(var33 = var22; var33 < 0; var23 += Rasterizer2D.field2119) {
                      var34 = var23;
                      var35 = (var28 * var27 >> 4) + var30;
                      var36 = (var28 * var26 >> 4) + var31;
@@ -1402,7 +1402,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
                      while(var37 < 0) {
                         var38 = this.pixels[(var35 >> 12) + (var36 >> 12) * this.width];
                         if(var38 != 0) {
-                           class173.field2121[var34++] = var38 | -16777216;
+                           Rasterizer2D.field2121[var34++] = var38 | -16777216;
                         } else {
                            ++var34;
                         }
@@ -1471,7 +1471,7 @@ public final class SpritePixels extends class173 implements RSSpritePixels {
 
    @ObfuscatedName("w")
    public void method304() {
-      class173.method3136(this.pixels, this.width, this.height);
+      Rasterizer2D.method3136(this.pixels, this.width, this.height);
    }
 
    @ObfuscatedName("af")

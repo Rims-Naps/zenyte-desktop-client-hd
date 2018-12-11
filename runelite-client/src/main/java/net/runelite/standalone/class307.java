@@ -50,7 +50,7 @@ public class class307 implements RSGrandExchangeOffer {
    )
    public class307(Buffer var1, boolean var2) {
       this.field3800 = var1.method2257();
-      this.field3792 = var1.readShort();
+      this.field3792 = var1.readUnsignedShort();
       this.field3799 = var1.readInt();
       this.field3794 = var1.readInt();
       this.field3795 = var1.readInt();

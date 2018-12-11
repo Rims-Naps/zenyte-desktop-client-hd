@@ -260,7 +260,7 @@ public class class164 {
       var1 = client.field2237;
       var2 = client.field2413;
       var3 = client.field2359;
-      class173.method3138(var0, var1, var0 + var2, var3 + var1);
+      Rasterizer2D.method3138(var0, var1, var0 + var2, var3 + var1);
       class211.method4247();
       int var5;
       int var28;
@@ -287,7 +287,7 @@ public class class164 {
       int var12;
       int var14;
       if(!client.field2397) {
-         if(class175.field2134.field854) {
+         if(WorldMapNode.field2134.field854) {
             var5 = class260.field3393;
          } else {
             label606: {
@@ -498,15 +498,15 @@ public class class164 {
             var19 = client.field2195[client.field2197[var18 - var16]];
          }
 
-         class217.method4494((class99)var19, var18, var0, var1, var2, var3, -1781715326);
+         Js5Index.method4494((class99)var19, var18, var0, var1, var2, var3, -1781715326);
       }
 
       if(client.field2272 && var15 != -1) {
-         class217.method4494(class32.field303, var15, var0, var1, var2, var3, -1781715326);
+         Js5Index.method4494(class32.field303, var15, var0, var1, var2, var3, -1781715326);
       }
 
       if(var31) {
-         class217.method4494(client.field2269[client.field2343], var14, var0, var1, var2, var3, -1781715326);
+         Js5Index.method4494(client.field2269[client.field2343], var14, var0, var1, var2, var3, -1781715326);
       }
 
       for(var18 = 0; var18 < client.field2240; ++var18) {
@@ -600,9 +600,9 @@ public class class164 {
 
             if(client.field2247[var18] == 4) {
                var26 = (150 - client.field2346[var18]) * (class172.field2117.method3890(var30) + 100) / 150;
-               class173.method3158(var0 + client.field2252 - 50, var1, var0 + client.field2252 + 50, var3 + var1);
+               Rasterizer2D.method3158(var0 + client.field2252 - 50, var1, var0 + client.field2252 + 50, var3 + var1);
                class172.field2117.method3832(var30, var0 + client.field2252 + 50 - var26, client.field2253 + var1, var25, 0);
-               class173.method3138(var0, var1, var0 + var2, var3 + var1);
+               Rasterizer2D.method3138(var0, var1, var0 + var2, var3 + var1);
             }
 
             if(client.field2247[var18] == 5) {
@@ -614,16 +614,16 @@ public class class164 {
                   var27 = var26 - 125;
                }
 
-               class173.method3158(var0, client.field2253 + var1 - class172.field2117.field2718 - 1, var0 + var2, client.field2253 + var1 + 5);
+               Rasterizer2D.method3158(var0, client.field2253 + var1 - class172.field2117.field2718 - 1, var0 + var2, client.field2253 + var1 + 5);
                class172.field2117.method3879(var30, var0 + client.field2252, var27 + client.field2253 + var1, var25, 0);
-               class173.method3138(var0, var1, var0 + var2, var3 + var1);
+               Rasterizer2D.method3138(var0, var1, var0 + var2, var3 + var1);
             }
          } else {
             class172.field2117.method3879(var30, var0 + client.field2252, client.field2253 + var1, 16776960, 0);
          }
       }
 
-      class127.method2481(var0, var1);
+      WorldMapGameObject.method2481(var0, var1);
       ((class266)class211.field2895).method5296(client.field2410);
       class219.method4507(var0, var1, var2, var3);
       class85.field912 = var5;
@@ -641,8 +641,8 @@ public class class164 {
       }
 
       if(client.field2215) {
-         class173.method3167(var0, var1, var2, var3, 0);
-         class214.method4369("Loading - please wait.", false);
+         Rasterizer2D.method3167(var0, var1, var2, var3, 0);
+         WorldMapRegion.method4369("Loading - please wait.", false);
       }
 
    }

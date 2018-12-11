@@ -261,7 +261,7 @@ public final class class79 extends class102 implements RSGraphicsObject {
             }
 
             var3.vmethod5727(var3.field3671);
-            if(class23.field247 > 0 && class293.field3659 == null) {
+            if(MapIcon.field247 > 0 && class293.field3659 == null) {
                class293.field3659 = new class297();
                class311.field3824 = Executors.newScheduledThreadPool(1);
                class311.field3824.scheduleAtFixedRate(class293.field3659, 0L, 10L, TimeUnit.MILLISECONDS);

@@ -10,19 +10,19 @@ public class class223 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   class217 field3004;
+   Js5Index field3004;
    @ObfuscatedName("f")
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   class217 field3006;
+   Js5Index field3006;
    @ObfuscatedName("w")
    HashMap field3005;
 
    @ObfuscatedSignature(
       signature = "(Lik;Lik;)V"
    )
-   public class223(class217 var1, class217 var2) {
+   public class223(Js5Index var1, Js5Index var2) {
       this.field3006 = var1;
       this.field3004 = var2;
       this.field3005 = new HashMap();
@@ -42,11 +42,11 @@ public class class223 {
          if(this.field3005.containsKey(var5)) {
             var2.put(var5, this.field3005.get(var5));
          } else {
-            class217 var7 = this.field3006;
-            class217 var8 = this.field3004;
+            Js5Index var7 = this.field3006;
+            Js5Index var8 = this.field3004;
             String var9 = var5.field843;
-            int var10 = var7.method4421(var9);
-            int var11 = var7.method4400(var10, "");
+            int var10 = var7.getGroupId(var9);
+            int var11 = var7.getChild(var10, "");
             class299 var6 = class314.method6147(var7, var8, var10, var11);
             if(var6 != null) {
                this.field3005.put(var5, var6);

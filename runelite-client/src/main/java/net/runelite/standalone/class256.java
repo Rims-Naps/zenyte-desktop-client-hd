@@ -30,9 +30,9 @@ public class class256 {
       garbageValue = "-1331984177"
    )
    static int method5129(int var0, class296 var1, boolean var2) {
-      class187 var3 = class48.method1047(class249.field3312[--class308.field3811]);
+      class187 var3 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
       if(var0 == 2800) {
-         class249.field3312[++class308.field3811 - 1] = class217.method4493(class203.method4026(var3));
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = Js5Index.method4493(class203.method4026(var3));
          return 1;
       } else if(var0 != 2801) {
          if(var0 == 2802) {
@@ -47,7 +47,7 @@ public class class256 {
             return 2;
          }
       } else {
-         int var4 = class249.field3312[--class308.field3811];
+         int var4 = class249.field3312[--MapCacheArchiveNames.field3811];
          --var4;
          if(var3.field2630 != null && var4 < var3.field2630.length && var3.field2630[var4] != null) {
             class249.field3313[++class103.field1146 - 1] = var3.field2630[var4];

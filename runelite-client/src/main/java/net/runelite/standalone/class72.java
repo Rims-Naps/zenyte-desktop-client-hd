@@ -16,7 +16,7 @@ public class class72 extends class324 implements RSVarbit {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field832;
+   public static Js5Index field832;
    @ObfuscatedName("lg")
    @ObfuscatedGetter(
       intValue = -705992085
@@ -49,7 +49,7 @@ public class class72 extends class324 implements RSVarbit {
    )
    void method1544(Buffer var1, int var2) {
       if(var2 == 1) {
-         this.field828 = var1.readShort();
+         this.field828 = var1.readUnsignedShort();
          this.field830 = var1.readUnsignedByte();
          this.field831 = var1.readUnsignedByte();
       }

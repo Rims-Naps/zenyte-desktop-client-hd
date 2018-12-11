@@ -213,7 +213,7 @@ public class WorldMapData implements RSWorldMapData {
       signature = "(Lgm;II)V",
       garbageValue = "1047760222"
    )
-   public void loadMapData(Buffer var1, int var2) {
+   public void decodeDetails(Buffer var1, int var2) {
       this.fileId = var2;
       this.safeName = var1.readString();
       this.name = var1.readString();
@@ -399,7 +399,7 @@ public class WorldMapData implements RSWorldMapData {
       garbageValue = "1229095151"
    )
    static class230 method2757(int var0, int var1) {
-      class204 var2 = WorldMapRegion.field536;
+      class204 var2 = SomeWorldMapObject.field536;
       long var3 = (long)(0 | var0 << 8 | var1);
       return (class230)var2.method4028(var3);
    }

@@ -197,7 +197,7 @@ public class class206 {
             var3.method2250("");
          }
 
-         var2.method5442(var3.field1694, 0, var3.field1693);
+         var2.method5442(var3.field1694, 0, var3.position);
          var2.method5454();
       } catch (IOException var4) {
          var4.printStackTrace();

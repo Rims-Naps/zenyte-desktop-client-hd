@@ -200,42 +200,42 @@ public class class318 implements Runnable {
       int var1 = class36.field362 * 128 + 64;
       int var2 = class314.method6140(var0, var1, class260.field3393) - class276.field3504;
       if(class85.field912 < var0) {
-         class85.field912 = (var0 - class85.field912) * WorldMapManager.field2887 / 1000 + class85.field912 + class175.field2135;
+         class85.field912 = (var0 - class85.field912) * WorldMapManager.field2887 / 1000 + class85.field912 + WorldMapNode.field2135;
          if(class85.field912 > var0) {
             class85.field912 = var0;
          }
       }
 
       if(class85.field912 > var0) {
-         class85.field912 -= WorldMapManager.field2887 * (class85.field912 - var0) / 1000 + class175.field2135;
+         class85.field912 -= WorldMapManager.field2887 * (class85.field912 - var0) / 1000 + WorldMapNode.field2135;
          if(class85.field912 < var0) {
             class85.field912 = var0;
          }
       }
 
       if(class229.field3068 < var2) {
-         class229.field3068 = (var2 - class229.field3068) * WorldMapManager.field2887 / 1000 + class229.field3068 + class175.field2135;
+         class229.field3068 = (var2 - class229.field3068) * WorldMapManager.field2887 / 1000 + class229.field3068 + WorldMapNode.field2135;
          if(class229.field3068 > var2) {
             class229.field3068 = var2;
          }
       }
 
       if(class229.field3068 > var2) {
-         class229.field3068 -= WorldMapManager.field2887 * (class229.field3068 - var2) / 1000 + class175.field2135;
+         class229.field3068 -= WorldMapManager.field2887 * (class229.field3068 - var2) / 1000 + WorldMapNode.field2135;
          if(class229.field3068 < var2) {
             class229.field3068 = var2;
          }
       }
 
       if(class116.field1324 < var1) {
-         class116.field1324 = (var1 - class116.field1324) * WorldMapManager.field2887 / 1000 + class116.field1324 + class175.field2135;
+         class116.field1324 = (var1 - class116.field1324) * WorldMapManager.field2887 / 1000 + class116.field1324 + WorldMapNode.field2135;
          if(class116.field1324 > var1) {
             class116.field1324 = var1;
          }
       }
 
       if(class116.field1324 > var1) {
-         class116.field1324 -= WorldMapManager.field2887 * (class116.field1324 - var1) / 1000 + class175.field2135;
+         class116.field1324 -= WorldMapManager.field2887 * (class116.field1324 - var1) / 1000 + WorldMapNode.field2135;
          if(class116.field1324 < var1) {
             class116.field1324 = var1;
          }
@@ -321,32 +321,32 @@ public class class318 implements Runnable {
       if(class39.field380 > 0) {
          for(var1 = 0; var1 < 256; ++var1) {
             if(class39.field380 > 768) {
-               class179.field2462[var1] = class302.method5976(class23.field249[var1], class103.field1147[var1], 1024 - class39.field380);
+               class179.field2462[var1] = class302.method5976(MapIcon.field249[var1], class103.field1147[var1], 1024 - class39.field380);
             } else if(class39.field380 > 256) {
                class179.field2462[var1] = class103.field1147[var1];
             } else {
-               class179.field2462[var1] = class302.method5976(class103.field1147[var1], class23.field249[var1], 256 - class39.field380);
+               class179.field2462[var1] = class302.method5976(class103.field1147[var1], MapIcon.field249[var1], 256 - class39.field380);
             }
          }
       } else if(class39.field385 > 0) {
          for(var1 = 0; var1 < 256; ++var1) {
             if(class39.field385 > 768) {
-               class179.field2462[var1] = class302.method5976(class23.field249[var1], class302.field3754[var1], 1024 - class39.field385);
+               class179.field2462[var1] = class302.method5976(MapIcon.field249[var1], class302.field3754[var1], 1024 - class39.field385);
             } else if(class39.field385 > 256) {
                class179.field2462[var1] = class302.field3754[var1];
             } else {
-               class179.field2462[var1] = class302.method5976(class302.field3754[var1], class23.field249[var1], 256 - class39.field385);
+               class179.field2462[var1] = class302.method5976(class302.field3754[var1], MapIcon.field249[var1], 256 - class39.field385);
             }
          }
       } else {
          for(var1 = 0; var1 < 256; ++var1) {
-            class179.field2462[var1] = class23.field249[var1];
+            class179.field2462[var1] = MapIcon.field249[var1];
          }
       }
 
-      class173.method3138(class39.field407, 9, class39.field407 + 128, var0 + 7);
+      Rasterizer2D.method3138(class39.field407, 9, class39.field407 + 128, var0 + 7);
       class39.leftBackground.method213(class39.field407, 0);
-      class173.method3151();
+      Rasterizer2D.method3151();
       var1 = 0;
       int var2 = class124.field1689.field4010 * 9 + class39.field407;
 
@@ -383,9 +383,9 @@ public class class318 implements Runnable {
          var2 += var5 + class124.field1689.field4010 - 128;
       }
 
-      class173.method3138(class39.field407 + 765 - 128, 9, class39.field407 + 765, var0 + 7);
+      Rasterizer2D.method3138(class39.field407 + 765 - 128, 9, class39.field407 + 765, var0 + 7);
       class107.rightBackground.method213(class39.field407 + 382, 0);
-      class173.method3151();
+      Rasterizer2D.method3151();
       var1 = 0;
       var2 = class124.field1689.field4010 * 9 + class39.field407 + 637 + 24;
 

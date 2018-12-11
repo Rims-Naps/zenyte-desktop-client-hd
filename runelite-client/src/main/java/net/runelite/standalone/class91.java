@@ -207,7 +207,7 @@ public final class class91 implements RSDecorativeObject {
    @ObfuscatedSignature(
       signature = "(Lik;IIB)Llp;"
    )
-   public static SpritePixels method1715(class217 var0, int var1, int var2, byte var3) {
+   public static SpritePixels method1715(Js5Index var0, int var1, int var2, byte var3) {
       net.runelite.api.SpritePixels var4 = (net.runelite.api.SpritePixels)client.spriteOverrides.get(Integer.valueOf(var1));
       return var4 != null?(SpritePixels)((RSSpritePixels)var4):(SpritePixels)client.copy$getSpriteAsSpritePixels(var0, var1, var2, var3);
    }

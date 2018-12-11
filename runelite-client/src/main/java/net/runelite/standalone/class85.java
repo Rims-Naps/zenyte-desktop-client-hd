@@ -31,7 +31,7 @@ public class class85 {
       garbageValue = "-2043132530"
    )
    static final int method1626() {
-      if(class175.field2134.field854) {
+      if(WorldMapNode.field2134.field854) {
          return class260.field3393;
       } else {
          int var0 = class314.method6140(field912, class116.field1324, class260.field3393);
@@ -65,10 +65,10 @@ public class class85 {
             byte var4 = 20;
             var0.method3879("Zenyte is loading - please wait...", class39.field388 + 180, 245 - var4, 16777215, -1);
             var5 = 253 - var4;
-            class173.method3149(class39.field388 + 180 - 152, var5, 304, 34, 9179409);
-            class173.method3149(class39.field388 + 180 - 151, var5 + 1, 302, 32, 0);
-            class173.method3167(class39.field388 + 180 - 150, var5 + 2, class39.field375 * 3, 30, 9179409);
-            class173.method3167(class39.field375 * 3 + (class39.field388 + 180 - 150), var5 + 2, 300 - class39.field375 * 3, 30, 0);
+            Rasterizer2D.method3149(class39.field388 + 180 - 152, var5, 304, 34, 9179409);
+            Rasterizer2D.method3149(class39.field388 + 180 - 151, var5 + 1, 302, 32, 0);
+            Rasterizer2D.method3167(class39.field388 + 180 - 150, var5 + 2, class39.field375 * 3, 30, 9179409);
+            Rasterizer2D.method3167(class39.field375 * 3 + (class39.field388 + 180 - 150), var5 + 2, 300 - class39.field375 * 3, 30, 0);
             var0.method3879(class39.field387, class39.field388 + 180, 276 - var4, 16777215, -1);
          }
 
@@ -98,7 +98,7 @@ public class class85 {
             if(class39.field398 != 4) {
                var0.method3832("Login: ", class39.field388 + 180 - 110, var33, 16777215, 0);
                var34 = 200;
-               if(!class175.field2134.field861) {
+               if(!WorldMapNode.field2134.field861) {
                   var7 = class39.field386;
                } else {
                   var9 = class39.field386;
@@ -177,7 +177,7 @@ public class class85 {
                   var33 += 7;
                   var0.method3832("Login: ", class329.field3984 - 110, var33, 16777215, 0);
                   var34 = 200;
-                  if(!class175.field2134.field861) {
+                  if(!WorldMapNode.field2134.field861) {
                      var7 = class39.field386;
                   } else {
                      var9 = class39.field386;
@@ -219,7 +219,7 @@ public class class85 {
                   var27 = var27 + var29.field3759 + 5;
                   var1.method3832("Remember username", var27, var32 + 13, 16776960, 0);
                   var27 = class329.field3984 + 24;
-                  boolean var18 = class175.field2134.field861;
+                  boolean var18 = WorldMapNode.field2134.field861;
                   boolean var19 = class39.field372;
                   class303 var17 = var18?(var19?class174.field2127:class135.field1744):(var19?class32.field297:class39.field376);
                   var17.method5980(var27, var32);
@@ -320,7 +320,7 @@ public class class85 {
                         var33 += 14;
                         var0.method3832("Username/email: ", class39.field388 + 180 - 145, var33, 16777215, 0);
                         var34 = 174;
-                        if(!class175.field2134.field861) {
+                        if(!WorldMapNode.field2134.field861) {
                            var7 = class39.field386;
                         } else {
                            var9 = class39.field386;
@@ -436,7 +436,7 @@ public class class85 {
          }
 
          class318.method6229();
-         class121.field1651[class175.field2134.field855?1:0].method5980(class39.field407 + 765 - 40, 463);
+         class121.field1651[WorldMapNode.field2134.field855?1:0].method5980(class39.field407 + 765 - 40, 463);
          if(client.field2161 > 5 && client.field2158 == 0) {
             if(class210.field2892 != null) {
                var33 = class39.field407 + 5;

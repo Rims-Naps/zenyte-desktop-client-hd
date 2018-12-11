@@ -111,8 +111,8 @@ public final class class185 {
          class49.field553.method5724();
       }
 
-      if(class175.field2147 != null) {
-         class175.field2147.method5724();
+      if(WorldMapNode.field2147 != null) {
+         WorldMapNode.field2147.method5724();
       }
 
    }

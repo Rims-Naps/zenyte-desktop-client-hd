@@ -86,10 +86,10 @@ public enum class32 implements class26 {
       signature = "(Lik;Lik;ZB)V",
       garbageValue = "33"
    )
-   public static void method535(class217 var0, class217 var1, boolean var2) {
-      class15.field182 = var0;
-      class15.field149 = var1;
-      class15.field175 = var2;
+   public static void method535(Js5Index var0, Js5Index var1, boolean var2) {
+      ObjectDef.field182 = var0;
+      ObjectDef.field149 = var1;
+      ObjectDef.field175 = var2;
    }
 
    @ObfuscatedName("ik")

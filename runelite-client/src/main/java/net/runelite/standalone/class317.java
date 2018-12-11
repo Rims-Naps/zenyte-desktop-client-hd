@@ -34,7 +34,7 @@ public class class317 {
    class317(Buffer var1, byte var2, int var3) {
       this.field3902 = var1.readString();
       this.field3903 = var1.readString();
-      this.field3900 = var1.readShort();
+      this.field3900 = var1.readUnsignedShort();
       this.field3905 = var1.method2349();
       int var4 = var1.readInt();
       int var5 = var1.readInt();
@@ -75,7 +75,7 @@ public class class317 {
       class185.method3733();
       class198 var4 = var0.method3762(false);
       if(var4 != null) {
-         class173.method3138(var1, var2, var4.field2798 + var1, var2 + var4.field2795);
+         Rasterizer2D.method3138(var1, var2, var4.field2798 + var1, var2 + var4.field2795);
          if(client.field2411 != 2 && client.field2411 != 5) {
             int var5 = client.field2223 & 2047;
             int var6 = class32.field303.field1090 / 32 + 48;
@@ -178,10 +178,10 @@ public class class317 {
             }
 
             if(!class32.field303.field2800) {
-               class173.method3167(var4.field2798 / 2 + var1 - 1, var4.field2795 / 2 + var2 - 1, 3, 3, 16777215);
+               Rasterizer2D.method3167(var4.field2798 / 2 + var1 - 1, var4.field2795 / 2 + var2 - 1, 3, 3, 16777215);
             }
          } else {
-            class173.method3157(var1, var2, 0, var4.field2796, var4.field2793);
+            Rasterizer2D.method3157(var1, var2, 0, var4.field2796, var4.field2793);
          }
 
          client.field2287[var3] = true;

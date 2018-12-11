@@ -11,7 +11,7 @@ public class class244 extends class324 implements RSCombatInfo2 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field3276;
+   static Js5Index field3276;
    @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "Lgd;"
@@ -21,7 +21,7 @@ public class class244 extends class324 implements RSCombatInfo2 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field3280;
+   public static Js5Index field3280;
    @ObfuscatedName("w")
    @ObfuscatedSignature(
       signature = "Lgd;"
@@ -125,7 +125,7 @@ public class class244 extends class324 implements RSCombatInfo2 {
    )
    void method4928(Buffer var1, int var2) {
       if(var2 == 1) {
-         var1.readShort();
+         var1.readUnsignedShort();
       } else if(var2 == 2) {
          this.field3284 = var1.readUnsignedByte();
       } else if(var2 == 3) {
@@ -133,7 +133,7 @@ public class class244 extends class324 implements RSCombatInfo2 {
       } else if(var2 == 4) {
          this.field3283 = 0;
       } else if(var2 == 5) {
-         this.field3285 = var1.readShort();
+         this.field3285 = var1.readUnsignedShort();
       } else if(var2 == 6) {
          var1.readUnsignedByte();
       } else if(var2 == 7) {
@@ -141,7 +141,7 @@ public class class244 extends class324 implements RSCombatInfo2 {
       } else if(var2 == 8) {
          this.field3287 = var1.method2293();
       } else if(var2 == 11) {
-         this.field3283 = var1.readShort();
+         this.field3283 = var1.readUnsignedShort();
       } else if(var2 == 14) {
          this.field3279 = var1.readUnsignedByte();
       } else if(var2 == 15) {

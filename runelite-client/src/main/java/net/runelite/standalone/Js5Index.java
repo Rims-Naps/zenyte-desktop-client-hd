@@ -17,7 +17,7 @@ import net.runelite.rs.api.RSIndexDataBase;
 import org.slf4j.Logger;
 
 @ObfuscatedName("ik")
-public abstract class class217 implements RSIndexDataBase {
+public abstract class Js5Index implements RSIndexDataBase {
    @ObfuscatedName("u")
    @ObfuscatedGetter(
       intValue = -1513495793
@@ -77,7 +77,7 @@ public abstract class class217 implements RSIndexDataBase {
       field2969 = 0;
    }
 
-   class217(boolean var1, boolean var2) {
+   Js5Index(boolean var1, boolean var2) {
       this.field2967 = var1;
       this.field2968 = var2;
    }
@@ -116,7 +116,7 @@ public abstract class class217 implements RSIndexDataBase {
       signature = "(ILjava/lang/String;I)I",
       garbageValue = "-1929783439"
    )
-   public int method4400(int var1, String var2) {
+   public int getChild(int var1, String var2) {
       var2 = var2.toLowerCase();
       return this.field2962[var1].method1492(class205.method4047(var2));
    }
@@ -266,7 +266,7 @@ public abstract class class217 implements RSIndexDataBase {
          if(var5 >= 7) {
             this.field2965 = var4.method2272();
          } else {
-            this.field2965 = var4.readShort();
+            this.field2965 = var4.readUnsignedShort();
          }
 
          int var7 = 0;
@@ -282,7 +282,7 @@ public abstract class class217 implements RSIndexDataBase {
             }
          } else {
             for(var9 = 0; var9 < this.field2965; ++var9) {
-               this.field2954[var9] = var7 += var4.readShort();
+               this.field2954[var9] = var7 += var4.readUnsignedShort();
                if(this.field2954[var9] > var8) {
                   var8 = this.field2954[var9];
                }
@@ -314,7 +314,7 @@ public abstract class class217 implements RSIndexDataBase {
          }
 
          for(var9 = 0; var9 < this.field2965; ++var9) {
-            this.field2966[this.field2954[var9]] = var4.readShort();
+            this.field2966[this.field2954[var9]] = var4.readUnsignedShort();
          }
 
          int var10;
@@ -348,7 +348,7 @@ public abstract class class217 implements RSIndexDataBase {
                this.field2955[var10] = new int[var11];
 
                for(var13 = 0; var13 < var11; ++var13) {
-                  var14 = this.field2955[var10][var13] = var7 += var4.readShort();
+                  var14 = this.field2955[var10][var13] = var7 += var4.readUnsignedShort();
                   if(var14 > var12) {
                      var12 = var14;
                   }
@@ -464,7 +464,7 @@ public abstract class class217 implements RSIndexDataBase {
                var9 -= var3 * var10 * 4;
                Buffer var11 = new Buffer(var20);
                int[] var12 = new int[var3];
-               var11.field1693 = var9;
+               var11.position = var9;
 
                int var14;
                int var15;
@@ -484,7 +484,7 @@ public abstract class class217 implements RSIndexDataBase {
                   var12[var14] = 0;
                }
 
-               var11.field1693 = var9;
+               var11.position = var9;
                var14 = 0;
 
                for(var15 = 0; var15 < var10; ++var15) {
@@ -556,7 +556,7 @@ public abstract class class217 implements RSIndexDataBase {
       signature = "(Ljava/lang/String;I)I",
       garbageValue = "-901257565"
    )
-   public int method4421(String var1) {
+   public int getGroupId(String var1) {
       var1 = var1.toLowerCase();
       return this.field2956.method1492(class205.method4047(var1));
    }
@@ -666,7 +666,6 @@ public abstract class class217 implements RSIndexDataBase {
       var2 = var2.toLowerCase();
       int var3 = this.field2956.method1492(class205.method4047(var1));
       int var4 = this.field2962[var3].method1492(class205.method4047(var2));
-      System.out.println("[" + var1 + ":" + var3 + "] [" + var2 + ":" + var4 + "]");
       return this.method4398(var3, var4, -67742742);
    }
 
@@ -758,7 +757,7 @@ public abstract class class217 implements RSIndexDataBase {
          }
 
          byte[] var3 = new byte[var2];
-         var0.field1693 += class155.field1905.method5059(var0.field1694, var0.field1693, var3, 0, var2);
+         var0.position += class155.field1905.method5059(var0.field1694, var0.position, var3, 0, var2);
          String var4 = class225.method4566(var3, 0, var2);
          var1 = var4;
       } catch (Exception var6) {

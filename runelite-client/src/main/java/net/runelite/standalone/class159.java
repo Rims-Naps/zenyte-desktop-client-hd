@@ -291,7 +291,7 @@ public class class159 implements RSFriendManager {
       signature = "(Lik;III)[Lle;",
       garbageValue = "1930936171"
    )
-   public static class303[] method2957(class217 var0, int var1, int var2) {
+   public static class303[] method2957(Js5Index var0, int var1, int var2) {
       byte[] var4 = var0.method4398(var1, var2, -449231794);
       boolean var3;
       if(var4 == null) {

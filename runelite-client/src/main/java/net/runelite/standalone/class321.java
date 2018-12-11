@@ -157,9 +157,9 @@ public class class321 extends class102 implements RSDynamicObject {
          this.onAnimCycleCountChanged(-1);
       }
 
-      class15 var13 = class285.method5484(this.field3929);
-      if(var13.field189 != null) {
-         var13 = var13.method325();
+      ObjectDef var13 = class285.getObjectDef(this.field3929);
+      if(var13.multiLocs != null) {
+         var13 = var13.getMultiLoc();
       }
 
       if(var13 == null) {

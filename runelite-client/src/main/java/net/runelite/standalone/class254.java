@@ -152,7 +152,7 @@ public class class254 extends class168 implements RSClanMemberManager {
 
          for(int var8 = 0; var8 < var7; ++var8) {
             class272 var9 = (class272)this.method3036(new class158(var1.readString(), this.field3348));
-            int var10 = var1.readShort();
+            int var10 = var1.readUnsignedShort();
             var9.method1338(var10, ++this.field3347 - 1);
             var9.field733 = var1.method2257();
             var1.readString();
@@ -178,7 +178,7 @@ public class class254 extends class168 implements RSClanMemberManager {
    )
    public final void method5087(Buffer var1) {
       class158 var2 = new class158(var1.readString(), this.field3348);
-      int var3 = var1.readShort();
+      int var3 = var1.readUnsignedShort();
       byte var4 = var1.method2257();
       boolean var5 = false;
       if(var4 == -128) {

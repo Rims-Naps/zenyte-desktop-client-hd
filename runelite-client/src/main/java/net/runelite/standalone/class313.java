@@ -11,7 +11,7 @@ public class class313 {
       garbageValue = "-1559194507"
    )
    static final boolean method6139(int var0, int var1) {
-      class15 var2 = class285.method5484(var0);
+      ObjectDef var2 = class285.getObjectDef(var0);
       if(var1 == 11) {
          var1 = 10;
       }
@@ -30,9 +30,9 @@ public class class313 {
    )
    static final void method6136(String var0) {
       if(var0.equalsIgnoreCase("toggleroof")) {
-         class175.field2134.field854 = !class175.field2134.field854;
+         WorldMapNode.field2134.field854 = !WorldMapNode.field2134.field854;
          class236.method4709();
-         if(class175.field2134.field854) {
+         if(WorldMapNode.field2134.field854) {
             ServerProt.method3131(99, "", "Roofs are now all hidden");
          } else {
             ServerProt.method3131(99, "", "Roofs will only be removed selectively");

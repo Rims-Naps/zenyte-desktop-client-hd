@@ -5,7 +5,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("aa")
-public class class108 extends class175 {
+public class WorldMapChunk extends WorldMapNode {
    @ObfuscatedName("z")
    @ObfuscatedGetter(
       intValue = 1762715999
@@ -59,39 +59,39 @@ public class class108 extends class175 {
       signature = "(Lgm;Lgm;I)V",
       garbageValue = "-1534728828"
    )
-   void method1893(Buffer var1, Buffer var2) {//regular map data
-      int var3 = var2.readUnsignedByte();
+   void decode(Buffer areaBuffer, Buffer compositeMapBuffer) {
+      int var3 = compositeMapBuffer.readUnsignedByte();
       if(var3 != class174.field2131.field2128) {
          throw new IllegalStateException("");
       } else {
-         super.field2146 = var2.readUnsignedByte();
-         super.field2139 = var2.readUnsignedByte();
-         super.field2150 = var2.readShort();
-         super.field2144 = var2.readShort();
-         this.field1174 = var2.readUnsignedByte();
-         this.field1170 = var2.readUnsignedByte();
-         super.field2138 = var2.readShort();
-         super.field2137 = var2.readShort();
-         this.field1172 = var2.readUnsignedByte();
-         this.field1173 = var2.readUnsignedByte();
+         super.field2146 = compositeMapBuffer.readUnsignedByte();
+         super.field2139 = compositeMapBuffer.readUnsignedByte();
+         super.field2150 = compositeMapBuffer.readUnsignedShort();
+         super.field2144 = compositeMapBuffer.readUnsignedShort();
+         this.field1174 = compositeMapBuffer.readUnsignedByte();
+         this.field1170 = compositeMapBuffer.readUnsignedByte();
+         super.field2138 = compositeMapBuffer.readUnsignedShort();
+         super.field2137 = compositeMapBuffer.readUnsignedShort();
+         this.field1172 = compositeMapBuffer.readUnsignedByte();
+         this.field1173 = compositeMapBuffer.readUnsignedByte();
          super.field2139 = Math.min(super.field2139, 4);
          super.field2140 = new short[1][64][64];
          super.field2141 = new short[super.field2139][64][64];
          super.field2142 = new byte[super.field2139][64][64];
          super.field2143 = new byte[super.field2139][64][64];
-         super.field2149 = new class127[super.field2139][64][64][];
-         var3 = var1.readUnsignedByte();
+         super.objects = new WorldMapGameObject[super.field2139][64][64][];
+         var3 = areaBuffer.readUnsignedByte();
          if(var3 != class286.field3577.field3578) {
             throw new IllegalStateException("");
          } else {
-            int var4 = var1.readUnsignedByte();
-            int var5 = var1.readUnsignedByte();
-            int var6 = var1.readUnsignedByte();
-            int var7 = var1.readUnsignedByte();
+            int var4 = areaBuffer.readUnsignedByte();
+            int var5 = areaBuffer.readUnsignedByte();
+            int var6 = areaBuffer.readUnsignedByte();
+            int var7 = areaBuffer.readUnsignedByte();
             if(var4 == super.field2138 && var5 == super.field2137 && var6 == this.field1172 && var7 == this.field1173) {
                for(int var8 = 0; var8 < 8; ++var8) {
                   for(int var9 = 0; var9 < 8; ++var9) {
-                     this.method3224(var8 + this.field1172 * 8, var9 + this.field1173 * 8, var1);
+                     this.method3224(var8 + this.field1172 * 8, var9 + this.field1173 * 8, areaBuffer);
                   }
                }
 
@@ -103,10 +103,10 @@ public class class108 extends class175 {
    }
 
    public boolean equals(Object var1) {
-      if(!(var1 instanceof class108)) {
+      if(!(var1 instanceof WorldMapChunk)) {
          return false;
       } else {
-         class108 var2 = (class108)var1;
+         WorldMapChunk var2 = (WorldMapChunk)var1;
          return super.field2138 == var2.field2138 && super.field2137 == var2.field2137?this.field1172 == var2.field1172 && this.field1173 == var2.field1173:false;
       }
    }
@@ -142,7 +142,7 @@ public class class108 extends class175 {
       class187 var3;
       if(var0 >= 2000) {
          var0 -= 1000;
-         var3 = class48.method1047(class249.field3312[--class308.field3811]);
+         var3 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
       } else {
          var3 = var2?class3.field36:class284.field3565;
       }
@@ -151,7 +151,7 @@ public class class108 extends class175 {
       if(var0 != 1200 && var0 != 1205 && var0 != 1212) {
          if(var0 == 1201) {
             var3.field2566 = 2;
-            var3.field2602 = class249.field3312[--class308.field3811];
+            var3.field2602 = class249.field3312[--MapCacheArchiveNames.field3811];
             return 1;
          } else if(var0 == 1202) {
             var3.field2566 = 3;
@@ -161,9 +161,9 @@ public class class108 extends class175 {
             return 2;
          }
       } else {
-         class308.field3811 -= 2;
-         int var4 = class249.field3312[class308.field3811];
-         int var5 = class249.field3312[class308.field3811 + 1];
+         MapCacheArchiveNames.field3811 -= 2;
+         int var4 = class249.field3312[MapCacheArchiveNames.field3811];
+         int var5 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
          var3.field2676 = var4;
          var3.field2685 = var5;
          class42 var6 = class164.method3014(var4);

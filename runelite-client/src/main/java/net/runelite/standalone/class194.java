@@ -113,24 +113,24 @@ public class class194 extends class197 implements RSScriptEvent {
       garbageValue = "1185916841"
    )
    static int method3932(int var0, class296 var1, boolean var2) {
-      class187 var3 = class48.method1047(class249.field3312[--class308.field3811]);
+      class187 var3 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
       if(var0 == 2500) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2634;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2634;
          return 1;
       } else if(var0 == 2501) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2572;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2572;
          return 1;
       } else if(var0 == 2502) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2573;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2573;
          return 1;
       } else if(var0 == 2503) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2574;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2574;
          return 1;
       } else if(var0 == 2504) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2583?1:0;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2583?1:0;
          return 1;
       } else if(var0 == 2505) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2577;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2577;
          return 1;
       } else {
          return 2;
@@ -174,7 +174,7 @@ public class class194 extends class197 implements RSScriptEvent {
       signature = "(Lik;Lik;Lik;Lhc;I)Z",
       garbageValue = "-1086198552"
    )
-   public static boolean method3919(class217 var0, class217 var1, class217 var2, class66 var3) {
+   public static boolean method3919(Js5Index var0, Js5Index var1, Js5Index var2, class66 var3) {
       class43.field478 = var0;
       class43.field480 = var1;
       class43.field479 = var2;
@@ -189,26 +189,26 @@ public class class194 extends class197 implements RSScriptEvent {
    )
    static int method3931(int var0, class296 var1, boolean var2) {
       if(var0 == 5306) {
-         class249.field3312[++class308.field3811 - 1] = class214.method4379();
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = WorldMapRegion.method4379();
          return 1;
       } else {
          int var3;
          if(var0 == 5307) {
-            var3 = class249.field3312[--class308.field3811];
+            var3 = class249.field3312[--MapCacheArchiveNames.field3811];
             if(var3 == 1 || var3 == 2) {
                class109.method1920(var3);
             }
 
             return 1;
          } else if(var0 == 5308) {
-            class249.field3312[++class308.field3811 - 1] = class175.field2134.field859;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = WorldMapNode.field2134.field859;
             return 1;
          } else if(var0 != 5309) {
             return 2;
          } else {
-            var3 = class249.field3312[--class308.field3811];
+            var3 = class249.field3312[--MapCacheArchiveNames.field3811];
             if(var3 == 1 || var3 == 2) {
-               class175.field2134.field859 = var3;
+               WorldMapNode.field2134.field859 = var3;
                class236.method4709();
             }
 
@@ -224,7 +224,7 @@ public class class194 extends class197 implements RSScriptEvent {
    )
    static void method3933() {
       client.field2384.method2571();
-      client.field2384.field1764.field1693 = 0;
+      client.field2384.field1764.position = 0;
       client.field2384.field1759 = null;
       client.field2384.field1769 = null;
       client.field2384.field1758 = null;

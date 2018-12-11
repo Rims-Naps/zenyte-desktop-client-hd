@@ -49,7 +49,7 @@ public class class35 extends class197 {
       Buffer var2 = new Buffer(var1);
 
       int var3;
-      for(var3 = 0; var2.field1694[var3 + var2.field1693] != 0; ++var3) {
+      for(var3 = 0; var2.field1694[var3 + var2.position] != 0; ++var3) {
          ;
       }
 
@@ -60,13 +60,13 @@ public class class35 extends class197 {
          var4[var5] = var2.method2257();
       }
 
-      ++var2.field1693;
+      ++var2.position;
       ++var3;
-      var5 = var2.field1693;
-      var2.field1693 += var3;
+      var5 = var2.position;
+      var2.position += var3;
 
       int var6;
-      for(var6 = 0; var2.field1694[var6 + var2.field1693] != 0; ++var6) {
+      for(var6 = 0; var2.field1694[var6 + var2.position] != 0; ++var6) {
          ;
       }
 
@@ -77,13 +77,13 @@ public class class35 extends class197 {
          var7[var8] = var2.method2257();
       }
 
-      ++var2.field1693;
+      ++var2.position;
       ++var6;
-      var8 = var2.field1693;
-      var2.field1693 += var6;
+      var8 = var2.position;
+      var2.position += var6;
 
       int var9;
-      for(var9 = 0; var2.field1694[var9 + var2.field1693] != 0; ++var9) {
+      for(var9 = 0; var2.field1694[var9 + var2.position] != 0; ++var9) {
          ;
       }
 
@@ -93,7 +93,7 @@ public class class35 extends class197 {
          var10[var11] = var2.method2257();
       }
 
-      ++var2.field1693;
+      ++var2.position;
       ++var9;
       byte[] var36 = new byte[var9];
       int var12;
@@ -144,7 +144,7 @@ public class class35 extends class197 {
       byte[] var39 = var14 > 0?new byte[var14 * 2]:null;
 
       int var17;
-      for(var17 = 0; var2.field1694[var17 + var2.field1693] != 0; ++var17) {
+      for(var17 = 0; var2.field1694[var17 + var2.position] != 0; ++var17) {
          ;
       }
 
@@ -155,7 +155,7 @@ public class class35 extends class197 {
          var18[var19] = var2.method2257();
       }
 
-      ++var2.field1693;
+      ++var2.position;
       ++var17;
       var19 = 0;
 
@@ -541,7 +541,7 @@ public class class35 extends class197 {
             class185.field2519 = var0;
          }
 
-         class15 var8 = class285.method5484(var3);
+         ObjectDef var8 = class285.getObjectDef(var3);
          int var9;
          int var10;
          if(var4 != 1 && var4 != 3) {
@@ -603,7 +603,7 @@ public class class35 extends class197 {
             var22.field2537 = var8.field194;
             var22.field2538 = var8.field195;
             var22.field2528 = var8.field160;
-            if(var8.field189 != null) {
+            if(var8.multiLocs != null) {
                var22.field2542 = var8;
                var22.method3749();
             }
@@ -617,7 +617,7 @@ public class class35 extends class197 {
          Object var34;
          if(var5 == 22) {
             if(!client.field2157 || var8.field167 != 0 || var8.field173 == 1 || var8.field186) {
-               if(var8.field171 == -1 && var8.field189 == null) {
+               if(var8.field171 == -1 && var8.multiLocs == null) {
                   var34 = var8.method321(22, var4, var15, var17, var16, var18);
                } else {
                   var34 = new class321(var3, 22, var4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -631,7 +631,7 @@ public class class35 extends class197 {
             }
          } else if(var5 != 10 && var5 != 11) {
             if(var5 >= 12) {
-               if(var8.field171 == -1 && var8.field189 == null) {
+               if(var8.field171 == -1 && var8.multiLocs == null) {
                   var34 = var8.method321(var5, var4, var15, var17, var16, var18);
                } else {
                   var34 = new class321(var3, var5, var4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -647,7 +647,7 @@ public class class35 extends class197 {
                }
 
             } else if(var5 == 0) {
-               if(var8.field171 == -1 && var8.field189 == null) {
+               if(var8.field171 == -1 && var8.multiLocs == null) {
                   var34 = var8.method321(0, var4, var15, var17, var16, var18);
                } else {
                   var34 = new class321(var3, 0, var4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -701,7 +701,7 @@ public class class35 extends class197 {
                }
 
             } else if(var5 == 1) {
-               if(var8.field171 == -1 && var8.field189 == null) {
+               if(var8.field171 == -1 && var8.multiLocs == null) {
                   var34 = var8.method321(1, var4, var15, var17, var16, var18);
                } else {
                   var34 = new class321(var3, 1, var4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -730,7 +730,7 @@ public class class35 extends class197 {
                   var28 = var4 + 1 & 3;
                   Object var29;
                   Object var30;
-                  if(var8.field171 == -1 && var8.field189 == null) {
+                  if(var8.field171 == -1 && var8.multiLocs == null) {
                      var29 = var8.method321(2, var4 + 4, var15, var17, var16, var18);
                      var30 = var8.method321(2, var28, var15, var17, var16, var18);
                   } else {
@@ -764,7 +764,7 @@ public class class35 extends class197 {
                   }
 
                } else if(var5 == 3) {
-                  if(var8.field171 == -1 && var8.field189 == null) {
+                  if(var8.field171 == -1 && var8.multiLocs == null) {
                      var34 = var8.method321(3, var4, var15, var17, var16, var18);
                   } else {
                      var34 = new class321(var3, 3, var4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -788,7 +788,7 @@ public class class35 extends class197 {
                   }
 
                } else if(var5 == 9) {
-                  if(var8.field171 == -1 && var8.field189 == null) {
+                  if(var8.field171 == -1 && var8.multiLocs == null) {
                      var34 = var8.method321(var5, var4, var15, var17, var16, var18);
                   } else {
                      var34 = new class321(var3, var5, var4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -804,7 +804,7 @@ public class class35 extends class197 {
                   }
 
                } else if(var5 == 4) {
-                  if(var8.field171 == -1 && var8.field189 == null) {
+                  if(var8.field171 == -1 && var8.multiLocs == null) {
                      var34 = var8.method321(4, var4, var15, var17, var16, var18);
                   } else {
                      var34 = new class321(var3, 4, var4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -818,10 +818,10 @@ public class class35 extends class197 {
                      var28 = 16;
                      var31 = var6.method1951(var0, var1, var2);
                      if(0L != var31) {
-                        var28 = class285.method5484(class178.method3682(var31)).field172;
+                        var28 = class285.getObjectDef(class178.method3682(var31)).field172;
                      }
 
-                     if(var8.field171 == -1 && var8.field189 == null) {
+                     if(var8.field171 == -1 && var8.multiLocs == null) {
                         var33 = var8.method321(4, var4, var15, var17, var16, var18);
                      } else {
                         var33 = new class321(var3, 4, var4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -832,10 +832,10 @@ public class class35 extends class197 {
                      var28 = 8;
                      var31 = var6.method1951(var0, var1, var2);
                      if(0L != var31) {
-                        var28 = class285.method5484(class178.method3682(var31)).field172 / 2;
+                        var28 = class285.getObjectDef(class178.method3682(var31)).field172 / 2;
                      }
 
-                     if(var8.field171 == -1 && var8.field189 == null) {
+                     if(var8.field171 == -1 && var8.multiLocs == null) {
                         var33 = var8.method321(4, var4 + 4, var15, var17, var16, var18);
                      } else {
                         var33 = new class321(var3, 4, var4 + 4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -844,7 +844,7 @@ public class class35 extends class197 {
                      var6.method1934(var0, var1, var2, var16, (class102)var33, (class102)null, 256, var4, var28 * class185.field2526[var4], var28 * class185.field2523[var4], var19, var21);
                   } else if(var5 == 7) {
                      var23 = var4 + 2 & 3;
-                     if(var8.field171 == -1 && var8.field189 == null) {
+                     if(var8.field171 == -1 && var8.multiLocs == null) {
                         var34 = var8.method321(4, var23 + 4, var15, var17, var16, var18);
                      } else {
                         var34 = new class321(var3, 4, var23 + 4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -855,12 +855,12 @@ public class class35 extends class197 {
                      var28 = 8;
                      var31 = var6.method1951(var0, var1, var2);
                      if(var31 != 0L) {
-                        var28 = class285.method5484(class178.method3682(var31)).field172 / 2;
+                        var28 = class285.getObjectDef(class178.method3682(var31)).field172 / 2;
                      }
 
                      int var27 = var4 + 2 & 3;
                      Object var26;
-                     if(var8.field171 == -1 && var8.field189 == null) {
+                     if(var8.field171 == -1 && var8.multiLocs == null) {
                         var33 = var8.method321(4, var4 + 4, var15, var17, var16, var18);
                         var26 = var8.method321(4, var27 + 4, var15, var17, var16, var18);
                      } else {
@@ -873,7 +873,7 @@ public class class35 extends class197 {
                }
             }
          } else {
-            if(var8.field171 == -1 && var8.field189 == null) {
+            if(var8.field171 == -1 && var8.multiLocs == null) {
                var34 = var8.method321(10, var4, var15, var17, var16, var18);
             } else {
                var34 = new class321(var3, 10, var4, var0, var1, var2, var8.field171, true, (class102)null);
@@ -1002,7 +1002,7 @@ public class class35 extends class197 {
             }
 
             if((var5 & 32) != 0) {
-               var16 = var1.readShort();
+               var16 = var1.readUnsignedShort();
                if(var16 == 65535) {
                   var16 = -1;
                }
@@ -1032,7 +1032,7 @@ public class class35 extends class197 {
             }
 
             if((var5 & 4) != 0) {
-               class315 var10001 = class127.method2480(var1.readShort());
+               class315 var10001 = WorldMapGameObject.method2480(var1.readUnsignedShort());
                var15.onCompositionChanged((RSNPCComposition)var10001);
                var15.field2437 = var10001;
                var15.field1075 = var15.field2437.field3862;
@@ -1134,8 +1134,8 @@ public class class35 extends class197 {
             }
          }
 
-         if(var1.field1693 != client.field2384.field1768) {
-            throw new RuntimeException(var1.field1693 + "," + client.field2384.field1768);
+         if(var1.position != client.field2384.field1768) {
+            throw new RuntimeException(var1.position + "," + client.field2384.field1768);
          } else {
             for(var14 = 0; var14 < client.field2196; ++var14) {
                if(client.field2195[client.field2197[var14]] == null) {

@@ -15,7 +15,7 @@ public class class43 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field480;
+   static Js5Index field480;
    @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "Lhc;"
@@ -25,7 +25,7 @@ public class class43 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field478;
+   static Js5Index field478;
    @ObfuscatedName("x")
    @ObfuscatedSignature(
       signature = "Lct;"
@@ -40,7 +40,7 @@ public class class43 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field479;
+   static Js5Index field479;
 
    static {
       field481 = 0;

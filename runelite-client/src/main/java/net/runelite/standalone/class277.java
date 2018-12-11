@@ -81,7 +81,7 @@ public class class277 implements Runnable {
       int var4;
       if(var0 == 4100) {
          var3 = class249.field3313[--class103.field1146];
-         var4 = class249.field3312[--class308.field3811];
+         var4 = class249.field3312[--MapCacheArchiveNames.field3811];
          class249.field3313[++class103.field1146 - 1] = var3 + var4;
          return 1;
       } else {
@@ -94,7 +94,7 @@ public class class277 implements Runnable {
             return 1;
          } else if(var0 == 4102) {
             var3 = class249.field3313[--class103.field1146];
-            var4 = class249.field3312[--class308.field3811];
+            var4 = class249.field3312[--MapCacheArchiveNames.field3811];
             class249.field3313[++class103.field1146 - 1] = var3 + class73.method1557(var4, true);
             return 1;
          } else if(var0 == 4103) {
@@ -105,7 +105,7 @@ public class class277 implements Runnable {
             int var6;
             int var10;
             if(var0 == 4104) {
-               var10 = class249.field3312[--class308.field3811];
+               var10 = class249.field3312[--MapCacheArchiveNames.field3811];
                long var11 = 86400000L * (11745L + (long)var10);
                class249.field3316.setTime(new Date(var11));
                var6 = class249.field3316.get(5);
@@ -115,12 +115,12 @@ public class class277 implements Runnable {
                return 1;
             } else if(var0 != 4105) {
                if(var0 == 4106) {
-                  var10 = class249.field3312[--class308.field3811];
+                  var10 = class249.field3312[--MapCacheArchiveNames.field3811];
                   class249.field3313[++class103.field1146 - 1] = Integer.toString(var10);
                   return 1;
                } else if(var0 == 4107) {
                   class103.field1146 -= 2;
-                  class249.field3312[++class308.field3811 - 1] = GameEngine.method5967(class127.method2482(class249.field3313[class103.field1146], class249.field3313[class103.field1146 + 1], client.field2158));
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = GameEngine.method5967(WorldMapGameObject.method2482(class249.field3313[class103.field1146], class249.field3313[class103.field1146 + 1], client.field2158));
                   return 1;
                } else {
                   int var5;
@@ -128,27 +128,27 @@ public class class277 implements Runnable {
                   class299 var14;
                   if(var0 == 4108) {
                      var3 = class249.field3313[--class103.field1146];
-                     class308.field3811 -= 2;
-                     var4 = class249.field3312[class308.field3811];
-                     var5 = class249.field3312[class308.field3811 + 1];
+                     MapCacheArchiveNames.field3811 -= 2;
+                     var4 = class249.field3312[MapCacheArchiveNames.field3811];
+                     var5 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
                      var13 = class20.fontsIndex.method4398(var5, 0, 549820083);
                      var14 = new class299(var13);
-                     class249.field3312[++class308.field3811 - 1] = var14.method3812(var3, var4);
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var14.method3812(var3, var4);
                      return 1;
                   } else if(var0 == 4109) {
                      var3 = class249.field3313[--class103.field1146];
-                     class308.field3811 -= 2;
-                     var4 = class249.field3312[class308.field3811];
-                     var5 = class249.field3312[class308.field3811 + 1];
+                     MapCacheArchiveNames.field3811 -= 2;
+                     var4 = class249.field3312[MapCacheArchiveNames.field3811];
+                     var5 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
                      var13 = class20.fontsIndex.method4398(var5, 0, -32568540);
                      var14 = new class299(var13);
-                     class249.field3312[++class308.field3811 - 1] = var14.method3857(var3, var4);
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var14.method3857(var3, var4);
                      return 1;
                   } else if(var0 == 4110) {
                      class103.field1146 -= 2;
                      var3 = class249.field3313[class103.field1146];
                      var9 = class249.field3313[class103.field1146 + 1];
-                     if(class249.field3312[--class308.field3811] == 1) {
+                     if(class249.field3312[--MapCacheArchiveNames.field3811] == 1) {
                         class249.field3313[++class103.field1146 - 1] = var3;
                      } else {
                         class249.field3313[++class103.field1146 - 1] = var9;
@@ -161,39 +161,39 @@ public class class277 implements Runnable {
                      return 1;
                   } else if(var0 == 4112) {
                      var3 = class249.field3313[--class103.field1146];
-                     var4 = class249.field3312[--class308.field3811];
+                     var4 = class249.field3312[--MapCacheArchiveNames.field3811];
                      class249.field3313[++class103.field1146 - 1] = var3 + (char)var4;
                      return 1;
                   } else if(var0 == 4113) {
-                     var10 = class249.field3312[--class308.field3811];
-                     class249.field3312[++class308.field3811 - 1] = class195.method3935((char)var10)?1:0;
+                     var10 = class249.field3312[--MapCacheArchiveNames.field3811];
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class195.method3935((char)var10)?1:0;
                      return 1;
                   } else if(var0 == 4114) {
-                     var10 = class249.field3312[--class308.field3811];
-                     class249.field3312[++class308.field3811 - 1] = class25.method459((char)var10)?1:0;
+                     var10 = class249.field3312[--MapCacheArchiveNames.field3811];
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class25.method459((char)var10)?1:0;
                      return 1;
                   } else if(var0 == 4115) {
-                     var10 = class249.field3312[--class308.field3811];
-                     class249.field3312[++class308.field3811 - 1] = class274.method5366((char)var10)?1:0;
+                     var10 = class249.field3312[--MapCacheArchiveNames.field3811];
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class274.method5366((char)var10)?1:0;
                      return 1;
                   } else if(var0 == 4116) {
-                     var10 = class249.field3312[--class308.field3811];
-                     class249.field3312[++class308.field3811 - 1] = class320.method6246((char)var10)?1:0;
+                     var10 = class249.field3312[--MapCacheArchiveNames.field3811];
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class320.method6246((char)var10)?1:0;
                      return 1;
                   } else if(var0 == 4117) {
                      var3 = class249.field3313[--class103.field1146];
                      if(var3 != null) {
-                        class249.field3312[++class308.field3811 - 1] = var3.length();
+                        class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.length();
                      } else {
-                        class249.field3312[++class308.field3811 - 1] = 0;
+                        class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 0;
                      }
 
                      return 1;
                   } else if(var0 == 4118) {
                      var3 = class249.field3313[--class103.field1146];
-                     class308.field3811 -= 2;
-                     var4 = class249.field3312[class308.field3811];
-                     var5 = class249.field3312[class308.field3811 + 1];
+                     MapCacheArchiveNames.field3811 -= 2;
+                     var4 = class249.field3312[MapCacheArchiveNames.field3811];
+                     var5 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
                      class249.field3313[++class103.field1146 - 1] = var3.substring(var4, var5);
                      return 1;
                   } else if(var0 == 4119) {
@@ -216,15 +216,15 @@ public class class277 implements Runnable {
                      return 1;
                   } else if(var0 == 4120) {
                      var3 = class249.field3313[--class103.field1146];
-                     var4 = class249.field3312[--class308.field3811];
-                     class249.field3312[++class308.field3811 - 1] = var3.indexOf(var4);
+                     var4 = class249.field3312[--MapCacheArchiveNames.field3811];
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.indexOf(var4);
                      return 1;
                   } else if(var0 == 4121) {
                      class103.field1146 -= 2;
                      var3 = class249.field3313[class103.field1146];
                      var9 = class249.field3313[class103.field1146 + 1];
-                     var5 = class249.field3312[--class308.field3811];
-                     class249.field3312[++class308.field3811 - 1] = var3.indexOf(var9, var5);
+                     var5 = class249.field3312[--MapCacheArchiveNames.field3811];
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.indexOf(var9, var5);
                      return 1;
                   } else {
                      return 2;
@@ -288,8 +288,8 @@ public class class277 implements Runnable {
          int var14 = var5 * var12 + 1 >> 17;
          int var15 = var5 * var11 >> 17;
          int var16 = var5 * var11 + 1 >> 17;
-         var0 -= class173.field2124;
-         var1 -= class173.field2122;
+         var0 -= Rasterizer2D.field2124;
+         var1 -= Rasterizer2D.field2122;
          int var17 = var0 + var13;
          int var18 = var0 - var14;
          int var19 = var0 + var6 - var14;

@@ -21,7 +21,7 @@ public class class270 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field3480;
+   public static Js5Index field3480;
    @ObfuscatedName("f")
    Inflater field3481;
 
@@ -42,13 +42,13 @@ public class class270 {
       garbageValue = "-565718118"
    )
    public void method5332(Buffer var1, byte[] var2) {
-      if(var1.field1694[var1.field1693] == 31 && var1.field1694[var1.field1693 + 1] == -117) {
+      if(var1.field1694[var1.position] == 31 && var1.field1694[var1.position + 1] == -117) {
          if(this.field3481 == null) {
             this.field3481 = new Inflater(true);
          }
 
          try {
-            this.field3481.setInput(var1.field1694, var1.field1693 + 10, var1.field1694.length - (var1.field1693 + 8 + 10));
+            this.field3481.setInput(var1.field1694, var1.position + 10, var1.field1694.length - (var1.position + 8 + 10));
             this.field3481.inflate(var2);
          } catch (Exception var4) {
             this.field3481.reset();

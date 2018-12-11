@@ -15,7 +15,7 @@ public class class139 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   class217 field1784;
+   Js5Index field1784;
    @ObfuscatedName("r")
    boolean field1792;
    @ObfuscatedName("a")
@@ -24,7 +24,7 @@ public class class139 {
    @ObfuscatedSignature(
       signature = "(Lik;)V"
    )
-   class139(class217 var1) {
+   class139(Js5Index var1) {
       this.field1791 = 0;
       this.field1792 = false;
       this.field1784 = var1;
@@ -37,7 +37,7 @@ public class class139 {
    )
    int method2604() {
       if(this.field1791 < 25) {
-         if(!this.field1784.method4419(class308.field3804.field3809, this.field1789)) {
+         if(!this.field1784.method4419(MapCacheArchiveNames.field3804.name, this.field1789)) {
             return this.field1791;
          }
 
@@ -45,7 +45,7 @@ public class class139 {
       }
 
       if(this.field1791 == 25) {
-         if(!this.field1784.method4419(this.field1789, class308.field3806.field3809)) {
+         if(!this.field1784.method4419(this.field1789, MapCacheArchiveNames.field3806.name)) {
             return 25 + this.field1784.method4413(this.field1789) * 25 / 100;
          }
 
@@ -53,7 +53,7 @@ public class class139 {
       }
 
       if(this.field1791 == 50) {
-         if(this.field1784.method4417(class308.field3807.field3809, this.field1789) && !this.field1784.method4419(class308.field3807.field3809, this.field1789)) {
+         if(this.field1784.method4417(MapCacheArchiveNames.field3807.name, this.field1789) && !this.field1784.method4419(MapCacheArchiveNames.field3807.name, this.field1789)) {
             return 50;
          }
 
@@ -61,7 +61,7 @@ public class class139 {
       }
 
       if(this.field1791 == 75) {
-         if(!this.field1784.method4419(this.field1789, class308.field3803.field3809)) {
+         if(!this.field1784.method4419(this.field1789, MapCacheArchiveNames.field3803.name)) {
             return 75;
          }
 

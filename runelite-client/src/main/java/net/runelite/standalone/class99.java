@@ -806,40 +806,40 @@ public abstract class class99 extends class102 implements RSActor {
       int var5;
       if(class193.field2750 == null) {
          var3 = class138.spritesIndex;
-         var4 = var3.method4421("sl_back");
-         var5 = var3.method4400(var4, "");
+         var4 = var3.getGroupId("sl_back");
+         var5 = var3.getChild(var4, "");
          SpritePixels[] var2 = class103.method1851(var3, var4, var5);
          class193.field2750 = var2;
       }
 
       class303[] var23;
-      if(class23.field257 == null) {
+      if(MapIcon.field257 == null) {
          var3 = class138.spritesIndex;
-         var4 = var3.method4421("sl_flags");
-         var5 = var3.method4400(var4, "");
+         var4 = var3.getGroupId("sl_flags");
+         var5 = var3.getChild(var4, "");
          var23 = class159.method2957(var3, var4, var5);
-         class23.field257 = var23;
+         MapIcon.field257 = var23;
       }
 
       if(class89.field972 == null) {
          var3 = class138.spritesIndex;
-         var4 = var3.method4421("sl_arrows");
-         var5 = var3.method4400(var4, "");
+         var4 = var3.getGroupId("sl_arrows");
+         var5 = var3.getChild(var4, "");
          var23 = class159.method2957(var3, var4, var5);
          class89.field972 = var23;
       }
 
       if(class316.field3893 == null) {
          var3 = class138.spritesIndex;
-         var4 = var3.method4421("sl_stars");
-         var5 = var3.method4400(var4, "");
+         var4 = var3.getGroupId("sl_stars");
+         var5 = var3.getChild(var4, "");
          var23 = class159.method2957(var3, var4, var5);
          class316.field3893 = var23;
       }
 
-      class173.method3167(class39.field407, 23, 765, 480, 0);
-      class173.method3142(class39.field407, 0, 125, 23, 12425273, 9135624);
-      class173.method3142(class39.field407 + 125, 0, 640, 23, 5197647, 2697513);
+      Rasterizer2D.method3167(class39.field407, 23, 765, 480, 0);
+      Rasterizer2D.method3142(class39.field407, 0, 125, 23, 12425273, 9135624);
+      Rasterizer2D.method3142(class39.field407 + 125, 0, 640, 23, 5197647, 2697513);
       var0.method3879("Select a world", class39.field407 + 62, 15, 0, -1);
       if(class316.field3893 != null) {
          class316.field3893[1].method5980(class39.field407 + 140, 1);
@@ -907,7 +907,7 @@ public abstract class class99 extends class102 implements RSActor {
          var0.method3832("Type", var5 + 32, 17, 16777215, -1);
       }
 
-      class173.method3167(class39.field407 + 708, 4, 50, 16, 0);
+      Rasterizer2D.method3167(class39.field407 + 708, 4, 50, 16, 0);
       var1.method3879("Cancel", class39.field407 + 708 + 25, 16, 16777215, -1);
       class39.field404 = -1;
       if(class193.field2750 != null) {
@@ -999,8 +999,8 @@ public abstract class class99 extends class102 implements RSActor {
                class193.field2750[var18].method213(var11, var10);
             }
 
-            if(class23.field257 != null) {
-               class23.field257[(var15.method1636()?8:0) + var15.field957].method5980(var11 + 29, var10);
+            if(MapIcon.field257 != null) {
+               MapIcon.field257[(var15.method1636()?8:0) + var15.field957].method5980(var11 + 29, var10);
             }
 
             var0.method3879(Integer.toString(var15.field958), var11 + 15, var25 / 2 + var10 + 5, var19, -1);
@@ -1017,8 +1017,8 @@ public abstract class class99 extends class102 implements RSActor {
          if(var13) {
             var14 = var1.method3890(class88.field947[class39.field404].field956) + 6;
             int var22 = var1.field2718 + 8;
-            class173.method3167(class163.field1975 - var14 / 2, class163.field1976 + 20 + 5, var14, var22, 16777120);
-            class173.method3149(class163.field1975 - var14 / 2, class163.field1976 + 20 + 5, var14, var22, 0);
+            Rasterizer2D.method3167(class163.field1975 - var14 / 2, class163.field1976 + 20 + 5, var14, var22, 16777120);
+            Rasterizer2D.method3149(class163.field1975 - var14 / 2, class163.field1976 + 20 + 5, var14, var22, 0);
             var1.method3879(class88.field947[class39.field404].field956, class163.field1975, class163.field1976 + var1.field2718 + 20 + 5 + 4, 0, -1);
          }
       }

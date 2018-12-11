@@ -83,7 +83,7 @@ public class WorldMap implements RSRenderOverview {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   class217 field3590;
+   Js5Index field3590;
    @ObfuscatedName("n")
    @ObfuscatedGetter(
       intValue = 1786790823
@@ -309,7 +309,7 @@ public class WorldMap implements RSRenderOverview {
             var14 = var2 - this.field3601.field2883 * (var7 - (var12 - this.field3611));
          }
 
-         class173.method3145(var1, var2, var3, var4, 0, 128);
+         Rasterizer2D.method3145(var1, var2, var3, var4, 0, 128);
          if(1.0F == var10) {
             this.field3639.method225(var13, var14, 192);
          } else {
@@ -366,9 +366,9 @@ public class WorldMap implements RSRenderOverview {
       byte var6 = 20;
       int var7 = var3 / 2 + var1;
       int var8 = var4 / 2 + var2 - 18 - var6;
-      class173.method3167(var1, var2, var3, var4, -16777216);
-      class173.method3149(var7 - 152, var8, 304, 34, -65536);
-      class173.method3167(var7 - 150, var8 + 2, var5 * 3, 30, -65536);
+      Rasterizer2D.method3167(var1, var2, var3, var4, -16777216);
+      Rasterizer2D.method3149(var7 - 152, var8, 304, 34, -65536);
+      Rasterizer2D.method3167(var7 - 150, var8 + 2, var5 * 3, 30, -65536);
       this.field3594.method3879("Loading...", var7, var6 + var8, -1, -1);
    }
 
@@ -390,8 +390,8 @@ public class WorldMap implements RSRenderOverview {
       signature = "(S)Laf;",
       garbageValue = "1733"
    )
-   public class23 method5627() {
-      return this.field3637 == null?null:(!this.field3637.hasNext()?null:(class23)this.field3637.next());
+   public MapIcon method5627() {
+      return this.field3637 == null?null:(!this.field3637.hasNext()?null:(MapIcon)this.field3637.next());
    }
 
    @ObfuscatedName("z")
@@ -472,7 +472,7 @@ public class WorldMap implements RSRenderOverview {
       signature = "(I)Laf;",
       garbageValue = "-787307296"
    )
-   public class23 method5546() {
+   public MapIcon method5546() {
       if(!this.field3602.method2605()) {
          return null;
       } else if(!this.field3601.method4139()) {
@@ -604,7 +604,7 @@ public class WorldMap implements RSRenderOverview {
       garbageValue = "162689456"
    )
    public int method5489() {
-      return this.field3590.method4419(this.field3598.method2697(), class308.field3806.field3809)?100:this.field3590.method4413(this.field3598.method2697());
+      return this.field3590.method4419(this.field3598.method2697(), MapCacheArchiveNames.field3806.name)?100:this.field3590.method4413(this.field3598.method2697());
    }
 
    @ObfuscatedName("s")
@@ -623,11 +623,11 @@ public class WorldMap implements RSRenderOverview {
             HashSet var11 = new HashSet();
 
             Iterator var12;
-            class23 var13;
+            MapIcon var13;
             class194 var14;
             class294 var15;
             for(var12 = var10.iterator(); var12.hasNext(); class209.method4198(var14)) {
-               var13 = (class23)var12.next();
+               var13 = (MapIcon)var12.next();
                var11.add(var13);
                var14 = new class194();
                var15 = new class294(var13.field258, var13.field248, var13.field259);
@@ -642,7 +642,7 @@ public class WorldMap implements RSRenderOverview {
             var12 = this.field3636.iterator();
 
             while(var12.hasNext()) {
-               var13 = (class23)var12.next();
+               var13 = (MapIcon)var12.next();
                if(!var11.contains(var13)) {
                   var14 = new class194();
                   var15 = new class294(var13.field258, var13.field248, var13.field259);
@@ -662,7 +662,7 @@ public class WorldMap implements RSRenderOverview {
       signature = "(Lik;Lkn;Ljava/util/HashMap;[Lle;B)V",
       garbageValue = "-39"
    )
-   public void method5488(class217 var1, class299 var2, HashMap var3, class303[] var4) {
+   public void method5488(Js5Index var1, class299 var2, HashMap var3, class303[] var4) {
       this.field3606 = var4;
       this.field3590 = var1;
       this.field3594 = var2;
@@ -671,14 +671,14 @@ public class WorldMap implements RSRenderOverview {
       this.field3595.put(class181.field2472, var3.get(field3592));
       this.field3595.put(class181.field2473, var3.get(field3604));
       this.field3602 = new class139(var1);
-      int var5 = this.field3590.method4421(class308.field3808.field3809);
+      int var5 = this.field3590.getGroupId(MapCacheArchiveNames.field3808.name);
       int[] var6 = this.field3590.method4475(var5);
       this.field3597 = new HashMap(var6.length);
 
       for(int var7 = 0; var7 < var6.length; ++var7) {
          Buffer var8 = new Buffer(this.field3590.method4398(var5, var6[var7], 1123144256));
          WorldMapData var9 = new WorldMapData();
-         var9.loadMapData(var8, var6[var7]);
+         var9.decodeDetails(var8, var6[var7]);
          this.field3597.put(var9.method2697(), var9);
          if(var9.method2741()) {
             this.field3598 = var9;
@@ -935,9 +935,9 @@ public class WorldMap implements RSRenderOverview {
    )
    public void method5560(int var1, int var2, int var3, int var4, int var5) {
       int[] var6 = new int[4];
-      class173.method3189(var6);
-      class173.method3138(var1, var2, var3 + var1, var2 + var4);
-      class173.method3167(var1, var2, var3, var4, -16777216);
+      Rasterizer2D.method3189(var6);
+      Rasterizer2D.method3138(var1, var2, var3 + var1, var2 + var4);
+      Rasterizer2D.method3167(var1, var2, var3, var4, -16777216);
       int var7 = this.field3602.method2606();
       if(var7 < 100) {
          this.method5622(var1, var2, var3, var4, var7);
@@ -976,14 +976,14 @@ public class WorldMap implements RSRenderOverview {
 
          this.method5611(var1, var2, var3, var4, var8, var9);
          if(class239.method4720() && this.field3638 && this.field3586 != null) {
-            this.field3594.method3832("Coord: " + this.field3586, class173.field2124 + 10, class173.field2122 + 20, 16776960, -1);
+            this.field3594.method3832("Coord: " + this.field3586, Rasterizer2D.field2124 + 10, Rasterizer2D.field2122 + 20, 16776960, -1);
          }
 
          this.field3609 = var8;
          this.field3610 = var9;
          this.field3607 = var1;
          this.field3612 = var2;
-         class173.method3141(var6);
+         Rasterizer2D.method3141(var6);
       }
    }
 
@@ -1015,7 +1015,7 @@ public class WorldMap implements RSRenderOverview {
                   return;
                }
 
-               class23 var11 = (class23)var10.next();
+               MapIcon var11 = (MapIcon)var10.next();
                class123 var12 = class133.method2550(var11.field258);
                var13 = false;
 
@@ -1182,19 +1182,19 @@ public class WorldMap implements RSRenderOverview {
          HashMap var3 = this.field3601.method4116();
          List var4 = (List)var3.get(Integer.valueOf(var1));
          if(var4 != null && !var4.isEmpty()) {
-            class23 var5 = null;
+            MapIcon var5 = null;
             int var6 = -1;
             Iterator var7 = var4.iterator();
 
             while(true) {
-               class23 var8;
+               MapIcon var8;
                int var11;
                do {
                   if(!var7.hasNext()) {
                      return var5.field259;
                   }
 
-                  var8 = (class23)var7.next();
+                  var8 = (MapIcon)var7.next();
                   int var9 = var8.field259.field719 - var2.field719;
                   int var10 = var8.field259.field717 - var2.field717;
                   var11 = var9 * var9 + var10 * var10;
@@ -1336,8 +1336,8 @@ public class WorldMap implements RSRenderOverview {
       garbageValue = "73"
    )
    public void method5490() {
-      WorldMapRegion.field527.method4029(5);
-      WorldMapRegion.field536.method4029(5);
+      SomeWorldMapObject.field527.method4029(5);
+      SomeWorldMapObject.field536.method4029(5);
    }
 
    @ObfuscatedName("bl")

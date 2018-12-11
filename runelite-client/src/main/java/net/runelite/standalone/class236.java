@@ -78,13 +78,13 @@ public class class236 implements class61 {
    public void vmethod5267(Buffer var1) {
       this.field3112 = var1.readUnsignedByte();
       this.field3117 = var1.readUnsignedByte();
-      this.field3107 = var1.readShort();
+      this.field3107 = var1.readUnsignedShort();
       this.field3111 = var1.readUnsignedByte();
-      this.field3108 = var1.readShort();
+      this.field3108 = var1.readUnsignedShort();
       this.field3114 = var1.readUnsignedByte();
-      this.field3113 = var1.readShort();
+      this.field3113 = var1.readUnsignedShort();
       this.field3105 = var1.readUnsignedByte();
-      this.field3110 = var1.readShort();
+      this.field3110 = var1.readUnsignedShort();
       this.field3109 = var1.readUnsignedByte();
       this.method4690();
    }
@@ -227,7 +227,7 @@ public class class236 implements class61 {
       garbageValue = "-457860005"
    )
    static int method4710(int var0, class296 var1, boolean var2) {
-      return var0 < 1000?class77.method1580(var0, var1, var2):(var0 < 1100?class92.method1718(var0, var1, var2):(var0 < 1200?class109.method1921(var0, var1, var2):(var0 < 1300?class108.method1918(var0, var1, var2):(var0 < 1400?class189.method3804(var0, var1, var2):(var0 < 1500?client.method3658(var0, var1, var2):(var0 < 1600?class181.method3699(var0, var1, var2):(var0 < 1700?class249.method5055(var0, var1, var2):(var0 < 1800?class186.method3752(var0, var1, var2):(var0 < 1900?class294.method5777(var0, var1, var2):(var0 < 2000?class322.method6256(var0, var1, var2):(var0 < 2100?class92.method1718(var0, var1, var2):(var0 < 2200?class109.method1921(var0, var1, var2):(var0 < 2300?class108.method1918(var0, var1, var2):(var0 < 2400?class189.method3804(var0, var1, var2):(var0 < 2500?client.method3658(var0, var1, var2):(var0 < 2600?class194.method3932(var0, var1, var2):(var0 < 2700?class252.method5077(var0, var1, var2):(var0 < 2800?class151.method2764(var0, var1, var2):(var0 < 2900?class256.method5129(var0, var1, var2):(var0 < 3000?class322.method6256(var0, var1, var2):(var0 < 3200?class95.method1746(var0, var1, var2):(var0 < 3300?class293.method5771(var0, var1, var2):(var0 < 3400?class1.method4(var0, var1, var2):(var0 < 3500?class45.method875(var0, var1, var2):(var0 < 3700?class278.method5396(var0, var1, var2):(var0 < 4000?class276.method5370(var0, var1, var2):(var0 < 4100?class30.method524(var0, var1, var2):(var0 < 4200?class277.method5383(var0, var1, var2):(var0 < 4300?class87.method1634(var0, var1, var2):(var0 < 5100?class326.method6280(var0, var1, var2):(var0 < 5400?class194.method3931(var0, var1, var2):(var0 < 5600?class215.method4381(var0, var1, var2):(var0 < 5700?class230.method4614(var0, var1, var2):(var0 < 6300?class286.method5485(var0, var1, var2):(var0 < 6600?class88.method1649(var0, var1, var2):(var0 < 6700?class292.method5715(var0, var1, var2):2))))))))))))))))))))))))))))))))))));
+      return var0 < 1000?class77.method1580(var0, var1, var2):(var0 < 1100?class92.method1718(var0, var1, var2):(var0 < 1200?class109.method1921(var0, var1, var2):(var0 < 1300?WorldMapChunk.method1918(var0, var1, var2):(var0 < 1400?class189.method3804(var0, var1, var2):(var0 < 1500?client.method3658(var0, var1, var2):(var0 < 1600?class181.method3699(var0, var1, var2):(var0 < 1700?class249.method5055(var0, var1, var2):(var0 < 1800?class186.method3752(var0, var1, var2):(var0 < 1900?class294.method5777(var0, var1, var2):(var0 < 2000?class322.method6256(var0, var1, var2):(var0 < 2100?class92.method1718(var0, var1, var2):(var0 < 2200?class109.method1921(var0, var1, var2):(var0 < 2300?WorldMapChunk.method1918(var0, var1, var2):(var0 < 2400?class189.method3804(var0, var1, var2):(var0 < 2500?client.method3658(var0, var1, var2):(var0 < 2600?class194.method3932(var0, var1, var2):(var0 < 2700?class252.method5077(var0, var1, var2):(var0 < 2800?class151.method2764(var0, var1, var2):(var0 < 2900?class256.method5129(var0, var1, var2):(var0 < 3000?class322.method6256(var0, var1, var2):(var0 < 3200?class95.method1746(var0, var1, var2):(var0 < 3300?class293.method5771(var0, var1, var2):(var0 < 3400?class1.method4(var0, var1, var2):(var0 < 3500?class45.method875(var0, var1, var2):(var0 < 3700?class278.method5396(var0, var1, var2):(var0 < 4000?class276.method5370(var0, var1, var2):(var0 < 4100?class30.method524(var0, var1, var2):(var0 < 4200?class277.method5383(var0, var1, var2):(var0 < 4300?class87.method1634(var0, var1, var2):(var0 < 5100?class326.method6280(var0, var1, var2):(var0 < 5400?class194.method3931(var0, var1, var2):(var0 < 5600?class215.method4381(var0, var1, var2):(var0 < 5700?class230.method4614(var0, var1, var2):(var0 < 6300?class286.method5485(var0, var1, var2):(var0 < 6600?class88.method1649(var0, var1, var2):(var0 < 6700?class292.method5715(var0, var1, var2):2))))))))))))))))))))))))))))))))))));
    }
 
    @ObfuscatedName("w")
@@ -240,8 +240,8 @@ public class class236 implements class61 {
 
       try {
          var0 = class177.method3679("", class210.field2889.field238, true);
-         Buffer var1 = class175.field2134.method1573();
-         var0.method5442(var1.field1694, 0, var1.field1693);
+         Buffer var1 = WorldMapNode.field2134.method1573();
+         var0.method5442(var1.field1694, 0, var1.position);
       } catch (Exception var3) {
          ;
       }

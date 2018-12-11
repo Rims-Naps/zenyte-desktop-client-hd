@@ -26,7 +26,7 @@ public class class112 {
       signature = "(Lik;Lik;Lik;Lik;B)V",
       garbageValue = "110"
    )
-   public static void method2110(class217 var0, class217 var1, class217 var2, class217 var3) {
+   public static void method2110(Js5Index var0, Js5Index var1, Js5Index var2, Js5Index var3) {
       class187.field2586 = var0;
       class187.field2549 = var1;
       class187.field2550 = var2;

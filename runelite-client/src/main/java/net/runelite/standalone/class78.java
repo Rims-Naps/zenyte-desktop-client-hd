@@ -81,7 +81,7 @@ public class class78 {
       signature = "(Lik;I)V",
       garbageValue = "-1506588001"
    )
-   public void method1584(class217 var1) {
+   public void method1584(Js5Index var1) {
       byte[] var2 = var1.method4405(class188.field2703.field2702);
       Buffer var3 = new Buffer(var2);
 

@@ -66,7 +66,7 @@ public class class322 extends class197 implements RSWidgetNode {
       class187 var3;
       if(var0 >= 2000) {
          var0 -= 1000;
-         var3 = class48.method1047(class249.field3312[--class308.field3811]);
+         var3 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
       } else {
          var3 = var2?class3.field36:class284.field3565;
       }
@@ -109,15 +109,15 @@ public class class322 extends class197 implements RSWidgetNode {
          Buffer var4 = new Buffer(new byte[1000]);
 
          do {
-            int var5 = var3.read(var4.field1694, var4.field1693, 1000 - var4.field1693);
+            int var5 = var3.read(var4.field1694, var4.position, 1000 - var4.position);
             if(var5 == -1) {
-               var4.field1693 = 0;
+               var4.position = 0;
                long var7 = var4.method2349();
                return var7;
             }
 
-            var4.field1693 += var5;
-         } while(var4.field1693 < 1000);
+            var4.position += var5;
+         } while(var4.position < 1000);
 
          return 0L;
       } catch (Exception var9) {

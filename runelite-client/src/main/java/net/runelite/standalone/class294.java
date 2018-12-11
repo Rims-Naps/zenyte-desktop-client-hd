@@ -40,7 +40,7 @@ public class class294 {
       signature = "(ILik;IIIZI)V",
       garbageValue = "-2028161028"
    )
-   public static void method5775(int var0, class217 var1, int var2, int var3, int var4, boolean var5) {
+   public static void method5775(int var0, Js5Index var1, int var2, int var3, int var4, boolean var5) {
       class43.field481 = 1;
       class270.field3480 = var1;
       class259.field3385 = var2;
@@ -63,13 +63,13 @@ public class class294 {
             byte[] var0 = class296.field3696.method6190();
             Buffer var1 = new Buffer(var0);
             var1.readInt();
-            class88.field944 = var1.readShort();
+            class88.field944 = var1.readUnsignedShort();
             class88.field947 = new class88[class88.field944];
 
             class88 var3;
             for(int var2 = 0; var2 < class88.field944; var3.field961 = var2++) {
                var3 = class88.field947[var2] = new class88();
-               var3.field958 = var1.readShort();
+               var3.field958 = var1.readUnsignedShort();
                var3.field953 = var1.readInt();
                var3.field955 = var1.readString();
                var3.field956 = var1.readString();
@@ -112,7 +112,7 @@ public class class294 {
    static int method5777(int var0, class296 var1, boolean var2) {
       class187 var3 = var2?class3.field36:class284.field3565;
       if(var0 == 1800) {
-         class249.field3312[++class308.field3811 - 1] = class217.method4493(class203.method4026(var3));
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = Js5Index.method4493(class203.method4026(var3));
          return 1;
       } else if(var0 != 1801) {
          if(var0 == 1802) {
@@ -127,7 +127,7 @@ public class class294 {
             return 2;
          }
       } else {
-         int var4 = class249.field3312[--class308.field3811];
+         int var4 = class249.field3312[--MapCacheArchiveNames.field3811];
          --var4;
          if(var3.field2630 != null && var4 < var3.field2630.length && var3.field2630[var4] != null) {
             class249.field3313[++class103.field1146 - 1] = var3.field2630[var4];

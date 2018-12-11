@@ -210,7 +210,7 @@ public class class193 {
             var3 = var1.method2332();
             byte var4 = var1.method2296();
             var5 = var1.method2460();
-            var6 = var1.readShort();
+            var6 = var1.readUnsignedShort();
             var7 = var1.method2285();
             var8 = var7 >> 2;
             var9 = var7 & 3;
@@ -229,7 +229,7 @@ public class class193 {
             }
 
             if(var17 != null) {
-               class15 var18 = class285.method5484(var5);
+               ObjectDef var18 = class285.getObjectDef(var5);
                int var19;
                int var20;
                if(var9 != 1 && var9 != 3) {
@@ -304,7 +304,7 @@ public class class193 {
             int var39;
             if(class329.field3974 == var0) {
                var37 = var1.method2287() * 4;
-               var3 = var1.readShort();
+               var3 = var1.readUnsignedShort();
                var38 = var1.method2460();
                var5 = var1.method2287() * 4;
                var6 = var1.method2297();
@@ -359,7 +359,7 @@ public class class193 {
                   var6 = var1.method2286();
                   var7 = (var6 >> 4 & 7) + class252.field3336;
                   var8 = (var6 & 7) + class122.field1660;
-                  var9 = var1.readShort();
+                  var9 = var1.readUnsignedShort();
                   if(var7 >= 0 && var8 >= 0 && var7 < 103 && var8 < 103) {
                      if(var5 == 0) {
                         class162 var34 = class269.field3464.method1947(class260.field3393, var7, var8);
@@ -413,7 +413,7 @@ public class class193 {
                   }
 
                } else if(class329.field3976 == var0) {
-                  var37 = var1.readShort();
+                  var37 = var1.readUnsignedShort();
                   var3 = var1.method2285();
                   var38 = var1.method2460();
                   var5 = var1.readUnsignedByte();

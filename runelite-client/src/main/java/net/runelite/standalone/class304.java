@@ -79,7 +79,7 @@ public class class304 {
    )
    static final void method5998(class187[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       client.gameDraw(var0, var1, var2, var3, var4, var5, var6, var7, var8);
-      class173.method3138(var2, var3, var4, var5);
+      Rasterizer2D.method3138(var2, var3, var4, var5);
       class211.method4247();
 
       for(int var9 = 0; var9 < var0.length; ++var9) {
@@ -212,19 +212,19 @@ public class class304 {
                         client.field2303 = var13;
                         class164.method3012(var12, var13, var10.field2573, var10.field2574);
                         client.field2351[var10.field2695] = true;
-                        class173.method3138(var2, var3, var4, var5);
+                        Rasterizer2D.method3138(var2, var3, var4, var5);
                         continue;
                      }
 
                      if(var10.field2562 == 1338) {
                         class317.method6212(var10, var12, var13, var11);
-                        class173.method3138(var2, var3, var4, var5);
+                        Rasterizer2D.method3138(var2, var3, var4, var5);
                         continue;
                      }
 
                      if(var10.field2562 == 1339) {
                         class316.method6198(var10, var12, var13, var11);
-                        class173.method3138(var2, var3, var4, var5);
+                        Rasterizer2D.method3138(var2, var3, var4, var5);
                         continue;
                      }
 
@@ -262,7 +262,7 @@ public class class304 {
                         class88.method1679(var30.field3937, var15, var16, var17, var18, var12, var13, var11);
                      }
 
-                     class173.method3138(var2, var3, var4, var5);
+                     Rasterizer2D.method3138(var2, var3, var4, var5);
                      class211.method4247();
                   }
 
@@ -330,8 +330,8 @@ public class class304 {
                                              if(var1 != -1) {
                                                 class187 var28 = var0[var1 & 65535];
                                                 int var29;
-                                                if(var23 + var25 < class173.field2122 && var28.field2580 > 0) {
-                                                   var29 = (class173.field2122 - var23 - var25) * client.field2410 / 3;
+                                                if(var23 + var25 < Rasterizer2D.field2122 && var28.field2580 > 0) {
+                                                   var29 = (Rasterizer2D.field2122 - var23 - var25) * client.field2410 / 3;
                                                    if(var29 > client.field2410 * 10) {
                                                       var29 = client.field2410 * 10;
                                                    }
@@ -345,8 +345,8 @@ public class class304 {
                                                    class230.method4617(var28);
                                                 }
 
-                                                if(var23 + var25 + 32 > class173.field2123 && var28.field2580 < var28.field2582 - var28.field2574) {
-                                                   var29 = (var25 + var23 + 32 - class173.field2123) * client.field2410 / 3;
+                                                if(var23 + var25 + 32 > Rasterizer2D.field2123 && var28.field2580 < var28.field2582 - var28.field2574) {
+                                                   var29 = (var25 + var23 + 32 - Rasterizer2D.field2123) * client.field2410 / 3;
                                                    if(var29 > client.field2410 * 10) {
                                                       var29 = client.field2410 * 10;
                                                    }
@@ -390,22 +390,22 @@ public class class304 {
                            if(var10.field2587) {
                               switch(var10.field2588.field1756) {
                               case 1:
-                                 class173.method3142(var12, var13, var10.field2573, var10.field2574, var10.field2633, var10.field2584);
+                                 Rasterizer2D.method3142(var12, var13, var10.field2573, var10.field2574, var10.field2633, var10.field2584);
                                  break;
                               case 2:
-                                 class173.method3147(var12, var13, var10.field2573, var10.field2574, var10.field2633, var10.field2584, 255 - (var10.field2652 & 255), 255 - (var10.field2558 & 255));
+                                 Rasterizer2D.method3147(var12, var13, var10.field2573, var10.field2574, var10.field2633, var10.field2584, 255 - (var10.field2652 & 255), 255 - (var10.field2558 & 255));
                                  break;
                               default:
                                  if(var14 == 0) {
-                                    class173.method3167(var12, var13, var10.field2573, var10.field2574, var19);
+                                    Rasterizer2D.method3167(var12, var13, var10.field2573, var10.field2574, var19);
                                  } else {
-                                    class173.method3145(var12, var13, var10.field2573, var10.field2574, var19, 256 - (var14 & 255));
+                                    Rasterizer2D.method3145(var12, var13, var10.field2573, var10.field2574, var19, 256 - (var14 & 255));
                                  }
                               }
                            } else if(var14 == 0) {
-                              class173.method3149(var12, var13, var10.field2573, var10.field2574, var19);
+                              Rasterizer2D.method3149(var12, var13, var10.field2573, var10.field2574, var19);
                            } else {
-                              class173.method3150(var12, var13, var10.field2573, var10.field2574, var19, 256 - (var14 & 255));
+                              Rasterizer2D.method3150(var12, var13, var10.field2573, var10.field2574, var19, 256 - (var14 & 255));
                            }
                         } else {
                            class299 var39;
@@ -491,7 +491,7 @@ public class class304 {
                                           var40.method294(var12, var13, var10.field2573, var10.field2574);
                                        }
                                     } else {
-                                       class173.method3158(var12, var13, var12 + var10.field2573, var13 + var10.field2574);
+                                       Rasterizer2D.method3158(var12, var13, var12 + var10.field2573, var13 + var10.field2574);
                                        var22 = (var20 - 1 + var10.field2573) / var20;
                                        var23 = (var21 - 1 + var10.field2574) / var21;
 
@@ -507,7 +507,7 @@ public class class304 {
                                           }
                                        }
 
-                                       class173.method3138(var2, var3, var4, var5);
+                                       Rasterizer2D.method3138(var2, var3, var4, var5);
                                     }
                                  }
                               }
@@ -649,8 +649,8 @@ public class class304 {
                                        var25 = var5 - var20;
                                     }
 
-                                    class173.method3167(var24, var25, var19, var20, 16777120);
-                                    class173.method3149(var24, var25, var19, var20, 0);
+                                    Rasterizer2D.method3167(var24, var25, var19, var20, 16777120);
+                                    Rasterizer2D.method3149(var24, var25, var19, var20, 0);
                                     var34 = var10.field2619;
                                     var26 = var25 + var31.field2718 + 2;
 
@@ -682,7 +682,7 @@ public class class304 {
                                     }
 
                                     if(var10.field2591 == 1) {
-                                       class173.method3153(var19, var20, var21, var22, var10.field2633);
+                                       Rasterizer2D.method3153(var19, var20, var21, var22, var10.field2633);
                                     } else {
                                        class277.method5378(var19, var20, var21, var22, var10.field2633, var10.field2591);
                                     }

@@ -117,7 +117,7 @@ public final class class189 implements RSSceneTilePaint {
       class187 var4;
       if(var0 >= 2000) {
          var0 -= 1000;
-         var4 = class48.method1047(class249.field3312[--class308.field3811]);
+         var4 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
          var3 = false;
       } else {
          var4 = var2?class3.field36:class284.field3565;
@@ -125,7 +125,7 @@ public final class class189 implements RSSceneTilePaint {
 
       int var11;
       if(var0 == 1300) {
-         var11 = class249.field3312[--class308.field3811] - 1;
+         var11 = class249.field3312[--MapCacheArchiveNames.field3811] - 1;
          if(var11 >= 0 && var11 <= 9) {
             var4.method3763(var11, class249.field3313[--class103.field1146]);
             return 1;
@@ -136,19 +136,19 @@ public final class class189 implements RSSceneTilePaint {
       } else {
          int var6;
          if(var0 == 1301) {
-            class308.field3811 -= 2;
-            var11 = class249.field3312[class308.field3811];
-            var6 = class249.field3312[class308.field3811 + 1];
+            MapCacheArchiveNames.field3811 -= 2;
+            var11 = class249.field3312[MapCacheArchiveNames.field3811];
+            var6 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
             var4.field2639 = class174.method3220(var11, var6);
             return 1;
          } else if(var0 == 1302) {
-            var4.field2646 = class249.field3312[--class308.field3811] == 1;
+            var4.field2646 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
             return 1;
          } else if(var0 == 1303) {
-            var4.field2670 = class249.field3312[--class308.field3811];
+            var4.field2670 = class249.field3312[--MapCacheArchiveNames.field3811];
             return 1;
          } else if(var0 == 1304) {
-            var4.field2641 = class249.field3312[--class308.field3811];
+            var4.field2641 = class249.field3312[--MapCacheArchiveNames.field3811];
             return 1;
          } else if(var0 == 1305) {
             var4.field2683 = class249.field3313[--class103.field1146];
@@ -165,17 +165,17 @@ public final class class189 implements RSSceneTilePaint {
             if(var0 != 1350) {
                byte var5;
                if(var0 == 1351) {
-                  class308.field3811 -= 2;
+                  MapCacheArchiveNames.field3811 -= 2;
                   var5 = 10;
-                  var9 = new byte[]{(byte)class249.field3312[class308.field3811]};
-                  byte[] var10 = new byte[]{(byte)class249.field3312[class308.field3811 + 1]};
+                  var9 = new byte[]{(byte)class249.field3312[MapCacheArchiveNames.field3811]};
+                  byte[] var10 = new byte[]{(byte)class249.field3312[MapCacheArchiveNames.field3811 + 1]};
                   class322.method6255(var4, var5, var9, var10);
                   return 1;
                } else if(var0 == 1352) {
-                  class308.field3811 -= 3;
-                  var11 = class249.field3312[class308.field3811] - 1;
-                  var6 = class249.field3312[class308.field3811 + 1];
-                  var7 = class249.field3312[class308.field3811 + 2];
+                  MapCacheArchiveNames.field3811 -= 3;
+                  var11 = class249.field3312[MapCacheArchiveNames.field3811] - 1;
+                  var6 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+                  var7 = class249.field3312[MapCacheArchiveNames.field3811 + 2];
                   if(var11 >= 0 && var11 <= 9) {
                      class153.method2785(var4, var11, var6, var7);
                      return 1;
@@ -184,13 +184,13 @@ public final class class189 implements RSSceneTilePaint {
                   }
                } else if(var0 == 1353) {
                   var5 = 10;
-                  var6 = class249.field3312[--class308.field3811];
-                  var7 = class249.field3312[--class308.field3811];
+                  var6 = class249.field3312[--MapCacheArchiveNames.field3811];
+                  var7 = class249.field3312[--MapCacheArchiveNames.field3811];
                   class153.method2785(var4, var5, var6, var7);
                   return 1;
                } else if(var0 == 1354) {
-                  --class308.field3811;
-                  var11 = class249.field3312[class308.field3811] - 1;
+                  --MapCacheArchiveNames.field3811;
+                  var11 = class249.field3312[MapCacheArchiveNames.field3811] - 1;
                   if(var11 >= 0 && var11 <= 9) {
                      class24.method445(var4, var11);
                      return 1;
@@ -208,9 +208,9 @@ public final class class189 implements RSSceneTilePaint {
                byte[] var8 = null;
                var9 = null;
                if(var3) {
-                  class308.field3811 -= 10;
+                  MapCacheArchiveNames.field3811 -= 10;
 
-                  for(var7 = 0; var7 < 10 && class249.field3312[var7 + class308.field3811] >= 0; var7 += 2) {
+                  for(var7 = 0; var7 < 10 && class249.field3312[var7 + MapCacheArchiveNames.field3811] >= 0; var7 += 2) {
                      ;
                   }
 
@@ -219,17 +219,17 @@ public final class class189 implements RSSceneTilePaint {
                      var9 = new byte[var7 / 2];
 
                      for(var7 -= 2; var7 >= 0; var7 -= 2) {
-                        var8[var7 / 2] = (byte)class249.field3312[var7 + class308.field3811];
-                        var9[var7 / 2] = (byte)class249.field3312[var7 + class308.field3811 + 1];
+                        var8[var7 / 2] = (byte)class249.field3312[var7 + MapCacheArchiveNames.field3811];
+                        var9[var7 / 2] = (byte)class249.field3312[var7 + MapCacheArchiveNames.field3811 + 1];
                      }
                   }
                } else {
-                  class308.field3811 -= 2;
-                  var8 = new byte[]{(byte)class249.field3312[class308.field3811]};
-                  var9 = new byte[]{(byte)class249.field3312[class308.field3811 + 1]};
+                  MapCacheArchiveNames.field3811 -= 2;
+                  var8 = new byte[]{(byte)class249.field3312[MapCacheArchiveNames.field3811]};
+                  var9 = new byte[]{(byte)class249.field3312[MapCacheArchiveNames.field3811 + 1]};
                }
 
-               var7 = class249.field3312[--class308.field3811] - 1;
+               var7 = class249.field3312[--MapCacheArchiveNames.field3811] - 1;
                if(var7 >= 0 && var7 <= 9) {
                   class322.method6255(var4, var7, var8, var9);
                   return 1;

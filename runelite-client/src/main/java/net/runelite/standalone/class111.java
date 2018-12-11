@@ -2896,15 +2896,15 @@ public class class111 implements RSScene {
                            var23 -= var17;
                            if(var18 >= 0 && var18 < 255) {
                               var14.method221(var23, var24, var18);
-                              class173.method3158(var23, var24, var23 + var93, var24 + var22);
+                              Rasterizer2D.method3158(var23, var24, var23 + var93, var24 + var22);
                               var15.method221(var23, var24, var18);
                            } else {
                               var14.method215(var23, var24);
-                              class173.method3158(var23, var24, var23 + var93, var24 + var22);
+                              Rasterizer2D.method3158(var23, var24, var23 + var93, var24 + var22);
                               var15.method215(var23, var24);
                            }
 
-                           class173.method3138(var2, var3, var2 + var4, var3 + var5);
+                           Rasterizer2D.method3138(var2, var3, var2 + var4, var3 + var5);
                            var77 += 2;
                            continue;
                         }
@@ -2914,8 +2914,8 @@ public class class111 implements RSScene {
                      if(client.field2252 > -1) {
                         var22 = var2 + client.field2252 - (var16 >> 1);
                         var23 = var3 + client.field2253 - var77;
-                        class173.method3167(var22, var23, var93, 5, 65280);
-                        class173.method3167(var22 + var93, var23, var16 - var93, 5, 16711680);
+                        Rasterizer2D.method3167(var22, var23, var93, 5, 65280);
+                        Rasterizer2D.method3167(var22 + var93, var23, var16 - var93, 5, 16711680);
                      }
 
                      var77 += 2;

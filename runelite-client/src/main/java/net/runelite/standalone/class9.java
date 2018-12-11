@@ -45,7 +45,7 @@ public class class9 extends class168 implements RSIgnoreContainer {
    )
    public void method164(Buffer var1, int var2) {
       while(true) {
-         if(var1.field1693 < var2) {
+         if(var1.position < var2) {
             int var3 = var1.readUnsignedByte();
             boolean var4 = (var3 & 1) == 1;
             class158 var5 = new class158(var1.readString(), this.field92);

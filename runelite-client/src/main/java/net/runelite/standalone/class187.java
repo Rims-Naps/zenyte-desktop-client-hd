@@ -34,17 +34,17 @@ public class class187 extends class197 implements RSWidget {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field2586;
+   static Js5Index field2586;
    @ObfuscatedName("r")
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field2549;
+   static Js5Index field2549;
    @ObfuscatedName("m")
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field2550;
+   static Js5Index field2550;
    // $FF: synthetic field
    public static boolean $assertionsDisabled;
    public static int rl$widgetLastPosChanged;
@@ -62,7 +62,7 @@ public class class187 extends class197 implements RSWidget {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field2551;
+   static Js5Index field2551;
    @ObfuscatedName("a")
    @ObfuscatedSignature(
       signature = "[[Lhw;"
@@ -717,21 +717,21 @@ public class class187 extends class197 implements RSWidget {
       var1.readUnsignedByte();
       this.field2557 = true;
       this.field2560 = var1.readUnsignedByte();
-      this.field2562 = var1.readShort();
+      this.field2562 = var1.readUnsignedShort();
       this.field2625 = var1.method2456();
       this.field2568 = var1.method2456();
-      this.field2569 = var1.readShort();
+      this.field2569 = var1.readUnsignedShort();
       if(this.field2560 == 9) {
          this.field2570 = var1.method2456();
       } else {
-         this.field2570 = var1.readShort();
+         this.field2570 = var1.readUnsignedShort();
       }
 
       this.field2565 = var1.method2257();
       this.field2692 = var1.method2257();
       this.field2585 = var1.method2257();
       this.field2559 = var1.method2257();
-      this.field2577 = var1.readShort();
+      this.field2577 = var1.readUnsignedShort();
       if(this.field2577 == 65535) {
          this.field2577 = -1;
       } else {
@@ -741,14 +741,14 @@ public class class187 extends class197 implements RSWidget {
       this.field2583 = var1.readUnsignedByte() == 1;
       this.onHiddenChanged(-1);
       if(this.field2560 == 0) {
-         this.field2581 = var1.readShort();
-         this.field2582 = var1.readShort();
+         this.field2581 = var1.readUnsignedShort();
+         this.field2582 = var1.readUnsignedShort();
          this.field2698 = var1.readUnsignedByte() == 1;
       }
 
       if(this.field2560 == 5) {
          this.field2593 = var1.readInt();
-         this.field2592 = var1.readShort();
+         this.field2592 = var1.readUnsignedShort();
          this.field2637 = var1.readUnsignedByte() == 1;
          this.field2652 = var1.readUnsignedByte();
          this.field2594 = var1.readUnsignedByte();
@@ -759,35 +759,35 @@ public class class187 extends class197 implements RSWidget {
 
       if(this.field2560 == 6) {
          this.field2566 = 1;
-         this.field2602 = var1.readShort();
+         this.field2602 = var1.readUnsignedShort();
          if(this.field2602 == 65535) {
             this.field2602 = -1;
          }
 
          this.field2607 = var1.method2456();
          this.field2608 = var1.method2456();
-         this.field2687 = var1.readShort();
-         this.field2610 = var1.readShort();
-         this.field2671 = var1.readShort();
-         this.field2612 = var1.readShort();
-         this.field2605 = var1.readShort();
+         this.field2687 = var1.readUnsignedShort();
+         this.field2610 = var1.readUnsignedShort();
+         this.field2671 = var1.readUnsignedShort();
+         this.field2612 = var1.readUnsignedShort();
+         this.field2605 = var1.readUnsignedShort();
          if(this.field2605 == 65535) {
             this.field2605 = -1;
          }
 
          this.field2615 = var1.readUnsignedByte() == 1;
-         var1.readShort();
+         var1.readUnsignedShort();
          if(this.field2565 != 0) {
-            this.field2613 = var1.readShort();
+            this.field2613 = var1.readUnsignedShort();
          }
 
          if(this.field2692 != 0) {
-            var1.readShort();
+            var1.readUnsignedShort();
          }
       }
 
       if(this.field2560 == 4) {
-         this.field2642 = var1.readShort();
+         this.field2642 = var1.readUnsignedShort();
          if(this.field2642 == 65535) {
             this.field2642 = -1;
          }
@@ -879,20 +879,20 @@ public class class187 extends class197 implements RSWidget {
       this.field2557 = false;
       this.field2560 = var1.readUnsignedByte();
       this.field2561 = var1.readUnsignedByte();
-      this.field2562 = var1.readShort();
+      this.field2562 = var1.readUnsignedShort();
       this.field2625 = var1.method2456();
       this.field2568 = var1.method2456();
-      this.field2569 = var1.readShort();
-      this.field2570 = var1.readShort();
+      this.field2569 = var1.readUnsignedShort();
+      this.field2570 = var1.readUnsignedShort();
       this.field2652 = var1.readUnsignedByte();
-      this.field2577 = var1.readShort();
+      this.field2577 = var1.readUnsignedShort();
       if(this.field2577 == 65535) {
          this.field2577 = -1;
       } else {
          this.field2577 += this.field2621 & -65536;
       }
 
-      this.field2679 = var1.readShort();
+      this.field2679 = var1.readUnsignedShort();
       if(this.field2679 == 65535) {
          this.field2679 = -1;
       }
@@ -905,7 +905,7 @@ public class class187 extends class197 implements RSWidget {
 
          for(var3 = 0; var3 < var2; ++var3) {
             this.field2677[var3] = var1.readUnsignedByte();
-            this.field2678[var3] = var1.readShort();
+            this.field2678[var3] = var1.readUnsignedShort();
          }
       }
 
@@ -917,11 +917,11 @@ public class class187 extends class197 implements RSWidget {
          this.field2645 = new int[var3][];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            var5 = var1.readShort();
+            var5 = var1.readUnsignedShort();
             this.field2645[var4] = new int[var5];
 
             for(var6 = 0; var6 < var5; ++var6) {
-               this.field2645[var4][var6] = var1.readShort();
+               this.field2645[var4][var6] = var1.readUnsignedShort();
                if(this.field2645[var4][var6] == 65535) {
                   this.field2645[var4][var6] = -1;
                }
@@ -930,13 +930,13 @@ public class class187 extends class197 implements RSWidget {
       }
 
       if(this.field2560 == 0) {
-         this.field2582 = var1.readShort();
+         this.field2582 = var1.readUnsignedShort();
          this.field2583 = var1.readUnsignedByte() == 1;
          this.onHiddenChanged(-1);
       }
 
       if(this.field2560 == 1) {
-         var1.readShort();
+         var1.readUnsignedShort();
          var1.readUnsignedByte();
       }
 
@@ -1000,7 +1000,7 @@ public class class187 extends class197 implements RSWidget {
          this.field2601 = var1.readUnsignedByte();
          this.field2623 = var1.readUnsignedByte();
          this.field2597 = var1.readUnsignedByte();
-         this.field2642 = var1.readShort();
+         this.field2642 = var1.readUnsignedShort();
          if(this.field2642 == 65535) {
             this.field2642 = -1;
          }
@@ -1030,37 +1030,37 @@ public class class187 extends class197 implements RSWidget {
 
       if(this.field2560 == 6) {
          this.field2566 = 1;
-         this.field2602 = var1.readShort();
+         this.field2602 = var1.readUnsignedShort();
          if(this.field2602 == 65535) {
             this.field2602 = -1;
          }
 
          this.field2548 = 1;
-         this.field2604 = var1.readShort();
+         this.field2604 = var1.readUnsignedShort();
          if(this.field2604 == 65535) {
             this.field2604 = -1;
          }
 
-         this.field2605 = var1.readShort();
+         this.field2605 = var1.readUnsignedShort();
          if(this.field2605 == 65535) {
             this.field2605 = -1;
          }
 
-         this.field2606 = var1.readShort();
+         this.field2606 = var1.readUnsignedShort();
          if(this.field2606 == 65535) {
             this.field2606 = -1;
          }
 
-         this.field2612 = var1.readShort();
-         this.field2687 = var1.readShort();
-         this.field2610 = var1.readShort();
+         this.field2612 = var1.readUnsignedShort();
+         this.field2687 = var1.readUnsignedShort();
+         this.field2610 = var1.readUnsignedShort();
       }
 
       if(this.field2560 == 7) {
          this.field2682 = new int[this.field2569 * this.field2570];
          this.field2696 = new int[this.field2569 * this.field2570];
          this.field2601 = var1.readUnsignedByte();
-         this.field2642 = var1.readShort();
+         this.field2642 = var1.readUnsignedShort();
          if(this.field2642 == 65535) {
             this.field2642 = -1;
          }
@@ -1092,7 +1092,7 @@ public class class187 extends class197 implements RSWidget {
       if(this.field2561 == 2 || this.field2560 == 2) {
          this.field2647 = var1.readString();
          this.field2564 = var1.readString();
-         var4 = var1.readShort() & 63;
+         var4 = var1.readUnsignedShort() & 63;
          this.field2631 |= var4 << 11;
       }
 
@@ -2170,7 +2170,7 @@ public class class187 extends class197 implements RSWidget {
             }
 
             if(var5 == 2) {
-               var8 = class127.method2480(var6).method6181();
+               var8 = WorldMapGameObject.method2480(var6).method6181();
                if(var8 == null) {
                   field2578 = true;
                   return null;

@@ -36,7 +36,7 @@ public class class65 extends class197 implements RSTexture {
    )
    class65(Buffer var1) {
       this.field763 = false;
-      this.field754 = var1.readShort();
+      this.field754 = var1.readUnsignedShort();
       this.field759 = var1.readUnsignedByte() == 1;
       int var2 = var1.readUnsignedByte();
       if(var2 >= 1 && var2 <= 4) {
@@ -44,7 +44,7 @@ public class class65 extends class197 implements RSTexture {
 
          int var3;
          for(var3 = 0; var3 < var2; ++var3) {
-            this.field756[var3] = var1.readShort();
+            this.field756[var3] = var1.readUnsignedShort();
          }
 
          if(var2 > 1) {
@@ -86,7 +86,7 @@ public class class65 extends class197 implements RSTexture {
    @ObfuscatedSignature(
       signature = "(DILik;)Z"
    )
-   boolean method1358(double var1, int var3, class217 var4) {
+   boolean method1358(double var1, int var3, Js5Index var4) {
       int var5;
       for(var5 = 0; var5 < this.field756.length; ++var5) {
          if(var4.method4407(this.field756[var5]) == null) {

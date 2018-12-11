@@ -107,7 +107,7 @@ public class class272 extends class62 implements RSClanMember {
       if(var0) {
          client.field2191 = class39.field399?class2.field14:class2.field17;
       } else {
-         client.field2191 = class175.field2134.field853.containsKey(Integer.valueOf(class143.method2637(class39.field386)))?class2.field19:class2.field16;
+         client.field2191 = WorldMapNode.field2134.field853.containsKey(Integer.valueOf(class143.method2637(class39.field386)))?class2.field19:class2.field16;
       }
 
    }

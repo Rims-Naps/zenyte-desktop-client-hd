@@ -40,7 +40,7 @@ public final class class186 extends class197 {
    @ObfuscatedSignature(
       signature = "Ljq;"
    )
-   class15 field2542;
+   ObjectDef field2542;
    @ObfuscatedName("m")
    @ObfuscatedGetter(
       intValue = 295870579
@@ -90,7 +90,7 @@ public final class class186 extends class197 {
    )
    void method3749() {
       int var1 = this.field2532;
-      class15 var2 = this.field2542.method325();
+      ObjectDef var2 = this.field2542.getMultiLoc();
       if(var2 != null) {
          this.field2532 = var2.field192;
          this.field2534 = var2.field151 * 128;
@@ -120,18 +120,18 @@ public final class class186 extends class197 {
    static int method3752(int var0, class296 var1, boolean var2) {
       class187 var3 = var2?class3.field36:class284.field3565;
       if(var0 == 1700) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2676;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2676;
          return 1;
       } else if(var0 == 1701) {
          if(var3.field2676 != -1) {
-            class249.field3312[++class308.field3811 - 1] = var3.field2685;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2685;
          } else {
-            class249.field3312[++class308.field3811 - 1] = 0;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 0;
          }
 
          return 1;
       } else if(var0 == 1702) {
-         class249.field3312[++class308.field3811 - 1] = var3.field2620;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2620;
          return 1;
       } else {
          return 2;

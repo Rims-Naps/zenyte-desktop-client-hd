@@ -55,7 +55,7 @@ public class class327 implements RSPlayerComposition {
    )
    public class52 method6288(class312 var1, int var2, class312 var3, int var4) {
       if(this.field3959 != -1) {
-         return class127.method2480(this.field3959).method6152(var1, var2, var3, var4);
+         return WorldMapGameObject.method2480(this.field3959).method6152(var1, var2, var3, var4);
       } else {
          long var5 = this.field3960;
          int[] var7 = this.field3962;
@@ -284,7 +284,7 @@ public class class327 implements RSPlayerComposition {
    )
    class34 method6289() {
       if(this.field3959 != -1) {
-         return class127.method2480(this.field3959).method6181();
+         return WorldMapGameObject.method2480(this.field3959).method6181();
       } else {
          boolean var1 = false;
 
@@ -348,7 +348,7 @@ public class class327 implements RSPlayerComposition {
       garbageValue = "-667597464"
    )
    public int method6297() {
-      return this.field3959 == -1?(this.field3962[0] << 15) + this.field3962[1] + (this.field3962[11] << 5) + (this.field3962[8] << 10) + (this.field3957[0] << 25) + (this.field3957[4] << 20):305419896 + class127.method2480(this.field3959).field3875;
+      return this.field3959 == -1?(this.field3962[0] << 15) + this.field3962[1] + (this.field3962[11] << 5) + (this.field3962[8] << 10) + (this.field3957[0] << 25) + (this.field3957[4] << 20):305419896 + WorldMapGameObject.method2480(this.field3959).field3875;
    }
 
    public int[] getEquipmentIds() {

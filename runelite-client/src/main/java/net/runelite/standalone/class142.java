@@ -46,7 +46,7 @@ final class class142 implements Comparator {
          class322.field3936 = var0;
          class118.field1631 = var1;
          method2635(25);
-         class214.method4369("Loading - please wait.", true);
+         WorldMapRegion.method4369("Loading - please wait.", true);
          int var3 = class229.field3067;
          int var4 = class35.field360;
          class229.field3067 = (var0 - 6) * 8;
@@ -198,11 +198,11 @@ final class class142 implements Comparator {
                class39.field376 = null;
                class135.field1744 = null;
                class193.field2750 = null;
-               class23.field257 = null;
+               MapIcon.field257 = null;
                class89.field972 = null;
                class316.field3893 = null;
                class210.field2892 = null;
-               class23.field249 = null;
+               MapIcon.field249 = null;
                class103.field1147 = null;
                class302.field3754 = null;
                class179.field2462 = null;

@@ -45,7 +45,7 @@ public class class311 extends class320 {
       signature = "(Lik;II)Z",
       garbageValue = "-69884127"
    )
-   static boolean method6094(class217 var0, int var1) {
+   static boolean method6094(Js5Index var0, int var1) {
       byte[] var2 = var0.method4405(var1);
       if(var2 == null) {
          return false;

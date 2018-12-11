@@ -50,51 +50,51 @@ public class class286 {
    )
    static int method5485(int var0, class296 var1, boolean var2) {
       if(var0 == 6200) {
-         class308.field3811 -= 2;
-         client.field2396 = (short)class177.method3676(class249.field3312[class308.field3811]);
+         MapCacheArchiveNames.field3811 -= 2;
+         client.field2396 = (short)class177.method3676(class249.field3312[MapCacheArchiveNames.field3811]);
          if(client.field2396 <= 0) {
             client.field2396 = 256;
          }
 
-         client.field2405 = (short)class177.method3676(class249.field3312[class308.field3811 + 1]);
+         client.field2405 = (short)class177.method3676(class249.field3312[MapCacheArchiveNames.field3811 + 1]);
          if(client.field2405 <= 0) {
             client.field2405 = 256;
          }
 
          return 1;
       } else if(var0 == 6201) {
-         class308.field3811 -= 2;
-         client.field2259 = (short)class249.field3312[class308.field3811];
+         MapCacheArchiveNames.field3811 -= 2;
+         client.field2259 = (short)class249.field3312[MapCacheArchiveNames.field3811];
          if(client.field2259 <= 0) {
             client.field2259 = 256;
          }
 
-         client.field2406 = (short)class249.field3312[class308.field3811 + 1];
+         client.field2406 = (short)class249.field3312[MapCacheArchiveNames.field3811 + 1];
          if(client.field2406 <= 0) {
             client.field2406 = 320;
          }
 
          return 1;
       } else if(var0 == 6202) {
-         class308.field3811 -= 4;
-         client.field2407 = (short)class249.field3312[class308.field3811];
+         MapCacheArchiveNames.field3811 -= 4;
+         client.field2407 = (short)class249.field3312[MapCacheArchiveNames.field3811];
          if(client.field2407 <= 0) {
             client.field2407 = 1;
          }
 
-         client.field2408 = (short)class249.field3312[class308.field3811 + 1];
+         client.field2408 = (short)class249.field3312[MapCacheArchiveNames.field3811 + 1];
          if(client.field2408 <= 0) {
             client.field2408 = 32767;
          } else if(client.field2408 < client.field2407) {
             client.field2408 = client.field2407;
          }
 
-         client.field2409 = (short)class249.field3312[class308.field3811 + 2];
+         client.field2409 = (short)class249.field3312[MapCacheArchiveNames.field3811 + 2];
          if(client.field2409 <= 0) {
             client.field2409 = 1;
          }
 
-         client.field2341 = (short)class249.field3312[class308.field3811 + 3];
+         client.field2341 = (short)class249.field3312[MapCacheArchiveNames.field3811 + 3];
          if(client.field2341 <= 0) {
             client.field2341 = 32767;
          } else if(client.field2341 < client.field2409) {
@@ -105,21 +105,21 @@ public class class286 {
       } else if(var0 == 6203) {
          if(client.field2325 != null) {
             class162.method2969(0, 0, client.field2325.field2573, client.field2325.field2574, false);
-            class249.field3312[++class308.field3811 - 1] = client.field2413;
-            class249.field3312[++class308.field3811 - 1] = client.field2359;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2413;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2359;
          } else {
-            class249.field3312[++class308.field3811 - 1] = -1;
-            class249.field3312[++class308.field3811 - 1] = -1;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = -1;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = -1;
          }
 
          return 1;
       } else if(var0 == 6204) {
-         class249.field3312[++class308.field3811 - 1] = client.field2259;
-         class249.field3312[++class308.field3811 - 1] = client.field2406;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2259;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2406;
          return 1;
       } else if(var0 == 6205) {
-         class249.field3312[++class308.field3811 - 1] = class203.method4025(client.field2396);
-         class249.field3312[++class308.field3811 - 1] = class203.method4025(client.field2405);
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class203.method4025(client.field2396);
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class203.method4025(client.field2405);
          return 1;
       } else {
          return 2;

@@ -6,7 +6,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("b")
-public abstract class class175 {
+public abstract class WorldMapNode {
    @ObfuscatedName("ss")
    @ObfuscatedSignature(
       signature = "Lbk;"
@@ -49,7 +49,7 @@ public abstract class class175 {
    @ObfuscatedSignature(
       signature = "[[[[Ln;"
    )
-   class127[][][][] field2149;
+   WorldMapGameObject[][][][] objects;
    @ObfuscatedName("a")
    @ObfuscatedGetter(
       intValue = 631004899
@@ -66,7 +66,7 @@ public abstract class class175 {
    )
    int field2138;
 
-   class175() {
+   WorldMapNode() {
       new LinkedList();
    }
 
@@ -110,12 +110,12 @@ public abstract class class175 {
          for(var8 = 0; var8 < var5; ++var8) {
             var9 = var3.readUnsignedByte();
             if(var9 != 0) {
-               class127[] var14 = this.field2149[var8][var1][var2] = new class127[var9];
+               WorldMapGameObject[] var14 = this.objects[var8][var1][var2] = new WorldMapGameObject[var9];
 
                for(var11 = 0; var11 < var9; ++var11) {
                   int var12 = var3.method2293();
                   int var13 = var3.readUnsignedByte();
-                  var14[var11] = new class127(var12, var13 >> 2, var13 & 3);
+                  var14[var11] = new WorldMapGameObject(var12, var13 >> 2, var13 & 3);
                }
             }
          }

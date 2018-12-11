@@ -122,7 +122,7 @@ public class class129 {
       if(var0 >= 8000 && var0 <= 48000) {
          class293.field3657 = var0;
          class268.field3462 = var1;
-         class23.field247 = var2;
+         MapIcon.field247 = var2;
       } else {
          throw new IllegalArgumentException();
       }

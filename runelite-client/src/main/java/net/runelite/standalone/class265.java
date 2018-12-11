@@ -84,14 +84,14 @@ public class class265 implements class61 {
    public void vmethod5267(Buffer var1) {
       this.field3445 = var1.readUnsignedByte();
       this.field3436 = var1.readUnsignedByte();
-      this.field3435 = var1.readShort();
-      this.field3437 = var1.readShort();
-      this.field3439 = var1.readShort();
-      this.field3440 = var1.readShort();
-      this.field3444 = var1.readShort();
-      this.field3442 = var1.readShort();
-      this.field3443 = var1.readShort();
-      this.field3446 = var1.readShort();
+      this.field3435 = var1.readUnsignedShort();
+      this.field3437 = var1.readUnsignedShort();
+      this.field3439 = var1.readUnsignedShort();
+      this.field3440 = var1.readUnsignedShort();
+      this.field3444 = var1.readUnsignedShort();
+      this.field3442 = var1.readUnsignedShort();
+      this.field3443 = var1.readUnsignedShort();
+      this.field3446 = var1.readUnsignedShort();
       this.method5274();
    }
 

@@ -48,8 +48,8 @@ public class class46 {
       this.field512 = new int[this.field518];
 
       for(int var2 = 0; var2 < this.field518; ++var2) {
-         this.field511[var2] = var1.readShort();
-         this.field512[var2] = var1.readShort();
+         this.field511[var2] = var1.readUnsignedShort();
+         this.field512[var2] = var1.readUnsignedShort();
       }
 
    }

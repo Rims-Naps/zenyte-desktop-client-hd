@@ -282,7 +282,7 @@ public class class67 {
       signature = "(Lik;IIIZI)V",
       garbageValue = "-1573418912"
    )
-   public static void method1488(class217 var0, int var1, int var2, int var3, boolean var4) {
+   public static void method1488(Js5Index var0, int var1, int var2, int var3, boolean var4) {
       class43.field481 = 1;
       class270.field3480 = var0;
       class259.field3385 = var1;

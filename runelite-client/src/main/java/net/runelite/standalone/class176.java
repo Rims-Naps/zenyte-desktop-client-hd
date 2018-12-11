@@ -278,7 +278,7 @@ public final class class176 extends class99 implements RSNPC {
       signature = "(Lik;B)V",
       garbageValue = "60"
    )
-   public static void method3675(class217 var0) {
+   public static void method3675(Js5Index var0) {
       class278.field3518 = var0;
       class278.field3519 = class278.field3518.method4435(16);
    }

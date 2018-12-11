@@ -51,7 +51,7 @@ public class class314 {
       signature = "(Lik;Lik;III)Lkn;",
       garbageValue = "559953092"
    )
-   public static class299 method6147(class217 var0, class217 var1, int var2, int var3) {
+   public static class299 method6147(Js5Index var0, Js5Index var1, int var2, int var3) {
       byte[] var5 = var0.method4398(var2, var3, -212174985);
       boolean var4;
       if(var5 == null) {

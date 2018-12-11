@@ -590,7 +590,7 @@ public class class157 extends class197 {
    @ObfuscatedSignature(
       signature = "(Lik;)Z"
    )
-   static boolean method2864(class217 var0) {
+   static boolean method2864(Js5Index var0) {
       if(!field1913) {
          byte[] var1 = var0.method4398(0, 0, 644685957);
          if(var1 == null) {
@@ -608,7 +608,7 @@ public class class157 extends class197 {
    @ObfuscatedSignature(
       signature = "(Lik;II)Lce;"
    )
-   static class157 method2849(class217 var0, int var1, int var2) {
+   static class157 method2849(Js5Index var0, int var1, int var2) {
       if(!method2864(var0)) {
          var0.method4468(var1, var2);
          return null;

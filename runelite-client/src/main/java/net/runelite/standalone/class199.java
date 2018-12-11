@@ -237,7 +237,7 @@ public final class class199 extends class99 implements RSPlayer {
       garbageValue = "410478966"
    )
    final void method3948(Buffer var1) {
-      var1.field1693 = 0;
+      var1.position = 0;
       int var2 = var1.readUnsignedByte();
       this.field2829 = var1.method2257();
       this.field2803 = var1.method2257();
@@ -255,7 +255,7 @@ public final class class199 extends class99 implements RSPlayer {
             var7 = var1.readUnsignedByte();
             var4[var5] = var7 + (var6 << 8);
             if(var5 == 0 && var4[0] == 65535) {
-               var3 = var1.readShort();
+               var3 = var1.readUnsignedShort();
                break;
             }
 
@@ -279,38 +279,38 @@ public final class class199 extends class99 implements RSPlayer {
          var9[var6] = var7;
       }
 
-      super.field1089 = var1.readShort();
+      super.field1089 = var1.readUnsignedShort();
       if(super.field1089 == 65535) {
          super.field1089 = -1;
       }
 
-      super.field1127 = var1.readShort();
+      super.field1127 = var1.readUnsignedShort();
       if(super.field1127 == 65535) {
          super.field1127 = -1;
       }
 
       super.field1122 = super.field1127;
-      super.field1103 = var1.readShort();
+      super.field1103 = var1.readUnsignedShort();
       if(super.field1103 == 65535) {
          super.field1103 = -1;
       }
 
-      super.field1080 = var1.readShort();
+      super.field1080 = var1.readUnsignedShort();
       if(super.field1080 == 65535) {
          super.field1080 = -1;
       }
 
-      super.field1077 = var1.readShort();
+      super.field1077 = var1.readUnsignedShort();
       if(super.field1077 == 65535) {
          super.field1077 = -1;
       }
 
-      super.field1083 = var1.readShort();
+      super.field1083 = var1.readUnsignedShort();
       if(super.field1083 == 65535) {
          super.field1083 = -1;
       }
 
-      super.field1084 = var1.readShort();
+      super.field1084 = var1.readUnsignedShort();
       if(super.field1084 == 65535) {
          super.field1084 = -1;
       }
@@ -323,7 +323,7 @@ public final class class199 extends class99 implements RSPlayer {
       }
 
       this.field2807 = var1.readUnsignedByte();
-      this.field2822 = var1.readShort();
+      this.field2822 = var1.readUnsignedShort();
       this.field2800 = var1.readUnsignedByte() == 1;
       if(client.field2155 == 0 && client.field2263 >= 2) {
          this.field2800 = false;
@@ -342,7 +342,7 @@ public final class class199 extends class99 implements RSPlayer {
       garbageValue = "-1131689357"
    )
    int method3955() {
-      return this.field2801 != null && this.field2801.field3959 != -1?class127.method2480(this.field2801.field3959).field3862:1;
+      return this.field2801 != null && this.field2801.field3959 != -1?WorldMapGameObject.method2480(this.field2801.field3959).field3862:1;
    }
 
    @ObfuscatedName("m")

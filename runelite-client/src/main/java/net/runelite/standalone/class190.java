@@ -6,7 +6,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSFontTypeFace;
 
 @ObfuscatedName("kd")
-public abstract class class190 extends class173 implements RSFontTypeFace {
+public abstract class class190 extends Rasterizer2D implements RSFontTypeFace {
    @ObfuscatedName("j")
    static int field2733;
    @ObfuscatedName("z")
@@ -345,11 +345,11 @@ public abstract class class190 extends class173 implements RSFontTypeFace {
 
                   int var18 = this.field2713[var10];
                   if(field2723 != -1) {
-                     class173.method3213(var2, var3 + (int)((double)this.field2718 * 0.7D), var18, field2723);
+                     Rasterizer2D.method3213(var2, var3 + (int)((double)this.field2718 * 0.7D), var18, field2723);
                   }
 
                   if(field2731 != -1) {
-                     class173.method3213(var2, var3 + this.field2718, var18, field2731);
+                     Rasterizer2D.method3213(var2, var3 + this.field2718, var18, field2731);
                   }
 
                   var2 += var18;
@@ -434,11 +434,11 @@ public abstract class class190 extends class173 implements RSFontTypeFace {
 
                   int var13 = this.field2713[var7];
                   if(field2723 != -1) {
-                     class173.method3213(var2, var3 + (int)((double)this.field2718 * 0.7D), var13, field2723);
+                     Rasterizer2D.method3213(var2, var3 + (int)((double)this.field2718 * 0.7D), var13, field2723);
                   }
 
                   if(field2731 != -1) {
-                     class173.method3213(var2, var3 + this.field2718 + 1, var13, field2731);
+                     Rasterizer2D.method3213(var2, var3 + this.field2718 + 1, var13, field2731);
                   }
 
                   var2 += var13;
@@ -903,83 +903,83 @@ public abstract class class190 extends class173 implements RSFontTypeFace {
 
    @ObfuscatedName("as")
    static void method3830(byte[] var0, int var1, int var2, int var3, int var4, int var5) {
-      int var6 = var1 + var2 * class173.field2119;
-      int var7 = class173.field2119 - var3;
+      int var6 = var1 + var2 * Rasterizer2D.field2119;
+      int var7 = Rasterizer2D.field2119 - var3;
       int var8 = 0;
       int var9 = 0;
       int var10;
-      if(var2 < class173.field2122) {
-         var10 = class173.field2122 - var2;
+      if(var2 < Rasterizer2D.field2122) {
+         var10 = Rasterizer2D.field2122 - var2;
          var4 -= var10;
-         var2 = class173.field2122;
+         var2 = Rasterizer2D.field2122;
          var9 += var3 * var10;
-         var6 += var10 * class173.field2119;
+         var6 += var10 * Rasterizer2D.field2119;
       }
 
-      if(var2 + var4 > class173.field2123) {
-         var4 -= var2 + var4 - class173.field2123;
+      if(var2 + var4 > Rasterizer2D.field2123) {
+         var4 -= var2 + var4 - Rasterizer2D.field2123;
       }
 
-      if(var1 < class173.field2124) {
-         var10 = class173.field2124 - var1;
+      if(var1 < Rasterizer2D.field2124) {
+         var10 = Rasterizer2D.field2124 - var1;
          var3 -= var10;
-         var1 = class173.field2124;
+         var1 = Rasterizer2D.field2124;
          var9 += var10;
          var6 += var10;
          var8 += var10;
          var7 += var10;
       }
 
-      if(var3 + var1 > class173.field2125) {
-         var10 = var3 + var1 - class173.field2125;
+      if(var3 + var1 > Rasterizer2D.field2125) {
+         var10 = var3 + var1 - Rasterizer2D.field2125;
          var3 -= var10;
          var8 += var10;
          var7 += var10;
       }
 
       if(var3 > 0 && var4 > 0) {
-         method3883(class173.field2121, var0, var5, var9, var6, var3, var4, var7, var8);
+         method3883(Rasterizer2D.field2121, var0, var5, var9, var6, var3, var4, var7, var8);
       }
    }
 
    @ObfuscatedName("ad")
    static void method3887(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6) {
-      int var7 = var1 + var2 * class173.field2119;
-      int var8 = class173.field2119 - var3;
+      int var7 = var1 + var2 * Rasterizer2D.field2119;
+      int var8 = Rasterizer2D.field2119 - var3;
       int var9 = 0;
       int var10 = 0;
       int var11;
-      if(var2 < class173.field2122) {
-         var11 = class173.field2122 - var2;
+      if(var2 < Rasterizer2D.field2122) {
+         var11 = Rasterizer2D.field2122 - var2;
          var4 -= var11;
-         var2 = class173.field2122;
+         var2 = Rasterizer2D.field2122;
          var10 += var3 * var11;
-         var7 += var11 * class173.field2119;
+         var7 += var11 * Rasterizer2D.field2119;
       }
 
-      if(var2 + var4 > class173.field2123) {
-         var4 -= var2 + var4 - class173.field2123;
+      if(var2 + var4 > Rasterizer2D.field2123) {
+         var4 -= var2 + var4 - Rasterizer2D.field2123;
       }
 
-      if(var1 < class173.field2124) {
-         var11 = class173.field2124 - var1;
+      if(var1 < Rasterizer2D.field2124) {
+         var11 = Rasterizer2D.field2124 - var1;
          var3 -= var11;
-         var1 = class173.field2124;
+         var1 = Rasterizer2D.field2124;
          var10 += var11;
          var7 += var11;
          var9 += var11;
          var8 += var11;
       }
 
-      if(var3 + var1 > class173.field2125) {
-         var11 = var3 + var1 - class173.field2125;
+      if(var3 + var1 > Rasterizer2D.field2125) {
+         var11 = var3 + var1 - Rasterizer2D.field2125;
          var3 -= var11;
          var9 += var11;
          var8 += var11;
       }
 
       if(var3 > 0 && var4 > 0) {
-         method3814(class173.field2121, var0, var5, var10, var7, var3, var4, var8, var9, var6);
+         method3814(Rasterizer2D.field2121, var0, var5, var10, var7, var3, var4, var8, var9, var6);
       }
    }
 

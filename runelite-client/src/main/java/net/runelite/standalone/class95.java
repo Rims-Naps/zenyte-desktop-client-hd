@@ -13,7 +13,7 @@ final class class95 implements Comparator {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field1027;
+   public static Js5Index field1027;
    @ObfuscatedName("s")
    static String[] field1023;
    @ObfuscatedName("m")
@@ -53,8 +53,8 @@ final class class95 implements Comparator {
          ServerProt.method3131(0, "", var3);
          return 1;
       } else if(var0 == 3101) {
-         class308.field3811 -= 2;
-         class147.method2675(class32.field303, class249.field3312[class308.field3811], class249.field3312[class308.field3811 + 1]);
+         MapCacheArchiveNames.field3811 -= 2;
+         class147.method2675(class32.field303, class249.field3312[MapCacheArchiveNames.field3811], class249.field3312[MapCacheArchiveNames.field3811 + 1]);
          return 1;
       } else if(var0 == 3103) {
          if(!class249.field3319) {
@@ -95,48 +95,48 @@ final class class95 implements Comparator {
                String var7;
                int var15;
                if(var0 == 3107) {
-                  var15 = class249.field3312[--class308.field3811];
+                  var15 = class249.field3312[--MapCacheArchiveNames.field3811];
                   var7 = class249.field3313[--class103.field1146];
                   class79.method1594(var15, var7);
                   return 1;
                } else if(var0 == 3108) {
-                  class308.field3811 -= 3;
-                  var15 = class249.field3312[class308.field3811];
-                  var10 = class249.field3312[class308.field3811 + 1];
-                  int var9 = class249.field3312[class308.field3811 + 2];
+                  MapCacheArchiveNames.field3811 -= 3;
+                  var15 = class249.field3312[MapCacheArchiveNames.field3811];
+                  var10 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+                  int var9 = class249.field3312[MapCacheArchiveNames.field3811 + 2];
                   class187 var13 = class48.method1047(var9);
                   class283.method5466(var13, var15, var10);
                   return 1;
                } else if(var0 == 3109) {
-                  class308.field3811 -= 2;
-                  var15 = class249.field3312[class308.field3811];
-                  var10 = class249.field3312[class308.field3811 + 1];
+                  MapCacheArchiveNames.field3811 -= 2;
+                  var15 = class249.field3312[MapCacheArchiveNames.field3811];
+                  var10 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
                   class187 var11 = var2?class3.field36:class284.field3565;
                   class283.method5466(var11, var15, var10);
                   return 1;
                } else if(var0 == 3110) {
-                  class225.field3039 = class249.field3312[--class308.field3811] == 1;
+                  class225.field3039 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
                   return 1;
                } else if(var0 == 3111) {
-                  class249.field3312[++class308.field3811 - 1] = class175.field2134.field854?1:0;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = WorldMapNode.field2134.field854?1:0;
                   return 1;
                } else if(var0 == 3112) {
-                  class175.field2134.field854 = class249.field3312[--class308.field3811] == 1;
+                  WorldMapNode.field2134.field854 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
                   class236.method4709();
                   return 1;
                } else if(var0 == 3113) {
                   var3 = class249.field3313[--class103.field1146];
-                  boolean var4 = class249.field3312[--class308.field3811] == 1;
+                  boolean var4 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
                   class212.method4358(var3, var4, false);
                   return 1;
                } else if(var0 == 3115) {
-                  var15 = class249.field3312[--class308.field3811];
+                  var15 = class249.field3312[--MapCacheArchiveNames.field3811];
                   var14 = class150.method2761(ClientProt.field3198, client.field2384.field1770);
                   var14.field121.method2242(var15);
                   client.field2384.method2573(var14);
                   return 1;
                } else if(var0 == 3116) {
-                  var15 = class249.field3312[--class308.field3811];
+                  var15 = class249.field3312[--MapCacheArchiveNames.field3811];
                   class103.field1146 -= 2;
                   var7 = class249.field3313[class103.field1146];
                   String var5 = class249.field3313[class103.field1146 + 1];
@@ -154,16 +154,16 @@ final class class95 implements Comparator {
                      return 1;
                   }
                } else if(var0 == 3117) {
-                  client.field2299 = class249.field3312[--class308.field3811] == 1;
+                  client.field2299 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
                   return 1;
                } else if(var0 == 3118) {
-                  client.field2301 = class249.field3312[--class308.field3811] == 1;
+                  client.field2301 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
                   return 1;
                } else if(var0 == 3119) {
-                  client.field2272 = class249.field3312[--class308.field3811] == 1;
+                  client.field2272 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
                   return 1;
                } else if(var0 == 3120) {
-                  if(class249.field3312[--class308.field3811] == 1) {
+                  if(class249.field3312[--MapCacheArchiveNames.field3811] == 1) {
                      client.field2383 |= 1;
                   } else {
                      client.field2383 &= -2;
@@ -171,7 +171,7 @@ final class class95 implements Comparator {
 
                   return 1;
                } else if(var0 == 3121) {
-                  if(class249.field3312[--class308.field3811] == 1) {
+                  if(class249.field3312[--MapCacheArchiveNames.field3811] == 1) {
                      client.field2383 |= 2;
                   } else {
                      client.field2383 &= -3;
@@ -179,7 +179,7 @@ final class class95 implements Comparator {
 
                   return 1;
                } else if(var0 == 3122) {
-                  if(class249.field3312[--class308.field3811] == 1) {
+                  if(class249.field3312[--MapCacheArchiveNames.field3811] == 1) {
                      client.field2383 |= 4;
                   } else {
                      client.field2383 &= -5;
@@ -187,7 +187,7 @@ final class class95 implements Comparator {
 
                   return 1;
                } else if(var0 == 3123) {
-                  if(class249.field3312[--class308.field3811] == 1) {
+                  if(class249.field3312[--MapCacheArchiveNames.field3811] == 1) {
                      client.field2383 |= 8;
                   } else {
                      client.field2383 &= -9;
@@ -198,47 +198,47 @@ final class class95 implements Comparator {
                   client.field2383 = 0;
                   return 1;
                } else if(var0 == 3125) {
-                  client.field2258 = class249.field3312[--class308.field3811] == 1;
+                  client.field2258 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
                   return 1;
                } else if(var0 == 3126) {
-                  client.field2268 = class249.field3312[--class308.field3811] == 1;
+                  client.field2268 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
                   return 1;
                } else if(var0 == 3127) {
-                  class308.method6053(class249.field3312[--class308.field3811] == 1);
+                  MapCacheArchiveNames.method6053(class249.field3312[--MapCacheArchiveNames.field3811] == 1);
                   return 1;
                } else if(var0 == 3128) {
-                  class249.field3312[++class308.field3811 - 1] = method1743()?1:0;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = method1743()?1:0;
                   return 1;
                } else if(var0 == 3129) {
-                  class308.field3811 -= 2;
-                  client.field2233 = class249.field3312[class308.field3811];
-                  client.field2234 = class249.field3312[class308.field3811 + 1];
+                  MapCacheArchiveNames.field3811 -= 2;
+                  client.field2233 = class249.field3312[MapCacheArchiveNames.field3811];
+                  client.field2234 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
                   return 1;
                } else if(var0 == 3130) {
-                  class308.field3811 -= 2;
+                  MapCacheArchiveNames.field3811 -= 2;
                   return 1;
                } else if(var0 == 3131) {
-                  --class308.field3811;
+                  --MapCacheArchiveNames.field3811;
                   return 1;
                } else if(var0 == 3132) {
-                  class249.field3312[++class308.field3811 - 1] = class167.field2010;
-                  class249.field3312[++class308.field3811 - 1] = class193.field2748;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class167.field2010;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class193.field2748;
                   return 1;
                } else if(var0 == 3133) {
-                  --class308.field3811;
+                  --MapCacheArchiveNames.field3811;
                   return 1;
                } else if(var0 == 3134) {
                   return 1;
                } else if(var0 == 3135) {
-                  class308.field3811 -= 2;
+                  MapCacheArchiveNames.field3811 -= 2;
                   return 1;
                } else if(var0 == 3136) {
                   client.field2336 = 3;
-                  client.field2316 = class249.field3312[--class308.field3811];
+                  client.field2316 = class249.field3312[--MapCacheArchiveNames.field3811];
                   return 1;
                } else if(var0 == 3137) {
                   client.field2336 = 2;
-                  client.field2316 = class249.field3312[--class308.field3811];
+                  client.field2316 = class249.field3312[--MapCacheArchiveNames.field3811];
                   return 1;
                } else if(var0 == 3138) {
                   client.field2336 = 0;
@@ -253,24 +253,24 @@ final class class95 implements Comparator {
                } else {
                   boolean var8;
                   if(var0 == 3141) {
-                     var8 = class249.field3312[--class308.field3811] == 1;
-                     class175.field2134.field861 = var8;
+                     var8 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
+                     WorldMapNode.field2134.field861 = var8;
                      class236.method4709();
                      return 1;
                   } else if(var0 == 3142) {
-                     class249.field3312[++class308.field3811 - 1] = class175.field2134.field861?1:0;
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = WorldMapNode.field2134.field861?1:0;
                      return 1;
                   } else if(var0 == 3143) {
-                     var8 = class249.field3312[--class308.field3811] == 1;
+                     var8 = class249.field3312[--MapCacheArchiveNames.field3811] == 1;
                      client.field2192 = var8;
                      if(!var8) {
-                        class175.field2134.field858 = "";
+                        WorldMapNode.field2134.field858 = "";
                         class236.method4709();
                      }
 
                      return 1;
                   } else if(var0 == 3144) {
-                     class249.field3312[++class308.field3811 - 1] = client.field2192?1:0;
+                     class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2192?1:0;
                      return 1;
                   } else {
                      return 2;
@@ -350,9 +350,9 @@ final class class95 implements Comparator {
       signature = "(Lik;Ljava/lang/String;Ljava/lang/String;IZI)V",
       garbageValue = "-236395019"
    )
-   public static void method1738(class217 var0, String var1, String var2, int var3, boolean var4) {
-      int var5 = var0.method4421(var1);
-      int var6 = var0.method4400(var5, var2);
+   public static void method1738(Js5Index var0, String var1, String var2, int var3, boolean var4) {
+      int var5 = var0.getGroupId(var1);
+      int var6 = var0.getChild(var5, var2);
       class67.method1488(var0, var5, var6, var3, var4);
    }
 

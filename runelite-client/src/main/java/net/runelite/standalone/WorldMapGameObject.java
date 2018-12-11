@@ -5,7 +5,7 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("n")
-public class class127 {
+public class WorldMapGameObject {
    @ObfuscatedName("l")
    @ObfuscatedGetter(
       intValue = 29952049
@@ -15,15 +15,15 @@ public class class127 {
    @ObfuscatedGetter(
       intValue = -1722255739
    )
-   final int field1707;
+   final int objectId;
    @ObfuscatedName("w")
    @ObfuscatedGetter(
       intValue = 356522979
    )
    final int field1710;
 
-   class127(int var1, int var2, int var3) {
-      this.field1707 = var1;
+   WorldMapGameObject(int var1, int var2, int var3) {
+      this.objectId = var1;
       this.field1708 = var2;
       this.field1710 = var3;
    }

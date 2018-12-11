@@ -34,7 +34,7 @@ public final class class1 extends Buffer implements RSPacketBuffer {
       garbageValue = "-17"
    )
    public void method6() {
-      super.field1693 = (this.field13 + 7) / 8;
+      super.position = (this.field13 + 7) / 8;
    }
 
    @ObfuscatedName("ih")
@@ -43,7 +43,7 @@ public final class class1 extends Buffer implements RSPacketBuffer {
       garbageValue = "1575762707"
    )
    public boolean method38() {
-      int var1 = super.field1694[super.field1693] - this.field11.method4383() & 255;
+      int var1 = super.field1694[super.position] - this.field11.method4383() & 255;
       return var1 >= 128;
    }
 
@@ -62,7 +62,7 @@ public final class class1 extends Buffer implements RSPacketBuffer {
       garbageValue = "-1058998792"
    )
    public int method12() {
-      return super.field1694[++super.field1693 - 1] - this.field11.method4384() & 255;
+      return super.field1694[++super.position - 1] - this.field11.method4384() & 255;
    }
 
    @ObfuscatedName("ia")
@@ -80,8 +80,8 @@ public final class class1 extends Buffer implements RSPacketBuffer {
       garbageValue = "-764562175"
    )
    public int method17() {
-      int var1 = super.field1694[++super.field1693 - 1] - this.field11.method4384() & 255;
-      return var1 < 128?var1:(var1 - 128 << 8) + (super.field1694[++super.field1693 - 1] - this.field11.method4384() & 255);
+      int var1 = super.field1694[++super.position - 1] - this.field11.method4384() & 255;
+      return var1 < 128?var1:(var1 - 128 << 8) + (super.field1694[++super.position - 1] - this.field11.method4384() & 255);
    }
 
    @ObfuscatedName("ik")
@@ -90,7 +90,7 @@ public final class class1 extends Buffer implements RSPacketBuffer {
       garbageValue = "1073609166"
    )
    public void method7() {
-      this.field13 = super.field1693 * 8;
+      this.field13 = super.position * 8;
    }
 
    @ObfuscatedName("is")
@@ -99,7 +99,7 @@ public final class class1 extends Buffer implements RSPacketBuffer {
       garbageValue = "1681788660"
    )
    public void method3(int var1) {
-      super.field1694[++super.field1693 - 1] = (byte)(var1 + this.field11.method4384());
+      super.field1694[++super.position - 1] = (byte)(var1 + this.field11.method4384());
    }
 
    @ObfuscatedName("ij")
@@ -142,7 +142,7 @@ public final class class1 extends Buffer implements RSPacketBuffer {
    )
    public void method0(byte[] var1, int var2, int var3) {
       for(int var4 = 0; var4 < var3; ++var4) {
-         var1[var4 + var2] = (byte)(super.field1694[++super.field1693 - 1] - this.field11.method4384());
+         var1[var4 + var2] = (byte)(super.field1694[++super.position - 1] - this.field11.method4384());
       }
 
    }
@@ -154,44 +154,44 @@ public final class class1 extends Buffer implements RSPacketBuffer {
    )
    static int method4(int var0, class296 var1, boolean var2) {
       if(var0 == 3300) {
-         class249.field3312[++class308.field3811 - 1] = client.field2165;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2165;
          return 1;
       } else {
          int var3;
          int var4;
          if(var0 == 3301) {
-            class308.field3811 -= 2;
-            var3 = class249.field3312[class308.field3811];
-            var4 = class249.field3312[class308.field3811 + 1];
-            class249.field3312[++class308.field3811 - 1] = class301.method5973(var3, var4);
+            MapCacheArchiveNames.field3811 -= 2;
+            var3 = class249.field3312[MapCacheArchiveNames.field3811];
+            var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class301.method5973(var3, var4);
             return 1;
          } else if(var0 == 3302) {
-            class308.field3811 -= 2;
-            var3 = class249.field3312[class308.field3811];
-            var4 = class249.field3312[class308.field3811 + 1];
-            class249.field3312[++class308.field3811 - 1] = GameEngine.method5863(var3, var4);
+            MapCacheArchiveNames.field3811 -= 2;
+            var3 = class249.field3312[MapCacheArchiveNames.field3811];
+            var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = GameEngine.method5863(var3, var4);
             return 1;
          } else if(var0 == 3303) {
-            class308.field3811 -= 2;
-            var3 = class249.field3312[class308.field3811];
-            var4 = class249.field3312[class308.field3811 + 1];
-            class249.field3312[++class308.field3811 - 1] = client.method3659(var3, var4);
+            MapCacheArchiveNames.field3811 -= 2;
+            var3 = class249.field3312[MapCacheArchiveNames.field3811];
+            var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.method3659(var3, var4);
             return 1;
          } else if(var0 == 3304) {
-            var3 = class249.field3312[--class308.field3811];
-            class249.field3312[++class308.field3811 - 1] = class183.method3708(var3).field1140;
+            var3 = class249.field3312[--MapCacheArchiveNames.field3811];
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class183.method3708(var3).field1140;
             return 1;
          } else if(var0 == 3305) {
-            var3 = class249.field3312[--class308.field3811];
-            class249.field3312[++class308.field3811 - 1] = client.field2361[var3];
+            var3 = class249.field3312[--MapCacheArchiveNames.field3811];
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2361[var3];
             return 1;
          } else if(var0 == 3306) {
-            var3 = class249.field3312[--class308.field3811];
-            class249.field3312[++class308.field3811 - 1] = client.field2286[var3];
+            var3 = class249.field3312[--MapCacheArchiveNames.field3811];
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2286[var3];
             return 1;
          } else if(var0 == 3307) {
-            var3 = class249.field3312[--class308.field3811];
-            class249.field3312[++class308.field3811 - 1] = client.field2218[var3];
+            var3 = class249.field3312[--MapCacheArchiveNames.field3811];
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2218[var3];
             return 1;
          } else {
             int var5;
@@ -199,82 +199,82 @@ public final class class1 extends Buffer implements RSPacketBuffer {
                var3 = class260.field3393;
                var4 = (class32.field303.field1090 >> 7) + class229.field3067;
                var5 = (class32.field303.field1072 >> 7) + class35.field360;
-               class249.field3312[++class308.field3811 - 1] = (var4 << 14) + var5 + (var3 << 28);
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = (var4 << 14) + var5 + (var3 << 28);
                return 1;
             } else if(var0 == 3309) {
-               var3 = class249.field3312[--class308.field3811];
-               class249.field3312[++class308.field3811 - 1] = var3 >> 14 & 16383;
+               var3 = class249.field3312[--MapCacheArchiveNames.field3811];
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3 >> 14 & 16383;
                return 1;
             } else if(var0 == 3310) {
-               var3 = class249.field3312[--class308.field3811];
-               class249.field3312[++class308.field3811 - 1] = var3 >> 28;
+               var3 = class249.field3312[--MapCacheArchiveNames.field3811];
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3 >> 28;
                return 1;
             } else if(var0 == 3311) {
-               var3 = class249.field3312[--class308.field3811];
-               class249.field3312[++class308.field3811 - 1] = var3 & 16383;
+               var3 = class249.field3312[--MapCacheArchiveNames.field3811];
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3 & 16383;
                return 1;
             } else if(var0 == 3312) {
-               class249.field3312[++class308.field3811 - 1] = client.field2156?1:0;
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2156?1:0;
                return 1;
             } else if(var0 == 3313) {
-               class308.field3811 -= 2;
-               var3 = class249.field3312[class308.field3811] + 32768;
-               var4 = class249.field3312[class308.field3811 + 1];
-               class249.field3312[++class308.field3811 - 1] = class301.method5973(var3, var4);
+               MapCacheArchiveNames.field3811 -= 2;
+               var3 = class249.field3312[MapCacheArchiveNames.field3811] + 32768;
+               var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = class301.method5973(var3, var4);
                return 1;
             } else if(var0 == 3314) {
-               class308.field3811 -= 2;
-               var3 = class249.field3312[class308.field3811] + 32768;
-               var4 = class249.field3312[class308.field3811 + 1];
-               class249.field3312[++class308.field3811 - 1] = GameEngine.method5863(var3, var4);
+               MapCacheArchiveNames.field3811 -= 2;
+               var3 = class249.field3312[MapCacheArchiveNames.field3811] + 32768;
+               var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = GameEngine.method5863(var3, var4);
                return 1;
             } else if(var0 == 3315) {
-               class308.field3811 -= 2;
-               var3 = class249.field3312[class308.field3811] + 32768;
-               var4 = class249.field3312[class308.field3811 + 1];
-               class249.field3312[++class308.field3811 - 1] = client.method3659(var3, var4);
+               MapCacheArchiveNames.field3811 -= 2;
+               var3 = class249.field3312[MapCacheArchiveNames.field3811] + 32768;
+               var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.method3659(var3, var4);
                return 1;
             } else if(var0 == 3316) {
                if(client.field2263 >= 2) {
-                  class249.field3312[++class308.field3811 - 1] = client.field2263;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2263;
                } else {
-                  class249.field3312[++class308.field3811 - 1] = 0;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 0;
                }
 
                return 1;
             } else if(var0 == 3317) {
-               class249.field3312[++class308.field3811 - 1] = client.field2172;
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2172;
                return 1;
             } else if(var0 == 3318) {
-               class249.field3312[++class308.field3811 - 1] = client.field2206;
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2206;
                return 1;
             } else if(var0 == 3321) {
-               class249.field3312[++class308.field3811 - 1] = client.field2163;
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2163;
                return 1;
             } else if(var0 == 3322) {
-               class249.field3312[++class308.field3811 - 1] = client.field2321;
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2321;
                return 1;
             } else if(var0 == 3323) {
                if(client.field2250) {
-                  class249.field3312[++class308.field3811 - 1] = 1;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 1;
                } else {
-                  class249.field3312[++class308.field3811 - 1] = 0;
+                  class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 0;
                }
 
                return 1;
             } else if(var0 == 3324) {
-               class249.field3312[++class308.field3811 - 1] = client.field2154;
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2154;
                return 1;
             } else if(var0 == 3325) {
-               class308.field3811 -= 4;
-               var3 = class249.field3312[class308.field3811];
-               var4 = class249.field3312[class308.field3811 + 1];
-               var5 = class249.field3312[class308.field3811 + 2];
-               int var6 = class249.field3312[class308.field3811 + 3];
+               MapCacheArchiveNames.field3811 -= 4;
+               var3 = class249.field3312[MapCacheArchiveNames.field3811];
+               var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
+               var5 = class249.field3312[MapCacheArchiveNames.field3811 + 2];
+               int var6 = class249.field3312[MapCacheArchiveNames.field3811 + 3];
                var3 += var4 << 14;
                var3 += var5 << 28;
                var3 += var6;
-               class249.field3312[++class308.field3811 - 1] = var3;
+               class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3;
                return 1;
             } else {
                return 2;

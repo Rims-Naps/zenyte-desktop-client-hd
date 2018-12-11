@@ -38,7 +38,7 @@ public class class247 {
       signature = "(Lik;Lik;I)V",
       garbageValue = "-1255404096"
    )
-   public static void method4956(class217 var0, class217 var1) {
+   public static void method4956(Js5Index var0, Js5Index var1) {
       class315.field3891 = var0;
       class323.field3940 = var1;
    }

@@ -10,7 +10,7 @@ public class class241 extends class324 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field3153;
+   static Js5Index field3153;
    @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "Lgd;"
@@ -20,7 +20,7 @@ public class class241 extends class324 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   static class217 field3144;
+   static Js5Index field3144;
    @ObfuscatedName("w")
    @ObfuscatedGetter(
       intValue = -1747557355
@@ -128,7 +128,7 @@ public class class241 extends class324 {
             this.field3149 = new int[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3149[var4] = var1.readShort();
+               this.field3149[var4] = var1.readUnsignedShort();
             }
          } else if(var2 == 3) {
             this.field3155 = true;
@@ -138,8 +138,8 @@ public class class241 extends class324 {
             this.field3151 = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3150[var4] = (short)var1.readShort();
-               this.field3151[var4] = (short)var1.readShort();
+               this.field3150[var4] = (short)var1.readUnsignedShort();
+               this.field3151[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 == 41) {
             var3 = var1.readUnsignedByte();
@@ -147,11 +147,11 @@ public class class241 extends class324 {
             this.field3147 = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3152[var4] = (short)var1.readShort();
-               this.field3147[var4] = (short)var1.readShort();
+               this.field3152[var4] = (short)var1.readUnsignedShort();
+               this.field3147[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 >= 60 && var2 < 70) {
-            this.field3154[var2 - 60] = var1.readShort();
+            this.field3154[var2 - 60] = var1.readUnsignedShort();
          }
       }
 

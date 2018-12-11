@@ -13,7 +13,7 @@ public class class266 implements class8, RSTextureProvider {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   class217 field3449;
+   Js5Index field3449;
    @ObfuscatedName("l")
    @ObfuscatedSignature(
       signature = "Lgs;"
@@ -45,7 +45,7 @@ public class class266 implements class8, RSTextureProvider {
    @ObfuscatedSignature(
       signature = "(Lik;Lik;IDI)V"
    )
-   public class266(class217 var1, class217 var2, int var3, double var4, int var6) {
+   public class266(Js5Index var1, Js5Index var2, int var3, double var4, int var6) {
       this.field3450 = new class70();
       this.field3452 = 0;
       this.field3453 = 1.0D;

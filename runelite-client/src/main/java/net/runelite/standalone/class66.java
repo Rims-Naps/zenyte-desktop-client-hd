@@ -958,7 +958,7 @@ public class class66 extends class309 {
       signature = "(Lhg;Lik;Lct;II)Z",
       garbageValue = "-64816948"
    )
-   synchronized boolean method1371(class240 var1, class217 var2, class259 var3, int var4) {
+   synchronized boolean method1371(class240 var1, Js5Index var2, class259 var3, int var4) {
       var1.method4728();
       boolean var5 = true;
       int[] var6 = null;

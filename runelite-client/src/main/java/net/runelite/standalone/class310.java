@@ -43,10 +43,10 @@ public class class310 extends class320 {
       class205.method4050();
       class74.method1560();
       class39.method681();
-      class15.field170.method1816();
-      class15.field157.method1816();
-      class15.field152.method1816();
-      class15.field153.method1816();
+      ObjectDef.field170.method1816();
+      ObjectDef.field157.method1816();
+      ObjectDef.field152.method1816();
+      ObjectDef.field153.method1816();
       class25.method451();
       class42.field441.method1816();
       class42.field421.method1816();

@@ -112,12 +112,12 @@ public class class137 {
    )
    final void method2591() throws IOException {
       if(this.field1765 != null && this.field1760 > 0) {
-         this.field1761.field1693 = 0;
+         this.field1761.position = 0;
 
          while(true) {
             class12 var1 = (class12)this.field1763.method745();
-            if(var1 == null || var1.field123 > this.field1761.field1694.length - this.field1761.field1693) {
-               this.field1765.vmethod2791(this.field1761.field1694, 0, this.field1761.field1693);
+            if(var1 == null || var1.field123 > this.field1761.field1694.length - this.field1761.position) {
+               this.field1765.vmethod2791(this.field1761.field1694, 0, this.field1761.position);
                this.field1762 = 0;
                break;
             }
@@ -171,8 +171,8 @@ public class class137 {
    )
    public final void method2573(class12 var1) {
       this.field1763.method748(var1);
-      var1.field123 = var1.field121.field1693;
-      var1.field121.field1693 = 0;
+      var1.field123 = var1.field121.position;
+      var1.field121.position = 0;
       this.field1760 += var1.field123;
    }
 

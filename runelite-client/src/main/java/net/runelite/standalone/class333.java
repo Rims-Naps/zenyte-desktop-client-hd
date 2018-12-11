@@ -26,7 +26,7 @@ public abstract class class333 implements RSBufferProvider {
       garbageValue = "-2026259752"
    )
    public final void method6367() {
-      class173.method3136(this.field4011, this.field4010, this.field4009);
+      Rasterizer2D.method3136(this.field4011, this.field4010, this.field4009);
    }
 
    @ObfuscatedName("l")

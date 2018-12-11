@@ -69,7 +69,7 @@ public final class WorldMapManager implements RSWorldMapManager {
    @ObfuscatedSignature(
       signature = "[[Lk;"
    )
-   WorldMapRegion[][] mapRegions;
+   SomeWorldMapObject[][] mapRegions;
    @ObfuscatedName("e")
    HashMap field2885;
    @ObfuscatedName("w")
@@ -108,7 +108,7 @@ public final class WorldMapManager implements RSWorldMapManager {
             Iterator var4 = var3.iterator();
 
             while(var4.hasNext()) {
-               class23 var5 = (class23)var4.next();
+               MapIcon var5 = (MapIcon)var4.next();
                if(!this.field2885.containsKey(Integer.valueOf(var5.field258))) {
                   LinkedList var6 = new LinkedList();
                   var6.add(var5);
@@ -181,10 +181,10 @@ public final class WorldMapManager implements RSWorldMapManager {
                Iterator var11 = var10.iterator();
 
                while(var11.hasNext()) {
-                  class23 var12 = (class23)var11.next();
+                  MapIcon var12 = (MapIcon)var11.next();
                   int var13 = var3 * (var12.field259.field719 - this.field2879) / this.field2881;
                   int var14 = var4 - (var12.field259.field717 - this.field2880) * var4 / this.field2874;
-                  class173.method3144(var13 + var1, var14 + var2, 2, 16776960, 256);
+                  Rasterizer2D.method3144(var13 + var1, var14 + var2, 2, 16776960, 256);
                }
             }
          }
@@ -239,25 +239,22 @@ public final class WorldMapManager implements RSWorldMapManager {
       signature = "(Lik;Ljava/lang/String;ZB)V",
       garbageValue = "32"
    )
-   public void load(class217 var1, String var2, boolean var3) {
+   public void load(Js5Index var1, String var2, boolean var3) {
       if(!this.field2871) {
          this.field2873 = false;
          this.field2871 = true;
          System.nanoTime();
-         int var4 = var1.method4421(class308.field3808.field3809);
-         int var5 = var1.method4400(var4, var2);
-         System.out.println("first: " + class308.field3808.field3809 + ", " + var2);
-         System.out.println("second: " + class308.field3804.field3809 + ", " + var2);
-         System.out.println("third: " + var2 + ", " + class308.field3806.field3809);
-         Buffer var6 = new Buffer(var1.takeRecordByNames(class308.field3808.field3809, var2));
-         Buffer var7 = new Buffer(var1.takeRecordByNames(class308.field3804.field3809, var2));
-         Buffer var8 = new Buffer(var1.takeRecordByNames(var2, class308.field3806.field3809));
+         int var4 = var1.getGroupId(MapCacheArchiveNames.field3808.name);
+         int var5 = var1.getChild(var4, var2);
+         Buffer var6 = new Buffer(var1.takeRecordByNames(MapCacheArchiveNames.field3808.name, var2));
+         Buffer var7 = new Buffer(var1.takeRecordByNames(MapCacheArchiveNames.field3804.name, var2));
+         Buffer areaBuffer = new Buffer(var1.takeRecordByNames(var2, MapCacheArchiveNames.field3806.name));
          System.nanoTime();
          System.nanoTime();
          this.field2870 = new class131();
 
          try {
-            this.field2870.initialize(var6, var8, var7, var5, var3);
+            this.field2870.decodeAll(var6, areaBuffer, var7, var5, var3);
          } catch (IllegalStateException var20) {
             return;
          }
@@ -274,32 +271,32 @@ public final class WorldMapManager implements RSWorldMapManager {
          System.nanoTime();
          System.nanoTime();
          class150.method2760();
-         this.mapRegions = new WorldMapRegion[var17][var10];
-         Iterator var11 = this.field2870.field1731.iterator();
+         this.mapRegions = new SomeWorldMapObject[var17][var10];
+         Iterator var11 = this.field2870.regions.iterator();
 
          while(var11.hasNext()) {
-            class214 var12 = (class214)var11.next();
+            WorldMapRegion var12 = (WorldMapRegion)var11.next();
             int var13 = var12.field2150;
             int var14 = var12.field2144;
             int var15 = var13 - this.field2870.method2701();
             int var16 = var14 - this.field2870.method2734();
-            this.mapRegions[var15][var16] = new WorldMapRegion(var13, var14, this.field2870.method2693(), this.field2878);
+            this.mapRegions[var15][var16] = new SomeWorldMapObject(var13, var14, this.field2870.method2693(), this.field2878);
             this.mapRegions[var15][var16].method892(var12, this.field2870.field1730);
          }
 
          for(int var18 = 0; var18 < var17; ++var18) {
             for(int var19 = 0; var19 < var10; ++var19) {
                if(this.mapRegions[var18][var19] == null) {
-                  this.mapRegions[var18][var19] = new WorldMapRegion(this.field2870.method2701() + var18, this.field2870.method2734() + var19, this.field2870.method2693(), this.field2878);
-                  this.mapRegions[var18][var19].method893(this.field2870.field1734, this.field2870.field1730);
+                  this.mapRegions[var18][var19] = new SomeWorldMapObject(this.field2870.method2701() + var18, this.field2870.method2734() + var19, this.field2870.method2693(), this.field2878);
+                  this.mapRegions[var18][var19].method893(this.field2870.chunks, this.field2870.field1730);
                }
             }
          }
 
          System.nanoTime();
          System.nanoTime();
-         if(var1.method4417(class308.field3807.field3809, var2)) {
-            byte[] var21 = var1.takeRecordByNames(class308.field3807.field3809, var2);
+         if(var1.method4417(MapCacheArchiveNames.field3807.name, var2)) {
+            byte[] var21 = var1.takeRecordByNames(MapCacheArchiveNames.field3807.name, var2);
             this.field2884 = class96.method1774(var21);
          }
 
@@ -401,7 +398,7 @@ public final class WorldMapManager implements RSWorldMapManager {
       signature = "(II[Lk;I)V",
       garbageValue = "825758332"
    )
-   void method4119(int var1, int var2, WorldMapRegion[] var3) {
+   void method4119(int var1, int var2, SomeWorldMapObject[] var3) {
       boolean var4 = var1 <= 0;
       boolean var5 = var1 >= this.mapRegions.length - 1;
       boolean var6 = var2 <= 0;
@@ -428,11 +425,11 @@ public final class WorldMapManager implements RSWorldMapManager {
    )
    public final void drawMapRegion(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       // System.out.println(var1 + " - " + var2 + " - " + var3 + " - " + var4 + " - " + var5 + " - " + var7 + " - " + var8);
-      int[] var9 = class173.field2121;
-      int var10 = class173.field2119;
-      int var11 = class173.field2120;
+      int[] var9 = Rasterizer2D.field2121;
+      int var10 = Rasterizer2D.field2119;
+      int var11 = Rasterizer2D.field2120;
       int[] var12 = new int[4];
-      class173.method3189(var12);
+      Rasterizer2D.method3189(var12);
       class151 var13 = this.method4137(var1, var2, var3, var4);
       float var14 = this.method4143(var7 - var5, var3 - var1);
       int var15 = (int)Math.ceil((double)var14);
@@ -443,7 +440,7 @@ public final class WorldMapManager implements RSWorldMapManager {
          this.field2876.put(Integer.valueOf(var15), var16);
       }
 
-      WorldMapRegion[] var22 = new WorldMapRegion[8];
+      SomeWorldMapObject[] var22 = new SomeWorldMapObject[8];
 
       int var17;
       int var18;
@@ -458,8 +455,8 @@ public final class WorldMapManager implements RSWorldMapManager {
          }
       }
 
-      class173.method3136(var9, var10, var11);
-      class173.method3141(var12);
+      Rasterizer2D.method3136(var9, var10, var11);
+      Rasterizer2D.method3141(var12);
       var17 = (int)(64.0F * var14);
       var18 = this.field2879 + var1;
       int var19 = var2 + this.field2880;

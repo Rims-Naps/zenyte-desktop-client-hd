@@ -9,5 +9,5 @@ public class class56 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field704;
+   public static Js5Index field704;
 }

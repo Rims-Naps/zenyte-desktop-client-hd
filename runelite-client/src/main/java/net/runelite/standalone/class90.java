@@ -106,7 +106,7 @@ public class class90 implements RSVarcs {
             }
          }
 
-         var1.method5442(var9.field1694, 0, var9.field1693);
+         var1.method5442(var9.field1694, 0, var9.position);
       } catch (Exception var17) {
          ;
       } finally {
@@ -183,7 +183,7 @@ public class class90 implements RSVarcs {
          }
 
          Buffer var13 = new Buffer(var2);
-         if(var13.field1694.length - var13.field1693 < 1) {
+         if(var13.field1694.length - var13.position < 1) {
             return;
          }
 
@@ -192,13 +192,13 @@ public class class90 implements RSVarcs {
             return;
          }
 
-         int var15 = var13.readShort();
+         int var15 = var13.readUnsignedShort();
 
          int var7;
          int var8;
          int var9;
          for(var7 = 0; var7 < var15; ++var7) {
-            var8 = var13.readShort();
+            var8 = var13.readUnsignedShort();
             var9 = var13.readInt();
             if(this.field982[var8]) {
                this.field979[var8] = var9;
@@ -206,10 +206,10 @@ public class class90 implements RSVarcs {
             }
          }
 
-         var7 = var13.readShort();
+         var7 = var13.readUnsignedShort();
 
          for(var8 = 0; var8 < var7; ++var8) {
-            var9 = var13.readShort();
+            var9 = var13.readUnsignedShort();
             String var10 = var13.readString();
             if(this.field978[var9]) {
                this.field976[var9] = var10;

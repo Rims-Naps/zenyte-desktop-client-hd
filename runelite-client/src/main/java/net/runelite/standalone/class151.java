@@ -56,30 +56,30 @@ public final class class151 {
    static int method2764(int var0, class296 var1, boolean var2) {
       class187 var3;
       if(var0 == 2700) {
-         var3 = class48.method1047(class249.field3312[--class308.field3811]);
-         class249.field3312[++class308.field3811 - 1] = var3.field2676;
+         var3 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2676;
          return 1;
       } else if(var0 == 2701) {
-         var3 = class48.method1047(class249.field3312[--class308.field3811]);
+         var3 = class48.method1047(class249.field3312[--MapCacheArchiveNames.field3811]);
          if(var3.field2676 != -1) {
-            class249.field3312[++class308.field3811 - 1] = var3.field2685;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = var3.field2685;
          } else {
-            class249.field3312[++class308.field3811 - 1] = 0;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 0;
          }
 
          return 1;
       } else if(var0 == 2702) {
-         int var5 = class249.field3312[--class308.field3811];
+         int var5 = class249.field3312[--MapCacheArchiveNames.field3811];
          class322 var4 = (class322)client.field2412.method1776((long)var5);
          if(var4 != null) {
-            class249.field3312[++class308.field3811 - 1] = 1;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 1;
          } else {
-            class249.field3312[++class308.field3811 - 1] = 0;
+            class249.field3312[++MapCacheArchiveNames.field3811 - 1] = 0;
          }
 
          return 1;
       } else if(var0 == 2706) {
-         class249.field3312[++class308.field3811 - 1] = client.field2313;
+         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2313;
          return 1;
       } else {
          return 2;
@@ -92,7 +92,7 @@ public final class class151 {
       garbageValue = "1571232532"
    )
    static String method2763(class187 var0) {
-      return class217.method4493(class203.method4026(var0)) == 0?null:(var0.field2647 != null && var0.field2647.trim().length() != 0?var0.field2647:null);
+      return Js5Index.method4493(class203.method4026(var0)) == 0?null:(var0.field2647 != null && var0.field2647.trim().length() != 0?var0.field2647:null);
    }
 
    @ObfuscatedName("ek")
@@ -132,9 +132,9 @@ public final class class151 {
          class226.field3043 = class199.readIndex(11, false, true, true);
          class88.clientScriptIndex = class199.readIndex(12, false, true, true);
          class20.fontsIndex = class199.readIndex(13, true, false, true);
-         WorldMapRegion.field535 = class199.readIndex(14, false, true, true);
-         class119.worldMapIndex = class199.readIndex(15, false, true, true);
-         class174.field2126 = class199.readIndex(16, true, true, true);
+         SomeWorldMapObject.field535 = class199.readIndex(14, false, true, true);
+         class119.field1640 = class199.readIndex(15, false, true, true);
+         class174.worldMapIndex = class199.readIndex(16, true, true, true);
          class99.field1132 = class199.readIndex(17, true, true, true);
          class39.field387 = "Connecting to update server";
          class39.field375 = 20;
@@ -144,9 +144,9 @@ public final class class151 {
             class129.method2495(22050, !client.field2157, 2);
             class66 var27 = new class66();
             var27.method1377(9, 128);
-            class175.field2147 = class79.method1589(GameEngine.field3741, 0, 22050);
-            class175.field2147.method5718(var27);
-            class194.method3919(class119.worldMapIndex, WorldMapRegion.field535, class203.field2849, var27);
+            WorldMapNode.field2147 = class79.method1589(GameEngine.field3741, 0, 22050);
+            WorldMapNode.field2147.method5718(var27);
+            class194.method3919(class119.field1640, SomeWorldMapObject.field535, class203.field2849, var27);
             class49.field553 = class79.method1589(GameEngine.field3741, 1, 2048);
             class220.field2985 = new class262();
             class49.field553.method5718(class220.field2985);
@@ -176,7 +176,7 @@ public final class class151 {
                   client.field2183 = 60;
                }
             } else if(client.field2183 == 60) {
-               var21 = class308.method6052(class219.binaryIndex, class138.spritesIndex);
+               var21 = MapCacheArchiveNames.method6052(class219.binaryIndex, class138.spritesIndex);
                byte var22 = 11;
                if(var21 < var22) {
                   class39.field387 = "Loading title screen - " + var21 * 100 / var22 + "%";
@@ -375,12 +375,12 @@ public final class class151 {
                }
             } else if(client.field2183 == 140) {
                class39.field375 = 100;
-               if(!class174.field2126.method4420(class308.field3808.field3809)) {
-                  class39.field387 = "Loading world map - " + class174.field2126.method4413(class308.field3808.field3809) / 10 + "%";
+               if(!class174.worldMapIndex.method4420(MapCacheArchiveNames.field3808.name)) {
+                  class39.field387 = "Loading world map - " + class174.worldMapIndex.method4413(MapCacheArchiveNames.field3808.name) / 10 + "%";
                } else {
                   if(class199.field2812 == null) {
                      class199.field2812 = new WorldMap();
-                     class199.field2812.method5488(class174.field2126, class172.field2117, client.field2205, class64.field748);
+                     class199.field2812.method5488(class174.worldMapIndex, class172.field2117, client.field2205, class64.field748);
                   }
 
                   var21 = class199.field2812.method5489();
@@ -411,9 +411,9 @@ public final class class151 {
          var21 += class226.field3043.method111() * 2 / 100;
          var21 += class88.clientScriptIndex.method111() * 2 / 100;
          var21 += class20.fontsIndex.method111() * 2 / 100;
-         var21 += WorldMapRegion.field535.method111() * 2 / 100;
-         var21 += class119.worldMapIndex.method111() * 2 / 100;
-         var21 += class174.field2126.method111() * 2 / 100;
+         var21 += SomeWorldMapObject.field535.method111() * 2 / 100;
+         var21 += class119.field1640.method111() * 2 / 100;
+         var21 += class174.worldMapIndex.method111() * 2 / 100;
          var21 += class99.field1132.method96() && class99.field1132.method4403()?1:0;
          if(var21 != 100) {
             if(var21 != 0) {
@@ -430,9 +430,9 @@ public final class class151 {
             class295.method5780(WorldMapData.field1851, "Models");
             class295.method5780(class138.spritesIndex, "Sprites");
             class295.method5780(class226.field3043, "Music Jingles");
-            class295.method5780(WorldMapRegion.field535, "Music Samples");
-            class295.method5780(class119.worldMapIndex, "Music Patches");
-            class295.method5780(class174.field2126, "World Map");
+            class295.method5780(SomeWorldMapObject.field535, "Music Samples");
+            class295.method5780(class119.field1640, "Music Patches");
+            class295.method5780(class174.worldMapIndex, "World Map");
             class133.field1739 = new class78();
             class133.field1739.method1584(class99.field1132);
             class39.field387 = "Loaded update list";

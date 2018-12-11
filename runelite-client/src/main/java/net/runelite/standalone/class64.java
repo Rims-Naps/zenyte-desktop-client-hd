@@ -94,14 +94,14 @@ public class class64 {
             }
          }
 
-         int[] var12 = class173.field2121;
-         int var13 = class173.field2119;
-         int var14 = class173.field2120;
+         int[] var12 = Rasterizer2D.field2121;
+         int var13 = Rasterizer2D.field2119;
+         int var14 = Rasterizer2D.field2120;
          int[] var15 = new int[4];
-         class173.method3189(var15);
+         Rasterizer2D.method3189(var15);
          var8 = new SpritePixels(36, 32);
-         class173.method3136(var8.pixels, 36, 32);
-         class173.method3137();
+         Rasterizer2D.method3136(var8.pixels, 36, 32);
+         Rasterizer2D.method3137();
          class211.method4247();
          class211.method4250(16, 16);
          class211.field2898 = false;
@@ -136,7 +136,7 @@ public class class64 {
             var8.method284(var3);
          }
 
-         class173.method3136(var8.pixels, 36, 32);
+         Rasterizer2D.method3136(var8.pixels, 36, 32);
          if(var9.field456 != -1) {
             var20.method215(0, 0);
          }
@@ -149,8 +149,8 @@ public class class64 {
             class42.field449.method1820(var8, var6);
          }
 
-         class173.method3136(var12, var13, var14);
-         class173.method3141(var15);
+         Rasterizer2D.method3136(var12, var13, var14);
+         Rasterizer2D.method3141(var15);
          class211.method4247();
          class211.field2898 = true;
          return var8;

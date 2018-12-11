@@ -50,11 +50,11 @@ public class class0 implements RSFrame {
       this.field4 = var2;
       Buffer var3 = new Buffer(var1);
       Buffer var4 = new Buffer(var1);
-      var3.field1693 = 2;
+      var3.position = 2;
       int var5 = var3.readUnsignedByte();
       int var6 = -1;
       int var7 = 0;
-      var4.field1693 = var5 + var3.field1693;
+      var4.position = var5 + var3.position;
 
       int var8;
       for(var8 = 0; var8 < var5; ++var8) {
@@ -105,7 +105,7 @@ public class class0 implements RSFrame {
          }
       }
 
-      if(var1.length != var4.field1693) {
+      if(var1.length != var4.position) {
          throw new RuntimeException();
       } else {
          this.field5 = var7;

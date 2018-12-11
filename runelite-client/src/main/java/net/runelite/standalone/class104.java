@@ -15,7 +15,7 @@ public class class104 extends class324 {
    @ObfuscatedSignature(
       signature = "Lik;"
    )
-   public static class217 field1156;
+   public static Js5Index field1156;
    @ObfuscatedName("s")
    @ObfuscatedGetter(
       intValue = -1449440461

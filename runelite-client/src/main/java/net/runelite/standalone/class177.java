@@ -124,7 +124,7 @@ public class class177 {
       garbageValue = "-963654605"
    )
    static void method3678() {
-      class17.method367(client.field2200 / 2 + class138.field1776, class214.field2934);
+      class17.method367(client.field2200 / 2 + class138.field1776, WorldMapRegion.field2934);
    }
 
    @ObfuscatedName("jw")

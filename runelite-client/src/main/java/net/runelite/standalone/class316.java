@@ -65,7 +65,7 @@ public class class316 {
          if(client.field2411 < 3) {
             class307.field3798.method231(var1, var2, var4.field2798, var4.field2795, 25, 25, client.field2223, 256, var4.field2796, var4.field2793);
          } else {
-            class173.method3157(var1, var2, 0, var4.field2796, var4.field2793);
+            Rasterizer2D.method3157(var1, var2, 0, var4.field2796, var4.field2793);
          }
 
       }
@@ -100,7 +100,7 @@ public class class316 {
       signature = "(Lik;Lik;ZII)V",
       garbageValue = "-1181238776"
    )
-   static void method6200(class217 var0, class217 var1, boolean var2, int var3) {
+   static void method6200(Js5Index var0, Js5Index var1, boolean var2, int var3) {
       if(class39.field395) {
          if(var3 == 4) {
             class39.field398 = 4;
@@ -108,7 +108,7 @@ public class class316 {
 
       } else {
          class39.field398 = var3;
-         class173.method3137();
+         Rasterizer2D.method3137();
          /*byte[] var4 = var0.takeRecordByNames("title.jpg", "");
          class39.leftBackground = class96.method1774(var4);
          class107.rightBackground = class39.leftBackground.method220();*/
@@ -121,12 +121,12 @@ public class class316 {
 
          class39.field381 = class124.method2237(var1, "titlebox", "");
          class39.field374 = class124.method2237(var1, "titlebutton", "");
-         int var6 = var1.method4421("runes");
-         int var7 = var1.method4400(var6, "");
+         int var6 = var1.getGroupId("runes");
+         int var7 = var1.getChild(var6, "");
          class303[] var5 = class159.method2957(var1, var6, var7);
          class142.field1805 = var5;
-         var7 = var1.method4421("title_mute");
-         int var8 = var1.method4400(var7, "");
+         var7 = var1.getGroupId("title_mute");
+         int var8 = var1.getChild(var7, "");
          class303[] var10 = class159.method2957(var1, var7, var8);
          class121.field1651 = var10;
          class39.field376 = class124.method2237(var1, "options_radio_buttons,0", "");
@@ -135,22 +135,22 @@ public class class316 {
          class174.field2127 = class124.method2237(var1, "options_radio_buttons,6", "");
          class213.field2929 = class39.field376.field3759;
          class164.field1990 = class39.field376.field3762;
-         class23.field249 = new int[256];
+         MapIcon.field249 = new int[256];
 
          for(var7 = 0; var7 < 64; ++var7) {
-            class23.field249[var7] = var7 * 262144;
+            MapIcon.field249[var7] = var7 * 262144;
          }
 
          for(var7 = 0; var7 < 64; ++var7) {
-            class23.field249[var7 + 64] = var7 * 1024 + 16711680;
+            MapIcon.field249[var7 + 64] = var7 * 1024 + 16711680;
          }
 
          for(var7 = 0; var7 < 64; ++var7) {
-            class23.field249[var7 + 128] = var7 * 4 + 16776960;
+            MapIcon.field249[var7 + 128] = var7 * 4 + 16776960;
          }
 
          for(var7 = 0; var7 < 64; ++var7) {
-            class23.field249[var7 + 192] = 16777215;
+            MapIcon.field249[var7 + 192] = 16777215;
          }
 
          class103.field1147 = new int[256];
@@ -205,10 +205,10 @@ public class class316 {
          class184.field2510 = "";
          class39.field399 = true;
          class39.field403 = false;
-         if(!class175.field2134.field855) {
+         if(!WorldMapNode.field2134.field855) {
             class6 var11 = client.field2428;
-            var8 = var11.method4421("scape main");
-            int var9 = var11.method4400(var8, "");
+            var8 = var11.getGroupId("scape main");
+            int var9 = var11.getChild(var8, "");
             class294.method5775(2, var11, var8, var9, 255, false);
          } else {
             class64.method1353(2);
