@@ -88,7 +88,7 @@ enum TeleportLocationData
 	CRAFTING_GUILD(TeleportType.JEWELLERY, "Skills Necklace" , "Crafting Guild", new WorldPoint(2934, 3294, 0), "skills_necklace_teleport_icon.png"),
 	COOKING_GUILD(TeleportType.JEWELLERY, "Skills Necklace" , "Cooking Guild", new WorldPoint(3145, 3438, 0), "skills_necklace_teleport_icon.png"),
 	WOODCUTTING_GUILD(TeleportType.JEWELLERY, "Skills Necklace" , "Woodcutting Guild", new WorldPoint(1662, 3505, 0), "skills_necklace_teleport_icon.png"),
-	EDGEVILLE(TeleportType.JEWELLERY, "Amulet of Glory" , "Edgeville", new WorldPoint(3087, 3496, 0), "amulet_of_glory_teleport_icon.png"),
+    EDGEVILLE(TeleportType.JEWELLERY, "Amulet of Glory" , "Edgeville", new WorldPoint(3087, 3489, 0), "amulet_of_glory_teleport_icon.png"),
 	KARAMJA(TeleportType.JEWELLERY, "Amulet of Glory" , "Karamja", new WorldPoint(2918, 3176, 0), "amulet_of_glory_teleport_icon.png"),
 	DRAYNOR_VILLAGE(TeleportType.JEWELLERY, "Amulet of Glory" , "Draynor Village", new WorldPoint(3105, 3251, 0), "amulet_of_glory_teleport_icon.png"),
 	AL_KHARID(TeleportType.JEWELLERY, "Amulet of Glory" , "Al-Kharid", new WorldPoint(3293, 3163, 0), "amulet_of_glory_teleport_icon.png"),
