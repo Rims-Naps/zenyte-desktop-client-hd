@@ -701,7 +701,7 @@ LABEL634:
 LABEL637:
    jump                   LABEL641
 LABEL638:
-   load_string            "The Bank of Zenyte"
+   load_string            "The Bank of Gielinor"
    iload                  6
    widget_put_text_widget
 LABEL641:
