@@ -20,7 +20,7 @@ public class class81 {
          var0 += var0;
       }
 
-      field896 = new int[2000];
-      field898 = new int[2000];
+      field896 = new int[4000];
+      field898 = new int[4000];
    }
 }
