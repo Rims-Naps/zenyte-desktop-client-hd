@@ -1,7 +1,7 @@
 title=Old School RuneScape
 adverturl=http://www.runescape.com/g=oldscape/bare_advert.ws
 codebase=http://127.0.0.1
-cachedir=oldschool
+cachedir=zenyte
 storebase=0
 initial_jar=gamepack_6454153.jar
 initial_class=client.class
