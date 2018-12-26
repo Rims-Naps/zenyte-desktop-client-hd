@@ -1,179 +1,91 @@
 package net.runelite.standalone;
 
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.geom.Area;
-import net.runelite.api.Model;
-import net.runelite.api.Perspective;
-import net.runelite.api.Point;
-import net.runelite.api.coords.LocalPoint;
-import net.runelite.api.coords.WorldPoint;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSGroundObject;
-import net.runelite.rs.api.RSRenderable;
+import net.runelite.rs.api.RSIgnoreContainer;
 
-@ObfuscatedName("dw")
-public final class class215 implements RSGroundObject {
-   @ObfuscatedName("l")
-   @ObfuscatedGetter(
-      intValue = -599982245
-   )
-   int field2938;
-   @ObfuscatedName("s")
+@ObfuscatedName("kb")
+public class class215 extends NameableContainer implements RSIgnoreContainer {
+   @ObfuscatedName("qb")
    @ObfuscatedSignature(
-      signature = "Ldj;"
+      signature = "Ldm;"
    )
-   public class102 field2937;
-   @ObfuscatedName("f")
-   @ObfuscatedGetter(
-      intValue = 1978587533
-   )
-   int field2941;
-   public int groundObjectPlane;
-   @ObfuscatedName("a")
-   @ObfuscatedGetter(
-      intValue = -598476969
-   )
-   int field2940;
+   static Resampler field3697;
    @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      longValue = 2329026692373815313L
-   )
-   public long field2942;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = -1408344723
-   )
-   int field2939;
-
-   public Point getCanvasLocation(int var1) {
-      return Perspective.localToCanvas(class302.field3755, this.getLocalLocation(), this.getPlane(), var1);
-   }
-
-   public long getHash() {
-      return this.field2942;
-   }
-
-   public RSRenderable getRenderable() {
-      return this.field2937;
-   }
-
-   public int getX() {
-      return this.field2938;
-   }
-
-   public Model getModel() {
-      RSRenderable var1 = this.getRenderable();
-      return var1 == null?null:(var1 instanceof Model?(Model)var1:var1.getModel());
-   }
-
-   public LocalPoint getLocalLocation() {
-      return new LocalPoint(this.getX(), this.getY());
-   }
-
-   public int getY() {
-      return this.field2939;
-   }
-
-   public int getPlane() {
-      return this.groundObjectPlane;
-   }
-
-   public int getId() {
-      long var1 = this.getHash();
-      return (int)(var1 >>> 17 & 4294967295L);
-   }
-
-   public WorldPoint getWorldLocation() {
-      return WorldPoint.fromLocal(class302.field3755, this.getX(), this.getY(), this.getPlane());
-   }
-
-   public Point getCanvasLocation() {
-      return this.getCanvasLocation(0);
-   }
-
-   public Polygon getCanvasTilePoly() {
-      return Perspective.getCanvasTilePoly(class302.field3755, this.getLocalLocation());
-   }
-
-   public Point getCanvasTextLocation(Graphics2D var1, String var2, int var3) {
-      return Perspective.getCanvasTextLocation(class302.field3755, var1, this.getLocalLocation(), var2, var3);
-   }
-
-   public Point getMinimapLocation() {
-      return Perspective.localToMinimap(class302.field3755, this.getLocalLocation());
-   }
-
-   public void setPlane(int var1) {
-      this.groundObjectPlane = var1;
-   }
-
-   public Area getClickbox() {
-      return Perspective.getClickbox(class302.field3755, this.getModel(), 0, this.getLocalLocation());
-   }
-
-   @ObfuscatedName("ax")
    @ObfuscatedSignature(
-      signature = "(ILcz;ZI)I",
-      garbageValue = "392425741"
+      signature = "Llq;"
    )
-   static int method4381(int var0, class296 var1, boolean var2) {
-      int var3;
-      if(var0 == 5504) {
-         MapCacheArchiveNames.field3811 -= 2;
-         var3 = class249.field3312[MapCacheArchiveNames.field3811];
-         int var4 = class249.field3312[MapCacheArchiveNames.field3811 + 1];
-         if(!client.field2397) {
-            client.field2222 = var3;
-            client.onCameraPitchTargetChanged(-1);
-            client.field2223 = var4;
+   final JagexLoginType field3696;
+
+   @ObfuscatedSignature(
+      signature = "(Llq;)V"
+   )
+   public class215(JagexLoginType var1) {
+      super(400);
+      this.field3696 = var1;
+   }
+
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "(II)[Ljr;",
+      garbageValue = "-1957564969"
+   )
+   Nameable[] vmethod5255(int var1) {
+      return new Ignore[var1];
+   }
+
+   @ObfuscatedName("e")
+   @ObfuscatedSignature(
+      signature = "(Lgl;II)V",
+      garbageValue = "451663299"
+   )
+   public void method4310(Buffer var1, int var2) {
+      while(true) {
+         if(var1.offset < var2) {
+            int var3 = var1.readUnsignedByte();
+            boolean var4 = (var3 & 1) == 1;
+            Name var5 = new Name(var1.readString(), this.field3696);
+            Name var6 = new Name(var1.readString(), this.field3696);
+            var1.readString();
+            if(var5 != null && var5.method4714()) {
+               Ignore var7 = (Ignore)this.method5229(var5);
+               if(var4) {
+                  Ignore var8 = (Ignore)this.method5229(var6);
+                  if(var8 != null && var7 != var8) {
+                     if(var7 != null) {
+                        this.method5280(var8);
+                     } else {
+                        var7 = var8;
+                     }
+                  }
+               }
+
+               if(var7 != null) {
+                  this.method5230(var7, var5, var6);
+                  continue;
+               }
+
+               if(this.method5225() < 400) {
+                  int var9 = this.method5225();
+                  var7 = (Ignore)this.method5233(var5, var6);
+                  var7.field3705 = var9;
+               }
+               continue;
+            }
+
+            throw new IllegalStateException();
          }
 
-         return 1;
-      } else if(var0 == 5505) {
-         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2222;
-         return 1;
-      } else if(var0 == 5506) {
-         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2223;
-         return 1;
-      } else if(var0 == 5530) {
-         var3 = class249.field3312[--MapCacheArchiveNames.field3811];
-         if(var3 < 0) {
-            var3 = 0;
-         }
-
-         client.field2229 = var3;
-         return 1;
-      } else if(var0 == 5531) {
-         class249.field3312[++MapCacheArchiveNames.field3811 - 1] = client.field2229;
-         return 1;
-      } else {
-         return 2;
+         return;
       }
    }
 
-   @ObfuscatedName("f")
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Lik;Lik;ZLkn;I)V",
-      garbageValue = "502257140"
+      signature = "(I)Ljr;",
+      garbageValue = "-1755896640"
    )
-   public static void method4382(Js5Index var0, Js5Index var1, boolean var2, class299 var3) {
-      class42.field424 = var0;
-      class148.field1833 = var1;
-      class213.field2928 = var2;
-      class42.field425 = class42.field424.method4435(10);
-      class150.field1858 = var3;
-   }
-
-   @ObfuscatedName("jo")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "259078230"
-   )
-   static final void method4380() {
-      client.field2347 = client.field2338;
-      class301.field3748 = true;
+   Nameable vmethod5242() {
+      return new Ignore();
    }
 }

@@ -1,132 +1,171 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gq")
-public final class class204 {
-   @ObfuscatedName("l")
-   int field2852;
-   @ObfuscatedName("s")
+@ObfuscatedName("ic")
+public class class204 extends CacheableNode {
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "Lhf;"
+      signature = "Lgv;"
    )
-   class120 field2855;
-   @ObfuscatedName("f")
-   int field2853;
-   @ObfuscatedName("w")
+   static NodeCache field3298;
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "Lga;"
+      signature = "Liu;"
    )
-   class235 field2854;
+   public static Js5Index field3301;
+   @ObfuscatedName("e")
+   @ObfuscatedGetter(
+      intValue = 1955032221
+   )
+   public int field3299;
 
-   public class204(int var1, int var2) {
-      this.field2855 = new class120();
-      this.field2853 = var1;
-      this.field2852 = var1;
-
-      int var3;
-      for(var3 = 1; var3 + var3 < var1 && var3 < var2; var3 += var3) {
-         ;
-      }
-
-      this.field2854 = new class235(var3);
+   static {
+      field3298 = new NodeCache(64);
    }
 
-   @ObfuscatedName("p")
-   public void method4033() {
-      this.field2855.method2166();
-      this.field2854.method4673();
-      this.field2852 = this.field2853;
+   class204() {
+      this.field3299 = 0;
    }
 
-   @ObfuscatedName("c")
-   public void method4029(int var1) {
-      for(class281 var2 = (class281)this.field2855.method2176(); var2 != null; var2 = (class281)this.field2855.method2165()) {
-         if(var2.vmethod5410()) {
-            if(var2.vmethod5411() == null) {
-               var2.method3937();
-               var2.method6268();
-               this.field2852 += var2.field3547;
-            }
-         } else if(++var2.field3943 > (long)var1) {
-            class10 var3 = new class10(var2.vmethod5411(), var2.field3547);
-            this.field2854.method4672(var3, var2.field2792);
-            class50.method1059(var3, var2);
-            var2.method3937();
-            var2.method6268();
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "(Lgl;I)V",
+      garbageValue = "-532058353"
+   )
+   void method4083(Buffer var1) {
+      while(true) {
+         int var2 = var1.readUnsignedByte();
+         if(var2 == 0) {
+            return;
          }
-      }
 
-   }
-
-   @ObfuscatedName("l")
-   void method4039(long var1) {
-      class281 var3 = (class281)this.field2854.method4670(var1);
-      this.method4030(var3);
-   }
-
-   @ObfuscatedName("s")
-   public void method4031(Object var1, long var2) {
-      this.method4032(var1, var2, 1);
-   }
-
-   @ObfuscatedName("f")
-   public Object method4028(long var1) {
-      class281 var3 = (class281)this.field2854.method4670(var1);
-      if(var3 == null) {
-         return null;
-      } else {
-         Object var4 = var3.vmethod5411();
-         if(var4 == null) {
-            var3.method3937();
-            var3.method6268();
-            this.field2852 += var3.field3547;
-            return null;
-         } else {
-            if(var3.vmethod5410()) {
-               class19 var5 = new class19(var4, var3.field3547);
-               this.field2854.method4672(var5, var3.field2792);
-               this.field2855.method2168(var5);
-               var5.field3943 = 0L;
-               var3.method3937();
-               var3.method6268();
-            } else {
-               this.field2855.method2168(var3);
-               var3.field3943 = 0L;
-            }
-
-            return var4;
-         }
+         this.method4085(var1, var2);
       }
    }
 
    @ObfuscatedName("e")
-   public void method4032(Object var1, long var2, int var4) {
-      this.method4039(var2);
-      this.field2852 -= var4;
-
-      while(this.field2852 < 0) {
-         class281 var5 = (class281)this.field2855.method2167();
-         this.method4030(var5);
+   @ObfuscatedSignature(
+      signature = "(Lgl;II)V",
+      garbageValue = "1767209492"
+   )
+   void method4085(Buffer var1, int var2) {
+      if(var2 == 2) {
+         this.field3299 = var1.method6080();
       }
 
-      class19 var6 = new class19(var1, var4);
-      this.field2854.method4672(var6, var2);
-      this.field2855.method2168(var6);
-      var6.field3943 = 0L;
    }
 
-   @ObfuscatedName("w")
+   @ObfuscatedName("c")
    @ObfuscatedSignature(
-      signature = "(Lhv;)V"
+      signature = "([BIIIIIIILde;[Lfn;I)V",
+      garbageValue = "537434701"
    )
-   void method4030(class281 var1) {
-      if(var1 != null) {
-         var1.method3937();
-         var1.method6268();
-         this.field2852 += var1.field3547;
-      }
+   static final void method4096(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, SceneManager var8, CollisionData[] var9) {
+      Buffer var10 = new Buffer(var0);
+      int var11 = -1;
 
+      while(true) {
+         int var12 = var10.method6093();
+         if(var12 == 0) {
+            return;
+         }
+
+         var11 += var12;
+         int var13 = 0;
+
+         while(true) {
+            int var14 = var10.method6092();
+            if(var14 == 0) {
+               break;
+            }
+
+            var13 += var14 - 1;
+            int var15 = var13 & 63;
+            int var16 = var13 >> 6 & 63;
+            int var17 = var13 >> 12;
+            int var18 = var10.readUnsignedByte();
+            int var19 = var18 >> 2;
+            int var20 = var18 & 3;
+            if(var17 == var4 && var16 >= var5 && var16 < var5 + 8 && var15 >= var6 && var15 < var6 + 8) {
+               LocType var21 = class225.method4485(var11);
+               int var24 = var16 & 7;
+               int var25 = var15 & 7;
+               int var27 = var21.width;
+               int var28 = var21.length;
+               int var29;
+               if((var20 & 1) == 1) {
+                  var29 = var27;
+                  var27 = var28;
+                  var28 = var29;
+               }
+
+               int var26 = var7 & 3;
+               int var23;
+               if(var26 == 0) {
+                  var23 = var24;
+               } else if(var26 == 1) {
+                  var23 = var25;
+               } else if(var26 == 2) {
+                  var23 = 7 - var24 - (var27 - 1);
+               } else {
+                  var23 = 7 - var25 - (var28 - 1);
+               }
+
+               var29 = var2 + var23;
+               int var32 = var16 & 7;
+               int var33 = var15 & 7;
+               int var35 = var21.width;
+               int var36 = var21.length;
+               int var37;
+               if((var20 & 1) == 1) {
+                  var37 = var35;
+                  var35 = var36;
+                  var36 = var37;
+               }
+
+               int var34 = var7 & 3;
+               int var31;
+               if(var34 == 0) {
+                  var31 = var33;
+               } else if(var34 == 1) {
+                  var31 = 7 - var32 - (var35 - 1);
+               } else if(var34 == 2) {
+                  var31 = 7 - var33 - (var36 - 1);
+               } else {
+                  var31 = var32;
+               }
+
+               var37 = var3 + var31;
+               if(var29 > 0 && var37 > 0 && var29 < 103 && var37 < 103) {
+                  int var38 = var1;
+                  if((class98.tileSettings[1][var29][var37] & 2) == 2) {
+                     var38 = var1 - 1;
+                  }
+
+                  CollisionData var39 = null;
+                  if(var38 >= 0) {
+                     var39 = var9[var38];
+                  }
+
+                  WorldMapRegion.method4191(var1, var29, var37, var11, var20 + var7 & 3, var19, var8, var39);
+               }
+            }
+         }
+      }
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/String;B)V",
+      garbageValue = "0"
+   )
+   static final void method4095(String var0) {
+      TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2278, client.serverConnection.isaac);
+      var1.packetBuffer.writeByte(AbstractSoundSystem.method338(var0));
+      var1.packetBuffer.writeString(var0);
+      client.serverConnection.method5881(var1);
    }
 }

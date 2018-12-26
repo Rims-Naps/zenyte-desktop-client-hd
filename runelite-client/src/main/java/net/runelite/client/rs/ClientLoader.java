@@ -33,21 +33,19 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.http.api.updatecheck.UpdateCheckClient;
 import net.runelite.standalone.client;
 
 @Slf4j
 @Singleton
 public class ClientLoader
 {
-	private final UpdateCheckClient updateCheckClient = new UpdateCheckClient();
 	private final ClientConfigLoader clientConfigLoader;
 	private final ClientUpdateCheckMode updateCheckMode;
 
 	@Inject
 	private ClientLoader(
-		@Named("updateCheckMode") final ClientUpdateCheckMode updateCheckMode,
-		final ClientConfigLoader clientConfigLoader)
+			@Named("updateCheckMode") final ClientUpdateCheckMode updateCheckMode,
+			final ClientConfigLoader clientConfigLoader)
 	{
 		this.updateCheckMode = updateCheckMode;
 		this.clientConfigLoader = clientConfigLoader;
@@ -93,8 +91,8 @@ public class ClientLoader
 			if (e instanceof ClassNotFoundException)
 			{
 				log.error("Unable to load client - class not found. This means you"
-					+ " are not running RuneLite with Maven as the injected client"
-					+ " is not in your classpath.");
+						+ " are not running RuneLite with Maven as the injected client"
+						+ " is not in your classpath.");
 			}
 
 			log.error("Error loading RS!", e);

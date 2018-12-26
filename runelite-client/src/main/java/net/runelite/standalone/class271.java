@@ -1,36 +1,49 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("eb")
-public class class271 extends class320 {
-   @ObfuscatedName("f")
-   final boolean field3483;
-
-   public class271(boolean var1) {
-      this.field3483 = var1;
-   }
-
-   @ObfuscatedName("f")
+@ObfuscatedName("lx")
+public enum class271 implements Enumerated {
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Lkj;Lkj;B)I",
-      garbageValue = "-38"
+      signature = "Llx;"
    )
-   int method5335(class62 var1, class62 var2) {
-      return client.field2206 == var1.field737 && var2.field737 == client.field2206?(this.field3483?var1.field734 - var2.field734:var2.field734 - var1.field734):this.method6239(var1, var2);
-   }
-
-   public int compare(Object var1, Object var2) {
-      return this.method5335((class62)var1, (class62)var2);
-   }
-
-   @ObfuscatedName("w")
+   field3866(0, 0),
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "(II)Z",
-      garbageValue = "165555937"
+      signature = "Llx;"
    )
-   public static boolean method5342(int var0) {
-      return (var0 >> 20 & 1) != 0;
+   field3865(1, 1),
+   @ObfuscatedName("e")
+   @ObfuscatedSignature(
+      signature = "Llx;"
+   )
+   field3867(2, 2);
+
+   @ObfuscatedName("q")
+   @ObfuscatedGetter(
+      intValue = 1503414731
+   )
+   public final int field3868;
+   @ObfuscatedName("c")
+   @ObfuscatedGetter(
+      intValue = 228825557
+   )
+   final int field3869;
+
+   class271(int var3, int var4) {
+      this.field3868 = var3;
+      this.field3869 = var4;
+   }
+
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "(B)I",
+      garbageValue = "1"
+   )
+   public int vmethod5358() {
+      return this.field3869;
    }
 }

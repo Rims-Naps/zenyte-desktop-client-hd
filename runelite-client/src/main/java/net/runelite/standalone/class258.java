@@ -1,91 +1,133 @@
 package net.runelite.standalone;
 
+import java.util.zip.CRC32;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSJagexLoginType;
 
-@ObfuscatedName("ly")
-public class class258 implements RSJagexLoginType {
-   @ObfuscatedName("p")
-   @ObfuscatedSignature(
-      signature = "Lly;"
-   )
-   static final class258 field3372;
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "Lly;"
-   )
-   static final class258 field3371;
+@ObfuscatedName("id")
+public class class258 {
    @ObfuscatedName("l")
    @ObfuscatedSignature(
-      signature = "Lly;"
+      signature = "Lgq;"
    )
-   static final class258 field3366;
-   @ObfuscatedName("s")
+   static HashTable NetCache_pendingPriorityResponses;
+   @ObfuscatedName("v")
    @ObfuscatedSignature(
-      signature = "Lly;"
+      signature = "Lgl;"
    )
-   static final class258 field3368;
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "Lly;"
-   )
-   public static final class258 field3374;
+   static Buffer NetCache_responseArchiveBuffer;
    @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "Lly;"
+   @ObfuscatedGetter(
+      intValue = -180461495
    )
-   public static final class258 field3373;
-   @ObfuscatedName("a")
-   @ObfuscatedSignature(
-      signature = "Lly;"
-   )
-   static final class258 field3370;
+   static int field3272;
    @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "Lly;"
+   @ObfuscatedGetter(
+      longValue = -2585974541463108913L
    )
-   static final class258 field3369;
+   static long field3260;
+   @ObfuscatedName("k")
+   @ObfuscatedSignature(
+      signature = "[Lih;"
+   )
+   static Js5[] NetCache_indexCaches;
    @ObfuscatedName("w")
    @ObfuscatedSignature(
-      signature = "Lly;"
+      signature = "Lgf;"
    )
-   static final class258 field3365;
+   static Node2LinkedList NetCache_pendingWritesQueue;
+   @ObfuscatedName("q")
+   @ObfuscatedSignature(
+      signature = "Lgq;"
+   )
+   static HashTable NetCache_pendingPriorityWrites;
+   @ObfuscatedName("x")
+   @ObfuscatedSignature(
+      signature = "Lgl;"
+   )
+   static Buffer NetCache_responseHeaderBuffer;
    @ObfuscatedName("m")
    @ObfuscatedGetter(
-      intValue = -1791765443
+      intValue = 993783287
    )
-   public final int field3367;
-   @ObfuscatedName("d")
-   final String field3375;
+   static int NetCache_pendingResponsesCount;
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "Lgq;"
+   )
+   static HashTable NetCache_pendingResponses;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      intValue = -987519185
+   )
+   static int NetCache_pendingPriorityResponsesCount;
+   @ObfuscatedName("a")
+   static CRC32 NetCache_crc;
+   @ObfuscatedName("z")
+   static byte field3279;
+   @ObfuscatedName("n")
+   @ObfuscatedSignature(
+      signature = "Lgq;"
+   )
+   static HashTable NetCache_pendingWrites;
+   @ObfuscatedName("c")
+   @ObfuscatedGetter(
+      intValue = -381315601
+   )
+   static int NetCache_pendingPriorityWritesCount;
+   @ObfuscatedName("i")
+   @ObfuscatedGetter(
+      intValue = 320805059
+   )
+   static int NetCache_pendingWritesCount;
+   @ObfuscatedName("y")
+   @ObfuscatedGetter(
+      intValue = -783345405
+   )
+   public static int field3278;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = 1476877337
+   )
+   public static int field3277;
+   @ObfuscatedName("h")
+   @ObfuscatedGetter(
+      intValue = 566468541
+   )
+   static int field3276;
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "Lfh;"
+   )
+   public static class19 NetCache_socket;
 
    static {
-      field3374 = new class258(1, 0, "", "");
-      field3366 = new class258(2, 1, "", "");
-      field3365 = new class258(7, 2, "", "");
-      field3368 = new class258(3, 3, "", "");
-      field3369 = new class258(5, 4, "", "");
-      field3370 = new class258(4, 5, "", "");
-      field3371 = new class258(0, 6, "", "");
-      field3372 = new class258(8, 7, "", "");
-      field3373 = new class258(6, -1, "", "", true, new class258[]{field3374, field3366, field3365, field3369, field3368});
+      field3272 = 0;
+      NetCache_pendingPriorityWrites = new HashTable(4096);
+      NetCache_pendingPriorityWritesCount = 0;
+      NetCache_pendingPriorityResponses = new HashTable(32);
+      NetCache_pendingPriorityResponsesCount = 0;
+      NetCache_pendingWritesQueue = new Node2LinkedList();
+      NetCache_pendingWrites = new HashTable(4096);
+      NetCache_pendingWritesCount = 0;
+      NetCache_pendingResponses = new HashTable(4096);
+      NetCache_pendingResponsesCount = 0;
+      NetCache_responseHeaderBuffer = new Buffer(8);
+      field3276 = 0;
+      NetCache_crc = new CRC32();
+      NetCache_indexCaches = new Js5[256];
+      field3279 = 0;
+      field3277 = 0;
+      field3278 = 0;
    }
 
-   class258(int var1, int var2, String var3, String var4) {
-      this.field3367 = var1;
-      this.field3375 = var4;
-   }
-
+   @ObfuscatedName("ai")
    @ObfuscatedSignature(
-      signature = "(IILjava/lang/String;Ljava/lang/String;Z[Lly;)V"
+      signature = "(IB)I",
+      garbageValue = "104"
    )
-   class258(int var1, int var2, String var3, String var4, boolean var5, class258[] var6) {
-      this.field3367 = var1;
-      this.field3375 = var4;
-   }
-
-   public String toString() {
-      return this.field3375;
+   static int method4991(int var0) {
+      return (int)((Math.log((double)var0) / class48.field1081 - 7.0D) * 256.0D);
    }
 }

@@ -1,34 +1,28 @@
 package net.runelite.standalone;
 
-import java.nio.ByteBuffer;
+import java.util.Calendar;
+import java.util.TimeZone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gv")
-public class class238 extends class132 {
-   @ObfuscatedName("f")
-   ByteBuffer field3121;
-
-   @ObfuscatedName("l")
+@ObfuscatedName("gh")
+public class class238 {
+   @ObfuscatedName("gq")
    @ObfuscatedSignature(
-      signature = "([BI)V",
-      garbageValue = "601020153"
+      signature = "[Lli;"
    )
-   void vmethod4714(byte[] var1) {
-      this.field3121 = ByteBuffer.allocateDirect(var1.length);
-      this.field3121.position(0);
-      this.field3121.put(var1);
-   }
+   static IndexedSprite[] scrollbarSprites;
+   @ObfuscatedName("r")
+   public static final String[] field2466;
+   @ObfuscatedName("e")
+   public static Calendar field2463;
+   @ObfuscatedName("g")
+   public static final String[][] field2464;
 
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "(B)[B",
-      garbageValue = "72"
-   )
-   byte[] vmethod4715() {
-      byte[] var1 = new byte[this.field3121.capacity()];
-      this.field3121.position(0);
-      this.field3121.get(var1);
-      return var1;
+   static {
+      field2464 = new String[][]{{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}, {"Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"}};
+      field2466 = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+      Calendar.getInstance(TimeZone.getTimeZone("Europe/London"));
+      field2463 = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
    }
 }

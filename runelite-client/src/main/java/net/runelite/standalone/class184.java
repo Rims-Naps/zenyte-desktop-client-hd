@@ -1,64 +1,193 @@
 package net.runelite.standalone;
 
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("v")
-public class class184 {
-   @ObfuscatedName("dy")
+@ObfuscatedName("cn")
+public class class184 extends TaskDataNode {
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "Lfo;"
+      signature = "Lgi;"
    )
-   static class36 field2507;
-   @ObfuscatedName("bn")
-   static String field2510;
-   @ObfuscatedName("gd")
+   Deque field1296;
+   @ObfuscatedName("e")
+   int field1298;
+   @ObfuscatedName("q")
+   int field1299;
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "[Llp;"
+      signature = "Lgi;"
    )
-   static SpritePixels[] field2505;
-   @ObfuscatedName("dm")
-   @ObfuscatedSignature(
-      signature = "Led;"
-   )
-   static class128 field2503;
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "Lhx;"
-   )
-   Location field2509;
-   @ObfuscatedName("f")
-   @ObfuscatedGetter(
-      intValue = -1177274657
-   )
-   int field2508;
+   Deque field1297;
 
-   @ObfuscatedSignature(
-      signature = "(ILhx;)V"
-   )
-   class184(int var1, Location var2) {
-      this.field2508 = var1;
-      this.field2509 = var2;
+   public class184() {
+      this.field1297 = new Deque();
+      this.field1296 = new Deque();
+      this.field1298 = 0;
+      this.field1299 = -1;
    }
 
-   @ObfuscatedName("iz")
-   @ObfuscatedSignature(
-      signature = "(IIIIIIII)V",
-      garbageValue = "-1383210428"
-   )
-   static final void method3709(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
-      if(class80.method1596(var0)) {
-         class264.method5259(class187.field2547[var0], -1, var1, var2, var3, var4, var5, var6);
+   @ObfuscatedName("v")
+   void method3607(int var1) {
+      for(TaskDataNode var2 = (TaskDataNode)this.field1297.method4373(); var2 != null; var2 = (TaskDataNode)this.field1297.method4358()) {
+         var2.vmethod6450(var1);
       }
+
+   }
+
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "(Ldz;)V"
+   )
+   public final synchronized void method3580(TaskDataNode var1) {
+      var1.method6469();
+   }
+
+   @ObfuscatedName("e")
+   void method3582() {
+      if(this.field1298 > 0) {
+         for(class38 var1 = (class38)this.field1296.method4373(); var1 != null; var1 = (class38)this.field1296.method4358()) {
+            var1.field1401 -= this.field1298;
+         }
+
+         this.field1299 -= this.field1298;
+         this.field1298 = 0;
+      }
+
+   }
+
+   @ObfuscatedName("q")
+   @ObfuscatedSignature(
+      signature = "(Lgy;Lcw;)V"
+   )
+   void method3579(Node var1, class38 var2) {
+      while(this.field1296.head != var1 && ((class38)var1).field1401 <= var2.field1401) {
+         var1 = var1.next;
+      }
+
+      Deque.method4382(var2, var1);
+      this.field1299 = ((class38)this.field1296.head.next).field1401;
+   }
+
+   @ObfuscatedName("x")
+   public final synchronized void vmethod6450(int var1) {
+      do {
+         if(this.field1299 < 0) {
+            this.method3607(var1);
+            return;
+         }
+
+         if(this.field1298 + var1 < this.field1299) {
+            this.field1298 += var1;
+            this.method3607(var1);
+            return;
+         }
+
+         int var2 = this.field1299 - this.field1298;
+         this.method3607(var2);
+         var1 -= var2;
+         this.field1298 += var2;
+         this.method3582();
+         class38 var3 = (class38)this.field1296.method4373();
+         synchronized(var3) {
+            int var5 = var3.method580();
+            if(var5 < 0) {
+               var3.field1401 = 0;
+               this.method3605(var3);
+            } else {
+               var3.field1401 = var5;
+               this.method3579(var3.next, var3);
+            }
+         }
+      } while(var1 != 0);
+
+   }
+
+   @ObfuscatedName("m")
+   protected int vmethod6465() {
+      return 0;
+   }
+
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "()Ldz;"
+   )
+   protected TaskDataNode vmethod6446() {
+      return (TaskDataNode)this.field1297.method4358();
    }
 
    @ObfuscatedName("c")
    @ObfuscatedSignature(
-      signature = "(II)Z",
-      garbageValue = "1556609852"
+      signature = "(Lcw;)V"
    )
-   public static boolean method3710(int var0) {
-      return var0 == class264.field3416.field3433;
+   void method3605(class38 var1) {
+      var1.method6469();
+      var1.method579();
+      Node var2 = this.field1296.head.next;
+      if(var2 == this.field1296.head) {
+         this.field1299 = -1;
+      } else {
+         this.field1299 = ((class38)var2).field1401;
+      }
+
+   }
+
+   @ObfuscatedName("i")
+   @ObfuscatedSignature(
+      signature = "()Ldz;"
+   )
+   protected TaskDataNode vmethod6454() {
+      return (TaskDataNode)this.field1297.method4373();
+   }
+
+   @ObfuscatedName("d")
+   public final synchronized void vmethod6449(int[] var1, int var2, int var3) {
+      do {
+         if(this.field1299 < 0) {
+            this.method3587(var1, var2, var3);
+            return;
+         }
+
+         if(var3 + this.field1298 < this.field1299) {
+            this.field1298 += var3;
+            this.method3587(var1, var2, var3);
+            return;
+         }
+
+         int var4 = this.field1299 - this.field1298;
+         this.method3587(var1, var2, var4);
+         var2 += var4;
+         var3 -= var4;
+         this.field1298 += var4;
+         this.method3582();
+         class38 var5 = (class38)this.field1296.method4373();
+         synchronized(var5) {
+            int var7 = var5.method580();
+            if(var7 < 0) {
+               var5.field1401 = 0;
+               this.method3605(var5);
+            } else {
+               var5.field1401 = var7;
+               this.method3579(var5.next, var5);
+            }
+         }
+      } while(var3 != 0);
+
+   }
+
+   @ObfuscatedName("j")
+   void method3587(int[] var1, int var2, int var3) {
+      for(TaskDataNode var4 = (TaskDataNode)this.field1297.method4373(); var4 != null; var4 = (TaskDataNode)this.field1297.method4358()) {
+         var4.method6448(var1, var2, var3);
+      }
+
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(Ldz;)V"
+   )
+   public final synchronized void method3581(TaskDataNode var1) {
+      this.field1297.method4352(var1);
    }
 }

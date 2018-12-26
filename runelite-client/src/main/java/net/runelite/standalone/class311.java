@@ -1,57 +1,68 @@
 package net.runelite.standalone;
 
-import java.awt.Component;
-import java.util.concurrent.ScheduledExecutorService;
+import java.io.IOException;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("em")
-public class class311 extends class320 {
-   @ObfuscatedName("p")
-   static ScheduledExecutorService field3824;
-   @ObfuscatedName("f")
-   final boolean field3827;
+@ObfuscatedName("hs")
+public class class311 {
+   @ObfuscatedName("r")
+   public static int[] serverVarps;
+   @ObfuscatedName("e")
+   public static int[] clientVarps;
+   @ObfuscatedName("g")
+   static int[] varpsMasks;
 
-   public class311(boolean var1) {
-      this.field3827 = var1;
-   }
+   static {
+      varpsMasks = new int[32];
+      int var0 = 2;
 
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "(Lkj;Lkj;I)I",
-      garbageValue = "948879523"
-   )
-   int method6088(class62 var1, class62 var2) {
-      return var1.field737 != 0 && var2.field737 != 0?(this.field3827?var1.method6338().method2888(var2.method6338()):var2.method6338().method2888(var1.method6338())):this.method6239(var1, var2);
-   }
-
-   public int compare(Object var1, Object var2) {
-      return this.method6088((class62)var1, (class62)var2);
-   }
-
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "(Ljava/awt/Component;I)V",
-      garbageValue = "-1843975572"
-   )
-   static void method6089(Component var0) {
-      var0.setFocusTraversalKeysEnabled(false);
-      var0.addKeyListener(class96.field1057);
-      var0.addFocusListener(class96.field1057);
-   }
-
-   @ObfuscatedName("d")
-   @ObfuscatedSignature(
-      signature = "(Lik;II)Z",
-      garbageValue = "-69884127"
-   )
-   static boolean method6094(Js5Index var0, int var1) {
-      byte[] var2 = var0.method4405(var1);
-      if(var2 == null) {
-         return false;
-      } else {
-         class253.method5080(var2);
-         return true;
+      for(int var1 = 0; var1 < 32; ++var1) {
+         varpsMasks[var1] = var0 - 1;
+         var0 += var0;
       }
+
+      serverVarps = new int[4000];
+      clientVarps = new int[4000];
+   }
+
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "(ZI)V",
+      garbageValue = "-714835684"
+   )
+   public static void method5933(boolean var0) {
+      if(class258.NetCache_socket != null) {
+         try {
+            Buffer var1 = new Buffer(4);
+            var1.writeByte(var0?2:3);
+            var1.method6064(0);
+            class258.NetCache_socket.vmethod5623(var1.payload, 0, 4);
+         } catch (IOException var4) {
+            try {
+               class258.NetCache_socket.vmethod5603();
+            } catch (Exception var3) {
+               ;
+            }
+
+            ++class258.field3278;
+            class258.NetCache_socket = null;
+         }
+
+      }
+   }
+
+   @ObfuscatedName("hl")
+   @ObfuscatedSignature(
+      signature = "(IIIIB)V",
+      garbageValue = "0"
+   )
+   static final void method5932(int var0, int var1, int var2, int var3) {
+      for(int var4 = 0; var4 < client.widgetCount; ++var4) {
+         if(client.widgetBoundsWidth[var4] + client.widgetPositionX[var4] > var0 && client.widgetPositionX[var4] < var0 + var2 && client.widgetBoundsHeight[var4] + client.widgetPositionY[var4] > var1 && client.widgetPositionY[var4] < var3 + var1) {
+            client.field849[var4] = true;
+         }
+      }
+
    }
 }

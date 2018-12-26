@@ -3,98 +3,188 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSScript;
-import netscape.javascript.JSObject;
 
-@ObfuscatedName("cz")
-public class class296 extends class324 implements RSScript {
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "Lgd;"
-   )
-   static class100 field3698;
-   @ObfuscatedName("m")
-   @ObfuscatedSignature(
-      signature = "Lea;"
-   )
-   static class316 field3696;
-   @ObfuscatedName("p")
-   @ObfuscatedGetter(
-      intValue = 1321724409
-   )
-   int field3692;
-   @ObfuscatedName("c")
-   @ObfuscatedGetter(
-      intValue = 1131760193
-   )
-   int field3693;
+@ObfuscatedName("lz")
+public class class296 {
    @ObfuscatedName("l")
-   int[] field3697;
-   @ObfuscatedName("s")
-   String[] field3690;
+   String field3939;
+   @ObfuscatedName("w")
+   @ObfuscatedGetter(
+      intValue = 67966615
+   )
+   int field3937;
+   @ObfuscatedName("b")
+   @ObfuscatedSignature(
+      signature = "Liu;"
+   )
+   Js5Index field3936;
+   @ObfuscatedName("n")
+   boolean loaded;
+
+   @ObfuscatedSignature(
+      signature = "(Liu;)V"
+   )
+   class296(Js5Index var1) {
+      this.field3937 = 0;
+      this.loaded = false;
+      this.field3936 = var1;
+   }
+
    @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "[Lga;"
+      signature = "(I)I",
+      garbageValue = "-831040829"
    )
-   class235[] field3695;
-   @ObfuscatedName("a")
-   @ObfuscatedGetter(
-      intValue = 184730681
-   )
-   int field3700;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = 83431041
-   )
-   int field3691;
-   @ObfuscatedName("w")
-   int[] field3689;
-
-   static {
-      field3698 = new class100(128);
-   }
-
-   @ObfuscatedName("s")
-   @ObfuscatedSignature(
-      signature = "(IS)[Lga;",
-      garbageValue = "908"
-   )
-   class235[] method5783(int var1) {
-      return new class235[var1];
-   }
-
-   public int[] getInstructions() {
-      return this.field3697;
-   }
-
-   public int[] getIntOperands() {
-      return this.field3689;
-   }
-
-   @ObfuscatedName("jm")
-   @ObfuscatedSignature(
-      signature = "(Ljava/lang/String;B)V",
-      garbageValue = "-98"
-   )
-   static void method5789(String var0) {
-      class193.field2752 = var0;
-
-      try {
-         String var1 = class302.field3755.getParameter(class182.field2497.field2499);
-         String var2 = class302.field3755.getParameter(class182.field2494.field2499);
-         String var3 = var1 + "settings=" + var0 + "; version=1; path=/; domain=" + var2;
-         if(var0.length() == 0) {
-            var3 = var3 + "; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0";
-         } else {
-            var3 = var3 + "; Expires=" + class44.method873(class321.method6252() + 94608000000L) + "; Max-Age=" + 94608000L;
+   int method5687() {
+      if(this.field3937 < 25) {
+         if(!this.field3936.method1538(MapCacheArchiveNames.field288.name, this.field3939)) {
+            return this.field3937;
          }
 
-         client var4 = class302.field3755;
-         String var5 = "document.cookie=\"" + var3 + "\"";
-         JSObject.getWindow(var4).eval(var5);
-      } catch (Throwable var6) {
-         ;
+         this.field3937 = 25;
       }
 
+      if(this.field3937 == 25) {
+         if(!this.field3936.method1538(this.field3939, MapCacheArchiveNames.field290.name)) {
+            return 25 + this.field3936.method1530(this.field3939) * 25 / 100;
+         }
+
+         this.field3937 = 50;
+      }
+
+      if(this.field3937 == 50) {
+         if(this.field3936.method1533(MapCacheArchiveNames.field289.name, this.field3939) && !this.field3936.method1538(MapCacheArchiveNames.field289.name, this.field3939)) {
+            return 50;
+         }
+
+         this.field3937 = 75;
+      }
+
+      if(this.field3937 == 75) {
+         if(!this.field3936.method1538(this.field3939, MapCacheArchiveNames.field292.name)) {
+            return 75;
+         }
+
+         this.field3937 = 100;
+         this.loaded = true;
+      }
+
+      return this.field3937;
+   }
+
+   @ObfuscatedName("e")
+   @ObfuscatedSignature(
+      signature = "(B)Z",
+      garbageValue = "1"
+   )
+   boolean method5688() {
+      return this.loaded;
+   }
+
+   @ObfuscatedName("q")
+   @ObfuscatedSignature(
+      signature = "(I)I",
+      garbageValue = "-1854239508"
+   )
+   int method5697() {
+      return this.field3937;
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/String;I)V",
+      garbageValue = "-94401394"
+   )
+   void method5686(String var1) {
+      if(var1 != null && !var1.isEmpty()) {
+         if(var1 != this.field3939) {
+            this.field3939 = var1;
+            this.field3937 = 0;
+            this.loaded = false;
+            this.method5687();
+         }
+      }
+   }
+
+   @ObfuscatedName("aw")
+   @ObfuscatedSignature(
+      signature = "(ILcx;ZI)I",
+      garbageValue = "-525992078"
+   )
+   static int method5693(int var0, class106 var1, boolean var2) {
+      int var3;
+      int var4;
+      int var6;
+      if(var0 == 3400) {
+         class228.intStackSize -= 2;
+         var3 = class48.intStack[class228.intStackSize];
+         var4 = class48.intStack[class228.intStackSize + 1];
+         Enum var5 = class106.method1885(var3);
+         if(var5.valType != 's') {
+            ;
+         }
+
+         for(var6 = 0; var6 < var5.size; ++var6) {
+            if(var4 == var5.keys[var6]) {
+               class48.scriptStringStack[++class48.scriptStringStackSize - 1] = var5.stringVals[var6];
+               var5 = null;
+               break;
+            }
+         }
+
+         if(var5 != null) {
+            class48.scriptStringStack[++class48.scriptStringStackSize - 1] = var5.defaultString;
+         }
+
+         return 1;
+      } else if(var0 != 3408) {
+         if(var0 == 3411) {
+            var3 = class48.intStack[--class228.intStackSize];
+            Enum var10 = class106.method1885(var3);
+            class48.intStack[++class228.intStackSize - 1] = var10.method6511();
+            return 1;
+         } else {
+            return 2;
+         }
+      } else {
+         class228.intStackSize -= 4;
+         var3 = class48.intStack[class228.intStackSize];
+         var4 = class48.intStack[class228.intStackSize + 1];
+         int var9 = class48.intStack[class228.intStackSize + 2];
+         var6 = class48.intStack[class228.intStackSize + 3];
+         Enum var7 = class106.method1885(var9);
+         if(var3 == var7.keyType && var4 == var7.valType) {
+            for(int var8 = 0; var8 < var7.size; ++var8) {
+               if(var6 == var7.keys[var8]) {
+                  if(var4 == 115) {
+                     class48.scriptStringStack[++class48.scriptStringStackSize - 1] = var7.stringVals[var8];
+                  } else {
+                     class48.intStack[++class228.intStackSize - 1] = var7.intVals[var8];
+                  }
+
+                  var7 = null;
+                  break;
+               }
+            }
+
+            if(var7 != null) {
+               if(var4 == 115) {
+                  class48.scriptStringStack[++class48.scriptStringStackSize - 1] = var7.defaultString;
+               } else {
+                  class48.intStack[++class228.intStackSize - 1] = var7.defaultInt;
+               }
+            }
+
+            return 1;
+         } else {
+            if(var4 == 115) {
+               class48.scriptStringStack[++class48.scriptStringStackSize - 1] = "null";
+            } else {
+               class48.intStack[++class228.intStackSize - 1] = 0;
+            }
+
+            return 1;
+         }
+      }
    }
 }

@@ -1,32 +1,36 @@
 package net.runelite.standalone;
 
-import java.util.Comparator;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lq")
-public class class7 implements Comparator {
-   @ObfuscatedName("f")
-   final boolean field89;
+@ObfuscatedName("iq")
+public class class7 {
+   @ObfuscatedName("jh")
+   public static String field3118;
+   @ObfuscatedName("jk")
+   public static String field3081;
+   @ObfuscatedName("jf")
+   public static String field2943;
+   @ObfuscatedName("ch")
+   public static String field2948;
+   @ObfuscatedName("bi")
+   public static String field2909;
+    public static String field62;
 
-   public class7(boolean var1) {
-      this.field89 = var1;
+    static {
+      field2909 = "Please visit the support page for assistance.";
+      field2948 = "Please visit the support page for assistance.";
+      field2943 = "";
+      field3118 = "Page has opened in a new window.";
+      field3081 = "(Please check your popup blocker.)";
    }
 
-   @ObfuscatedName("f")
+   @ObfuscatedName("d")
    @ObfuscatedSignature(
-      signature = "(Ljb;Ljb;I)I",
-      garbageValue = "-1684081345"
+      signature = "(CI)Z",
+      garbageValue = "192287727"
    )
-   int method139(class330 var1, class330 var2) {
-      return this.field89?var1.method6338().method2888(var2.method6338()):var2.method6338().method2888(var1.method6338());
-   }
-
-   public int compare(Object var1, Object var2) {
-      return this.method139((class330)var1, (class330)var2);
-   }
-
-   public boolean equals(Object var1) {
-      return super.equals(var1);
+   public static boolean method129(char var0) {
+      return var0 >= '0' && var0 <= '9';
    }
 }

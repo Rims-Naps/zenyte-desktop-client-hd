@@ -1,110 +1,74 @@
 package net.runelite.standalone;
 
-import java.util.Iterator;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hf")
-public class class120 implements Iterable {
-   @ObfuscatedName("l")
+@ObfuscatedName("hl")
+public class class120 {
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "Lhe;"
+      signature = "Liu;"
    )
-   class324 field1642;
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "Lhe;"
-   )
-   public class324 field1641;
-
-   public class120() {
-      this.field1641 = new class324();
-      this.field1641.field3944 = this.field1641;
-      this.field1641.field3945 = this.field1641;
-   }
-
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "()Lhe;"
-   )
-   class324 method2165() {
-      class324 var1 = this.field1642;
-      if(var1 == this.field1641) {
-         this.field1642 = null;
-         return null;
-      } else {
-         this.field1642 = var1.field3944;
-         return var1;
-      }
-   }
-
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "(Lhe;)V"
-   )
-   public void method2168(class324 var1) {
-      if(var1.field3945 != null) {
-         var1.method6268();
-      }
-
-      var1.field3945 = this.field1641.field3945;
-      var1.field3944 = this.field1641;
-      var1.field3945.field3944 = var1;
-      var1.field3944.field3945 = var1;
-   }
-
-   @ObfuscatedName("s")
-   @ObfuscatedSignature(
-      signature = "()Lhe;"
-   )
-   class324 method2176() {
-      return this.method2169((class324)null);
-   }
-
-   @ObfuscatedName("f")
-   public void method2166() {
-      while(this.field1641.field3944 != this.field1641) {
-         this.field1641.field3944.method6268();
-      }
-
-   }
-
-   public Iterator iterator() {
-      return new class251(this);
-   }
-
+   static Js5Index field2530;
    @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "(Lhe;)Lhe;"
+      signature = "Liu;"
    )
-   class324 method2169(class324 var1) {
-      class324 var2;
-      if(var1 == null) {
-         var2 = this.field1641.field3944;
-      } else {
-         var2 = var1;
-      }
+   static Js5Index field2531;
+   @ObfuscatedName("p")
+   static boolean field2534;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      intValue = -171494185
+   )
+   static int field2533;
+   @ObfuscatedName("c")
+   @ObfuscatedGetter(
+      intValue = -2131220885
+   )
+   public static int field2529;
+   @ObfuscatedName("gj")
+   static int[] landMapFileIds;
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "Liu;"
+   )
+   static Js5Index field2535;
 
-      if(var2 == this.field1641) {
-         this.field1642 = null;
-         return null;
-      } else {
-         this.field1642 = var2.field3944;
-         return var2;
-      }
+   static {
+      field2529 = 0;
    }
 
-   @ObfuscatedName("w")
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "()Lhe;"
+      signature = "(Ljava/lang/CharSequence;B)Z",
+      garbageValue = "-14"
    )
-   class324 method2167() {
-      class324 var1 = this.field1641.field3944;
-      if(var1 == this.field1641) {
-         return null;
-      } else {
-         var1.method6268();
-         return var1;
-      }
+   public static boolean method2043(CharSequence var0) {
+      return ClanMemberManager.method4657(var0, 10, true);
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(III)I",
+      garbageValue = "-1928379558"
+   )
+   public static int method2061(int var0, int var1) {
+      return (var0 << 8) + var1;
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(Liu;Liu;Liu;Liu;I)V",
+      garbageValue = "-1953204466"
+   )
+   public static void method2040(Js5Index var0, Js5Index var1, Js5Index var2, Js5Index var3) {
+      ComponentType.componentIndex = var0;
+      Frames.field1858 = var1;
+      ChatPlayer.field3709 = var2;
+      MapIcon.field282 = var3;
+      class36.interfaces = new ComponentType[ComponentType.componentIndex.method1526()][];
+      AuthProt.validInterfaces = new boolean[ComponentType.componentIndex.method1526()];
    }
 }

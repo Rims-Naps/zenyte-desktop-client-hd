@@ -4,57 +4,78 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("iq")
-public class class101 extends class324 {
-   @ObfuscatedName("l")
+@ObfuscatedName("ix")
+public enum class101 implements Enumerated {
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "Lgd;"
+      signature = "Lix;"
    )
-   static class100 field1139;
-   @ObfuscatedName("f")
+   field3290(2, 0),
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "Lik;"
+      signature = "Lix;"
    )
-   static Js5Index field1138;
-   @ObfuscatedName("w")
+   field3291(1, 1),
+   @ObfuscatedName("e")
+   @ObfuscatedSignature(
+      signature = "Lix;"
+   )
+   field3296(0, 2);
+
+   @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = -1193379705
+      intValue = -821866543
    )
-   public int field1140;
+   public final int field3292;
+   @ObfuscatedName("c")
+   @ObfuscatedGetter(
+      intValue = -368658495
+   )
+   final int field3294;
 
-   static {
-      field1139 = new class100(64);
+   class101(int var3, int var4) {
+      this.field3292 = var3;
+      this.field3294 = var4;
    }
 
-   class101() {
-      this.field1140 = 0;
-   }
-
-   @ObfuscatedName("s")
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "(Lgm;II)V",
-      garbageValue = "1016123430"
+      signature = "(B)I",
+      garbageValue = "1"
    )
-   void method1832(Buffer var1, int var2) {
-      if(var2 == 2) {
-         this.field1140 = var1.readUnsignedShort();
+   public int vmethod5358() {
+      return this.field3294;
+   }
+
+   @ObfuscatedName("kh")
+   @ObfuscatedSignature(
+      signature = "(Lhn;I)I",
+      garbageValue = "2134482714"
+   )
+   static int method1704(ComponentType var0) {
+      IntegerNode var1 = (IntegerNode)client.serverActiveProperties.method380(((long)var0.id << 32) + (long)var0.index);
+      return var1 != null?var1.value:var0.activeProperties;
+   }
+
+   @ObfuscatedName("j")
+   @ObfuscatedSignature(
+      signature = "(CB)Z",
+      garbageValue = "8"
+   )
+   public static boolean method1706(char var0) {
+      return var0 >= '0' && var0 <= '9' || var0 >= 'A' && var0 <= 'Z' || var0 >= 'a' && var0 <= 'z';
+   }
+
+   @ObfuscatedName("fq")
+   @ObfuscatedSignature(
+      signature = "(III)V",
+      garbageValue = "1163401710"
+   )
+   static void method1698(int var0, int var1) {
+      if(client.field877 != 0 && var0 != -1) {
+         class139.method2413(Isaac.jingles, var0, 0, client.field877, false);
+         client.field879 = true;
       }
 
-   }
-
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "(Lgm;B)V",
-      garbageValue = "7"
-   )
-   void method1831(Buffer var1) {
-      while(true) {
-         int var2 = var1.readUnsignedByte();
-         if(var2 == 0) {
-            return;
-         }
-
-         this.method1832(var1, var2);
-      }
    }
 }

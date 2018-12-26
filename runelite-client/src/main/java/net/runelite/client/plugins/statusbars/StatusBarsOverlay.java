@@ -24,13 +24,14 @@
  */
 package net.runelite.client.plugins.statusbars;
 
+import com.google.common.base.Strings;
+import com.google.common.primitives.Ints;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import javax.inject.Inject;
 import net.runelite.api.Client;
-import net.runelite.api.ItemID;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.Point;
 import net.runelite.api.Skill;
@@ -77,11 +78,14 @@ class StatusBarsOverlay extends Overlay
 	private static final int SKILL_ICON_HEIGHT = 35;
 	private static final int COUNTER_ICON_HEIGHT = 18;
 	private static final int OFFSET = 2;
+
 	private final Client client;
 	private final StatusBarsConfig config;
 	private final SkillIconManager skillIconManager;
 	private final TextComponent textComponent = new TextComponent();
 	private final ItemStatChangesService itemStatService;
+
+	private final Image prayerImage;
 
 	@Inject
 	private StatusBarsOverlay(Client client, StatusBarsConfig config, SkillIconManager skillIconManager, ItemStatChangesService itemstatservice)
@@ -92,6 +96,8 @@ class StatusBarsOverlay extends Overlay
 		this.config = config;
 		this.skillIconManager = skillIconManager;
 		this.itemStatService = itemstatservice;
+
+		prayerImage = ImageUtil.resizeImage(skillIconManager.getSkillImage(Skill.PRAYER, true), IMAGE_SIZE, IMAGE_SIZE);
 	}
 
 	@Override
@@ -182,22 +188,34 @@ class StatusBarsOverlay extends Overlay
 			int prayerHealValue = 0;
 			int foodHealValue = 0;
 
-			if (change != null &
-				entry.getParam1() == WidgetInfo.INVENTORY.getId() &&
-				entry.getIdentifier() != ItemID.SPICY_STEW)
+			if (change != null & entry.getParam1() == WidgetInfo.INVENTORY.getId())
 			{
 				final StatsChanges statsChanges = change.calculate(client);
 
 				for (final StatChange c : statsChanges.getStatChanges())
 				{
+					final String strVar = c.getTheoretical();
+
+					if (Strings.isNullOrEmpty(strVar))
+					{
+						continue;
+					}
+
+					final Integer value = Ints.tryParse(strVar.startsWith("+") ? strVar.substring(1) : strVar);
+
+					if (value == null)
+					{
+						continue;
+					}
+
 					if (c.getStat().getName().equals(Skill.HITPOINTS.getName()))
 					{
-						foodHealValue = Integer.parseInt(c.getTheoretical());
+						foodHealValue = value;
 					}
 
 					if (c.getStat().getName().equals(Skill.PRAYER.getName()))
 					{
-						prayerHealValue = Integer.parseInt(c.getTheoretical());
+						prayerHealValue = value;
 					}
 
 					if (foodHealValue != 0 && prayerHealValue != 0)
@@ -219,7 +237,6 @@ class StatusBarsOverlay extends Overlay
 		if (config.enableSkillIcon() || config.enableCounter())
 		{
 			final Image healthImage = skillIconManager.getSkillImage(Skill.HITPOINTS, true);
-			final Image prayerImage = ImageUtil.resizeImage(skillIconManager.getSkillImage(Skill.PRAYER, true), IMAGE_SIZE, IMAGE_SIZE);
 			final int counterHealth = client.getBoostedSkillLevel(Skill.HITPOINTS);
 			final int counterPrayer = client.getBoostedSkillLevel(Skill.PRAYER);
 			final String counterHealthText = Integer.toString(counterHealth);

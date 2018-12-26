@@ -3,47 +3,57 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ac")
-public interface class61 {
-   @ObfuscatedName("c")
+@ObfuscatedName("jt")
+public class class61 {
+   @ObfuscatedName("q")
    @ObfuscatedSignature(
-      signature = "(Lgm;I)V",
-      garbageValue = "116686342"
+      signature = "(Liu;Ljava/lang/String;Ljava/lang/String;I)[Lls;",
+      garbageValue = "-2027075443"
    )
-   void vmethod5267(Buffer var1);
+   public static SpritePixels[] method887(Js5Index var0, String var1, String var2) {
+      int var3 = var0.method1510(var1);
+      int var4 = var0.method1532(var3, var2);
+      byte[] var7 = var0.method1516(var3, var4, 1789634852);
+      boolean var6;
+      if(var7 == null) {
+         var6 = false;
+      } else {
+         SceneTilePaint.method667(var7);
+         var6 = true;
+      }
 
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "(IIIB)Z",
-      garbageValue = "37"
-   )
-   boolean vmethod5263(int var1, int var2, int var3);
+      SpritePixels[] var5;
+      if(!var6) {
+         var5 = null;
+      } else {
+         SpritePixels[] var8 = new SpritePixels[class95.indexedSpriteCount];
 
-   @ObfuscatedName("s")
-   @ObfuscatedSignature(
-      signature = "(IIII)[I",
-      garbageValue = "-161024515"
-   )
-   int[] vmethod5265(int var1, int var2, int var3);
+         for(int var9 = 0; var9 < class95.indexedSpriteCount; ++var9) {
+            SpritePixels var10 = var8[var9] = new SpritePixels();
+            var10.maxWidth = class95.indexedSpriteWidth;
+            var10.maxHeight = class95.indexedSpriteHeight;
+            var10.offsetX = class95.indexedSpriteOffsetXs[var9];
+            var10.offsetY = class95.indexedSpriteOffsetYs[var9];
+            var10.width = class95.indexSpriteWidths[var9];
+            var10.height = VarClientType.indexedSpriteHeights[var9];
+            int var11 = var10.width * var10.height;
+            byte[] var12 = class95.spritePixels[var9];
+            var10.pixels = new int[var11];
 
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "(Lh;B)V",
-      garbageValue = "-105"
-   )
-   void vmethod5276(WorldMapData var1);
+            for(int var13 = 0; var13 < var11; ++var13) {
+               var10.pixels[var13] = class95.indexedSpritePalette[var12[var13] & 255];
+            }
+         }
 
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(IIB)Lhx;",
-      garbageValue = "26"
-   )
-   Location vmethod5264(int var1, int var2);
+         class95.indexedSpriteOffsetXs = null;
+         class95.indexedSpriteOffsetYs = null;
+         class95.indexSpriteWidths = null;
+         VarClientType.indexedSpriteHeights = null;
+         class95.indexedSpritePalette = null;
+         class95.spritePixels = null;
+         var5 = var8;
+      }
 
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "(IIB)Z",
-      garbageValue = "16"
-   )
-   boolean vmethod5282(int var1, int var2);
+      return var5;
+   }
 }

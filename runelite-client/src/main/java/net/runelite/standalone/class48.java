@@ -1,170 +1,117 @@
 package net.runelite.standalone;
 
+import java.awt.image.BufferedImage;
+import java.awt.image.PixelGrabber;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.Calendar;
+import javax.imageio.ImageIO;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSCombatInfo2;
-import net.runelite.rs.api.RSCombatInfoList;
-import net.runelite.rs.api.RSCombatInfoListHolder;
 
-@ObfuscatedName("bz")
-public class class48 extends class197 implements RSCombatInfoListHolder {
-   @ObfuscatedName("p")
-   @ObfuscatedSignature(
-      signature = "Lle;"
-   )
-   static class303 field545;
-   @ObfuscatedName("s")
-   @ObfuscatedSignature(
-      signature = "Lgk;"
-   )
-   class41 field548;
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "Ljc;"
-   )
-   class244 field543;
-
-   @ObfuscatedSignature(
-      signature = "(Ljc;)V"
-   )
-   class48(class244 var1) {
-      this.field548 = new class41();
-      this.field543 = var1;
-   }
-
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "(II)Lbv;",
-      garbageValue = "-1858892659"
-   )
-   class80 method1038(int var1) {
-      class80 var2 = (class80)this.field548.method745();
-      if(var2 != null && var2.field889 <= var1) {
-         for(class80 var3 = (class80)this.field548.method747(); var3 != null && var3.field889 <= var1; var3 = (class80)this.field548.method747()) {
-            var2.method3937();
-            var2 = var3;
-         }
-
-         if(this.field543.field3285 + var2.field889 + var2.field891 > var1) {
-            return var2;
-         } else {
-            var2.method3937();
-            return null;
-         }
-      } else {
-         return null;
-      }
-   }
-
+@ObfuscatedName("bm")
+public class class48 {
+   public static int[] field845;
+   public static String[] field835;
    @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "(IIIIB)V",
-      garbageValue = "-18"
-   )
-   void method1037(int var1, int var2, int var3, int var4) {
-      class80 var5 = null;
-      int var6 = 0;
-
-      for(class80 var7 = (class80)this.field548.method745(); var7 != null; var7 = (class80)this.field548.method747()) {
-         ++var6;
-         if(var7.field889 == var1) {
-            var7.method1599(var1, var2, var3, var4);
-            return;
-         }
-
-         if(var7.field889 <= var1) {
-            var5 = var7;
-         }
-      }
-
-      if(var5 == null) {
-         if(var6 < 4) {
-            this.field548.method762(new class80(var1, var2, var3, var4));
-         }
-
-      } else {
-         class41.method744(new class80(var1, var2, var3, var4), var5);
-         if(var6 >= 4) {
-            this.field548.method745().method3937();
-         }
-
-      }
-   }
-
-   public RSCombatInfo2 getCombatInfo2() {
-      return this.field543;
-   }
-
-   public RSCombatInfoList getCombatInfo1() {
-      return this.field548;
-   }
-
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "(I)Z",
-      garbageValue = "-103532155"
-   )
-   boolean method1039() {
-      return this.field548.method757();
-   }
-
+   static boolean field1078;
    @ObfuscatedName("l")
+   static int[][] scriptArrays;
+   @ObfuscatedName("v")
+   static final String[] field1071;
+   @ObfuscatedName("x")
+   static Calendar field1076;
+   @ObfuscatedName("m")
    @ObfuscatedSignature(
-      signature = "(IB)Lhw;",
-      garbageValue = "89"
+      signature = "[Laq;"
    )
-   public static class187 method1047(int var0) {
-      int var1 = var0 >> 16;
-      int var2 = var0 & 65535;
-      if(class187.field2547[var1] == null || class187.field2547[var1][var2] == null) {
-         boolean var3 = class80.method1596(var1);
-         if(!var3) {
-            return null;
-         }
-      }
+   static ScriptState[] scriptStack;
+   @ObfuscatedName("p")
+   @ObfuscatedGetter(
+      intValue = -615501969
+   )
+   static int scriptStackCount;
+   @ObfuscatedName("b")
+   static int[] intStack;
+   @ObfuscatedName("a")
+   static boolean field1079;
+   @ObfuscatedName("n")
+   static String[] scriptStringStack;
+   @ObfuscatedName("c")
+   static int[] scriptArrayLengths;
+   @ObfuscatedName("t")
+   @ObfuscatedGetter(
+      intValue = -1748251295
+   )
+   static int field1075;
+   @ObfuscatedName("i")
+   @ObfuscatedGetter(
+      intValue = 303129437
+   )
+   static int scriptStringStackSize;
+   @ObfuscatedName("y")
+   static final double field1081;
+   @ObfuscatedName("d")
+   @ObfuscatedSignature(
+      signature = "Lhn;"
+   )
+   static ComponentType field1080;
 
-      return class187.field2547[var1][var2];
+   static {
+      scriptArrayLengths = new int[5];
+      scriptArrays = new int[5][5000];
+      intStack = new int[1000];
+      scriptStringStack = new String[1000];
+      scriptStackCount = 0;
+      scriptStack = new ScriptState[50];
+      field1076 = Calendar.getInstance();
+      field1071 = new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+      field1078 = false;
+      field1079 = false;
+      field1075 = 0;
+      field1081 = Math.log(2.0D);
    }
 
-   @ObfuscatedName("l")
+   @ObfuscatedName("q")
    @ObfuscatedSignature(
-      signature = "(Lim;IIIBZI)V",
-      garbageValue = "1428614126"
+      signature = "(Lih;IIIBZI)V",
+      garbageValue = "87474936"
    )
-   static void method1049(class6 var0, int var1, int var2, int var3, byte var4, boolean var5) {
+   static void method777(Js5 var0, int var1, int var2, int var3, byte var4, boolean var5) {
       long var6 = (long)((var1 << 16) + var2);
-      class326 var8 = (class326)class239.field3132.method1776(var6);
+      FileRequest var8 = (FileRequest)class258.NetCache_pendingPriorityWrites.method380(var6);
       if(var8 == null) {
-         var8 = (class326)class239.field3126.method1776(var6);
+         var8 = (FileRequest)class258.NetCache_pendingPriorityResponses.method380(var6);
          if(var8 == null) {
-            var8 = (class326)class239.field3127.method1776(var6);
+            var8 = (FileRequest)class258.NetCache_pendingWrites.method380(var6);
             if(var8 != null) {
                if(var5) {
-                  var8.method6268();
-                  class239.field3132.method1775(var8, var6);
-                  --class239.field3133;
-                  ++class239.field3124;
+                  var8.method419();
+                  class258.NetCache_pendingPriorityWrites.method382(var8, var6);
+                  --class258.NetCache_pendingWritesCount;
+                  ++class258.NetCache_pendingPriorityWritesCount;
                }
 
             } else {
                if(!var5) {
-                  var8 = (class326)class239.field3131.method1776(var6);
+                  var8 = (FileRequest)class258.NetCache_pendingResponses.method380(var6);
                   if(var8 != null) {
                      return;
                   }
                }
 
-               var8 = new class326();
-               var8.field3953 = var0;
-               var8.field3952 = var3;
-               var8.field3954 = var4;
+               var8 = new FileRequest();
+               var8.index = var0;
+               var8.crc = var3;
+               var8.padding = var4;
                if(var5) {
-                  class239.field3132.method1775(var8, var6);
-                  ++class239.field3124;
+                  class258.NetCache_pendingPriorityWrites.method382(var8, var6);
+                  ++class258.NetCache_pendingPriorityWritesCount;
                } else {
-                  class239.field3128.method1057(var8);
-                  class239.field3127.method1775(var8, var6);
-                  ++class239.field3133;
+                  class258.NetCache_pendingWritesQueue.method2509(var8);
+                  class258.NetCache_pendingWrites.method382(var8, var6);
+                  ++class258.NetCache_pendingWritesCount;
                }
 
             }
@@ -172,31 +119,77 @@ public class class48 extends class197 implements RSCombatInfoListHolder {
       }
    }
 
-   @ObfuscatedName("f")
-   public static final void method1045(long var0) {
-      if(var0 > 0L) {
-         if(0L == var0 % 10L) {
-            long var2 = var0 - 1L;
+   @ObfuscatedName("gs")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "-904353438"
+   )
+   static void method778() {
+      TcpConnectionMessage var0 = FaceNormal.method5726(ClientProt.field2242, client.serverConnection.isaac);
+      var0.packetBuffer.writeByte(WorldMapRectangle.method127());
+      var0.packetBuffer.writeShort(FriendManager.canvasWidth);
+      var0.packetBuffer.writeShort(class230.canvasHeight);
+      client.serverConnection.method5881(var0);
+   }
 
-            try {
-               Thread.sleep(var2);
-            } catch (InterruptedException var8) {
-               ;
-            }
-
-            try {
-               Thread.sleep(1L);
-            } catch (InterruptedException var7) {
-               ;
-            }
-         } else {
-            try {
-               Thread.sleep(var0);
-            } catch (InterruptedException var6) {
-               ;
-            }
-         }
-
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "1145405442"
+   )
+   static void method779() {
+      if(Signlink.javaVendor.toLowerCase().indexOf("microsoft") != -1) {
+         KeyFocusListener.KeyHandler_keyCodes[186] = 57;
+         KeyFocusListener.KeyHandler_keyCodes[187] = 27;
+         KeyFocusListener.KeyHandler_keyCodes[188] = 71;
+         KeyFocusListener.KeyHandler_keyCodes[189] = 26;
+         KeyFocusListener.KeyHandler_keyCodes[190] = 72;
+         KeyFocusListener.KeyHandler_keyCodes[191] = 73;
+         KeyFocusListener.KeyHandler_keyCodes[192] = 58;
+         KeyFocusListener.KeyHandler_keyCodes[219] = 42;
+         KeyFocusListener.KeyHandler_keyCodes[220] = 74;
+         KeyFocusListener.KeyHandler_keyCodes[221] = 43;
+         KeyFocusListener.KeyHandler_keyCodes[222] = 59;
+         KeyFocusListener.KeyHandler_keyCodes[223] = 28;
+      } else {
+         KeyFocusListener.KeyHandler_keyCodes[44] = 71;
+         KeyFocusListener.KeyHandler_keyCodes[45] = 26;
+         KeyFocusListener.KeyHandler_keyCodes[46] = 72;
+         KeyFocusListener.KeyHandler_keyCodes[47] = 73;
+         KeyFocusListener.KeyHandler_keyCodes[59] = 57;
+         KeyFocusListener.KeyHandler_keyCodes[61] = 27;
+         KeyFocusListener.KeyHandler_keyCodes[91] = 42;
+         KeyFocusListener.KeyHandler_keyCodes[92] = 74;
+         KeyFocusListener.KeyHandler_keyCodes[93] = 43;
+         KeyFocusListener.KeyHandler_keyCodes[192] = 28;
+         KeyFocusListener.KeyHandler_keyCodes[222] = 58;
+         KeyFocusListener.KeyHandler_keyCodes[520] = 59;
       }
+
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "([BI)Lls;",
+      garbageValue = "272914243"
+   )
+   public static final SpritePixels method776(byte[] var0) {
+      BufferedImage var1 = null;
+
+      try {
+         var1 = ImageIO.read(new ByteArrayInputStream(var0));
+         int var2 = var1.getWidth();
+         int var3 = var1.getHeight();
+         int[] var4 = new int[var3 * var2];
+         PixelGrabber var5 = new PixelGrabber(var1, 0, 0, var2, var3, var4, 0, var2);
+         var5.grabPixels();
+         return new SpritePixels(var4, var2, var3);
+      } catch (IOException var7) {
+         ;
+      } catch (InterruptedException var8) {
+         ;
+      }
+
+      return new SpritePixels(0, 0);
    }
 }

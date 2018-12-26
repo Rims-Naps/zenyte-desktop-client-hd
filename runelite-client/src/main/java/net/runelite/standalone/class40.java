@@ -1,170 +1,48 @@
 package net.runelite.standalone;
 
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.Date;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import netscape.javascript.JSObject;
 
-@ObfuscatedName("jv")
-public class class40 extends class324 {
-   @ObfuscatedName("ql")
+@ObfuscatedName("jz")
+public class class40 {
+   @ObfuscatedName("ko")
    @ObfuscatedSignature(
-      signature = "Ldt;"
+      signature = "(Ljava/lang/String;B)V",
+      garbageValue = "110"
    )
-   static class119 field416;
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "Lgd;"
-   )
-   static class100 field409;
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "Lik;"
-   )
-   public static Js5Index field418;
-   @ObfuscatedName("c")
-   @ObfuscatedGetter(
-      intValue = -1215508119
-   )
-   public int field415;
-   @ObfuscatedName("s")
-   @ObfuscatedGetter(
-      intValue = 194919499
-   )
-   public int field414;
-   @ObfuscatedName("a")
-   @ObfuscatedGetter(
-      intValue = -944216879
-   )
-   public int field412;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = 1331975325
-   )
-   public int field413;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = -2118683643
-   )
-   int field411;
+   static void method597(String var0) {
+      class116.sessionToken = var0;
 
-   static {
-      field409 = new class100(64);
-   }
-
-   class40() {
-      this.field411 = 0;
-   }
-
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "(B)V",
-      garbageValue = "100"
-   )
-   void method721() {
-      this.method737(this.field411);
-   }
-
-   @ObfuscatedName("s")
-   @ObfuscatedSignature(
-      signature = "(Lgm;III)V",
-      garbageValue = "1130789086"
-   )
-   void method720(Buffer var1, int var2, int var3) {
-      if(var2 == 1) {
-         this.field411 = var1.method2260();
-      }
-
-   }
-
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(II)V",
-      garbageValue = "-1095745556"
-   )
-   void method737(int var1) {
-      double var2 = (double)(var1 >> 16 & 255) / 256.0D;
-      double var4 = (double)(var1 >> 8 & 255) / 256.0D;
-      double var6 = (double)(var1 & 255) / 256.0D;
-      double var8 = var2;
-      if(var4 < var2) {
-         var8 = var4;
-      }
-
-      if(var6 < var8) {
-         var8 = var6;
-      }
-
-      double var10 = var2;
-      if(var4 > var2) {
-         var10 = var4;
-      }
-
-      if(var6 > var10) {
-         var10 = var6;
-      }
-
-      double var12 = 0.0D;
-      double var14 = 0.0D;
-      double var16 = (var10 + var8) / 2.0D;
-      if(var10 != var8) {
-         if(var16 < 0.5D) {
-            var14 = (var10 - var8) / (var8 + var10);
+      try {
+         String var1 = class166.clientInstance.getParameter(Parameters.field3671.key);
+         String var2 = class166.clientInstance.getParameter(Parameters.field3674.key);
+         String var3 = var1 + "settings=" + var0 + "; version=1; path=/; domain=" + var2;
+         String var5;
+         if(var0.length() == 0) {
+            var3 = var3 + "; Expires=Thu, 01-Jan-1970 00:00:00 GMT; Max-Age=0";
+         } else {
+            String var4 = var3 + "; Expires=";
+            long var6 = Tile.method4297() + 94608000000L;
+            class238.field2463.setTime(new Date(var6));
+            int var8 = class238.field2463.get(7);
+            int var9 = class238.field2463.get(5);
+            int var10 = class238.field2463.get(2);
+            int var11 = class238.field2463.get(1);
+            int var12 = class238.field2463.get(11);
+            int var13 = class238.field2463.get(12);
+            int var14 = class238.field2463.get(13);
+            var5 = class238.field2466[var8 - 1] + ", " + var9 / 10 + var9 % 10 + "-" + class238.field2464[0][var10] + "-" + var11 + " " + var12 / 10 + var12 % 10 + ":" + var13 / 10 + var13 % 10 + ":" + var14 / 10 + var14 % 10 + " GMT";
+            var3 = var4 + var5 + "; Max-Age=" + 94608000L;
          }
 
-         if(var16 >= 0.5D) {
-            var14 = (var10 - var8) / (2.0D - var10 - var8);
-         }
-
-         if(var2 == var10) {
-            var12 = (var4 - var6) / (var10 - var8);
-         } else if(var4 == var10) {
-            var12 = (var6 - var2) / (var10 - var8) + 2.0D;
-         } else if(var10 == var6) {
-            var12 = (var2 - var4) / (var10 - var8) + 4.0D;
-         }
+         client var16 = class166.clientInstance;
+         var5 = "document.cookie=\"" + var3 + "\"";
+         JSObject.getWindow(var16).eval(var5);
+      } catch (Throwable var15) {
+         ;
       }
 
-      var12 /= 6.0D;
-      this.field413 = (int)(var14 * 256.0D);
-      this.field412 = (int)(var16 * 256.0D);
-      if(this.field413 < 0) {
-         this.field413 = 0;
-      } else if(this.field413 > 255) {
-         this.field413 = 255;
-      }
-
-      if(this.field412 < 0) {
-         this.field412 = 0;
-      } else if(this.field412 > 255) {
-         this.field412 = 255;
-      }
-
-      if(var16 > 0.5D) {
-         this.field415 = (int)(512.0D * var14 * (1.0D - var16));
-      } else {
-         this.field415 = (int)(var16 * var14 * 512.0D);
-      }
-
-      if(this.field415 < 1) {
-         this.field415 = 1;
-      }
-
-      this.field414 = (int)((double)this.field415 * var12);
-   }
-
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "(Lgm;II)V",
-      garbageValue = "1163409727"
-   )
-   void method719(Buffer var1, int var2) {
-      while(true) {
-         int var3 = var1.readUnsignedByte();
-         if(var3 == 0) {
-            return;
-         }
-
-         this.method720(var1, var3, var2);
-      }
    }
 }

@@ -4,197 +4,133 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("o")
-public final class class230 {
-   @ObfuscatedName("lr")
+@ObfuscatedName("es")
+public class class230 extends class127 {
+   @ObfuscatedName("qh")
    @ObfuscatedGetter(
-      intValue = 1925789719
+      intValue = 1128588499
    )
-   static int field3072;
-   @ObfuscatedName("l")
-   final int[] field3071;
+   static int field1939;
+   @ObfuscatedName("u")
+   @ObfuscatedGetter(
+      intValue = -550934847
+   )
+   public static int canvasHeight;
+   @ObfuscatedName("g")
+   final boolean field1936;
 
-   class230() {
-      this.field3071 = new int[4096];
+   public class230(boolean var1) {
+      this.field1936 = var1;
    }
 
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "(III)I",
-      garbageValue = "-1494303787"
-   )
-   final int method4615(int var1, int var2) {
-      return this.field3071[var2 + var1 * 64];
+   public int compare(Object var1, Object var2) {
+      return this.method4542((ChatPlayer)var1, (ChatPlayer)var2);
    }
 
-   @ObfuscatedName("f")
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Lam;I)V",
-      garbageValue = "-1839236628"
+      signature = "(Lkv;Lkv;I)I",
+      garbageValue = "1276746081"
    )
-   final void method4612(class229 var1) {
-      for(int var2 = 0; var2 < 64; ++var2) {
-         for(int var3 = 0; var3 < 64; ++var3) {
-            this.field3071[var2 * 64 + var3] = var1.method4600(var2, var3) | -16777216;
+   int method4542(ChatPlayer var1, ChatPlayer var2) {
+      if(client.world == var1.world) {
+         if(var2.world != client.world) {
+            return this.field1936?-1:1;
          }
+      } else if(var2.world == client.world) {
+         return this.field1936?1:-1;
       }
 
+      return this.method2141(var1, var2);
    }
 
-   @ObfuscatedName("jv")
+   @ObfuscatedName("ig")
    @ObfuscatedSignature(
-      signature = "(Lhw;I)V",
-      garbageValue = "-18166832"
+      signature = "(Lbk;IIIB)V",
+      garbageValue = "99"
    )
-   static void method4617(class187 var0) {
-      if(var0.field2667 == client.field2380) {
-         client.field2351[var0.field2695] = true;
-      }
+   static final void method4544(PlayerEntity var0, int var1, int var2, int var3) {
+      if(class4.localPlayer != var0) {
+         if(client.menuOptionCount < 400) {
+            String var4;
+            int var7;
+            if(var0.totalLevel == 0) {
+               String var5 = var0.tagFragments[0] + var0.name + var0.tagFragments[1];
+               var7 = var0.combatLevel;
+               int var8 = class4.localPlayer.combatLevel;
+               int var9 = var8 - var7;
+               String var6;
+               if(var9 < -9) {
+                  var6 = class31.method548(16711680);
+               } else if(var9 < -6) {
+                  var6 = class31.method548(16723968);
+               } else if(var9 < -3) {
+                  var6 = class31.method548(16740352);
+               } else if(var9 < 0) {
+                  var6 = class31.method548(16756736);
+               } else if(var9 > 9) {
+                  var6 = class31.method548(65280);
+               } else if(var9 > 6) {
+                  var6 = class31.method548(4259584);
+               } else if(var9 > 3) {
+                  var6 = class31.method548(8453888);
+               } else if(var9 > 0) {
+                  var6 = class31.method548(12648192);
+               } else {
+                  var6 = class31.method548(16776960);
+               }
 
-   }
-
-   @ObfuscatedName("ao")
-   @ObfuscatedSignature(
-      signature = "(ILcz;ZI)I",
-      garbageValue = "-636544783"
-   )
-   static int method4614(int var0, class296 var1, boolean var2) {
-      if(var0 == 5630) {
-         client.field2298 = 250;
-         return 1;
-      } else {
-         return 2;
-      }
-   }
-
-   @ObfuscatedName("fb")
-   @ObfuscatedSignature(
-      signature = "(II)V",
-      garbageValue = "611286336"
-   )
-   static void method4619(int var0) {
-      if(var0 == -1 && !client.field2393) {
-         class43.field483.method1375();
-         class43.field481 = 1;
-         class270.field3480 = null;
-      } else if(var0 != -1 && var0 != client.field2328 && client.field2386 != 0 && !client.field2393) {
-         class294.method5775(2, client.field2428, var0, 0, client.field2386, false);
-      }
-
-      client.field2328 = var0;
-   }
-
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "(Lgm;J)V"
-   )
-   static void method4622(Buffer var0, long var1) {
-      var1 /= 10L;
-      if(var1 < 0L) {
-         var1 = 0L;
-      } else if(var1 > 65535L) {
-         var1 = 65535L;
-      }
-
-      var0.method2242((int)var1);
-   }
-
-   @ObfuscatedName("fi")
-   @ObfuscatedSignature(
-      signature = "(Lhw;III)V",
-      garbageValue = "-1215534032"
-   )
-   static final void method4621(class187 var0, int var1, int var2) {
-      if(client.field2411 == 0 || client.field2411 == 3) {
-         if(!client.field2360 && (class163.field1982 == 1 || !class225.field3039 && class163.field1982 == 4)) {
-            class198 var3 = var0.method3762(true);
-            if(var3 == null) {
-               return;
+               var4 = var5 + var6 + " " + " (" + "level-" + var0.combatLevel + ")" + var0.tagFragments[2];
+            } else {
+               var4 = var0.tagFragments[0] + var0.name + var0.tagFragments[1] + " " + " (" + "skill-" + var0.totalLevel + ")" + var0.tagFragments[2];
             }
 
-            int var4 = class163.field1980 - var1;
-            int var5 = class163.field1984 - var2;
-            if(var3.method3940(var4, var5)) {
-               var4 -= var3.field2798 / 2;
-               var5 -= var3.field2795 / 2;
-               int var6 = client.field2223 & 2047;
-               int var7 = class211.field2920[var6];
-               int var8 = class211.field2914[var6];
-               int var9 = var4 * var8 + var5 * var7 >> 11;
-               int var10 = var5 * var8 - var7 * var4 >> 11;
-               int var11 = var9 + class32.field303.field1090 >> 7;
-               int var12 = class32.field303.field1072 - var10 >> 7;
-               class12 var13 = class150.method2761(ClientProt.field3231, client.field2384.field1770);
-               var13.field121.method2288(18);
-               var13.field121.method2292(var12 + class35.field360);
-               var13.field121.method2292(var11 + class229.field3067);
-               var13.field121.method2282(class96.field1040[82]?(class96.field1040[81]?2:1):0);
-               var13.field121.method2288(var4);
-               var13.field121.method2288(var5);
-               var13.field121.method2242(client.field2223);
-               var13.field121.method2288(57);
-               var13.field121.method2288(0);
-               var13.field121.method2288(0);
-               var13.field121.method2288(89);
-               var13.field121.method2242(class32.field303.field1090);
-               var13.field121.method2242(class32.field303.field1072);
-               var13.field121.method2288(63);
-               client.field2384.method2573(var13);
-               client.field2216 = var11;
-               client.field2414 = var12;
-            }
-         }
+            int var10;
+            if(client.itemSelectionState == 1) {
+               class316.method5992("Use", client.lastSelectedItemName + " " + "->" + " " + class31.method548(16777215) + var4, 14, var1, var2, var3);
+            } else if(client.spellSelected) {
+               if((FontName.ifTargetMask & 8) == 8) {
+                  class316.method5992(client.targetVerb, client.opBase + " " + "->" + " " + class31.method548(16777215) + var4, 15, var1, var2, var3);
+               }
+            } else {
+               for(var10 = 7; var10 >= 0; --var10) {
+                  if(client.playerOptions[var10] != null) {
+                     short var11 = 0;
+                     if(client.playerOptions[var10].equalsIgnoreCase("Attack")) {
+                        if(AttackOpPriority.HIDDEN == client.playerAttackOpPriority) {
+                           continue;
+                        }
 
-      }
-   }
+                        if(AttackOpPriority.UNPRIORITISED == client.playerAttackOpPriority || client.playerAttackOpPriority == AttackOpPriority.COMBAT_LEVEL_BASED && var0.combatLevel > class4.localPlayer.combatLevel) {
+                           var11 = 2000;
+                        }
 
-   @ObfuscatedName("jl")
-   @ObfuscatedSignature(
-      signature = "(IIII)Lbl;",
-      garbageValue = "-1985952342"
-   )
-   static final class322 method4618(int var0, int var1, int var2) {
-      class322 var3 = new class322();
-      var3.field3937 = var1;
-      var3.field3934 = var2;
-      client.field2412.method1775(var3, (long)var0);
-      class154.method2819(var1);
-      class187 var4 = class48.method1047(var0);
-      method4617(var4);
-      if(client.field2319 != null) {
-         method4617(client.field2319);
-         client.field2319 = null;
-      }
+                        if(class4.localPlayer.team != 0 && var0.team != 0) {
+                           if(var0.team == class4.localPlayer.team) {
+                              var11 = 2000;
+                           } else {
+                              var11 = 0;
+                           }
+                        }
+                     } else if(client.playerOptionsPriorities[var10]) {
+                        var11 = 2000;
+                     }
 
-      for(int var5 = 0; var5 < client.field2290; ++var5) {
-         int var7 = client.field2293[var5];
-         boolean var6 = var7 == 57 || var7 == 58 || var7 == 1007 || var7 == 25 || var7 == 30;
-         if(var6) {
-            if(var5 < client.field2290 - 1) {
-               for(int var8 = var5; var8 < client.field2290 - 1; ++var8) {
-                  client.field2295[var8] = client.field2295[var8 + 1];
-                  client.field2296[var8] = client.field2296[var8 + 1];
-                  client.field2293[var8] = client.field2293[var8 + 1];
-                  client.field2368[var8] = client.field2368[var8 + 1];
-                  client.field2291[var8] = client.field2291[var8 + 1];
-                  client.field2292[var8] = client.field2292[var8 + 1];
-                  client.field2327[var8] = client.field2327[var8 + 1];
+                     boolean var12 = false;
+                     var7 = client.playerMenuTypes[var10] + var11;
+                     class316.method5992(client.playerOptions[var10], class31.method548(16777215) + var4, var7, var1, var2, var3);
+                  }
                }
             }
 
-            --var5;
-            --client.field2290;
-            client.onMenuOptionsChanged(-1);
+            for(var10 = 0; var10 < client.menuOptionCount; ++var10) {
+               if(client.menuTypes[var10] == 23) {
+                  client.menuTargets[var10] = class31.method548(16777215) + var4;
+                  break;
+               }
+            }
+
          }
       }
-
-      class177.method3678();
-      class79.method1593(class187.field2547[var0 >> 16], var4, false);
-      class54.method1224(var1, 294669053);
-      if(client.field2313 != -1) {
-         class191.method3910(client.field2313, 1);
-      }
-
-      return var3;
    }
 }

@@ -1,25 +1,23 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("it")
+@ObfuscatedName("fl")
 public class class117 {
-   @ObfuscatedName("jg")
-   public static String field1590;
-   @ObfuscatedName("bf")
-   public static String field1380;
-   @ObfuscatedName("ce")
-   public static String field1419;
-   @ObfuscatedName("jk")
-   public static String field1354;
-   @ObfuscatedName("jc")
-   public static String field1588;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      intValue = 2040503433
+   )
+   protected static int field2363;
 
-   static {
-      field1380 = "Please visit the support page for assistance.";
-      field1419 = "Please visit the support page for assistance.";
-      field1588 = "";
-      field1354 = "Page has opened in a new window.";
-      field1590 = "(Please check your popup blocker.)";
+   @ObfuscatedName("gg")
+   @ObfuscatedSignature(
+      signature = "(I)Z",
+      garbageValue = "1022302201"
+   )
+   static boolean method2026() {
+      return (client.playerNameMask & 2) != 0;
    }
 }

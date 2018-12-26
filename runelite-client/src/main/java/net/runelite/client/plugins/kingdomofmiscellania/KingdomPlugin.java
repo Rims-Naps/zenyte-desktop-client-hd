@@ -25,7 +25,6 @@
 package net.runelite.client.plugins.kingdomofmiscellania;
 
 import com.google.common.collect.ImmutableSet;
-import com.google.common.eventbus.Subscribe;
 import javax.inject.Inject;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -36,17 +35,18 @@ import net.runelite.api.VarPlayer;
 import net.runelite.api.Varbits;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.VarbitChanged;
+import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 
-/*@PluginDescriptor(
+@PluginDescriptor(
 	name = "Kingdom of Miscellania",
 	description = "Show amount of favor when inside Miscellania",
 	tags = {"favor", "favour", "managing", "overlay"},
 	enabledByDefault = false
-)*/
+)
 @Slf4j
 public class KingdomPlugin extends Plugin
 {

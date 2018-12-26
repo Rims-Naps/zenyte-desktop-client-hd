@@ -24,7 +24,6 @@
  */
 package net.runelite.client.plugins.gpu;
 
-import com.google.common.eventbus.Subscribe;
 import com.google.inject.Provides;
 import com.jogamp.nativewindow.awt.AWTGraphicsConfiguration;
 import com.jogamp.nativewindow.awt.JAWTWindow;
@@ -67,21 +66,26 @@ import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
+import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.PluginInstantiationException;
 import net.runelite.client.plugins.PluginManager;
 import static net.runelite.client.plugins.gpu.GLUtil.glDeleteBuffer;
+import static net.runelite.client.plugins.gpu.GLUtil.glDeleteFrameBuffer;
+import static net.runelite.client.plugins.gpu.GLUtil.glDeleteRenderbuffers;
 import static net.runelite.client.plugins.gpu.GLUtil.glDeleteTexture;
 import static net.runelite.client.plugins.gpu.GLUtil.glDeleteVertexArrays;
-import static net.runelite.client.plugins.gpu.GLUtil.glDeleteFrameBuffer;
 import static net.runelite.client.plugins.gpu.GLUtil.glGenBuffers;
-import static net.runelite.client.plugins.gpu.GLUtil.glGenTexture;
 import static net.runelite.client.plugins.gpu.GLUtil.glGenFrameBuffer;
+import static net.runelite.client.plugins.gpu.GLUtil.glGenRenderbuffer;
+import static net.runelite.client.plugins.gpu.GLUtil.glGenTexture;
 import static net.runelite.client.plugins.gpu.GLUtil.glGenVertexArrays;
 import static net.runelite.client.plugins.gpu.GLUtil.inputStreamToString;
+import net.runelite.client.plugins.gpu.config.AntiAliasingMode;
 import net.runelite.client.plugins.gpu.template.Template;
 import net.runelite.client.ui.DrawManager;
+import net.runelite.client.util.OSType;
 
 @PluginDescriptor(
 	name = "GPU",
@@ -153,6 +157,10 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 	private int vaoUiHandle;
 	private int vboUiHandle;
 
+	private int fboSceneHandle;
+	private int texSceneHandle;
+	private int rboSceneHandle;
+
 	private int fboUiHandle;
 	private int texUiHandle;
 
@@ -205,6 +213,9 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 	private int lastViewportHeight;
 	private int lastCanvasWidth;
 	private int lastCanvasHeight;
+	private int lastStretchedCanvasWidth;
+	private int lastStretchedCanvasHeight;
+	private AntiAliasingMode lastAntiAliasingMode;
 
 	private int centerX;
 	private int centerY;
@@ -304,6 +315,8 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 				client.resizeCanvas();
 
 				lastViewportWidth = lastViewportHeight = lastCanvasWidth = lastCanvasHeight = -1;
+				lastStretchedCanvasWidth = lastStretchedCanvasHeight = -1;
+				lastAntiAliasingMode = null;
 
 				textureArrayId = -1;
 
@@ -376,6 +389,7 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 				shutdownProgram();
 				shutdownVao();
 				shutdownUiFBO();
+				shutdownSceneFbo();
 			}
 
 			if (jawtWindow != null)
@@ -423,7 +437,35 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 		glGeomShader = gl.glCreateShader(gl.GL_GEOMETRY_SHADER);
 		glFragmentShader = gl.glCreateShader(gl.GL_FRAGMENT_SHADER);
 
-		Function<String, String> resourceLoader = (s) -> inputStreamToString(getClass().getResourceAsStream(s));
+		final String glVersionHeader;
+
+		if (OSType.getOSType() == OSType.Linux)
+		{
+			glVersionHeader =
+				"#version 420\n" +
+				"#extension GL_ARB_compute_shader : require\n" +
+				"#extension GL_ARB_shader_storage_buffer_object : require\n";
+		}
+		else
+		{
+			glVersionHeader = "#version 430\n";
+		}
+
+		Function<String, String> resourceLoader = (s) ->
+		{
+			if (s.endsWith(".glsl"))
+			{
+				return inputStreamToString(getClass().getResourceAsStream(s));
+			}
+
+			if (s.equals("version_header"))
+			{
+				return glVersionHeader;
+			}
+
+			return "";
+		};
+
 		Template template = new Template(resourceLoader);
 		String source = template.process(resourceLoader.apply("geom.glsl"));
 
@@ -631,6 +673,53 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 		gl.glBindBuffer(gl.GL_UNIFORM_BUFFER, 0);
 	}
 
+	private void initSceneFbo(int width, int height, int aaSamples)
+	{
+		// Create and bind the FBO
+		fboSceneHandle = glGenFrameBuffer(gl);
+		gl.glBindFramebuffer(gl.GL_FRAMEBUFFER, fboSceneHandle);
+
+		// Create color render buffer
+		rboSceneHandle = glGenRenderbuffer(gl);
+		gl.glBindRenderbuffer(gl.GL_RENDERBUFFER, rboSceneHandle);
+		gl.glRenderbufferStorageMultisample(gl.GL_RENDERBUFFER, aaSamples, gl.GL_RGBA, width, height);
+		gl.glFramebufferRenderbuffer(gl.GL_FRAMEBUFFER, gl.GL_COLOR_ATTACHMENT0, gl.GL_RENDERBUFFER, rboSceneHandle);
+
+		// Create texture
+		texSceneHandle = glGenTexture(gl);
+		gl.glBindTexture(gl.GL_TEXTURE_2D_MULTISAMPLE, texSceneHandle);
+		gl.glTexImage2DMultisample(gl.GL_TEXTURE_2D_MULTISAMPLE, aaSamples, gl.GL_RGBA, width, height, true);
+
+		// Bind texture
+		gl.glFramebufferTexture2D(gl.GL_FRAMEBUFFER, gl.GL_COLOR_ATTACHMENT0, gl.GL_TEXTURE_2D_MULTISAMPLE, texSceneHandle, 0);
+
+		// Reset
+		gl.glBindTexture(gl.GL_TEXTURE_2D_MULTISAMPLE, 0);
+		gl.glBindFramebuffer(gl.GL_FRAMEBUFFER, 0);
+		gl.glBindRenderbuffer(gl.GL_RENDERBUFFER, 0);
+	}
+
+	private void shutdownSceneFbo()
+	{
+		if (texSceneHandle != -1)
+		{
+			glDeleteTexture(gl, texSceneHandle);
+			texSceneHandle = -1;
+		}
+
+		if (fboSceneHandle != -1)
+		{
+			glDeleteFrameBuffer(gl, fboSceneHandle);
+			fboSceneHandle = -1;
+		}
+
+		if (rboSceneHandle != -1)
+		{
+			glDeleteRenderbuffers(gl, rboSceneHandle);
+			rboSceneHandle = -1;
+		}
+	}
+
 	private void initUiFBO(int width, int height)
 	{
 		// Create and bind the FBO
@@ -789,6 +878,41 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 			lastViewportWidth = viewportWidth;
 			lastViewportHeight = viewportHeight;
 		}
+
+		// Setup anti-aliasing
+		final AntiAliasingMode antiAliasingMode = config.antiAliasingMode();
+		final boolean aaEnabled = antiAliasingMode != AntiAliasingMode.DISABLED;
+
+		if (aaEnabled)
+		{
+			gl.glEnable(gl.GL_MULTISAMPLE);
+
+			final Dimension stretchedDimensions = client.getStretchedDimensions();
+
+			final int stretchedCanvasWidth = client.isStretchedEnabled() ? stretchedDimensions.width : canvasWidth;
+			final int stretchedCanvasHeight = client.isStretchedEnabled() ? stretchedDimensions.height : canvasHeight;
+
+			// Re-create fbo
+			if (lastStretchedCanvasWidth != stretchedCanvasWidth
+				|| lastStretchedCanvasHeight != stretchedCanvasHeight
+				|| lastAntiAliasingMode != antiAliasingMode)
+			{
+				shutdownSceneFbo();
+				initSceneFbo(stretchedCanvasWidth, stretchedCanvasHeight, antiAliasingMode.getSamples());
+
+				lastStretchedCanvasWidth = stretchedCanvasWidth;
+				lastStretchedCanvasHeight = stretchedCanvasHeight;
+			}
+
+			gl.glBindFramebuffer(gl.GL_DRAW_FRAMEBUFFER, fboSceneHandle);
+		}
+		else
+		{
+			gl.glDisable(gl.GL_MULTISAMPLE);
+			shutdownSceneFbo();
+		}
+
+		lastAntiAliasingMode = antiAliasingMode;
 
 		// Clear scene
 		gl.glClear(gl.GL_COLOR_BUFFER_BIT);
@@ -1006,6 +1130,18 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 			gl.glUseProgram(0);
 		}
 
+		if (aaEnabled)
+		{
+			gl.glBindFramebuffer(gl.GL_READ_FRAMEBUFFER, fboSceneHandle);
+			gl.glBindFramebuffer(gl.GL_DRAW_FRAMEBUFFER, 0);
+			gl.glBlitFramebuffer(0, 0, lastStretchedCanvasWidth, lastStretchedCanvasHeight,
+				0, 0, lastStretchedCanvasWidth, lastStretchedCanvasHeight,
+				gl.GL_COLOR_BUFFER_BIT, gl.GL_NEAREST);
+
+			// Reset
+			gl.glBindFramebuffer(gl.GL_READ_FRAMEBUFFER, 0);
+		}
+
 		vertexBuffer.clear();
 		uvBuffer.clear();
 		modelBuffer.clear();
@@ -1154,8 +1290,15 @@ public class GpuPlugin extends Plugin implements DrawCallbacks
 	 */
 	private Image screenshot()
 	{
-		final int width = client.getCanvasWidth();
-		final int height = client.getCanvasHeight();
+		int width  = client.getCanvasWidth();
+		int height = client.getCanvasHeight();
+
+		if (client.isStretchedEnabled())
+		{
+			Dimension dim = client.getStretchedDimensions();
+			width  = dim.width;
+			height = dim.height;
+		}
 
 		ByteBuffer buffer = ByteBuffer.allocateDirect(width * height * 4)
 			.order(ByteOrder.nativeOrder());

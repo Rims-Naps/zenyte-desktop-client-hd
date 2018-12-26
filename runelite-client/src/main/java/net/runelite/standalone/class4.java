@@ -1,176 +1,272 @@
 package net.runelite.standalone;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("il")
-public class class4 extends class324 {
-   @ObfuscatedName("l")
+@ObfuscatedName("by")
+public final class class4 extends Node {
+   @ObfuscatedName("jp")
    @ObfuscatedSignature(
-      signature = "Lgd;"
+      signature = "Lbk;"
    )
-   static class100 field40;
+   static PlayerEntity localPlayer;
+   @ObfuscatedName("z")
+   static int[] field1047;
+   @ObfuscatedName("bw")
+   @ObfuscatedGetter(
+      intValue = 1616715337
+   )
+   static int field1050;
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "Lgi;"
+   )
+   static Deque field1051;
+   @ObfuscatedName("l")
+   @ObfuscatedGetter(
+      intValue = 1948288479
+   )
+   int field1062;
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "Ljd;"
+   )
+   LocType field1061;
+   @ObfuscatedName("e")
+   @ObfuscatedGetter(
+      intValue = 1596147421
+   )
+   int field1048;
    @ObfuscatedName("w")
-   public boolean field38;
+   @ObfuscatedGetter(
+      intValue = -1141355691
+   )
+   int field1053;
+   @ObfuscatedName("q")
+   @ObfuscatedGetter(
+      intValue = 983702787
+   )
+   int field1049;
+   @ObfuscatedName("x")
+   @ObfuscatedSignature(
+      signature = "Lda;"
+   )
+   class266 field1060;
+   @ObfuscatedName("m")
+   @ObfuscatedGetter(
+      intValue = -1116318313
+   )
+   int field1057;
+   @ObfuscatedName("p")
+   @ObfuscatedGetter(
+      intValue = 1019869369
+   )
+   int field1056;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      intValue = -1685640657
+   )
+   int field1052;
+   @ObfuscatedName("n")
+   @ObfuscatedGetter(
+      intValue = -94333697
+   )
+   int field1054;
+   @ObfuscatedName("c")
+   @ObfuscatedGetter(
+      intValue = -2819425
+   )
+   int field1059;
+   @ObfuscatedName("i")
+   @ObfuscatedSignature(
+      signature = "Lda;"
+   )
+   class266 field1064;
+   @ObfuscatedName("d")
+   int[] field1058;
+   @ObfuscatedName("j")
+   @ObfuscatedGetter(
+      intValue = 1020932217
+   )
+   int field1055;
 
    static {
-      field40 = new class100(64);
+      field1051 = new Deque();
    }
 
-   class4() {
-      this.field38 = false;
-   }
-
-   @ObfuscatedName("l")
+   @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "(Lgm;B)V",
-      garbageValue = "-50"
+      signature = "(I)V",
+      garbageValue = "-720032025"
    )
-   void method84(Buffer var1) {
-      while(true) {
-         int var2 = var1.readUnsignedByte();
-         if(var2 == 0) {
+   void method33() {
+      int var1 = this.field1054;
+      LocType var2 = this.field1061.method1717();
+      if(var2 != null) {
+         this.field1054 = var2.ambientSoundId;
+         this.field1053 = var2.int4 * 128;
+         this.field1056 = var2.int5;
+         this.field1057 = var2.int6;
+         this.field1058 = var2.field3499;
+      } else {
+         this.field1054 = -1;
+         this.field1053 = 0;
+         this.field1056 = 0;
+         this.field1057 = 0;
+         this.field1058 = null;
+      }
+
+      if(var1 != this.field1054 && this.field1064 != null) {
+         class2.field413.method3580(this.field1064);
+         this.field1064 = null;
+      }
+
+   }
+
+   @ObfuscatedName("fz")
+   @ObfuscatedSignature(
+      signature = "(IB)V",
+      garbageValue = "2"
+   )
+   static void method42(int var0) {
+      if(var0 == -1 && !client.field879) {
+         WorldMapRegion.method4152();
+      } else if(var0 != -1 && var0 != client.field878 && client.field877 != 0 && !client.field879) {
+         class134.method2202(2, ServerProt.music, var0, 0, client.field877, false);
+      }
+
+      client.field878 = var0;
+   }
+
+   @ObfuscatedName("ax")
+   @ObfuscatedSignature(
+      signature = "(Lff;IIB)Lcq;",
+      garbageValue = "-11"
+   )
+   public static final AbstractSoundSystem method41(Signlink var0, int var1, int var2) {
+      if(AbstractSoundSystem.sampleRate == 0) {
+         throw new IllegalStateException();
+      } else if(var1 >= 0 && var1 < 2) {
+         if(var2 < 256) {
+            var2 = 256;
+         }
+
+         try {
+            AbstractSoundSystem var3 = ClientOptions.soundTaskDataProvider.vmethod4668();
+            var3.samples = new int[(class56.audioHighMemory?2:1) * 256];
+            var3.field1367 = var2;
+            var3.vmethod6410();
+            var3.offset = (var2 & -1024) + 1024;
+            if(var3.offset > 16384) {
+               var3.offset = 16384;
+            }
+
+            var3.vmethod6411(var3.offset);
+            if(WorldMapDecoration.field189 > 0 && class37.task == null) {
+               class37.task = new SoundTask();
+               class316.field1155 = Executors.newScheduledThreadPool(1);
+               class316.field1155.scheduleAtFixedRate(class37.task, 0L, 10L, TimeUnit.MILLISECONDS);
+            }
+
+            if(class37.task != null) {
+               if(class37.task.systems[var1] != null) {
+                  throw new IllegalArgumentException();
+               }
+
+               class37.task.systems[var1] = var3;
+            }
+
+            return var3;
+         } catch (Throwable var4) {
+            return new AbstractSoundSystem();
+         }
+      } else {
+         throw new IllegalArgumentException();
+      }
+   }
+
+   @ObfuscatedName("hr")
+   @ObfuscatedSignature(
+      signature = "(IIIIIIII)V",
+      garbageValue = "800548389"
+   )
+   static final void method32(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+      if(var2 >= 1 && var3 >= 1 && var2 <= 102 && var3 <= 102) {
+         if(client.lowMemory && var0 != class228.level) {
             return;
          }
 
-         this.method82(var1, var2);
-      }
-   }
+         long var7 = 0L;
+         boolean var9 = true;
+         boolean var10 = false;
+         boolean var11 = false;
+         if(var1 == 0) {
+            var7 = class131.sceneManager.method3821(var0, var2, var3);
+         }
 
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "(Lgm;II)V",
-      garbageValue = "-184195944"
-   )
-   void method82(Buffer var1, int var2) {
-      if(var2 == 2) {
-         this.field38 = true;
-      }
+         if(var1 == 1) {
+            var7 = class131.sceneManager.method3822(var0, var2, var3);
+         }
 
-   }
+         if(var1 == 2) {
+            var7 = class131.sceneManager.method3823(var0, var2, var3);
+         }
 
-   @ObfuscatedName("gj")
-   @ObfuscatedSignature(
-      signature = "(ZLgl;B)V",
-      garbageValue = "4"
-   )
-   static final void buildRegion(boolean var0, class1 var1) {
-      client.field2212 = var0;
-      int var2;
-      int var3;
-      int var5;
-      int var6;
-      int var7;
-      int var8;
-      if(!client.field2212) {
-         var2 = var1.method2332();
-         var3 = var1.method2460();
-         int var4 = var1.readUnsignedShort();
-         class286.field3582 = new int[var4][4];
+         if(var1 == 3) {
+            var7 = class131.sceneManager.method3920(var0, var2, var3);
+         }
 
-         for(var5 = 0; var5 < var4; ++var5) {
-            for(var6 = 0; var6 < 4; ++var6) {
-               class286.field3582[var5][var6] = var1.readInt();
+         int var12;
+         if(0L != var7) {
+            var12 = class131.sceneManager.method3825(var0, var2, var3, var7);
+            int var14 = SubInterface.method2437(var7);
+            int var15 = var12 & 31;
+            int var16 = var12 >> 6 & 3;
+            LocType var13;
+            if(var1 == 0) {
+               class131.sceneManager.method3812(var0, var2, var3);
+               var13 = class225.method4485(var14);
+               if(var13.clipType != 0) {
+                  client.collisionMaps[var0].method201(var2, var3, var15, var16, var13.blocksProjectile);
+               }
             }
-         }
 
-         MapIcon.field255 = new int[var4];
-         class54.field697 = new int[var4];
-         class226.field3047 = new int[var4];
-         class178.field2452 = new byte[var4][];
-         class59.field727 = new byte[var4][];
-         boolean var16 = false;
-         if((var3 / 8 == 48 || var3 / 8 == 49) && var2 / 8 == 48) {
-            var16 = true;
-         }
+            if(var1 == 1) {
+               class131.sceneManager.method3813(var0, var2, var3);
+            }
 
-         if(var3 / 8 == 48 && var2 / 8 == 148) {
-            var16 = true;
-         }
+            if(var1 == 2) {
+               class131.sceneManager.method3814(var0, var2, var3);
+               var13 = class225.method4485(var14);
+               if(var2 + var13.width > 103 || var3 + var13.width > 103 || var2 + var13.length > 103 || var3 + var13.length > 103) {
+                  return;
+               }
 
-         var4 = 0;
+               if(var13.clipType != 0) {
+                  client.collisionMaps[var0].method202(var2, var3, var13.width, var13.length, var16, var13.blocksProjectile);
+               }
+            }
 
-         for(var6 = (var3 - 6) / 8; var6 <= (var3 + 6) / 8; ++var6) {
-            for(var7 = (var2 - 6) / 8; var7 <= (var2 + 6) / 8; ++var7) {
-               var8 = var7 + (var6 << 8);
-               if(!var16 || var7 != 49 && var7 != 149 && var7 != 147 && var6 != 50 && (var6 != 49 || var7 != 47)) {
-                  MapIcon.field255[var4] = var8;
-                  class54.field697[var4] = class152.mapsIndex.getGroupId("m" + var6 + "_" + var7);
-                  class226.field3047[var4] = class152.mapsIndex.getGroupId("l" + var6 + "_" + var7);
-                  ++var4;
+            if(var1 == 3) {
+               class131.sceneManager.method3815(var0, var2, var3);
+               var13 = class225.method4485(var14);
+               if(var13.clipType == 1) {
+                  client.collisionMaps[var0].method204(var2, var3);
                }
             }
          }
 
-         class142.method2634(var3, var2, true);
-      } else {
-         var2 = var1.method2460();
-         var3 = var1.method2332();
-         boolean var15 = var1.readUnsignedByte() == 1;
-         var5 = var1.readUnsignedShort();
-         var1.method7();
-
-         int var9;
-         for(var6 = 0; var6 < 4; ++var6) {
-            for(var7 = 0; var7 < 13; ++var7) {
-               for(var8 = 0; var8 < 13; ++var8) {
-                  var9 = var1.method8(1);
-                  if(var9 == 1) {
-                     client.field2213[var6][var7][var8] = var1.method8(26);
-                  } else {
-                     client.field2213[var6][var7][var8] = -1;
-                  }
-               }
+         if(var4 >= 0) {
+            var12 = var0;
+            if(var0 < 3 && (class98.tileSettings[1][var2][var3] & 2) == 2) {
+               var12 = var0 + 1;
             }
+
+            TradingPost.method805(var0, var12, var2, var3, var4, var5, var6, class131.sceneManager, client.collisionMaps[var0]);
          }
-
-         var1.method6();
-         class286.field3582 = new int[var5][4];
-
-         for(var6 = 0; var6 < var5; ++var6) {
-            for(var7 = 0; var7 < 4; ++var7) {
-               class286.field3582[var6][var7] = var1.readInt();
-            }
-         }
-
-         MapIcon.field255 = new int[var5];
-         class54.field697 = new int[var5];
-         class226.field3047 = new int[var5];
-         class178.field2452 = new byte[var5][];
-         class59.field727 = new byte[var5][];
-         var5 = 0;
-
-         for(var6 = 0; var6 < 4; ++var6) {
-            for(var7 = 0; var7 < 13; ++var7) {
-               for(var8 = 0; var8 < 13; ++var8) {
-                  var9 = client.field2213[var6][var7][var8];
-                  if(var9 != -1) {
-                     int var10 = var9 >> 14 & 1023;
-                     int var11 = var9 >> 3 & 2047;
-                     int var12 = (var10 / 8 << 8) + var11 / 8;
-
-                     int var13;
-                     for(var13 = 0; var13 < var5; ++var13) {
-                        if(MapIcon.field255[var13] == var12) {
-                           var12 = -1;
-                           break;
-                        }
-                     }
-
-                     if(var12 != -1) {
-                        MapIcon.field255[var5] = var12;
-                        var13 = var12 >> 8 & 255;
-                        int var14 = var12 & 255;
-                        class54.field697[var5] = class152.mapsIndex.getGroupId("m" + var13 + "_" + var14);
-                        class226.field3047[var5] = class152.mapsIndex.getGroupId("l" + var13 + "_" + var14);
-                        ++var5;
-                     }
-                  }
-               }
-            }
-         }
-
-         class142.method2634(var3, var2, !var15);
       }
 
    }

@@ -1,47 +1,156 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hk")
-public class class112 {
+@ObfuscatedName("ho")
+public class class112 extends Node {
+   @ObfuscatedName("f")
+   @ObfuscatedGetter(
+      intValue = 1838475019
+   )
+   int field2580;
    @ObfuscatedName("l")
-   public static final short[][] field1287;
-   @ObfuscatedName("s")
-   public static final short[][] field1290;
-   @ObfuscatedName("f")
-   public static final short[] field1288;
+   @ObfuscatedGetter(
+      intValue = 140417105
+   )
+   int field2568;
+   @ObfuscatedName("v")
+   @ObfuscatedGetter(
+      intValue = 114477921
+   )
+   int field2578;
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "Lhv;"
+   )
+   class196 field2571;
+   @ObfuscatedName("e")
+   @ObfuscatedSignature(
+      signature = "Lct;"
+   )
+   RawAudioNode field2565;
    @ObfuscatedName("w")
-   public static final short[] field1289;
+   @ObfuscatedGetter(
+      intValue = -1318406025
+   )
+   int field2569;
+   @ObfuscatedName("q")
+   @ObfuscatedSignature(
+      signature = "Lhb;"
+   )
+   class43 field2566;
+   @ObfuscatedName("x")
+   @ObfuscatedGetter(
+      intValue = -1150554595
+   )
+   int field2577;
+   @ObfuscatedName("m")
+   @ObfuscatedGetter(
+      intValue = -690233925
+   )
+   int field2574;
+   @ObfuscatedName("p")
+   @ObfuscatedGetter(
+      intValue = -1937218999
+   )
+   int field2573;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      intValue = 841340885
+   )
+   int field2570;
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "Lda;"
+   )
+   class266 field2581;
+   @ObfuscatedName("z")
+   @ObfuscatedGetter(
+      intValue = -1864442519
+   )
+   int field2567;
+   @ObfuscatedName("n")
+   @ObfuscatedGetter(
+      intValue = -1053330145
+   )
+   int field2586;
+   @ObfuscatedName("c")
+   @ObfuscatedGetter(
+      intValue = -1945201277
+   )
+   int field2583;
+   @ObfuscatedName("t")
+   @ObfuscatedGetter(
+      intValue = -430930619
+   )
+   int field2576;
+   @ObfuscatedName("i")
+   @ObfuscatedGetter(
+      intValue = 241961673
+   )
+   int field2572;
+   @ObfuscatedName("d")
+   @ObfuscatedGetter(
+      intValue = 869368161
+   )
+   int field2575;
+   @ObfuscatedName("j")
+   @ObfuscatedGetter(
+      intValue = 1421371783
+   )
+   int field2564;
+   @ObfuscatedName("h")
+   @ObfuscatedGetter(
+      intValue = -1363786397
+   )
+   int field2579;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      intValue = 2102402217
+   )
+   int field2585;
 
-   static {
-      field1288 = new short[]{(short)6798, (short)8741, (short)25238, (short)4626, (short)4550};
-      field1287 = new short[][]{{(short)6798, (short)107, (short)10283, (short)16, (short)4797, (short)7744, (short)5799, (short)4634, (short)-31839, (short)22433, (short)2983, (short)-11343, (short)8, (short)5281, (short)10438, (short)3650, (short)-27322, (short)-21845, (short)200, (short)571, (short)908, (short)21830, (short)28946, (short)-15701, (short)-14010}, {(short)8741, (short)12, (short)-1506, (short)-22374, (short)7735, (short)8404, (short)1701, (short)-27106, (short)24094, (short)10153, (short)-8915, (short)4783, (short)1341, (short)16578, (short)-30533, (short)25239, (short)8, (short)5281, (short)10438, (short)3650, (short)-27322, (short)-21845, (short)200, (short)571, (short)908, (short)21830, (short)28946, (short)-15701, (short)-14010}, {(short)25238, (short)8742, (short)12, (short)-1506, (short)-22374, (short)7735, (short)8404, (short)1701, (short)-27106, (short)24094, (short)10153, (short)-8915, (short)4783, (short)1341, (short)16578, (short)-30533, (short)8, (short)5281, (short)10438, (short)3650, (short)-27322, (short)-21845, (short)200, (short)571, (short)908, (short)21830, (short)28946, (short)-15701, (short)-14010}, {(short)4626, (short)11146, (short)6439, (short)12, (short)4758, (short)10270}, {(short)4550, (short)4537, (short)5681, (short)5673, (short)5790, (short)6806, (short)8076, (short)4574, (short)17050, (short)0, (short)127, (short)-31821, (short)-17991}};
-      field1289 = new short[]{(short)-10304, (short)9104, (short)-1, (short)-1, (short)-1};
-      field1290 = new short[][]{{(short)6554, (short)115, (short)10304, (short)28, (short)5702, (short)7756, (short)5681, (short)4510, (short)-31835, (short)22437, (short)2859, (short)-11339, (short)16, (short)5157, (short)10446, (short)3658, (short)-27314, (short)-21965, (short)472, (short)580, (short)784, (short)21966, (short)28950, (short)-15697, (short)-14002}, {(short)9104, (short)10275, (short)7595, (short)3610, (short)7975, (short)8526, (short)918, (short)-26734, (short)24466, (short)10145, (short)-6882, (short)5027, (short)1457, (short)16565, (short)-30545, (short)25486, (short)24, (short)5392, (short)10429, (short)3673, (short)-27335, (short)-21957, (short)192, (short)687, (short)412, (short)21821, (short)28835, (short)-15460, (short)-14019}, new short[0], new short[0], new short[0]};
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "1830692633"
+   )
+   void method1956() {
+      this.field2571 = null;
+      this.field2565 = null;
+      this.field2566 = null;
+      this.field2581 = null;
    }
 
-   @ObfuscatedName("f")
+   @ObfuscatedName("j")
    @ObfuscatedSignature(
-      signature = "(Lik;Lik;Lik;Lik;B)V",
-      garbageValue = "110"
+      signature = "(I)V",
+      garbageValue = "1474359120"
    )
-   public static void method2110(Js5Index var0, Js5Index var1, Js5Index var2, Js5Index var3) {
-      class187.field2586 = var0;
-      class187.field2549 = var1;
-      class187.field2550 = var2;
-      class187.field2551 = var3;
-      class187.field2547 = new class187[class187.field2586.method4411()][];
-      class210.field2893 = new boolean[class187.field2586.method4411()];
+   static final void method1958() {
+      class115.method2002("Your friend list is full. Max of 200 for free users, and 400 for members");
    }
 
-   @ObfuscatedName("f")
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(IIII)I",
-      garbageValue = "-397484607"
+      signature = "(II)Ljb;",
+      garbageValue = "-1189840038"
    )
-   public static int method2109(int var0, int var1, int var2) {
-      var2 &= 3;
-      return var2 == 0?var1:(var2 == 1?7 - var0:(var2 == 2?7 - var1:var0));
+   public static HitmarkType method1959(int var0) {
+      HitmarkType var1 = (HitmarkType)HitmarkType.hitmarkTypeCache.method951((long)var0);
+      if(var1 != null) {
+         return var1;
+      } else {
+         byte[] var2 = class92.field2355.method1516(32, var0, 1789634852);
+         var1 = new HitmarkType();
+         if(var2 != null) {
+            var1.method2206(new Buffer(var2));
+         }
+
+         HitmarkType.hitmarkTypeCache.method957(var1, (long)var0);
+         return var1;
+      }
    }
 }

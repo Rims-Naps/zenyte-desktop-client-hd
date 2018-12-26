@@ -30,7 +30,6 @@ import java.io.InputStream;
 import java.util.Properties;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
-import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
@@ -45,8 +44,9 @@ public class RuneLiteAPI
 	public static final OkHttpClient CLIENT = new OkHttpClient();
 	public static final Gson GSON = new Gson();
 
-	private static final String BASE = "https://api.runelite.net/runelite-";
+	private static final String BASE = "https://api.runelite.net";
 	private static final String WSBASE = "wss://api.runelite.net/runelite-";
+	private static final String STATICBASE = "https://static.runelite.net";
 	private static final Properties properties = new Properties();
 	private static String version;
 	private static int rsVersion;
@@ -71,9 +71,19 @@ public class RuneLiteAPI
 		}
 	}
 
+	public static HttpUrl getApiRoot()
+	{
+		return HttpUrl.parse(BASE);
+	}
+
 	public static HttpUrl getApiBase()
 	{
-		return HttpUrl.parse(BASE + getVersion());
+		return HttpUrl.parse(BASE + "/runelite-" + getVersion());
+	}
+
+	public static HttpUrl getStaticBase()
+	{
+		return HttpUrl.parse(STATICBASE);
 	}
 
 	public static String getWsEndpoint()
@@ -82,13 +92,13 @@ public class RuneLiteAPI
 	}
 
 	public static String getVersion() {
-	    String version = "1.5.1-SNAPSHOT";
-	    try {
-            Document document = Jsoup.connect("https://raw.githubusercontent.com/runelite/runelite/master/http-api/pom.xml").get();
-            version = document.select("parent").select("version").text();
-        } catch (IOException e) {
-	        e.printStackTrace();
-        }
+		String version = "1.5.6-SNAPSHOT";
+		try {
+			Document document = Jsoup.connect("https://raw.githubusercontent.com/runelite/runelite/master/http-api/pom.xml").get();
+			version = document.select("parent").select("version").text();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return version;
 	}
 

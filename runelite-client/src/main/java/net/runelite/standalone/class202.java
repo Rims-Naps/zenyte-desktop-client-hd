@@ -1,116 +1,93 @@
 package net.runelite.standalone;
 
+import java.awt.Component;
+import java.util.HashMap;
+import java.util.Map;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSFrame;
-import net.runelite.rs.api.RSFrames;
-import net.runelite.rs.api.RSRunException;
 
-@ObfuscatedName("et")
-public class class202 extends class324 implements RSFrames {
-   @ObfuscatedName("rl")
+@ObfuscatedName("cc")
+public class class202 {
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "Lbt;"
+      signature = "Lgr;"
    )
-   public static class159 field2845;
-   @ObfuscatedName("dc")
+   static final IterableHashTable messages;
+   @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "Lim;"
+      signature = "Lhf;"
    )
-   static class6 configsIndex;
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "[Ldg;"
+   static final IterableDualNodeQueue field1247;
+   @ObfuscatedName("q")
+   @ObfuscatedGetter(
+      intValue = -977061203
    )
-   class0[] field2844;
+   static int field1246;
+   @ObfuscatedName("ej")
+   static int[] previousLoginXteaKeys;
+   @ObfuscatedName("g")
+   static final Map chatLineMap;
 
-   @ObfuscatedSignature(
-      signature = "(Lik;Lik;IZ)V"
-   )
-   class202(Js5Index var1, Js5Index var2, int var3, boolean var4) {
-      class70 var5 = new class70();
-      int var6 = var1.method4435(var3);
-      this.field2844 = new class0[var6];
-      int[] var7 = var1.method4475(var3);
-
-      for(int var8 = 0; var8 < var7.length; ++var8) {
-         byte[] var9 = var1.method4398(var3, var7[var8], -746969239);
-         class141 var10 = null;
-         int var11 = (var9[0] & 255) << 8 | var9[1] & 255;
-
-         for(class141 var12 = (class141)var5.method1503(); var12 != null; var12 = (class141)var5.method1505()) {
-            if(var11 == var12.field1796) {
-               var10 = var12;
-               break;
-            }
-         }
-
-         if(var10 == null) {
-            byte[] var13;
-            if(var4) {
-               var13 = var2.method4495(0, var11);
-            } else {
-               var13 = var2.method4495(var11, 0);
-            }
-
-            var10 = new class141(var11, var13);
-            var5.method1499(var10);
-         }
-
-         this.field2844[var7[var8]] = new class0(var9, var10);
-      }
-
+   static {
+      chatLineMap = new HashMap();
+      messages = new IterableHashTable(1024);
+      field1247 = new IterableDualNodeQueue();
+      field1246 = 0;
    }
 
-   @ObfuscatedName("l")
+   @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "(II)Z",
-      garbageValue = "2010442786"
+      signature = "(Ljava/awt/Component;I)V",
+      garbageValue = "-1487164387"
    )
-   public boolean method4014(int var1) {
-      return this.field2844[var1].field0;
+   static void method4068(Component var0) {
+      var0.removeKeyListener(KeyFocusListener.keyboard);
+      var0.removeFocusListener(KeyFocusListener.keyboard);
+      KeyFocusListener.field383 = -1;
    }
 
-   public RSFrame[] getFrames() {
-      return this.field2844;
+   @ObfuscatedName("c")
+   @ObfuscatedSignature(
+      signature = "(II)I",
+      garbageValue = "-1475978689"
+   )
+   static int method4072(int var0) {
+      ChatLineBuffer var1 = (ChatLineBuffer)chatLineMap.get(Integer.valueOf(var0));
+      return var1 == null?0:var1.method1939();
    }
 
-   @ObfuscatedName("f")
-   public static void method4018(String var0, Throwable var1, int var2) {
-      if(var1 != null) {
-         Throwable var3 = var1;
-         if(var1 instanceof RSRunException) {
-            var3 = ((RSRunException)var1).getParent();
-         }
+   @ObfuscatedName("c")
+   public static int method4050(long var0) {
+      return (int)(var0 >>> 7 & 127L);
+   }
 
-         class302.field3755.getLogger().error("Game crash", var3);
-         StackTraceElement[] var4 = var3.getStackTrace();
-         StackTraceElement[] var5 = var4;
-         int var6 = var4.length;
+   @ObfuscatedName("ku")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/String;I)Ljava/lang/String;",
+      garbageValue = "438985548"
+   )
+   static String method4069(String var0) {
+      ChatCrownType[] var1 = class116.method2020();
 
-         for(int var7 = 0; var7 < var6; ++var7) {
-            StackTraceElement var8 = var5[var7];
-            if(var8.getClassName().contains("runelite")) {
-               return;
-            }
+      for(int var2 = 0; var2 < var1.length; ++var2) {
+         ChatCrownType var3 = var1[var2];
+         if(var3.icon != -1 && var0.startsWith(WorldMapDecoration.method2945(var3.icon))) {
+            var0 = var0.substring(6 + Integer.toString(var3.icon).length());
+            break;
          }
       }
 
-      client.copy$processClientError(var0, var1, var2);
+      return var0;
    }
 
-   @ObfuscatedName("fx")
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Lbn;I)V",
-      garbageValue = "176236599"
+      signature = "(Liu;Liu;B)V",
+      garbageValue = "-99"
    )
-   static final void method4017(class99 var0) {
-      int var1 = var0.field1118 - client.field2165;
-      int var2 = var0.field1126 * 128 + var0.field1075 * 64;
-      int var3 = var0.field1116 * 128 + var0.field1075 * 64;
-      var0.field1090 += (var2 - var0.field1090) / var1;
-      var0.field1072 += (var3 - var0.field1072) / var1;
-      var0.field1120 = 0;
-      var0.field1123 = var0.field1113;
+   public static void method4070(Js5Index var0, Js5Index var1) {
+      Spotanim.SpotAnimationDefinition_indexCache = var0;
+      Spotanim.SpotAnimationDefinition_modelIndexCache = var1;
    }
 }

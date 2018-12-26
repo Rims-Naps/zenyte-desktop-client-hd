@@ -1,125 +1,77 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jh")
-public class class182 {
-   @ObfuscatedName("j")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2496;
-   @ObfuscatedName("z")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2491;
-   @ObfuscatedName("p")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2488;
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2487;
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2482;
-   @ObfuscatedName("s")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2484;
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2485;
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2489;
-   @ObfuscatedName("u")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2498;
-   @ObfuscatedName("m")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2490;
-   @ObfuscatedName("b")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2492;
-   @ObfuscatedName("x")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2497;
-   @ObfuscatedName("v")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2494;
-   @ObfuscatedName("d")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2493;
-   @ObfuscatedName("a")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2486;
+@ObfuscatedName("jq")
+public enum class182 implements Enumerated {
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "Ljh;"
+      signature = "Ljq;"
    )
-   public static final class182 field2495;
+   field3563(0, 0),
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "Ljq;"
+   )
+   field3559(1, 1),
    @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "Ljh;"
+      signature = "Ljq;"
    )
-   public static final class182 field2481;
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "Ljh;"
-   )
-   public static final class182 field2483;
-   @ObfuscatedName("t")
-   public final String field2499;
+   field3560(2, 2);
 
-   static {
-      field2485 = new class182("8", "8");
-      field2482 = new class182("15", "15");
-      field2483 = new class182("7", "7");
-      field2484 = new class182("10", "10");
-      field2481 = new class182("16", "16");
-      field2486 = new class182("12", "12");
-      field2487 = new class182("3", "3");
-      field2488 = new class182("6", "6");
-      field2489 = new class182("17", "17");
-      field2490 = new class182("5", "5");
-      field2493 = new class182("9", "9");
-      field2491 = new class182("14", "14");
-      field2497 = new class182("18", "18");
-      field2494 = new class182("13", "13");
-      field2495 = new class182("4", "4");
-      field2496 = new class182("1", "1");
-      field2492 = new class182("11", "11");
-      field2498 = new class182("2", "2");
+   @ObfuscatedName("q")
+   @ObfuscatedGetter(
+      intValue = -1411562493
+   )
+   public final int field3562;
+   @ObfuscatedName("c")
+   @ObfuscatedGetter(
+      intValue = -1748229439
+   )
+   final int field3561;
+
+   class182(int var3, int var4) {
+      this.field3562 = var3;
+      this.field3561 = var4;
    }
 
-   class182(String var1, String var2) {
-      this.field2499 = var2;
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "(B)I",
+      garbageValue = "1"
+   )
+   public int vmethod5358() {
+      return this.field3561;
+   }
+
+   @ObfuscatedName("g")
+   public static final void method3129(long var0) {
+      if(var0 > 0L) {
+         if(var0 % 10L == 0L) {
+            long var2 = var0 - 1L;
+
+            try {
+               Thread.sleep(var2);
+            } catch (InterruptedException var8) {
+               ;
+            }
+
+            try {
+               Thread.sleep(1L);
+            } catch (InterruptedException var7) {
+               ;
+            }
+         } else {
+            try {
+               Thread.sleep(var0);
+            } catch (InterruptedException var6) {
+               ;
+            }
+         }
+
+      }
    }
 }

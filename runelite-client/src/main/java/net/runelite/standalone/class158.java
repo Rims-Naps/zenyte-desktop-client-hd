@@ -3,77 +3,63 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSName;
 
-@ObfuscatedName("ka")
-public class class158 implements Comparable, RSName {
-   @ObfuscatedName("nw")
+@ObfuscatedName("av")
+public final class class158 {
+   @ObfuscatedName("gw")
+   @ObfuscatedSignature(
+      signature = "[Lls;"
+   )
+   static SpritePixels[] headIconsHint;
+   @ObfuscatedName("fc")
    @ObfuscatedGetter(
-      intValue = -808143485
+      intValue = -1553660369
    )
-   static int field1945;
-   @ObfuscatedName("l")
-   String field1942;
-   @ObfuscatedName("f")
-   String field1944;
+   static int baseX;
 
+   @ObfuscatedName("q")
    @ObfuscatedSignature(
-      signature = "(Ljava/lang/String;Lly;)V"
+      signature = "(ZI)V",
+      garbageValue = "-739710107"
    )
-   public class158(String var1, class258 var2) {
-      this.field1944 = var1;
-      this.field1942 = class107.method1891(var1, var2);
-   }
-
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "(S)Z",
-      garbageValue = "21686"
-   )
-   public boolean method2870() {
-      return this.field1942 != null;
-   }
-
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "(I)Ljava/lang/String;",
-      garbageValue = "833079625"
-   )
-   public String method2869() {
-      return this.field1944;
-   }
-
-   public boolean equals(Object var1) {
-      if(var1 instanceof class158) {
-         class158 var2 = (class158)var1;
-         return this.field1942 == null?var2.field1942 == null:(var2.field1942 == null?false:(this.hashCode() != var2.hashCode()?false:this.field1942.equals(var2.field1942)));
-      } else {
-         return false;
+   static void method2698(boolean var0) {
+      class316.loginMessage1 = "";
+      class316.loginMessage2 = "Enter your username/email & password.";
+      class316.loginMessage3 = "";
+      class316.loginIndex = 2;
+      if(var0) {
+         class316.password = "";
       }
+
+      if(class316.username == null || class316.username.length() <= 0) {
+         if(GameEngine.options.rememberedUsername != null) {
+            class316.username = GameEngine.options.rememberedUsername;
+            client.onUsernameChanged(-1);
+            client.Login_isUsernameRemembered = true;
+         } else {
+            client.Login_isUsernameRemembered = false;
+         }
+      }
+
+      if(client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
+         class316.currentLoginField = 1;
+      } else {
+         class316.currentLoginField = 0;
+      }
+
    }
 
-   public int hashCode() {
-      return this.field1942 == null?0:this.field1942.hashCode();
-   }
-
-   public int compareTo(Object var1) {
-      return this.method2888((class158)var1);
-   }
-
-   public String toString() {
-      return this.method2869();
-   }
-
-   public String getName() {
-      return this.field1944;
-   }
-
-   @ObfuscatedName("w")
+   @ObfuscatedName("kz")
    @ObfuscatedSignature(
-      signature = "(Lka;I)I",
-      garbageValue = "-214557897"
+      signature = "(IIIZI)V",
+      garbageValue = "-1440028749"
    )
-   public int method2888(class158 var1) {
-      return this.field1942 == null?(var1.field1942 == null?0:1):(var1.field1942 == null?-1:this.field1942.compareTo(var1.field1942));
+   public static void method2697(int var0, int var1, int var2, boolean var3) {
+      TcpConnectionMessage var4 = FaceNormal.method5726(ClientProt.field2211, client.serverConnection.isaac);
+      var4.packetBuffer.method6202(var3?client.field659:0);
+      var4.packetBuffer.method6178(var1);
+      var4.packetBuffer.writeByteC(var2);
+      var4.packetBuffer.writeShort(var0);
+      client.serverConnection.method5881(var4);
    }
 }

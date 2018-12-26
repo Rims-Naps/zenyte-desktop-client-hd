@@ -2,153 +2,112 @@ package net.runelite.standalone;
 
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSFrame;
-import net.runelite.rs.api.RSFrameMap;
 
-@ObfuscatedName("dg")
-public class class0 implements RSFrame {
-   @ObfuscatedName("l")
-   static int[] field8;
-   @ObfuscatedName("s")
-   static int[] field3;
-   @ObfuscatedName("f")
-   static int[] field7;
-   @ObfuscatedName("w")
-   static int[] field2;
-   @ObfuscatedName("p")
-   int[] field10;
-   @ObfuscatedName("c")
-   int[] field6;
-   @ObfuscatedName("r")
-   int[] field1;
-   @ObfuscatedName("m")
-   int[] field9;
-   @ObfuscatedName("d")
-   boolean field0;
-   @ObfuscatedName("a")
-   int field5;
-   @ObfuscatedName("e")
+@ObfuscatedName("jn")
+public class class0 {
+   @ObfuscatedName("gg")
    @ObfuscatedSignature(
-      signature = "Ldq;"
+      signature = "[Lli;"
    )
-   class141 field4;
+   static IndexedSprite[] mapscene;
 
-   static {
-      field7 = new int[500];
-      field8 = new int[500];
-      field2 = new int[500];
-      field3 = new int[500];
+   @ObfuscatedName("m")
+   @ObfuscatedSignature(
+      signature = "(Lli;I)V",
+      garbageValue = "1227975411"
+   )
+   static final void method0(IndexedSprite var0) {
+      short var1 = 256;
+
+      int var2;
+      for(var2 = 0; var2 < OwnWorldComparator.field640.length; ++var2) {
+         OwnWorldComparator.field640[var2] = 0;
+      }
+
+      int var3;
+      for(var2 = 0; var2 < 5000; ++var2) {
+         var3 = (int)(Math.random() * 128.0D * (double)var1);
+         OwnWorldComparator.field640[var3] = (int)(Math.random() * 256.0D);
+      }
+
+      int var4;
+      int var5;
+      for(var2 = 0; var2 < 20; ++var2) {
+         for(var3 = 1; var3 < var1 - 1; ++var3) {
+            for(var4 = 1; var4 < 127; ++var4) {
+               var5 = var4 + (var3 << 7);
+               class284.field322[var5] = (OwnWorldComparator.field640[var5 - 128] + OwnWorldComparator.field640[var5 + 1] + OwnWorldComparator.field640[var5 + 128] + OwnWorldComparator.field640[var5 - 1]) / 4;
+            }
+         }
+
+         int[] var8 = OwnWorldComparator.field640;
+         OwnWorldComparator.field640 = class284.field322;
+         class284.field322 = var8;
+      }
+
+      if(var0 != null) {
+         var2 = 0;
+
+         for(var3 = 0; var3 < var0.height; ++var3) {
+            for(var4 = 0; var4 < var0.width; ++var4) {
+               if(var0.pixels[var2++] != 0) {
+                  var5 = var4 + var0.offsetX + 16;
+                  int var6 = var3 + var0.offsetY + 16;
+                  int var7 = var5 + (var6 << 7);
+                  OwnWorldComparator.field640[var7] = 0;
+               }
+            }
+         }
+      }
+
    }
 
+   @ObfuscatedName("c")
    @ObfuscatedSignature(
-      signature = "([BLdq;)V"
+      signature = "(IIIZIZI)V",
+      garbageValue = "653071948"
    )
-   class0(byte[] var1, class141 var2) {
-      this.field4 = null;
-      this.field5 = -1;
-      this.field0 = false;
-      this.field4 = var2;
-      Buffer var3 = new Buffer(var1);
-      Buffer var4 = new Buffer(var1);
-      var3.position = 2;
-      int var5 = var3.readUnsignedByte();
-      int var6 = -1;
-      int var7 = 0;
-      var4.position = var5 + var3.position;
+   static void method1(int var0, int var1, int var2, boolean var3, int var4, boolean var5) {
+      if(var0 < var1) {
+         int var6 = (var0 + var1) / 2;
+         int var7 = var0;
+         World var8 = World.worldList[var6];
+         World.worldList[var6] = World.worldList[var1];
+         World.worldList[var1] = var8;
 
-      int var8;
-      for(var8 = 0; var8 < var5; ++var8) {
-         int var9 = var3.readUnsignedByte();
-         if(var9 > 0) {
-            if(this.field4.field1798[var8] != 0) {
-               for(int var10 = var8 - 1; var10 > var6; --var10) {
-                  if(this.field4.field1798[var10] == 0) {
-                     field7[var7] = var10;
-                     field8[var7] = 0;
-                     field2[var7] = 0;
-                     field3[var7] = 0;
-                     ++var7;
-                     break;
-                  }
+         for(int var9 = var0; var9 < var1; ++var9) {
+            World var11 = World.worldList[var9];
+            int var12 = DecorativeObject.method5023(var11, var8, var2, var3);
+            int var10;
+            if(var12 != 0) {
+               if(var3) {
+                  var10 = -var12;
+               } else {
+                  var10 = var12;
+               }
+            } else if(var4 == -1) {
+               var10 = 0;
+            } else {
+               int var13 = DecorativeObject.method5023(var11, var8, var4, var5);
+               if(var5) {
+                  var10 = -var13;
+               } else {
+                  var10 = var13;
                }
             }
 
-            field7[var7] = var8;
-            short var11 = 0;
-            if(this.field4.field1798[var8] == 3) {
-               var11 = 128;
-            }
-
-            if((var9 & 1) != 0) {
-               field8[var7] = var4.method2339();
-            } else {
-               field8[var7] = var11;
-            }
-
-            if((var9 & 2) != 0) {
-               field2[var7] = var4.method2339();
-            } else {
-               field2[var7] = var11;
-            }
-
-            if((var9 & 4) != 0) {
-               field3[var7] = var4.method2339();
-            } else {
-               field3[var7] = var11;
-            }
-
-            var6 = var8;
-            ++var7;
-            if(this.field4.field1798[var8] == 5) {
-               this.field0 = true;
+            if(var10 <= 0) {
+               World var14 = World.worldList[var9];
+               World.worldList[var9] = World.worldList[var7];
+               World.worldList[var7++] = var14;
             }
          }
+
+         World.worldList[var1] = World.worldList[var7];
+         World.worldList[var7] = var8;
+         method1(var0, var7 - 1, var2, var3, var4, var5);
+         method1(var7 + 1, var1, var2, var3, var4, var5);
       }
 
-      if(var1.length != var4.position) {
-         throw new RuntimeException();
-      } else {
-         this.field5 = var7;
-         this.field6 = new int[var7];
-         this.field10 = new int[var7];
-         this.field1 = new int[var7];
-         this.field9 = new int[var7];
-
-         for(var8 = 0; var8 < var7; ++var8) {
-            this.field6[var8] = field7[var8];
-            this.field10[var8] = field8[var8];
-            this.field1[var8] = field2[var8];
-            this.field9[var8] = field3[var8];
-         }
-
-      }
-   }
-
-   public RSFrameMap getSkin() {
-      return this.field4;
-   }
-
-   public int getTransformCount() {
-      return this.field5;
-   }
-
-   public int[] getTransformTypes() {
-      return this.field6;
-   }
-
-   public int[] getTranslatorX() {
-      return this.field10;
-   }
-
-   public int[] getTranslatorY() {
-      return this.field1;
-   }
-
-   public int[] getTranslatorZ() {
-      return this.field9;
-   }
-
-   public boolean isShowing() {
-      return this.field0;
    }
 }

@@ -1,47 +1,60 @@
 package net.runelite.standalone;
 
+import java.util.Comparator;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jk")
-public class class220 {
-   @ObfuscatedName("qe")
-   @ObfuscatedSignature(
-      signature = "Lcw;"
-   )
-   static class262 field2985;
-   @ObfuscatedName("hi")
+@ObfuscatedName("ez")
+public class class220 implements Comparator {
+   @ObfuscatedName("eg")
    @ObfuscatedGetter(
-      intValue = 50278101
+      intValue = -1117226937
    )
-   static int field2986;
+   static int port1;
+   @ObfuscatedName("g")
+   final boolean field1929;
 
-   @ObfuscatedName("p")
+   public class220(boolean var1) {
+      this.field1929 = var1;
+   }
+
+   public int compare(Object var1, Object var2) {
+      return this.method4427((ChatPlayer)var1, (ChatPlayer)var2);
+   }
+
+   public boolean equals(Object var1) {
+      return super.equals(var1);
+   }
+
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Lik;II)Lle;",
-      garbageValue = "2067816732"
+      signature = "(Lkv;Lkv;B)I",
+      garbageValue = "-43"
    )
-   public static class303 method4514(Js5Index var0, int var1) {
-      if(!class311.method6094(var0, var1)) {
-         return null;
+   int method4427(ChatPlayer var1, ChatPlayer var2) {
+      return this.field1929?var1.field3706 - var2.field3706:var2.field3706 - var1.field3706;
+   }
+
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "(II)Lji;",
+      garbageValue = "-160716252"
+   )
+   public static StructType method4431(int var0) {
+      StructType var1 = (StructType)StructType.structTypeCache.method951((long)var0);
+      if(var1 != null) {
+         return var1;
       } else {
-         class303 var3 = new class303();
-         var3.field3763 = class212.field2927;
-         var3.field3764 = class212.field2924;
-         var3.field3761 = class42.field476[0];
-         var3.field3757 = class212.field2925[0];
-         var3.field3759 = class212.field2922[0];
-         var3.field3762 = class192.field2745[0];
-         var3.field3758 = class225.field3040;
-         var3.field3760 = class191.field2740[0];
-         class42.field476 = null;
-         class212.field2925 = null;
-         class212.field2922 = null;
-         class192.field2745 = null;
-         class225.field3040 = null;
-         class191.field2740 = null;
-         return var3;
+         byte[] var2 = StructType.field3411.method1516(34, var0, 1789634852);
+         var1 = new StructType();
+         if(var2 != null) {
+            var1.method5702(new Buffer(var2));
+         }
+
+         var1.method5699();
+         StructType.structTypeCache.method957(var1, (long)var0);
+         return var1;
       }
    }
 }

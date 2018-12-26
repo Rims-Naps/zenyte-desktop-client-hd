@@ -1,50 +1,111 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("r")
+@ObfuscatedName("gs")
 public class class150 {
-   @ObfuscatedName("x")
-   @ObfuscatedSignature(
-      signature = "Lkn;"
-   )
-   static class299 field1858;
-
    @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "(Lfg;Lgy;B)Lfl;",
-      garbageValue = "0"
+   static byte[][] field2416;
+   @ObfuscatedName("r")
+   @ObfuscatedGetter(
+      intValue = -854642483
    )
-   public static class12 method2761(ClientProt var0, class216 var1) {
-      class12 var2 = class236.method4711();
-      var2.field127 = var0;
-      var2.field120 = var0.field3257;
-      if(var2.field120 == -1) {
-         var2.field121 = new class1(260);
-      } else if(var2.field120 == -2) {
-         var2.field121 = new class1(10000);
-      } else if(var2.field120 <= 18) {
-         var2.field121 = new class1(20);
-      } else if(var2.field120 <= 98) {
-         var2.field121 = new class1(100);
-      } else {
-         var2.field121 = new class1(260);
-      }
+   static int field2412;
+   @ObfuscatedName("e")
+   @ObfuscatedGetter(
+      intValue = 2107553223
+   )
+   static int field2413;
+   @ObfuscatedName("w")
+   static int[] field2411;
+   @ObfuscatedName("q")
+   static byte[][] field2414;
+   @ObfuscatedName("c")
+   static byte[][] field2418;
+   @ObfuscatedName("i")
+   @ObfuscatedSignature(
+      signature = "Lli;"
+   )
+   static IndexedSprite field2417;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      intValue = 1551156329
+   )
+   static int field2415;
 
-      var2.field121.method5(var1);
-      var2.field121.method3(var2.field127.field3254);
-      var2.field123 = 0;
-      return var2;
+   static {
+      field2415 = 0;
+      field2412 = 0;
+      field2413 = 0;
+      field2414 = new byte[1000][];
+      field2418 = new byte[250][];
+      field2416 = new byte[50][];
    }
 
-   @ObfuscatedName("s")
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "(B)V",
-      garbageValue = "-68"
+      signature = "(IZI)[B",
+      garbageValue = "136372879"
    )
-   static void method2760() {
-      SomeWorldMapObject.field527.method4033();
-      SomeWorldMapObject.field536.method4033();
+   static synchronized byte[] method2553(int var0, boolean var1) {
+      byte[] var2;
+      if(var0 != 100) {
+         if(var0 < 100) {
+            ;
+         }
+      } else if(field2415 > 0) {
+         var2 = field2414[--field2415];
+         field2414[field2415] = null;
+         return var2;
+      }
+
+      if(var0 != 5000) {
+         if(var0 < 5000) {
+            ;
+         }
+      } else if(field2412 > 0) {
+         var2 = field2418[--field2412];
+         field2418[field2412] = null;
+         return var2;
+      }
+
+      if(var0 != 30000) {
+         if(var0 < 30000) {
+            ;
+         }
+      } else if(field2413 > 0) {
+         var2 = field2416[--field2413];
+         field2416[field2413] = null;
+         return var2;
+      }
+
+      if(class309.field3737 != null) {
+         for(int var4 = 0; var4 < class134.field253.length; ++var4) {
+            if(class134.field253[var4] != var0) {
+               if(var0 < class134.field253[var4]) {
+                  ;
+               }
+            } else if(field2411[var4] > 0) {
+               byte[] var3 = class309.field3737[var4][--field2411[var4]];
+               class309.field3737[var4][field2411[var4]] = null;
+               return var3;
+            }
+         }
+      }
+
+      return new byte[var0];
+   }
+
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V",
+      garbageValue = "2133533907"
+   )
+   static void method2560(String var0, String var1, String var2) {
+      class316.loginMessage1 = var0;
+      class316.loginMessage2 = var1;
+      class316.loginMessage3 = var2;
    }
 }

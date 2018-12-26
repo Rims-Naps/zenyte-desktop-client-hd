@@ -1,160 +1,195 @@
 package net.runelite.standalone;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import net.runelite.api.Node;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSHashTable;
-import net.runelite.rs.api.RSNode;
 
-@ObfuscatedName("gp")
-public final class class98 implements RSHashTable {
+@ObfuscatedName("au")
+public final class class98 {
+   @ObfuscatedName("bn")
+   @ObfuscatedSignature(
+      signature = "[Lli;"
+   )
+   static IndexedSprite[] slStarSprites;
    @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "[Lgu;"
-   )
-   class197[] field1067;
-   @ObfuscatedName("s")
-   @ObfuscatedSignature(
-      signature = "Lgu;"
-   )
-   class197 field1066;
-   @ObfuscatedName("f")
-   int field1068;
+   static byte[][][] tileOverlayPath;
+   @ObfuscatedName("r")
+   static byte[][][] tileSettings;
    @ObfuscatedName("e")
-   int field1070;
+   @ObfuscatedGetter(
+      intValue = -935206517
+   )
+   static int field493;
+   @ObfuscatedName("k")
+   static final int[] field497;
    @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "Lgu;"
+   static byte[][][] field503;
+   @ObfuscatedName("p")
+   static int[] floorSaturations;
+   @ObfuscatedName("o")
+   @ObfuscatedGetter(
+      intValue = 275237055
    )
-   class197 field1069;
-
-   public class98(int var1) {
-      this.field1070 = 0;
-      this.field1068 = var1;
-      this.field1067 = new class197[var1];
-
-      for(int var2 = 0; var2 < var1; ++var2) {
-         class197 var3 = this.field1067[var2] = new class197();
-         var3.field2790 = var3;
-         var3.field2791 = var3;
-      }
-
-   }
-
-   @ObfuscatedName("l")
+   static int field498;
+   @ObfuscatedName("a")
+   static final int[] field491;
+   @ObfuscatedName("z")
+   static final int[] field501;
+   @ObfuscatedName("n")
+   static int[][] field496;
+   @ObfuscatedName("dt")
    @ObfuscatedSignature(
-      signature = "(Lgu;J)V"
+      signature = "Lih;"
    )
-   public void method1775(class197 var1, long var2) {
-      if(var1.field2791 != null) {
-         var1.method3937();
-      }
-
-      class197 var4 = this.field1067[(int)(var2 & (long)(this.field1068 - 1))];
-      var1.field2791 = var4.field2791;
-      var1.field2790 = var4;
-      var1.field2791.field2790 = var1;
-      var1.field2790.field2791 = var1;
-      var1.field2792 = var2;
-   }
-
+   static Js5 configs;
+   @ObfuscatedName("t")
+   static final int[] field499;
+   @ObfuscatedName("y")
+   static final int[] field507;
+   @ObfuscatedName("hw")
+   @ObfuscatedGetter(
+      intValue = -414697091
+   )
+   static int cameraY;
    @ObfuscatedName("s")
+   static final int[] field502;
+   @ObfuscatedName("lz")
    @ObfuscatedSignature(
-      signature = "()Lgu;"
+      signature = "Lhn;"
    )
-   public class197 method1783() {
-      this.field1070 = 0;
-      return this.method1779();
+   static ComponentType field495;
+   @ObfuscatedName("u")
+   @ObfuscatedGetter(
+      intValue = -768994373
+   )
+   static int field504;
+   @ObfuscatedName("g")
+   static int[][][] tileHeights;
+
+   static {
+      tileHeights = new int[4][105][105];
+      tileSettings = new byte[4][104][104];
+      field493 = 99;
+      field491 = new int[]{1, 2, 4, 8};
+      field499 = new int[]{16, 32, 64, 128};
+      field497 = new int[]{1, 0, -1, 0};
+      field501 = new int[]{0, -1, 0, 1};
+      field502 = new int[]{1, -1, -1, 1};
+      field507 = new int[]{-1, -1, 1, 1};
+      field504 = (int)(Math.random() * 17.0D) - 8;
+      field498 = (int)(Math.random() * 33.0D) - 16;
    }
 
-   @ObfuscatedName("f")
+   @ObfuscatedName("q")
    @ObfuscatedSignature(
-      signature = "(J)Lgu;"
+      signature = "(ILcx;ZB)I",
+      garbageValue = "-28"
    )
-   public class197 method1776(long var1) {
-      class197 var3 = this.field1067[(int)(var1 & (long)(this.field1068 - 1))];
+   static int method1634(int var0, class106 var1, boolean var2) {
+      int var3;
+      int var4;
+      if(var0 == 100) {
+         class228.intStackSize -= 3;
+         var3 = class48.intStack[class228.intStackSize];
+         var4 = class48.intStack[class228.intStackSize + 1];
+         int var5 = class48.intStack[class228.intStackSize + 2];
+         if(var4 == 0) {
+            throw new RuntimeException();
+         } else {
+            ComponentType var6 = WorldMapType1.method2440(var3);
+            if(var6.children == null) {
+               var6.children = new ComponentType[var5 + 1];
+            }
 
-      for(this.field1069 = var3.field2790; var3 != this.field1069; this.field1069 = this.field1069.field2790) {
-         if(this.field1069.field2792 == var1) {
-            class197 var4 = this.field1069;
-            this.field1069 = this.field1069.field2790;
-            return var4;
+            if(var6.children.length <= var5) {
+               ComponentType[] var7 = new ComponentType[var5 + 1];
+
+               for(int var8 = 0; var8 < var6.children.length; ++var8) {
+                  var7[var8] = var6.children[var8];
+               }
+
+               var6.children = var7;
+            }
+
+            if(var5 > 0 && var6.children[var5 - 1] == null) {
+               throw new RuntimeException("" + (var5 - 1));
+            } else {
+               ComponentType var12 = new ComponentType();
+               var12.type = var4;
+               var12.layer = var12.id = var6.id;
+               var12.index = var5;
+               var12.isIf3 = true;
+               var6.children[var5] = var12;
+               if(var2) {
+                  class113.field75 = var12;
+               } else {
+                  class48.field1080 = var12;
+               }
+
+               class208.method4144(var6);
+               return 1;
+            }
          }
-      }
-
-      this.field1069 = null;
-      return null;
-   }
-
-   public RSNode[] getBuckets() {
-      return this.field1067;
-   }
-
-   public Collection getNodes() {
-      ArrayList var1 = new ArrayList();
-      RSNode[] var2 = this.getBuckets();
-
-      for(int var3 = 0; var3 < var2.length; ++var3) {
-         RSNode var4 = var2[var3];
-
-         for(Node var5 = var4.getNext(); var5 != var4; var5 = var5.getNext()) {
-            var1.add(var5);
-         }
-      }
-
-      return var1;
-   }
-
-   public int getSize() {
-      return this.field1068;
-   }
-
-   public RSNode get(long var1) {
-      return this.method1776(var1);
-   }
-
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "()Lgu;"
-   )
-   public class197 method1779() {
-      class197 var1;
-      if(this.field1070 > 0 && this.field1067[this.field1070 - 1] != this.field1066) {
-         var1 = this.field1066;
-         this.field1066 = var1.field2790;
-         return var1;
       } else {
-         do {
-            if(this.field1070 >= this.field1068) {
-               return null;
+         ComponentType var9;
+         if(var0 == 101) {
+            var9 = var2?class113.field75:class48.field1080;
+            ComponentType var10 = WorldMapType1.method2440(var9.id);
+            var10.children[var9.index] = null;
+            class208.method4144(var10);
+            return 1;
+         } else if(var0 == 102) {
+            var9 = WorldMapType1.method2440(class48.intStack[--class228.intStackSize]);
+            var9.children = null;
+            class208.method4144(var9);
+            return 1;
+         } else if(var0 != 200) {
+            if(var0 == 201) {
+               var9 = WorldMapType1.method2440(class48.intStack[--class228.intStackSize]);
+               if(var9 != null) {
+                  class48.intStack[++class228.intStackSize - 1] = 1;
+                  if(var2) {
+                     class113.field75 = var9;
+                  } else {
+                     class48.field1080 = var9;
+                  }
+               } else {
+                  class48.intStack[++class228.intStackSize - 1] = 0;
+               }
+
+               return 1;
+            } else {
+               return 2;
+            }
+         } else {
+            class228.intStackSize -= 2;
+            var3 = class48.intStack[class228.intStackSize];
+            var4 = class48.intStack[class228.intStackSize + 1];
+            ComponentType var11 = class192.method3785(var3, var4);
+            if(var11 != null && var4 != -1) {
+               class48.intStack[++class228.intStackSize - 1] = 1;
+               if(var2) {
+                  class113.field75 = var11;
+               } else {
+                  class48.field1080 = var11;
+               }
+            } else {
+               class48.intStack[++class228.intStackSize - 1] = 0;
             }
 
-            var1 = this.field1067[this.field1070++].field2790;
-         } while(var1 == this.field1067[this.field1070 - 1]);
-
-         this.field1066 = var1.field2790;
-         return var1;
+            return 1;
+         }
       }
    }
 
-   @ObfuscatedName("w")
-   void method1777() {
-      for(int var1 = 0; var1 < this.field1068; ++var1) {
-         class197 var2 = this.field1067[var1];
-
-         while(true) {
-            class197 var3 = var2.field2790;
-            if(var3 == var2) {
-               break;
-            }
-
-            var3.method3937();
-         }
-      }
-
-      this.field1069 = null;
-      this.field1066 = null;
+   @ObfuscatedName("i")
+   @ObfuscatedSignature(
+      signature = "(ZZB)I",
+      garbageValue = "30"
+   )
+   public static int method1661(boolean var0, boolean var1) {
+      byte var2 = 0;
+      int var3 = var2 + class258.NetCache_pendingPriorityWritesCount + class258.NetCache_pendingPriorityResponsesCount;
+      return var3;
    }
 }

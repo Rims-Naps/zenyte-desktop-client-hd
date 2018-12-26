@@ -1,195 +1,51 @@
 package net.runelite.standalone;
 
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.Comparator;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSCombatInfo2;
 
-@ObfuscatedName("jc")
-public class class244 extends class324 implements RSCombatInfo2 {
-   @ObfuscatedName("l")
-   @ObfuscatedSignature(
-      signature = "Lik;"
-   )
-   static Js5Index field3276;
-   @ObfuscatedName("s")
-   @ObfuscatedSignature(
-      signature = "Lgd;"
-   )
-   static class100 field3288;
-   @ObfuscatedName("f")
-   @ObfuscatedSignature(
-      signature = "Lik;"
-   )
-   public static Js5Index field3280;
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "Lgd;"
-   )
-   public static class100 field3278;
-   @ObfuscatedName("j")
-   @ObfuscatedGetter(
-      intValue = 161010643
-   )
-   public int field3277;
-   @ObfuscatedName("z")
-   @ObfuscatedGetter(
-      intValue = 1911793667
-   )
-   public int field3285;
-   @ObfuscatedName("p")
-   @ObfuscatedGetter(
-      intValue = 605597161
-   )
-   public int field3284;
-   @ObfuscatedName("r")
-   @ObfuscatedGetter(
-      intValue = -968684683
-   )
-   public int field3282;
-   @ObfuscatedName("m")
-   @ObfuscatedGetter(
-      intValue = -1025636039
-   )
-   public int field3283;
-   @ObfuscatedName("x")
-   @ObfuscatedGetter(
-      intValue = -2069570007
-   )
-   int field3286;
-   @ObfuscatedName("v")
-   @ObfuscatedGetter(
-      intValue = 1134433951
-   )
-   int field3287;
-   @ObfuscatedName("d")
-   @ObfuscatedGetter(
-      intValue = 2146323479
-   )
-   public int field3289;
+@ObfuscatedName("lw")
+public class class244 implements Comparator {
    @ObfuscatedName("g")
-   @ObfuscatedGetter(
-      intValue = 1222199023
-   )
-   public int field3279;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = -1667952951
-   )
-   public int field3275;
+   final boolean field3834;
 
-   static {
-      field3278 = new class100(64);
-      field3288 = new class100(64);
+   public class244(boolean var1) {
+      this.field3834 = var1;
    }
 
-   public class244() {
-      this.field3284 = 255;
-      this.field3282 = 255;
-      this.field3283 = -1;
-      this.field3289 = 1;
-      this.field3285 = 70;
-      this.field3286 = -1;
-      this.field3287 = -1;
-      this.field3279 = 30;
-      this.field3277 = 0;
+   public int compare(Object var1, Object var2) {
+      return this.method4684((Nameable)var1, (Nameable)var2);
    }
 
-   @ObfuscatedName("c")
+   public boolean equals(Object var1) {
+      return super.equals(var1);
+   }
+
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(B)Llp;",
-      garbageValue = "102"
+      signature = "(Ljr;Ljr;B)I",
+      garbageValue = "117"
    )
-   public SpritePixels method4938() {
-      if(this.field3287 < 0) {
-         return null;
-      } else {
-         SpritePixels var1 = (SpritePixels)field3288.method1813((long)this.field3287);
-         if(var1 != null) {
-            return var1;
-         } else {
-            var1 = class91.method1715(field3276, this.field3287, 0, (byte)48);
-            if(var1 != null) {
-               field3288.method1820(var1, (long)this.field3287);
-            }
-
-            return var1;
-         }
-      }
+   int method4684(Nameable var1, Nameable var2) {
+      return this.field3834?var1.method2067().method4717(var2.method2067()):var2.method2067().method4717(var1.method2067());
    }
 
-   @ObfuscatedName("s")
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "(Lgm;IB)V",
-      garbageValue = "87"
+      signature = "(DDII)[D",
+      garbageValue = "-1180705805"
    )
-   void method4928(Buffer var1, int var2) {
-      if(var2 == 1) {
-         var1.readUnsignedShort();
-      } else if(var2 == 2) {
-         this.field3284 = var1.readUnsignedByte();
-      } else if(var2 == 3) {
-         this.field3282 = var1.readUnsignedByte();
-      } else if(var2 == 4) {
-         this.field3283 = 0;
-      } else if(var2 == 5) {
-         this.field3285 = var1.readUnsignedShort();
-      } else if(var2 == 6) {
-         var1.readUnsignedByte();
-      } else if(var2 == 7) {
-         this.field3286 = var1.method2293();
-      } else if(var2 == 8) {
-         this.field3287 = var1.method2293();
-      } else if(var2 == 11) {
-         this.field3283 = var1.readUnsignedShort();
-      } else if(var2 == 14) {
-         this.field3279 = var1.readUnsignedByte();
-      } else if(var2 == 15) {
-         this.field3277 = var1.readUnsignedByte();
+   public static double[] method4683(double var0, double var2, int var4) {
+      int var5 = var4 * 2 + 1;
+      double[] var6 = new double[var5];
+      int var7 = -var4;
+
+      for(int var8 = 0; var7 <= var4; ++var8) {
+         double var11 = HitmarkType.method2239(((double)var7 - var0) / var2) / var2;
+         var6[var8] = var11;
+         ++var7;
       }
 
-   }
-
-   public int getHealthScale() {
-      return this.field3279;
-   }
-
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(I)Llp;",
-      garbageValue = "-1015211348"
-   )
-   public SpritePixels method4929() {
-      if(this.field3286 < 0) {
-         return null;
-      } else {
-         SpritePixels var1 = (SpritePixels)field3288.method1813((long)this.field3286);
-         if(var1 != null) {
-            return var1;
-         } else {
-            var1 = class91.method1715(field3276, this.field3286, 0, (byte)47);
-            if(var1 != null) {
-               field3288.method1820(var1, (long)this.field3286);
-            }
-
-            return var1;
-         }
-      }
-   }
-
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "(Lgm;I)V",
-      garbageValue = "911400937"
-   )
-   public void method4941(Buffer var1) {
-      while(true) {
-         int var2 = var1.readUnsignedByte();
-         if(var2 == 0) {
-            return;
-         }
-
-         this.method4928(var1, var2);
-      }
+      return var6;
    }
 }
