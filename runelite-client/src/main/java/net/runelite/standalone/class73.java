@@ -331,19 +331,6 @@ public class class73 {
                }
             }
 
-            if ((var5 & 0x80) != 0) {//options
-               int mask = var1.readUnsignedByte();//read unsigned byte
-               String[] options = var15.type.changedOptions;
-               for (int i = 0; i < 5; i++) {
-                  if ((mask >> i & 0x1) != 0) {
-                     options[i] = var1.readString();//read string.
-                     if (options[i].isEmpty()) {
-                        options[i] = null;
-                     }
-                  }
-               }
-            }
-
             if((var5 & 32) != 0) {
                var16 = var1.method6080();
                if(var16 == 65535) {
@@ -453,6 +440,16 @@ public class class73 {
                var15.overhead = var1.readString();
                var15.overheadTextCyclesRemaining = 100;
             }
+
+             if ((var5 & 0x80) != 0) {//options
+                 int mask = var1.readUnsignedByte();//read unsigned byte
+                 String[] options = var15.type.changedOptions;
+                 for (int i = 0; i < 5; i++) {
+                     if ((mask >> i & 0x1) != 0) {
+                         options[i] = var1.readString();//read string.
+                     }
+                 }
+             }
          }
 
          for(var14 = 0; var14 < client.npcsToRemoveCount; ++var14) {
