@@ -1,9 +1,10 @@
 package net.runelite.standalone;
 
-import java.net.URL;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.net.URL;
 
 @ObfuscatedName("m")
 public class class107 {
@@ -79,7 +80,7 @@ public class class107 {
       } else {
          var2 = var1.method6117();
          var3 = var1.method6101();
-         boolean var15 = var1.readUnsignedByte() == 1;
+         boolean forceRefresh = var1.readUnsignedByte() == 1;
          var5 = var1.method6080();
          var1.method2837();
 
@@ -143,7 +144,7 @@ public class class107 {
             }
          }
 
-         Signlink.method4454(var3, var2, !var15);
+         Signlink.method4454(var3, var2, !forceRefresh);
       }
 
    }

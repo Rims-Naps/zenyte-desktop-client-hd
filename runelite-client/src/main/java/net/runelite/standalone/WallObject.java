@@ -1,9 +1,5 @@
 package net.runelite.standalone;
 
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.geom.Area;
-import java.io.IOException;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.LocalPoint;
@@ -13,6 +9,10 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSRenderable;
 import net.runelite.rs.api.RSWallObject;
+
+import java.awt.*;
+import java.awt.geom.Area;
+import java.io.IOException;
 
 @ObfuscatedName("eb")
 public final class WallObject implements RSWallObject {
