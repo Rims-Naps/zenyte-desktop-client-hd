@@ -664,7 +664,7 @@ public final class GameObject implements RSGameObject {
 
          if(client.gameState == 0 || client.gameState == 5) {
             var22 = 20;
-            var0.method1862("RuneScape is loading - please wait...", class316.loginWindowX + 180, 245 - var22, 16777215, -1);
+            var0.method1862("Zenyte is loading - please wait...", class316.loginWindowX + 180, 245 - var22, 16777215, -1);
             var23 = 253 - var22;
             Rasterizer2D.method518(class316.loginWindowX + 180 - 152, var23, 304, 34, 9179409);
             Rasterizer2D.method518(class316.loginWindowX + 180 - 151, var23 + 1, 302, 32, 0);

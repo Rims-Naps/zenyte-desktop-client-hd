@@ -149,7 +149,7 @@ public class FishingPlugin extends Plugin
 	@Subscribe
 	public void onItemContainerChanged(ItemContainerChanged event)
 	{
-		/*if (event.getItemContainer() != client.getItemContainer(InventoryID.INVENTORY)
+		if (event.getItemContainer() != client.getItemContainer(InventoryID.INVENTORY)
 			&& event.getItemContainer() != client.getItemContainer(InventoryID.EQUIPMENT))
 		{
 			return;
@@ -165,7 +165,7 @@ public class FishingPlugin extends Plugin
 		}
 
 		spotOverlay.setHidden(!showOverlays);
-		fishingSpotMinimapOverlay.setHidden(!showOverlays);*/
+		fishingSpotMinimapOverlay.setHidden(!showOverlays);
 	}
 
 	@Subscribe
