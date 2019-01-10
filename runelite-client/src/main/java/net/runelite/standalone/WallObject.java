@@ -1,5 +1,9 @@
 package net.runelite.standalone;
 
+import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.awt.geom.Area;
+import java.io.IOException;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.LocalPoint;
@@ -9,10 +13,6 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSRenderable;
 import net.runelite.rs.api.RSWallObject;
-
-import java.awt.*;
-import java.awt.geom.Area;
-import java.io.IOException;
 
 @ObfuscatedName("eb")
 public final class WallObject implements RSWallObject {
@@ -118,6 +118,29 @@ public final class WallObject implements RSWallObject {
       return this.orientationB;
    }
 
+   public void setPlane(int var1) {
+      this.wallPlane = var1;
+   }
+
+   public Area getClickbox() {
+      Area var1 = new Area();
+      Area var2 = Perspective.getClickbox(class166.clientInstance, this.getModelA(), this.getOrientationA(), this.getLocalLocation());
+      Area var3 = Perspective.getClickbox(class166.clientInstance, this.getModelB(), this.getOrientationB(), this.getLocalLocation());
+      if(var2 == null && var3 == null) {
+         return null;
+      } else {
+         if(var2 != null) {
+            var1.add(var2);
+         }
+
+         if(var3 != null) {
+            var1.add(var3);
+         }
+
+         return var1;
+      }
+   }
+
    public int getId() {
       long var1 = this.getHash();
       return (int)(var1 >>> 17 & 4294967295L);
@@ -141,29 +164,6 @@ public final class WallObject implements RSWallObject {
 
    public Point getMinimapLocation() {
       return Perspective.localToMinimap(class166.clientInstance, this.getLocalLocation());
-   }
-
-   public void setPlane(int var1) {
-      this.wallPlane = var1;
-   }
-
-   public Area getClickbox() {
-      Area var1 = new Area();
-      Area var2 = Perspective.getClickbox(class166.clientInstance, this.getModelA(), this.getOrientationA(), this.getLocalLocation());
-      Area var3 = Perspective.getClickbox(class166.clientInstance, this.getModelB(), this.getOrientationB(), this.getLocalLocation());
-      if(var2 == null && var3 == null) {
-         return null;
-      } else {
-         if(var2 != null) {
-            var1.add(var2);
-         }
-
-         if(var3 != null) {
-            var1.add(var3);
-         }
-
-         return var1;
-      }
    }
 
    public int getConfig() {
@@ -194,11 +194,11 @@ public final class WallObject implements RSWallObject {
                throw new IOException();
             } else {
                FileRequest var3;
-               Buffer var4;
+               Packet var4;
                while(class258.NetCache_pendingPriorityResponsesCount < 200 && class258.NetCache_pendingPriorityWritesCount > 0) {
                   var3 = (FileRequest)class258.NetCache_pendingPriorityWrites.method391();
-                  var4 = new Buffer(4);
-                  var4.writeByte(1);
+                  var4 = new Packet(4);
+                  var4.method6114(1);
                   var4.method6064((int)var3.hash);
                   class258.NetCache_socket.vmethod5623(var4.payload, 0, 4);
                   class258.NetCache_pendingPriorityResponses.method382(var3, var3.hash);
@@ -208,8 +208,8 @@ public final class WallObject implements RSWallObject {
 
                while(class258.NetCache_pendingResponsesCount < 200 && class258.NetCache_pendingWritesCount > 0) {
                   var3 = (FileRequest)class258.NetCache_pendingWritesQueue.method2519();
-                  var4 = new Buffer(4);
-                  var4.writeByte(0);
+                  var4 = new Packet(4);
+                  var4.method6114(0);
                   var4.method6064((int)var3.hash);
                   class258.NetCache_socket.vmethod5623(var4.payload, 0, 4);
                   var3.method419();
@@ -278,9 +278,9 @@ public final class WallObject implements RSWallObject {
 
                         int var14 = var9 == 0?5:9;
                         class267.currentRequest = var13;
-                        class258.NetCache_responseArchiveBuffer = new Buffer(var10 + var14 + class267.currentRequest.padding);
-                        class258.NetCache_responseArchiveBuffer.writeByte(var9);
-                        class258.NetCache_responseArchiveBuffer.writeInt(var10);
+                        class258.NetCache_responseArchiveBuffer = new Packet(var10 + var14 + class267.currentRequest.padding);
+                        class258.NetCache_responseArchiveBuffer.method6114(var9);
+                        class258.NetCache_responseArchiveBuffer.method6230(var10);
                         class258.field3276 = 8;
                         class258.NetCache_responseHeaderBuffer.offset = 0;
                      } else if(class258.field3276 == 0) {

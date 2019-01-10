@@ -33,7 +33,7 @@ public class VarClientType extends CacheableNode {
       signature = "(Lgl;I)V",
       garbageValue = "1124634790"
    )
-   void method5421(Buffer var1) {
+   void method5421(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -49,7 +49,7 @@ public class VarClientType extends CacheableNode {
       signature = "(Lgl;II)V",
       garbageValue = "465607737"
    )
-   void method5422(Buffer var1, int var2) {
+   void method5422(Packet var1, int var2) {
       if(var2 == 2) {
          this.serialize = true;
       }
@@ -63,22 +63,22 @@ public class VarClientType extends CacheableNode {
    )
    static int method5426(int var0, class106 var1, boolean var2) {
       if(var0 == 5000) {
-         class48.intStack[++class228.intStackSize - 1] = client.publicChatMode;
+         class48.intStack[++class228.intStackSize - 1] = Client.publicChatMode;
          return 1;
       } else if(var0 == 5001) {
          class228.intStackSize -= 3;
-         client.publicChatMode = class48.intStack[class228.intStackSize];
+         Client.publicChatMode = class48.intStack[class228.intStackSize];
          Overlay.field3613 = ScriptState.method421(class48.intStack[class228.intStackSize + 1]);
          if(Overlay.field3613 == null) {
             Overlay.field3613 = class307.field3805;
          }
 
-         client.tradeMode = class48.intStack[class228.intStackSize + 2];
-         TcpConnectionMessage var18 = FaceNormal.method5726(ClientProt.field2253, client.serverConnection.isaac);
-         var18.packetBuffer.writeByte(client.publicChatMode);
-         var18.packetBuffer.writeByte(Overlay.field3613.field3807);
-         var18.packetBuffer.writeByte(client.tradeMode);
-         client.serverConnection.method5881(var18);
+         Client.tradeMode = class48.intStack[class228.intStackSize + 2];
+         TcpConnectionMessage var18 = FaceNormal.method5726(ClientProt.field2253, Client.serverConnection.isaac);
+         var18.packetBuffer.method6114(Client.publicChatMode);
+         var18.packetBuffer.method6114(Overlay.field3613.field3807);
+         var18.packetBuffer.method6114(Client.tradeMode);
+         Client.serverConnection.method5881(var18);
          return 1;
       } else {
          String var3;
@@ -88,12 +88,12 @@ public class VarClientType extends CacheableNode {
             class228.intStackSize -= 2;
             var4 = class48.intStack[class228.intStackSize];
             int var5 = class48.intStack[class228.intStackSize + 1];
-            TcpConnectionMessage var6 = FaceNormal.method5726(ClientProt.field2245, client.serverConnection.isaac);
-            var6.packetBuffer.writeByte(AbstractSoundSystem.method338(var3) + 2);
-            var6.packetBuffer.writeString(var3);
-            var6.packetBuffer.writeByte(var4 - 1);
-            var6.packetBuffer.writeByte(var5);
-            client.serverConnection.method5881(var6);
+            TcpConnectionMessage var6 = FaceNormal.method5726(ClientProt.field2245, Client.serverConnection.isaac);
+            var6.packetBuffer.method6114(AbstractSoundSystem.method338(var3) + 2);
+            var6.packetBuffer.method6198(var3);
+            var6.packetBuffer.method6114(var4 - 1);
+            var6.packetBuffer.method6114(var5);
+            Client.serverConnection.method5881(var6);
             return 1;
          } else {
             int var10;
@@ -188,7 +188,7 @@ public class VarClientType extends CacheableNode {
                } else if(var14.startsWith("glow3:")) {
                   var17 = 11;
                   var3 = var3.substring("glow3:".length());
-               } else if(client.languageId != 0) {
+               } else if(Client.languageId != 0) {
                   if(var14.startsWith("yellow:")) {
                      var17 = 0;
                      var3 = var3.substring("yellow:".length());
@@ -245,7 +245,7 @@ public class VarClientType extends CacheableNode {
                } else if(var14.startsWith("slide:")) {
                   var7 = 5;
                   var3 = var3.substring("slide:".length());
-               } else if(client.languageId != 0) {
+               } else if(Client.languageId != 0) {
                   if(var14.startsWith("wave:")) {
                      var7 = 1;
                      var3 = var3.substring("wave:".length());
@@ -264,31 +264,31 @@ public class VarClientType extends CacheableNode {
                   }
                }
 
-               TcpConnectionMessage var8 = FaceNormal.method5726(ClientProt.field2230, client.serverConnection.isaac);
-               var8.packetBuffer.writeByte(0);
+               TcpConnectionMessage var8 = FaceNormal.method5726(ClientProt.field2230, Client.serverConnection.isaac);
+               var8.packetBuffer.method6114(0);
                int var9 = var8.packetBuffer.offset;
-               var8.packetBuffer.writeByte(var4);
-               var8.packetBuffer.writeByte(var17);
-               var8.packetBuffer.writeByte(var7);
+               var8.packetBuffer.method6114(var4);
+               var8.packetBuffer.method6114(var17);
+               var8.packetBuffer.method6114(var7);
                class321.method6055(var8.packetBuffer, var3);
-               var8.packetBuffer.method6075(var8.packetBuffer.offset - var9);
-               client.serverConnection.method5881(var8);
+               var8.packetBuffer.writeByte(var8.packetBuffer.offset - var9);
+               Client.serverConnection.method5881(var8);
                return 1;
             } else if(var0 == 5009) {
                class48.scriptStringStackSize -= 2;
                var3 = class48.scriptStringStack[class48.scriptStringStackSize];
                String var12 = class48.scriptStringStack[class48.scriptStringStackSize + 1];
-               TcpConnectionMessage var11 = FaceNormal.method5726(ClientProt.field2232, client.serverConnection.isaac);
-               var11.packetBuffer.writeShort(0);
+               TcpConnectionMessage var11 = FaceNormal.method5726(ClientProt.field2232, Client.serverConnection.isaac);
+               var11.packetBuffer.method6063(0);
                int var13 = var11.packetBuffer.offset;
-               var11.packetBuffer.writeString(var3);
+               var11.packetBuffer.method6198(var3);
                class321.method6055(var11.packetBuffer, var12);
                var11.packetBuffer.method6074(var11.packetBuffer.offset - var13);
-               client.serverConnection.method5881(var11);
+               Client.serverConnection.method5881(var11);
                return 1;
             } else if(var0 != 5015) {
                if(var0 == 5016) {
-                  class48.intStack[++class228.intStackSize - 1] = client.tradeMode;
+                  class48.intStack[++class228.intStackSize - 1] = Client.tradeMode;
                   return 1;
                } else if(var0 == 5017) {
                   var10 = class48.intStack[--class228.intStackSize];
@@ -307,10 +307,10 @@ public class VarClientType extends CacheableNode {
                   SoundTaskDataProvider.method2528(var3);
                   return 1;
                } else if(var0 == 5021) {
-                  client.field862 = class48.scriptStringStack[--class48.scriptStringStackSize].toLowerCase().trim();
+                  Client.field862 = class48.scriptStringStack[--class48.scriptStringStackSize].toLowerCase().trim();
                   return 1;
                } else if(var0 == 5022) {
-                  class48.scriptStringStack[++class48.scriptStringStackSize - 1] = client.field862;
+                  class48.scriptStringStack[++class48.scriptStringStackSize - 1] = Client.field862;
                   return 1;
                } else {
                   return 2;

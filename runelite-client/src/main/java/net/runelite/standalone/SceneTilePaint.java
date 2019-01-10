@@ -108,7 +108,7 @@ public final class SceneTilePaint implements RSSceneTilePaint {
       garbageValue = "1926576474"
    )
    public static void method667(byte[] var0) {
-      Buffer var1 = new Buffer(var0);
+      Packet var1 = new Packet(var0);
       var1.offset = var0.length - 2;
       class95.indexedSpriteCount = var1.method6080();
       class95.indexedSpriteOffsetXs = new int[class95.indexedSpriteCount];
@@ -160,12 +160,12 @@ public final class SceneTilePaint implements RSSceneTilePaint {
          int var9;
          if(var8 == 0) {
             for(var9 = 0; var9 < var6; ++var9) {
-               var7[var9] = var1.method6240();
+               var7[var9] = var1.readByte();
             }
          } else if(var8 == 1) {
             for(var9 = 0; var9 < var4; ++var9) {
                for(int var10 = 0; var10 < var5; ++var10) {
-                  var7[var9 + var4 * var10] = var1.method6240();
+                  var7[var9 + var4 * var10] = var1.readByte();
                }
             }
          }

@@ -18,7 +18,7 @@ public class class77 {
       garbageValue = "1086286921"
    )
    static boolean method1150() {
-      return (client.playerNameMask & 8) != 0;
+      return (Client.playerNameMask & 8) != 0;
    }
 
    @ObfuscatedName("aj")
@@ -27,7 +27,7 @@ public class class77 {
       garbageValue = "1666660678"
    )
    static final byte[] method1151(byte[] var0) {
-      Buffer var1 = new Buffer(var0);
+      Packet var1 = new Packet(var0);
       int var2 = var1.readUnsignedByte();
       int var3 = var1.method6201();
       if(var3 < 0 || Js5Index.field3223 != 0 && var3 > Js5Index.field3223) {
@@ -61,7 +61,7 @@ public class class77 {
    static final void method1152(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       PendingSpawn var9 = null;
 
-      for(PendingSpawn var10 = (PendingSpawn)client.pendingSpawns.method4373(); var10 != null; var10 = (PendingSpawn)client.pendingSpawns.method4358()) {
+      for(PendingSpawn var10 = (PendingSpawn)Client.pendingSpawns.method4373(); var10 != null; var10 = (PendingSpawn)Client.pendingSpawns.method4358()) {
          if(var0 == var10.level && var10.x == var1 && var2 == var10.y && var3 == var10.type) {
             var9 = var10;
             break;
@@ -75,7 +75,7 @@ public class class77 {
          var9.x = var1;
          var9.y = var2;
          class2.method19(var9);
-         client.pendingSpawns.method4351(var9);
+         Client.pendingSpawns.method4351(var9);
       }
 
       var9.id = var4;

@@ -127,7 +127,7 @@ public class WorldMapType1 implements WorldMapSectionBase {
       signature = "(Lgl;I)V",
       garbageValue = "-821481708"
    )
-   public void vmethod5829(Buffer var1) {
+   public void vmethod5829(Packet var1) {
       this.field174 = var1.readUnsignedByte();
       this.field164 = var1.readUnsignedByte();
       this.field166 = var1.method6080();

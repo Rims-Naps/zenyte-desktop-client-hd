@@ -23,7 +23,7 @@ public class class267 {
    )
    static final boolean method5221(byte[] var0, int var1, int var2) {
       boolean var3 = true;
-      Buffer var4 = new Buffer(var0);
+      Packet var4 = new Packet(var0);
       int var5 = -1;
 
       label68:
@@ -53,9 +53,9 @@ public class class267 {
                int var14 = var10 + var2;
                if(var13 > 0 && var14 > 0 && var13 < 103 && var14 < 103) {
                   LocType var15 = class225.method4485(var5);
-                  if(var12 != 22 || !client.lowMemory || var15.field3470 != 0 || var15.clipType == 1 || var15.obstructsGround) {
+                  if(var12 != 22 || !Client.lowMemory || var15.field3470 != 0 || var15.clipType == 1 || var15.obstructsGround) {
                      if(!var15.method1712()) {
-                        ++client.field753;
+                        ++Client.field753;
                         var3 = false;
                      }
 

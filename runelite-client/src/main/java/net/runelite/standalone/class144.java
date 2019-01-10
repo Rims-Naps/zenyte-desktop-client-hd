@@ -115,7 +115,7 @@ public class class144 {
       signature = "(Lgl;B)V",
       garbageValue = "110"
    )
-   public void method2495(Buffer var1) {
+   public void method2495(Packet var1) {
       long var2 = this.elapsedLastPackedReceivedTime;
       var2 /= 10L;
       if(var2 < 0L) {
@@ -124,7 +124,7 @@ public class class144 {
          var2 = 65535L;
       }
 
-      var1.writeShort((int)var2);
+      var1.method6063((int)var2);
       long var4 = this.elapsedLoginAttemptTime;
       var4 /= 10L;
       if(var4 < 0L) {
@@ -133,7 +133,7 @@ public class class144 {
          var4 = 65535L;
       }
 
-      var1.writeShort((int)var4);
+      var1.method6063((int)var4);
       long var6 = this.field3679;
       var6 /= 10L;
       if(var6 < 0L) {
@@ -142,11 +142,11 @@ public class class144 {
          var6 = 65535L;
       }
 
-      var1.writeShort((int)var6);
-      var1.writeShort(this.gameState);
-      var1.writeShort(this.field3685);
-      var1.writeShort(this.loginAttempts);
-      var1.writeShort(this.field3687);
+      var1.method6063((int)var6);
+      var1.method6063(this.gameState);
+      var1.method6063(this.field3685);
+      var1.method6063(this.loginAttempts);
+      var1.method6063(this.field3687);
    }
 
    @ObfuscatedName("c")

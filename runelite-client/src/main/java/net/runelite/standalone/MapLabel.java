@@ -48,7 +48,7 @@ public class MapLabel {
       signature = "(Lgl;B)Ljava/lang/String;",
       garbageValue = "36"
    )
-   public static String method5551(Buffer var0) {
+   public static String method5551(Packet var0) {
       return Tile.method4296(var0, 32767);
    }
 

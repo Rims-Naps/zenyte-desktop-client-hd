@@ -33,11 +33,11 @@ public class class230 extends class127 {
       garbageValue = "1276746081"
    )
    int method4542(ChatPlayer var1, ChatPlayer var2) {
-      if(client.world == var1.world) {
-         if(var2.world != client.world) {
+      if(Client.world == var1.world) {
+         if(var2.world != Client.world) {
             return this.field1936?-1:1;
          }
-      } else if(var2.world == client.world) {
+      } else if(var2.world == Client.world) {
          return this.field1936?1:-1;
       }
 
@@ -51,7 +51,7 @@ public class class230 extends class127 {
    )
    static final void method4544(PlayerEntity var0, int var1, int var2, int var3) {
       if(class4.localPlayer != var0) {
-         if(client.menuOptionCount < 400) {
+         if(Client.menuOptionCount < 400) {
             String var4;
             int var7;
             if(var0.totalLevel == 0) {
@@ -86,22 +86,22 @@ public class class230 extends class127 {
             }
 
             int var10;
-            if(client.itemSelectionState == 1) {
-               class316.method5992("Use", client.lastSelectedItemName + " " + "->" + " " + class31.method548(16777215) + var4, 14, var1, var2, var3);
-            } else if(client.spellSelected) {
+            if(Client.itemSelectionState == 1) {
+               class316.method5992("Use", Client.lastSelectedItemName + " " + "->" + " " + class31.method548(16777215) + var4, 14, var1, var2, var3);
+            } else if(Client.spellSelected) {
                if((FontName.ifTargetMask & 8) == 8) {
-                  class316.method5992(client.targetVerb, client.opBase + " " + "->" + " " + class31.method548(16777215) + var4, 15, var1, var2, var3);
+                  class316.method5992(Client.targetVerb, Client.opBase + " " + "->" + " " + class31.method548(16777215) + var4, 15, var1, var2, var3);
                }
             } else {
                for(var10 = 7; var10 >= 0; --var10) {
-                  if(client.playerOptions[var10] != null) {
+                  if(Client.playerOptions[var10] != null) {
                      short var11 = 0;
-                     if(client.playerOptions[var10].equalsIgnoreCase("Attack")) {
-                        if(AttackOpPriority.HIDDEN == client.playerAttackOpPriority) {
+                     if(Client.playerOptions[var10].equalsIgnoreCase("Attack")) {
+                        if(AttackOpPriority.HIDDEN == Client.playerAttackOpPriority) {
                            continue;
                         }
 
-                        if(AttackOpPriority.UNPRIORITISED == client.playerAttackOpPriority || client.playerAttackOpPriority == AttackOpPriority.COMBAT_LEVEL_BASED && var0.combatLevel > class4.localPlayer.combatLevel) {
+                        if(AttackOpPriority.UNPRIORITISED == Client.playerAttackOpPriority || Client.playerAttackOpPriority == AttackOpPriority.COMBAT_LEVEL_BASED && var0.combatLevel > class4.localPlayer.combatLevel) {
                            var11 = 2000;
                         }
 
@@ -112,20 +112,20 @@ public class class230 extends class127 {
                               var11 = 0;
                            }
                         }
-                     } else if(client.playerOptionsPriorities[var10]) {
+                     } else if(Client.playerOptionsPriorities[var10]) {
                         var11 = 2000;
                      }
 
                      boolean var12 = false;
-                     var7 = client.playerMenuTypes[var10] + var11;
-                     class316.method5992(client.playerOptions[var10], class31.method548(16777215) + var4, var7, var1, var2, var3);
+                     var7 = Client.playerMenuTypes[var10] + var11;
+                     class316.method5992(Client.playerOptions[var10], class31.method548(16777215) + var4, var7, var1, var2, var3);
                   }
                }
             }
 
-            for(var10 = 0; var10 < client.menuOptionCount; ++var10) {
-               if(client.menuTypes[var10] == 23) {
-                  client.menuTargets[var10] = class31.method548(16777215) + var4;
+            for(var10 = 0; var10 < Client.menuOptionCount; ++var10) {
+               if(Client.menuTypes[var10] == 23) {
+                  Client.menuTargets[var10] = class31.method548(16777215) + var4;
                   break;
                }
             }

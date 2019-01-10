@@ -103,9 +103,9 @@ public class class306 {
             try {
                FileOnDisk var10 = new FileOnDisk(class166.cacheLocator, "rw", 10000L);
 
-               Buffer var11;
+               Packet var11;
                int var12;
-               for(var11 = new Buffer((int)var10.method148()); var11.offset < var11.payload.length; var11.offset += var12) {
+               for(var11 = new Packet((int)var10.method148()); var11.offset < var11.payload.length; var11.offset += var12) {
                   var12 = var10.method149(var11.payload, var11.offset, var11.payload.length - var11.offset);
                   if(var12 == -1) {
                      throw new IOException();

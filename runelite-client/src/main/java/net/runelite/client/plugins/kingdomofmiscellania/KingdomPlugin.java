@@ -41,12 +41,12 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 
-@PluginDescriptor(
+/*@PluginDescriptor(
 	name = "Kingdom of Miscellania",
 	description = "Show amount of favor when inside Miscellania",
 	tags = {"favor", "favour", "managing", "overlay"},
 	enabledByDefault = false
-)
+)*/
 @Slf4j
 public class KingdomPlugin extends Plugin
 {

@@ -83,7 +83,7 @@ public class GraphicsDefaults {
    )
    public void method4013(Js5Index var1) {
       byte[] var2 = var1.method1520(DefaultsGroup.field3812.group);
-      Buffer var3 = new Buffer(var2);
+      Packet var3 = new Packet(var2);
 
       while(true) {
          int var4 = var3.readUnsignedByte();

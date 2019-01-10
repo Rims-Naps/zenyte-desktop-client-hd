@@ -70,7 +70,7 @@ public class TextureProvider implements ITextureLoader, RSTextureProvider {
       this.textures = new Texture[var1.method1574(0)];
 
       for(int var9 = 0; var9 < var8; ++var9) {
-         Buffer var10 = new Buffer(var1.method1516(0, var7[var9], 1789634852));
+         Packet var10 = new Packet(var1.method1516(0, var7[var9], 1789634852));
          this.textures[var7[var9]] = new Texture(var10);
       }
 

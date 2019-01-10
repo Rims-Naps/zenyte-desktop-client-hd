@@ -61,8 +61,8 @@ public class WorldMapDecoration {
       garbageValue = "67572877"
    )
    static boolean method2944(int var0) {
-      for(int var1 = 0; var1 < client.field865; ++var1) {
-         if(client.field867[var1] == var0) {
+      for(int var1 = 0; var1 < Client.field865; ++var1) {
+         if(Client.field867[var1] == var0) {
             return true;
          }
       }
@@ -76,13 +76,13 @@ public class WorldMapDecoration {
       garbageValue = "-904767418"
    )
    static final void method2943() {
-      if(client.field725 > 0) {
+      if(Client.field725 > 0) {
          class9.method133();
       } else {
-         client.field904.method2490();
+         Client.field904.method2490();
          class310.method5922(40);
-         class60.field524 = client.serverConnection.method5880();
-         client.serverConnection.method5879();
+         class60.field524 = Client.serverConnection.method5880();
+         Client.serverConnection.method5879();
       }
    }
 

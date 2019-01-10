@@ -46,7 +46,7 @@ public class Friend extends ChatPlayer implements RSFriend {
       garbageValue = "1165791195"
    )
    int method2732(Friend var1) {
-      return super.world == client.world && client.world != var1.world?-1:(client.world == var1.world && super.world != client.world?1:(super.world != 0 && var1.world == 0?-1:(var1.world != 0 && super.world == 0?1:(this.field3723 && !var1.field3723?-1:(!this.field3723 && var1.field3723?1:(this.field3724 && !var1.field3724?-1:(!this.field3724 && var1.field3724?1:(super.world != 0?super.field3706 - var1.field3706:var1.field3706 - super.field3706))))))));
+      return super.world == Client.world && Client.world != var1.world?-1:(Client.world == var1.world && super.world != Client.world?1:(super.world != 0 && var1.world == 0?-1:(var1.world != 0 && super.world == 0?1:(this.field3723 && !var1.field3723?-1:(!this.field3723 && var1.field3723?1:(this.field3724 && !var1.field3724?-1:(!this.field3724 && var1.field3724?1:(super.world != 0?super.field3706 - var1.field3706:var1.field3706 - super.field3706))))))));
    }
 
    @ObfuscatedName("e")

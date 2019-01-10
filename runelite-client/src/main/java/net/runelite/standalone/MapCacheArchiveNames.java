@@ -191,7 +191,7 @@ public class MapCacheArchiveNames {
          byte[] var2 = Sequence.seq_ref.method1516(12, var0, 1789634852);
          var1 = new Sequence();
          if(var2 != null) {
-            var1.method4786(new Buffer(var2));
+            var1.method4786(new Packet(var2));
          }
 
          var1.method4778();

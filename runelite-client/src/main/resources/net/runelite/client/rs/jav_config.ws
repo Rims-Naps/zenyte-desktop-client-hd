@@ -1,9 +1,9 @@
-title=Old School RuneScape
+title=Zenyte
 adverturl=http://www.runescape.com/g=oldscape/bare_advert.ws
 codebase=http://127.0.0.1
-cachedir=zenyte
+cachedir=oldschool
 storebase=0
-initial_jar=gamepack_6454153.jar
+initial_jar=gamepack_9323006.jar
 initial_class=client.class
 termsurl=http://www.jagex.com/g=oldscape/terms/terms.ws
 privacyurl=http://www.jagex.com/g=oldscape/privacy/privacy.ws
@@ -44,21 +44,21 @@ msg=err_get_file=Error getting file
 msg=new_version=Update available! You can now launch the client directly from the OldSchool website.\nGet the new version from the link on the OldSchool homepage: http://oldschool.runescape.com/
 msg=new_version_linktext=Open OldSchool Homepage
 msg=new_version_link=http://oldschool.runescape.com/
-param=17=http://www.runescape.com/g=oldscape/slr.ws?order=LPWM
-param=9=ElZAIrq5NpKN6D3mDdihco3oPeYN2KFy2DCquj7JMmECPmLrDP3Bnw
-param=13=.runescape.com
 param=6=1
-param=18=
-param=15=0
-param=4=32721
+param=13=.runescape.com
 param=10=5
-param=2=https://payments.jagex.com/operator/v1/
-param=7=0
-param=3=true
-param=14=0
-param=11=https://auth.jagex.com/
-param=1=1
-param=8=true
-param=12=1
+param=15=0
 param=5=0
+param=1=1
+param=3=true
+param=17=http://www.runescape.com/g=oldscape/slr.ws?order=LPWM
+param=14=0
+param=9=ElZAIrq5NpKN6D3mDdihco3oPeYN2KFy2DCquj7JMmECPmLrDP3Bnw
+param=4=35045
 param=16=false
+param=8=true
+param=11=https://auth.jagex.com/
+param=2=https://payments.jagex.com/operator/v1/
+param=18=
+param=7=0
+param=12=1

@@ -1,14 +1,12 @@
 package net.runelite.standalone;
 
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSPreferences;
-
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map.Entry;
 
 @ObfuscatedName("bj")
 public class ClientOptions implements RSPreferences {
@@ -58,7 +56,7 @@ public class ClientOptions implements RSPreferences {
    @ObfuscatedSignature(
       signature = "(Lgl;)V"
    )
-   ClientOptions(Buffer var1) {
+   ClientOptions(Packet var1) {
       this.screenType = 1;
       this.rememberedUsername = null;
       this.hideUsername = false;
@@ -109,22 +107,22 @@ public class ClientOptions implements RSPreferences {
       signature = "(I)Lgl;",
       garbageValue = "-1976129490"
    )
-   Buffer method6498() {
-      Buffer var1 = new Buffer(100);
-      var1.writeByte(field1030);
-      var1.writeByte(this.hideRoofs?1:0);
-      var1.writeByte(this.muted?1:0);
-      var1.writeByte(this.screenType);
-      var1.writeByte(this.authRememberTokens.size());
+   Packet method6498() {
+      Packet var1 = new Packet(100);
+      var1.method6114(field1030);
+      var1.method6114(this.hideRoofs?1:0);
+      var1.method6114(this.muted?1:0);
+      var1.method6114(this.screenType);
+      var1.method6114(this.authRememberTokens.size());
       Iterator var2 = this.authRememberTokens.entrySet().iterator();
 
       while(var2.hasNext()) {
          Entry var3 = (Entry)var2.next();
-         var1.writeInt(((Integer)var3.getKey()).intValue());
-         var1.writeInt(((Integer)var3.getValue()).intValue());
+         var1.method6230(((Integer)var3.getKey()).intValue());
+         var1.method6230(((Integer)var3.getValue()).intValue());
       }
 
-      var1.writeString(this.rememberedUsername != null?this.rememberedUsername:"");
+      var1.method6198(this.rememberedUsername != null?this.rememberedUsername:"");
       var1.method6127(this.hideUsername);
       return var1;
    }
@@ -206,7 +204,7 @@ public class ClientOptions implements RSPreferences {
                         class316.worldSelectShown = false;
                         class316.leftBackground.method2273(class316.field1143, 0);
                         class316.rightBackground.method2273(class316.field1143 + 382, 0);
-                        Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
+                        //Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
                      } else if(class316.field1164 != -1) {
                         World var5 = World.worldList[class316.field1164];
                         UrlRequest.method5575(var5);
@@ -231,27 +229,27 @@ public class ClientOptions implements RSPreferences {
             }
          }
 
-         if(client.gameState != 5) {
+         if(Client.gameState != 5) {
             if(-1L == class316.field1178) {
                class316.field1178 = Tile.method4297() + 1000L;
             }
 
             long var12 = Tile.method4297();
             boolean var3;
-            if(client.field915 != null && client.field765 < client.field915.size()) {
+            if(Client.field915 != null && Client.field765 < Client.field915.size()) {
                while(true) {
-                  if(client.field765 >= client.field915.size()) {
+                  if(Client.field765 >= Client.field915.size()) {
                      var3 = true;
                      break;
                   }
 
-                  class73 var15 = (class73)client.field915.get(client.field765);
+                  class73 var15 = (class73)Client.field915.get(Client.field765);
                   if(!var15.method1123()) {
                      var3 = false;
                      break;
                   }
 
-                  ++client.field765;
+                  ++Client.field765;
                }
             } else {
                var3 = true;
@@ -265,8 +263,8 @@ public class ClientOptions implements RSPreferences {
             }
 
             ++class316.field1156;
-            if(client.gameState == 10 || client.gameState == 11) {
-               if(client.languageId == 0) {
+            if(Client.gameState == 10 || Client.gameState == 11) {
+               if(Client.languageId == 0) {
                   if(MouseInput.mouseLastButton == 1 || !WorldMapType3.middleMouseMovesCamera && MouseInput.mouseLastButton == 4) {
                      var4 = class316.field1143 + 5;
                      short var14 = 463;
@@ -314,19 +312,19 @@ public class ClientOptions implements RSPreferences {
 
                   var8 = class260.field103 + 80;
                   if(var4 == 1 && var25 >= var8 - 75 && var25 <= var8 + 75 && var18 >= var9 - 20 && var18 <= var9 + 20 || var19) {
-                     if((client.flags & 33554432) != 0) {
+                     if((Client.flags & 33554432) != 0) {
                         class316.Login_response0 = "";
                         class316.loginMessage1 = "This is a <col=00ffff>Beta<col=ffffff> world.";
                         class316.loginMessage2 = "Your normal account will not be affected.";
                         class316.loginMessage3 = "";
                         class316.loginIndex = 1;
-                        if(client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
+                        if(Client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
                            class316.currentLoginField = 1;
                         } else {
                            class316.currentLoginField = 0;
                         }
-                     } else if((client.flags & 4) != 0) {
-                        if((client.flags & 1024) != 0) {
+                     } else if((Client.flags & 4) != 0) {
+                        if((Client.flags & 1024) != 0) {
                            class316.loginMessage1 = "This is a <col=ffff00>High Risk <col=ff0000>PvP<col=ffffff> world.";
                            class316.loginMessage2 = "Players can attack each other almost everywhere";
                            class316.loginMessage3 = "and the Protect Item prayer won\'t work.";
@@ -338,18 +336,18 @@ public class ClientOptions implements RSPreferences {
 
                         class316.Login_response0 = "Warning!";
                         class316.loginIndex = 1;
-                        if(client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
+                        if(Client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
                            class316.currentLoginField = 1;
                         } else {
                            class316.currentLoginField = 0;
                         }
-                     } else if((client.flags & 1024) != 0) {
+                     } else if((Client.flags & 1024) != 0) {
                         class316.loginMessage1 = "This is a <col=ffff00>High Risk<col=ffffff> world.";
                         class316.loginMessage2 = "The Protect Item prayer will";
                         class316.loginMessage3 = "not work on this world.";
                         class316.Login_response0 = "Warning!";
                         class316.loginIndex = 1;
-                        if(client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
+                        if(Client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
                            class316.currentLoginField = 1;
                         } else {
                            class316.currentLoginField = 0;
@@ -395,7 +393,7 @@ public class ClientOptions implements RSPreferences {
                         var9 = 321;
                         if(var4 == 1 && var25 >= var8 - 75 && var25 <= var8 + 75 && var18 >= var9 - 20 && var18 <= var9 + 20) {
                            class316.username = class316.username.trim();
-                           client.onUsernameChanged(-1);
+                           Client.onUsernameChanged(-1);
                            if(class316.username.length() == 0) {
                               class150.method2560("", "Please enter your username/email address.", "");
                               return;
@@ -416,7 +414,7 @@ public class ClientOptions implements RSPreferences {
                         if(var4 == 1 && var25 >= var8 - 75 && var25 <= var8 + 75 && var18 >= var9 - 20 && var18 <= var9 + 20) {
                            class316.loginIndex = 0;
                            class316.username = "";
-                           client.onUsernameChanged(-1);
+                           Client.onUsernameChanged(-1);
                            class316.password = "";
                            class228.authcode = 0;
                            class113.field82 = "";
@@ -427,8 +425,8 @@ public class ClientOptions implements RSPreferences {
                         var9 = 277;
                         class316.field1170 = var25 >= var8 && var25 < var8 + class4.field1050 && var18 >= var9 && var18 < var9 + GameCanvas.field405;
                         if(var4 == 1 && class316.field1170) {
-                           client.Login_isUsernameRemembered = !client.Login_isUsernameRemembered;
-                           if(!client.Login_isUsernameRemembered && GameEngine.options.rememberedUsername != null) {
+                           Client.Login_isUsernameRemembered = !Client.Login_isUsernameRemembered;
+                           if(!Client.Login_isUsernameRemembered && GameEngine.options.rememberedUsername != null) {
                               GameEngine.options.rememberedUsername = null;
                               PlayerEntity.method2919();
                            }
@@ -441,9 +439,9 @@ public class ClientOptions implements RSPreferences {
                            GameEngine.options.hideUsername = !GameEngine.options.hideUsername;
                            if(!GameEngine.options.hideUsername) {
                               class316.username = "";
-                              client.onUsernameChanged(-1);
+                              Client.onUsernameChanged(-1);
                               GameEngine.options.rememberedUsername = null;
-                              if(client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
+                              if(Client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
                                  class316.currentLoginField = 1;
                               } else {
                                  class316.currentLoginField = 0;
@@ -467,7 +465,7 @@ public class ClientOptions implements RSPreferences {
                               if(ChatLine.currentPressedKey == 13) {
                                  class316.loginIndex = 0;
                                  class316.username = "";
-                                 client.onUsernameChanged(-1);
+                                 Client.onUsernameChanged(-1);
                                  class316.password = "";
                                  class228.authcode = 0;
                                  class113.field82 = "";
@@ -475,7 +473,7 @@ public class ClientOptions implements RSPreferences {
                               } else if(class316.currentLoginField == 0) {
                                  if(ChatLine.currentPressedKey == 85 && class316.username.length() > 0) {
                                     class316.username = class316.username.substring(0, class316.username.length() - 1);
-                                    client.onUsernameChanged(-1);
+                                    Client.onUsernameChanged(-1);
                                  }
 
                                  if(ChatLine.currentPressedKey == 84 || ChatLine.currentPressedKey == 80) {
@@ -484,7 +482,7 @@ public class ClientOptions implements RSPreferences {
 
                                  if(var10 && class316.username.length() < 320) {
                                     class316.username = class316.username + FaceNormal.currentTypedKey;
-                                    client.onUsernameChanged(-1);
+                                    Client.onUsernameChanged(-1);
                                  }
                               } else if(class316.currentLoginField == 1) {
                                  if(ChatLine.currentPressedKey == 85 && class316.password.length() > 0) {
@@ -497,7 +495,7 @@ public class ClientOptions implements RSPreferences {
 
                                  if(ChatLine.currentPressedKey == 84) {
                                     class316.username = class316.username.trim();
-                                    client.onUsernameChanged(-1);
+                                    Client.onUsernameChanged(-1);
                                     if(class316.username.length() == 0) {
                                        class150.method2560("", "Please enter your username/email address.", "");
                                        return;
@@ -569,7 +567,7 @@ public class ClientOptions implements RSPreferences {
                            if(var4 == 1 && var25 >= var20 - 75 && var25 <= var20 + 75 && var18 >= var22 - 20 && var18 <= var22 + 20) {
                               class316.loginIndex = 0;
                               class316.username = "";
-                              client.onUsernameChanged(-1);
+                              Client.onUsernameChanged(-1);
                               class316.password = "";
                               class228.authcode = 0;
                               class113.field82 = "";
@@ -588,7 +586,7 @@ public class ClientOptions implements RSPreferences {
                               if(ChatLine.currentPressedKey == 13) {
                                  class316.loginIndex = 0;
                                  class316.username = "";
-                                 client.onUsernameChanged(-1);
+                                 Client.onUsernameChanged(-1);
                                  class316.password = "";
                                  class228.authcode = 0;
                                  class113.field82 = "";
@@ -645,7 +643,7 @@ public class ClientOptions implements RSPreferences {
                               } else {
                                  if(ChatLine.currentPressedKey == 85 && class316.username.length() > 0) {
                                     class316.username = class316.username.substring(0, class316.username.length() - 1);
-                                    client.onUsernameChanged(-1);
+                                    Client.onUsernameChanged(-1);
                                  }
 
                                  if(ChatLine.currentPressedKey == 84) {
@@ -655,7 +653,7 @@ public class ClientOptions implements RSPreferences {
 
                                  if(var23 && class316.username.length() < 320) {
                                     class316.username = class316.username + FaceNormal.currentTypedKey;
-                                    client.onUsernameChanged(-1);
+                                    Client.onUsernameChanged(-1);
                                  }
                               }
                            }
@@ -764,16 +762,15 @@ public class ClientOptions implements RSPreferences {
       garbageValue = "223122158"
    )
    static final void method6499(NPCType var0, int var1, int var2, int var3) {
-
-      if(client.menuOptionCount < 400) {
-          NPCType old = var0;
+      if(Client.menuOptionCount < 400) {
+         NPCType old = var0;
          if(var0.multiNpcs != null) {
             var0 = var0.method5837();
          }
 
          if(var0 != null) {
             if(var0.isClickable) {
-               if(!var0.isLowPriorityOps || client.field813 == var1) {
+               if(!var0.isLowPriorityOps || Client.field813 == var1) {
                   String var4 = var0.name;
                   int var7;
                   int var8;
@@ -805,18 +802,18 @@ public class ClientOptions implements RSPreferences {
                      var4 = var4 + var6 + " " + " (" + "level-" + var0.level + ")";
                   }
 
-                  if(var0.isLowPriorityOps && client.field788) {
+                  if(var0.isLowPriorityOps && Client.field788) {
                      class316.method5992("Examine", class31.method548(16776960) + var4, 1003, var1, var2, var3);
                   }
 
-                  if(client.itemSelectionState == 1) {
-                     class316.method5992("Use", client.lastSelectedItemName + " " + "->" + " " + class31.method548(16776960) + var4, 7, var1, var2, var3);
-                  } else if(client.spellSelected) {
+                  if(Client.itemSelectionState == 1) {
+                     class316.method5992("Use", Client.lastSelectedItemName + " " + "->" + " " + class31.method548(16776960) + var4, 7, var1, var2, var3);
+                  } else if(Client.spellSelected) {
                      if((FontName.ifTargetMask & 2) == 2) {
-                        class316.method5992(client.targetVerb, client.opBase + " " + "->" + " " + class31.method548(16776960) + var4, 8, var1, var2, var3);
+                        class316.method5992(Client.targetVerb, Client.opBase + " " + "->" + " " + class31.method548(16776960) + var4, 8, var1, var2, var3);
                      }
                   } else {
-                     int var10 = var0.isLowPriorityOps && client.field788?2000:0;
+                     int var10 = var0.isLowPriorityOps && Client.field788?2000:0;
                      String[] var11 = var0.ops;
                      String[] oldVar11 = old.changedOptions;
                      if(var11 != null) {
@@ -853,8 +850,8 @@ public class ClientOptions implements RSPreferences {
                         for(var7 = 4; var7 >= 0; --var7) {
                            if(var11[var7] != null && var11[var7].equalsIgnoreCase("Attack")) {
                               short var12 = 0;
-                              if(client.npcAttackOpPriority != AttackOpPriority.HIDDEN) {
-                                 if(client.npcAttackOpPriority == AttackOpPriority.UNPRIORITISED || client.npcAttackOpPriority == AttackOpPriority.COMBAT_LEVEL_BASED && var0.level > class4.localPlayer.combatLevel) {
+                              if(Client.npcAttackOpPriority != AttackOpPriority.HIDDEN) {
+                                 if(Client.npcAttackOpPriority == AttackOpPriority.UNPRIORITISED || Client.npcAttackOpPriority == AttackOpPriority.COMBAT_LEVEL_BASED && var0.level > class4.localPlayer.combatLevel) {
                                     var12 = 2000;
                                  }
 
@@ -885,7 +882,7 @@ public class ClientOptions implements RSPreferences {
                         }
                      }
 
-                     if(!var0.isLowPriorityOps || !client.field788) {
+                     if(!var0.isLowPriorityOps || !Client.field788) {
                         class316.method5992("Examine", class31.method548(16776960) + var4, 1003, var1, var2, var3);
                      }
                   }

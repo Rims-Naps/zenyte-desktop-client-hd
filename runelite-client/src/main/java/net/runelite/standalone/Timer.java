@@ -29,9 +29,9 @@ public abstract class Timer {
    static void method5394(File var0, File var1) {
       try {
          FileOnDisk var2 = new FileOnDisk(class166.cacheLocator, "rw", 10000L);
-         Buffer var3 = new Buffer(500);
-         var3.writeByte(3);
-         var3.writeByte(var1 != null?1:0);
+         Packet var3 = new Packet(500);
+         var3.method6114(3);
+         var3.method6114(var1 != null?1:0);
          var3.method6298(var0.getPath());
          if(var1 != null) {
             var3.method6298("");
@@ -78,7 +78,7 @@ public abstract class Timer {
    )
    static void method5404() {
       class316.username = class316.username.trim();
-      client.onUsernameChanged(-1);
+      Client.onUsernameChanged(-1);
       if(class316.username.length() == 0) {
          class150.method2560("Please enter your username.", "If you created your account after November", "2010, this will be the creation email address.");
       } else {

@@ -51,7 +51,7 @@ public class class96 extends CacheableNode {
       signature = "(Lgl;Lgr;S)Lgr;",
       garbageValue = "-23839"
    )
-   static final IterableHashTable method1621(Buffer var0, IterableHashTable var1) {
+   static final IterableHashTable method1621(Packet var0, IterableHashTable var1) {
       int var2 = var0.readUnsignedByte();
       int var3;
       if(var1 == null) {

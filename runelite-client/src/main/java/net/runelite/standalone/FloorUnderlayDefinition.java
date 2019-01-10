@@ -64,7 +64,7 @@ public class FloorUnderlayDefinition extends CacheableNode {
       signature = "(Lgl;IB)V",
       garbageValue = "2"
    )
-   void method5041(Buffer var1, int var2) {
+   void method5041(Packet var1, int var2) {
       while(true) {
          int var3 = var1.readUnsignedByte();
          if(var3 == 0) {
@@ -80,7 +80,7 @@ public class FloorUnderlayDefinition extends CacheableNode {
       signature = "(Lgl;III)V",
       garbageValue = "-325585794"
    )
-   void method5028(Buffer var1, int var2, int var3) {
+   void method5028(Packet var1, int var2, int var3) {
       if(var2 == 1) {
          this.rgbColor = var1.method6082();
       }

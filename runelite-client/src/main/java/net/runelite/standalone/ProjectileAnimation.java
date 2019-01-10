@@ -176,13 +176,42 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
       return this.interacting;
    }
 
+   public int getId() {
+      return this.id;
+   }
+
    public void projectileMoved(int var1, int var2, int var3, int var4) {
-      LocalPoint var5 = new LocalPoint(var1, var2);
-      ProjectileMoved var6 = new ProjectileMoved();
-      var6.setProjectile(this);
-      var6.setPosition(var5);
-      var6.setZ(var3);
-      class166.clientInstance.getCallbacks().post(var6);
+      int var5 = this.getId();
+      switch(var5) {
+      case 280:
+      case 315:
+      case 319:
+      case 366:
+      case 501:
+      case 551:
+      case 660:
+      case 1260:
+      case 1293:
+      case 1324:
+      case 1327:
+      case 1329:
+      case 1435:
+      case 1445:
+      case 1481:
+      case 1482:
+      case 1483:
+      case 1484:
+      case 1491:
+      case 1495:
+         return;
+      default:
+         LocalPoint var6 = new LocalPoint(var1, var2);
+         ProjectileMoved var7 = new ProjectileMoved();
+         var7.setProjectile(this);
+         var7.setPosition(var6);
+         var7.setZ(var3);
+         class166.clientInstance.getCallbacks().post(var7);
+      }
    }
 
    public int getEndCycle() {
@@ -214,10 +243,6 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
             }
          }
       }
-   }
-
-   public int getId() {
-      return this.id;
    }
 
    public int getFloor() {
@@ -330,7 +355,7 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
    )
    static class106 method5593(byte[] var0) {
       class106 var1 = new class106();
-      Buffer var2 = new Buffer(var0);
+      Packet var2 = new Packet(var0);
       var2.offset = var2.payload.length - 2;
       int var3 = var2.method6080();
       int var4 = var2.payload.length - 2 - var3 - 12;
@@ -385,9 +410,9 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
       garbageValue = "-48774980"
    )
    static final void method5594() {
-      for(int var0 = 0; var0 < client.highResolutionNpcCount; ++var0) {
-         int var1 = client.highResolutionNpcIndexes[var0];
-         NPCEntity var2 = client.npcs[var1];
+      for(int var0 = 0; var0 < Client.highResolutionNpcCount; ++var0) {
+         int var1 = Client.highResolutionNpcIndexes[var0];
+         NPCEntity var2 = Client.npcs[var1];
          if(var2 != null) {
             AuthProt.method1671(var2, var2.type.size);
          }
@@ -416,6 +441,6 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
          }
       }
 
-      client.copy$processClientError(var0, var1, var2);
+      Client.copy$processClientError(var0, var1, var2);
    }
 }

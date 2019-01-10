@@ -24,7 +24,7 @@ public class class254 {
    @ObfuscatedSignature(
       signature = "Lgl;"
    )
-   static Buffer messageBuffer;
+   static Packet messageBuffer;
    @ObfuscatedName("m")
    static int[] facingEntities;
    @ObfuscatedName("p")
@@ -37,7 +37,7 @@ public class class254 {
    @ObfuscatedSignature(
       signature = "[Lgl;"
    )
-   static Buffer[] appearances;
+   static Packet[] appearances;
    @ObfuscatedName("i")
    static int[] coords;
    @ObfuscatedName("d")
@@ -51,7 +51,7 @@ public class class254 {
    static {
       skipHistory = new byte[2048];
       moveSpeeds = new byte[2048];
-      appearances = new Buffer[2048];
+      appearances = new Packet[2048];
       highResolutionPlayerCount = 0;
       highResolutionPlayerIndexes = new int[2048];
       lowResolutionPlayerCount = 0;
@@ -61,6 +61,6 @@ public class class254 {
       facingEntities = new int[2048];
       extendedInfoPlayerCount = 0;
       extendedInfoPlayerIndexes = new int[2048];
-      messageBuffer = new Buffer(new byte[5000]);
+      messageBuffer = new Packet(new byte[5000]);
    }
 }

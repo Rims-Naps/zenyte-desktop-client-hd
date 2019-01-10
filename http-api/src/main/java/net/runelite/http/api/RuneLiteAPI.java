@@ -92,7 +92,7 @@ public class RuneLiteAPI
 	}
 
 	public static String getVersion() {
-		String version = "1.5.6-SNAPSHOT";
+		String version = "1.5.8-SNAPSHOT";
 		try {
 			Document document = Jsoup.connect("https://raw.githubusercontent.com/runelite/runelite/master/http-api/pom.xml").get();
 			version = document.select("parent").select("version").text();

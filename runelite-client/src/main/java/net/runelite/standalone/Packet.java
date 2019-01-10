@@ -7,7 +7,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSBuffer;
 
 @ObfuscatedName("gl")
-public class Buffer extends Node implements RSBuffer {
+public class Packet extends Node implements RSBuffer {
    @ObfuscatedName("e")
    static int[] crc32Table;
    @ObfuscatedName("m")
@@ -63,12 +63,12 @@ public class Buffer extends Node implements RSBuffer {
 
    }
 
-   public Buffer(int var1) {
+   public Packet(int var1) {
       this.payload = ChatLineBuffer.method1943(var1);
       this.offset = 0;
    }
 
-   public Buffer(byte[] var1) {
+   public Packet(byte[] var1) {
       this.payload = var1;
       this.offset = 0;
    }
@@ -94,8 +94,8 @@ public class Buffer extends Node implements RSBuffer {
          }
 
          this.offset -= 8;
-         this.writeInt(var4);
-         this.writeInt(var5);
+         this.method6230(var4);
+         this.method6230(var5);
       }
 
    }
@@ -153,7 +153,7 @@ public class Buffer extends Node implements RSBuffer {
       signature = "(II)V",
       garbageValue = "-1645531027"
    )
-   public void writeByteC(int var1) {
+   public void method6105(int var1) {
       this.payload[++this.offset - 1] = (byte)(0 - var1);
    }
 
@@ -213,7 +213,7 @@ public class Buffer extends Node implements RSBuffer {
       signature = "(IB)V",
       garbageValue = "40"
    )
-   public void writeByte(int var1) {
+   public void method6114(int var1) {
       this.payload[++this.offset - 1] = (byte)var1;
    }
 
@@ -268,7 +268,7 @@ public class Buffer extends Node implements RSBuffer {
       signature = "(IB)V",
       garbageValue = "-67"
    )
-   public void method6075(int var1) {
+   public void writeByte(int var1) {
       this.payload[this.offset - var1 - 1] = (byte)var1;
    }
 
@@ -301,7 +301,7 @@ public class Buffer extends Node implements RSBuffer {
       signature = "(II)V",
       garbageValue = "-1271900923"
    )
-   public void writeShort(int var1) {
+   public void method6063(int var1) {
       this.payload[++this.offset - 1] = (byte)(var1 >> 8);
       this.payload[++this.offset - 1] = (byte)var1;
    }
@@ -330,7 +330,7 @@ public class Buffer extends Node implements RSBuffer {
       signature = "(Ljava/lang/String;I)V",
       garbageValue = "1492135448"
    )
-   public void writeString(String var1) {
+   public void method6198(String var1) {
       int var2 = var1.indexOf(0);
       if(var2 >= 0) {
          throw new IllegalArgumentException("");
@@ -357,7 +357,7 @@ public class Buffer extends Node implements RSBuffer {
       signature = "(I)I",
       garbageValue = "-106999200"
    )
-   public int readUnsignedByteC() {
+   public int method6108() {
       return 0 - this.payload[++this.offset - 1] & 255;
    }
 
@@ -433,7 +433,7 @@ public class Buffer extends Node implements RSBuffer {
       signature = "(I)B",
       garbageValue = "2043532631"
    )
-   public byte method6240() {
+   public byte readByte() {
       return this.payload[++this.offset - 1];
    }
 
@@ -551,8 +551,8 @@ public class Buffer extends Node implements RSBuffer {
          }
 
          this.offset -= 8;
-         this.writeInt(var7);
-         this.writeInt(var8);
+         this.method6230(var7);
+         this.method6230(var8);
       }
 
       this.offset = var4;
@@ -572,7 +572,7 @@ public class Buffer extends Node implements RSBuffer {
       BigInteger var6 = var5.modPow(var1, var2);
       byte[] var7 = var6.toByteArray();
       this.offset = 0;
-      this.writeShort(var7.length);
+      this.method6063(var7.length);
       this.method6072(var7, 0, var7.length);
    }
 
@@ -619,7 +619,7 @@ public class Buffer extends Node implements RSBuffer {
       signature = "(II)V",
       garbageValue = "1639292109"
    )
-   public void writeInt(int var1) {
+   public void method6230(int var1) {
       this.payload[++this.offset - 1] = (byte)(var1 >> 24);
       this.payload[++this.offset - 1] = (byte)(var1 >> 16);
       this.payload[++this.offset - 1] = (byte)(var1 >> 8);
@@ -655,19 +655,19 @@ public class Buffer extends Node implements RSBuffer {
          if((var1 & -16384) != 0) {
             if((var1 & -2097152) != 0) {
                if((var1 & -268435456) != 0) {
-                  this.writeByte(var1 >>> 28 | 128);
+                  this.method6114(var1 >>> 28 | 128);
                }
 
-               this.writeByte(var1 >>> 21 | 128);
+               this.method6114(var1 >>> 21 | 128);
             }
 
-            this.writeByte(var1 >>> 14 | 128);
+            this.method6114(var1 >>> 14 | 128);
          }
 
-         this.writeByte(var1 >>> 7 | 128);
+         this.method6114(var1 >>> 7 | 128);
       }
 
-      this.writeByte(var1 & 127);
+      this.method6114(var1 & 127);
    }
 
    @ObfuscatedName("am")
@@ -692,8 +692,8 @@ public class Buffer extends Node implements RSBuffer {
          }
 
          this.offset -= 8;
-         this.writeInt(var7);
-         this.writeInt(var8);
+         this.method6230(var7);
+         this.method6230(var8);
       }
 
       this.offset = var4;
@@ -735,7 +735,7 @@ public class Buffer extends Node implements RSBuffer {
       garbageValue = "10410"
    )
    public void method6127(boolean var1) {
-      this.writeByte(var1?1:0);
+      this.method6114(var1?1:0);
    }
 
    @ObfuscatedName("ar")
@@ -798,9 +798,9 @@ public class Buffer extends Node implements RSBuffer {
    )
    public void method6068(int var1) {
       if(var1 >= 0 && var1 < 128) {
-         this.writeByte(var1);
+         this.method6114(var1);
       } else if(var1 >= 0 && var1 < 32768) {
-         this.writeShort(var1 + 32768);
+         this.method6063(var1 + 32768);
       } else {
          throw new IllegalArgumentException();
       }
@@ -847,7 +847,7 @@ public class Buffer extends Node implements RSBuffer {
    )
    public int method6059(int var1) {
       int var2 = NPCEntity.method2151(this.payload, var1, this.offset);
-      this.writeInt(var2);
+      this.method6230(var2);
       return var2;
    }
 
@@ -996,8 +996,8 @@ public class Buffer extends Node implements RSBuffer {
          }
 
          this.offset -= 8;
-         this.writeInt(var4);
-         this.writeInt(var5);
+         this.method6230(var4);
+         this.method6230(var5);
       }
 
    }

@@ -233,9 +233,9 @@ public final class KeyFocusListener implements KeyListener, FocusListener, RSKey
          if(var0.interacting != -1) {
             Object var1 = null;
             if(var0.interacting < 32768) {
-               var1 = client.npcs[var0.interacting];
+               var1 = Client.npcs[var0.interacting];
             } else if(var0.interacting >= 32768) {
-               var1 = client.players[var0.interacting - 32768];
+               var1 = Client.players[var0.interacting - 32768];
             }
 
             if(var1 != null) {

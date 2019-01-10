@@ -146,7 +146,7 @@ public class class112 extends Node {
          byte[] var2 = class92.field2355.method1516(32, var0, 1789634852);
          var1 = new HitmarkType();
          if(var2 != null) {
-            var1.method2206(new Buffer(var2));
+            var1.method2206(new Packet(var2));
          }
 
          HitmarkType.hitmarkTypeCache.method957(var1, (long)var0);

@@ -38,7 +38,7 @@ public class FileRequest extends CacheableNode {
          var1 = new NPCType();
          var1.id = var0;
          if(var2 != null) {
-            var1.method5857(new Buffer(var2));
+            var1.method5857(new Packet(var2));
          }
 
          var1.method5832();

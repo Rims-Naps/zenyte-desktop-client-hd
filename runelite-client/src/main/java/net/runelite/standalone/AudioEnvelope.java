@@ -42,7 +42,7 @@ public class AudioEnvelope {
    @ObfuscatedSignature(
       signature = "(Lgl;)V"
    )
-   final void method2168(Buffer var1) {
+   final void method2168(Packet var1) {
       this.segments = var1.readUnsignedByte();
       this.durations = new int[this.segments];
       this.phases = new int[this.segments];
@@ -86,7 +86,7 @@ public class AudioEnvelope {
    @ObfuscatedSignature(
       signature = "(Lgl;)V"
    )
-   final void method2171(Buffer var1) {
+   final void method2171(Packet var1) {
       this.form = var1.readUnsignedByte();
       this.start = var1.method6201();
       this.end = var1.method6201();

@@ -28,7 +28,7 @@ public class GZipDecompressor {
       signature = "(Lgl;[BB)V",
       garbageValue = "4"
    )
-   public void method5445(Buffer var1, byte[] var2) {
+   public void method5445(Packet var1, byte[] var2) {
       if(var1.payload[var1.offset] == 31 && var1.payload[var1.offset + 1] == -117) {
          if(this.inflator == null) {
             this.inflator = new Inflater(true);

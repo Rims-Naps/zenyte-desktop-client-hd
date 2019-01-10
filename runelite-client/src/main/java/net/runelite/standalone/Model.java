@@ -1,5 +1,9 @@
 package net.runelite.standalone;
 
+import java.awt.Polygon;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.LocalPoint;
@@ -12,11 +16,6 @@ import net.runelite.rs.api.RSFrame;
 import net.runelite.rs.api.RSFrameMap;
 import net.runelite.rs.api.RSFrames;
 import net.runelite.rs.api.RSModel;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 @ObfuscatedName("dl")
 public class Model extends Entity implements RSModel {
@@ -359,9 +358,9 @@ public class Model extends Entity implements RSModel {
    @ObfuscatedSignature(
       signature = "(Lel;ILel;I[I)V"
    )
-   public void method5470(Frames var1, int var2, Frames var3, int var4, int[] flowControl) {
+   public void method5470(Frames var1, int var2, Frames var3, int var4, int[] var5) {
       if(var2 != -1) {
-         if(flowControl != null && var4 != -1) {
+         if(var5 != null && var4 != -1) {
             Frame var6 = var1.skeletons[var2];
             Frame var7 = var3.skeletons[var4];
             FrameMap var8 = var6.skin;
@@ -370,12 +369,12 @@ public class Model extends Entity implements RSModel {
             animOffsetZ = 0;
             byte var9 = 0;
             int var13 = var9 + 1;
-            int var10 = flowControl[var9];
+            int var10 = var5[var9];
 
             int var11;
             int var12;
             for(var11 = 0; var11 < var6.transformCount; ++var11) {
-               for(var12 = var6.transformTypes[var11]; var12 > var10; var10 = flowControl[var13++]) {
+               for(var12 = var6.transformTypes[var11]; var12 > var10; var10 = var5[var13++]) {
                   ;
                }
 
@@ -389,10 +388,10 @@ public class Model extends Entity implements RSModel {
             animOffsetZ = 0;
             var9 = 0;
             var13 = var9 + 1;
-            var10 = flowControl[var9];
+            var10 = var5[var9];
 
             for(var11 = 0; var11 < var7.transformCount; ++var11) {
-               for(var12 = var7.transformTypes[var11]; var12 > var10; var10 = flowControl[var13++]) {
+               for(var12 = var7.transformTypes[var11]; var12 > var10; var10 = var5[var13++]) {
                   ;
                }
 
@@ -461,24 +460,7 @@ public class Model extends Entity implements RSModel {
                var12 = modelViewportYs[var9];
                var13 = modelViewportYs[var10];
                int var14;
-               if(!var1 || var11 != -5000 && var12 != -5000 && var13 != -5000) {
-                  if(var2 && UnitPriceComparator.method547(modelViewportXs[var8], modelViewportXs[var9], modelViewportXs[var10], var11, var12, var13, var6)) {
-                     class195.field1714[++class195.Viewport_entityCountAtMouse - 1] = var4;
-                     var2 = false;
-                  }
-
-                  if((var11 - var12) * (modelViewportXs[var10] - modelViewportXs[var9]) - (var13 - var12) * (modelViewportXs[var8] - modelViewportXs[var9]) > 0) {
-                     field1678[var7] = false;
-                     if(var11 >= 0 && var12 >= 0 && var13 >= 0 && var11 <= Graphics3D.rasterClipX && var12 <= Graphics3D.rasterClipX && var13 <= Graphics3D.rasterClipX) {
-                        field1677[var7] = false;
-                     } else {
-                        field1677[var7] = true;
-                     }
-
-                     var14 = (field1681[var8] + field1681[var9] + field1681[var10]) / 3 + this.radius;
-                     field1689[var14][field1686[var14]++] = var7;
-                  }
-               } else {
+               if(var1 && (var11 == -5000 || var12 == -5000 || var13 == -5000)) {
                   var14 = yViewportBuffer[var8];
                   var15 = yViewportBuffer[var9];
                   var16 = yViewportBuffer[var10];
@@ -501,6 +483,23 @@ public class Model extends Entity implements RSModel {
                      field1678[var7] = true;
                      int var26 = (field1681[var8] + field1681[var9] + field1681[var10]) / 3 + this.radius;
                      field1689[var26][field1686[var26]++] = var7;
+                  }
+               } else {
+                  if(var2 && UnitPriceComparator.method547(modelViewportXs[var8], modelViewportXs[var9], modelViewportXs[var10], var11, var12, var13, var6)) {
+                     class195.field1714[++class195.Viewport_entityCountAtMouse - 1] = var4;
+                     var2 = false;
+                  }
+
+                  if((var11 - var12) * (modelViewportXs[var10] - modelViewportXs[var9]) - (var13 - var12) * (modelViewportXs[var8] - modelViewportXs[var9]) > 0) {
+                     field1678[var7] = false;
+                     if(var11 >= 0 && var12 >= 0 && var13 >= 0 && var11 <= Graphics3D.rasterClipX && var12 <= Graphics3D.rasterClipX && var13 <= Graphics3D.rasterClipX) {
+                        field1677[var7] = false;
+                     } else {
+                        field1677[var7] = true;
+                     }
+
+                     var14 = (field1681[var8] + field1681[var9] + field1681[var10]) / 3 + this.radius;
+                     field1689[var14][field1686[var14]++] = var7;
                   }
                }
             }

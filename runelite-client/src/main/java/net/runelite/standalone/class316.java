@@ -21,7 +21,7 @@ public class class316 {
    @ObfuscatedSignature(
       signature = "Lls;"
    )
-   public static SpritePixels leftBackground;
+   static SpritePixels leftBackground;
    @ObfuscatedName("bm")
    static boolean worldSelectShown;
    @ObfuscatedName("r")
@@ -82,7 +82,7 @@ public class class316 {
    @ObfuscatedSignature(
       signature = "Lls;"
    )
-   public static SpritePixels rightBackground;
+   static SpritePixels rightBackground;
    @ObfuscatedName("aj")
    @ObfuscatedGetter(
       intValue = -2026203849
@@ -106,7 +106,7 @@ public class class316 {
    @ObfuscatedSignature(
       signature = "Lgl;"
    )
-   static Buffer NetCache_reference;
+   static Packet NetCache_reference;
    @ObfuscatedName("ah")
    @ObfuscatedSignature(
       signature = "Llc;"

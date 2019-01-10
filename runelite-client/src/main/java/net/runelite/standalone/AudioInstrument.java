@@ -129,7 +129,7 @@ public class AudioInstrument {
    @ObfuscatedSignature(
       signature = "(Lgl;)V"
    )
-   final void method426(Buffer var1) {
+   final void method426(Packet var1) {
       this.pitch = new AudioEnvelope();
       this.pitch.method2171(var1);
       this.volume = new AudioEnvelope();

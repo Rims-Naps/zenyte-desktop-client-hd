@@ -41,7 +41,7 @@ public class class36 extends class127 {
       signature = "(Liu;IIB)Lls;"
    )
    public static SpritePixels method576(Js5Index var0, int var1, int var2, byte var3) {
-      net.runelite.api.SpritePixels var4 = (net.runelite.api.SpritePixels)client.spriteOverrides.get(Integer.valueOf(var1));
-      return var4 != null?(SpritePixels)((RSSpritePixels)var4):(SpritePixels)client.copy$getSpriteAsSpritePixels(var0, var1, var2, var3);
+      net.runelite.api.SpritePixels var4 = (net.runelite.api.SpritePixels)Client.spriteOverrides.get(Integer.valueOf(var1));
+      return var4 != null?(SpritePixels)((RSSpritePixels)var4):(SpritePixels)Client.copy$getSpriteAsSpritePixels(var0, var1, var2, var3);
    }
 }

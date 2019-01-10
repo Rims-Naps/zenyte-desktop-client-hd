@@ -22,7 +22,7 @@ public class class124 extends WorldMapData {
       signature = "(Lgl;Lgl;Lgl;IZI)V",
       garbageValue = "674403176"
    )
-   void method2088(Buffer var1, Buffer var2, Buffer var3, int var4, boolean var5) {
+   void method2088(Packet var1, Packet var2, Packet var3, int var4, boolean var5) {
       this.method999(var1, var4);
       int var6 = var3.method6080();
       this.field327 = new HashSet(var6);
@@ -63,7 +63,7 @@ public class class124 extends WorldMapData {
       signature = "(Lgl;ZB)V",
       garbageValue = "101"
    )
-   void method2089(Buffer var1, boolean var2) {
+   void method2089(Packet var1, boolean var2) {
       this.field326 = new LinkedList();
       int var3 = var1.method6080();
 

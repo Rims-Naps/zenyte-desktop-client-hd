@@ -263,17 +263,17 @@ public final class NPCEntity extends PathingEntity implements RSNPC {
    )
    static final void method2165(boolean var0) {
       class76.method1147();
-      ++client.serverConnection.field1288;
-      if(client.serverConnection.field1288 >= 50 || var0) {
-         client.serverConnection.field1288 = 0;
-         if(!client.socketError && client.serverConnection.method5880() != null) {
-            TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2224, client.serverConnection.isaac);
-            client.serverConnection.method5881(var1);
+      ++Client.serverConnection.field1288;
+      if(Client.serverConnection.field1288 >= 50 || var0) {
+         Client.serverConnection.field1288 = 0;
+         if(!Client.socketError && Client.serverConnection.method5880() != null) {
+            TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2224, Client.serverConnection.isaac);
+            Client.serverConnection.method5881(var1);
 
             try {
-               client.serverConnection.method5875();
+               Client.serverConnection.method5875();
             } catch (IOException var3) {
-               client.socketError = true;
+               Client.socketError = true;
             }
          }
 
@@ -289,7 +289,7 @@ public final class NPCEntity extends PathingEntity implements RSNPC {
       int var3 = -1;
 
       for(int var4 = var1; var4 < var2; ++var4) {
-         var3 = var3 >>> 8 ^ Buffer.crc32Table[(var3 ^ var0[var4]) & 255];
+         var3 = var3 >>> 8 ^ Packet.crc32Table[(var3 ^ var0[var4]) & 255];
       }
 
       var3 = ~var3;

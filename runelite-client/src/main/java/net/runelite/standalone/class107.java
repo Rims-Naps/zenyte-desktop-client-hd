@@ -1,10 +1,9 @@
 package net.runelite.standalone;
 
+import java.net.URL;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-
-import java.net.URL;
 
 @ObfuscatedName("m")
 public class class107 {
@@ -29,14 +28,14 @@ public class class107 {
       garbageValue = "442724531"
    )
    static final void method1888(boolean var0, Bit var1) {
-      client.isDynamicRegion = var0;
+      Client.isDynamicRegion = var0;
       int var2;
       int var3;
       int var5;
       int var6;
       int var7;
       int var8;
-      if(!client.isDynamicRegion) {
+      if(!Client.isDynamicRegion) {
          var2 = var1.method6101();
          var3 = var1.method6117();
          int var4 = var1.method6080();
@@ -80,7 +79,7 @@ public class class107 {
       } else {
          var2 = var1.method6117();
          var3 = var1.method6101();
-         boolean forceRefresh = var1.readUnsignedByte() == 1;
+         boolean var15 = var1.readUnsignedByte() == 1;
          var5 = var1.method6080();
          var1.method2837();
 
@@ -90,9 +89,9 @@ public class class107 {
                for(var8 = 0; var8 < 13; ++var8) {
                   var9 = var1.method2833(1);
                   if(var9 == 1) {
-                     client.instanceTemplateChunks[var6][var7][var8] = var1.method2833(26);
+                     Client.instanceTemplateChunks[var6][var7][var8] = var1.method2833(26);
                   } else {
-                     client.instanceTemplateChunks[var6][var7][var8] = -1;
+                     Client.instanceTemplateChunks[var6][var7][var8] = -1;
                   }
                }
             }
@@ -117,7 +116,7 @@ public class class107 {
          for(var6 = 0; var6 < 4; ++var6) {
             for(var7 = 0; var7 < 13; ++var7) {
                for(var8 = 0; var8 < 13; ++var8) {
-                  var9 = client.instanceTemplateChunks[var6][var7][var8];
+                  var9 = Client.instanceTemplateChunks[var6][var7][var8];
                   if(var9 != -1) {
                      int var10 = var9 >> 14 & 1023;
                      int var11 = var9 >> 3 & 2047;
@@ -144,7 +143,7 @@ public class class107 {
             }
          }
 
-         Signlink.method4454(var3, var2, !forceRefresh);
+         Signlink.method4454(var3, var2, !var15);
       }
 
    }
@@ -160,7 +159,7 @@ public class class107 {
             World.listFetcher = class208.urlRequester.method4079(new URL(FileOnDisk.field1496));
          } else if(World.listFetcher.method5569()) {
             byte[] var0 = World.listFetcher.method5564();
-            Buffer var1 = new Buffer(var0);
+            Packet var1 = new Packet(var0);
             var1.method6201();
             World.worldCount = var1.method6080();
             World.worldList = new World[World.worldCount];

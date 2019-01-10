@@ -318,21 +318,21 @@ public class PlayerComposition implements RSPlayerComposition {
       signature = "(Lgl;I)V",
       garbageValue = "-1388801683"
    )
-   public void method623(Buffer var1) {
-      var1.writeByte(this.isFemale?1:0);
+   public void method623(Packet var1) {
+      var1.method6114(this.isFemale?1:0);
 
       int var2;
       for(var2 = 0; var2 < 7; ++var2) {
          int var3 = this.equipmentIds[field2644[var2]];
          if(var3 == 0) {
-            var1.writeByte(-1);
+            var1.method6114(-1);
          } else {
-            var1.writeByte(var3 - 256);
+            var1.method6114(var3 - 256);
          }
       }
 
       for(var2 = 0; var2 < 5; ++var2) {
-         var1.writeByte(this.bodyPartColours[var2]);
+         var1.method6114(this.bodyPartColours[var2]);
       }
 
    }

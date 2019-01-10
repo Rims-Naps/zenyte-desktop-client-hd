@@ -40,7 +40,7 @@ public class class196 extends Node {
       this.field2606 = new class43[128];
       this.field2607 = new byte[128];
       this.field2608 = new int[128];
-      Buffer var2 = new Buffer(var1);
+      Packet var2 = new Packet(var1);
 
       int var3;
       for(var3 = 0; var2.payload[var3 + var2.offset] != 0; ++var3) {
@@ -51,7 +51,7 @@ public class class196 extends Node {
 
       int var5;
       for(var5 = 0; var5 < var3; ++var5) {
-         var4[var5] = var2.method6240();
+         var4[var5] = var2.readByte();
       }
 
       ++var2.offset;
@@ -68,7 +68,7 @@ public class class196 extends Node {
 
       int var8;
       for(var8 = 0; var8 < var6; ++var8) {
-         var7[var8] = var2.method6240();
+         var7[var8] = var2.readByte();
       }
 
       ++var2.offset;
@@ -84,7 +84,7 @@ public class class196 extends Node {
       byte[] var10 = new byte[var9];
 
       for(int var11 = 0; var11 < var9; ++var11) {
-         var10[var11] = var2.method6240();
+         var10[var11] = var2.readByte();
       }
 
       ++var2.offset;
@@ -146,7 +146,7 @@ public class class196 extends Node {
 
       int var19;
       for(var19 = 0; var19 < var17; ++var19) {
-         var18[var19] = var2.method6240();
+         var18[var19] = var2.readByte();
       }
 
       ++var2.offset;
@@ -281,26 +281,26 @@ public class class196 extends Node {
          var28 = var39[var27];
          if(var28.field2521 != null) {
             for(var29 = 1; var29 < var28.field2521.length; var29 += 2) {
-               var28.field2521[var29] = var2.method6240();
+               var28.field2521[var29] = var2.readByte();
             }
          }
 
          if(var28.field2524 != null) {
             for(var29 = 3; var29 < var28.field2524.length - 2; var29 += 2) {
-               var28.field2524[var29] = var2.method6240();
+               var28.field2524[var29] = var2.readByte();
             }
          }
       }
 
       if(var47 != null) {
          for(var27 = 1; var27 < var47.length; var27 += 2) {
-            var47[var27] = var2.method6240();
+            var47[var27] = var2.readByte();
          }
       }
 
       if(var41 != null) {
          for(var27 = 1; var27 < var41.length; var27 += 2) {
-            var41[var27] = var2.method6240();
+            var41[var27] = var2.readByte();
          }
       }
 
@@ -552,7 +552,7 @@ public class class196 extends Node {
          Timer.method5401(var1.children, var1.id, var3, var4, var2);
       }
 
-      SubInterface var5 = (SubInterface)client.subInterfaces.method380((long)var1.id);
+      SubInterface var5 = (SubInterface)Client.subInterfaces.method380((long)var1.id);
       if(var5 != null) {
          WorldMapManager.method904(var5.id, var3, var4, var2);
       }
@@ -620,100 +620,100 @@ public class class196 extends Node {
                var3 = 0;
             }
 
-            if(var3 != client.field877) {
-               if(client.field877 == 0 && client.field878 != -1) {
-                  class139.method2413(ServerProt.music, client.field878, 0, var3, false);
-                  client.field879 = false;
+            if(var3 != Client.field877) {
+               if(Client.field877 == 0 && Client.field878 != -1) {
+                  class139.method2413(ServerProt.music, Client.field878, 0, var3, false);
+                  Client.field879 = false;
                } else if(var3 == 0) {
                   WorldMapRegion.method4152();
-                  client.field879 = false;
+                  Client.field879 = false;
                } else {
                   DecorativeObject.method5024(var3);
                }
 
-               client.field877 = var3;
+               Client.field877 = var3;
             }
          }
 
          if(var1 == 4) {
             if(var2 == 0) {
-               client.field888 = 127;
+               Client.field888 = 127;
             }
 
             if(var2 == 1) {
-               client.field888 = 96;
+               Client.field888 = 96;
             }
 
             if(var2 == 2) {
-               client.field888 = 64;
+               Client.field888 = 64;
             }
 
             if(var2 == 3) {
-               client.field888 = 32;
+               Client.field888 = 32;
             }
 
             if(var2 == 4) {
-               client.field888 = 0;
+               Client.field888 = 0;
             }
          }
 
          if(var1 == 5) {
-            client.field866 = var2;
+            Client.field866 = var2;
          }
 
          if(var1 == 6) {
-            client.field807 = var2;
+            Client.field807 = var2;
          }
 
          if(var1 == 9) {
-            client.field808 = var2;
+            Client.field808 = var2;
          }
 
          if(var1 == 10) {
             if(var2 == 0) {
-               client.field881 = 127;
+               Client.field881 = 127;
             }
 
             if(var2 == 1) {
-               client.field881 = 96;
+               Client.field881 = 96;
             }
 
             if(var2 == 2) {
-               client.field881 = 64;
+               Client.field881 = 64;
             }
 
             if(var2 == 3) {
-               client.field881 = 32;
+               Client.field881 = 32;
             }
 
             if(var2 == 4) {
-               client.field881 = 0;
+               Client.field881 = 0;
             }
          }
 
          if(var1 == 17) {
-            client.field813 = var2 & 65535;
+            Client.field813 = var2 & 65535;
          }
 
          if(var1 == 18) {
-            client.playerAttackOpPriority = (AttackOpPriority)class2.method20(class2.method16(), var2);
-            if(client.playerAttackOpPriority == null) {
-               client.playerAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
+            Client.playerAttackOpPriority = (AttackOpPriority)class2.method20(class2.method16(), var2);
+            if(Client.playerAttackOpPriority == null) {
+               Client.playerAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
             }
          }
 
          if(var1 == 19) {
             if(var2 == -1) {
-               client.field769 = -1;
+               Client.field769 = -1;
             } else {
-               client.field769 = var2 & 2047;
+               Client.field769 = var2 & 2047;
             }
          }
 
          if(var1 == 22) {
-            client.npcAttackOpPriority = (AttackOpPriority)class2.method20(class2.method16(), var2);
-            if(client.npcAttackOpPriority == null) {
-               client.npcAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
+            Client.npcAttackOpPriority = (AttackOpPriority)class2.method20(class2.method16(), var2);
+            if(Client.npcAttackOpPriority == null) {
+               Client.npcAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
             }
          }
 

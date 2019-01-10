@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Shape;
+import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.awt.image.DirectColorModel;
@@ -87,9 +88,9 @@ public final class MainBufferProvider extends BufferProvider implements RSMainBu
       if(class166.clientInstance.isGpu()) {
          int[] var4 = this.getPixels();
          DataBufferInt var5 = new DataBufferInt(var4, var4.length);
-         DirectColorModel var6 = new DirectColorModel(32, 16711680, 65280, 255, -16777216);
+         DirectColorModel var6 = new DirectColorModel(ColorSpace.getInstance(1000), 32, 16711680, 65280, 255, -16777216, true, 3);
          WritableRaster var7 = Raster.createWritableRaster(var6.createCompatibleSampleModel(var1, var2), var5, (Point)null);
-         BufferedImage var8 = new BufferedImage(var6, var7, false, new Hashtable());
+         BufferedImage var8 = new BufferedImage(var6, var7, true, new Hashtable());
          this.setImage(var8);
       }
    }

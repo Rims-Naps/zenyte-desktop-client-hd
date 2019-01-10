@@ -70,7 +70,7 @@ public abstract class class310 {
       signature = "(IILgl;IB)V",
       garbageValue = "104"
    )
-   void method5903(int var1, int var2, Buffer var3, int var4) {
+   void method5903(int var1, int var2, Packet var3, int var4) {
       int var5 = ((var4 & 24) >> 3) + 1;
       boolean var6 = (var4 & 2) != 0;
       boolean var7 = (var4 & 4) != 0;
@@ -114,7 +114,7 @@ public abstract class class310 {
       signature = "(IILgl;I)V",
       garbageValue = "-979754326"
    )
-   void method5901(int var1, int var2, Buffer var3) {
+   void method5901(int var1, int var2, Packet var3) {
       int var4 = var3.readUnsignedByte();
       if(var4 != 0) {
          if((var4 & 1) != 0) {
@@ -131,7 +131,7 @@ public abstract class class310 {
       signature = "(IILgl;II)V",
       garbageValue = "-109374768"
    )
-   void method5921(int var1, int var2, Buffer var3, int var4) {
+   void method5921(int var1, int var2, Packet var3, int var4) {
       boolean var5 = (var4 & 2) != 0;
       if(var5) {
          this.field153[0][var1][var2] = (short)var3.readUnsignedByte();
@@ -164,16 +164,16 @@ public abstract class class310 {
       garbageValue = "-1194677662"
    )
    static void method5922(int var0) {
-      if(var0 != client.gameState) {
-         if(client.gameState == 0) {
+      if(var0 != Client.gameState) {
+         if(Client.gameState == 0) {
             class166.clientInstance.method2998();
          }
 
          if(var0 == 20 || var0 == 40 || var0 == 45) {
-            client.loginState = 0;
-            client.field678 = 0;
-            client.field679 = 0;
-            client.field904.method2491(var0);
+            Client.loginState = 0;
+            Client.field678 = 0;
+            Client.field679 = 0;
+            Client.field904.method2491(var0);
             if(var0 != 20) {
                WorldMapManager.method945(false);
             }
@@ -184,17 +184,17 @@ public abstract class class310 {
             class60.field524 = null;
          }
 
-         if(client.gameState == 25) {
-            client.field700 = 0;
-            client.field696 = 0;
-            client.field697 = 1;
-            client.field753 = 0;
-            client.field909 = 1;
+         if(Client.gameState == 25) {
+            Client.field700 = 0;
+            Client.field696 = 0;
+            Client.field697 = 1;
+            Client.field753 = 0;
+            Client.field909 = 1;
          }
 
          if(var0 != 5 && var0 != 10) {
             if(var0 == 20) {
-               WorldMapData.method1054(Size.binary, JagException.sprites, true, client.gameState == 11?4:0);
+               WorldMapData.method1054(Size.binary, JagException.sprites, true, Client.gameState == 11?4:0);
             } else if(var0 == 11) {
                WorldMapData.method1054(Size.binary, JagException.sprites, false, 4);
             } else if(class316.field1174) {
@@ -228,8 +228,8 @@ public abstract class class310 {
             WorldMapData.method1054(Size.binary, JagException.sprites, true, 0);
          }
 
-         client.gameState = var0;
-         client.gameStateChanged(-1);
+         Client.gameState = var0;
+         Client.gameStateChanged(-1);
       }
    }
 
@@ -240,12 +240,12 @@ public abstract class class310 {
    )
    static void method5902() {
       if(class82.field1933 != null) {
-         client.field914 = client.gameCycle;
+         Client.field914 = Client.gameCycle;
          class82.field1933.method4475();
 
-         for(int var0 = 0; var0 < client.players.length; ++var0) {
-            if(client.players[var0] != null) {
-               class82.field1933.method4474((client.players[var0].x >> 7) + class158.baseX, (client.players[var0].y >> 7) + class107.baseY);
+         for(int var0 = 0; var0 < Client.players.length; ++var0) {
+            if(Client.players[var0] != null) {
+               class82.field1933.method4474((Client.players[var0].x >> 7) + class158.baseX, (Client.players[var0].y >> 7) + class107.baseY);
             }
          }
       }
@@ -318,10 +318,10 @@ public abstract class class310 {
                if(var2 == null) {
                   if(class258.field3279 != 0) {
                      try {
-                        Buffer var7 = new Buffer(4);
-                        var7.writeByte(4);
-                        var7.writeByte(class258.field3279);
-                        var7.writeShort(0);
+                        Packet var7 = new Packet(4);
+                        var7.method6114(4);
+                        var7.method6114(class258.field3279);
+                        var7.method6063(0);
                         class258.NetCache_socket.vmethod5623(var7.payload, 0, 4);
                      } catch (IOException var5) {
                         try {
@@ -418,21 +418,21 @@ public abstract class class310 {
    static final void method5923(int var0, int var1, int var2, int var3, int var4) {
       class238.scrollbarSprites[0].method824(var0, var1);
       class238.scrollbarSprites[1].method824(var0, var3 + var1 - 16);
-      Rasterizer2D.method449(var0, var1 + 16, 16, var3 - 32, client.field917);
+      Rasterizer2D.method449(var0, var1 + 16, 16, var3 - 32, Client.field917);
       int var5 = var3 * (var3 - 32) / var4;
       if(var5 < 8) {
          var5 = 8;
       }
 
       int var6 = (var3 - 32 - var5) * var2 / (var4 - var3);
-      Rasterizer2D.method449(var0, var6 + var1 + 16, 16, var5, client.field778);
-      Rasterizer2D.method456(var0, var6 + var1 + 16, var5, client.field709);
-      Rasterizer2D.method456(var0 + 1, var6 + var1 + 16, var5, client.field709);
-      Rasterizer2D.method500(var0, var6 + var1 + 16, 16, client.field709);
-      Rasterizer2D.method500(var0, var6 + var1 + 17, 16, client.field709);
-      Rasterizer2D.method456(var0 + 15, var6 + var1 + 16, var5, client.field883);
-      Rasterizer2D.method456(var0 + 14, var6 + var1 + 17, var5 - 1, client.field883);
-      Rasterizer2D.method500(var0, var6 + var5 + var1 + 15, 16, client.field883);
-      Rasterizer2D.method500(var0 + 1, var6 + var5 + var1 + 14, 15, client.field883);
+      Rasterizer2D.method449(var0, var6 + var1 + 16, 16, var5, Client.field778);
+      Rasterizer2D.method456(var0, var6 + var1 + 16, var5, Client.field709);
+      Rasterizer2D.method456(var0 + 1, var6 + var1 + 16, var5, Client.field709);
+      Rasterizer2D.method500(var0, var6 + var1 + 16, 16, Client.field709);
+      Rasterizer2D.method500(var0, var6 + var1 + 17, 16, Client.field709);
+      Rasterizer2D.method456(var0 + 15, var6 + var1 + 16, var5, Client.field883);
+      Rasterizer2D.method456(var0 + 14, var6 + var1 + 17, var5 - 1, Client.field883);
+      Rasterizer2D.method500(var0, var6 + var5 + var1 + 15, 16, Client.field883);
+      Rasterizer2D.method500(var0 + 1, var6 + var5 + var1 + 14, 15, Client.field883);
    }
 }

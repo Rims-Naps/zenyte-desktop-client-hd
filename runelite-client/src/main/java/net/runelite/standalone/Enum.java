@@ -57,7 +57,7 @@ public class Enum extends CacheableNode {
       signature = "(Lgl;I)V",
       garbageValue = "448568525"
    )
-   void method6509(Buffer var1) {
+   void method6509(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -73,7 +73,7 @@ public class Enum extends CacheableNode {
       signature = "(Lgl;II)V",
       garbageValue = "1776134117"
    )
-   void method6510(Buffer var1, int var2) {
+   void method6510(Packet var1, int var2) {
       if(var2 == 1) {
          this.keyType = (char)var1.readUnsignedByte();
       } else if(var2 == 2) {
@@ -122,8 +122,8 @@ public class Enum extends CacheableNode {
       garbageValue = "21"
    )
    static void method6514() {
-      if(class4.localPlayer.x >> 7 == client.destinationX && class4.localPlayer.y >> 7 == client.destinationY) {
-         client.destinationX = 0;
+      if(class4.localPlayer.x >> 7 == Client.destinationX && class4.localPlayer.y >> 7 == Client.destinationY) {
+         Client.destinationX = 0;
       }
 
    }
@@ -145,7 +145,7 @@ public class Enum extends CacheableNode {
          var2.write("data1=req");
          var2.flush();
          InputStream var3 = var1.getInputStream();
-         Buffer var4 = new Buffer(new byte[1000]);
+         Packet var4 = new Packet(new byte[1000]);
 
          do {
             int var5 = var3.read(var4.payload, var4.offset, 1000 - var4.offset);

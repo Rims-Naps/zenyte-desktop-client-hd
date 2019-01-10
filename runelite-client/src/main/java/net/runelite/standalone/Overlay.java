@@ -101,7 +101,7 @@ public class Overlay extends CacheableNode {
       signature = "(Lgl;IB)V",
       garbageValue = "-98"
    )
-   public void method418(Buffer var1, int var2) {
+   public void method418(Packet var1, int var2) {
       while(true) {
          int var3 = var1.readUnsignedByte();
          if(var3 == 0) {
@@ -117,7 +117,7 @@ public class Overlay extends CacheableNode {
       signature = "(Lgl;III)V",
       garbageValue = "-1380971442"
    )
-   void method400(Buffer var1, int var2, int var3) {
+   void method400(Packet var1, int var2, int var3) {
       if(var2 == 1) {
          this.color = var1.method6082();
       } else if(var2 == 2) {

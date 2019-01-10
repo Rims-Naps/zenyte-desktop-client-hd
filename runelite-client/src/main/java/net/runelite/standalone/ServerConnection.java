@@ -31,7 +31,7 @@ public class ServerConnection {
    @ObfuscatedSignature(
       signature = "Lgl;"
    )
-   Buffer serverBuffer;
+   Packet serverPacket;
    @ObfuscatedName("m")
    @ObfuscatedSignature(
       signature = "Lfz;"
@@ -78,7 +78,7 @@ public class ServerConnection {
    ServerConnection() {
       this.packetBufferNodes = new CombatInfoList();
       this.field1290 = 0;
-      this.serverBuffer = new Buffer(5000);
+      this.serverPacket = new Packet(5000);
       this.clientPacket = new Bit(40000);
       this.currentPacket = null;
       this.currentPacketSize = 0;
@@ -94,17 +94,17 @@ public class ServerConnection {
    )
    final void method5875() throws IOException {
       if(this.rssocket != null && this.field1290 > 0) {
-         this.serverBuffer.offset = 0;
+         this.serverPacket.offset = 0;
 
          while(true) {
             TcpConnectionMessage var1 = (TcpConnectionMessage)this.packetBufferNodes.method4329();
-            if(var1 == null || var1.field2333 > this.serverBuffer.payload.length - this.serverBuffer.offset) {
-               this.rssocket.vmethod5623(this.serverBuffer.payload, 0, this.serverBuffer.offset);
+            if(var1 == null || var1.field2333 > this.serverPacket.payload.length - this.serverPacket.offset) {
+               this.rssocket.vmethod5623(this.serverPacket.payload, 0, this.serverPacket.offset);
                this.field1288 = 0;
                break;
             }
 
-            this.serverBuffer.method6072(var1.packetBuffer.payload, 0, var1.field2333);
+            this.serverPacket.method6072(var1.packetBuffer.payload, 0, var1.field2333);
             this.field1290 -= var1.field2333;
             var1.method6469();
             var1.packetBuffer.method6061();
@@ -209,7 +209,7 @@ public class ServerConnection {
          return 1;
       } else if(var0 == 2702) {
          int var5 = class48.intStack[--class228.intStackSize];
-         SubInterface var4 = (SubInterface)client.subInterfaces.method380((long)var5);
+         SubInterface var4 = (SubInterface)Client.subInterfaces.method380((long)var5);
          if(var4 != null) {
             class48.intStack[++class228.intStackSize - 1] = 1;
          } else {
@@ -218,7 +218,7 @@ public class ServerConnection {
 
          return 1;
       } else if(var0 == 2706) {
-         class48.intStack[++class228.intStackSize - 1] = client.toplevel;
+         class48.intStack[++class228.intStackSize - 1] = Client.toplevel;
          return 1;
       } else {
          return 2;

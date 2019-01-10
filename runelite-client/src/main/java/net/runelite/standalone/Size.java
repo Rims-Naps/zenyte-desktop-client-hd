@@ -96,17 +96,17 @@ public class Size {
          }
       }
 
-      if(Buffer.cameraZ < var2) {
-         Buffer.cameraZ = (var2 - Buffer.cameraZ) * WorldMapManager.field314 / 1000 + Buffer.cameraZ + ServerProt.field2206;
-         if(Buffer.cameraZ > var2) {
-            Buffer.cameraZ = var2;
+      if(Packet.cameraZ < var2) {
+         Packet.cameraZ = (var2 - Packet.cameraZ) * WorldMapManager.field314 / 1000 + Packet.cameraZ + ServerProt.field2206;
+         if(Packet.cameraZ > var2) {
+            Packet.cameraZ = var2;
          }
       }
 
-      if(Buffer.cameraZ > var2) {
-         Buffer.cameraZ -= WorldMapManager.field314 * (Buffer.cameraZ - var2) / 1000 + ServerProt.field2206;
-         if(Buffer.cameraZ < var2) {
-            Buffer.cameraZ = var2;
+      if(Packet.cameraZ > var2) {
+         Packet.cameraZ -= WorldMapManager.field314 * (Packet.cameraZ - var2) / 1000 + ServerProt.field2206;
+         if(Packet.cameraZ < var2) {
+            Packet.cameraZ = var2;
          }
       }
 
@@ -128,7 +128,7 @@ public class Size {
       var1 = class230.field1939 * 128 + 64;
       var2 = MilliTimer.method2824(var0, var1, class228.level) - class147.field208;
       int var3 = var0 - class166.cameraX;
-      int var4 = var2 - Buffer.cameraZ;
+      int var4 = var2 - Packet.cameraZ;
       int var5 = var1 - class98.cameraY;
       int var6 = (int)Math.sqrt((double)(var5 * var5 + var3 * var3));
       int var7 = (int)(Math.atan2((double)var4, (double)var6) * 325.949D) & 2047;
@@ -143,19 +143,19 @@ public class Size {
 
       if(ScriptEvent.cameraPitch < var7) {
          ScriptEvent.cameraPitch = (var7 - ScriptEvent.cameraPitch) * class225.field3289 / 1000 + ScriptEvent.cameraPitch + World.field1026;
-         client.onCameraPitchChanged(-1);
+         Client.onCameraPitchChanged(-1);
          if(ScriptEvent.cameraPitch > var7) {
             ScriptEvent.cameraPitch = var7;
-            client.onCameraPitchChanged(-1);
+            Client.onCameraPitchChanged(-1);
          }
       }
 
       if(ScriptEvent.cameraPitch > var7) {
          ScriptEvent.cameraPitch -= class225.field3289 * (ScriptEvent.cameraPitch - var7) / 1000 + World.field1026;
-         client.onCameraPitchChanged(-1);
+         Client.onCameraPitchChanged(-1);
          if(ScriptEvent.cameraPitch < var7) {
             ScriptEvent.cameraPitch = var7;
-            client.onCameraPitchChanged(-1);
+            Client.onCameraPitchChanged(-1);
          }
       }
 
@@ -199,8 +199,8 @@ public class Size {
       garbageValue = "86433056"
    )
    static void method4702() {
-      if(client.camModeType == 1) {
-         client.field726 = true;
+      if(Client.camModeType == 1) {
+         Client.field726 = true;
       }
 
    }
@@ -228,7 +228,7 @@ public class Size {
       signature = "(Lgl;IB)V",
       garbageValue = "96"
    )
-   public static void method4704(Buffer var0, int var1) {
+   public static void method4704(Packet var0, int var1) {
       ReflectionCheck var2 = new ReflectionCheck();
       var2.count = var0.readUnsignedByte();
       var2.field3845 = var0.method6201();
@@ -369,7 +369,7 @@ public class Size {
       garbageValue = "-1896196282"
    )
    static boolean method4700() {
-      return (client.playerNameMask & 1) != 0;
+      return (Client.playerNameMask & 1) != 0;
    }
 
    @ObfuscatedName("g")

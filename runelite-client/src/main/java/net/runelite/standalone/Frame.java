@@ -48,8 +48,8 @@ public class Frame implements RSFrame {
       this.transformCount = -1;
       this.showing = false;
       this.skin = var2;
-      Buffer var3 = new Buffer(var1);
-      Buffer var4 = new Buffer(var1);
+      Packet var3 = new Packet(var1);
+      Packet var4 = new Packet(var1);
       var3.offset = 2;
       int var5 = var3.readUnsignedByte();
       int var6 = -1;

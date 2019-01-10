@@ -167,36 +167,36 @@ public class MachineInfo extends Node {
       signature = "(Lgl;I)V",
       garbageValue = "1328377164"
    )
-   public void method2136(Buffer var1) {
-      var1.writeByte(7);
-      var1.writeByte(this.osType);
-      var1.writeByte(this.os64Bit?1:0);
-      var1.writeByte(this.osVersionType);
-      var1.writeByte(this.javaVendorType);
-      var1.writeByte(this.javaVersionMajor);
-      var1.writeByte(this.javaVersionMinor);
-      var1.writeByte(this.javaVersionPatch);
-      var1.writeByte(this.field3914?1:0);
-      var1.writeShort(this.maxMemoryMB);
-      var1.writeByte(this.field3916);
+   public void method2136(Packet var1) {
+      var1.method6114(7);
+      var1.method6114(this.osType);
+      var1.method6114(this.os64Bit?1:0);
+      var1.method6114(this.osVersionType);
+      var1.method6114(this.javaVendorType);
+      var1.method6114(this.javaVersionMajor);
+      var1.method6114(this.javaVersionMinor);
+      var1.method6114(this.javaVersionPatch);
+      var1.method6114(this.field3914?1:0);
+      var1.method6063(this.maxMemoryMB);
+      var1.method6114(this.field3916);
       var1.method6064(this.field3917);
-      var1.writeShort(this.field3923);
+      var1.method6063(this.field3923);
       var1.method6265(this.field3919);
       var1.method6265(this.field3920);
       var1.method6265(this.field3909);
       var1.method6265(this.field3922);
-      var1.writeByte(this.field3900);
-      var1.writeShort(this.field3921);
+      var1.method6114(this.field3900);
+      var1.method6063(this.field3921);
       var1.method6265(this.field3926);
       var1.method6265(this.field3928);
-      var1.writeByte(this.field3925);
-      var1.writeByte(this.field3927);
+      var1.method6114(this.field3925);
+      var1.method6114(this.field3927);
 
       for(int var2 = 0; var2 < this.field3929.length; ++var2) {
-         var1.writeInt(this.field3929[var2]);
+         var1.method6230(this.field3929[var2]);
       }
 
-      var1.writeInt(this.field3930);
+      var1.method6230(this.field3930);
       var1.method6265(this.field3912);
    }
 }

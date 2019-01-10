@@ -216,7 +216,7 @@ public class class225 {
          var1 = new LocType();
          var1.field3469 = var0;
          if(var2 != null) {
-            var1.method1709(new Buffer(var2));
+            var1.method1709(new Packet(var2));
          }
 
          var1.method1738();

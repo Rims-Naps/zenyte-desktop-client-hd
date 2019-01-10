@@ -387,14 +387,14 @@ public final class GameObject implements RSGameObject {
       }
 
       if(var0.clientcode == 1337) {
-         client.field815 = var0;
+         Client.field815 = var0;
       }
 
       if(var3 && var0.onResizeListener != null && (var4 != var0.width || var5 != var0.height)) {
          ScriptEvent var6 = new ScriptEvent();
          var6.source = var0;
          var6.params = var0.onResizeListener;
-         client.field842.method4351(var6);
+         Client.field842.method4351(var6);
       }
 
    }
@@ -662,9 +662,9 @@ public final class GameObject implements RSGameObject {
             //Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
          }
 
-         if(client.gameState == 0 || client.gameState == 5) {
+         if(Client.gameState == 0 || Client.gameState == 5) {
             var22 = 20;
-            var0.method1862("Zenyte is loading - please wait...", class316.loginWindowX + 180, 245 - var22, 16777215, -1);
+            var0.method1862("RuneScape is loading - please wait...", class316.loginWindowX + 180, 245 - var22, 16777215, -1);
             var23 = 253 - var22;
             Rasterizer2D.method518(class316.loginWindowX + 180 - 152, var23, 304, 34, 9179409);
             Rasterizer2D.method518(class316.loginWindowX + 180 - 151, var23 + 1, 302, 32, 0);
@@ -677,7 +677,7 @@ public final class GameObject implements RSGameObject {
          String var25;
          short var39;
          short var41;
-         if(client.gameState == 20) {
+         if(Client.gameState == 20) {
             class316.field1149.method824(class316.loginWindowX + 180 - class316.field1149.width / 2, 271 - class316.field1149.height / 2);
             var39 = 201;
             var0.method1862(class316.loginMessage1, class316.loginWindowX + 180, var39, 16776960, 0);
@@ -703,7 +703,7 @@ public final class GameObject implements RSGameObject {
             }
          }
 
-         if(client.gameState == 10 || client.gameState == 11) {
+         if(Client.gameState == 10 || Client.gameState == 11) {
             class316.field1149.method824(class316.loginWindowX, 171);
             short var6;
             if(class316.loginIndex == 0) {
@@ -750,13 +750,13 @@ public final class GameObject implements RSGameObject {
                   ;
                }
 
-               var0.method1828(FontTypeFace.method1779(var25) + (class316.currentLoginField == 0 & client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class260.field103 - 70, var40, 16777215, 0);
+               var0.method1828(FontTypeFace.method1779(var25) + (class316.currentLoginField == 0 & Client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class260.field103 - 70, var40, 16777215, 0);
                var40 += 15;
-               var0.method1828("Password: " + FileSystem.method5641(class316.password) + (class316.currentLoginField == 1 & client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class260.field103 - 108, var40, 16777215, 0);
+               var0.method1828("Password: " + FileSystem.method5641(class316.password) + (class316.currentLoginField == 1 & Client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class260.field103 - 108, var40, 16777215, 0);
                var40 += 15;
                var39 = 277;
                var26 = class260.field103 + -117;
-               boolean var10 = client.Login_isUsernameRemembered;
+               boolean var10 = Client.Login_isUsernameRemembered;
                boolean var11 = class316.field1170;
                IndexedSprite var28 = var10?(var11?UrlRequest.field1925:Frames.field1861):(var11?class316.field1148:class150.field2417);
                var28.method824(var26, var39);
@@ -815,7 +815,7 @@ public final class GameObject implements RSGameObject {
                   var40 += 15;
                   var0.method1862(class316.loginMessage3, class316.loginWindowX + 180, var40, 16777215, 0);
                   var40 += 15;
-                  var0.method1828("PIN: " + FileSystem.method5641(class113.field82) + (client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class316.loginWindowX + 180 - 108, var40, 16777215, 0);
+                  var0.method1828("PIN: " + FileSystem.method5641(class113.field82) + (Client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class316.loginWindowX + 180 - 108, var40, 16777215, 0);
                   var40 -= 8;
                   var0.method1828("Trust this computer", class316.loginWindowX + 180 - 9, var40, 16776960, 0);
                   var40 += 15;
@@ -857,7 +857,7 @@ public final class GameObject implements RSGameObject {
                      ;
                   }
 
-                  var0.method1828(FontTypeFace.method1779(var25) + (client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class316.loginWindowX + 180 - 34, var40, 16777215, 0);
+                  var0.method1828(FontTypeFace.method1779(var25) + (Client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class316.loginWindowX + 180 - 34, var40, 16777215, 0);
                   var40 += 15;
                   var26 = class316.loginWindowX + 180 - 80;
                   var9 = 321;
@@ -1011,7 +1011,7 @@ public final class GameObject implements RSGameObject {
             }
 
             class316.field1173 += var40;
-            var34 = (var40 + (client.gameCycle & 1)) / 2;
+            var34 = (var40 + (Client.gameCycle & 1)) / 2;
             if(var34 > 0) {
                for(var35 = 0; var35 < class316.field1173 * 100; ++var35) {
                   var36 = (int)(Math.random() * 124.0D) + 2;
@@ -1164,14 +1164,14 @@ public final class GameObject implements RSGameObject {
          }
 
          class316.titlemuteSprite[GameEngine.options.muted?1:0].method824(class316.field1143 + 765 - 40, 463);
-         if(client.gameState > 5 && client.languageId == 0) {
+         if(Client.gameState > 5 && Client.languageId == 0) {
             if(class113.field77 != null) {
                var40 = class316.field1143 + 5;
                var41 = 463;
                byte var37 = 100;
                byte var33 = 35;
                class113.field77.method824(var40, var41);
-               var0.method1862("World" + " " + client.world, var37 / 2 + var40, var33 / 2 + var41 - 2, 16777215, 0);
+               var0.method1862("World" + " " + Client.world, var37 / 2 + var40, var33 / 2 + var41 - 2, 16777215, 0);
                if(World.listFetcher != null) {
                   var1.method1862("Loading...", var37 / 2 + var40, var33 / 2 + var41 + 12, 16777215, 0);
                } else {

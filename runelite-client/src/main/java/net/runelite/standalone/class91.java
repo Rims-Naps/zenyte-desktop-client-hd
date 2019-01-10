@@ -41,7 +41,7 @@ public class class91 {
          byte[] var2 = class204.field3301.method1516(5, var0, 1789634852);
          var1 = new class204();
          if(var2 != null) {
-            var1.method4083(new Buffer(var2));
+            var1.method4083(new Packet(var2));
          }
 
          class204.field3298.method957(var1, (long)var0);

@@ -100,69 +100,60 @@ public class Varcs implements RSVarcs {
    void method4738() {
       FileOnDisk var1 = this.method4740(false);
 
-      label191: {
-         try {
-            byte[] var2 = new byte[(int)var1.method148()];
+      try {
+         byte[] var2 = new byte[(int)var1.method148()];
 
-            int var4;
-            for(int var3 = 0; var3 < var2.length; var3 += var4) {
-               var4 = var1.method149(var2, var3, var2.length - var3);
-               if(var4 == -1) {
-                  throw new EOFException();
-               }
+         int var4;
+         for(int var3 = 0; var3 < var2.length; var3 += var4) {
+            var4 = var1.method149(var2, var3, var2.length - var3);
+            if(var4 == -1) {
+               throw new EOFException();
             }
-
-            Buffer var13 = new Buffer(var2);
-            if(var13.payload.length - var13.offset < 1) {
-               return;
-            }
-
-            int var14 = var13.readUnsignedByte();
-            if(var14 >= 0 && var14 <= 1) {
-               int var15 = var13.method6080();
-
-               int var7;
-               int var8;
-               int var9;
-               for(var7 = 0; var7 < var15; ++var7) {
-                  var8 = var13.method6080();
-                  var9 = var13.method6201();
-                  if(this.varcSerials[var8]) {
-                     this.varCInts[var8] = var9;
-                     this.onVarCIntChanged(var8);
-                  }
-               }
-
-               var7 = var13.method6080();
-               var8 = 0;
-
-               while(true) {
-                  if(var8 >= var7) {
-                     break label191;
-                  }
-
-                  var9 = var13.method6080();
-                  String var10 = var13.readString();
-                  if(this.varcstringSerials[var9]) {
-                     this.varCStrings[var9] = var10;
-                     this.onVarCStrChanged(var9);
-                  }
-
-                  ++var8;
-               }
-            }
-         } catch (Exception var24) {
-            break label191;
-         } finally {
-            try {
-               var1.method146();
-            } catch (Exception var23) {
-               ;
-            }
-
          }
 
-         return;
+         Packet var13 = new Packet(var2);
+         if(var13.payload.length - var13.offset < 1) {
+            return;
+         }
+
+         int var14 = var13.readUnsignedByte();
+         if(var14 < 0 || var14 > 1) {
+            return;
+         }
+
+         int var15 = var13.method6080();
+
+         int var7;
+         int var8;
+         int var9;
+         for(var7 = 0; var7 < var15; ++var7) {
+            var8 = var13.method6080();
+            var9 = var13.method6201();
+            if(this.varcSerials[var8]) {
+               this.varCInts[var8] = var9;
+               this.onVarCIntChanged(var8);
+            }
+         }
+
+         var7 = var13.method6080();
+
+         for(var8 = 0; var8 < var7; ++var8) {
+            var9 = var13.method6080();
+            String var10 = var13.readString();
+            if(this.varcstringSerials[var9]) {
+               this.varCStrings[var9] = var10;
+               this.onVarCStrChanged(var9);
+            }
+         }
+      } catch (Exception var24) {
+         ;
+      } finally {
+         try {
+            var1.method146();
+         } catch (Exception var23) {
+            ;
+         }
+
       }
 
       this.changed = false;
@@ -198,24 +189,24 @@ public class Varcs implements RSVarcs {
             }
          }
 
-         Buffer var9 = new Buffer(var2);
-         var9.writeByte(1);
-         var9.writeShort(var3);
+         Packet var9 = new Packet(var2);
+         var9.method6114(1);
+         var9.method6063(var3);
 
          int var6;
          for(var6 = 0; var6 < this.varCInts.length; ++var6) {
             if(this.varcSerials[var6] && this.varCInts[var6] != -1) {
-               var9.writeShort(var6);
-               var9.writeInt(this.varCInts[var6]);
+               var9.method6063(var6);
+               var9.method6230(this.varCInts[var6]);
             }
          }
 
-         var9.writeShort(var4);
+         var9.method6063(var4);
 
          for(var6 = 0; var6 < this.varCStrings.length; ++var6) {
             if(this.varcstringSerials[var6] && this.varCStrings[var6] != null) {
-               var9.writeShort(var6);
-               var9.writeString(this.varCStrings[var6]);
+               var9.method6063(var6);
+               var9.method6198(this.varCStrings[var6]);
             }
          }
 
@@ -280,7 +271,7 @@ public class Varcs implements RSVarcs {
       garbageValue = "-1669314567"
    )
    FileOnDisk method4740(boolean var1) {
-      return class70.method1076("2", client.field646.name, var1);
+      return class70.method1076("2", Client.field646.name, var1);
    }
 
    @ObfuscatedName("d")
@@ -332,7 +323,7 @@ public class Varcs implements RSVarcs {
          var1 = new ObjType();
          var1.id = var0;
          if(var2 != null) {
-            var1.method6358(new Buffer(var2));
+            var1.method6358(new Packet(var2));
          }
 
          var1.method6305();

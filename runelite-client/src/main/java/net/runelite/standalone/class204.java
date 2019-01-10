@@ -35,7 +35,7 @@ public class class204 extends CacheableNode {
       signature = "(Lgl;I)V",
       garbageValue = "-532058353"
    )
-   void method4083(Buffer var1) {
+   void method4083(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -51,7 +51,7 @@ public class class204 extends CacheableNode {
       signature = "(Lgl;II)V",
       garbageValue = "1767209492"
    )
-   void method4085(Buffer var1, int var2) {
+   void method4085(Packet var1, int var2) {
       if(var2 == 2) {
          this.field3299 = var1.method6080();
       }
@@ -64,7 +64,7 @@ public class class204 extends CacheableNode {
       garbageValue = "537434701"
    )
    static final void method4096(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, SceneManager var8, CollisionData[] var9) {
-      Buffer var10 = new Buffer(var0);
+      Packet var10 = new Packet(var0);
       int var11 = -1;
 
       while(true) {
@@ -163,9 +163,9 @@ public class class204 extends CacheableNode {
       garbageValue = "0"
    )
    static final void method4095(String var0) {
-      TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2278, client.serverConnection.isaac);
-      var1.packetBuffer.writeByte(AbstractSoundSystem.method338(var0));
-      var1.packetBuffer.writeString(var0);
-      client.serverConnection.method5881(var1);
+      TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2278, Client.serverConnection.isaac);
+      var1.packetBuffer.method6114(AbstractSoundSystem.method338(var0));
+      var1.packetBuffer.method6198(var0);
+      Client.serverConnection.method5881(var1);
    }
 }

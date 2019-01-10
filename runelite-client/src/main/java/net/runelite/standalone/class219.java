@@ -37,10 +37,10 @@ public class class219 {
 
       } else {
          if(var7 != -1) {
-            client.field848[var7] = true;
+            Client.field848[var7] = true;
          } else {
             for(int var8 = 0; var8 < 100; ++var8) {
-               client.field848[var8] = true;
+               Client.field848[var8] = true;
             }
          }
 
@@ -80,7 +80,7 @@ public class class219 {
    static final void method4424(ComponentType[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       for(int var8 = 0; var8 < var0.length; ++var8) {
          ComponentType var9 = var0[var8];
-         if(var9 != null && var9.layer == var1 && (!var9.isIf3 || var9.type == 0 || var9.hasHook || class101.method1704(var9) != 0 || var9 == client.field817 || var9.clientcode == 1338)) {
+         if(var9 != null && var9.layer == var1 && (!var9.isIf3 || var9.type == 0 || var9.hasHook || class101.method1704(var9) != 0 || var9 == Client.field817 || var9.clientcode == 1338)) {
             if(var9.isIf3) {
                if(GameCanvas.method894(var9)) {
                   continue;
@@ -135,27 +135,27 @@ public class class219 {
                }
             }
 
-            if(var9 == client.draggedWidget) {
-               client.field824 = true;
-               client.field825 = var10;
-               client.field826 = var11;
+            if(var9 == Client.draggedWidget) {
+               Client.field824 = true;
+               Client.field825 = var10;
+               Client.field826 = var11;
             }
 
             boolean var32 = false;
             if(var9.field2724) {
-               switch(client.field805) {
+               switch(Client.field805) {
                case 0:
                   var32 = true;
                case 1:
                default:
                   break;
                case 2:
-                  if(client.field642 == var9.id >>> 16) {
+                  if(Client.field642 == var9.id >>> 16) {
                      var32 = true;
                   }
                   break;
                case 3:
-                  if(var9.id == client.field642) {
+                  if(var9.id == Client.field642) {
                      var32 = true;
                   }
                }
@@ -166,7 +166,7 @@ public class class219 {
                   ScriptEvent var26;
                   if(var9.noClickThrough) {
                      if(MouseInput.mouseLastX >= var12 && MouseInput.mouseLastY * -976212263 >= var13 && MouseInput.mouseLastX < var14 && MouseInput.mouseLastY * -976212263 < var15) {
-                        for(var26 = (ScriptEvent)client.field842.method4373(); var26 != null; var26 = (ScriptEvent)client.field842.method4358()) {
+                        for(var26 = (ScriptEvent)Client.field842.method4373(); var26 != null; var26 = (ScriptEvent)Client.field842.method4358()) {
                            if(var26.field563) {
                               var26.method6469();
                               var26.source.field2798 = false;
@@ -174,16 +174,16 @@ public class class219 {
                         }
 
                         if(class77.field2817 == 0) {
-                           client.draggedWidget = null;
-                           client.field817 = null;
+                           Client.draggedWidget = null;
+                           Client.field817 = null;
                         }
 
-                        if(!client.isMenuOpen) {
+                        if(!Client.isMenuOpen) {
                            WorldMapType3.method1691();
                         }
                      }
                   } else if(var9.noScrollThrough && MouseInput.mouseLastX >= var12 && MouseInput.mouseLastY * -976212263 >= var13 && MouseInput.mouseLastX < var14 && MouseInput.mouseLastY * -976212263 < var15) {
-                     for(var26 = (ScriptEvent)client.field842.method4373(); var26 != null; var26 = (ScriptEvent)client.field842.method4358()) {
+                     for(var26 = (ScriptEvent)Client.field842.method4373(); var26 != null; var26 = (ScriptEvent)Client.field842.method4358()) {
                         if(var26.field563 && var26.source.onScrollWheelListener == var26.params) {
                            var26.method6469();
                         }
@@ -200,7 +200,7 @@ public class class219 {
 
                boolean var33 = var17 >= var12 && var18 >= var13 && var17 < var14 && var18 < var15;
                if(var9.clientcode == 1337) {
-                  if(!client.field654 && !client.isMenuOpen && var33) {
+                  if(!Client.field654 && !Client.isMenuOpen && var33) {
                      World.method3742(var17, var18, var12, var13);
                   }
                } else if(var9.clientcode == 1338) {
@@ -210,7 +210,7 @@ public class class219 {
                      worldMap.method1194(MouseInput.mouseLastX, MouseInput.mouseLastY * -976212263, var33, var10, var11, var9.width, var9.height);
                   }
 
-                  if(!client.isMenuOpen && var33) {
+                  if(!Client.isMenuOpen && var33) {
                      if(var9.clientcode == 1400) {
                         worldMap.method1293(var10, var11, var9.width, var9.height, var17, var18);
                      } else {
@@ -233,7 +233,7 @@ public class class219 {
 
                               if(WorldMapDecoration.method2944(var9.opKeys[var20][var23]) || var24) {
                                  var21 = true;
-                                 if(var9.opKeysIgnoreHeld != null && var9.opKeysIgnoreHeld[var20] > client.gameCycle) {
+                                 if(var9.opKeysIgnoreHeld != null && var9.opKeysIgnoreHeld[var20] > Client.gameCycle) {
                                     break;
                                  }
 
@@ -252,12 +252,12 @@ public class class219 {
                            } else if(var20 == 10) {
                               Occluder.method4635();
                               OwnWorldComparator.method531(var9.id, var9.index, class192.method3781(class101.method1704(var9)), var9.linkObjType);
-                              client.targetVerb = class106.method1886(var9);
-                              if(client.targetVerb == null) {
-                                 client.targetVerb = "null";
+                              Client.targetVerb = class106.method1886(var9);
+                              if(Client.targetVerb == null) {
+                                 Client.targetVerb = "null";
                               }
 
-                              client.opBase = var9.opBase + class31.method548(16777215);
+                              Client.opBase = var9.opBase + class31.method548(16777215);
                            }
 
                            var23 = var9.opKeyRates[var20];
@@ -271,9 +271,9 @@ public class class219 {
 
                            if(var23 != 0) {
                               if(var9.opKeysIgnoreHeld[var20] == 0) {
-                                 var9.opKeysIgnoreHeld[var20] = var23 + client.gameCycle + var9.field2745[var20];
+                                 var9.opKeysIgnoreHeld[var20] = var23 + Client.gameCycle + var9.field2745[var20];
                               } else {
-                                 var9.opKeysIgnoreHeld[var20] = var23 + client.gameCycle;
+                                 var9.opKeysIgnoreHeld[var20] = var23 + Client.gameCycle;
                               }
                            } else {
                               var9.opKeysIgnoreHeld[var20] = Integer.MAX_VALUE;
@@ -311,28 +311,28 @@ public class class219 {
                         worldMap.method1354(var17, var18, var33 & var34, var33 & var21);
                      }
 
-                     if(client.draggedWidget != null && var9 != client.draggedWidget && var33 && class11.method173(class101.method1704(var9))) {
-                        client.draggedOnWidget = var9;
+                     if(Client.draggedWidget != null && var9 != Client.draggedWidget && var33 && class11.method173(class101.method1704(var9))) {
+                        Client.draggedOnWidget = var9;
                      }
 
-                     if(var9 == client.field817) {
-                        client.field821 = true;
-                        client.field713 = var10;
-                        client.field823 = var11;
+                     if(var9 == Client.field817) {
+                        Client.field821 = true;
+                        Client.field713 = var10;
+                        Client.field823 = var11;
                      }
 
                      if(var9.hasHook) {
                         ScriptEvent var27;
-                        if(var33 && client.field841 != 0 && var9.onScrollWheelListener != null) {
+                        if(var33 && Client.field841 != 0 && var9.onScrollWheelListener != null) {
                            var27 = new ScriptEvent();
                            var27.field563 = true;
                            var27.source = var9;
-                           var27.mouseY = client.field841;
+                           var27.mouseY = Client.field841;
                            var27.params = var9.onScrollWheelListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
-                        if(client.draggedWidget != null || World.field1025 != null || client.isMenuOpen) {
+                        if(Client.draggedWidget != null || World.field1025 != null || Client.isMenuOpen) {
                            var21 = false;
                            var34 = false;
                            var33 = false;
@@ -347,7 +347,7 @@ public class class219 {
                               var27.mouseX = MouseInput.mouseLastPressedX - var10;
                               var27.mouseY = MouseInput.mouseLastPressedY - var11;
                               var27.params = var9.onClickListener;
-                              client.field842.method4351(var27);
+                              Client.field842.method4351(var27);
                            }
                         }
 
@@ -358,7 +358,7 @@ public class class219 {
                            var27.mouseX = MouseInput.mouseLastX - var10;
                            var27.mouseY = MouseInput.mouseLastY * -976212263 - var11;
                            var27.params = var9.onClickRepeatListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
                         if(var9.field2669 && !var34) {
@@ -370,7 +370,7 @@ public class class219 {
                               var27.mouseX = MouseInput.mouseLastX - var10;
                               var27.mouseY = MouseInput.mouseLastY * -976212263 - var11;
                               var27.params = var9.onReleaseListener;
-                              client.field844.method4351(var27);
+                              Client.field844.method4351(var27);
                            }
                         }
 
@@ -381,7 +381,7 @@ public class class219 {
                            var27.mouseX = MouseInput.mouseLastX - var10;
                            var27.mouseY = MouseInput.mouseLastY * -976212263 - var11;
                            var27.params = var9.onHoldListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
                         if(!var9.field2798 && var33) {
@@ -393,7 +393,7 @@ public class class219 {
                               var27.mouseX = MouseInput.mouseLastX - var10;
                               var27.mouseY = MouseInput.mouseLastY * -976212263 - var11;
                               var27.params = var9.onMouseOverListener;
-                              client.field842.method4351(var27);
+                              Client.field842.method4351(var27);
                            }
                         }
 
@@ -404,7 +404,7 @@ public class class219 {
                            var27.mouseX = MouseInput.mouseLastX - var10;
                            var27.mouseY = MouseInput.mouseLastY * -976212263 - var11;
                            var27.params = var9.onMouseRepeatListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
                         if(var9.field2798 && !var33) {
@@ -416,7 +416,7 @@ public class class219 {
                               var27.mouseX = MouseInput.mouseLastX - var10;
                               var27.mouseY = MouseInput.mouseLastY * -976212263 - var11;
                               var27.params = var9.onMouseLeaveListener;
-                              client.field844.method4351(var27);
+                              Client.field844.method4351(var27);
                            }
                         }
 
@@ -424,24 +424,24 @@ public class class219 {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onTimerListener;
-                           client.field843.method4351(var27);
+                           Client.field843.method4351(var27);
                         }
 
                         ScriptEvent var28;
                         int var35;
                         int var36;
-                        if(var9.onVarTransmitListener != null && client.field830 > var9.field2801) {
-                           if(var9.varTransmitTriggers != null && client.field830 - var9.field2801 <= 32) {
+                        if(var9.onVarTransmitListener != null && Client.field830 > var9.field2801) {
+                           if(var9.varTransmitTriggers != null && Client.field830 - var9.field2801 <= 32) {
                               label873:
-                              for(var35 = var9.field2801; var35 < client.field830; ++var35) {
-                                 var23 = client.field653[var35 & 31];
+                              for(var35 = var9.field2801; var35 < Client.field830; ++var35) {
+                                 var23 = Client.field653[var35 & 31];
 
                                  for(var36 = 0; var36 < var9.varTransmitTriggers.length; ++var36) {
                                     if(var23 == var9.varTransmitTriggers[var36]) {
                                        var28 = new ScriptEvent();
                                        var28.source = var9;
                                        var28.params = var9.onVarTransmitListener;
-                                       client.field842.method4351(var28);
+                                       Client.field842.method4351(var28);
                                        break label873;
                                     }
                                  }
@@ -450,24 +450,24 @@ public class class219 {
                               var27 = new ScriptEvent();
                               var27.source = var9;
                               var27.params = var9.onVarTransmitListener;
-                              client.field842.method4351(var27);
+                              Client.field842.method4351(var27);
                            }
 
-                           var9.field2801 = client.field830;
+                           var9.field2801 = Client.field830;
                         }
 
-                        if(var9.onInvTransmitListener != null && client.field832 > var9.field2802) {
-                           if(var9.invTransmitTriggers != null && client.field832 - var9.field2802 <= 32) {
+                        if(var9.onInvTransmitListener != null && Client.field832 > var9.field2802) {
+                           if(var9.invTransmitTriggers != null && Client.field832 - var9.field2802 <= 32) {
                               label849:
-                              for(var35 = var9.field2802; var35 < client.field832; ++var35) {
-                                 var23 = client.field831[var35 & 31];
+                              for(var35 = var9.field2802; var35 < Client.field832; ++var35) {
+                                 var23 = Client.field831[var35 & 31];
 
                                  for(var36 = 0; var36 < var9.invTransmitTriggers.length; ++var36) {
                                     if(var23 == var9.invTransmitTriggers[var36]) {
                                        var28 = new ScriptEvent();
                                        var28.source = var9;
                                        var28.params = var9.onInvTransmitListener;
-                                       client.field842.method4351(var28);
+                                       Client.field842.method4351(var28);
                                        break label849;
                                     }
                                  }
@@ -476,24 +476,24 @@ public class class219 {
                               var27 = new ScriptEvent();
                               var27.source = var9;
                               var27.params = var9.onInvTransmitListener;
-                              client.field842.method4351(var27);
+                              Client.field842.method4351(var27);
                            }
 
-                           var9.field2802 = client.field832;
+                           var9.field2802 = Client.field832;
                         }
 
-                        if(var9.onStatTransmitListener != null && client.changedSkillsCount > var9.field2735) {
-                           if(var9.statTransmitTriggers != null && client.changedSkillsCount - var9.field2735 <= 32) {
+                        if(var9.onStatTransmitListener != null && Client.changedSkillsCount > var9.field2735) {
+                           if(var9.statTransmitTriggers != null && Client.changedSkillsCount - var9.field2735 <= 32) {
                               label825:
-                              for(var35 = var9.field2735; var35 < client.changedSkillsCount; ++var35) {
-                                 var23 = client.changedSkills[var35 & 31];
+                              for(var35 = var9.field2735; var35 < Client.changedSkillsCount; ++var35) {
+                                 var23 = Client.changedSkills[var35 & 31];
 
                                  for(var36 = 0; var36 < var9.statTransmitTriggers.length; ++var36) {
                                     if(var23 == var9.statTransmitTriggers[var36]) {
                                        var28 = new ScriptEvent();
                                        var28.source = var9;
                                        var28.params = var9.onStatTransmitListener;
-                                       client.field842.method4351(var28);
+                                       Client.field842.method4351(var28);
                                        break label825;
                                     }
                                  }
@@ -502,70 +502,70 @@ public class class219 {
                               var27 = new ScriptEvent();
                               var27.source = var9;
                               var27.params = var9.onStatTransmitListener;
-                              client.field842.method4351(var27);
+                              Client.field842.method4351(var27);
                            }
 
-                           var9.field2735 = client.changedSkillsCount;
+                           var9.field2735 = Client.changedSkillsCount;
                         }
 
-                        if(client.chatCycle > var9.field2800 && var9.onChatTransmitListener != null) {
+                        if(Client.chatCycle > var9.field2800 && var9.onChatTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onChatTransmitListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
-                        if(client.lastFriendTransmit > var9.field2800 && var9.onFriendTransmitListener != null) {
+                        if(Client.lastFriendTransmit > var9.field2800 && var9.onFriendTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onFriendTransmitListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
-                        if(client.field837 > var9.field2800 && var9.onClanTransmitListener != null) {
+                        if(Client.field837 > var9.field2800 && var9.onClanTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onClanTransmitListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
-                        if(client.field858 > var9.field2800 && var9.onStockTransmitListener != null) {
+                        if(Client.field858 > var9.field2800 && var9.onStockTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onStockTransmitListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
-                        if(client.field839 > var9.field2800 && var9.onCamFinishedListener != null) {
+                        if(Client.field839 > var9.field2800 && var9.onCamFinishedListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onCamFinishedListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
-                        if(client.lastMiscTransmit > var9.field2800 && var9.onMiscTransmitListener != null) {
+                        if(Client.lastMiscTransmit > var9.field2800 && var9.onMiscTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onMiscTransmitListener;
-                           client.field842.method4351(var27);
+                           Client.field842.method4351(var27);
                         }
 
-                        var9.field2800 = client.cycleCntr;
+                        var9.field2800 = Client.cycleCntr;
                         if(var9.onKeyListener != null) {
-                           for(var35 = 0; var35 < client.field865; ++var35) {
+                           for(var35 = 0; var35 < Client.field865; ++var35) {
                               ScriptEvent var31 = new ScriptEvent();
                               var31.source = var9;
-                              var31.typedKeyCode = client.field867[var35];
-                              var31.typedKeyChar = client.field846[var35];
+                              var31.typedKeyCode = Client.field867[var35];
+                              var31.typedKeyChar = Client.field846[var35];
                               var31.params = var9.onKeyListener;
-                              client.field842.method4351(var31);
+                              Client.field842.method4351(var31);
                            }
                         }
                      }
                   }
 
                   if(!var9.isIf3) {
-                     if(client.draggedWidget != null || World.field1025 != null || client.isMenuOpen) {
+                     if(Client.draggedWidget != null || World.field1025 != null || Client.isMenuOpen) {
                         continue;
                      }
 
@@ -592,10 +592,10 @@ public class class219 {
                         method4424(var9.children, var9.id, var12, var13, var14, var15, var10 - var9.scrollX, var11 - var9.scrollY);
                      }
 
-                     SubInterface var29 = (SubInterface)client.subInterfaces.method380((long)var9.id);
+                     SubInterface var29 = (SubInterface)Client.subInterfaces.method380((long)var9.id);
                      if(var29 != null) {
-                        if(var29.mode == 0 && MouseInput.mouseLastX >= var12 && MouseInput.mouseLastY * -976212263 >= var13 && MouseInput.mouseLastX < var14 && MouseInput.mouseLastY * -976212263 < var15 && !client.isMenuOpen) {
-                           for(ScriptEvent var30 = (ScriptEvent)client.field842.method4373(); var30 != null; var30 = (ScriptEvent)client.field842.method4358()) {
+                        if(var29.mode == 0 && MouseInput.mouseLastX >= var12 && MouseInput.mouseLastY * -976212263 >= var13 && MouseInput.mouseLastX < var14 && MouseInput.mouseLastY * -976212263 < var15 && !Client.isMenuOpen) {
+                           for(ScriptEvent var30 = (ScriptEvent)Client.field842.method4373(); var30 != null; var30 = (ScriptEvent)Client.field842.method4358()) {
                               if(var30.field563) {
                                  var30.method6469();
                                  var30.source.field2798 = false;
@@ -603,11 +603,11 @@ public class class219 {
                            }
 
                            if(class77.field2817 == 0) {
-                              client.draggedWidget = null;
-                              client.field817 = null;
+                              Client.draggedWidget = null;
+                              Client.field817 = null;
                            }
 
-                           if(!client.isMenuOpen) {
+                           if(!Client.isMenuOpen) {
                               WorldMapType3.method1691();
                            }
                         }

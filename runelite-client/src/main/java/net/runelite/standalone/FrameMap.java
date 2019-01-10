@@ -24,7 +24,7 @@ public class FrameMap extends Node implements RSFrameMap {
 
    FrameMap(int var1, byte[] var2) {
       this.id = var1;
-      Buffer var3 = new Buffer(var2);
+      Packet var3 = new Packet(var2);
       this.count = var3.readUnsignedByte();
       this.types = new int[this.count];
       this.list = new int[this.count][];
@@ -138,7 +138,7 @@ public class FrameMap extends Node implements RSFrameMap {
       signature = "(Lgl;IIIIIIB)V",
       garbageValue = "-41"
    )
-   static final void method553(Buffer var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+   static final void method553(Packet var0, int var1, int var2, int var3, int var4, int var5, int var6) {
       int var7;
       if(var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
          class98.tileSettings[var1][var2][var3] = 0;
@@ -169,7 +169,7 @@ public class FrameMap extends Node implements RSFrameMap {
             }
 
             if(var7 <= 49) {
-               class82.tileOverlayIds[var1][var2][var3] = var0.method6240();
+               class82.tileOverlayIds[var1][var2][var3] = var0.readByte();
                class98.tileOverlayPath[var1][var2][var3] = (byte)((var7 - 2) / 4);
                class157.overlayRotations[var1][var2][var3] = (byte)(var7 - 2 + var6 & 3);
             } else if(var7 <= 81) {

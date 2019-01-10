@@ -677,7 +677,7 @@ public class ClientProt implements class102 {
    )
    static final void method6051() {
       SceneManager.regionLowMemory = false;
-      client.lowMemory = false;
+      Client.lowMemory = false;
    }
 
    @ObfuscatedName("g")
@@ -693,7 +693,7 @@ public class ClientProt implements class102 {
          byte[] var2 = IDKType.identKit_ref.method1516(3, var0, 1789634852);
          var1 = new IDKType();
          if(var2 != null) {
-            var1.method1891(new Buffer(var2));
+            var1.method1891(new Packet(var2));
          }
 
          IDKType.identKits.method957(var1, (long)var0);

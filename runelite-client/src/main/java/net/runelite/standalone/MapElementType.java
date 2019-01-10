@@ -125,7 +125,7 @@ public class MapElementType extends CacheableNode implements RSArea {
       signature = "(Lgl;B)V",
       garbageValue = "15"
    )
-   public void method2375(Buffer var1) {
+   public void method2375(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -141,7 +141,7 @@ public class MapElementType extends CacheableNode implements RSArea {
       signature = "(Lgl;II)V",
       garbageValue = "-1977714961"
    )
-   void method2366(Buffer var1, int var2) {
+   void method2366(Packet var1, int var2) {
       if(var2 == 1) {
          this.spriteId = var1.method6207();
       } else if(var2 == 2) {
@@ -190,7 +190,7 @@ public class MapElementType extends CacheableNode implements RSArea {
             this.field3330 = new byte[var3];
 
             for(var5 = 0; var5 < var3; ++var5) {
-               this.field3330[var5] = var1.method6240();
+               this.field3330[var5] = var1.readByte();
             }
          } else if(var2 != 16) {
             if(var2 == 17) {
@@ -314,7 +314,7 @@ public class MapElementType extends CacheableNode implements RSArea {
    static final void method2387(int var0, int var1, int var2, int var3, SpritePixels var4, class96 var5) {
       int var6 = var3 * var3 + var2 * var2;
       if(var6 > 4225 && var6 < 90000) {
-         int var7 = client.mapAngle & 2047;
+         int var7 = Client.mapAngle & 2047;
          int var8 = Graphics3D.SINE[var7];
          int var9 = Graphics3D.COSINE[var7];
          int var10 = var9 * var2 + var3 * var8 >> 16;

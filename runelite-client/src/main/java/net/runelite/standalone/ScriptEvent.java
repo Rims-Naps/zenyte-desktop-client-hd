@@ -148,7 +148,7 @@ public class ScriptEvent extends Node implements RSScriptEvent {
             var9 = 100;
          }
 
-         int var10 = (client.field898 - client.field897) * var9 / 100 + client.field897;
+         int var10 = (Client.field898 - Client.field897) * var9 / 100 + Client.field897;
          int var8 = var10 * var5 / 256;
          var2[var3] = var7 * var8 >> 16;
       }

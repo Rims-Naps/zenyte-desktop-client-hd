@@ -809,7 +809,7 @@ public class ComponentType extends Node implements RSWidget {
    )
    public SpritePixels method266(boolean var1, int var2) {
       if(this.getSpriteId() != -1) {
-         net.runelite.api.SpritePixels var3 = (net.runelite.api.SpritePixels)client.widgetSpriteOverrides.get(Integer.valueOf(this.getId()));
+         net.runelite.api.SpritePixels var3 = (net.runelite.api.SpritePixels)Client.widgetSpriteOverrides.get(Integer.valueOf(this.getId()));
          if(var3 != null) {
             return (SpritePixels)((RSSpritePixels)var3);
          }
@@ -823,7 +823,7 @@ public class ComponentType extends Node implements RSWidget {
       signature = "(Lgl;I)[Ljava/lang/Object;",
       garbageValue = "1475274853"
    )
-   Object[] method229(Buffer var1) {
+   Object[] method229(Packet var1) {
       int var2 = var1.readUnsignedByte();
       if(var2 == 0) {
          return null;
@@ -849,7 +849,7 @@ public class ComponentType extends Node implements RSWidget {
       signature = "(Lgl;I)V",
       garbageValue = "1861759842"
    )
-   void method226(Buffer var1) {
+   void method226(Packet var1) {
       var1.readUnsignedByte();
       this.isIf3 = true;
       this.type = var1.readUnsignedByte();
@@ -863,10 +863,10 @@ public class ComponentType extends Node implements RSWidget {
          this.sizeY = var1.method6080();
       }
 
-      this.sizeXmode = var1.method6240();
-      this.sizeYmode = var1.method6240();
-      this.posXmode = var1.method6240();
-      this.posYmode = var1.method6240();
+      this.sizeXmode = var1.readByte();
+      this.sizeYmode = var1.readByte();
+      this.posXmode = var1.readByte();
+      this.posYmode = var1.readByte();
       this.layer = var1.method6080();
       if(this.layer == 65535) {
          this.layer = -1;
@@ -1901,7 +1901,7 @@ public class ComponentType extends Node implements RSWidget {
       signature = "(Lgl;I)V",
       garbageValue = "-1422883307"
    )
-   void method227(Buffer var1) {
+   void method227(Packet var1) {
       this.isIf3 = false;
       this.type = var1.readUnsignedByte();
       this.buttonType = var1.readUnsignedByte();
@@ -2158,7 +2158,7 @@ public class ComponentType extends Node implements RSWidget {
       signature = "(Lgl;I)[I",
       garbageValue = "1860958215"
    )
-   int[] method228(Buffer var1) {
+   int[] method228(Packet var1) {
       int var2 = var1.readUnsignedByte();
       if(var2 == 0) {
          return null;
@@ -2301,6 +2301,6 @@ public class ComponentType extends Node implements RSWidget {
    }
 
    private static void rl$$clinit() {
-      $assertionsDisabled = !client.class.desiredAssertionStatus();
+      $assertionsDisabled = !Client.class.desiredAssertionStatus();
    }
 }

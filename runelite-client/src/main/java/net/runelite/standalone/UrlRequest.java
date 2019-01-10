@@ -70,8 +70,8 @@ public class UrlRequest {
       garbageValue = "-555531433"
    )
    static void method5575(World var0) {
-      if(var0.method3719() != client.isMembers) {
-         client.isMembers = var0.method3719();
+      if(var0.method3719() != Client.isMembers) {
+         Client.isMembers = var0.method3719();
          boolean var1 = var0.method3719();
          if(var1 != PlayerComposition.isMembersWorld) {
             ServerConnection.method5888();
@@ -80,10 +80,10 @@ public class UrlRequest {
       }
 
       class113.host = var0.address;
-      client.world = var0.id;
-      client.flags = var0.mask;
-      class220.port1 = client.socketType == 0?43594:var0.id + 40000;
-      GrandExchangeEvent.port2 = client.socketType == 0?443:var0.id + 50000;
+      Client.world = var0.id;
+      Client.flags = var0.mask;
+      class220.port1 = Client.socketType == 0?43594:var0.id + 40000;
+      GrandExchangeEvent.port2 = Client.socketType == 0?443:var0.id + 50000;
       class86.myWorldPort = class220.port1;
    }
 

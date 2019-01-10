@@ -49,7 +49,7 @@ public class class220 implements Comparator {
          byte[] var2 = StructType.field3411.method1516(34, var0, 1789634852);
          var1 = new StructType();
          if(var2 != null) {
-            var1.method5702(new Buffer(var2));
+            var1.method5702(new Packet(var2));
          }
 
          var1.method5699();

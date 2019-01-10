@@ -31,7 +31,7 @@ public class VarClientStringType extends CacheableNode {
       signature = "(Lgl;I)V",
       garbageValue = "2012780847"
    )
-   void method177(Buffer var1) {
+   void method177(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -47,7 +47,7 @@ public class VarClientStringType extends CacheableNode {
       signature = "(Lgl;II)V",
       garbageValue = "-1388161728"
    )
-   void method175(Buffer var1, int var2) {
+   void method175(Packet var1, int var2) {
       if(var2 == 2) {
          this.serialize = true;
       }

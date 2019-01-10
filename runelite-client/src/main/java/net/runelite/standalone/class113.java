@@ -48,7 +48,7 @@ public class class113 extends class310 {
       signature = "(Lgl;Lgl;I)V",
       garbageValue = "1266482310"
    )
-   void method1961(Buffer var1, Buffer var2) {
+   void method1961(Packet var1, Packet var2) {
       int var3 = var2.readUnsignedByte();
       if(var3 != class134.field258.field254) {
          throw new IllegalStateException("");
@@ -205,7 +205,7 @@ public class class113 extends class310 {
 
                   for(var2 = 1; var2 < 2048; ++var2) {
                      class254.skipHistory[var2] = (byte)(class254.skipHistory[var2] >> 1);
-                     PlayerEntity var5 = client.players[var2];
+                     PlayerEntity var5 = Client.players[var2];
                      if(var5 != null) {
                         class254.highResolutionPlayerIndexes[++class254.highResolutionPlayerCount - 1] = var2;
                      } else {

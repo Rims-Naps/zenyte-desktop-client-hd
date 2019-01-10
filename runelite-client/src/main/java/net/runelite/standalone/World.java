@@ -218,7 +218,7 @@ public class World implements RSWorld {
       garbageValue = "-1629270818"
    )
    static final void method3742(int var0, int var1, int var2, int var3) {
-      if(client.itemSelectionState == 0 && !client.spellSelected) {
+      if(Client.itemSelectionState == 0 && !Client.spellSelected) {
          class316.method5992("Walk here", "", 23, 0, var0 - var2, var1 - var3);
       }
 
@@ -232,8 +232,8 @@ public class World implements RSWorld {
             if(-1L != var4) {
                var8 = MapLabel.method5553(var4);
                int var9 = class202.method4050(var4);
-               PlayerEntity var26 = client.players[client.field769];
-               class230.method4544(var26, client.field769, var8, var9);
+               PlayerEntity var26 = Client.players[Client.field769];
+               class230.method4544(var26, Client.field769, var8, var9);
             }
 
             return;
@@ -258,11 +258,11 @@ public class World implements RSWorld {
                      break label333;
                   }
 
-                  if(client.itemSelectionState == 1) {
-                     class316.method5992("Use", client.lastSelectedItemName + " " + "->" + " " + class31.method548(65535) + var20.name, 1, var19, var15, var16);
-                  } else if(client.spellSelected) {
+                  if(Client.itemSelectionState == 1) {
+                     class316.method5992("Use", Client.lastSelectedItemName + " " + "->" + " " + class31.method548(65535) + var20.name, 1, var19, var15, var16);
+                  } else if(Client.spellSelected) {
                      if((FontName.ifTargetMask & 4) == 4) {
-                        class316.method5992(client.targetVerb, client.opBase + " " + "->" + " " + class31.method548(65535) + var20.name, 2, var19, var15, var16);
+                        class316.method5992(Client.targetVerb, Client.opBase + " " + "->" + " " + class31.method548(65535) + var20.name, 2, var19, var15, var16);
                      }
                   } else {
                      String[] var27 = var20.actions;
@@ -305,16 +305,16 @@ public class World implements RSWorld {
                int[] var34;
                int var36;
                if(var18 == 1) {
-                  NPCEntity var31 = client.npcs[var19];
+                  NPCEntity var31 = Client.npcs[var19];
                   if(var31 == null) {
                      break label333;
                   }
 
                   if(var31.type.size == 1 && (var31.x & 127) == 64 && (var31.y & 127) == 64) {
-                     for(var21 = 0; var21 < client.highResolutionNpcCount; ++var21) {
-                        var22 = client.npcs[client.highResolutionNpcIndexes[var21]];
+                     for(var21 = 0; var21 < Client.highResolutionNpcCount; ++var21) {
+                        var22 = Client.npcs[Client.highResolutionNpcIndexes[var21]];
                         if(var22 != null && var22 != var31 && var22.type.size == 1 && var22.x == var31.x && var22.y == var31.y) {
-                           ClientOptions.method6499(var22.type, client.highResolutionNpcIndexes[var21], var15, var17);
+                           ClientOptions.method6499(var22.type, Client.highResolutionNpcIndexes[var21], var15, var17);
                         }
                      }
 
@@ -322,7 +322,7 @@ public class World implements RSWorld {
                      var34 = class254.highResolutionPlayerIndexes;
 
                      for(var36 = 0; var36 < var21; ++var36) {
-                        var24 = client.players[var34[var36]];
+                        var24 = Client.players[var34[var36]];
                         if(var24 != null && var24.x == var31.x && var31.y == var24.y) {
                            class230.method4544(var24, var34[var36], var15, var17);
                         }
@@ -333,16 +333,16 @@ public class World implements RSWorld {
                }
 
                if(var18 == 0) {
-                  PlayerEntity var32 = client.players[var19];
+                  PlayerEntity var32 = Client.players[var19];
                   if(var32 == null) {
                      break label333;
                   }
 
                   if((var32.x & 127) == 64 && (var32.y & 127) == 64) {
-                     for(var21 = 0; var21 < client.highResolutionNpcCount; ++var21) {
-                        var22 = client.npcs[client.highResolutionNpcIndexes[var21]];
+                     for(var21 = 0; var21 < Client.highResolutionNpcCount; ++var21) {
+                        var22 = Client.npcs[Client.highResolutionNpcIndexes[var21]];
                         if(var22 != null && var22.type.size == 1 && var32.x == var22.x && var32.y == var22.y) {
-                           ClientOptions.method6499(var22.type, client.highResolutionNpcIndexes[var21], var15, var17);
+                           ClientOptions.method6499(var22.type, Client.highResolutionNpcIndexes[var21], var15, var17);
                         }
                      }
 
@@ -350,14 +350,14 @@ public class World implements RSWorld {
                      var34 = class254.highResolutionPlayerIndexes;
 
                      for(var36 = 0; var36 < var21; ++var36) {
-                        var24 = client.players[var34[var36]];
+                        var24 = Client.players[var34[var36]];
                         if(var24 != null && var32 != var24 && var24.x == var32.x && var24.y == var32.y) {
                            class230.method4544(var24, var34[var36], var15, var17);
                         }
                      }
                   }
 
-                  if(var19 != client.field769) {
+                  if(var19 != Client.field769) {
                      class230.method4544(var32, var19, var15, var17);
                   } else {
                      var4 = var11;
@@ -365,15 +365,15 @@ public class World implements RSWorld {
                }
 
                if(var18 == 3) {
-                  Deque var33 = client.groundItemDeque[class228.level][var15][var17];
+                  Deque var33 = Client.groundItemDeque[class228.level][var15][var17];
                   if(var33 != null) {
                      for(Item var37 = (Item)var33.method4349(); var37 != null; var37 = (Item)var33.method4370()) {
                         ObjType var35 = Varcs.method4770(var37.id);
-                        if(client.itemSelectionState == 1) {
-                           class316.method5992("Use", client.lastSelectedItemName + " " + "->" + " " + class31.method548(16748608) + var35.name, 16, var37.id, var15, var17);
-                        } else if(client.spellSelected) {
+                        if(Client.itemSelectionState == 1) {
+                           class316.method5992("Use", Client.lastSelectedItemName + " " + "->" + " " + class31.method548(16748608) + var35.name, 16, var37.id, var15, var17);
+                        } else if(Client.spellSelected) {
                            if((FontName.ifTargetMask & 1) == 1) {
-                              class316.method5992(client.targetVerb, client.opBase + " " + "->" + " " + class31.method548(16748608) + var35.name, 17, var37.id, var15, var17);
+                              class316.method5992(Client.targetVerb, Client.opBase + " " + "->" + " " + class31.method548(16748608) + var35.name, 17, var37.id, var15, var17);
                            }
                         } else {
                            String[] var29 = var35.ops;
@@ -425,7 +425,7 @@ public class World implements RSWorld {
       garbageValue = "-101"
    )
    static boolean method3762() {
-      return (client.playerNameMask & 4) != 0;
+      return (Client.playerNameMask & 4) != 0;
    }
 
    @ObfuscatedName("gt")
@@ -434,7 +434,7 @@ public class World implements RSWorld {
       garbageValue = "-17"
    )
    static void method3770() {
-      if(client.field762) {
+      if(Client.field762) {
          PlayerEntity.method2924(class4.localPlayer, false);
       }
 
@@ -450,7 +450,7 @@ public class World implements RSWorld {
       int[] var1 = class254.highResolutionPlayerIndexes;
 
       for(int var2 = 0; var2 < var0; ++var2) {
-         PlayerEntity var3 = client.players[var1[var2]];
+         PlayerEntity var3 = Client.players[var1[var2]];
          if(var3 != null) {
             AuthProt.method1671(var3, 1);
          }

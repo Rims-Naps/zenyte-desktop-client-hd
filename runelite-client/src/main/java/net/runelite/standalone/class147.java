@@ -66,13 +66,13 @@ public final class class147 {
                var5 += var4.field1059 - var2;
             }
 
-            if(var5 - 64 <= var4.field1053 && client.field881 != 0 && var0 == var4.field1048) {
+            if(var5 - 64 <= var4.field1053 && Client.field881 != 0 && var0 == var4.field1048) {
                var5 -= 64;
                if(var5 < 0) {
                   var5 = 0;
                }
 
-               int var6 = (var4.field1053 - var5) * client.field881 / var4.field1053;
+               int var6 = (var4.field1053 - var5) * Client.field881 / var4.field1053;
                if(var4.field1064 == null) {
                   if(var4.field1054 >= 0) {
                      SoundEffect var7 = SoundEffect.method605(class192.synths, var4.field1054, 0);

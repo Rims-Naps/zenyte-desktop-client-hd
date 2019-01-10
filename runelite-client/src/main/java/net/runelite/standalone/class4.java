@@ -132,13 +132,13 @@ public final class class4 extends Node {
       garbageValue = "2"
    )
    static void method42(int var0) {
-      if(var0 == -1 && !client.field879) {
+      if(var0 == -1 && !Client.field879) {
          WorldMapRegion.method4152();
-      } else if(var0 != -1 && var0 != client.field878 && client.field877 != 0 && !client.field879) {
-         class134.method2202(2, ServerProt.music, var0, 0, client.field877, false);
+      } else if(var0 != -1 && var0 != Client.field878 && Client.field877 != 0 && !Client.field879) {
+         class134.method2202(2, ServerProt.music, var0, 0, Client.field877, false);
       }
 
-      client.field878 = var0;
+      Client.field878 = var0;
    }
 
    @ObfuscatedName("ax")
@@ -195,7 +195,7 @@ public final class class4 extends Node {
    )
    static final void method32(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
       if(var2 >= 1 && var3 >= 1 && var2 <= 102 && var3 <= 102) {
-         if(client.lowMemory && var0 != class228.level) {
+         if(Client.lowMemory && var0 != class228.level) {
             return;
          }
 
@@ -230,7 +230,7 @@ public final class class4 extends Node {
                class131.sceneManager.method3812(var0, var2, var3);
                var13 = class225.method4485(var14);
                if(var13.clipType != 0) {
-                  client.collisionMaps[var0].method201(var2, var3, var15, var16, var13.blocksProjectile);
+                  Client.collisionMaps[var0].method201(var2, var3, var15, var16, var13.blocksProjectile);
                }
             }
 
@@ -246,7 +246,7 @@ public final class class4 extends Node {
                }
 
                if(var13.clipType != 0) {
-                  client.collisionMaps[var0].method202(var2, var3, var13.width, var13.length, var16, var13.blocksProjectile);
+                  Client.collisionMaps[var0].method202(var2, var3, var13.width, var13.length, var16, var13.blocksProjectile);
                }
             }
 
@@ -254,7 +254,7 @@ public final class class4 extends Node {
                class131.sceneManager.method3815(var0, var2, var3);
                var13 = class225.method4485(var14);
                if(var13.clipType == 1) {
-                  client.collisionMaps[var0].method204(var2, var3);
+                  Client.collisionMaps[var0].method204(var2, var3);
                }
             }
          }
@@ -265,7 +265,7 @@ public final class class4 extends Node {
                var12 = var0 + 1;
             }
 
-            TradingPost.method805(var0, var12, var2, var3, var4, var5, var6, class131.sceneManager, client.collisionMaps[var0]);
+            TradingPost.method805(var0, var12, var2, var3, var4, var5, var6, class131.sceneManager, Client.collisionMaps[var0]);
          }
       }
 

@@ -945,23 +945,27 @@ public class SceneManager implements RSScene {
          var7.drawScene(var1, var2, var3, var4, var5, var6);
       }
 
-      int var8 = this.getMaxX();
-      int var9 = this.getMaxY();
-      int var10 = this.getMaxZ();
-      int var11 = this.getMinLevel();
-      RSTile[][][] var12 = this.getTiles();
-      boolean var13 = class166.clientInstance.isGpu();
-      int var14 = var13?rl$drawDistance:25;
+      boolean var8 = class166.clientInstance.isGpu();
+      if(!var8 && Client.skyboxColor != 0) {
+         class166.clientInstance.RasterizerFillRectangle(class166.clientInstance.getViewportXOffset(), class166.clientInstance.getViewportYOffset(), class166.clientInstance.getViewportWidth(), class166.clientInstance.getViewportHeight(), Client.skyboxColor);
+      }
+
+      int var9 = this.getMaxX();
+      int var10 = this.getMaxY();
+      int var11 = this.getMaxZ();
+      int var12 = this.getMinLevel();
+      RSTile[][][] var13 = this.getTiles();
+      int var14 = var8?rl$drawDistance:25;
       if(var1 < 0) {
          var1 = 0;
-      } else if(var1 >= var8 * 128) {
-         var1 = var8 * 128 - 1;
+      } else if(var1 >= var9 * 128) {
+         var1 = var9 * 128 - 1;
       }
 
       if(var3 < 0) {
          var3 = 0;
-      } else if(var3 >= var10 * 128) {
-         var3 = var10 * 128 - 1;
+      } else if(var3 >= var11 * 128) {
+         var3 = var11 * 128 - 1;
       }
 
       int var15 = var4;
@@ -971,7 +975,7 @@ public class SceneManager implements RSScene {
          var4 = 383;
       }
 
-      if(!client.pitchRelaxEnabled) {
+      if(!Client.pitchRelaxEnabled) {
          var15 = var4;
       }
 
@@ -1002,13 +1006,13 @@ public class SceneManager implements RSScene {
       }
 
       int var22 = var18 + var14;
-      if(var22 > var8) {
-         var22 = var8;
+      if(var22 > var9) {
+         var22 = var9;
       }
 
       int var23 = var19 + var14;
-      if(var23 > var10) {
-         var23 = var10;
+      if(var23 > var11) {
+         var23 = var11;
       }
 
       class166.clientInstance.setMinTileX(var20);
@@ -1022,22 +1026,22 @@ public class SceneManager implements RSScene {
       RSTile[][] var25;
       int var26;
       int var27;
-      for(var24 = var11; var24 < var9; ++var24) {
-         var25 = var12[var24];
+      for(var24 = var12; var24 < var10; ++var24) {
+         var25 = var13[var24];
 
          for(var26 = var20; var26 < var22; ++var26) {
             for(var27 = var21; var27 < var23; ++var27) {
                RSTile var28 = var25[var26][var27];
                if(var28 != null) {
-                  if(var28.getPhysicalLevel() > var6 || !var13 && !var17[var26 - var18 + 25][var27 - var19 + 25] && var16[var24][var26][var27] - var2 < 2000) {
-                     var28.setDraw(false);
-                     var28.setVisible(false);
-                     var28.setWallCullDirection(0);
-                  } else {
+                  if(var28.getPhysicalLevel() <= var6 && (var8 || var17[var26 - var18 + 25][var27 - var19 + 25] || var16[var24][var26][var27] - var2 >= 2000)) {
                      var28.setDraw(true);
                      var28.setVisible(true);
                      var28.setDrawEntities(true);
                      class166.clientInstance.setTileUpdateCount(class166.clientInstance.getTileUpdateCount() + 1);
+                  } else {
+                     var28.setDraw(false);
+                     var28.setVisible(false);
+                     var28.setWallCullDirection(0);
                   }
                }
             }
@@ -1049,8 +1053,8 @@ public class SceneManager implements RSScene {
       int var31;
       RSTile var32;
       int var33;
-      for(var24 = var11; var24 < var9; ++var24) {
-         var25 = var12[var24];
+      for(var24 = var12; var24 < var10; ++var24) {
+         var25 = var13[var24];
 
          for(var26 = -var14; var26 <= 0; ++var26) {
             var27 = var26 + var18;
@@ -1092,6 +1096,10 @@ public class SceneManager implements RSScene {
                   }
 
                   if(class166.clientInstance.getTileUpdateCount() == 0) {
+                     if(!var8 && class166.clientInstance.getOculusOrbState() != 0) {
+                        class166.clientInstance.setEntitiesAtMouseCount(0);
+                     }
+
                      class166.clientInstance.setCheckClick(false);
                      class166.clientInstance.getCallbacks().drawScene();
                      return;
@@ -1101,8 +1109,8 @@ public class SceneManager implements RSScene {
          }
       }
 
-      for(var24 = var11; var24 < var9; ++var24) {
-         var25 = var12[var24];
+      for(var24 = var12; var24 < var10; ++var24) {
+         var25 = var13[var24];
 
          for(var26 = -var14; var26 <= 0; ++var26) {
             var27 = var26 + var18;
@@ -1144,6 +1152,10 @@ public class SceneManager implements RSScene {
                   }
 
                   if(class166.clientInstance.getTileUpdateCount() == 0) {
+                     if(!var8 && class166.clientInstance.getOculusOrbState() != 0) {
+                        class166.clientInstance.setEntitiesAtMouseCount(0);
+                     }
+
                      class166.clientInstance.setCheckClick(false);
                      class166.clientInstance.getCallbacks().drawScene();
                      return;
@@ -1151,6 +1163,10 @@ public class SceneManager implements RSScene {
                }
             }
          }
+      }
+
+      if(!var8 && class166.clientInstance.getOculusOrbState() != 0) {
+         class166.clientInstance.setEntitiesAtMouseCount(0);
       }
 
       class166.clientInstance.setCheckClick(false);
@@ -1888,10 +1904,6 @@ public class SceneManager implements RSScene {
 
    }
 
-   public int getMaxX() {
-      return this.maxX;
-   }
-
    @ObfuscatedSignature(
       signature = "(Ldi;IIIIIII)V"
    )
@@ -2074,12 +2086,16 @@ public class SceneManager implements RSScene {
       return true;
    }
 
-   public int getMaxY() {
-      return this.maxY;
-   }
-
    public int[][][] getTileHeights() {
       return this.tileHeights;
+   }
+
+   public int getMaxX() {
+      return this.maxX;
+   }
+
+   public int getMaxY() {
+      return this.maxY;
    }
 
    public int getMaxZ() {
@@ -2809,14 +2825,14 @@ public class SceneManager implements RSScene {
    }
 
    public static boolean shouldDraw(Object var0, boolean var1) {
-      if(!client.isHidingEntities) {
+      if(!Client.isHidingEntities) {
          return true;
       } else {
          boolean var4;
          label94: {
             if(var0 instanceof RSPlayer) {
-               boolean var2 = var1?client.hideLocalPlayer2D:client.hideLocalPlayer;
-               boolean var3 = var1?client.hidePlayers2D:client.hidePlayers;
+               boolean var2 = var1?Client.hideLocalPlayer2D:Client.hideLocalPlayer;
+               boolean var3 = var1?Client.hidePlayers2D:Client.hidePlayers;
                var4 = var0 == class166.clientInstance.getLocalPlayer();
                if(var4) {
                   if(var2) {
@@ -2828,15 +2844,15 @@ public class SceneManager implements RSScene {
             } else {
                if(var0 instanceof RSNPC) {
                   RSNPC var6 = (RSNPC)var0;
-                  if(!client.hideAttackers && var6.getInteracting() == class166.clientInstance.getLocalPlayer()) {
+                  if(!Client.hideAttackers && var6.getInteracting() == class166.clientInstance.getLocalPlayer()) {
                      return true;
                   }
 
-                  return var1?!client.hideNPCs2D:!client.hideNPCs;
+                  return var1?!Client.hideNPCs2D:!Client.hideNPCs;
                }
 
                if(var0 instanceof RSProjectile) {
-                  return !client.hideProjectiles;
+                  return !Client.hideProjectiles;
                }
             }
 
@@ -2844,7 +2860,7 @@ public class SceneManager implements RSScene {
          }
 
          RSPlayer var5 = (RSPlayer)var0;
-         return !client.hideAttackers && var5.getInteracting() == class166.clientInstance.getLocalPlayer()?true:(var5.getName() == null?false:!client.hideFriends && var5.isFriend() || !var4 && !client.hideClanMates && var5.isClanMember());
+         return !Client.hideAttackers && var5.getInteracting() == class166.clientInstance.getLocalPlayer()?true:(var5.getName() == null?false:!Client.hideFriends && var5.isFriend() || !var4 && !Client.hideClanMates && var5.isClanMember());
       }
    }
 
@@ -2890,13 +2906,13 @@ public class SceneManager implements RSScene {
             int var76 = class254.highResolutionPlayerCount;
             int[] var8 = class254.highResolutionPlayerIndexes;
             byte var9 = 0;
-            if(var1 < var76 && var0.field943 == client.gameCycle && class166.method2806((PlayerEntity)var0)) {
+            if(var1 < var76 && var0.field943 == Client.gameCycle && class166.method2806((PlayerEntity)var0)) {
                PlayerEntity var10 = (PlayerEntity)var0;
                if(var1 < var76) {
                   class124.method2092(var0, var0.logicalHeight + 15);
-                  FontTypeFace var11 = (FontTypeFace)client.fontsMap.get(FontName.FontName_plain12);
+                  FontTypeFace var11 = (FontTypeFace)Client.fontsMap.get(FontName.FontName_plain12);
                   byte var12 = 9;
-                  var11.method1862(var10.name.method4713(), var2 + client.screenX, var3 + client.screenY - var12, 16777215, 0);
+                  var11.method1862(var10.name.method4713(), var2 + Client.screenX, var3 + Client.screenY - var12, 16777215, 0);
                   var9 = 18;
                }
             }
@@ -2909,7 +2925,7 @@ public class SceneManager implements RSScene {
                class124.method2092(var0, var0.logicalHeight + 15);
 
                for(CombatInfoListHolder var88 = (CombatInfoListHolder)var0.combatInfoList.method4329(); var88 != null; var88 = (CombatInfoListHolder)var0.combatInfoList.method4327()) {
-                  CombatInfo1 var78 = var88.method1493(client.gameCycle);
+                  CombatInfo1 var78 = var88.method1493(Client.gameCycle);
                   if(var78 != null) {
                      if(var6 >= 1573535924) {
                         return;
@@ -2931,7 +2947,7 @@ public class SceneManager implements RSScene {
 
                      int var18 = 255;
                      boolean var19 = true;
-                     int var20 = client.gameCycle - var78.cycle;
+                     int var20 = Client.gameCycle - var78.cycle;
                      int var21 = var16 * var78.health / var13.healthScale;
                      int var22;
                      int var93;
@@ -2984,8 +3000,8 @@ public class SceneManager implements RSScene {
 
                            var22 = var14.height;
                            var77 += var22;
-                           var23 = var2 + client.screenX - (var16 >> 1);
-                           var24 = var3 + client.screenY - var77;
+                           var23 = var2 + Client.screenX - (var16 >> 1);
+                           var24 = var3 + Client.screenY - var77;
                            var23 -= var17;
                            if(var18 >= 0 && var18 < 255) {
                               var14.method2259(var23, var24, var18);
@@ -3004,9 +3020,9 @@ public class SceneManager implements RSScene {
                      }
 
                      var77 += 5;
-                     if(client.screenX > -1) {
-                        var22 = var2 + client.screenX - (var16 >> 1);
-                        var23 = var3 + client.screenY - var77;
+                     if(Client.screenX > -1) {
+                        var22 = var2 + Client.screenX - (var16 >> 1);
+                        var23 = var3 + Client.screenY - var77;
                         Rasterizer2D.method449(var22, var23, var93, 5, 65280);
                         Rasterizer2D.method449(var93 + var22, var23, var16 - var93, 5, 16711680);
                      }
@@ -3035,24 +3051,24 @@ public class SceneManager implements RSScene {
 
                if(var89.skullIcon != -1 || var89.overheadIcon != -1) {
                   class124.method2092(var0, var0.logicalHeight + 15);
-                  if(client.screenX > -1) {
+                  if(Client.screenX > -1) {
                      if(var89.skullIcon != -1) {
                         var77 += 25;
-                        PlayerEntity.headIconsPk[var89.skullIcon].method2253(var2 + client.screenX - 12, var3 + client.screenY - var77);
+                        PlayerEntity.headIconsPk[var89.skullIcon].method2253(var2 + Client.screenX - 12, var3 + Client.screenY - var77);
                      }
 
                      if(var89.overheadIcon != -1) {
                         var77 += 25;
-                        UrlRequester.headIconsPrayer[var89.overheadIcon].method2253(var2 + client.screenX - 12, var3 + client.screenY - var77);
+                        UrlRequester.headIconsPrayer[var89.overheadIcon].method2253(var2 + Client.screenX - 12, var3 + Client.screenY - var77);
                      }
                   }
                }
 
-               if(var1 >= 0 && client.hintArrowTargetType == 10 && var8[var1] == client.hintArrowPlayerTargetIdx) {
+               if(var1 >= 0 && Client.hintArrowTargetType == 10 && var8[var1] == Client.hintArrowPlayerTargetIdx) {
                   class124.method2092(var0, var0.logicalHeight + 15);
-                  if(client.screenX > -1) {
+                  if(Client.screenX > -1) {
                      var77 += class158.headIconsHint[1].height;
-                     class158.headIconsHint[1].method2253(var2 + client.screenX - 12, var3 + client.screenY - var77);
+                     class158.headIconsHint[1].method2253(var2 + Client.screenX - 12, var3 + Client.screenY - var77);
                   }
                }
             } else {
@@ -3063,24 +3079,24 @@ public class SceneManager implements RSScene {
 
                if(var90.headIcon >= 0 && var90.headIcon < UrlRequester.headIconsPrayer.length) {
                   class124.method2092(var0, var0.logicalHeight + 15);
-                  if(client.screenX > -1) {
+                  if(Client.screenX > -1) {
                      if(var6 >= 1573535924) {
                         return;
                      }
 
-                     UrlRequester.headIconsPrayer[var90.headIcon].method2253(var2 + client.screenX - 12, var3 + client.screenY - 30);
+                     UrlRequester.headIconsPrayer[var90.headIcon].method2253(var2 + Client.screenX - 12, var3 + Client.screenY - 30);
                   }
                }
 
-               if(client.hintArrowTargetType == 1 && client.highResolutionNpcIndexes[var1 - var76] == client.hintArrowNpcTargetIdx) {
+               if(Client.hintArrowTargetType == 1 && Client.highResolutionNpcIndexes[var1 - var76] == Client.hintArrowNpcTargetIdx) {
                   if(var6 >= 1573535924) {
                      return;
                   }
 
-                  if(client.gameCycle % 20 < 10) {
+                  if(Client.gameCycle % 20 < 10) {
                      class124.method2092(var0, var0.logicalHeight + 15);
-                     if(client.screenX > -1) {
-                        class158.headIconsHint[0].method2253(var2 + client.screenX - 12, var3 + client.screenY - 28);
+                     if(Client.screenX > -1) {
+                        class158.headIconsHint[0].method2253(var2 + Client.screenX - 12, var3 + Client.screenY - 28);
                      }
                   }
                }
@@ -3097,7 +3113,7 @@ public class SceneManager implements RSScene {
                         break label777;
                      }
 
-                     if(client.publicChatMode != 4) {
+                     if(Client.publicChatMode != 4) {
                         if(var6 >= 1573535924) {
                            return;
                         }
@@ -3110,12 +3126,12 @@ public class SceneManager implements RSScene {
                            return;
                         }
 
-                        if(client.publicChatMode != 0 && client.publicChatMode != 3) {
+                        if(Client.publicChatMode != 0 && Client.publicChatMode != 3) {
                            if(var6 >= 1573535924) {
                               return;
                            }
 
-                           if(client.publicChatMode != 1 || !((PlayerEntity)var0).method2890()) {
+                           if(Client.publicChatMode != 1 || !((PlayerEntity)var0).method2890()) {
                               break label777;
                            }
                         }
@@ -3123,16 +3139,16 @@ public class SceneManager implements RSScene {
                   }
 
                   class124.method2092(var0, var0.logicalHeight);
-                  if(client.screenX > -1 && client.overheadTextCount < client.field731) {
-                     client.overheadTextsOffsetX[client.overheadTextCount] = class288.fontBold12.method1775(var0.overhead) / 2;
-                     client.overheadTextsOffsetY[client.overheadTextCount] = class288.fontBold12.verticalSpace;
-                     client.overheadTextsX[client.overheadTextCount] = client.screenX;
-                     client.overheadTextsY[client.overheadTextCount] = client.screenY;
-                     client.field736[client.overheadTextCount] = var0.field956;
-                     client.field737[client.overheadTextCount] = var0.field974;
-                     client.overheadTextsCyclesRemaining[client.overheadTextCount] = var0.overheadTextCyclesRemaining;
-                     client.overheadTexts[client.overheadTextCount] = var0.overhead;
-                     ++client.overheadTextCount;
+                  if(Client.screenX > -1 && Client.overheadTextCount < Client.field731) {
+                     Client.overheadTextsOffsetX[Client.overheadTextCount] = class288.fontBold12.method1775(var0.overhead) / 2;
+                     Client.overheadTextsOffsetY[Client.overheadTextCount] = class288.fontBold12.verticalSpace;
+                     Client.overheadTextsX[Client.overheadTextCount] = Client.screenX;
+                     Client.overheadTextsY[Client.overheadTextCount] = Client.screenY;
+                     Client.field736[Client.overheadTextCount] = var0.field956;
+                     Client.field737[Client.overheadTextCount] = var0.field974;
+                     Client.overheadTextsCyclesRemaining[Client.overheadTextCount] = var0.overheadTextCyclesRemaining;
+                     Client.overheadTexts[Client.overheadTextCount] = var0.overhead;
+                     ++Client.overheadTextCount;
                   }
                }
             }
@@ -3143,7 +3159,7 @@ public class SceneManager implements RSScene {
                HitmarkType var92 = null;
                int var81 = 0;
                if(var80 >= 0) {
-                  if(var91 <= client.gameCycle) {
+                  if(var91 <= Client.gameCycle) {
                      continue;
                   }
 
@@ -3172,7 +3188,7 @@ public class SceneManager implements RSScene {
                   }
                }
 
-               if(var91 - var81 > client.gameCycle) {
+               if(var91 - var81 > Client.gameCycle) {
                   if(var6 >= 1573535924) {
                      return;
                   }
@@ -3180,23 +3196,23 @@ public class SceneManager implements RSScene {
                   var0.hitsplatCycles[var79] = -1;
                } else {
                   class124.method2092(var0, var0.logicalHeight / 2);
-                  if(client.screenX > -1) {
+                  if(Client.screenX > -1) {
                      if(var6 >= 1573535924) {
                         return;
                      }
 
                      if(var79 == 1) {
-                        client.screenY -= 20;
+                        Client.screenY -= 20;
                      }
 
                      if(var79 == 2) {
-                        client.screenX -= 15;
-                        client.screenY -= 10;
+                        Client.screenX -= 15;
+                        Client.screenY -= 10;
                      }
 
                      if(var79 == 3) {
-                        client.screenX += 15;
-                        client.screenY -= 10;
+                        Client.screenX += 15;
+                        Client.screenY -= 10;
                      }
 
                      SpritePixels var83 = null;
@@ -3442,11 +3458,11 @@ public class SceneManager implements RSScene {
                         }
                      }
 
-                     var63 = var0.hitsplatCycles[var79] - client.gameCycle;
+                     var63 = var0.hitsplatCycles[var79] - Client.gameCycle;
                      int var64 = var92.field3441 - var63 * var92.field3441 / var92.field3428;
                      int var65 = var63 * var92.field3431 / var92.field3428 + -var92.field3431;
-                     int var66 = var64 + (var2 + client.screenX - (var52 >> 1));
-                     int var67 = var65 + (var3 + client.screenY - 12);
+                     int var66 = var64 + (var2 + Client.screenX - (var52 >> 1));
+                     int var67 = var65 + (var3 + Client.screenY - 12);
                      int var68 = var67;
                      int var69 = var67 + var43;
                      int var70 = var67 + var92.field3446 + 15;

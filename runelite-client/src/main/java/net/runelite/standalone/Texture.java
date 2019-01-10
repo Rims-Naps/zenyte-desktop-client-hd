@@ -34,7 +34,7 @@ public class Texture extends Node implements RSTexture {
    @ObfuscatedSignature(
       signature = "(Lgl;)V"
    )
-   Texture(Buffer var1) {
+   Texture(Packet var1) {
       this.loaded = false;
       this.field1593 = var1.method6080();
       this.field1602 = var1.readUnsignedByte() == 1;

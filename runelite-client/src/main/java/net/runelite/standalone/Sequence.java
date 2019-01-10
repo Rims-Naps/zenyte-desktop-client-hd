@@ -109,7 +109,7 @@ public class Sequence extends CacheableNode implements RSSequence {
       signature = "(Lgl;I)V",
       garbageValue = "-1690168982"
    )
-   void method4786(Buffer var1) {
+   void method4786(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -125,7 +125,7 @@ public class Sequence extends CacheableNode implements RSSequence {
       signature = "(Lgl;II)V",
       garbageValue = "1917758889"
    )
-   void method4777(Buffer var1, int var2) {
+   void method4777(Packet var1, int var2) {
       int var3;
       int var4;
       if(var2 == 1) {
@@ -549,9 +549,9 @@ public class Sequence extends CacheableNode implements RSSequence {
       garbageValue = "-719831937"
    )
    static void method4796(int var0, int var1) {
-      TcpConnectionMessage var2 = FaceNormal.method5726(ClientProt.field2207, client.serverConnection.isaac);
+      TcpConnectionMessage var2 = FaceNormal.method5726(ClientProt.field2207, Client.serverConnection.isaac);
       var2.packetBuffer.method6248(var0);
       var2.packetBuffer.method6196(var1);
-      client.serverConnection.method5881(var2);
+      Client.serverConnection.method5881(var2);
    }
 }

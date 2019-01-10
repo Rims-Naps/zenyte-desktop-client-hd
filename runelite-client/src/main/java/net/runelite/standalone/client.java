@@ -2,11 +2,66 @@ package net.runelite.standalone;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.inject.Inject;
+import javax.inject.Named;
+import net.runelite.api.ChatMessageType;
+import net.runelite.api.Constants;
+import net.runelite.api.GameState;
+import net.runelite.api.GraphicsObject;
+import net.runelite.api.HintArrowType;
+import net.runelite.api.IndexDataBase;
+import net.runelite.api.InventoryID;
+import net.runelite.api.MenuAction;
+import net.runelite.api.MenuEntry;
+import net.runelite.api.NPC;
+import net.runelite.api.PacketBuffer;
+import net.runelite.api.Perspective;
+import net.runelite.api.Player;
 import net.runelite.api.Point;
-import net.runelite.api.*;
+import net.runelite.api.Prayer;
+import net.runelite.api.Projectile;
+import net.runelite.api.Skill;
+import net.runelite.api.VarClientInt;
+import net.runelite.api.VarClientStr;
+import net.runelite.api.VarPlayer;
+import net.runelite.api.Varbits;
+import net.runelite.api.WidgetNode;
+import net.runelite.api.WorldType;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.*;
+import net.runelite.api.events.BoostedLevelChanged;
+import net.runelite.api.events.CanvasSizeChanged;
+import net.runelite.api.events.ChatMessage;
+import net.runelite.api.events.ClanChanged;
+import net.runelite.api.events.DraggingWidgetChanged;
+import net.runelite.api.events.ExperienceChanged;
+import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.GrandExchangeOfferChanged;
+import net.runelite.api.events.MenuEntryAdded;
+import net.runelite.api.events.MenuOpened;
+import net.runelite.api.events.NpcSpawned;
+import net.runelite.api.events.PlayerDespawned;
+import net.runelite.api.events.PlayerMenuOptionsChanged;
+import net.runelite.api.events.PlayerSpawned;
+import net.runelite.api.events.ResizeableChanged;
+import net.runelite.api.events.ScriptCallbackEvent;
+import net.runelite.api.events.UsernameChanged;
+import net.runelite.api.events.VarbitChanged;
 import net.runelite.api.hooks.Callbacks;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.api.vars.AccountType;
@@ -17,23 +72,50 @@ import net.runelite.client.callback.Hooks;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.*;
+import net.runelite.rs.api.RSArea;
+import net.runelite.rs.api.RSBufferProvider;
+import net.runelite.rs.api.RSClanMemberManager;
+import net.runelite.rs.api.RSClient;
+import net.runelite.rs.api.RSCollisionData;
+import net.runelite.rs.api.RSDeque;
+import net.runelite.rs.api.RSFrames;
+import net.runelite.rs.api.RSFriendContainer;
+import net.runelite.rs.api.RSFriendManager;
+import net.runelite.rs.api.RSGrandExchangeOffer;
+import net.runelite.rs.api.RSHashTable;
+import net.runelite.rs.api.RSIgnoreContainer;
+import net.runelite.rs.api.RSIndexDataBase;
+import net.runelite.rs.api.RSIndexedSprite;
+import net.runelite.rs.api.RSItem;
+import net.runelite.rs.api.RSItemComposition;
+import net.runelite.rs.api.RSItemContainer;
+import net.runelite.rs.api.RSIterableHashTable;
+import net.runelite.rs.api.RSJagexLoginType;
+import net.runelite.rs.api.RSModel;
+import net.runelite.rs.api.RSNPC;
+import net.runelite.rs.api.RSNPCComposition;
+import net.runelite.rs.api.RSName;
+import net.runelite.rs.api.RSNameable;
+import net.runelite.rs.api.RSNode;
+import net.runelite.rs.api.RSNodeCache;
+import net.runelite.rs.api.RSObjectComposition;
+import net.runelite.rs.api.RSPlayer;
+import net.runelite.rs.api.RSPreferences;
+import net.runelite.rs.api.RSRenderOverview;
+import net.runelite.rs.api.RSScene;
+import net.runelite.rs.api.RSScript;
+import net.runelite.rs.api.RSScriptEvent;
+import net.runelite.rs.api.RSSoundEffect;
+import net.runelite.rs.api.RSSpritePixels;
+import net.runelite.rs.api.RSTextureProvider;
+import net.runelite.rs.api.RSVarbit;
+import net.runelite.rs.api.RSVarcs;
+import net.runelite.rs.api.RSWidget;
+import net.runelite.rs.api.RSWorld;
 import org.slf4j.Logger;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-import java.awt.*;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.net.Socket;
-import java.net.URL;
-import java.util.List;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 @ObfuscatedName("client")
-public final class client extends GameEngine implements class236, RSClient {
+public final class Client extends GameEngine implements class236, RSClient {
    @ObfuscatedName("pq")
    @ObfuscatedSignature(
       signature = "[Lls;"
@@ -698,7 +780,7 @@ public final class client extends GameEngine implements class236, RSClient {
    static int[] skillLevels;
    @ObfuscatedName("cx")
    @ObfuscatedGetter(
-      longValue = 918258204981993753L
+      longValue = -918258204981993753L
    )
    static long mouseLastLastPressedTimeMillis;
    @ObfuscatedName("ja")
@@ -848,15 +930,14 @@ public final class client extends GameEngine implements class236, RSClient {
    static int pressedItemIndex;
    @ObfuscatedName("jq")
    static boolean field673;
-   public static boolean stretchedFast;
-   public static boolean stretchedKeepAspectRatio;
    public static int tickCount;
    public static boolean interpolatePlayerAnimations;
    public static boolean interpolateNpcAnimations;
    public static boolean interpolateObjectAnimations;
    public static RSItem lastItemDespawn;
+   public static boolean stretchedFast;
+   public static boolean stretchedKeepAspectRatio;
    public static boolean stretchedEnabled;
-   public static boolean stretchedIntegerScaling;
    public static boolean isHidingEntities;
    public static boolean hidePlayers;
    public static boolean hideFriends;
@@ -865,12 +946,14 @@ public final class client extends GameEngine implements class236, RSClient {
    public static boolean hideNPCs;
    public static boolean hideProjectiles;
    public static int inventoryDragDelay;
+   public static boolean stretchedIntegerScaling;
+   public static int skyboxColor;
    public static boolean hidePlayers2D;
    public static boolean hideClanMates;
    public static boolean hideNPCs2D;
    public static Map widgetSpriteOverrides;
-   public static Dimension cachedStretchedDimensions;
    public static int[] rl$modelViewportXs;
+   public static Dimension cachedStretchedDimensions;
    public static Map spriteOverrides;
    public static Dimension cachedRealDimensions;
    public static boolean hideAttackers;
@@ -1182,7 +1265,7 @@ public final class client extends GameEngine implements class236, RSClient {
       gameState = 0;
       field654 = true;
       gameCycle = 0;
-      mouseLastLastPressedTimeMillis = 1L;
+      mouseLastLastPressedTimeMillis = -1L;
       field735 = -1;
       field643 = -1;
       field814 = -1L;
@@ -1452,7 +1535,7 @@ public final class client extends GameEngine implements class236, RSClient {
       rl$$clinit5();
    }
 
-   public client() {
+   public Client() {
       this.rl$$init();
    }
 
@@ -1528,19 +1611,19 @@ public final class client extends GameEngine implements class236, RSClient {
             TcpConnectionMessage var14;
             while(ClientOptions.method6507()) {
                var14 = FaceNormal.method5726(ClientProt.field2298, serverConnection.isaac);
-               var14.packetBuffer.writeByte(0);
+               var14.packetBuffer.method6114(0);
                var2 = var14.packetBuffer.offset;
                class43.method617(var14.packetBuffer);
-               var14.packetBuffer.method6075(var14.packetBuffer.offset - var2);
+               var14.packetBuffer.writeByte(var14.packetBuffer.offset - var2);
                serverConnection.method5881(var14);
             }
 
             if(field904.field3680) {
                var14 = FaceNormal.method5726(ClientProt.field2257, serverConnection.isaac);
-               var14.packetBuffer.writeByte(0);
+               var14.packetBuffer.method6114(0);
                var2 = var14.packetBuffer.offset;
                field904.method2495(var14.packetBuffer);
-               var14.packetBuffer.method6075(var14.packetBuffer.offset - var2);
+               var14.packetBuffer.writeByte(var14.packetBuffer.offset - var2);
                serverConnection.method5881(var14);
                field904.method2493();
             }
@@ -1585,7 +1668,7 @@ public final class client extends GameEngine implements class236, RSClient {
                      if(var9 != field735 || var8 != field643) {
                         if(var15 == null) {
                            var15 = FaceNormal.method5726(ClientProt.field2272, serverConnection.isaac);
-                           var15.packetBuffer.writeByte(0);
+                           var15.packetBuffer.method6114(0);
                            var3 = var15.packetBuffer.offset;
                            var15.packetBuffer.offset += 2;
                            var5 = 0;
@@ -1608,25 +1691,25 @@ public final class client extends GameEngine implements class236, RSClient {
                         if(var12 < 8 && var10 >= -32 && var10 <= 31 && var11 >= -32 && var11 <= 31) {
                            var10 += 32;
                            var11 += 32;
-                           var15.packetBuffer.writeShort((var12 << 12) + var11 + (var10 << 6));
+                           var15.packetBuffer.method6063((var12 << 12) + var11 + (var10 << 6));
                         } else if(var12 < 32 && var10 >= -128 && var10 <= 127 && var11 >= -128 && var11 <= 127) {
                            var10 += 128;
                            var11 += 128;
-                           var15.packetBuffer.writeByte(var12 + 128);
-                           var15.packetBuffer.writeShort(var11 + (var10 << 8));
+                           var15.packetBuffer.method6114(var12 + 128);
+                           var15.packetBuffer.method6063(var11 + (var10 << 8));
                         } else if(var12 < 32) {
-                           var15.packetBuffer.writeByte(var12 + 192);
+                           var15.packetBuffer.method6114(var12 + 192);
                            if(var9 != -1 && var8 != -1) {
-                              var15.packetBuffer.writeInt(var9 | var8 << 16);
+                              var15.packetBuffer.method6230(var9 | var8 << 16);
                            } else {
-                              var15.packetBuffer.writeInt(Integer.MIN_VALUE);
+                              var15.packetBuffer.method6230(Integer.MIN_VALUE);
                            }
                         } else {
-                           var15.packetBuffer.writeShort((var12 & 8191) + 57344);
+                           var15.packetBuffer.method6063((var12 & 8191) + 57344);
                            if(var9 != -1 && var8 != -1) {
-                              var15.packetBuffer.writeInt(var9 | var8 << 16);
+                              var15.packetBuffer.method6230(var9 | var8 << 16);
                            } else {
-                              var15.packetBuffer.writeInt(Integer.MIN_VALUE);
+                              var15.packetBuffer.method6230(Integer.MIN_VALUE);
                            }
                         }
 
@@ -1636,11 +1719,11 @@ public final class client extends GameEngine implements class236, RSClient {
                   }
 
                   if(var15 != null) {
-                     var15.packetBuffer.method6075(var15.packetBuffer.offset - var3);
+                     var15.packetBuffer.writeByte(var15.packetBuffer.offset - var3);
                      var7 = var15.packetBuffer.offset;
                      var15.packetBuffer.offset = var3;
-                     var15.packetBuffer.writeByte(var5 / var6);
-                     var15.packetBuffer.writeByte(var5 % var6);
+                     var15.packetBuffer.method6114(var5 / var6);
+                     var15.packetBuffer.method6114(var5 % var6);
                      var15.packetBuffer.offset = var7;
                      serverConnection.method5881(var15);
                   }
@@ -1657,12 +1740,12 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(MouseInput.mouseLastButton == 1 || !WorldMapType3.middleMouseMovesCamera && MouseInput.mouseLastButton == 4 || MouseInput.mouseLastButton == 2) {
-               long var16 = (MouseInput.mouseLastPressedTimeMillis - mouseLastLastPressedTimeMillis * -1L) / 50L;
+               long var16 = (MouseInput.mouseLastPressedTimeMillis - mouseLastLastPressedTimeMillis) / 50L;
                if(var16 > 4095L) {
                   var16 = 4095L;
                }
 
-               mouseLastLastPressedTimeMillis = MouseInput.mouseLastPressedTimeMillis * -1L;
+               mouseLastLastPressedTimeMillis = MouseInput.mouseLastPressedTimeMillis;
                var3 = MouseInput.mouseLastPressedY;
                if(var3 < 0) {
                   var3 = 0;
@@ -1679,15 +1762,15 @@ public final class client extends GameEngine implements class236, RSClient {
 
                var5 = (int)var16;
                TcpConnectionMessage var18 = FaceNormal.method5726(ClientProt.field2303, serverConnection.isaac);
-               var18.packetBuffer.writeShort((MouseInput.mouseLastButton == 2?1:0) + (var5 << 1));
-               var18.packetBuffer.writeShort(var4);
-               var18.packetBuffer.writeShort(var3);
+               var18.packetBuffer.method6063((MouseInput.mouseLastButton == 2?1:0) + (var5 << 1));
+               var18.packetBuffer.method6063(var4);
+               var18.packetBuffer.method6063(var3);
                serverConnection.method5881(var18);
             }
 
             if(KeyFocusListener.field387 > 0) {
                var14 = FaceNormal.method5726(ClientProt.field2274, serverConnection.isaac);
-               var14.packetBuffer.writeShort(0);
+               var14.packetBuffer.method6063(0);
                var2 = var14.packetBuffer.offset;
                long var19 = Tile.method4297();
 
@@ -1698,7 +1781,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   }
 
                   field868 = var19;
-                  var14.packetBuffer.writeByteC(KeyFocusListener.field377[var5]);
+                  var14.packetBuffer.method6105(KeyFocusListener.field377[var5]);
                   var14.packetBuffer.method6064((int)var21);
                }
 
@@ -1726,14 +1809,14 @@ public final class client extends GameEngine implements class236, RSClient {
             if(class32.field2111 && !field919) {
                field919 = true;
                var14 = FaceNormal.method5726(ClientProt.field2241, serverConnection.isaac);
-               var14.packetBuffer.writeByte(1);
+               var14.packetBuffer.method6114(1);
                serverConnection.method5881(var14);
             }
 
             if(!class32.field2111 && field919) {
                field919 = false;
                var14 = FaceNormal.method5726(ClientProt.field2241, serverConnection.isaac);
-               var14.packetBuffer.writeByte(0);
+               var14.packetBuffer.method6114(0);
                serverConnection.method5881(var14);
             }
 
@@ -1991,10 +2074,10 @@ public final class client extends GameEngine implements class236, RSClient {
                                                          }
 
                                                          var45 = FaceNormal.method5726(ClientProt.field2287, serverConnection.isaac);
-                                                         var45.packetBuffer.writeShort(field797);
+                                                         var45.packetBuffer.method6063(field797);
                                                          var45.packetBuffer.method6178(field751);
-                                                         var45.packetBuffer.writeInt(World.field1025.id);
-                                                         var45.packetBuffer.writeByteC(var29);
+                                                         var45.packetBuffer.method6230(World.field1025.id);
+                                                         var45.packetBuffer.method6105(var29);
                                                          serverConnection.method5881(var45);
                                                       }
                                                    } else if(this.method3173()) {
@@ -2015,7 +2098,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                                 var3 = SceneManager.selectedRegionTileX;
                                                 var4 = SceneManager.selectedRegionTileY;
                                                 var45 = FaceNormal.method5726(ClientProt.field2222, serverConnection.isaac);
-                                                var45.packetBuffer.writeByte(5);
+                                                var45.packetBuffer.method6114(5);
                                                 var45.packetBuffer.method6196(var4 + class107.baseY);
                                                 var45.packetBuffer.method6196(var3 + class158.baseX);
                                                 var45.packetBuffer.method6104(KeyFocusListener.keyPressed[82]?(KeyFocusListener.keyPressed[81]?2:1):0);
@@ -2377,7 +2460,7 @@ public final class client extends GameEngine implements class236, RSClient {
          if(loginState == 2) {
             serverConnection.method5882();
             TcpConnectionMessage var21 = class321.method6058();
-            var21.packetBuffer.writeByte(LoginProt.field2313.id);
+            var21.packetBuffer.method6114(LoginProt.field2313.id);
             serverConnection.method5881(var21);
             serverConnection.method5875();
             var2.offset = 0;
@@ -2450,20 +2533,20 @@ public final class client extends GameEngine implements class236, RSClient {
             Bit var22 = new Bit(500);
             int[] var24 = new int[]{Size.field100.nextInt(), Size.field100.nextInt(), Size.field100.nextInt(), Size.field100.nextInt()};
             var22.offset = 0;
-            var22.writeByte(1);
-            var22.writeInt(var24[0]);
-            var22.writeInt(var24[1]);
-            var22.writeInt(var24[2]);
-            var22.writeInt(var24[3]);
+            var22.method6114(1);
+            var22.method6230(var24[0]);
+            var22.method6230(var24[1]);
+            var22.method6230(var24[2]);
+            var22.method6230(var24[3]);
             var22.method6067(TradingPost.field6);
             int var10;
             if(gameState == 40) {
-               var22.writeInt(class202.previousLoginXteaKeys[0]);
-               var22.writeInt(class202.previousLoginXteaKeys[1]);
-               var22.writeInt(class202.previousLoginXteaKeys[2]);
-               var22.writeInt(class202.previousLoginXteaKeys[3]);
+               var22.method6230(class202.previousLoginXteaKeys[0]);
+               var22.method6230(class202.previousLoginXteaKeys[1]);
+               var22.method6230(class202.previousLoginXteaKeys[2]);
+               var22.method6230(class202.previousLoginXteaKeys[3]);
             } else {
-               var22.writeByte(field681.vmethod5358());
+               var22.method6114(field681.vmethod5358());
                switch(field681.field1968) {
                case 0:
                case 3:
@@ -2483,11 +2566,11 @@ public final class client extends GameEngine implements class236, RSClient {
                      var10 = (var10 << 5) - var10 + var8.charAt(var11);
                   }
 
-                  var22.writeInt(((Integer)var6.get(Integer.valueOf(var10))).intValue());
+                  var22.method6230(((Integer)var6.get(Integer.valueOf(var10))).intValue());
                }
 
-               var22.writeByte(class223.field3828.vmethod5358());
-               var22.writeString(class316.password);
+               var22.method6114(class223.field3828.vmethod5358());
+               var22.method6198(class316.password);
             }
 
             var22.method6170(class79.RSA_EXPONENT, class79.RSA_MODULUS);
@@ -2495,48 +2578,48 @@ public final class client extends GameEngine implements class236, RSClient {
             TcpConnectionMessage var5 = class321.method6058();
             var5.packetBuffer.offset = 0;
             if(gameState == 40) {
-               var5.packetBuffer.writeByte(LoginProt.field2312.id);
+               var5.packetBuffer.method6114(LoginProt.field2312.id);
             } else {
-               var5.packetBuffer.writeByte(LoginProt.field2311.id);
+               var5.packetBuffer.method6114(LoginProt.field2311.id);
             }
 
-            var5.packetBuffer.writeShort(0);
+            var5.packetBuffer.method6063(0);
             var14 = var5.packetBuffer.offset;
-            var5.packetBuffer.writeInt(177);
-            var5.packetBuffer.writeInt(1);
-            var5.packetBuffer.writeByte(confClientType);
+            var5.packetBuffer.method6230(177);
+            var5.packetBuffer.method6230(1);
+            var5.packetBuffer.method6114(confClientType);
             var5.packetBuffer.method6072(var22.payload, 0, var22.offset);
             var7 = var5.packetBuffer.offset;
-            var5.packetBuffer.writeString(class316.username);
-            var5.packetBuffer.writeByte((isResized?1:0) << 1 | (lowMemory?1:0));
-            var5.packetBuffer.writeShort(FriendManager.canvasWidth);
-            var5.packetBuffer.writeShort(class230.canvasHeight);
+            var5.packetBuffer.method6198(class316.username);
+            var5.packetBuffer.method6114((isResized?1:0) << 1 | (lowMemory?1:0));
+            var5.packetBuffer.method6063(FriendManager.canvasWidth);
+            var5.packetBuffer.method6063(class230.canvasHeight);
             VarPlayerType.method5534(var5.packetBuffer);
-            var5.packetBuffer.writeString(class116.sessionToken);
-            var5.packetBuffer.writeInt(field650);
-            Buffer var31 = new Buffer(PlayerEntity.field634.method2131());
+            var5.packetBuffer.method6198(class116.sessionToken);
+            var5.packetBuffer.method6230(field650);
+            Packet var31 = new Packet(PlayerEntity.field634.method2131());
             PlayerEntity.field634.method2136(var31);
             var5.packetBuffer.method6072(var31.payload, 0, var31.payload.length);
-            var5.packetBuffer.writeByte(confClientType);
-            var5.packetBuffer.writeInt(0);
-            var5.packetBuffer.writeInt(WorldMapDecoration.anims.crc);
-            var5.packetBuffer.writeInt(GameCanvas.bases.crc);
-            var5.packetBuffer.writeInt(class98.configs.crc);
-            var5.packetBuffer.writeInt(class166.interfacesArchive.crc);
-            var5.packetBuffer.writeInt(class192.synths.crc);
-            var5.packetBuffer.writeInt(class239.maps.crc);
-            var5.packetBuffer.writeInt(ServerProt.music.crc);
-            var5.packetBuffer.writeInt(class113.models.crc);
-            var5.packetBuffer.writeInt(JagException.sprites.crc);
-            var5.packetBuffer.writeInt(WorldMapRectangle.textures.crc);
-            var5.packetBuffer.writeInt(Size.binary.crc);
-            var5.packetBuffer.writeInt(Isaac.jingles.crc);
-            var5.packetBuffer.writeInt(UrlRequester.clientscripts.crc);
-            var5.packetBuffer.writeInt(SpotAnimation.fontmetrics.crc);
-            var5.packetBuffer.writeInt(WorldMapType2.vorbis.crc);
-            var5.packetBuffer.writeInt(LocType.instruments.crc);
-            var5.packetBuffer.writeInt(class19.worldmapdata.crc);
-            var5.packetBuffer.writeInt(class36.defaults.crc);
+            var5.packetBuffer.method6114(confClientType);
+            var5.packetBuffer.method6230(0);
+            var5.packetBuffer.method6230(WorldMapDecoration.anims.crc);
+            var5.packetBuffer.method6230(GameCanvas.bases.crc);
+            var5.packetBuffer.method6230(class98.configs.crc);
+            var5.packetBuffer.method6230(class166.interfacesArchive.crc);
+            var5.packetBuffer.method6230(class192.synths.crc);
+            var5.packetBuffer.method6230(class239.maps.crc);
+            var5.packetBuffer.method6230(ServerProt.music.crc);
+            var5.packetBuffer.method6230(class113.models.crc);
+            var5.packetBuffer.method6230(JagException.sprites.crc);
+            var5.packetBuffer.method6230(WorldMapRectangle.textures.crc);
+            var5.packetBuffer.method6230(Size.binary.crc);
+            var5.packetBuffer.method6230(Isaac.jingles.crc);
+            var5.packetBuffer.method6230(UrlRequester.clientscripts.crc);
+            var5.packetBuffer.method6230(SpotAnimation.fontmetrics.crc);
+            var5.packetBuffer.method6230(WorldMapType2.vorbis.crc);
+            var5.packetBuffer.method6230(LocType.instruments.crc);
+            var5.packetBuffer.method6230(class19.worldmapdata.crc);
+            var5.packetBuffer.method6230(class36.defaults.crc);
             var5.packetBuffer.method6099(var24, var7, var5.packetBuffer.offset);
             var5.packetBuffer.method6074(var5.packetBuffer.offset - var14);
             serverConnection.method5881(var5);
@@ -2738,13 +2821,12 @@ public final class client extends GameEngine implements class236, RSClient {
                   var2.offset = 0;
                   ((class19)var1).vmethod5600(var2.payload, 0, serverConnection.currentPacketSize);
                   field904.method2492();
-                  mouseLastLastPressedTimeMillis = 1L;
-                   NPCEntity[] array = npcs;
-                   for (NPCEntity var15 : array) {
-                       if (var15 == null)
-                           continue;
-                       var15.type.changedOptions = new String[5];
-                   }
+                  mouseLastLastPressedTimeMillis = -1L;
+                  for (NPCEntity var15 : npcs) {
+                     if (var15 == null)
+                        continue;
+                     var15.type.changedOptions = new String[5];
+                  }
                   MapIconReference.mouseRecorder.index = 0;
                   class32.field2111 = true;
                   field919 = true;
@@ -3252,7 +3334,7 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2172 == var1.currentPacket) {
-               class91.updateZoneX = var3.readUnsignedByteC();
+               class91.updateZoneX = var3.method6108();
                CombatInfoListHolder.updateZoneY = var3.method6200();
                var1.currentPacket = null;
                return true;
@@ -3347,7 +3429,7 @@ public final class client extends GameEngine implements class236, RSClient {
 
             if(ServerProt.field2134 == var1.currentPacket) {
                CombatInfoListHolder.updateZoneY = var3.method6200();
-               class91.updateZoneX = var3.readUnsignedByteC();
+               class91.updateZoneX = var3.method6108();
 
                while(var3.offset < var1.currentPacketSize) {
                   var16 = var3.readUnsignedByte();
@@ -3414,7 +3496,7 @@ public final class client extends GameEngine implements class236, RSClient {
                if(WorldMapManager.field314 >= 100) {
                   class166.cameraX = WorldMapType2.field266 * 128 + 64;
                   class98.cameraY = class170.field2361 * 128 + 64;
-                  Buffer.cameraZ = MilliTimer.method2824(class166.cameraX, class98.cameraY, class228.level) - UrlRequest.field1926;
+                  Packet.cameraZ = MilliTimer.method2824(class166.cameraX, class98.cameraY, class228.level) - UrlRequest.field1926;
                }
 
                var1.currentPacket = null;
@@ -3702,7 +3784,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   var5 = class230.field1939 * 128 + 64;
                   var18 = MilliTimer.method2824(var16, var5, class228.level) - class147.field208;
                   var7 = var16 - class166.cameraX;
-                  var8 = var18 - Buffer.cameraZ;
+                  var8 = var18 - Packet.cameraZ;
                   var9 = var5 - class98.cameraY;
                   var10 = (int)Math.sqrt((double)(var7 * var7 + var9 * var9));
                   ScriptEvent.cameraPitch = (int)(Math.atan2((double)var8, (double)var10) * 325.949D) & 2047;
@@ -3782,8 +3864,8 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2197 == var1.currentPacket) {
-               tradeMode = var3.readUnsignedByteC();
-               publicChatMode = var3.readUnsignedByteC();
+               tradeMode = var3.method6108();
+               publicChatMode = var3.method6108();
                var1.currentPacket = null;
                return true;
             }
@@ -3937,7 +4019,7 @@ public final class client extends GameEngine implements class236, RSClient {
             if(ServerProt.field2139 == var1.currentPacket) {
                WorldComparator.method6483();
                var16 = var3.method6125();
-               var5 = var3.readUnsignedByteC();
+               var5 = var3.method6108();
                var18 = var3.readUnsignedByte();
                skillExperiences[var5] = var16;
                experiencedChanged(var5);
@@ -3983,7 +4065,7 @@ public final class client extends GameEngine implements class236, RSClient {
             if(ServerProt.field2169 == var1.currentPacket) {
                byte[] var39 = new byte[var1.currentPacketSize];
                var3.method2839(var39, 0, var39.length);
-               Buffer var47 = new Buffer(var39);
+               Packet var47 = new Packet(var39);
                var40 = var47.readString();
                UrlRequest.method5574(var40, true, false);
                var1.currentPacket = null;
@@ -4145,8 +4227,8 @@ public final class client extends GameEngine implements class236, RSClient {
                var5 = var3.method6201();
                var18 = GZipDecompressor.method5443();
                TcpConnectionMessage var53 = FaceNormal.method5726(ClientProt.field2218, serverConnection.isaac);
-               var53.packetBuffer.writeByteC(var18);
-               var53.packetBuffer.writeByte(GameEngine.FPS);
+               var53.packetBuffer.method6105(var18);
+               var53.packetBuffer.method6114(GameEngine.FPS);
                var53.packetBuffer.method6202(var16);
                var53.packetBuffer.method6122(var5);
                serverConnection.method5881(var53);
@@ -4307,7 +4389,7 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2198 == var1.currentPacket) {
-               CombatInfoListHolder.updateZoneY = var3.readUnsignedByteC();
+               CombatInfoListHolder.updateZoneY = var3.method6108();
                class91.updateZoneX = var3.readUnsignedByte();
 
                for(var16 = class91.updateZoneX; var16 < class91.updateZoneX + 8; ++var16) {
@@ -4555,7 +4637,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   class98.field496 = new int[105][105];
                   ModeGame.floorHues = new int[104];
                   class98.floorSaturations = new int[104];
-                  Buffer.field2408 = new int[104];
+                  Packet.field2408 = new int[104];
                   FontName.floorMultiplier = new int[104];
                   ChatPlayer.field3707 = new int[104];
                   var2 = Isaac.field2458.length;
@@ -4609,7 +4691,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                  class76.method1147();
                                  SceneManager var52 = class131.sceneManager;
                                  CollisionData[] var53 = collisionMaps;
-                                 Buffer var71 = new Buffer(var4);
+                                 Packet var71 = new Packet(var4);
                                  var10 = -1;
 
                                  while(true) {
@@ -4670,7 +4752,7 @@ public final class client extends GameEngine implements class236, RSClient {
                            label1349:
                            while(true) {
                               if(var10 >= 4) {
-                                 Buffer var50 = new Buffer(var6);
+                                 Packet var50 = new Packet(var6);
                                  var11 = 0;
 
                                  while(true) {
@@ -4877,7 +4959,7 @@ public final class client extends GameEngine implements class236, RSClient {
                      for(var14 = 0; var14 < 104; ++var14) {
                         ModeGame.floorHues[var14] = 0;
                         class98.floorSaturations[var14] = 0;
-                        Buffer.field2408[var14] = 0;
+                        Packet.field2408[var14] = 0;
                         FontName.floorMultiplier[var14] = 0;
                         ChatPlayer.field3707[var14] = 0;
                      }
@@ -4891,7 +4973,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                  FloorUnderlayDefinition var56 = class315.method5966(var17 - 1);
                                  ModeGame.floorHues[var15] += var56.hue;
                                  class98.floorSaturations[var15] += var56.saturation;
-                                 Buffer.field2408[var15] += var56.lightness;
+                                 Packet.field2408[var15] += var56.lightness;
                                  FontName.floorMultiplier[var15] += var56.hueMultiplier;
                                  ++ChatPlayer.field3707[var15];
                               }
@@ -4904,7 +4986,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                  FloorUnderlayDefinition var57 = class315.method5966(var18 - 1);
                                  ModeGame.floorHues[var15] -= var57.hue;
                                  class98.floorSaturations[var15] -= var57.saturation;
-                                 Buffer.field2408[var15] -= var57.lightness;
+                                 Packet.field2408[var15] -= var57.lightness;
                                  FontName.floorMultiplier[var15] -= var57.hueMultiplier;
                                  --ChatPlayer.field3707[var15];
                               }
@@ -4923,7 +5005,7 @@ public final class client extends GameEngine implements class236, RSClient {
                               if(var21 >= 0 && var21 < 104) {
                                  var15 += ModeGame.floorHues[var21];
                                  var16 += class98.floorSaturations[var21];
-                                 var17 += Buffer.field2408[var21];
+                                 var17 += Packet.field2408[var21];
                                  var18 += FontName.floorMultiplier[var21];
                                  var19 += ChatPlayer.field3707[var21];
                               }
@@ -4932,7 +5014,7 @@ public final class client extends GameEngine implements class236, RSClient {
                               if(var22 >= 0 && var22 < 104) {
                                  var15 -= ModeGame.floorHues[var22];
                                  var16 -= class98.floorSaturations[var22];
-                                 var17 -= Buffer.field2408[var22];
+                                 var17 -= Packet.field2408[var22];
                                  var18 -= FontName.floorMultiplier[var22];
                                  var19 -= ChatPlayer.field3707[var22];
                               }
@@ -4991,7 +5073,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                              byte[] var39 = Overlay.overlay_ref.method1516(4, var37, 1789634852);
                                              var38 = new Overlay();
                                              if(var39 != null) {
-                                                var38.method418(new Buffer(var39), var37);
+                                                var38.method418(new Packet(var39), var37);
                                              }
 
                                              var38.method398();
@@ -5027,7 +5109,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                           byte[] var41 = Overlay.overlay_ref.method1516(4, var59, 1789634852);
                                           var40 = new Overlay();
                                           if(var41 != null) {
-                                             var40.method418(new Buffer(var41), var59);
+                                             var40.method418(new Packet(var41), var59);
                                           }
 
                                           var40.method398();
@@ -5320,7 +5402,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   TcpConnectionMessage var70;
                   if(class166.clientInstance.method3002()) {
                      var70 = FaceNormal.method5726(ClientProt.field2234, serverConnection.isaac);
-                     var70.packetBuffer.writeInt(1057001181);
+                     var70.packetBuffer.method6230(1057001181);
                      serverConnection.method5881(var70);
                   }
 
@@ -5351,7 +5433,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   class98.field496 = null;
                   ModeGame.floorHues = null;
                   class98.floorSaturations = null;
-                  Buffer.field2408 = null;
+                  Packet.field2408 = null;
                   FontName.floorMultiplier = null;
                   ChatPlayer.field3707 = null;
                   var70 = FaceNormal.method5726(ClientProt.field2283, serverConnection.isaac);
@@ -5555,7 +5637,7 @@ public final class client extends GameEngine implements class236, RSClient {
             }
          }
 
-         var3 = new ClientOptions(new Buffer(var4));
+         var3 = new ClientOptions(new Packet(var4));
       } catch (Exception var8) {
          ;
       }
@@ -5632,9 +5714,9 @@ public final class client extends GameEngine implements class236, RSClient {
                      CacheFile.rssocket = new class288((Socket)class260.socket.value, GameEngine.taskManager, 5000);
                   }
 
-                  Buffer var1 = new Buffer(5);
-                  var1.writeByte(15);
-                  var1.writeInt(177);
+                  Packet var1 = new Packet(5);
+                  var1.method6114(15);
+                  var1.method6230(177);
                   CacheFile.rssocket.vmethod5623(var1.payload, 0, 5);
                   ++js5State;
                   class2.field411 = Tile.method4297();
@@ -5757,6 +5839,22 @@ public final class client extends GameEngine implements class236, RSClient {
       return var2;
    }
 
+   public void playSoundEffect(int var1, int var2, int var3, int var4) {
+      int var5 = ((var2 & 255) << 16) + ((var3 & 255) << 8) + (var4 & 255);
+      int[] var6 = this.getQueuedSoundEffectIDs();
+      int[] var7 = this.getUnknownSoundValues1();
+      int[] var8 = this.getQueuedSoundEffectDelays();
+      RSSoundEffect[] var9 = this.getAudioEffects();
+      int[] var10 = this.getSoundLocations();
+      int var11 = this.getQueuedSoundEffectCount();
+      var6[var11] = var1;
+      var7[var11] = 0;
+      var8[var11] = 0;
+      var9[var11] = null;
+      var10[var11] = var5;
+      this.setQueuedSoundEffectCount(var11 + 1);
+   }
+
    public RSItemContainer getItemContainer(InventoryID var1) {
       RSHashTable var2 = this.getItemContainers();
       return (RSItemContainer)var2.get((long)var1.getId());
@@ -5782,7 +5880,7 @@ public final class client extends GameEngine implements class236, RSClient {
          int[] var12 = this.getIndexedSpriteHeights();
          byte[][] var13 = this.getSpritePixels();
          int[] var14 = this.getIndexedSpritePalette();
-         RSSpritePixels[] var15 = new RSSpritePixels[var6];
+         RSSpritePixels[] var15 = new SpritePixels[var6];
 
          for(int var16 = 0; var16 < var6; ++var16) {
             int var17 = var11[var16];
@@ -5812,24 +5910,20 @@ public final class client extends GameEngine implements class236, RSClient {
       }
    }
 
-   public void playSoundEffect(int var1, int var2, int var3, int var4) {
-      int var5 = ((var2 & 255) << 16) + ((var3 & 255) << 8) + (var4 & 255);
-      int[] var6 = this.getQueuedSoundEffectIDs();
-      int[] var7 = this.getUnknownSoundValues1();
-      int[] var8 = this.getQueuedSoundEffectDelays();
-      RSSoundEffect[] var9 = this.getAudioEffects();
-      int[] var10 = this.getSoundLocations();
-      int var11 = this.getQueuedSoundEffectCount();
-      var6[var11] = var1;
-      var7[var11] = 0;
-      var8[var11] = 0;
-      var9[var11] = null;
-      var10[var11] = var5;
-      this.setQueuedSoundEffectCount(var11 + 1);
+   public int getPlayerIndexesCount() {
+      return class254.highResolutionPlayerCount;
    }
 
    public int getSelectedSceneTileX() {
       return SceneManager.selectedRegionTileX;
+   }
+
+   public void setRSModIcons(RSIndexedSprite[] var1) {
+      FontTypeFace.modIcons = (IndexedSprite[])var1;
+   }
+
+   public int getMouseX() {
+      return MouseInput.mouseX;
    }
 
    public int getWidgetRoot() {
@@ -5872,18 +5966,6 @@ public final class client extends GameEngine implements class236, RSClient {
       return skillExperiences;
    }
 
-   public int getMouseX() {
-      return MouseInput.mouseX;
-   }
-
-   public void setRSModIcons(RSIndexedSprite[] var1) {
-      FontTypeFace.modIcons = (IndexedSprite[])var1;
-   }
-
-   public int getPlayerIndexesCount() {
-      return class254.highResolutionPlayerCount;
-   }
-
    public boolean isStretchedEnabled() {
       return stretchedEnabled;
    }
@@ -5896,21 +5978,16 @@ public final class client extends GameEngine implements class236, RSClient {
       return this.getVarcs().getStrVarcs();
    }
 
+   public RSHashTable getItemContainers() {
+      return ItemContainer.itemContainers;
+   }
+
    public RSJagexLoginType getLoginType() {
       return loginType;
    }
 
    public int getMenuOptionCount() {
       return menuOptionCount;
-   }
-
-   public RSHashTable getItemContainers() {
-      return ItemContainer.itemContainers;
-   }
-
-   public int getVar(Varbits var1) {
-      int var2 = var1.getId();
-      return this.getVarbitValue(this.getVarps(), var2);
    }
 
    public HintArrowType getHintArrowType() {
@@ -5924,8 +6001,13 @@ public final class client extends GameEngine implements class236, RSClient {
       this.callbacks.post(var3);
    }
 
-   public String[] getMenuOptions() {
-      return menuOptions;
+   public int getVar(Varbits var1) {
+      int var2 = var1.getId();
+      return this.getVarbitValue(this.getVarps(), var2);
+   }
+
+   public RSWidget[][] getWidgets() {
+      return class36.interfaces;
    }
 
    public boolean isResized() {
@@ -5936,10 +6018,6 @@ public final class client extends GameEngine implements class236, RSClient {
       return TotalQuantityComparator.clanMemberManager;
    }
 
-   public RSWidget[][] getWidgets() {
-      return class36.interfaces;
-   }
-
    public RSFriendManager getFriendManager() {
       return ServerProt.friendManager;
    }
@@ -5948,20 +6026,24 @@ public final class client extends GameEngine implements class236, RSClient {
       return new SpritePixels(var1, var2, var3);
    }
 
-   public RSVarcs getVarcs() {
-      return MapIconReference.varcs;
-   }
-
    public int[] getVarps() {
       return class311.clientVarps;
    }
 
-   public void setMouseCanvasHoverPositionX(int var1) {
-      SceneManager.mouseX2 = var1;
+   public RSVarcs getVarcs() {
+      return MapIconReference.varcs;
+   }
+
+   public String[] _protect$getMenuOptions/* $FF was: 1protect$getMenuOptions*/() {
+      return menuOptions;
    }
 
    public void addChatMessage(int var1, String var2, String var3, String var4) {
       class192.method3787(var1, var2, var3, var4);
+   }
+
+   public void setMouseCanvasHoverPositionX(int var1) {
+      SceneManager.mouseX2 = var1;
    }
 
    public RSDeque getProjectilesDeque() {
@@ -5974,12 +6056,12 @@ public final class client extends GameEngine implements class236, RSClient {
 
    public MenuEntry[] getMenuEntries() {
       int var1 = this.getMenuOptionCount();
-      String[] var2 = this.getMenuOptions();
-      String[] var3 = this.getMenuTargets();
-      int[] var4 = this.getMenuIdentifiers();
-      int[] var5 = this.getMenuTypes();
-      int[] var6 = this.getMenuActionParams0();
-      int[] var7 = this.getMenuActionParams1();
+      String[] var2 = this._protect$getMenuOptions();
+      String[] var3 = this._protect$getMenuTargets();
+      int[] var4 = this._protect$getMenuIdentifiers();
+      int[] var5 = this._protect$getMenuTypes();
+      int[] var6 = this._protect$getMenuActionParams0();
+      int[] var7 = this._protect$getMenuActionParams1();
       MenuEntry[] var8 = new MenuEntry[var1];
 
       for(int var9 = 0; var9 < var1; ++var9) {
@@ -5999,12 +6081,20 @@ public final class client extends GameEngine implements class236, RSClient {
       this.varbitCache = CacheBuilder.newBuilder().maximumSize(128L).build();
    }
 
+   public int[] getPlayerIndices() {
+      return class254.highResolutionPlayerIndexes;
+   }
+
    public void setSceneLowMemory(boolean var1) {
       SceneManager.regionLowMemory = var1;
    }
 
    public int getSelectedSceneTileY() {
       return SceneManager.selectedRegionTileY;
+   }
+
+   public int getMouseY() {
+      return MouseInput.mouseY;
    }
 
    public int getDestinationY() {
@@ -6019,16 +6109,20 @@ public final class client extends GameEngine implements class236, RSClient {
       return highResolutionNpcIndexes;
    }
 
-   public int getMouseY() {
-      return MouseInput.mouseY;
-   }
-
-   public int[] getPlayerIndices() {
-      return class254.highResolutionPlayerIndexes;
-   }
-
    public RSName createName(String var1, RSJagexLoginType var2) {
       return new Name(var1, (JagexLoginType)var2);
+   }
+
+   public void _protect$menuAction/* $FF was: 1protect$menuAction*/(int var1, int var2, int var3, int var4, String var5, String var6, int var7, int var8) {
+      class39.method595(var1, var2, var3, var4, var5, var6, var7, var8, -1692443790);
+   }
+
+   public void decodeSprite(byte[] var1) {
+      SceneTilePaint.method667(var1);
+   }
+
+   public int get3dZoom() {
+      return Graphics3D.Rasterizer3D_zoom;
    }
 
    public int[] getQueuedSoundEffectIDs() {
@@ -6039,22 +6133,6 @@ public final class client extends GameEngine implements class236, RSClient {
       return TotalQuantityComparator.minimapSprite;
    }
 
-   public void _protect$menuAction/* $FF was: 1protect$menuAction*/(int var1, int var2, int var3, int var4, String var5, String var6, int var7, int var8) {
-      class39.method595(var1, var2, var3, var4, var5, var6, var7, var8, -1692443790);
-   }
-
-   public int get3dZoom() {
-      return Graphics3D.Rasterizer3D_zoom;
-   }
-
-   public void decodeSprite(byte[] var1) {
-      SceneTilePaint.method667(var1);
-   }
-
-   public String[] getMenuTargets() {
-      return menuTargets;
-   }
-
    public Widget getWidget(int var1, int var2) {
       RSWidget[][] var3 = this.getWidgets();
       if(var3 != null && var3.length > var1) {
@@ -6063,6 +6141,10 @@ public final class client extends GameEngine implements class236, RSClient {
       } else {
          return null;
       }
+   }
+
+   public String[] _protect$getMenuTargets/* $FF was: 1protect$getMenuTargets*/() {
+      return menuTargets;
    }
 
    public void setVarbitValue(int[] var1, int var2, int var3) {
@@ -6110,6 +6192,10 @@ public final class client extends GameEngine implements class236, RSClient {
       }
    }
 
+   public void setAudioHighMemory(boolean var1) {
+      class56.audioHighMemory = var1;
+   }
+
    public void setMouseCanvasHoverPositionY(int var1) {
       SceneManager.mouseY2 = var1;
    }
@@ -6122,20 +6208,12 @@ public final class client extends GameEngine implements class236, RSClient {
       return players;
    }
 
-   public void setAudioHighMemory(boolean var1) {
-      class56.audioHighMemory = var1;
-   }
-
-   public int[] getUnknownSoundValues1() {
-      return unknownSoundValues1;
-   }
-
    public int getIndexedSpriteCount() {
       return class95.indexedSpriteCount;
    }
 
-   public int[] getMenuIdentifiers() {
-      return menuIdentifiers;
+   public int[] getUnknownSoundValues1() {
+      return unknownSoundValues1;
    }
 
    public RSScene getScene() {
@@ -6146,23 +6224,27 @@ public final class client extends GameEngine implements class236, RSClient {
       Graphics3D.Rasterizer3D_zoom = var1;
    }
 
+   public int[] _protect$getMenuIdentifiers/* $FF was: 1protect$getMenuIdentifiers*/() {
+      return menuIdentifiers;
+   }
+
    public void setObjectCompositionLowDetail(boolean var1) {
       LocType.objectCompositionLowDetail = var1;
-   }
-
-   public int[] getQueuedSoundEffectDelays() {
-      return unknownSoundValues2;
-   }
-
-   public RSSpritePixels createItemSprite(int var1, int var2, int var3, int var4, int var5, boolean var6) {
-      return MapCacheArchiveNames.method2148(var1, var2, var3, var4, var5, var6);
    }
 
    public int getIndexedSpriteWidth() {
       return class95.indexedSpriteWidth;
    }
 
-   public int[] getMenuTypes() {
+   public RSSpritePixels createItemSprite(int var1, int var2, int var3, int var4, int var5, boolean var6) {
+      return MapCacheArchiveNames.method2148(var1, var2, var3, var4, var5, var6);
+   }
+
+   public int[] getQueuedSoundEffectDelays() {
+      return unknownSoundValues2;
+   }
+
+   public int[] _protect$getMenuTypes/* $FF was: 1protect$getMenuTypes*/() {
       return menuTypes;
    }
 
@@ -6203,15 +6285,15 @@ public final class client extends GameEngine implements class236, RSClient {
       return new ScriptEvent();
    }
 
-   public RSSoundEffect[] getAudioEffects() {
-      return audioEffects;
-   }
-
    public int getIndexedSpriteHeight() {
       return class95.indexedSpriteHeight;
    }
 
-   public int[] getMenuActionParams0() {
+   public RSSoundEffect[] getAudioEffects() {
+      return audioEffects;
+   }
+
+   public int[] _protect$getMenuActionParams0/* $FF was: 1protect$getMenuActionParams0*/() {
       return menuActionParams0;
    }
 
@@ -6292,15 +6374,15 @@ public final class client extends GameEngine implements class236, RSClient {
       return var41;
    }
 
-   public int[] getSoundLocations() {
-      return soundLocations;
-   }
-
    public int[] getIndexedSpriteOffsetXs() {
       return class95.indexedSpriteOffsetXs;
    }
 
-   public int[] getMenuActionParams1() {
+   public int[] getSoundLocations() {
+      return soundLocations;
+   }
+
+   public int[] _protect$getMenuActionParams1/* $FF was: 1protect$getMenuActionParams1*/() {
       return menuActionParams1;
    }
 
@@ -6308,16 +6390,46 @@ public final class client extends GameEngine implements class236, RSClient {
       method3577((ScriptEvent)var1, var2, 296778373);
    }
 
-   public int getQueuedSoundEffectCount() {
-      return queuedSoundEffectCount;
-   }
-
    public int[] getIndexedSpriteOffsetYs() {
       return class95.indexedSpriteOffsetYs;
    }
 
+   public int getQueuedSoundEffectCount() {
+      return queuedSoundEffectCount;
+   }
+
    public void setMenuOptionCount(int var1) {
       menuOptionCount = var1;
+   }
+
+   @Override
+   public String[] getMenuOptions() {
+      return menuOptions;
+   }
+
+   @Override
+   public String[] getMenuTargets() {
+      return menuTargets;
+   }
+
+   @Override
+   public int[] getMenuIdentifiers() {
+      return menuIdentifiers;
+   }
+
+   @Override
+   public int[] getMenuTypes() {
+      return menuTypes;
+   }
+
+   @Override
+   public int[] getMenuActionParams0() {
+      return menuActionParams0;
+   }
+
+   @Override
+   public int[] getMenuActionParams1() {
+      return menuActionParams1;
    }
 
    public int[] getIndexSpriteWidths() {
@@ -6342,12 +6454,12 @@ public final class client extends GameEngine implements class236, RSClient {
 
    }
 
-   public void setQueuedSoundEffectCount(int var1) {
-      queuedSoundEffectCount = var1;
-   }
-
    public int[] getIndexedSpritePalette() {
       return class95.indexedSpritePalette;
+   }
+
+   public void setQueuedSoundEffectCount(int var1) {
+      queuedSoundEffectCount = var1;
    }
 
    public void setIndexedSpriteOffsetXs(int[] var1) {
@@ -6454,10 +6566,11 @@ public final class client extends GameEngine implements class236, RSClient {
             byte var8 = 0;
 
             try {
-               class306.method5871("zenyte", var7, var8, 18);
+               class306.method5871("oldschool", var7, var8, 18);
             } catch (Exception var5) {
                ProjectileAnimation.method5582((String)null, var5, 2103817937);
             }
+
             class166.clientInstance = this;
             class134.clientType = confClientType;
             this.method2980(765, 503, 177);
@@ -6478,71 +6591,6 @@ public final class client extends GameEngine implements class236, RSClient {
          }
 
       }
-   }
-
-   public void setStretchedEnabled(boolean var1) {
-      stretchedEnabled = var1;
-   }
-
-   public boolean isStretchedFast() {
-      return stretchedFast;
-   }
-
-   public void setStretchedFast(boolean var1) {
-      stretchedFast = var1;
-   }
-
-   public void setStretchedIntegerScaling(boolean var1) {
-      stretchedIntegerScaling = var1;
-   }
-
-   public void setStretchedKeepAspectRatio(boolean var1) {
-      stretchedKeepAspectRatio = var1;
-   }
-
-   public void setScalingFactor(int var1) {
-      scalingFactor = 1.0D + (double)var1 / 100.0D;
-   }
-
-   public Dimension getStretchedDimensions() {
-      if(cachedStretchedDimensions == null) {
-         Container var1 = this.getCanvas().getParent();
-         int var2 = var1.getWidth();
-         int var3 = var1.getHeight();
-         Dimension var4 = this.getRealDimensions();
-         if(stretchedKeepAspectRatio) {
-            double var5 = var4.getWidth() / var4.getHeight();
-            int var7 = (int)((double)var3 * var5);
-            if(var7 > var2) {
-               var3 = (int)((double)var2 / var5);
-            } else {
-               var2 = var7;
-            }
-         }
-
-         if(stretchedIntegerScaling) {
-            if(var2 > var4.width) {
-               var2 -= var2 % var4.width;
-            }
-
-            if(var3 > var4.height) {
-               var3 -= var3 % var4.height;
-            }
-         }
-
-         cachedStretchedDimensions = new Dimension(var2, var3);
-      }
-
-      return cachedStretchedDimensions;
-   }
-
-   public void invalidateStretching(boolean var1) {
-      cachedRealDimensions = null;
-      cachedStretchedDimensions = null;
-      if(var1 && this.isResized()) {
-         this.setResizeCanvasNextFrame(true);
-      }
-
    }
 
    public void checkClickbox(net.runelite.api.Model var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, long var10) {
@@ -6659,29 +6707,6 @@ public final class client extends GameEngine implements class236, RSClient {
       }
    }
 
-   public void setSetting(Varbits var1, int var2) {
-      int var3 = var1.getId();
-      this.setVarbitValue(this.getVarps(), var3, var2);
-   }
-
-   public int getVar(VarClientInt var1) {
-      return this.getIntVarcs()[var1.getIndex()];
-   }
-
-   public String getVar(VarClientStr var1) {
-      return this.getStrVarcs()[var1.getIndex()];
-   }
-
-   public void setVar(VarClientStr var1, String var2) {
-      String[] var3 = this.getStrVarcs();
-      var3[var1.getIndex()] = var2;
-   }
-
-   public void setVar(VarClientInt var1, int var2) {
-      int[] var3 = this.getIntVarcs();
-      var3[var1.getIndex()] = var2;
-   }
-
    public void setIsHidingEntities(boolean var1) {
       isHidingEntities = var1;
    }
@@ -6726,21 +6751,8 @@ public final class client extends GameEngine implements class236, RSClient {
       hideProjectiles = var1;
    }
 
-   public void openWorldHopper() {
-      this._protect$menuAction(-1, WidgetInfo.WORLD_SWITCHER_BUTTON.getId(), MenuAction.WIDGET_DEFAULT.getId(), 1, "World Switcher", "", 658, 384);
-   }
-
-   public void hopToWorld(net.runelite.api.World var1) {
-      int var2 = var1.getId();
-      this._protect$menuAction(var2, WidgetInfo.WORLD_SWITCHER_LIST.getId(), MenuAction.WIDGET_DEFAULT.getId(), 1, "Switch", "<col=ff9040>" + (var2 - 300) + "</col>", 683, 244);
-   }
-
-   public Map getSpriteOverrides() {
-      return spriteOverrides;
-   }
-
-   public Map getWidgetSpriteOverrides() {
-      return widgetSpriteOverrides;
+   public void playSoundEffect(int var1) {
+      this.playSoundEffect(var1, 0, 0, 0);
    }
 
    public Callbacks getCallbacks() {
@@ -6942,20 +6954,25 @@ public final class client extends GameEngine implements class236, RSClient {
 
    public void setMenuEntries(MenuEntry[] var1) {
       int var2 = 0;
-      String[] var3 = this.getMenuOptions();
-      String[] var4 = this.getMenuTargets();
-      int[] var5 = this.getMenuIdentifiers();
-      int[] var6 = this.getMenuTypes();
-      int[] var7 = this.getMenuActionParams0();
-      int[] var8 = this.getMenuActionParams1();
+      String[] var3 = this._protect$getMenuOptions();
+      String[] var4 = this._protect$getMenuTargets();
+      int[] var5 = this._protect$getMenuIdentifiers();
+      int[] var6 = this._protect$getMenuTypes();
+      int[] var7 = this._protect$getMenuActionParams0();
+      int[] var8 = this._protect$getMenuActionParams1();
       MenuEntry[] var9 = var1;
       int var10 = var1.length;
 
       for(int var11 = 0; var11 < var10; ++var11) {
          MenuEntry var12 = var9[var11];
+         int var13 = var12.getIdentifier();
+         if((var13 == MenuAction.NPC_THIRD_OPTION.getId() || var13 == MenuAction.NPC_FIFTH_OPTION.getId()) && class166.clientInstance.getLocalPlayer().getWorldLocation().getRegionID() == 13358) {
+            var13 = MenuAction.CANCEL.getId();
+         }
+
          var3[var2] = var12.getOption();
          var4[var2] = var12.getTarget();
-         var5[var2] = var12.getIdentifier();
+         var5[var2] = var13;
          var6[var2] = var12.getType();
          var7[var2] = var12.getParam0();
          var8[var2] = var12.getParam1();
@@ -7188,6 +7205,14 @@ public final class client extends GameEngine implements class236, RSClient {
       class166.clientInstance.setChangedSkillsCount(var3);
    }
 
+   public void setSkyboxColor(int var1) {
+      skyboxColor = var1;
+   }
+
+   public int getSkyboxColor() {
+      return skyboxColor;
+   }
+
    public void runScript(int var1, Object... var2) {
       if(!$assertionsDisabled && !this.isClientThread()) {
          throw new AssertionError();
@@ -7199,12 +7224,113 @@ public final class client extends GameEngine implements class236, RSClient {
          System.arraycopy(var2, 0, var3, 1, var2.length);
          RSScriptEvent var4 = this.createScriptEvent();
          var4.setArguments(var3);
-         this.runScript(var4, 200000);
+         this.runScript(var4, 5000000);
       }
    }
 
-   public void playSoundEffect(int var1) {
-      this.playSoundEffect(var1, 0, 0, 0);
+   public Map getSpriteOverrides() {
+      return spriteOverrides;
+   }
+
+   public Map getWidgetSpriteOverrides() {
+      return widgetSpriteOverrides;
+   }
+
+   public void setStretchedEnabled(boolean var1) {
+      stretchedEnabled = var1;
+   }
+
+   public boolean isStretchedFast() {
+      return stretchedFast;
+   }
+
+   public void setStretchedFast(boolean var1) {
+      stretchedFast = var1;
+   }
+
+   public void setStretchedIntegerScaling(boolean var1) {
+      stretchedIntegerScaling = var1;
+   }
+
+   public void setStretchedKeepAspectRatio(boolean var1) {
+      stretchedKeepAspectRatio = var1;
+   }
+
+   public void setScalingFactor(int var1) {
+      scalingFactor = 1.0D + (double)var1 / 100.0D;
+   }
+
+   public Dimension getStretchedDimensions() {
+      if(cachedStretchedDimensions == null) {
+         Container var1 = this.getCanvas().getParent();
+         int var2 = var1.getWidth();
+         int var3 = var1.getHeight();
+         Dimension var4 = this.getRealDimensions();
+         if(stretchedKeepAspectRatio) {
+            double var5 = var4.getWidth() / var4.getHeight();
+            int var7 = (int)((double)var3 * var5);
+            if(var7 > var2) {
+               var3 = (int)((double)var2 / var5);
+            } else {
+               var2 = var7;
+            }
+         }
+
+         if(stretchedIntegerScaling) {
+            if(var2 > var4.width) {
+               var2 -= var2 % var4.width;
+            }
+
+            if(var3 > var4.height) {
+               var3 -= var3 % var4.height;
+            }
+         }
+
+         cachedStretchedDimensions = new Dimension(var2, var3);
+      }
+
+      return cachedStretchedDimensions;
+   }
+
+   public void invalidateStretching(boolean var1) {
+      cachedRealDimensions = null;
+      cachedStretchedDimensions = null;
+      if(var1 && this.isResized()) {
+         this.setResizeCanvasNextFrame(true);
+      }
+
+   }
+
+   public void setSetting(Varbits var1, int var2) {
+      int var3 = var1.getId();
+      this.setVarbitValue(this.getVarps(), var3, var2);
+   }
+
+   public int getVar(VarClientInt var1) {
+      return this.getIntVarcs()[var1.getIndex()];
+   }
+
+   public String getVar(VarClientStr var1) {
+      return this.getStrVarcs()[var1.getIndex()];
+   }
+
+   public void setVar(VarClientStr var1, String var2) {
+      String[] var3 = this.getStrVarcs();
+      var3[var1.getIndex()] = var2;
+   }
+
+   public void setVar(VarClientInt var1, int var2) {
+      int[] var3 = this.getIntVarcs();
+      var3[var1.getIndex()] = var2;
+   }
+
+   public void openWorldHopper() {
+      this._protect$menuAction(-1, WidgetInfo.WORLD_SWITCHER_BUTTON.getId(), MenuAction.WIDGET_DEFAULT.getId(), 1, "World Switcher", "", 658, 384);
+   }
+
+   public void hopToWorld(net.runelite.api.World var1) {
+      int var2 = var1.getId();
+      this._protect$menuAction(var2, WidgetInfo.WORLD_SWITCHER_LIST.getId(), MenuAction.WIDGET_DEFAULT.getId(), 1, "Switch", "<col=ff9040>" + (var2 - 300) + "</col>", 683, 244);
    }
 
    public RSIndexedSprite createIndexedSprite() {
@@ -7215,20 +7341,45 @@ public final class client extends GameEngine implements class236, RSClient {
       return new Item();
    }
 
-   public RSWorld createWorld() {
-      return new World();
-   }
-
    public RSWidget createWidget() {
       return new ComponentType();
    }
 
-   public Map getChatLineMap() {
-      return class202.chatLineMap;
+   public RSWorld createWorld() {
+      return new World();
    }
 
-   public RSIterableHashTable getMessages() {
-      return class202.messages;
+   public void setAnimOffsetX(int var1) {
+      Model.animOffsetX = var1;
+   }
+
+   public void setAnimOffsetY(int var1) {
+      Model.animOffsetY = var1;
+   }
+
+   public void setAnimOffsetZ(int var1) {
+      Model.animOffsetZ = var1;
+   }
+
+   public void revalidateWidgetScroll(Widget[] var1, Widget var2, boolean var3) {
+      class196.method4011((ComponentType[])var1, (ComponentType)var2, var3);
+   }
+
+   @Override
+   public void menuAction(int var0, int var1, int var2, int var3, String var4, String var5, int var6, int var7) {
+      this.menuAction(var0, var1, var2, var3, var4, var5, var6, var7);
+   }
+
+   public int getBaseY() {
+      return class107.baseY;
+   }
+
+   public RSIndexDataBase getIndexScripts() {
+      return UrlRequester.clientscripts;
+   }
+
+   public RSPlayer getLocalPlayer() {
+      return class4.localPlayer;
    }
 
    public int[] getIntStack() {
@@ -7247,16 +7398,112 @@ public final class client extends GameEngine implements class236, RSClient {
       return class48.scriptStringStackSize;
    }
 
+   public RSIndexedSprite[] getMapScene() {
+      return class0.mapscene;
+   }
+
+   public int getKeyboardIdleTicks() {
+      return KeyFocusListener.keyboardIdleTicks;
+   }
+
+   public RSNodeCache getCachedModels2() {
+      return LocType.field3473;
+   }
+
+   public int getRevision() {
+      return class45.revision;
+   }
+
+   public RSArea[] getMapAreas() {
+      return MapElementType.mapElementTypes;
+   }
+
    public RSItemComposition getItemDefinition(int var1) {
       return Varcs.method4770(var1);
    }
 
-   public RSIndexDataBase getIndexScripts() {
-      return UrlRequester.clientscripts;
+   public void setUsername(String var1) {
+      class316.username = var1;
+   }
+
+   public String getUsername() {
+      return class316.username;
+   }
+
+   public void setPassword(String var1) {
+      class316.password = var1;
+   }
+
+   public int getCurrentLoginField() {
+      return class316.currentLoginField;
+   }
+
+   public void changeWorld(net.runelite.api.World var1) {
+      UrlRequest.method5575((World)var1);
+   }
+
+   public int getOculusOrbFocalPointX() {
+      return class192.field68;
+   }
+
+   public int getOculusOrbFocalPointY() {
+      return class192.field70;
+   }
+
+   public RSIndexDataBase getIndexSprites() {
+      return JagException.sprites;
+   }
+
+   public RSFrames getFrames(int var1) {
+      return class315.method5967(var1);
+   }
+
+   public int getCanvasHeight() {
+      return class230.canvasHeight;
+   }
+
+   public RSRenderOverview getRenderOverview() {
+      return class219.worldMap;
    }
 
    public int getBaseX() {
       return class158.baseX;
+   }
+
+   public void setIntStackSize(int var1) {
+      class228.intStackSize = var1;
+   }
+
+   public int getIntStackSize() {
+      return class228.intStackSize;
+   }
+
+   public Map getChatLineMap() {
+      return class202.chatLineMap;
+   }
+
+   public RSIterableHashTable getMessages() {
+      return class202.messages;
+   }
+
+   public int[][][] getTileHeights() {
+      return class98.tileHeights;
+   }
+
+   public int getCameraY() {
+      return class98.cameraY;
+   }
+
+   public int getCanvasWidth() {
+      return FriendManager.canvasWidth;
+   }
+
+   public void setCompass(net.runelite.api.SpritePixels var1) {
+      class306.compass = (SpritePixels)var1;
+   }
+
+   public RSNodeCache getVarbitCache() {
+      return Varbit.varbits;
    }
 
    public void setTileUpdateCount(int var1) {
@@ -7379,81 +7626,120 @@ public final class client extends GameEngine implements class236, RSClient {
       return SceneManager.method3919(var1, var2, var3, var4, var5, var6, var7, var8);
    }
 
-   public RSPreferences getPreferences() {
-      return GameEngine.options;
+   public int getVarbit(int var1) {
+      return AbstractSoundSystem.method339(var1);
    }
 
-   public int getFPS() {
-      return GameEngine.FPS;
+   public RSWorld[] getWorldList() {
+      return World.worldList;
    }
 
-   public RSSpritePixels[] getMapDots() {
-      return GameEngine.mapDots;
+   public int[] getGraphicsPixels() {
+      return Rasterizer2D.graphicsPixels;
    }
 
-   public void revalidateWidgetScroll(Widget[] var1, Widget var2, boolean var3) {
-      class196.method4011((ComponentType[])var1, (ComponentType)var2, var3);
+   public int getGraphicsPixelsWidth() {
+      return Rasterizer2D.graphicsPixelsWidth;
    }
 
-   @Override
-   public void menuAction(int var0, int var1, int var2, int var3, String var4, String var5, int var6, int var7) {
-      this.menuAction(var0, var1, var2, var3, var4, var5, var6, var7);
+   public int getGraphicsPixelsHeight() {
+      return Rasterizer2D.graphicsPixelsHeight;
    }
 
-   public RSTextureProvider getTextureProvider() {
-      return class144.field3688;
+   public int getStartY() {
+      return Rasterizer2D.drawingAreaTop;
    }
 
-   public RSNPCComposition getNpcDefinition(int var1) {
-      return FileRequest.method4030(var1);
+   public int getEndY() {
+      return Rasterizer2D.drawingAreaRight;
+   }
+
+   public int getStartX() {
+      return Rasterizer2D.draw_region_x;
+   }
+
+   public int getEndX() {
+      return Rasterizer2D.drawingAreaBottom;
+   }
+
+   public void RasterizerFillRectangle(int var1, int var2, int var3, int var4, int var5) {
+      Rasterizer2D.method449(var1, var2, var3, var4, var5);
    }
 
    public int[][] getXteaKeys() {
       return IndexStoreActionHandler.xteaKeys;
    }
 
-   public void changeWorld(net.runelite.api.World var1) {
-      UrlRequest.method5575((World)var1);
+   public RSNPCComposition getNpcDefinition(int var1) {
+      return FileRequest.method4030(var1);
    }
 
-   public void setCompass(net.runelite.api.SpritePixels var1) {
-      class306.compass = (SpritePixels)var1;
+   public RSIndexedSprite[] getModIcons() {
+      return FontTypeFace.modIcons;
    }
 
-   public int getVarbit(int var1) {
-      return AbstractSoundSystem.method339(var1);
+   public int getCameraYaw() {
+      return class39.cameraYaw;
    }
 
-   public boolean getViewportContainsMouse() {
-      return class195.Viewport_containsMouse;
+   public int getMouseIdleTicks() {
+      return MouseInput.mouseIdleTicks;
    }
 
-   public int getViewportMouseX() {
-      return class195.Viewport_mouseX;
+   public int getMouseCurrentButton() {
+      return MouseInput.mouseCurrentButton;
    }
 
-   public int getViewportMouseY() {
-      return class195.Viewport_mouseY;
+   public long getMouseLastPressedMillis() {
+      return MouseInput.mouseLastPressedTimeMillis;
    }
 
-   public void setEntitiesAtMouseCount(int var1) {
-      class195.Viewport_entityCountAtMouse = var1;
+   public int getCameraX() {
+      return class166.cameraX;
    }
 
-   public int getEntitiesAtMouseCount() {
-      return class195.Viewport_entityCountAtMouse;
+   public int getCameraZ() {
+      return Packet.cameraZ;
    }
 
-   public long[] getEntitiesAtMouse() {
-      return class195.field1714;
+   public RSNodeCache getWidgetSpriteCache() {
+      return ComponentType.field2661;
    }
 
-   public RSNodeCache getVarbitCache() {
-      return Varbit.varbits;
+   public RSObjectComposition getObjectDefinition(int var1) {
+      return class225.method4485(var1);
    }
 
-   public int getCanvasWidth() {
-      return FriendManager.canvasWidth;
+   public int[] getMapRegions() {
+      return class208.mapRegions;
+   }
+
+   public int getCenterX() {
+      return Graphics3D.centerX;
+   }
+
+   public int getCenterY() {
+      return Graphics3D.centerY;
+   }
+
+   public int getRasterizer3D_clipNegativeMidX() {
+      return Graphics3D.Rasterizer3D_clipNegativeMidX;
+   }
+
+   public int getRasterizer3D_clipMidX2() {
+      return Graphics3D.Rasterizer3D_clipMidX2;
+   }
+
+   public int getRasterizer3D_clipNegativeMidY() {
+      return Graphics3D.Rasterizer3D_clipNegativeMidY;
+   }
+
+   public int getRasterizer3D_clipMidY2() {
+      return Graphics3D.Rasterizer3D_clipMidY2;
+   }
+
+   public RSTextureProvider getTextureProvider() {
+      return class144.field3688;
    }
 
    public RSWidget getDraggedWidget() {
@@ -7680,188 +7966,28 @@ public final class client extends GameEngine implements class236, RSClient {
       this.method3499((ComponentType)var1);
    }
 
-   public RSPlayer getLocalPlayer() {
-      return class4.localPlayer;
+   public boolean getViewportContainsMouse() {
+      return class195.Viewport_containsMouse;
    }
 
-   public RSFrames getFrames(int var1) {
-      return class315.method5967(var1);
+   public int getViewportMouseX() {
+      return class195.Viewport_mouseX;
    }
 
-   public void setIntStackSize(int var1) {
-      class228.intStackSize = var1;
+   public int getViewportMouseY() {
+      return class195.Viewport_mouseY;
    }
 
-   public int getIntStackSize() {
-      return class228.intStackSize;
+   public void setEntitiesAtMouseCount(int var1) {
+      class195.Viewport_entityCountAtMouse = var1;
    }
 
-   public int getCameraX() {
-      return class166.cameraX;
+   public int getEntitiesAtMouseCount() {
+      return class195.Viewport_entityCountAtMouse;
    }
 
-   public int getCanvasHeight() {
-      return class230.canvasHeight;
-   }
-
-   public int getCameraYaw() {
-      return class39.cameraYaw;
-   }
-
-   public int getMouseIdleTicks() {
-      return MouseInput.mouseIdleTicks;
-   }
-
-   public int getMouseCurrentButton() {
-      return MouseInput.mouseCurrentButton;
-   }
-
-   public long getMouseLastPressedMillis() {
-      return MouseInput.mouseLastPressedTimeMillis;
-   }
-
-   public RSObjectComposition getObjectDefinition(int var1) {
-      return class225.method4485(var1);
-   }
-
-   public int getRevision() {
-      return class45.revision;
-   }
-
-   public void setAnimOffsetX(int var1) {
-      Model.animOffsetX = var1;
-   }
-
-   public void setAnimOffsetY(int var1) {
-      Model.animOffsetY = var1;
-   }
-
-   public void setAnimOffsetZ(int var1) {
-      Model.animOffsetZ = var1;
-   }
-
-   public int getKeyboardIdleTicks() {
-      return KeyFocusListener.keyboardIdleTicks;
-   }
-
-   public int getCenterX() {
-      return Graphics3D.centerX;
-   }
-
-   public int getCenterY() {
-      return Graphics3D.centerY;
-   }
-
-   public int getRasterizer3D_clipNegativeMidX() {
-      return Graphics3D.Rasterizer3D_clipNegativeMidX;
-   }
-
-   public int getRasterizer3D_clipMidX2() {
-      return Graphics3D.Rasterizer3D_clipMidX2;
-   }
-
-   public int getRasterizer3D_clipNegativeMidY() {
-      return Graphics3D.Rasterizer3D_clipNegativeMidY;
-   }
-
-   public int getRasterizer3D_clipMidY2() {
-      return Graphics3D.Rasterizer3D_clipMidY2;
-   }
-
-   public int[] getGraphicsPixels() {
-      return Rasterizer2D.graphicsPixels;
-   }
-
-   public int getGraphicsPixelsWidth() {
-      return Rasterizer2D.graphicsPixelsWidth;
-   }
-
-   public int getGraphicsPixelsHeight() {
-      return Rasterizer2D.graphicsPixelsHeight;
-   }
-
-   public int getStartY() {
-      return Rasterizer2D.drawingAreaTop;
-   }
-
-   public int getEndY() {
-      return Rasterizer2D.drawingAreaRight;
-   }
-
-   public int getStartX() {
-      return Rasterizer2D.draw_region_x;
-   }
-
-   public int getEndX() {
-      return Rasterizer2D.drawingAreaBottom;
-   }
-
-   public RSIndexedSprite[] getMapScene() {
-      return class0.mapscene;
-   }
-
-   public RSArea[] getMapAreas() {
-      return MapElementType.mapElementTypes;
-   }
-
-   public RSWorld[] getWorldList() {
-      return World.worldList;
-   }
-
-   public RSNodeCache getCachedModels2() {
-      return LocType.field3473;
-   }
-
-   public RSNodeCache getWidgetSpriteCache() {
-      return ComponentType.field2661;
-   }
-
-   public RSIndexedSprite[] getModIcons() {
-      return FontTypeFace.modIcons;
-   }
-
-   public int getBaseY() {
-      return class107.baseY;
-   }
-
-   public int getCameraZ() {
-      return Buffer.cameraZ;
-   }
-
-   public RSRenderOverview getRenderOverview() {
-      return class219.worldMap;
-   }
-
-   public RSIndexDataBase getIndexSprites() {
-      return JagException.sprites;
-   }
-
-   public void setUsername(String var1) {
-      class316.username = var1;
-   }
-
-   public String getUsername() {
-      return class316.username;
-   }
-
-   public void setPassword(String var1) {
-      class316.password = var1;
-   }
-
-   public int getCurrentLoginField() {
-      return class316.currentLoginField;
-   }
-
-   public int[] getMapRegions() {
-      return class208.mapRegions;
-   }
-
-   public int[][][] getTileHeights() {
-      return class98.tileHeights;
-   }
-
-   public int getCameraY() {
-      return class98.cameraY;
+   public long[] getEntitiesAtMouse() {
+      return class195.field1714;
    }
 
    public void setCameraPitch(int var1) {
@@ -7870,6 +7996,18 @@ public final class client extends GameEngine implements class236, RSClient {
 
    public int getCameraPitch() {
       return ScriptEvent.cameraPitch;
+   }
+
+   public RSPreferences getPreferences() {
+      return GameEngine.options;
+   }
+
+   public int getFPS() {
+      return GameEngine.FPS;
+   }
+
+   public RSSpritePixels[] getMapDots() {
+      return GameEngine.mapDots;
    }
 
    @ObfuscatedName("je")
@@ -7937,10 +8075,10 @@ public final class client extends GameEngine implements class236, RSClient {
                   TcpConnectionMessage var9 = FaceNormal.method5726(ClientProt.field2264, serverConnection.isaac);
                   var9.packetBuffer.method6196(draggedWidget.index);
                   var9.packetBuffer.method6196(draggedOnWidget.linkObjType);
-                  var9.packetBuffer.writeShort(draggedOnWidget.index);
+                  var9.packetBuffer.method6063(draggedOnWidget.index);
                   var9.packetBuffer.method6122(draggedWidget.id);
                   var9.packetBuffer.method6202(draggedOnWidget.id);
-                  var9.packetBuffer.writeShort(draggedWidget.linkObjType);
+                  var9.packetBuffer.method6063(draggedWidget.linkObjType);
                   serverConnection.method5881(var9);
                }
             } else if(this.method3173()) {
@@ -8815,7 +8953,7 @@ public final class client extends GameEngine implements class236, RSClient {
          var9.packetBuffer.method6104(KeyFocusListener.keyPressed[82]?1:0);
          var9.packetBuffer.method6122(ChatLineBuffer.field1276);
          var9.packetBuffer.method6115(var0 + class158.baseX);
-         var9.packetBuffer.writeShort(var3);
+         var9.packetBuffer.method6063(var3);
          var9.packetBuffer.method6178(class116.field51);
          serverConnection.method5881(var9);
       } else {
@@ -8840,11 +8978,11 @@ public final class client extends GameEngine implements class236, RSClient {
                var10001 = 0;
             }
 
-            var10000.writeByte(var10001);
-            var9.packetBuffer.writeShort(var0 + class158.baseX);
+            var10000.method6114(var10001);
+            var9.packetBuffer.method6063(var0 + class158.baseX);
             var9.packetBuffer.method6196(var3);
             var9.packetBuffer.method6248(class174.field3796);
-            var9.packetBuffer.writeShort(field799);
+            var9.packetBuffer.method6063(field799);
             var9.packetBuffer.method6178(class107.baseY + var1);
             serverConnection.method5881(var9);
          } else if(var2 == 3) {
@@ -8855,7 +8993,7 @@ public final class client extends GameEngine implements class236, RSClient {
             destinationX = var0;
             destinationY = var1;
             var9 = FaceNormal.method5726(ClientProt.field2304, serverConnection.isaac);
-            var9.packetBuffer.writeShort(class107.baseY + var1);
+            var9.packetBuffer.method6063(class107.baseY + var1);
             var9.packetBuffer.method6106(KeyFocusListener.keyPressed[82]?1:0);
             var9.packetBuffer.method6196(var3);
             var9.packetBuffer.method6115(var0 + class158.baseX);
@@ -8880,9 +9018,9 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             var10000.method6104(var10001);
-            var9.packetBuffer.writeShort(var3);
-            var9.packetBuffer.writeShort(class107.baseY + var1);
-            var9.packetBuffer.writeShort(var0 + class158.baseX);
+            var9.packetBuffer.method6063(var3);
+            var9.packetBuffer.method6063(class107.baseY + var1);
+            var9.packetBuffer.method6063(var0 + class158.baseX);
             serverConnection.method5881(var9);
          } else if(var2 == 5) {
             lastLeftClickX = var6;
@@ -8924,7 +9062,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   destinationY = var1;
                   var10 = FaceNormal.method5726(ClientProt.field2217, serverConnection.isaac);
                   var10.packetBuffer.method6115(class116.field51);
-                  var10.packetBuffer.writeShort(MapLabel.selectedItemIndex);
+                  var10.packetBuffer.method6063(MapLabel.selectedItemIndex);
                   var10.packetBuffer.method6115(var3);
                   var10000 = var10.packetBuffer;
                   if(KeyFocusListener.keyPressed[82]) {
@@ -8937,8 +9075,8 @@ public final class client extends GameEngine implements class236, RSClient {
                      var10001 = 0;
                   }
 
-                  var10000.writeByteC(var10001);
-                  var10.packetBuffer.writeInt(ChatLineBuffer.field1276);
+                  var10000.method6105(var10001);
+                  var10.packetBuffer.method6230(ChatLineBuffer.field1276);
                   serverConnection.method5881(var10);
                }
             } else if(var2 == 8) {
@@ -8963,7 +9101,7 @@ public final class client extends GameEngine implements class236, RSClient {
                      var10001 = 0;
                   }
 
-                  var10000.writeByteC(var10001);
+                  var10000.method6105(var10001);
                   var10.packetBuffer.method6122(class174.field3796);
                   var10.packetBuffer.method6196(field799);
                   serverConnection.method5881(var10);
@@ -8982,7 +9120,7 @@ public final class client extends GameEngine implements class236, RSClient {
                            destinationX = var0;
                            destinationY = var1;
                            var10 = FaceNormal.method5726(ClientProt.field2212, serverConnection.isaac);
-                           var10.packetBuffer.writeByteC(KeyFocusListener.keyPressed[82]?1:0);
+                           var10.packetBuffer.method6105(KeyFocusListener.keyPressed[82]?1:0);
                            var10.packetBuffer.method6178(var3);
                            serverConnection.method5881(var10);
                         }
@@ -8998,7 +9136,7 @@ public final class client extends GameEngine implements class236, RSClient {
                               destinationY = var1;
                               var10 = FaceNormal.method5726(ClientProt.field2208, serverConnection.isaac);
                               var10.packetBuffer.method6196(var3);
-                              var10.packetBuffer.writeByte(KeyFocusListener.keyPressed[82]?1:0);
+                              var10.packetBuffer.method6114(KeyFocusListener.keyPressed[82]?1:0);
                               serverConnection.method5881(var10);
                            }
                            break label1268;
@@ -9015,7 +9153,7 @@ public final class client extends GameEngine implements class236, RSClient {
                               destinationY = var1;
                               var10 = FaceNormal.method5726(ClientProt.field2277, serverConnection.isaac);
                               var10.packetBuffer.method6115(var3);
-                              var10.packetBuffer.writeByte(KeyFocusListener.keyPressed[82]?1:0);
+                              var10.packetBuffer.method6114(KeyFocusListener.keyPressed[82]?1:0);
                               serverConnection.method5881(var10);
                            }
                            break label1268;
@@ -9035,7 +9173,7 @@ public final class client extends GameEngine implements class236, RSClient {
                               destinationX = var0;
                               destinationY = var1;
                               var10 = FaceNormal.method5726(ClientProt.field2266, serverConnection.isaac);
-                              var10.packetBuffer.writeShort(var3);
+                              var10.packetBuffer.method6063(var3);
                               var10000 = var10.packetBuffer;
                               if(KeyFocusListener.keyPressed[82]) {
                                  if(var8 >= -1366111544) {
@@ -9074,7 +9212,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                  var10001 = 0;
                               }
 
-                              var10000.writeByte(var10001);
+                              var10000.method6114(var10001);
                               var10.packetBuffer.method6196(var3);
                               serverConnection.method5881(var10);
                            }
@@ -9095,8 +9233,8 @@ public final class client extends GameEngine implements class236, RSClient {
                               var10.packetBuffer.method6115(MapLabel.selectedItemIndex);
                               var10.packetBuffer.method6106(KeyFocusListener.keyPressed[82]?1:0);
                               var10.packetBuffer.method6202(ChatLineBuffer.field1276);
-                              var10.packetBuffer.writeShort(var3);
-                              var10.packetBuffer.writeShort(class116.field51);
+                              var10.packetBuffer.method6063(var3);
+                              var10.packetBuffer.method6063(class116.field51);
                               serverConnection.method5881(var10);
                            }
                            break label1268;
@@ -9119,7 +9257,7 @@ public final class client extends GameEngine implements class236, RSClient {
                               var10.packetBuffer.method6248(class174.field3796);
                               var10.packetBuffer.method6106(KeyFocusListener.keyPressed[82]?1:0);
                               var10.packetBuffer.method6196(field799);
-                              var10.packetBuffer.writeShort(var3);
+                              var10.packetBuffer.method6063(var3);
                               serverConnection.method5881(var10);
                            }
                            break label1268;
@@ -9153,7 +9291,7 @@ public final class client extends GameEngine implements class236, RSClient {
                            destinationY = var1;
                            var9 = FaceNormal.method5726(ClientProt.field2251, serverConnection.isaac);
                            var9.packetBuffer.method6202(class174.field3796);
-                           var9.packetBuffer.writeShort(field799);
+                           var9.packetBuffer.method6063(field799);
                            var9.packetBuffer.method6196(class107.baseY + var1);
                            var9.packetBuffer.method6196(var0 + class158.baseX);
                            var9.packetBuffer.method6104(KeyFocusListener.keyPressed[82]?1:0);
@@ -9177,7 +9315,7 @@ public final class client extends GameEngine implements class236, RSClient {
                            var9.packetBuffer.method6115(class107.baseY + var1);
                            var9.packetBuffer.method6178(var3);
                            var9.packetBuffer.method6178(var0 + class158.baseX);
-                           var9.packetBuffer.writeByte(KeyFocusListener.keyPressed[82]?1:0);
+                           var9.packetBuffer.method6114(KeyFocusListener.keyPressed[82]?1:0);
                            serverConnection.method5881(var9);
                            break label1268;
                         }
@@ -9192,8 +9330,8 @@ public final class client extends GameEngine implements class236, RSClient {
                            var9 = FaceNormal.method5726(ClientProt.field2281, serverConnection.isaac);
                            var9.packetBuffer.method6115(var3);
                            var9.packetBuffer.method6196(var0 + class158.baseX);
-                           var9.packetBuffer.writeShort(class107.baseY + var1);
-                           var9.packetBuffer.writeByte(KeyFocusListener.keyPressed[82]?1:0);
+                           var9.packetBuffer.method6063(class107.baseY + var1);
+                           var9.packetBuffer.method6114(KeyFocusListener.keyPressed[82]?1:0);
                            serverConnection.method5881(var9);
                            break label1268;
                         }
@@ -9224,7 +9362,7 @@ public final class client extends GameEngine implements class236, RSClient {
                            var9 = FaceNormal.method5726(ClientProt.field2293, serverConnection.isaac);
                            var9.packetBuffer.method6196(class107.baseY + var1);
                            var9.packetBuffer.method6178(var3);
-                           var9.packetBuffer.writeShort(var0 + class158.baseX);
+                           var9.packetBuffer.method6063(var0 + class158.baseX);
                            var9.packetBuffer.method6106(KeyFocusListener.keyPressed[82]?1:0);
                            serverConnection.method5881(var9);
                            break label1268;
@@ -9238,10 +9376,10 @@ public final class client extends GameEngine implements class236, RSClient {
                            destinationX = var0;
                            destinationY = var1;
                            var9 = FaceNormal.method5726(ClientProt.field2258, serverConnection.isaac);
-                           var9.packetBuffer.writeByte(KeyFocusListener.keyPressed[82]?1:0);
+                           var9.packetBuffer.method6114(KeyFocusListener.keyPressed[82]?1:0);
                            var9.packetBuffer.method6115(var3);
                            var9.packetBuffer.method6196(class107.baseY + var1);
-                           var9.packetBuffer.writeShort(var0 + class158.baseX);
+                           var9.packetBuffer.method6063(var0 + class158.baseX);
                            serverConnection.method5881(var9);
                            break label1268;
                         }
@@ -9281,7 +9419,7 @@ public final class client extends GameEngine implements class236, RSClient {
                               }
 
                               var11 = FaceNormal.method5726(ClientProt.field2276, serverConnection.isaac);
-                              var11.packetBuffer.writeInt(var1);
+                              var11.packetBuffer.method6230(var1);
                               serverConnection.method5881(var11);
                            }
                            break label1268;
@@ -9329,7 +9467,7 @@ public final class client extends GameEngine implements class236, RSClient {
                            }
 
                            var9 = FaceNormal.method5726(ClientProt.field2276, serverConnection.isaac);
-                           var9.packetBuffer.writeInt(var1);
+                           var9.packetBuffer.method6230(var1);
                            serverConnection.method5881(var9);
                            var18 = WorldMapType1.method2440(var1);
                            if(var18.dynamicValues != null) {
@@ -9353,7 +9491,7 @@ public final class client extends GameEngine implements class236, RSClient {
 
                         if(var2 == 29) {
                            var9 = FaceNormal.method5726(ClientProt.field2276, serverConnection.isaac);
-                           var9.packetBuffer.writeInt(var1);
+                           var9.packetBuffer.method6230(var1);
                            serverConnection.method5881(var9);
                            var18 = WorldMapType1.method2440(var1);
                            if(var18.dynamicValues != null && var18.dynamicValues[0][0] == 5) {
@@ -9394,8 +9532,8 @@ public final class client extends GameEngine implements class236, RSClient {
                         if(var2 == 32) {
                            var9 = FaceNormal.method5726(ClientProt.field2209, serverConnection.isaac);
                            var9.packetBuffer.method6202(class174.field3796);
-                           var9.packetBuffer.writeInt(var1);
-                           var9.packetBuffer.writeShort(var0);
+                           var9.packetBuffer.method6230(var1);
+                           var9.packetBuffer.method6063(var0);
                            var9.packetBuffer.method6178(var3);
                            var9.packetBuffer.method6178(field799);
                            serverConnection.method5881(var9);
@@ -9409,7 +9547,7 @@ public final class client extends GameEngine implements class236, RSClient {
                            var9 = FaceNormal.method5726(ClientProt.field2294, serverConnection.isaac);
                            var9.packetBuffer.method6178(var3);
                            var9.packetBuffer.method6202(var1);
-                           var9.packetBuffer.writeShort(var0);
+                           var9.packetBuffer.method6063(var0);
                            serverConnection.method5881(var9);
                            mouseCrosshair = 0;
                            class92.field2357 = WorldMapType1.method2440(var1);
@@ -9448,7 +9586,7 @@ public final class client extends GameEngine implements class236, RSClient {
                         if(var2 == 36) {
                            var9 = FaceNormal.method5726(ClientProt.field2240, serverConnection.isaac);
                            var9.packetBuffer.method6115(var3);
-                           var9.packetBuffer.writeInt(var1);
+                           var9.packetBuffer.method6230(var1);
                            var9.packetBuffer.method6115(var0);
                            serverConnection.method5881(var9);
                            mouseCrosshair = 0;
@@ -9459,9 +9597,9 @@ public final class client extends GameEngine implements class236, RSClient {
 
                         if(var2 == 37) {
                            var9 = FaceNormal.method5726(ClientProt.field2265, serverConnection.isaac);
-                           var9.packetBuffer.writeInt(var1);
-                           var9.packetBuffer.writeShort(var0);
-                           var9.packetBuffer.writeShort(var3);
+                           var9.packetBuffer.method6230(var1);
+                           var9.packetBuffer.method6063(var0);
+                           var9.packetBuffer.method6063(var3);
                            serverConnection.method5881(var9);
                            mouseCrosshair = 0;
                            class92.field2357 = WorldMapType1.method2440(var1);
@@ -9521,7 +9659,7 @@ public final class client extends GameEngine implements class236, RSClient {
                            var9 = FaceNormal.method5726(ClientProt.field2268, serverConnection.isaac);
                            var9.packetBuffer.method6122(var1);
                            var9.packetBuffer.method6196(var0);
-                           var9.packetBuffer.writeShort(var3);
+                           var9.packetBuffer.method6063(var3);
                            serverConnection.method5881(var9);
                            mouseCrosshair = 0;
                            class92.field2357 = WorldMapType1.method2440(var1);
@@ -9531,9 +9669,9 @@ public final class client extends GameEngine implements class236, RSClient {
 
                         if(var2 == 42) {
                            var9 = FaceNormal.method5726(ClientProt.field2271, serverConnection.isaac);
-                           var9.packetBuffer.writeInt(var1);
+                           var9.packetBuffer.method6230(var1);
                            var9.packetBuffer.method6196(var0);
-                           var9.packetBuffer.writeShort(var3);
+                           var9.packetBuffer.method6063(var3);
                            serverConnection.method5881(var9);
                            mouseCrosshair = 0;
                            class92.field2357 = WorldMapType1.method2440(var1);
@@ -9541,9 +9679,9 @@ public final class client extends GameEngine implements class236, RSClient {
                         } else {
                            if(var2 == 43) {
                               var9 = FaceNormal.method5726(ClientProt.field2239, serverConnection.isaac);
-                              var9.packetBuffer.writeShort(var3);
+                              var9.packetBuffer.method6063(var3);
                               var9.packetBuffer.method6202(var1);
-                              var9.packetBuffer.writeShort(var0);
+                              var9.packetBuffer.method6063(var0);
                               serverConnection.method5881(var9);
                               mouseCrosshair = 0;
                               class92.field2357 = WorldMapType1.method2440(var1);
@@ -9561,8 +9699,8 @@ public final class client extends GameEngine implements class236, RSClient {
                                  destinationX = var0;
                                  destinationY = var1;
                                  var10 = FaceNormal.method5726(ClientProt.field2308, serverConnection.isaac);
-                                 var10.packetBuffer.writeShort(var3);
-                                 var10.packetBuffer.writeByteC(KeyFocusListener.keyPressed[82]?1:0);
+                                 var10.packetBuffer.method6063(var3);
+                                 var10.packetBuffer.method6105(KeyFocusListener.keyPressed[82]?1:0);
                                  serverConnection.method5881(var10);
                               }
                               break label1268;
@@ -9607,7 +9745,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                     var10001 = 0;
                                  }
 
-                                 var10000.writeByte(var10001);
+                                 var10000.method6114(var10001);
                                  serverConnection.method5881(var10);
                               }
                               break label1268;
@@ -9624,7 +9762,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                  destinationY = var1;
                                  var10 = FaceNormal.method5726(ClientProt.field2236, serverConnection.isaac);
                                  var10.packetBuffer.method6115(var3);
-                                 var10.packetBuffer.writeByteC(KeyFocusListener.keyPressed[82]?1:0);
+                                 var10.packetBuffer.method6105(KeyFocusListener.keyPressed[82]?1:0);
                                  serverConnection.method5881(var10);
                               }
                               break label1268;
@@ -9699,7 +9837,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                  destinationX = var0;
                                  destinationY = var1;
                                  var10 = FaceNormal.method5726(ClientProt.field2261, serverConnection.isaac);
-                                 var10.packetBuffer.writeByteC(KeyFocusListener.keyPressed[82]?1:0);
+                                 var10.packetBuffer.method6105(KeyFocusListener.keyPressed[82]?1:0);
                                  var10.packetBuffer.method6115(var3);
                                  serverConnection.method5881(var10);
                               }
@@ -9718,7 +9856,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                  var10.packetBuffer.method6248(var1);
                                  var10.packetBuffer.method6178(field734);
                                  var10.packetBuffer.method6115(var0);
-                                 var10.packetBuffer.writeInt(class174.field3796);
+                                 var10.packetBuffer.method6230(class174.field3796);
                                  var10.packetBuffer.method6115(var16.linkObjType);
                                  serverConnection.method5881(var10);
                               }
@@ -9733,7 +9871,7 @@ public final class client extends GameEngine implements class236, RSClient {
                               destinationX = var0;
                               destinationY = var1;
                               var9 = FaceNormal.method5726(ClientProt.field2301, serverConnection.isaac);
-                              var9.packetBuffer.writeShort(var3);
+                              var9.packetBuffer.method6063(var3);
                               var9.packetBuffer.method6104(KeyFocusListener.keyPressed[82]?1:0);
                               var9.packetBuffer.method6196(var0 + class158.baseX);
                               var9.packetBuffer.method6115(class107.baseY + var1);
@@ -9867,7 +10005,7 @@ public final class client extends GameEngine implements class236, RSClient {
       int var2 = class166.clientInstance.getMenuOptionCount();
       oldMenuEntryCount = var2;
       if(var2 == var1 + 1) {
-         MenuEntryAdded var3 = new MenuEntryAdded(class166.clientInstance.getMenuOptions()[var2 - 1], class166.clientInstance.getMenuTargets()[var2 - 1], class166.clientInstance.getMenuTypes()[var2 - 1], class166.clientInstance.getMenuIdentifiers()[var2 - 1], class166.clientInstance.getMenuActionParams0()[var2 - 1], class166.clientInstance.getMenuActionParams1()[var2 - 1]);
+         MenuEntryAdded var3 = new MenuEntryAdded(class166.clientInstance._protect$getMenuOptions()[var2 - 1], class166.clientInstance._protect$getMenuTargets()[var2 - 1], class166.clientInstance._protect$getMenuTypes()[var2 - 1], class166.clientInstance._protect$getMenuIdentifiers()[var2 - 1], class166.clientInstance._protect$getMenuActionParams0()[var2 - 1], class166.clientInstance._protect$getMenuActionParams1()[var2 - 1]);
          class166.clientInstance.getCallbacks().post(var3);
       }
 
@@ -10072,25 +10210,10 @@ public final class client extends GameEngine implements class236, RSClient {
       }
    }
 
-   public static void drawAlpha(int[] var0, int var1, int var2, int var3, int var4) {
+   public static void drawAlpha(int[] var0, int var1, int var2, int var3) {
       if(class166.clientInstance.isGpu() && var0 == class166.clientInstance.getBufferProvider().getPixels()) {
-         if(var4 != 0) {
-            int var5 = var0[var1];
-            if((var5 & -16777216) != 0 && var4 != 255) {
-               if((var5 & -16777216) == -16777216) {
-                  var0[var1] = var2 | -16777216;
-               } else {
-                  int var6 = (255 - var4) * (var5 >>> 24) >>> 8;
-                  int var7 = var6 + var4;
-                  int var8 = (var4 << 8) / var7;
-                  int var9 = (var6 << 8) / var7;
-                  int var10 = ((var5 & 16711935) * var9 + (var3 & 16711935) * var8 & -16711936 | var8 * (var3 & 65280) + var9 * (var5 & 65280) & 16711680) >>> 8;
-                  var0[var1] = var10 | var7 << 24;
-               }
-            } else {
-               var0[var1] = var3 & 16777215 | var4 << 24;
-            }
-         }
+         int var4 = var3 + ((var0[var1] >>> 24) * (255 - var3) * 32897 >>> 23);
+         var0[var1] = var2 & 16777215 | var4 << 24;
       } else {
          var0[var1] = var2;
       }
@@ -10352,20 +10475,20 @@ public final class client extends GameEngine implements class236, RSClient {
    }
 
    private static void rl$$clinit2() {
-      $assertionsDisabled = !client.class.desiredAssertionStatus();
+      $assertionsDisabled = !Client.class.desiredAssertionStatus();
+      oldPlayers = new PlayerEntity[2048];
    }
 
    private static void rl$$clinit3() {
+      $assertionsDisabled = !Client.class.desiredAssertionStatus();
+   }
+
+   private static void rl$$clinit4() {
       spriteOverrides = new HashMap();
       widgetSpriteOverrides = new HashMap();
    }
 
-   private static void rl$$clinit4() {
-      $assertionsDisabled = !client.class.desiredAssertionStatus();
-      oldPlayers = new PlayerEntity[2048];
-   }
-
    private static void rl$$clinit5() {
-      $assertionsDisabled = !client.class.desiredAssertionStatus();
+      $assertionsDisabled = !Client.class.desiredAssertionStatus();
    }
 }

@@ -1250,28 +1250,28 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var7 += var8;
                      var15 = var7 >> 8;
@@ -1283,7 +1283,7 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      --var17;
                   } while(var17 > 0);
@@ -1292,49 +1292,49 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
@@ -1349,7 +1349,7 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
@@ -1393,28 +1393,28 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var7 += var8;
                      var15 = var7 >> 8;
@@ -1426,7 +1426,7 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      --var17;
                   } while(var17 > 0);
@@ -1435,49 +1435,49 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
@@ -1492,7 +1492,7 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
@@ -1537,29 +1537,28 @@ public class Graphics3D extends Rasterizer2D {
          int var8;
          int var9;
          int var10;
-         int var11;
          if(rasterGouraudLowRes) {
             var3 = var5 - var4 >> 2;
             var7 <<= 2;
             if(rasterAlpha == 0) {
                if(var3 > 0) {
                   do {
-                     var2 = var11 = colorPalette[var6 >> 8];
+                     var2 = colorPalette[var6 >> 8];
                      var6 += var7;
-                     client.drawAlpha(var0, var1++, var2, var11, 255 - rasterAlpha);
-                     client.drawAlpha(var0, var1++, var2, var11, 255 - rasterAlpha);
-                     client.drawAlpha(var0, var1++, var2, var11, 255 - rasterAlpha);
-                     client.drawAlpha(var0, var1++, var2, var11, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
                      --var3;
                   } while(var3 > 0);
                }
 
                var3 = var5 - var4 & 3;
                if(var3 > 0) {
-                  var2 = var11 = colorPalette[var6 >> 8];
+                  var2 = colorPalette[var6 >> 8];
 
                   do {
-                     client.drawAlpha(var0, var1++, var2, var11, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
                      --var3;
                   } while(var3 > 0);
                }
@@ -1568,29 +1567,29 @@ public class Graphics3D extends Rasterizer2D {
                var9 = 256 - rasterAlpha;
                if(var3 > 0) {
                   do {
-                     var2 = var11 = colorPalette[var6 >> 8];
+                     var2 = colorPalette[var6 >> 8];
                      var6 += var7;
                      var2 = (var9 * (var2 & 65280) >> 8 & 65280) + (var9 * (var2 & 16711935) >> 8 & 16711935);
                      var10 = var0[var1];
-                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), var11, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      var10 = var0[var1];
-                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), var11, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      var10 = var0[var1];
-                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), var11, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      var10 = var0[var1];
-                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), var11, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      --var3;
                   } while(var3 > 0);
                }
 
                var3 = var5 - var4 & 3;
                if(var3 > 0) {
-                  var2 = var11 = colorPalette[var6 >> 8];
+                  var2 = colorPalette[var6 >> 8];
                   var2 = (var9 * (var2 & 65280) >> 8 & 65280) + (var9 * (var2 & 16711935) >> 8 & 16711935);
 
                   do {
                      var10 = var0[var1];
-                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), var11, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      --var3;
                   } while(var3 > 0);
                }
@@ -1600,7 +1599,7 @@ public class Graphics3D extends Rasterizer2D {
             var3 = var5 - var4;
             if(rasterAlpha == 0) {
                do {
-                  client.drawAlpha(var0, var1++, var11 = colorPalette[var6 >> 8], var11, 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, colorPalette[var6 >> 8], 255 - rasterAlpha);
                   var6 += var7;
                   --var3;
                } while(var3 > 0);
@@ -1609,11 +1608,11 @@ public class Graphics3D extends Rasterizer2D {
                var9 = 256 - rasterAlpha;
 
                do {
-                  var2 = var11 = colorPalette[var6 >> 8];
+                  var2 = colorPalette[var6 >> 8];
                   var6 += var7;
                   var2 = (var9 * (var2 & 65280) >> 8 & 65280) + (var9 * (var2 & 16711935) >> 8 & 16711935);
                   var10 = var0[var1];
-                  client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), var11, 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                   --var3;
                } while(var3 > 0);
             }
@@ -1789,28 +1788,28 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var10000 = var16 + var2;
                      var18 = var20;
                      var19 = var21;
@@ -1843,7 +1842,7 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      var3 = var1[(var2 >>> 26) + (var2 & 4032)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      --var17;
                   } while(var17 > 0);
@@ -1852,49 +1851,49 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
@@ -1930,7 +1929,7 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      if((var3 = var1[(var2 >>> 26) + (var2 & 4032)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
@@ -1984,28 +1983,28 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var10000 = var16 + var2;
                      var18 = var20;
                      var19 = var21;
@@ -2038,7 +2037,7 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      var3 = var1[(var2 & 16256) + (var2 >>> 25)];
-                     client.drawAlpha(var0, var4++, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                     var0[var4++] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      var2 += var16;
                      --var17;
                   } while(var17 > 0);
@@ -2047,49 +2046,49 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
                      var2 += var16;
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
@@ -2125,7 +2124,7 @@ public class Graphics3D extends Rasterizer2D {
                if(var17 > 0) {
                   do {
                      if((var3 = var1[(var2 & 16256) + (var2 >>> 25)]) != 0) {
-                        client.drawAlpha(var0, var4, (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8, var3, var15);
+                        var0[var4] = (var15 * (var3 & 65280) & 16711680) + ((var3 & 16711935) * var15 & -16711936) >> 8 | -16777216;
                      }
 
                      ++var4;
@@ -3313,7 +3312,6 @@ public class Graphics3D extends Rasterizer2D {
 
    @ObfuscatedName("h")
    static final void method2620(int[] var0, int var1, int var2, int var3, int var4, int var5) {
-      int var9 = var2;
       if(rasterClipEnable) {
          if(var5 > rasterClipX) {
             var5 = rasterClipX;
@@ -3340,14 +3338,14 @@ public class Graphics3D extends Rasterizer2D {
                            return;
                         }
 
-                        client.drawAlpha(var0, var1++, var0[var1], var9, 255 - rasterAlpha);
+                        Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
                      }
                   }
 
-                  client.drawAlpha(var0, var1++, var0[var1], var9, 255 - rasterAlpha);
-                  client.drawAlpha(var0, var1++, var0[var1], var9, 255 - rasterAlpha);
-                  client.drawAlpha(var0, var1++, var0[var1], var9, 255 - rasterAlpha);
-                  client.drawAlpha(var0, var1++, var0[var1], var9, 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
                }
             } else {
                int var6 = rasterAlpha;
@@ -3367,18 +3365,18 @@ public class Graphics3D extends Rasterizer2D {
                         }
 
                         var8 = var0[var1];
-                        client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), var9, 255 - rasterAlpha);
+                        Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      }
                   }
 
                   var8 = var0[var1];
-                  client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), var9, 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                   var8 = var0[var1];
-                  client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), var9, 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                   var8 = var0[var1];
-                  client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), var9, 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                   var8 = var0[var1];
-                  client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), var9, 255 - rasterAlpha);
+                  Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                }
             }
          } else {
@@ -3393,14 +3391,14 @@ public class Graphics3D extends Rasterizer2D {
                         return;
                      }
 
-                     client.drawAlpha(var0, var1++, var2, var9, 255 - rasterAlpha);
+                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
                   }
                }
 
-               client.drawAlpha(var0, var1++, var2, var9, 255 - rasterAlpha);
-               client.drawAlpha(var0, var1++, var2, var9, 255 - rasterAlpha);
-               client.drawAlpha(var0, var1++, var2, var9, 255 - rasterAlpha);
-               client.drawAlpha(var0, var1++, var2, var9, 255 - rasterAlpha);
+               Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+               Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+               Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+               Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
             }
          }
       }

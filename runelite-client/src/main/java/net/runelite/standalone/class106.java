@@ -83,7 +83,7 @@ public class class106 extends CacheableNode implements RSScript {
          byte[] var2 = Enum.EnumDefinition_indexCache.method1516(8, var0, 1789634852);
          var1 = new Enum();
          if(var2 != null) {
-            var1.method6509(new Buffer(var2));
+            var1.method6509(new Packet(var2));
          }
 
          Enum.field3414.method957(var1, (long)var0);
@@ -138,13 +138,13 @@ public class class106 extends CacheableNode implements RSScript {
       signature = "(Lgl;II)V",
       garbageValue = "1427407129"
    )
-   static void method1882(Buffer var0, int var1) {
+   static void method1882(Packet var0, int var1) {
       byte[] var2 = var0.payload;
-      if(client.field708 == null) {
-         client.field708 = new byte[24];
+      if(Client.field708 == null) {
+         Client.field708 = new byte[24];
       }
 
-      class188.method3667(var2, var1, client.field708, 0, 24);
+      class188.method3667(var2, var1, Client.field708, 0, 24);
       if(class166.uidDat != null) {
          try {
             class166.uidDat.method2099(0L);
@@ -181,11 +181,11 @@ public class class106 extends CacheableNode implements RSScript {
             class254.extendedInfoPlayerIndexes[++class254.extendedInfoPlayerCount - 1] = var1;
          }
 
-         if(client.players[var1] != null) {
+         if(Client.players[var1] != null) {
             throw new RuntimeException();
          } else {
-            PlayerEntity var10000 = client.players[var1] = new PlayerEntity();
-            client.cachedPlayersChanged(var1);
+            PlayerEntity var10000 = Client.players[var1] = new PlayerEntity();
+            Client.cachedPlayersChanged(var1);
             PlayerEntity var6 = var10000;
             var6.playerId = var1;
             if(class254.appearances[var1] != null) {

@@ -29,7 +29,7 @@ public class class79 {
          byte[] var2 = Varbit.varbit_ref.method1516(14, var0, 1789634852);
          var1 = new Varbit();
          if(var2 != null) {
-            var1.method3111(new Buffer(var2));
+            var1.method3111(new Packet(var2));
          }
 
          Varbit.varbits.method957(var1, (long)var0);

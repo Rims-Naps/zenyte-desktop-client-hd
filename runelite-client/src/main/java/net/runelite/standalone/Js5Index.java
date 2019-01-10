@@ -521,7 +521,7 @@ public abstract class Js5Index implements RSIndexDataBase {
                var18 = Timer.method5403(this.groups[var1], false);
             } else {
                var18 = Timer.method5403(this.groups[var1], true);
-               Buffer var8 = new Buffer(var18);
+               Packet var8 = new Packet(var18);
                var8.method6100(var2, 5, var8.payload.length);
             }
 
@@ -535,7 +535,7 @@ public abstract class Js5Index implements RSIndexDataBase {
                --var9;
                int var10 = var20[var9] & 255;
                var9 -= var10 * var3 * 4;
-               Buffer var11 = new Buffer(var20);
+               Packet var11 = new Packet(var20);
                int[] var12 = new int[var3];
                var11.offset = var9;
 
@@ -598,7 +598,7 @@ public abstract class Js5Index implements RSIndexDataBase {
       int var3 = var1.length;
       int var2 = NPCEntity.method2151(var1, 0, var3);
       this.crc = var2;
-      Buffer var4 = new Buffer(class77.method1151(var1));
+      Packet var4 = new Packet(class77.method1151(var1));
       int var5 = var4.readUnsignedByte();
       if(var5 >= 5 && var5 <= 7) {
          if(var5 >= 6) {

@@ -46,8 +46,8 @@ public class class260 {
       garbageValue = "1754378417"
    )
    static final void method5008() {
-      if(class228.level != client.field661) {
-         client.field661 = class228.level;
+      if(class228.level != Client.field661) {
+         Client.field661 = class228.level;
          int var0 = class228.level;
          int[] var1 = TotalQuantityComparator.minimapSprite.pixels;
          int var2 = var1.length;
@@ -92,7 +92,7 @@ public class class260 {
             }
          }
 
-         client.field820 = 0;
+         Client.field820 = 0;
 
          for(var5 = 0; var5 < 104; ++var5) {
             for(var6 = 0; var6 < 104; ++var6) {
@@ -101,10 +101,10 @@ public class class260 {
                   int var9 = SubInterface.method2437(var7);
                   int var10 = class225.method4485(var9).mapIconId;
                   if(var10 >= 0) {
-                     client.mapIcons[client.field820] = Timer.method5389(var10).method2386(false);
-                     client.field871[client.field820] = var5;
-                     client.field872[client.field820] = var6;
-                     ++client.field820;
+                     Client.mapIcons[Client.field820] = Timer.method5389(var10).method2386(false);
+                     Client.field871[Client.field820] = var5;
+                     Client.field872[Client.field820] = var6;
+                     ++Client.field820;
                   }
                }
             }
@@ -155,19 +155,19 @@ public class class260 {
       garbageValue = "1278936273"
    )
    static final void method5009(int var0, int var1, int var2, int var3) {
-      client.field680 = 0;
+      Client.field680 = 0;
       int var4 = (class4.localPlayer.x >> 7) + class158.baseX;
       int var5 = (class4.localPlayer.y >> 7) + class107.baseY;
       if(var4 >= 3053 && var4 <= 3156 && var5 >= 3056 && var5 <= 3136) {
-         client.field680 = 1;
+         Client.field680 = 1;
       }
 
       if(var4 >= 3072 && var4 <= 3118 && var5 >= 9492 && var5 <= 9535) {
-         client.field680 = 1;
+         Client.field680 = 1;
       }
 
-      if(client.field680 == 1 && var4 >= 3139 && var4 <= 3199 && var5 >= 3008 && var5 <= 3062) {
-         client.field680 = 0;
+      if(Client.field680 == 1 && var4 >= 3139 && var4 <= 3199 && var5 >= 3008 && var5 <= 3062) {
+         Client.field680 = 0;
       }
 
    }

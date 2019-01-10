@@ -44,15 +44,15 @@ public class class9 {
                }
 
                if(var6 == 1) {
-                  var7 = client.skillLevels[var2[var4++]];
+                  var7 = Client.skillLevels[var2[var4++]];
                }
 
                if(var6 == 2) {
-                  var7 = client.skillBaseLevels[var2[var4++]];
+                  var7 = Client.skillBaseLevels[var2[var4++]];
                }
 
                if(var6 == 3) {
-                  var7 = client.skillExperiences[var2[var4++]];
+                  var7 = Client.skillExperiences[var2[var4++]];
                }
 
                int var9;
@@ -64,7 +64,7 @@ public class class9 {
                   var9 += var2[var4++];
                   var10 = WorldMapType1.method2440(var9);
                   var11 = var2[var4++];
-                  if(var11 != -1 && (!Varcs.method4770(var11).members || client.isMembers)) {
+                  if(var11 != -1 && (!Varcs.method4770(var11).members || Client.isMembers)) {
                      for(var12 = 0; var12 < var10.objIds.length; ++var12) {
                         if(var11 + 1 == var10.objIds[var12]) {
                            var7 += var10.objCounts[var12];
@@ -78,7 +78,7 @@ public class class9 {
                }
 
                if(var6 == 6) {
-                  var7 = class37.field2844[client.skillBaseLevels[var2[var4++]] - 1];
+                  var7 = class37.field2844[Client.skillBaseLevels[var2[var4++]] - 1];
                }
 
                if(var6 == 7) {
@@ -92,7 +92,7 @@ public class class9 {
                if(var6 == 9) {
                   for(var9 = 0; var9 < 25; ++var9) {
                      if(class37.field2842[var9]) {
-                        var7 += client.skillBaseLevels[var9];
+                        var7 += Client.skillBaseLevels[var9];
                      }
                   }
                }
@@ -102,7 +102,7 @@ public class class9 {
                   var9 += var2[var4++];
                   var10 = WorldMapType1.method2440(var9);
                   var11 = var2[var4++];
-                  if(var11 != -1 && (!Varcs.method4770(var11).members || client.isMembers)) {
+                  if(var11 != -1 && (!Varcs.method4770(var11).members || Client.isMembers)) {
                      for(var12 = 0; var12 < var10.objIds.length; ++var12) {
                         if(var11 + 1 == var10.objIds[var12]) {
                            var7 = 999999999;
@@ -113,11 +113,11 @@ public class class9 {
                }
 
                if(var6 == 11) {
-                  var7 = client.energy;
+                  var7 = Client.energy;
                }
 
                if(var6 == 12) {
-                  var7 = client.weight;
+                  var7 = Client.weight;
                }
 
                if(var6 == 13) {
@@ -192,7 +192,7 @@ public class class9 {
    )
    static int method140(int var0, class106 var1, boolean var2) {
       if(var0 == 5630) {
-         client.field725 = 250;
+         Client.field725 = 250;
          return 1;
       } else {
          return 2;
@@ -205,18 +205,18 @@ public class class9 {
       garbageValue = "1460705646"
    )
    static final void method133() {
-      client.serverConnection.method5878();
+      Client.serverConnection.method5878();
       SceneTilePaint.method668();
       class131.sceneManager.method3795();
 
       for(int var0 = 0; var0 < 4; ++var0) {
-         client.collisionMaps[var0].method196();
+         Client.collisionMaps[var0].method196();
       }
 
       System.gc();
       class170.method2866(2);
-      client.field878 = -1;
-      client.field879 = false;
+      Client.field878 = -1;
+      Client.field879 = false;
       AuthProt.method1669();
       class310.method5922(10);
    }
@@ -227,7 +227,7 @@ public class class9 {
       garbageValue = "1738595403"
    )
    static void method139(boolean var0) {
-      client.field790 = var0;
+      Client.field790 = var0;
    }
 
    @ObfuscatedName("g")

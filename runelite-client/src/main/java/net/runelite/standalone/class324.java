@@ -658,83 +658,83 @@ public class class324 {
             if(var7) {
                TcpConnectionMessage var10;
                if(var0 == 1) {
-                  var10 = FaceNormal.method5726(ClientProt.field2275, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2275, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
                if(var0 == 2) {
-                  var10 = FaceNormal.method5726(ClientProt.field2228, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2228, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
                if(var0 == 3) {
-                  var10 = FaceNormal.method5726(ClientProt.field2255, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2255, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
                if(var0 == 4) {
-                  var10 = FaceNormal.method5726(ClientProt.field2226, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2226, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
                if(var0 == 5) {
-                  var10 = FaceNormal.method5726(ClientProt.field2247, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2247, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
                if(var0 == 6) {
-                  var10 = FaceNormal.method5726(ClientProt.field2273, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2273, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
                if(var0 == 7) {
-                  var10 = FaceNormal.method5726(ClientProt.field2292, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2292, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
                if(var0 == 8) {
-                  var10 = FaceNormal.method5726(ClientProt.field2221, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2221, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
                if(var0 == 9) {
-                  var10 = FaceNormal.method5726(ClientProt.field2295, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2295, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
                if(var0 == 10) {
-                  var10 = FaceNormal.method5726(ClientProt.field2246, client.serverConnection.isaac);
-                  var10.packetBuffer.writeInt(var1);
-                  var10.packetBuffer.writeShort(var2);
-                  var10.packetBuffer.writeShort(var3);
-                  client.serverConnection.method5881(var10);
+                  var10 = FaceNormal.method5726(ClientProt.field2246, Client.serverConnection.isaac);
+                  var10.packetBuffer.method6230(var1);
+                  var10.packetBuffer.method6063(var2);
+                  var10.packetBuffer.method6063(var3);
+                  Client.serverConnection.method5881(var10);
                }
 
             }

@@ -321,7 +321,7 @@ public class LocType extends CacheableNode implements RSObjectComposition {
       signature = "(Lgl;I)V",
       garbageValue = "-386492996"
    )
-   void method1709(Buffer var1) {
+   void method1709(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -565,7 +565,7 @@ public class LocType extends CacheableNode implements RSObjectComposition {
       signature = "(Lgl;II)V",
       garbageValue = "-1639838333"
    )
-   void method1710(Buffer var1, int var2) {
+   void method1710(Packet var1, int var2) {
       int var3;
       int var4;
       if(var2 == 1) {
@@ -626,9 +626,9 @@ public class LocType extends CacheableNode implements RSObjectComposition {
       } else if(var2 == 28) {
          this.decorDisplacement = var1.readUnsignedByte();
       } else if(var2 == 29) {
-         this.ambient = var1.method6240();
+         this.ambient = var1.readByte();
       } else if(var2 == 39) {
-         this.contrast = var1.method6240() * 25;
+         this.contrast = var1.readByte() * 25;
       } else if(var2 >= 30 && var2 < 35) {
          this.actions[var2 - 30] = var1.readString();
          if(this.actions[var2 - 30].equalsIgnoreCase("Hidden")) {

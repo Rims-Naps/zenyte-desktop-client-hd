@@ -25,21 +25,6 @@ public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
    @ObfuscatedName("g")
    public int[] pixels;
 
-   public SpritePixels(int[] var1, int var2, int var3) {
-      this.pixels = var1;
-      this.width = this.maxWidth = var2;
-      this.height = this.maxHeight = var3;
-      this.offsetY = 0;
-      this.offsetX = 0;
-   }
-
-   public SpritePixels(int var1, int var2) {
-      this(new int[var2 * var1], var1, var2);
-   }
-
-   public SpritePixels() {
-   }
-
    public SpritePixels(byte[] pictureData, Component component)
    {
       try
@@ -64,6 +49,21 @@ public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
          }
       }
       catch (InterruptedException localInterruptedException) {}
+   }
+
+   public SpritePixels(int[] var1, int var2, int var3) {
+      this.pixels = var1;
+      this.width = this.maxWidth = var2;
+      this.height = this.maxHeight = var3;
+      this.offsetY = 0;
+      this.offsetX = 0;
+   }
+
+   public SpritePixels(int var1, int var2) {
+      this(new int[var2 * var1], var1, var2);
+   }
+
+   public SpritePixels() {
    }
 
    @ObfuscatedName("f")
@@ -1574,7 +1574,7 @@ public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
             var2 = var1[(var3 >> 16) + var16];
             if(var2 != 0) {
                int var18 = var0[var5];
-               client.drawAlpha(var0, var5++, ((var2 & 65280) * var12 + var13 * (var18 & 65280) & 16711680) + ((var18 & 16711935) * var13 + var12 * (var2 & 16711935) & -16711936) >> 8, var2, var12);
+               Client.drawAlpha(var0, var5++, ((var2 & 65280) * var12 + var13 * (var18 & 65280) & 16711680) + ((var18 & 16711935) * var13 + var12 * (var2 & 16711935) & -16711936) >> 8, var12);
             } else {
                ++var5;
             }
@@ -1645,7 +1645,7 @@ public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
             var2 = var1[var3++];
             if(var2 != 0) {
                int var13 = var0[var4];
-               client.drawAlpha(var0, var4++, ((var13 & 16711935) * var10 + var9 * (var2 & 16711935) & -16711936) + ((var2 & 65280) * var9 + var10 * (var13 & 65280) & 16711680) >> 8, var2, var9);
+               Client.drawAlpha(var0, var4++, ((var13 & 16711935) * var10 + var9 * (var2 & 16711935) & -16711936) + ((var2 & 65280) * var9 + var10 * (var13 & 65280) & 16711680) >> 8, var9);
             } else {
                ++var4;
             }

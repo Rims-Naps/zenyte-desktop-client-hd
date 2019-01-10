@@ -169,7 +169,7 @@ public class class139 extends class19 {
                   return 1;
                } else if(var0 == 4107) {
                   class48.scriptStringStackSize -= 2;
-                  class48.intStack[++class228.intStackSize - 1] = Occluder.method4634(class113.method1971(class48.scriptStringStack[class48.scriptStringStackSize], class48.scriptStringStack[class48.scriptStringStackSize + 1], client.languageId));
+                  class48.intStack[++class228.intStackSize - 1] = Occluder.method4634(class113.method1971(class48.scriptStringStack[class48.scriptStringStackSize], class48.scriptStringStack[class48.scriptStringStackSize + 1], Client.languageId));
                   return 1;
                } else {
                   int var5;

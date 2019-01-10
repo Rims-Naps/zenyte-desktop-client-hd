@@ -44,7 +44,7 @@ public class ParamType extends CacheableNode {
       signature = "(Lgl;I)V",
       garbageValue = "820419216"
    )
-   void method4098(Buffer var1) {
+   void method4098(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -60,9 +60,9 @@ public class ParamType extends CacheableNode {
       signature = "(Lgl;IB)V",
       garbageValue = "-28"
    )
-   void method4101(Buffer var1, int var2) {
+   void method4101(Packet var1, int var2) {
       if(var2 == 1) {
-         byte var4 = var1.method6240();
+         byte var4 = var1.readByte();
          int var5 = var4 & 255;
          if(var5 == 0) {
             throw new IllegalArgumentException("");

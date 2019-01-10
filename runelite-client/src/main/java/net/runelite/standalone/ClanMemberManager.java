@@ -93,10 +93,10 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
       signature = "(Lgl;B)V",
       garbageValue = "0"
    )
-   public final void method4642(Buffer var1) {
+   public final void method4642(Packet var1) {
       Name var2 = new Name(var1.readString(), this.field3727);
       int var3 = var1.method6080();
-      byte var4 = var1.method6240();
+      byte var4 = var1.readByte();
       boolean var5 = false;
       if(var4 == -128) {
          var5 = true;
@@ -156,11 +156,11 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
       signature = "(Lgl;I)V",
       garbageValue = "-1049135699"
    )
-   public final void method4641(Buffer var1) {
+   public final void method4641(Packet var1) {
       this.method4663(var1.readString());
       long var2 = var1.method6084();
       this.method4639(GameSocket.method4295(var2));
-      this.field3731 = var1.method6240();
+      this.field3731 = var1.readByte();
       int var4 = var1.readUnsignedByte();
       if(var4 != 255) {
          this.method5224();
@@ -169,7 +169,7 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
             ClanMember var6 = (ClanMember)this.method5302(new Name(var1.readString(), this.field3727));
             int var7 = var1.method6080();
             var6.method794(var7, ++this.field3729 - 1);
-            var6.rank = var1.method6240();
+            var6.rank = var1.readByte();
             var1.readString();
             this.method4645(var6);
          }

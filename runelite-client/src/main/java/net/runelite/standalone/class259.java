@@ -19,6 +19,6 @@ public class class259 {
    )
    static void method4993(Js5 var0, String var1) {
       class73 var2 = new class73(var0, var1);
-      client.field915.add(var2);
+      Client.field915.add(var2);
    }
 }

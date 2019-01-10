@@ -12,7 +12,7 @@ import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("bm")
 public class class48 {
-   public static int[] field845;
+    public static int[] field845;
    public static String[] field835;
    @ObfuscatedName("f")
    static boolean field1078;
@@ -125,11 +125,11 @@ public class class48 {
       garbageValue = "-904353438"
    )
    static void method778() {
-      TcpConnectionMessage var0 = FaceNormal.method5726(ClientProt.field2242, client.serverConnection.isaac);
-      var0.packetBuffer.writeByte(WorldMapRectangle.method127());
-      var0.packetBuffer.writeShort(FriendManager.canvasWidth);
-      var0.packetBuffer.writeShort(class230.canvasHeight);
-      client.serverConnection.method5881(var0);
+      TcpConnectionMessage var0 = FaceNormal.method5726(ClientProt.field2242, Client.serverConnection.isaac);
+      var0.packetBuffer.method6114(WorldMapRectangle.method127());
+      var0.packetBuffer.method6063(FriendManager.canvasWidth);
+      var0.packetBuffer.method6063(class230.canvasHeight);
+      Client.serverConnection.method5881(var0);
    }
 
    @ObfuscatedName("g")

@@ -53,7 +53,7 @@ public enum class101 implements Enumerated {
       garbageValue = "2134482714"
    )
    static int method1704(ComponentType var0) {
-      IntegerNode var1 = (IntegerNode)client.serverActiveProperties.method380(((long)var0.id << 32) + (long)var0.index);
+      IntegerNode var1 = (IntegerNode)Client.serverActiveProperties.method380(((long)var0.id << 32) + (long)var0.index);
       return var1 != null?var1.value:var0.activeProperties;
    }
 
@@ -72,9 +72,9 @@ public enum class101 implements Enumerated {
       garbageValue = "1163401710"
    )
    static void method1698(int var0, int var1) {
-      if(client.field877 != 0 && var0 != -1) {
-         class139.method2413(Isaac.jingles, var0, 0, client.field877, false);
-         client.field879 = true;
+      if(Client.field877 != 0 && var0 != -1) {
+         class139.method2413(Isaac.jingles, var0, 0, Client.field877, false);
+         Client.field879 = true;
       }
 
    }

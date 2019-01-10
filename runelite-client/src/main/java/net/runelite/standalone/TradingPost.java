@@ -53,7 +53,7 @@ public class TradingPost {
       signature = "(Lgl;Z)V",
       garbageValue = "1"
    )
-   public TradingPost(Buffer var1, boolean var2) {
+   public TradingPost(Packet var1, boolean var2) {
       int var3 = var1.method6080();
       boolean var4 = var1.readUnsignedByte() == 1;
       byte var5;

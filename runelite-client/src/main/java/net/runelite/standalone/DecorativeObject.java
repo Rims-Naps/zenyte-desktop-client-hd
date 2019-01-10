@@ -126,6 +126,19 @@ public final class DecorativeObject implements RSDecorativeObject {
       return this.decorativeObjectPlane;
    }
 
+   public void setPlane(int var1) {
+      this.decorativeObjectPlane = var1;
+   }
+
+   public Area getClickbox() {
+      return Perspective.getClickbox(class166.clientInstance, this.getModel(), this.getOrientation(), this.getLocalLocation());
+   }
+
+   public Polygon getConvexHull() {
+      RSModel var1 = this.getModel();
+      return var1 == null?null:var1.getConvexHull(this.getX(), this.getY(), this.getOrientation());
+   }
+
    public int getId() {
       long var1 = this.getHash();
       return (int)(var1 >>> 17 & 4294967295L);
@@ -149,19 +162,6 @@ public final class DecorativeObject implements RSDecorativeObject {
 
    public Point getMinimapLocation() {
       return Perspective.localToMinimap(class166.clientInstance, this.getLocalLocation());
-   }
-
-   public void setPlane(int var1) {
-      this.decorativeObjectPlane = var1;
-   }
-
-   public Area getClickbox() {
-      return Perspective.getClickbox(class166.clientInstance, this.getModel(), this.getOrientation(), this.getLocalLocation());
-   }
-
-   public Polygon getConvexHull() {
-      RSModel var1 = this.getModel();
-      return var1 == null?null:var1.getConvexHull(this.getX(), this.getY(), this.getOrientation());
    }
 
    public RSRenderable getRenderable2() {

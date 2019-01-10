@@ -405,9 +405,9 @@ public final class WorldMapManager implements RSWorldMapManager {
          System.nanoTime();
          int var4 = var1.method1510(MapCacheArchiveNames.field291.name);
          int var5 = var1.method1532(var4, var2);
-         Buffer var6 = new Buffer(var1.method1534(MapCacheArchiveNames.field291.name, var2));
-         Buffer var7 = new Buffer(var1.method1534(MapCacheArchiveNames.field288.name, var2));
-         Buffer var8 = new Buffer(var1.method1534(var2, MapCacheArchiveNames.field290.name));
+         Packet var6 = new Packet(var1.method1534(MapCacheArchiveNames.field291.name, var2));
+         Packet var7 = new Packet(var1.method1534(MapCacheArchiveNames.field288.name, var2));
+         Packet var8 = new Packet(var1.method1534(var2, MapCacheArchiveNames.field290.name));
          System.nanoTime();
          System.nanoTime();
          this.field302 = new class124();
@@ -513,7 +513,7 @@ public final class WorldMapManager implements RSWorldMapManager {
    )
    static final void method945(boolean var0) {
       if(var0) {
-         client.field681 = class316.field1172?AuthProt.field1965:AuthProt.field1966;
+         Client.field681 = class316.field1172?AuthProt.field1965:AuthProt.field1966;
       } else {
          LinkedHashMap var1 = GameEngine.options.authRememberTokens;
          String var3 = class316.username;
@@ -524,7 +524,7 @@ public final class WorldMapManager implements RSWorldMapManager {
             var5 = (var5 << 5) - var5 + var3.charAt(var6);
          }
 
-         client.field681 = var1.containsKey(Integer.valueOf(var5))?AuthProt.field1967:AuthProt.field1964;
+         Client.field681 = var1.containsKey(Integer.valueOf(var5))?AuthProt.field1967:AuthProt.field1964;
       }
 
    }

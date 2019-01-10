@@ -94,7 +94,7 @@ public class Spotanim extends CacheableNode {
       signature = "(Lgl;I)V",
       garbageValue = "-1499812191"
    )
-   void method5305(Buffer var1) {
+   void method5305(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -110,7 +110,7 @@ public class Spotanim extends CacheableNode {
       signature = "(Lgl;IS)V",
       garbageValue = "3929"
    )
-   void method5306(Buffer var1, int var2) {
+   void method5306(Packet var1, int var2) {
       if(var2 == 1) {
          this.field3342 = var1.method6080();
       } else if(var2 == 2) {
@@ -220,62 +220,62 @@ public class Spotanim extends CacheableNode {
    static int method5319(int var0, class106 var1, boolean var2) {
       if(var0 == 6200) {
          class228.intStackSize -= 2;
-         client.field649 = (short)FontName.method1975(class48.intStack[class228.intStackSize]);
-         if(client.field649 <= 0) {
-            client.field649 = 256;
+         Client.field649 = (short)FontName.method1975(class48.intStack[class228.intStackSize]);
+         if(Client.field649 <= 0) {
+            Client.field649 = 256;
          }
 
-         client.field896 = (short)FontName.method1975(class48.intStack[class228.intStackSize + 1]);
-         if(client.field896 <= 0) {
-            client.field896 = 256;
+         Client.field896 = (short)FontName.method1975(class48.intStack[class228.intStackSize + 1]);
+         if(Client.field896 <= 0) {
+            Client.field896 = 256;
          }
 
          return 1;
       } else if(var0 == 6201) {
          class228.intStackSize -= 2;
-         client.field897 = (short)class48.intStack[class228.intStackSize];
-         if(client.field897 <= 0) {
-            client.field897 = 256;
+         Client.field897 = (short)class48.intStack[class228.intStackSize];
+         if(Client.field897 <= 0) {
+            Client.field897 = 256;
          }
 
-         client.field898 = (short)class48.intStack[class228.intStackSize + 1];
-         if(client.field898 <= 0) {
-            client.field898 = 320;
+         Client.field898 = (short)class48.intStack[class228.intStackSize + 1];
+         if(Client.field898 <= 0) {
+            Client.field898 = 320;
          }
 
          return 1;
       } else if(var0 == 6202) {
          class228.intStackSize -= 4;
-         client.field899 = (short)class48.intStack[class228.intStackSize];
-         if(client.field899 <= 0) {
-            client.field899 = 1;
+         Client.field899 = (short)class48.intStack[class228.intStackSize];
+         if(Client.field899 <= 0) {
+            Client.field899 = 1;
          }
 
-         client.field684 = (short)class48.intStack[class228.intStackSize + 1];
-         if(client.field684 <= 0) {
-            client.field684 = 32767;
-         } else if(client.field684 < client.field899) {
-            client.field684 = client.field899;
+         Client.field684 = (short)class48.intStack[class228.intStackSize + 1];
+         if(Client.field684 <= 0) {
+            Client.field684 = 32767;
+         } else if(Client.field684 < Client.field899) {
+            Client.field684 = Client.field899;
          }
 
-         client.field901 = (short)class48.intStack[class228.intStackSize + 2];
-         if(client.field901 <= 0) {
-            client.field901 = 1;
+         Client.field901 = (short)class48.intStack[class228.intStackSize + 2];
+         if(Client.field901 <= 0) {
+            Client.field901 = 1;
          }
 
-         client.field754 = (short)class48.intStack[class228.intStackSize + 3];
-         if(client.field754 <= 0) {
-            client.field754 = 32767;
-         } else if(client.field754 < client.field901) {
-            client.field754 = client.field901;
+         Client.field754 = (short)class48.intStack[class228.intStackSize + 3];
+         if(Client.field754 <= 0) {
+            Client.field754 = 32767;
+         } else if(Client.field754 < Client.field901) {
+            Client.field754 = Client.field901;
          }
 
          return 1;
       } else if(var0 == 6203) {
-         if(client.field815 != null) {
-            TotalQuantityComparator.method1189(0, 0, client.field815.width, client.field815.height, false);
-            class48.intStack[++class228.intStackSize - 1] = client.viewportWidth;
-            class48.intStack[++class228.intStackSize - 1] = client.viewportHeight;
+         if(Client.field815 != null) {
+            TotalQuantityComparator.method1189(0, 0, Client.field815.width, Client.field815.height, false);
+            class48.intStack[++class228.intStackSize - 1] = Client.viewportWidth;
+            class48.intStack[++class228.intStackSize - 1] = Client.viewportHeight;
          } else {
             class48.intStack[++class228.intStackSize - 1] = -1;
             class48.intStack[++class228.intStackSize - 1] = -1;
@@ -283,12 +283,12 @@ public class Spotanim extends CacheableNode {
 
          return 1;
       } else if(var0 == 6204) {
-         class48.intStack[++class228.intStackSize - 1] = client.field897;
-         class48.intStack[++class228.intStackSize - 1] = client.field898;
+         class48.intStack[++class228.intStackSize - 1] = Client.field897;
+         class48.intStack[++class228.intStackSize - 1] = Client.field898;
          return 1;
       } else if(var0 == 6205) {
-         class48.intStack[++class228.intStackSize - 1] = class258.method4991(client.field649);
-         class48.intStack[++class228.intStackSize - 1] = class258.method4991(client.field896);
+         class48.intStack[++class228.intStackSize - 1] = class258.method4991(Client.field649);
+         class48.intStack[++class228.intStackSize - 1] = class258.method4991(Client.field896);
          return 1;
       } else {
          return 2;
@@ -302,9 +302,9 @@ public class Spotanim extends CacheableNode {
    )
    static final void method5325(Bit var0) {
       var0.method2837();
-      int var1 = client.localPlayerIndex;
-      PlayerEntity var10000 = client.players[var1] = new PlayerEntity();
-      client.cachedPlayersChanged(var1);
+      int var1 = Client.localPlayerIndex;
+      PlayerEntity var10000 = Client.players[var1] = new PlayerEntity();
+      Client.cachedPlayersChanged(var1);
       class4.localPlayer = var10000;
       PlayerEntity var2 = var10000;
       var2.playerId = var1;

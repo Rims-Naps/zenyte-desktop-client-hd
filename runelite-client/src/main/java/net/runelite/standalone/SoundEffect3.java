@@ -92,7 +92,7 @@ public class SoundEffect3 {
    @ObfuscatedSignature(
       signature = "(Lgl;Lcj;)V"
    )
-   final void method1061(Buffer var1, AudioEnvelope var2) {
+   final void method1061(Packet var1, AudioEnvelope var2) {
       int var3 = var1.readUnsignedByte();
       this.pairs[0] = var3 >> 4;
       this.pairs[1] = var3 & 15;

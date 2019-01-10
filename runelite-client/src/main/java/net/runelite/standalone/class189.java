@@ -23,7 +23,7 @@ public class class189 extends class127 {
       garbageValue = "2066152605"
    )
    int method3712(ChatPlayer var1, ChatPlayer var2) {
-      return client.world == var1.world && var2.world == client.world?(this.field1941?var1.field3706 - var2.field3706:var2.field3706 - var1.field3706):this.method2141(var1, var2);
+      return Client.world == var1.world && var2.world == Client.world?(this.field1941?var1.field3706 - var2.field3706:var2.field3706 - var1.field3706):this.method2141(var1, var2);
    }
 
    @ObfuscatedName("r")
@@ -39,7 +39,7 @@ public class class189 extends class127 {
          byte[] var2 = VarPlayerType.varplayer_ref.method1516(16, var0, 1789634852);
          var1 = new VarPlayerType();
          if(var2 != null) {
-            var1.method5530(new Buffer(var2));
+            var1.method5530(new Packet(var2));
          }
 
          VarPlayerType.varplayers.method957(var1, (long)var0);

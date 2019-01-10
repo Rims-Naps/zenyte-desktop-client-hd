@@ -145,18 +145,18 @@ public final class GameCanvas extends Canvas implements RSGameCanvas {
       garbageValue = "1952311603"
    )
    static final void method893() {
-      TcpConnectionMessage var0 = FaceNormal.method5726(ClientProt.field2227, client.serverConnection.isaac);
-      client.serverConnection.method5881(var0);
+      TcpConnectionMessage var0 = FaceNormal.method5726(ClientProt.field2227, Client.serverConnection.isaac);
+      Client.serverConnection.method5881(var0);
 
-      for(SubInterface var1 = (SubInterface)client.subInterfaces.method391(); var1 != null; var1 = (SubInterface)client.subInterfaces.method385()) {
+      for(SubInterface var1 = (SubInterface)Client.subInterfaces.method391(); var1 != null; var1 = (SubInterface)Client.subInterfaces.method385()) {
          if(var1.mode == 0 || var1.mode == 3) {
             class116.method2007(var1, true);
          }
       }
 
-      if(client.field880 != null) {
-         class208.method4144(client.field880);
-         client.field880 = null;
+      if(Client.field880 != null) {
+         class208.method4144(Client.field880);
+         Client.field880 = null;
       }
 
    }

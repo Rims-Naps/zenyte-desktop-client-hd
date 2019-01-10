@@ -38,7 +38,7 @@ public interface WorldMapSectionBase {
       signature = "(Lgl;I)V",
       garbageValue = "-821481708"
    )
-   void vmethod5829(Buffer var1);
+   void vmethod5829(Packet var1);
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(

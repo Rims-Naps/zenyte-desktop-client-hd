@@ -645,9 +645,11 @@ public abstract class PathingEntity extends Entity implements RSActor {
       garbageValue = "-1"
    )
    public void graphicChanged(int var1) {
-      GraphicChanged var2 = new GraphicChanged();
-      var2.setActor(this);
-      class166.clientInstance.getCallbacks().post(var2);
+      if(this == class166.clientInstance.getLocalPlayer()) {
+         GraphicChanged var2 = new GraphicChanged();
+         var2.setActor(this);
+         class166.clientInstance.getCallbacks().post(var2);
+      }
    }
 
    public int getHealthRatio() {

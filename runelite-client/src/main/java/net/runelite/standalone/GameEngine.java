@@ -44,7 +44,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
    @ObfuscatedSignature(
       signature = "Lah;"
    )
-   public static GameEngine shell;
+   static GameEngine shell;
    @ObfuscatedName("e")
    @ObfuscatedGetter(
       intValue = -1750255325
@@ -298,9 +298,9 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
          shell = this;
          FriendManager.canvasWidth = var1;
-         client.canvasWidthChanged(-1);
+         Client.canvasWidthChanged(-1);
          class230.canvasHeight = var2;
-         client.canvasHeightChanged(-1);
+         Client.canvasHeightChanged(-1);
          class45.revision = var3;
          JagException.field1999 = this;
          if(taskManager == null) {
@@ -578,9 +578,9 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
          }
 
          FriendManager.canvasWidth = Math.min(this.field439, this.field445);
-         client.canvasWidthChanged(-1);
+         Client.canvasWidthChanged(-1);
          class230.canvasHeight = Math.min(this.field440, this.field446);
-         client.canvasHeightChanged(-1);
+         Client.canvasHeightChanged(-1);
          this.field442 = (this.field439 - FriendManager.canvasWidth) / 2;
          this.field441 = 0;
          this.canvas.setSize(FriendManager.canvasWidth, class230.canvasHeight);
@@ -954,16 +954,16 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       }
 
       FriendManager.canvasWidth = Math.max(var1.getWidth(), this.field443);
-      client.canvasWidthChanged(-1);
+      Client.canvasWidthChanged(-1);
       class230.canvasHeight = Math.max(var1.getHeight(), this.field458);
-      client.canvasHeightChanged(-1);
+      Client.canvasHeightChanged(-1);
       Insets var2;
       if(this.frame != null) {
          var2 = this.frame.getInsets();
          FriendManager.canvasWidth -= var2.right + var2.left;
-         client.canvasWidthChanged(-1);
+         Client.canvasWidthChanged(-1);
          class230.canvasHeight -= var2.bottom + var2.top;
-         client.canvasHeightChanged(-1);
+         Client.canvasHeightChanged(-1);
       }
 
       this.canvas = new GameCanvas(this);

@@ -38,9 +38,9 @@ public class class232 {
                      class36.interfaces[var0][var2] = new ComponentType();
                      class36.interfaces[var0][var2].id = var2 + (var0 << 16);
                      if(var3[0] == -1) {
-                        class36.interfaces[var0][var2].method226(new Buffer(var3));
+                        class36.interfaces[var0][var2].method226(new Packet(var3));
                      } else {
-                        class36.interfaces[var0][var2].method227(new Buffer(var3));
+                        class36.interfaces[var0][var2].method227(new Packet(var3));
                      }
                   }
                }

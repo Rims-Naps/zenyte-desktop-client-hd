@@ -364,7 +364,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
       signature = "(Lgl;I)V",
       garbageValue = "1116128472"
    )
-   void method6358(Buffer var1) {
+   void method6358(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -499,7 +499,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
       signature = "(Lgl;II)V",
       garbageValue = "-801705677"
    )
-   void method6307(Buffer var1, int var2) {
+   void method6307(Packet var1, int var2) {
       if(var2 == 1) {
          this.inventoryModel = var1.method6080();
       } else if(var2 == 2) {
@@ -565,7 +565,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
                this.retexD[var4] = (short)var1.method6080();
             }
          } else if(var2 == 42) {
-            this.shiftClickIndex = var1.method6240();
+            this.shiftClickIndex = var1.readByte();
          } else if(var2 == 65) {
             this.stockmarket = true;
          } else if(var2 == 78) {
@@ -601,9 +601,9 @@ public class ObjType extends CacheableNode implements RSItemComposition {
          } else if(var2 == 112) {
             this.resizeZ = var1.method6080();
          } else if(var2 == 113) {
-            this.ambient = var1.method6240();
+            this.ambient = var1.readByte();
          } else if(var2 == 114) {
-            this.contrast = var1.method6240() * 5;
+            this.contrast = var1.readByte() * 5;
          } else if(var2 == 115) {
             this.team = var1.readUnsignedByte();
          } else if(var2 == 139) {

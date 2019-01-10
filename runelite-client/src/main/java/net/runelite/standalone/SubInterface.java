@@ -40,7 +40,7 @@ public class SubInterface extends Node implements RSWidgetNode {
    )
    static final void method2438(int var0, int var1, int var2, int var3, SpritePixels var4, class96 var5) {
       if(var4 != null) {
-         int var6 = client.mapAngle & 2047;
+         int var6 = Client.mapAngle & 2047;
          int var7 = var3 * var3 + var2 * var2;
          if(var7 <= 6400) {
             int var8 = Graphics3D.SINE[var6];
@@ -64,15 +64,15 @@ public class SubInterface extends Node implements RSWidgetNode {
    )
    static String method2436(String var0, boolean var1) {
       String var2 = var1?"https://":"http://";
-      if(client.socketType == 1) {
+      if(Client.socketType == 1) {
          var0 = var0 + "-wtrc";
-      } else if(client.socketType == 2) {
+      } else if(Client.socketType == 2) {
          var0 = var0 + "-wtqa";
-      } else if(client.socketType == 3) {
+      } else if(Client.socketType == 3) {
          var0 = var0 + "-wtwip";
-      } else if(client.socketType == 5) {
+      } else if(Client.socketType == 5) {
          var0 = var0 + "-wti";
-      } else if(client.socketType == 4) {
+      } else if(Client.socketType == 4) {
          var0 = "local";
       }
 
@@ -82,7 +82,7 @@ public class SubInterface extends Node implements RSWidgetNode {
       }
 
       String var4 = "runescape.com";
-      return var2 + var0 + "." + var4 + "/l=" + client.languageId + "/a=" + client.field650 + var3 + "/";
+      return var2 + var0 + "." + var4 + "/l=" + Client.languageId + "/a=" + Client.field650 + var3 + "/";
    }
 
    @ObfuscatedName("hp")
@@ -95,7 +95,7 @@ public class SubInterface extends Node implements RSWidgetNode {
 
       int var3;
       int var4;
-      for(var3 = 0; var3 < client.menuOptionCount; ++var3) {
+      for(var3 = 0; var3 < Client.menuOptionCount; ++var3) {
          var4 = class288.fontBold12.method1775(class115.method2003(var3));
          if(var4 > var2) {
             var2 = var4;
@@ -103,7 +103,7 @@ public class SubInterface extends Node implements RSWidgetNode {
       }
 
       var2 += 8;
-      var3 = client.menuOptionCount * 15 + 22;
+      var3 = Client.menuOptionCount * 15 + 22;
       var4 = var0 - var2 / 2;
       if(var4 + var2 > FriendManager.canvasWidth) {
          var4 = FriendManager.canvasWidth - var2;
@@ -125,7 +125,7 @@ public class SubInterface extends Node implements RSWidgetNode {
       class288.menuX = var4;
       class106.menuY = var5;
       class9.field1113 = var2;
-      class31.field1838 = client.menuOptionCount * 15 + 22;
+      class31.field1838 = Client.menuOptionCount * 15 + 22;
    }
 
    @ObfuscatedName("j")

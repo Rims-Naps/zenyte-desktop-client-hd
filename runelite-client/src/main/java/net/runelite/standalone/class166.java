@@ -29,7 +29,7 @@ public class class166 {
    @ObfuscatedSignature(
       signature = "Lclient;"
    )
-   static client clientInstance;
+   static Client clientInstance;
    @ObfuscatedName("x")
    @ObfuscatedSignature(
       signature = "[Ldr;"
@@ -68,7 +68,7 @@ public class class166 {
       garbageValue = "-14"
    )
    static boolean method2806(PlayerEntity var0) {
-      return client.playerNameMask == 0?false:(class4.localPlayer == var0?class77.method1150():World.method3762() || Size.method4700() && var0.method2890() || class117.method2026() && var0.method2893());
+      return Client.playerNameMask == 0?false:(class4.localPlayer == var0?class77.method1150():World.method3762() || Size.method4700() && var0.method2890() || class117.method2026() && var0.method2893());
    }
 
    @ObfuscatedName("i")
@@ -95,7 +95,7 @@ public class class166 {
       if(var0 >= 128 && var1 >= 128 && var0 <= 13056 && var1 <= 13056) {
          int var3 = MilliTimer.method2824(var0, var1, class228.level) - var2;
          var0 -= cameraX;
-         var3 -= Buffer.cameraZ;
+         var3 -= Packet.cameraZ;
          var1 -= class98.cameraY;
          int var4 = Graphics3D.SINE[ScriptEvent.cameraPitch];
          int var5 = Graphics3D.COSINE[ScriptEvent.cameraPitch];
@@ -107,16 +107,16 @@ public class class166 {
          var8 = var3 * var5 - var4 * var1 >> 16;
          var1 = var3 * var4 + var5 * var1 >> 16;
          if(var1 >= 50) {
-            client.screenX = var0 * client.scale / var1 + client.viewportWidth / 2;
-            client.screenY = client.viewportHeight / 2 + var8 * client.scale / var1;
+            Client.screenX = var0 * Client.scale / var1 + Client.viewportWidth / 2;
+            Client.screenY = Client.viewportHeight / 2 + var8 * Client.scale / var1;
          } else {
-            client.screenX = -1;
-            client.screenY = -1;
+            Client.screenX = -1;
+            Client.screenY = -1;
          }
 
       } else {
-         client.screenX = -1;
-         client.screenY = -1;
+         Client.screenX = -1;
+         Client.screenY = -1;
       }
    }
 

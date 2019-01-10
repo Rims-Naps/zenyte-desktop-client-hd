@@ -84,7 +84,7 @@ public class CombatInfo1 extends Node implements RSCombatInfo1 {
          byte[] var4 = Overlay.overlay_ref.method1516(4, var0, 1789634852);
          var3 = new Overlay();
          if(var4 != null) {
-            var3.method418(new Buffer(var4), var0);
+            var3.method418(new Packet(var4), var0);
          }
 
          var3.method398();

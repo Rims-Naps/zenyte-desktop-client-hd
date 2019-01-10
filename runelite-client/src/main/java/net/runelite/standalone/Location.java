@@ -66,7 +66,7 @@ public class Location extends Entity implements RSDynamicObject {
       if(var7 != -1) {
          this.animation = MapCacheArchiveNames.method2149(var7);
          this.animFrame = 0;
-         this.animCycleCount = client.gameCycle - 1;
+         this.animCycleCount = Client.gameCycle - 1;
          this.onAnimCycleCountChanged(-1);
          if(this.animation.replyMode == 0 && var9 != null && var9 instanceof Location) {
             Location var10 = (Location)var9;
@@ -96,7 +96,7 @@ public class Location extends Entity implements RSDynamicObject {
    )
    public final Model copy$getModel(int var1) {
       if(this.animation != null) {
-         int var2 = client.gameCycle - this.animCycleCount;
+         int var2 = Client.gameCycle - this.animCycleCount;
          if(var2 > 100 && this.animation.frameStep > 0) {
             var2 = 100;
          }
@@ -118,7 +118,7 @@ public class Location extends Entity implements RSDynamicObject {
             this.animation = null;
          }
 
-         this.animCycleCount = client.gameCycle - var2;
+         this.animCycleCount = Client.gameCycle - var2;
          this.onAnimCycleCountChanged(-1);
       }
 
@@ -219,8 +219,8 @@ public class Location extends Entity implements RSDynamicObject {
    static final void method2965(ComponentType var0, int var1, int var2, int var3) {
       class96 var4 = var0.method270(false);
       if(var4 != null) {
-         if(client.minimapRenderType < 3) {
-            class306.compass.method2269(var1, var2, var4.field2626, var4.field2621, 25, 25, client.mapAngle, 256, var4.field2623, var4.field2622);
+         if(Client.minimapRenderType < 3) {
+            class306.compass.method2269(var1, var2, var4.field2626, var4.field2621, 25, 25, Client.mapAngle, 256, var4.field2623, var4.field2622);
          } else {
             Rasterizer2D.method460(var1, var2, 0, var4.field2623, var4.field2622);
          }

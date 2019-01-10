@@ -165,30 +165,30 @@ public final class ItemLayer implements RSItemLayer {
    )
    static final int method2792(long var0, String var2) {
       Random var3 = new Random();
-      Buffer var4 = new Buffer(128);
-      Buffer var5 = new Buffer(128);
+      Packet var4 = new Packet(128);
+      Packet var5 = new Packet(128);
       int[] var6 = new int[]{var3.nextInt(), var3.nextInt(), (int)(var0 >> 32), (int)var0};
-      var4.writeByte(10);
+      var4.method6114(10);
 
       int var7;
       for(var7 = 0; var7 < 4; ++var7) {
-         var4.writeInt(var3.nextInt());
+         var4.method6230(var3.nextInt());
       }
 
-      var4.writeInt(var6[0]);
-      var4.writeInt(var6[1]);
+      var4.method6230(var6[0]);
+      var4.method6230(var6[1]);
       var4.method6067(var0);
       var4.method6067(0L);
 
       for(var7 = 0; var7 < 4; ++var7) {
-         var4.writeInt(var3.nextInt());
+         var4.method6230(var3.nextInt());
       }
 
       var4.method6170(class9.field1104, class9.field1109);
-      var5.writeByte(10);
+      var5.method6114(10);
 
       for(var7 = 0; var7 < 3; ++var7) {
-         var5.writeInt(var3.nextInt());
+         var5.method6230(var3.nextInt());
       }
 
       var5.method6067(var3.nextLong());
@@ -201,17 +201,17 @@ public final class ItemLayer implements RSItemLayer {
          var7 += 8 - var7 % 8;
       }
 
-      Buffer var8 = new Buffer(var7);
-      var8.writeString(var2);
+      Packet var8 = new Packet(var7);
+      var8.method6198(var2);
       var8.offset = var7;
       var8.method6097(var6);
-      Buffer var9 = new Buffer(var5.offset + var4.offset + var8.offset + 5);
-      var9.writeByte(2);
-      var9.writeByte(var4.offset);
+      Packet var9 = new Packet(var5.offset + var4.offset + var8.offset + 5);
+      var9.method6114(2);
+      var9.method6114(var4.offset);
       var9.method6072(var4.payload, 0, var4.offset);
-      var9.writeByte(var5.offset);
+      var9.method6114(var5.offset);
       var9.method6072(var5.payload, 0, var5.offset);
-      var9.writeShort(var8.offset);
+      var9.method6063(var8.offset);
       var9.method6072(var8.payload, 0, var8.offset);
       byte[] var11 = var9.payload;
       String var10 = ChatLineBuffer.method1932(var11, 0, var11.length);
@@ -227,7 +227,7 @@ public final class ItemLayer implements RSItemLayer {
          var15.write("data2=" + class9.method142(var12) + "&dest=" + class9.method142("passwordchoice.ws"));
          var15.flush();
          InputStream var16 = var14.getInputStream();
-         var9 = new Buffer(new byte[1000]);
+         var9 = new Packet(new byte[1000]);
 
          do {
             int var17 = var16.read(var9.payload, var9.offset, 1000 - var9.offset);

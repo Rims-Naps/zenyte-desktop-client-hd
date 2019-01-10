@@ -176,7 +176,7 @@ public class Js5 extends Js5Index implements RSIndexData {
             if(var5 != this.crcValue) {
                class48.method777(this, 255, this.id, this.crcValue, (byte)0, true);
             } else {
-               Buffer var9 = new Buffer(class77.method1151(var3));
+               Packet var9 = new Packet(class77.method1151(var3));
                int var7 = var9.readUnsignedByte();
                if(var7 != 5 && var7 != 6) {
                   throw new RuntimeException(var7 + "," + this.id + "," + var2);
@@ -411,7 +411,7 @@ public class Js5 extends Js5Index implements RSIndexData {
          byte[] var2 = VarClientType.field3336.method1516(19, var0, 1789634852);
          var1 = new VarClientType();
          if(var2 != null) {
-            var1.method5421(new Buffer(var2));
+            var1.method5421(new Packet(var2));
          }
 
          VarClientType.field3335.method957(var1, (long)var0);

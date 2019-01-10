@@ -10,7 +10,7 @@ public class class321 implements class26 {
       signature = "(Lgl;Ljava/lang/String;I)I",
       garbageValue = "-1488886735"
    )
-   public static int method6055(Buffer var0, String var1) {
+   public static int method6055(Packet var0, String var1) {
       int var2 = var0.offset;
       byte[] var3 = FrameMap.method555(var1);
       var0.method6068(var3.length);
@@ -49,48 +49,48 @@ public class class321 implements class26 {
       int var3;
       if(var0 == 3903) {
          var3 = class48.intStack[--class228.intStackSize];
-         class48.intStack[++class228.intStackSize - 1] = client.grandExchangeOffers[var3].method2872();
+         class48.intStack[++class228.intStackSize - 1] = Client.grandExchangeOffers[var3].method2872();
          return 1;
       } else if(var0 == 3904) {
          var3 = class48.intStack[--class228.intStackSize];
-         class48.intStack[++class228.intStackSize - 1] = client.grandExchangeOffers[var3].itemId;
+         class48.intStack[++class228.intStackSize - 1] = Client.grandExchangeOffers[var3].itemId;
          return 1;
       } else if(var0 == 3905) {
          var3 = class48.intStack[--class228.intStackSize];
-         class48.intStack[++class228.intStackSize - 1] = client.grandExchangeOffers[var3].price;
+         class48.intStack[++class228.intStackSize - 1] = Client.grandExchangeOffers[var3].price;
          return 1;
       } else if(var0 == 3906) {
          var3 = class48.intStack[--class228.intStackSize];
-         class48.intStack[++class228.intStackSize - 1] = client.grandExchangeOffers[var3].totalQuantity;
+         class48.intStack[++class228.intStackSize - 1] = Client.grandExchangeOffers[var3].totalQuantity;
          return 1;
       } else if(var0 == 3907) {
          var3 = class48.intStack[--class228.intStackSize];
-         class48.intStack[++class228.intStackSize - 1] = client.grandExchangeOffers[var3].quantitySold;
+         class48.intStack[++class228.intStackSize - 1] = Client.grandExchangeOffers[var3].quantitySold;
          return 1;
       } else if(var0 == 3908) {
          var3 = class48.intStack[--class228.intStackSize];
-         class48.intStack[++class228.intStackSize - 1] = client.grandExchangeOffers[var3].spent;
+         class48.intStack[++class228.intStackSize - 1] = Client.grandExchangeOffers[var3].spent;
          return 1;
       } else {
          int var12;
          if(var0 == 3910) {
             var3 = class48.intStack[--class228.intStackSize];
-            var12 = client.grandExchangeOffers[var3].method2871();
+            var12 = Client.grandExchangeOffers[var3].method2871();
             class48.intStack[++class228.intStackSize - 1] = var12 == 0?1:0;
             return 1;
          } else if(var0 == 3911) {
             var3 = class48.intStack[--class228.intStackSize];
-            var12 = client.grandExchangeOffers[var3].method2871();
+            var12 = Client.grandExchangeOffers[var3].method2871();
             class48.intStack[++class228.intStackSize - 1] = var12 == 2?1:0;
             return 1;
          } else if(var0 == 3912) {
             var3 = class48.intStack[--class228.intStackSize];
-            var12 = client.grandExchangeOffers[var3].method2871();
+            var12 = Client.grandExchangeOffers[var3].method2871();
             class48.intStack[++class228.intStackSize - 1] = var12 == 5?1:0;
             return 1;
          } else if(var0 == 3913) {
             var3 = class48.intStack[--class228.intStackSize];
-            var12 = client.grandExchangeOffers[var3].method2871();
+            var12 = Client.grandExchangeOffers[var3].method2871();
             class48.intStack[++class228.intStackSize - 1] = var12 == 1?1:0;
             return 1;
          } else {
@@ -114,8 +114,8 @@ public class class321 implements class26 {
                var13 = class48.intStack[class228.intStackSize] == 1;
                boolean var4 = class48.intStack[class228.intStackSize + 1] == 1;
                if(ChatLine.tradingPost != null) {
-                  client.field913.field636 = var4;
-                  ChatLine.tradingPost.method803(client.field913, var13);
+                  Client.field913.field636 = var4;
+                  ChatLine.tradingPost.method803(Client.field913, var13);
                }
 
                return 1;

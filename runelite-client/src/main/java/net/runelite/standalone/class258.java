@@ -16,7 +16,7 @@ public class class258 {
    @ObfuscatedSignature(
       signature = "Lgl;"
    )
-   static Buffer NetCache_responseArchiveBuffer;
+   static Packet NetCache_responseArchiveBuffer;
    @ObfuscatedName("r")
    @ObfuscatedGetter(
       intValue = -180461495
@@ -46,7 +46,7 @@ public class class258 {
    @ObfuscatedSignature(
       signature = "Lgl;"
    )
-   static Buffer NetCache_responseHeaderBuffer;
+   static Packet NetCache_responseHeaderBuffer;
    @ObfuscatedName("m")
    @ObfuscatedGetter(
       intValue = 993783287
@@ -113,7 +113,7 @@ public class class258 {
       NetCache_pendingWritesCount = 0;
       NetCache_pendingResponses = new HashTable(4096);
       NetCache_pendingResponsesCount = 0;
-      NetCache_responseHeaderBuffer = new Buffer(8);
+      NetCache_responseHeaderBuffer = new Packet(8);
       field3276 = 0;
       NetCache_crc = new CRC32();
       NetCache_indexCaches = new Js5[256];

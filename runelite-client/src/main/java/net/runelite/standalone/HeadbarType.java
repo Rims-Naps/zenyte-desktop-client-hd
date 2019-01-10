@@ -100,7 +100,7 @@ public class HeadbarType extends CacheableNode implements RSCombatInfo2 {
       signature = "(Lgl;B)V",
       garbageValue = "-97"
    )
-   void method4514(Buffer var1) {
+   void method4514(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -116,7 +116,7 @@ public class HeadbarType extends CacheableNode implements RSCombatInfo2 {
       signature = "(Lgl;II)V",
       garbageValue = "-991537919"
    )
-   void method4523(Buffer var1, int var2) {
+   void method4523(Packet var1, int var2) {
       if(var2 == 1) {
          var1.method6080();
       } else if(var2 == 2) {

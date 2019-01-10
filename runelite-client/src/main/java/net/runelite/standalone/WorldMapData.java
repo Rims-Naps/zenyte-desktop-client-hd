@@ -93,7 +93,7 @@ public class WorldMapData implements RSWorldMapData {
       signature = "(Lgl;I)Lac;",
       garbageValue = "-2104615271"
    )
-   WorldMapSectionBase method984(Buffer var1) {
+   WorldMapSectionBase method984(Packet var1) {
       int var2 = var1.readUnsignedByte();
       class39 var3 = (class39)class2.method20(class39.method587(), var2);
       Object var4 = null;
@@ -340,7 +340,7 @@ public class WorldMapData implements RSWorldMapData {
       signature = "(Lgl;II)V",
       garbageValue = "-1579235046"
    )
-   public void method999(Buffer var1, int var2) {
+   public void method999(Packet var1, int var2) {
       this.fileId = var2;
       this.identifier = var1.readString();
       this.name = var1.readString();
@@ -377,7 +377,7 @@ public class WorldMapData implements RSWorldMapData {
          class316.leftBackground = class48.method776(var4);
          class316.rightBackground = class316.leftBackground.method2242();*/
          Assets.init();
-         if((client.flags & 536870912) != 0) {
+         if((Client.flags & 536870912) != 0) {
             Varbit.logoSprite = MapElementType.method2369(var1, "logo_deadman_mode", "");
          } else {
             Varbit.logoSprite = MapElementType.method2369(var1, "logo", "");
@@ -473,7 +473,7 @@ public class WorldMapData implements RSWorldMapData {
          WorldMapDecoration.field183 = new int['耀'];
          if(var2) {
             class316.username = "";
-            client.onUsernameChanged(-1);
+            Client.onUsernameChanged(-1);
             class316.password = "";
          }
 

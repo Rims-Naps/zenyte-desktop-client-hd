@@ -107,7 +107,7 @@ public class WorldMapType2 implements WorldMapSectionBase {
       signature = "(Lgl;I)V",
       garbageValue = "-821481708"
    )
-   public void vmethod5829(Buffer var1) {
+   public void vmethod5829(Packet var1) {
       this.field271 = var1.readUnsignedByte();
       this.field267 = var1.readUnsignedByte();
       this.field268 = var1.method6080();
@@ -220,13 +220,13 @@ public class WorldMapType2 implements WorldMapSectionBase {
       garbageValue = "32"
    )
    static void method3151(int var0) {
-      client.field870 = 0L;
+      Client.field870 = 0L;
       if(var0 >= 2) {
-         client.isResized = true;
-         client.resizeChanged(-1);
+         Client.isResized = true;
+         Client.resizeChanged(-1);
       } else {
-         client.isResized = false;
-         client.resizeChanged(-1);
+         Client.isResized = false;
+         Client.resizeChanged(-1);
       }
 
       if(WorldMapRectangle.method127() == 1) {
@@ -235,7 +235,7 @@ public class WorldMapType2 implements WorldMapSectionBase {
          class166.clientInstance.method3075(7680, 2160, (short)5757);
       }
 
-      if(client.gameState >= 25) {
+      if(Client.gameState >= 25) {
          class48.method778();
       }
 

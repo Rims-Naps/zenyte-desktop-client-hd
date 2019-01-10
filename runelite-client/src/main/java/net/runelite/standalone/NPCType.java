@@ -96,7 +96,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
    short[] retexD;
    @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = 744895979
+      intValue = 1007972655
    )
    int contrast;
    @ObfuscatedName("i")
@@ -151,10 +151,6 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
       intValue = -372914157
    )
    int heightScale;
-   /**
-    * For options mask
-    */
-
    public String[] changedOptions = new String[5];
    @ObfuscatedName("ab")
    public boolean isLowPriorityOps;
@@ -205,7 +201,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
       signature = "(Lgl;I)V",
       garbageValue = "-1697913779"
    )
-   void method5857(Buffer var1) {
+   void method5857(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -307,7 +303,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
       signature = "(Lgl;II)V",
       garbageValue = "2023890200"
    )
-   void method5834(Buffer var1, int var2) {
+   void method5834(Packet var1, int var2) {
       int var3;
       int var4;
       if(var2 == 1) {
@@ -377,9 +373,9 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
       } else if(var2 == 99) {
          this.isVisible = true;
       } else if(var2 == 100) {
-         this.ambient = var1.method6240();
+         this.ambient = var1.readByte();
       } else if(var2 == 101) {
-         this.contrast = var1.method6240() * 5;
+         this.contrast = var1.readByte();
       } else if(var2 == 102) {
          this.headIcon = var1.method6080();
       } else if(var2 == 103) {
@@ -551,7 +547,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
                }
             }
 
-            var5 = var11.method1408(this.ambient + 64, this.contrast + 850, -30, -50, -30);
+            var5 = var11.method1408(this.ambient + 64, this.contrast * 5 + 850, -30, -50, -30);
             npcModelCache.method957(var5, (long)this.id);
          }
 

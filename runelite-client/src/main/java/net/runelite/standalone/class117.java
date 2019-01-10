@@ -18,6 +18,6 @@ public class class117 {
       garbageValue = "1022302201"
    )
    static boolean method2026() {
-      return (client.playerNameMask & 2) != 0;
+      return (Client.playerNameMask & 2) != 0;
    }
 }

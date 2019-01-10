@@ -71,7 +71,7 @@ public class MouseRecorder implements Runnable {
       garbageValue = "1736315477"
    )
    static final void method2747(String var0, boolean var1) {
-      if(client.field758) {
+      if(Client.field758) {
          byte var2 = 4;
          int var3 = var2 + 6;
          int var4 = var2 + 6;
@@ -85,9 +85,9 @@ public class MouseRecorder implements Runnable {
          int var9 = var2 + var5 + var2;
          int var10 = var2 + var6 + var2;
 
-         for(int var11 = 0; var11 < client.widgetCount; ++var11) {
-            if(client.widgetBoundsWidth[var11] + client.widgetPositionX[var11] > var7 && client.widgetPositionX[var11] < var9 + var7 && client.widgetBoundsHeight[var11] + client.widgetPositionY[var11] > var8 && client.widgetPositionY[var11] < var8 + var10) {
-               client.field848[var11] = true;
+         for(int var11 = 0; var11 < Client.widgetCount; ++var11) {
+            if(Client.widgetBoundsWidth[var11] + Client.widgetPositionX[var11] > var7 && Client.widgetPositionX[var11] < var9 + var7 && Client.widgetBoundsHeight[var11] + Client.widgetPositionY[var11] > var8 && Client.widgetPositionY[var11] < var8 + var10) {
+               Client.field848[var11] = true;
             }
          }
 

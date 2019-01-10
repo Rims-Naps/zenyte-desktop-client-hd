@@ -347,7 +347,7 @@ public class class237 extends Node {
 
    @ObfuscatedName("c")
    void method4586(byte[] var1) {
-      Buffer var2 = new Buffer(var1);
+      Packet var2 = new Packet(var1);
       this.field1311 = var2.method6201();
       this.field1312 = var2.method6201();
       this.field1313 = var2.method6201();

@@ -38,7 +38,7 @@ public class StructType extends CacheableNode {
       signature = "(Lgl;B)V",
       garbageValue = "17"
    )
-   void method5702(Buffer var1) {
+   void method5702(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -63,7 +63,7 @@ public class StructType extends CacheableNode {
       signature = "(Lgl;IB)V",
       garbageValue = "0"
    )
-   void method5721(Buffer var1, int var2) {
+   void method5721(Packet var1, int var2) {
       if(var2 == 249) {
          this.params = class96.method1621(var1, this.params);
       }
@@ -100,15 +100,15 @@ public class StructType extends CacheableNode {
       if(var4 >= var6 && var4 < 104 - var6 && var5 >= var6 && var5 < 104 - var6) {
          if(var1 >= var6 && var1 < 104 - var6 && var2 >= var6 && var2 < 104 - var6) {
             int var8 = var0.method2895();
-            client.field670.field2116 = var1;
-            client.field670.field2112 = var2;
-            client.field670.field2114 = 1;
-            client.field670.field2115 = 1;
-            class228 var9 = client.field670;
+            Client.field670.field2116 = var1;
+            Client.field670.field2112 = var2;
+            Client.field670.field2114 = 1;
+            Client.field670.field2115 = 1;
+            class228 var9 = Client.field670;
             class228 var10 = var9;
-            CollisionData var11 = client.collisionMaps[var0.field620];
-            int[] var12 = client.field918;
-            int[] var13 = client.field900;
+            CollisionData var11 = Client.collisionMaps[var0.field620];
+            int[] var12 = Client.field918;
+            int[] var13 = Client.field900;
 
             int var14;
             int var15;
@@ -548,7 +548,7 @@ public class StructType extends CacheableNode {
             var14 = var7;
             if(var7 >= 1) {
                for(var15 = 0; var15 < var14 - 1; ++var15) {
-                  var0.method2912(client.field918[var15], client.field900[var15], var3);
+                  var0.method2912(Client.field918[var15], Client.field900[var15], var3);
                }
 
             }

@@ -378,13 +378,13 @@ public class ModelData extends Entity implements RSModelData {
 
    @ObfuscatedName("r")
    void method1460(byte[] var1) {
-      Buffer var2 = new Buffer(var1);
-      Buffer var3 = new Buffer(var1);
-      Buffer var4 = new Buffer(var1);
-      Buffer var5 = new Buffer(var1);
-      Buffer var6 = new Buffer(var1);
-      Buffer var7 = new Buffer(var1);
-      Buffer var8 = new Buffer(var1);
+      Packet var2 = new Packet(var1);
+      Packet var3 = new Packet(var1);
+      Packet var4 = new Packet(var1);
+      Packet var5 = new Packet(var1);
+      Packet var6 = new Packet(var1);
+      Packet var7 = new Packet(var1);
+      Packet var8 = new Packet(var1);
       var2.offset = var1.length - 23;
       int var9 = var2.method6080();
       int var10 = var2.method6080();
@@ -409,7 +409,7 @@ public class ModelData extends Entity implements RSModelData {
          var2.offset = 0;
 
          for(var26 = 0; var26 < var11; ++var26) {
-            byte var27 = this.textureRenderTypes[var26] = var2.method6240();
+            byte var27 = this.textureRenderTypes[var26] = var2.readByte();
             if(var27 == 0) {
                ++var23;
             }
@@ -580,15 +580,15 @@ public class ModelData extends Entity implements RSModelData {
       for(var51 = 0; var51 < var10; ++var51) {
          this.faceColor[var51] = (short)var2.method6080();
          if(var12 == 1) {
-            this.faceRenderType[var51] = var3.method6240();
+            this.faceRenderType[var51] = var3.readByte();
          }
 
          if(var13 == 255) {
-            this.faceRenderPriorities[var51] = var4.method6240();
+            this.faceRenderPriorities[var51] = var4.readByte();
          }
 
          if(var14 == 1) {
-            this.faceAlphas[var51] = var5.method6240();
+            this.faceAlphas[var51] = var5.readByte();
          }
 
          if(var15 == 1) {
@@ -686,11 +686,11 @@ public class ModelData extends Entity implements RSModelData {
    void method1410(byte[] var1) {
       boolean var2 = false;
       boolean var3 = false;
-      Buffer var4 = new Buffer(var1);
-      Buffer var5 = new Buffer(var1);
-      Buffer var6 = new Buffer(var1);
-      Buffer var7 = new Buffer(var1);
-      Buffer var8 = new Buffer(var1);
+      Packet var4 = new Packet(var1);
+      Packet var5 = new Packet(var1);
+      Packet var6 = new Packet(var1);
+      Packet var7 = new Packet(var1);
+      Packet var8 = new Packet(var1);
       var4.offset = var1.length - 18;
       int var9 = var4.method6080();
       int var10 = var4.method6080();
@@ -858,11 +858,11 @@ public class ModelData extends Entity implements RSModelData {
          }
 
          if(var13 == 255) {
-            this.faceRenderPriorities[var38] = var6.method6240();
+            this.faceRenderPriorities[var38] = var6.readByte();
          }
 
          if(var14 == 1) {
-            this.faceAlphas[var38] = var7.method6240();
+            this.faceAlphas[var38] = var7.readByte();
          }
 
          if(var15 == 1) {
@@ -964,7 +964,7 @@ public class ModelData extends Entity implements RSModelData {
       signature = "(IIIII)Ldl;"
    )
    public final Model method1408(int var1, int var2, int var3, int var4, int var5) {
-      class166.clientInstance.getLogger().debug("Lighting model {}", this);
+      class166.clientInstance.getLogger().trace("Lighting model {}", this);
       Model var6 = this.copy$light(var1, var2, var3, var4, var5);
       if(var6 == null) {
          return null;

@@ -39,7 +39,7 @@ public class class215 extends NameableContainer implements RSIgnoreContainer {
       signature = "(Lgl;II)V",
       garbageValue = "451663299"
    )
-   public void method4310(Buffer var1, int var2) {
+   public void method4310(Packet var1, int var2) {
       while(true) {
          if(var1.offset < var2) {
             int var3 = var1.readUnsignedByte();

@@ -61,7 +61,7 @@ public class IDKType extends CacheableNode {
       signature = "(Lgl;I)V",
       garbageValue = "2084504661"
    )
-   void method1891(Buffer var1) {
+   void method1891(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -77,7 +77,7 @@ public class IDKType extends CacheableNode {
       signature = "(Lgl;II)V",
       garbageValue = "-671766700"
    )
-   void method1896(Buffer var1, int var2) {
+   void method1896(Packet var1, int var2) {
       if(var2 == 1) {
          this.bodyPartId = var1.readUnsignedByte();
       } else {
@@ -241,7 +241,7 @@ public class IDKType extends CacheableNode {
          }
       }
 
-      Buffer var28 = new Buffer(var0);
+      Packet var28 = new Packet(var0);
 
       for(var10 = 0; var10 < 4; ++var10) {
          for(int var11 = 0; var11 < 64; ++var11) {

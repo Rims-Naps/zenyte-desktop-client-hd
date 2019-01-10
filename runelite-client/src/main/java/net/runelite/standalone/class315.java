@@ -100,7 +100,7 @@ public class class315 {
          byte[] var2 = FloorUnderlayDefinition.underlay_ref.method1516(1, var0, 1789634852);
          var1 = new FloorUnderlayDefinition();
          if(var2 != null) {
-            var1.method5041(new Buffer(var2), var0);
+            var1.method5041(new Packet(var2), var0);
          }
 
          var1.method5026();
@@ -115,6 +115,6 @@ public class class315 {
       garbageValue = "-1864650036"
    )
    static void method5964(int var0) {
-      client.camModeType = var0;
+      Client.camModeType = var0;
    }
 }

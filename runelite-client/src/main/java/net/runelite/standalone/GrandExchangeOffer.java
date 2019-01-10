@@ -53,8 +53,8 @@ public class GrandExchangeOffer implements RSGrandExchangeOffer {
       signature = "(Lgl;Z)V",
       garbageValue = "0"
    )
-   public GrandExchangeOffer(Buffer var1, boolean var2) {
-      this.state = var1.method6240();
+   public GrandExchangeOffer(Packet var1, boolean var2) {
+      this.state = var1.readByte();
       this.itemId = var1.method6080();
       this.price = var1.method6201();
       this.totalQuantity = var1.method6201();
@@ -141,10 +141,10 @@ public class GrandExchangeOffer implements RSGrandExchangeOffer {
    )
    static final void method2874(String var0) {
       if(TotalQuantityComparator.clanMemberManager != null) {
-         TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2220, client.serverConnection.isaac);
-         var1.packetBuffer.writeByte(AbstractSoundSystem.method338(var0));
-         var1.packetBuffer.writeString(var0);
-         client.serverConnection.method5881(var1);
+         TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2220, Client.serverConnection.isaac);
+         var1.packetBuffer.method6114(AbstractSoundSystem.method338(var0));
+         var1.packetBuffer.method6198(var0);
+         Client.serverConnection.method5881(var1);
       }
    }
 

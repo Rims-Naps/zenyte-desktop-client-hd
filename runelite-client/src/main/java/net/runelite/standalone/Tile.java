@@ -565,7 +565,7 @@ public final class Tile extends Node implements RSTile {
       signature = "(Lgl;IS)Ljava/lang/String;",
       garbageValue = "3996"
    )
-   static String method4296(Buffer var0, int var1) {
+   static String method4296(Packet var0, int var1) {
       try {
          int var2 = var0.method6092();
          if(var2 > var1) {

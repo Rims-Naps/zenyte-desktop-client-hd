@@ -19,7 +19,7 @@ public class SoundEffect implements RSSoundEffect {
    @ObfuscatedSignature(
       signature = "(Lgl;)V"
    )
-   SoundEffect(Buffer var1) {
+   SoundEffect(Packet var1) {
       this.instruments = new AudioInstrument[10];
 
       for(int var2 = 0; var2 < 10; ++var2) {
@@ -121,6 +121,6 @@ public class SoundEffect implements RSSoundEffect {
    )
    public static SoundEffect method605(Js5Index var0, int var1, int var2) {
       byte[] var3 = var0.method1516(var1, var2, 1789634852);
-      return var3 == null?null:new SoundEffect(new Buffer(var3));
+      return var3 == null?null:new SoundEffect(new Packet(var3));
    }
 }

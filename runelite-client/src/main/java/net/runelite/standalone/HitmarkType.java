@@ -135,7 +135,7 @@ public class HitmarkType extends CacheableNode {
       signature = "(Lgl;B)V",
       garbageValue = "60"
    )
-   void method2206(Buffer var1) {
+   void method2206(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -151,7 +151,7 @@ public class HitmarkType extends CacheableNode {
       signature = "(Lgl;II)V",
       garbageValue = "-90164519"
    )
-   void method2207(Buffer var1, int var2) {
+   void method2207(Packet var1, int var2) {
       if(var2 == 1) {
          this.field3440 = var1.method6207();
       } else if(var2 == 2) {
@@ -401,10 +401,10 @@ public class HitmarkType extends CacheableNode {
    )
    static final void method2227(String var0) {
       if(!var0.equals("")) {
-         TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2291, client.serverConnection.isaac);
-         var1.packetBuffer.writeByte(AbstractSoundSystem.method338(var0));
-         var1.packetBuffer.writeString(var0);
-         client.serverConnection.method5881(var1);
+         TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2291, Client.serverConnection.isaac);
+         var1.packetBuffer.method6114(AbstractSoundSystem.method338(var0));
+         var1.packetBuffer.method6198(var0);
+         Client.serverConnection.method5881(var1);
       }
    }
 

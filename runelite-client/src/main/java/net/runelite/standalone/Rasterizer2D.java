@@ -91,7 +91,7 @@ public class Rasterizer2D extends CacheableNode {
                   var10 = (graphicsPixels[var22] >> 8 & 255) * var5;
                   var11 = var5 * (graphicsPixels[var22] & 255);
                   var24 = (var8 + var11 >> 8) + (var6 + var9 >> 8 << 16) + (var7 + var10 >> 8 << 8);
-                  client.drawAlpha(graphicsPixels, var22++, var24, var3, var4);
+                  Client.drawAlpha(graphicsPixels, var22++, var24, var4);
                }
 
                ++var14;
@@ -127,7 +127,7 @@ public class Rasterizer2D extends CacheableNode {
                   var10 = (graphicsPixels[var22] >> 8 & 255) * var5;
                   var11 = var5 * (graphicsPixels[var22] & 255);
                   var24 = (var8 + var11 >> 8) + (var6 + var9 >> 8 << 16) + (var7 + var10 >> 8 << 8);
-                  client.drawAlpha(graphicsPixels, var22++, var24, var3, var4);
+                  Client.drawAlpha(graphicsPixels, var22++, var24, var4);
                }
 
                ++var14;
@@ -353,7 +353,7 @@ public class Rasterizer2D extends CacheableNode {
             int var10 = (graphicsPixels[var12] >> 8 & 255) * var5;
             int var11 = var5 * (graphicsPixels[var12] & 255);
             int var14 = (var8 + var11 >> 8) + (var6 + var9 >> 8 << 16) + (var7 + var10 >> 8 << 8);
-            client.drawAlpha(graphicsPixels, var12, var14, var3, var4);
+            Client.drawAlpha(graphicsPixels, var12, var14, var4);
             var12 += graphicsPixelsWidth;
          }
 
@@ -443,7 +443,6 @@ public class Rasterizer2D extends CacheableNode {
 
    @ObfuscatedName("dg")
    public static void method448(int var0, int var1, int var2, int var3, int var4, int var5) {
-      int var12 = var4;
       if(var0 < draw_region_x) {
          var2 -= draw_region_x - var0;
          var0 = draw_region_x;
@@ -471,7 +470,7 @@ public class Rasterizer2D extends CacheableNode {
          for(int var10 = -var2; var10 < 0; ++var10) {
             int var11 = graphicsPixels[var8];
             var11 = ((var11 & 16711935) * var6 >> 8 & 16711935) + (var6 * (var11 & 65280) >> 8 & 65280);
-            client.drawAlpha(graphicsPixels, var8++, var11 + var4, var12, var5);
+            Client.drawAlpha(graphicsPixels, var8++, var11 + var4, var5);
          }
 
          var8 += var7;
@@ -550,7 +549,7 @@ public class Rasterizer2D extends CacheableNode {
       int var12 = class166.clientInstance.getEndY();
       int[] var13 = class166.clientInstance.getGraphicsPixels();
       if(!class166.clientInstance.isGpu()) {
-         client.copy$drawGradientAlpha(var0, var1, var2, var3, var4, var5, var6, var7);
+         Client.copy$drawGradientAlpha(var0, var1, var2, var3, var4, var5, var6, var7);
       } else {
          if(var2 > 0 && var3 > 0) {
             int var14 = 0;
@@ -592,7 +591,7 @@ public class Rasterizer2D extends CacheableNode {
                   for(int var25 = -var2; var25 < 0; ++var25) {
                      int var26 = var13[var17];
                      var26 = ((var26 & 16711935) * var23 >> 8 & 16711935) + (var23 * (var26 & 65280) >> 8 & 65280);
-                     client.drawAlpha(var13, var17++, var24 + var26, var22, var21);
+                     Client.drawAlpha(var13, var17++, var24 + var26, var21);
                   }
 
                   var17 += var16;
@@ -631,7 +630,7 @@ public class Rasterizer2D extends CacheableNode {
       int var10 = class166.clientInstance.getGraphicsPixelsHeight();
       int[] var11 = class166.clientInstance.getGraphicsPixels();
       if(!class166.clientInstance.isGpu()) {
-         client.copy$raster2d7(var0, var1, var2, var3, var4, var5, var6, var7, var8);
+         Client.copy$raster2d7(var0, var1, var2, var3, var4, var5, var6, var7, var8);
       } else {
          if(var0 + var2 >= 0 && var3 + var1 >= 0 && var0 < var9 && var1 < var10) {
             int var12 = 0;
@@ -695,7 +694,7 @@ public class Rasterizer2D extends CacheableNode {
                      int var25 = 255 - var24;
                      int var26 = var11[var18];
                      int var27 = (var24 * (var23 & 65280) + var25 * (var26 & 65280) & 16711680) + ((var23 & 16711935) * var24 + (var26 & 16711935) * var25 & -16711936) >> 8;
-                     client.drawAlpha(var11, var18++, var27, var23, var24);
+                     Client.drawAlpha(var11, var18++, var27, var24);
                   }
 
                   var18 += var15;
@@ -766,7 +765,7 @@ public class Rasterizer2D extends CacheableNode {
             int var10 = (graphicsPixels[var12] >> 8 & 255) * var5;
             int var11 = var5 * (graphicsPixels[var12] & 255);
             int var14 = (var8 + var11 >> 8) + (var6 + var9 >> 8 << 16) + (var7 + var10 >> 8 << 8);
-            client.drawAlpha(graphicsPixels, var12++, var14, var3, var4);
+            Client.drawAlpha(graphicsPixels, var12++, var14, var4);
          }
 
       }

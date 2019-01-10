@@ -98,7 +98,7 @@ public class RegenMeterPlugin extends Plugin
 	{
 		if (ev.getGameState() == GameState.HOPPING || ev.getGameState() == GameState.LOGIN_SCREEN)
 		{
-			ticksSinceHPRegen = 0; // For some reason this makes this accurate
+			ticksSinceHPRegen = -2; // For some reason this makes this accurate
 			ticksSinceSpecRegen = 0;
 		}
 	}

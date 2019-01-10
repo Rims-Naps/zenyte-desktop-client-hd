@@ -47,7 +47,7 @@ public class Varbit extends CacheableNode implements RSVarbit {
       signature = "(Lgl;I)V",
       garbageValue = "-1914491452"
    )
-   void method3111(Buffer var1) {
+   void method3111(Packet var1) {
       while(true) {
          int var2 = var1.readUnsignedByte();
          if(var2 == 0) {
@@ -63,7 +63,7 @@ public class Varbit extends CacheableNode implements RSVarbit {
       signature = "(Lgl;II)V",
       garbageValue = "1853206793"
    )
-   void method3115(Buffer var1, int var2) {
+   void method3115(Packet var1, int var2) {
       if(var2 == 1) {
          this.configId = var1.method6080();
          this.leastSignificantBit = var1.readUnsignedByte();

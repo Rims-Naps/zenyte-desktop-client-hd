@@ -62,7 +62,7 @@ public class FriendContainer extends NameableContainer implements RSFriendContai
       signature = "(Lgl;IB)V",
       garbageValue = "113"
    )
-   public void method2422(Buffer var1, int var2) {
+   public void method2422(Packet var1, int var2) {
       while(true) {
          if(var1.offset < var2) {
             boolean var3 = var1.readUnsignedByte() == 1;

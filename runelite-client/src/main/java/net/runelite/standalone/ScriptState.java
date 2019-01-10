@@ -14,7 +14,7 @@ public class ScriptState {
       signature = "Lbr;"
    )
    static ContextMenuRow topContextMenuRow;
-   public class106 field610;
+    public class106 field610;
    public int[] field603;
    public String[] field606;
    @ObfuscatedName("r")
