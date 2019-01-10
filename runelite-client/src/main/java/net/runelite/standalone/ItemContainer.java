@@ -85,7 +85,7 @@ public class ItemContainer extends Node implements RSItemContainer {
             var4.source = var3;
             var4.params = var3.onResizeListener;
             var4.field572 = class48.field1075 + 1;
-            Client.field842.method4351(var4);
+            client.field842.method4351(var4);
             return 1;
          }
       } else {

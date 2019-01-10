@@ -71,40 +71,40 @@ public final class WorldMapRectangle {
       SubInterface var3 = new SubInterface();
       var3.id = var1;
       var3.mode = var2;
-      Client.subInterfaces.method382(var3, (long)var0);
+      client.subInterfaces.method382(var3, (long)var0);
       class76.method1149(var1);
       ComponentType var4 = WorldMapType1.method2440(var0);
       class208.method4144(var4);
-      if(Client.field880 != null) {
-         class208.method4144(Client.field880);
-         Client.field880 = null;
+      if(client.field880 != null) {
+         class208.method4144(client.field880);
+         client.field880 = null;
       }
 
-      for(int var5 = 0; var5 < Client.menuOptionCount; ++var5) {
-         if(VarClientStringType.method184(Client.menuTypes[var5])) {
-            if(var5 < Client.menuOptionCount - 1) {
-               for(int var6 = var5; var6 < Client.menuOptionCount - 1; ++var6) {
-                  Client.menuOptions[var6] = Client.menuOptions[var6 + 1];
-                  Client.menuTargets[var6] = Client.menuTargets[var6 + 1];
-                  Client.menuTypes[var6] = Client.menuTypes[var6 + 1];
-                  Client.menuIdentifiers[var6] = Client.menuIdentifiers[var6 + 1];
-                  Client.menuActionParams0[var6] = Client.menuActionParams0[var6 + 1];
-                  Client.menuActionParams1[var6] = Client.menuActionParams1[var6 + 1];
-                  Client.menuBooleanArray[var6] = Client.menuBooleanArray[var6 + 1];
+      for(int var5 = 0; var5 < client.menuOptionCount; ++var5) {
+         if(VarClientStringType.method184(client.menuTypes[var5])) {
+            if(var5 < client.menuOptionCount - 1) {
+               for(int var6 = var5; var6 < client.menuOptionCount - 1; ++var6) {
+                  client.menuOptions[var6] = client.menuOptions[var6 + 1];
+                  client.menuTargets[var6] = client.menuTargets[var6 + 1];
+                  client.menuTypes[var6] = client.menuTypes[var6 + 1];
+                  client.menuIdentifiers[var6] = client.menuIdentifiers[var6 + 1];
+                  client.menuActionParams0[var6] = client.menuActionParams0[var6 + 1];
+                  client.menuActionParams1[var6] = client.menuActionParams1[var6 + 1];
+                  client.menuBooleanArray[var6] = client.menuBooleanArray[var6 + 1];
                }
             }
 
             --var5;
-            --Client.menuOptionCount;
-            Client.onMenuOptionsChanged(-1);
+            --client.menuOptionCount;
+            client.onMenuOptionsChanged(-1);
          }
       }
 
       class261.method5015();
       class196.method4011(class36.interfaces[var0 >> 16], var4, false);
       class134.method2204(var1, -1672363479);
-      if(Client.toplevel != -1) {
-         class124.method2087(Client.toplevel, 1);
+      if(client.toplevel != -1) {
+         class124.method2087(client.toplevel, 1);
       }
 
       return var3;
@@ -131,6 +131,6 @@ public final class WorldMapRectangle {
       garbageValue = "1993334484"
    )
    static int method127() {
-      return Client.isResized?2:1;
+      return client.isResized?2:1;
    }
 }

@@ -170,37 +170,37 @@ public class class208 implements WorldMapSectionBase {
    static final void method4142(ComponentType var0) {
       int var1 = var0.clientcode;
       if(var1 == 324) {
-         if(Client.field874 == -1) {
-            Client.field874 = var0.graphic;
-            Client.field910 = var0.field2703;
+         if(client.field874 == -1) {
+            client.field874 = var0.graphic;
+            client.field910 = var0.field2703;
          }
 
-         if(Client.field908.isFemale) {
-            var0.graphic = Client.field874;
+         if(client.field908.isFemale) {
+            var0.graphic = client.field874;
          } else {
-            var0.graphic = Client.field910;
+            var0.graphic = client.field910;
          }
 
       } else if(var1 == 325) {
-         if(Client.field874 == -1) {
-            Client.field874 = var0.graphic;
-            Client.field910 = var0.field2703;
+         if(client.field874 == -1) {
+            client.field874 = var0.graphic;
+            client.field910 = var0.field2703;
          }
 
-         if(Client.field908.isFemale) {
-            var0.graphic = Client.field910;
+         if(client.field908.isFemale) {
+            var0.graphic = client.field910;
          } else {
-            var0.graphic = Client.field874;
+            var0.graphic = client.field874;
          }
 
       } else if(var1 == 327) {
          var0.xan2d = 150;
-         var0.yan2d = (int)(Math.sin((double)Client.gameCycle / 40.0D) * 256.0D) & 2047;
+         var0.yan2d = (int)(Math.sin((double)client.gameCycle / 40.0D) * 256.0D) & 2047;
          var0.modelType = 5;
          var0.modelId = 0;
       } else if(var1 == 328) {
          var0.xan2d = 150;
-         var0.yan2d = (int)(Math.sin((double)Client.gameCycle / 40.0D) * 256.0D) & 2047;
+         var0.yan2d = (int)(Math.sin((double)client.gameCycle / 40.0D) * 256.0D) & 2047;
          var0.modelType = 5;
          var0.modelId = 1;
       }
@@ -212,8 +212,8 @@ public class class208 implements WorldMapSectionBase {
       garbageValue = "1238023037"
    )
    static void method4144(ComponentType var0) {
-      if(var0.loopCycle == Client.field847) {
-         Client.field848[var0.boundsIndex] = true;
+      if(var0.loopCycle == client.field847) {
+         client.field848[var0.boundsIndex] = true;
       }
 
    }

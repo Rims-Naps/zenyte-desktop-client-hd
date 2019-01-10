@@ -401,10 +401,10 @@ public class HitmarkType extends CacheableNode {
    )
    static final void method2227(String var0) {
       if(!var0.equals("")) {
-         TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2291, Client.serverConnection.isaac);
+         TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2291, client.serverConnection.isaac);
          var1.packetBuffer.method6114(AbstractSoundSystem.method338(var0));
          var1.packetBuffer.method6198(var0);
-         Client.serverConnection.method5881(var1);
+         client.serverConnection.method5881(var1);
       }
    }
 

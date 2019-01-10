@@ -1545,10 +1545,10 @@ public class Graphics3D extends Rasterizer2D {
                   do {
                      var2 = colorPalette[var6 >> 8];
                      var6 += var7;
-                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
-                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
-                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
-                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
                      --var3;
                   } while(var3 > 0);
                }
@@ -1558,7 +1558,7 @@ public class Graphics3D extends Rasterizer2D {
                   var2 = colorPalette[var6 >> 8];
 
                   do {
-                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
                      --var3;
                   } while(var3 > 0);
                }
@@ -1571,13 +1571,13 @@ public class Graphics3D extends Rasterizer2D {
                      var6 += var7;
                      var2 = (var9 * (var2 & 65280) >> 8 & 65280) + (var9 * (var2 & 16711935) >> 8 & 16711935);
                      var10 = var0[var1];
-                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      var10 = var0[var1];
-                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      var10 = var0[var1];
-                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      var10 = var0[var1];
-                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      --var3;
                   } while(var3 > 0);
                }
@@ -1589,7 +1589,7 @@ public class Graphics3D extends Rasterizer2D {
 
                   do {
                      var10 = var0[var1];
-                     Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      --var3;
                   } while(var3 > 0);
                }
@@ -1599,7 +1599,7 @@ public class Graphics3D extends Rasterizer2D {
             var3 = var5 - var4;
             if(rasterAlpha == 0) {
                do {
-                  Client.drawAlpha(var0, var1++, colorPalette[var6 >> 8], 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, colorPalette[var6 >> 8], 255 - rasterAlpha);
                   var6 += var7;
                   --var3;
                } while(var3 > 0);
@@ -1612,7 +1612,7 @@ public class Graphics3D extends Rasterizer2D {
                   var6 += var7;
                   var2 = (var9 * (var2 & 65280) >> 8 & 65280) + (var9 * (var2 & 16711935) >> 8 & 16711935);
                   var10 = var0[var1];
-                  Client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, ((var10 & 16711935) * var8 >> 8 & 16711935) + var2 + (var8 * (var10 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                   --var3;
                } while(var3 > 0);
             }
@@ -3338,14 +3338,14 @@ public class Graphics3D extends Rasterizer2D {
                            return;
                         }
 
-                        Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
+                        client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
                      }
                   }
 
-                  Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
-                  Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
-                  Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
-                  Client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, var0[var1], 255 - rasterAlpha);
                }
             } else {
                int var6 = rasterAlpha;
@@ -3365,18 +3365,18 @@ public class Graphics3D extends Rasterizer2D {
                         }
 
                         var8 = var0[var1];
-                        Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                        client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                      }
                   }
 
                   var8 = var0[var1];
-                  Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                   var8 = var0[var1];
-                  Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                   var8 = var0[var1];
-                  Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                   var8 = var0[var1];
-                  Client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
+                  client.drawAlpha(var0, var1++, ((var8 & 16711935) * var6 >> 8 & 16711935) + var2 + (var6 * (var8 & 65280) >> 8 & 65280), 255 - rasterAlpha);
                }
             }
          } else {
@@ -3391,14 +3391,14 @@ public class Graphics3D extends Rasterizer2D {
                         return;
                      }
 
-                     Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+                     client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
                   }
                }
 
-               Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
-               Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
-               Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
-               Client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+               client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+               client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+               client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
+               client.drawAlpha(var0, var1++, var2, 255 - rasterAlpha);
             }
          }
       }

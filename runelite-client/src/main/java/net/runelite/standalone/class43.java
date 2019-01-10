@@ -160,8 +160,8 @@ public class class43 {
       garbageValue = "1104472161"
    )
    static final void method615(ComponentType var0, int var1, int var2) {
-      if(Client.minimapRenderType == 0 || Client.minimapRenderType == 3) {
-         if(!Client.isMenuOpen && (MouseInput.mouseLastButton == 1 || !WorldMapType3.middleMouseMovesCamera && MouseInput.mouseLastButton == 4)) {
+      if(client.minimapRenderType == 0 || client.minimapRenderType == 3) {
+         if(!client.isMenuOpen && (MouseInput.mouseLastButton == 1 || !WorldMapType3.middleMouseMovesCamera && MouseInput.mouseLastButton == 4)) {
             class96 var3 = var0.method270(true);
             if(var3 == null) {
                return;
@@ -172,21 +172,21 @@ public class class43 {
             if(var3.method1622(var4, var5)) {
                var4 -= var3.field2626 / 2;
                var5 -= var3.field2621 / 2;
-               int var6 = Client.mapAngle & 2047;
+               int var6 = client.mapAngle & 2047;
                int var7 = Graphics3D.SINE[var6];
                int var8 = Graphics3D.COSINE[var6];
                int var9 = var4 * var8 + var5 * var7 >> 11;
                int var10 = var5 * var8 - var7 * var4 >> 11;
                int var11 = var9 + class4.localPlayer.x >> 7;
                int var12 = class4.localPlayer.y - var10 >> 7;
-               TcpConnectionMessage var13 = FaceNormal.method5726(ClientProt.field2238, Client.serverConnection.isaac);
+               TcpConnectionMessage var13 = FaceNormal.method5726(ClientProt.field2238, client.serverConnection.isaac);
                var13.packetBuffer.method6114(18);
                var13.packetBuffer.method6196(var12 + class107.baseY);
                var13.packetBuffer.method6196(var11 + class158.baseX);
                var13.packetBuffer.method6104(KeyFocusListener.keyPressed[82]?(KeyFocusListener.keyPressed[81]?2:1):0);
                var13.packetBuffer.method6114(var4);
                var13.packetBuffer.method6114(var5);
-               var13.packetBuffer.method6063(Client.mapAngle);
+               var13.packetBuffer.method6063(client.mapAngle);
                var13.packetBuffer.method6114(57);
                var13.packetBuffer.method6114(0);
                var13.packetBuffer.method6114(0);
@@ -194,9 +194,9 @@ public class class43 {
                var13.packetBuffer.method6063(class4.localPlayer.x);
                var13.packetBuffer.method6063(class4.localPlayer.y);
                var13.packetBuffer.method6114(63);
-               Client.serverConnection.method5881(var13);
-               Client.destinationX = var11;
-               Client.destinationY = var12;
+               client.serverConnection.method5881(var13);
+               client.destinationX = var11;
+               client.destinationY = var12;
             }
          }
 

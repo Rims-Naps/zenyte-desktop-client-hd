@@ -66,29 +66,29 @@ final class class116 implements Comparator {
          class208.method4144(var4);
       }
 
-      for(int var5 = 0; var5 < Client.menuOptionCount; ++var5) {
-         if(VarClientStringType.method184(Client.menuTypes[var5])) {
-            if(var5 < Client.menuOptionCount - 1) {
-               for(int var6 = var5; var6 < Client.menuOptionCount - 1; ++var6) {
-                  Client.menuOptions[var6] = Client.menuOptions[var6 + 1];
-                  Client.menuTargets[var6] = Client.menuTargets[var6 + 1];
-                  Client.menuTypes[var6] = Client.menuTypes[var6 + 1];
-                  Client.menuIdentifiers[var6] = Client.menuIdentifiers[var6 + 1];
-                  Client.menuActionParams0[var6] = Client.menuActionParams0[var6 + 1];
-                  Client.menuActionParams1[var6] = Client.menuActionParams1[var6 + 1];
-                  Client.menuBooleanArray[var6] = Client.menuBooleanArray[var6 + 1];
+      for(int var5 = 0; var5 < client.menuOptionCount; ++var5) {
+         if(VarClientStringType.method184(client.menuTypes[var5])) {
+            if(var5 < client.menuOptionCount - 1) {
+               for(int var6 = var5; var6 < client.menuOptionCount - 1; ++var6) {
+                  client.menuOptions[var6] = client.menuOptions[var6 + 1];
+                  client.menuTargets[var6] = client.menuTargets[var6 + 1];
+                  client.menuTypes[var6] = client.menuTypes[var6 + 1];
+                  client.menuIdentifiers[var6] = client.menuIdentifiers[var6 + 1];
+                  client.menuActionParams0[var6] = client.menuActionParams0[var6 + 1];
+                  client.menuActionParams1[var6] = client.menuActionParams1[var6 + 1];
+                  client.menuBooleanArray[var6] = client.menuBooleanArray[var6 + 1];
                }
             }
 
             --var5;
-            --Client.menuOptionCount;
-            Client.onMenuOptionsChanged(-1);
+            --client.menuOptionCount;
+            client.onMenuOptionsChanged(-1);
          }
       }
 
       class261.method5015();
-      if(Client.toplevel != -1) {
-         class124.method2087(Client.toplevel, 1);
+      if(client.toplevel != -1) {
+         class124.method2087(client.toplevel, 1);
       }
 
    }

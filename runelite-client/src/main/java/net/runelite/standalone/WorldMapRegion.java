@@ -1077,7 +1077,7 @@ public class WorldMapRegion {
                   method4145(var3.children, var1);
                }
 
-               SubInterface var4 = (SubInterface)Client.subInterfaces.method380((long)var3.id);
+               SubInterface var4 = (SubInterface)client.subInterfaces.method380((long)var3.id);
                if(var4 != null) {
                   class124.method2087(var4.id, var1);
                }
@@ -1126,7 +1126,7 @@ public class WorldMapRegion {
       garbageValue = "17"
    )
    static final void method4191(int var0, int var1, int var2, int var3, int var4, int var5, SceneManager var6, CollisionData var7) {
-      if(!Client.lowMemory || (class98.tileSettings[0][var1][var2] & 2) != 0 || (class98.tileSettings[var0][var1][var2] & 16) == 0) {
+      if(!client.lowMemory || (class98.tileSettings[0][var1][var2] & 2) != 0 || (class98.tileSettings[var0][var1][var2] & 16) == 0) {
          if(var0 < class98.field493) {
             class98.field493 = var0;
          }
@@ -1206,7 +1206,7 @@ public class WorldMapRegion {
 
          Object var34;
          if(var5 == 22) {
-            if(!Client.lowMemory || var8.field3470 != 0 || var8.clipType == 1 || var8.obstructsGround) {
+            if(!client.lowMemory || var8.field3470 != 0 || var8.clipType == 1 || var8.obstructsGround) {
                if(var8.animationId == -1 && var8.multiLocs == null) {
                   var34 = var8.method1726(22, var4, var15, var17, var16, var18);
                } else {

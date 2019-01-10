@@ -465,26 +465,26 @@ public class AbstractSoundSystem {
       garbageValue = "-1790322757"
    )
    static final void method301(ComponentType[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
-      Client.gameDraw(var0, var1, var2, var3, var4, var5, var6, var7, var8);
+      client.gameDraw(var0, var1, var2, var3, var4, var5, var6, var7, var8);
       Rasterizer2D.method469(var2, var3, var4, var5);
       Graphics3D.method2586();
 
       for(int var9 = 0; var9 < var0.length; ++var9) {
          ComponentType var10 = var0[var9];
-         if(var10 != null && (var10.layer == var1 || var1 == -1412584499 && var10 == Client.draggedWidget)) {
+         if(var10 != null && (var10.layer == var1 || var1 == -1412584499 && var10 == client.draggedWidget)) {
             int var11;
             if(var8 == -1) {
-               Client.widgetPositionX[Client.widgetCount] = var10.x + var6;
-               Client.widgetPositionY[Client.widgetCount] = var7 + var10.y;
-               Client.widgetBoundsWidth[Client.widgetCount] = var10.width;
-               Client.widgetBoundsHeight[Client.widgetCount] = var10.height;
-               var11 = ++Client.widgetCount - 1;
+               client.widgetPositionX[client.widgetCount] = var10.x + var6;
+               client.widgetPositionY[client.widgetCount] = var7 + var10.y;
+               client.widgetBoundsWidth[client.widgetCount] = var10.width;
+               client.widgetBoundsHeight[client.widgetCount] = var10.height;
+               var11 = ++client.widgetCount - 1;
             } else {
                var11 = var8;
             }
 
             var10.boundsIndex = var11;
-            var10.loopCycle = Client.gameCycle;
+            var10.loopCycle = client.gameCycle;
             if(!var10.isIf3 || !GameCanvas.method894(var10)) {
                if(var10.clientcode > 0) {
                   class208.method4142(var10);
@@ -495,7 +495,7 @@ public class AbstractSoundSystem {
                int var14 = var10.trans;
                int var15;
                int var16;
-               if(var10 == Client.draggedWidget) {
+               if(var10 == client.draggedWidget) {
                   if(var1 != -1412584499 && !var10.dragRenderBehavior) {
                      WorldMapType1.field165 = var0;
                      TradingPost.field12 = var6;
@@ -503,25 +503,25 @@ public class AbstractSoundSystem {
                      continue;
                   }
 
-                  if(Client.draggingWidget && Client.field821) {
+                  if(client.draggingWidget && client.field821) {
                      var15 = MouseInput.mouseLastX;
                      var16 = MouseInput.mouseLastY * -976212263;
-                     var15 -= Client.field906;
-                     var16 -= Client.field838;
-                     if(var15 < Client.field713) {
-                        var15 = Client.field713;
+                     var15 -= client.field906;
+                     var16 -= client.field838;
+                     if(var15 < client.field713) {
+                        var15 = client.field713;
                      }
 
-                     if(var15 + var10.width > Client.field713 + Client.field817.width) {
-                        var15 = Client.field713 + Client.field817.width - var10.width;
+                     if(var15 + var10.width > client.field713 + client.field817.width) {
+                        var15 = client.field713 + client.field817.width - var10.width;
                      }
 
-                     if(var16 < Client.field823) {
-                        var16 = Client.field823;
+                     if(var16 < client.field823) {
+                        var16 = client.field823;
                      }
 
-                     if(var16 + var10.height > Client.field823 + Client.field817.height) {
-                        var16 = Client.field823 + Client.field817.height - var10.height;
+                     if(var16 + var10.height > client.field823 + client.field817.height) {
+                        var16 = client.field823 + client.field817.height - var10.height;
                      }
 
                      var12 = var15;
@@ -577,14 +577,14 @@ public class AbstractSoundSystem {
                if(!var10.isIf3 || var15 < var17 && var16 < var18) {
                   if(var10.clientcode != 0) {
                      if(var10.clientcode == 1336) {
-                        if(Client.displayFps) {
+                        if(client.displayFps) {
                            var13 += 15;
                            TotalQuantityComparator.font_p12full.method1781("Fps:" + GameEngine.FPS, var12 + var10.width, var13, 16776960, -1);
                            var13 += 15;
                            Runtime var42 = Runtime.getRuntime();
                            var20 = (int)((var42.totalMemory() - var42.freeMemory()) / 1024L);
                            var21 = 16776960;
-                           if(var20 > 327680 && !Client.lowMemory) {
+                           if(var20 > 327680 && !client.lowMemory) {
                               var21 = 16711680;
                            }
 
@@ -595,10 +595,10 @@ public class AbstractSoundSystem {
                      }
 
                      if(var10.clientcode == 1337) {
-                        Client.field792 = var12;
-                        Client.field860 = var13;
+                        client.field792 = var12;
+                        client.field860 = var13;
                         class115.method1983(var12, var13, var10.width, var10.height);
-                        Client.field848[var10.boundsIndex] = true;
+                        client.field848[var10.boundsIndex] = true;
                         Rasterizer2D.method469(var2, var3, var4, var5);
                         continue;
                      }
@@ -616,7 +616,7 @@ public class AbstractSoundSystem {
                      }
 
                      if(var10.clientcode == 1400) {
-                        class219.worldMap.method1212(var12, var13, var10.width, var10.height, Client.gameCycle);
+                        class219.worldMap.method1212(var12, var13, var10.width, var10.height, client.gameCycle);
                      }
 
                      if(var10.clientcode == 1401) {
@@ -644,7 +644,7 @@ public class AbstractSoundSystem {
                         method301(var10.children, var10.id, var15, var16, var17, var18, var12 - var10.scrollX, var13 - var10.scrollY, var11);
                      }
 
-                     SubInterface var30 = (SubInterface)Client.subInterfaces.method380((long)var10.id);
+                     SubInterface var30 = (SubInterface)client.subInterfaces.method380((long)var10.id);
                      if(var30 != null) {
                         class219.method4425(var30.id, var15, var16, var17, var18, var12, var13, var11);
                      }
@@ -653,7 +653,7 @@ public class AbstractSoundSystem {
                      Graphics3D.method2586();
                   }
 
-                  if(Client.isResized || Client.field706[var11] || Client.gameDrawingMode > 1) {
+                  if(client.isResized || client.field706[var11] || client.gameDrawingMode > 1) {
                      if(var10.type == 0 && !var10.isIf3 && var10.scrollHeight > var10.height) {
                         class310.method5923(var12 + var10.width, var13, var10.scrollY, var10.height, var10.scrollHeight);
                      }
@@ -688,18 +688,18 @@ public class AbstractSoundSystem {
                                     boolean var37 = false;
                                     boolean var38 = false;
                                     var26 = var10.objIds[var19] - 1;
-                                    if(var22 + 32 > var2 && var22 < var4 && var23 + 32 > var3 && var23 < var5 || var10 == World.field1025 && var19 == Client.field751) {
+                                    if(var22 + 32 > var2 && var22 < var4 && var23 + 32 > var3 && var23 < var5 || var10 == World.field1025 && var19 == client.field751) {
                                        SpritePixels var27;
-                                       if(Client.itemSelectionState == 1 && var19 == MapLabel.selectedItemIndex && var10.id == ChatLineBuffer.field1276) {
+                                       if(client.itemSelectionState == 1 && var19 == MapLabel.selectedItemIndex && var10.id == ChatLineBuffer.field1276) {
                                           var27 = MapCacheArchiveNames.method2148(var26, var10.objCounts[var19], 2, 0, 2, false);
                                        } else {
                                           var27 = MapCacheArchiveNames.method2148(var26, var10.objCounts[var19], 1, 3153952, 2, false);
                                        }
 
                                        if(var27 != null) {
-                                          if(var10 == World.field1025 && var19 == Client.field751) {
-                                             var24 = MouseInput.mouseLastX - Client.field752;
-                                             var25 = MouseInput.mouseLastY * -976212263 - Client.field845;
+                                          if(var10 == World.field1025 && var19 == client.field751) {
+                                             var24 = MouseInput.mouseLastX - client.field752;
+                                             var25 = MouseInput.mouseLastY * -976212263 - client.field845;
                                              if(var24 < 5 && var24 > -5) {
                                                 var24 = 0;
                                              }
@@ -708,7 +708,7 @@ public class AbstractSoundSystem {
                                                 var25 = 0;
                                              }
 
-                                             if(Client.itemPressedDuration < 5) {
+                                             if(client.itemPressedDuration < 5) {
                                                 var24 = 0;
                                                 var25 = 0;
                                              }
@@ -718,9 +718,9 @@ public class AbstractSoundSystem {
                                                 ComponentType var28 = var0[var1 & 65535];
                                                 int var29;
                                                 if(var25 + var23 < Rasterizer2D.drawingAreaTop && var28.scrollY > 0) {
-                                                   var29 = (Rasterizer2D.drawingAreaTop - var23 - var25) * Client.field705 / 3;
-                                                   if(var29 > Client.field705 * 10) {
-                                                      var29 = Client.field705 * 10;
+                                                   var29 = (Rasterizer2D.drawingAreaTop - var23 - var25) * client.field705 / 3;
+                                                   if(var29 > client.field705 * 10) {
+                                                      var29 = client.field705 * 10;
                                                    }
 
                                                    if(var29 > var28.scrollY) {
@@ -728,14 +728,14 @@ public class AbstractSoundSystem {
                                                    }
 
                                                    var28.scrollY -= var29;
-                                                   Client.field845 += var29;
+                                                   client.field845 += var29;
                                                    class208.method4144(var28);
                                                 }
 
                                                 if(var25 + var23 + 32 > Rasterizer2D.drawingAreaRight && var28.scrollY < var28.scrollHeight - var28.height) {
-                                                   var29 = (var23 + var25 + 32 - Rasterizer2D.drawingAreaRight) * Client.field705 / 3;
-                                                   if(var29 > Client.field705 * 10) {
-                                                      var29 = Client.field705 * 10;
+                                                   var29 = (var23 + var25 + 32 - Rasterizer2D.drawingAreaRight) * client.field705 / 3;
+                                                   if(var29 > client.field705 * 10) {
+                                                      var29 = client.field705 * 10;
                                                    }
 
                                                    if(var29 > var28.scrollHeight - var28.height - var28.scrollY) {
@@ -743,11 +743,11 @@ public class AbstractSoundSystem {
                                                    }
 
                                                    var28.scrollY += var29;
-                                                   Client.field845 -= var29;
+                                                   client.field845 -= var29;
                                                    class208.method4144(var28);
                                                 }
                                              }
-                                          } else if(var10 == class92.field2357 && var19 == Client.pressedItemIndex) {
+                                          } else if(var10 == class92.field2357 && var19 == client.pressedItemIndex) {
                                              var27.method2259(var22, var23, 128);
                                           } else {
                                              var27.method2253(var22, var23);
@@ -832,7 +832,7 @@ public class AbstractSoundSystem {
                                     }
                                  }
 
-                                 if(var10 == Client.field880) {
+                                 if(var10 == client.field880) {
                                     var44 = "Please wait...";
                                     var20 = var10.color;
                                  }
@@ -924,7 +924,7 @@ public class AbstractSoundSystem {
                                     }
                                  } else if(var10.modelType == 5) {
                                     if(var10.modelId == 0) {
-                                       var41 = Client.field908.method625((Sequence)null, -1, (Sequence)null, -1);
+                                       var41 = client.field908.method625((Sequence)null, -1, (Sequence)null, -1);
                                     } else {
                                        var41 = class4.localPlayer.vmethod5584(-2070069362);
                                     }
@@ -997,7 +997,7 @@ public class AbstractSoundSystem {
                                     }
                                  }
 
-                                 if(var10.type == 8 && var10 == class98.field495 && Client.field795 == Client.field794) {
+                                 if(var10.type == 8 && var10 == class98.field495 && client.field795 == client.field794) {
                                     var19 = 0;
                                     var20 = 0;
                                     Font var31 = TotalQuantityComparator.font_p12full;

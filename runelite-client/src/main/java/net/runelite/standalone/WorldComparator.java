@@ -57,7 +57,7 @@ final class WorldComparator implements Comparator {
       garbageValue = "1200659683"
    )
    static void method6483() {
-      for(SubInterface var0 = (SubInterface)Client.subInterfaces.method391(); var0 != null; var0 = (SubInterface)Client.subInterfaces.method385()) {
+      for(SubInterface var0 = (SubInterface)client.subInterfaces.method391(); var0 != null; var0 = (SubInterface)client.subInterfaces.method385()) {
          int var1 = var0.id;
          if(class232.method4564(var1)) {
             boolean var2 = true;
@@ -114,10 +114,10 @@ final class WorldComparator implements Comparator {
    )
    static void method6482(int var0) {
       ScriptState.topContextMenuRow = new ContextMenuRow();
-      ScriptState.topContextMenuRow.param0 = Client.menuActionParams0[var0];
-      ScriptState.topContextMenuRow.param1 = Client.menuActionParams1[var0];
-      ScriptState.topContextMenuRow.type = Client.menuTypes[var0];
-      ScriptState.topContextMenuRow.identifier = Client.menuIdentifiers[var0];
-      ScriptState.topContextMenuRow.option = Client.menuOptions[var0];
+      ScriptState.topContextMenuRow.param0 = client.menuActionParams0[var0];
+      ScriptState.topContextMenuRow.param1 = client.menuActionParams1[var0];
+      ScriptState.topContextMenuRow.type = client.menuTypes[var0];
+      ScriptState.topContextMenuRow.identifier = client.menuIdentifiers[var0];
+      ScriptState.topContextMenuRow.option = client.menuOptions[var0];
    }
 }

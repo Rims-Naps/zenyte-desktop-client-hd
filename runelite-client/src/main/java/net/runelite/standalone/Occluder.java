@@ -112,8 +112,8 @@ public final class Occluder {
       garbageValue = "1996217068"
    )
    static void method4635() {
-      if(Client.spellSelected) {
-         ComponentType var0 = class192.method3785(class174.field3796, Client.field799);
+      if(client.spellSelected) {
+         ComponentType var0 = class192.method3785(class174.field3796, client.field799);
          if(var0 != null && var0.onTargetLeaveListener != null) {
             ScriptEvent var1 = new ScriptEvent();
             var1.source = var0;
@@ -121,7 +121,7 @@ public final class Occluder {
             class73.method1124(var1);
          }
 
-         Client.spellSelected = false;
+         client.spellSelected = false;
          class208.method4144(var0);
       }
    }
@@ -146,7 +146,7 @@ public final class Occluder {
       garbageValue = "468651930"
    )
    static final void method4633(ComponentType var0, int var1, int var2) {
-      if(Client.draggedWidget == null && !Client.isMenuOpen) {
+      if(client.draggedWidget == null && !client.isMenuOpen) {
          if(var0 != null) {
             ComponentType var4 = ChatCrownType.method834(var0);
             if(var4 == null) {
@@ -154,19 +154,19 @@ public final class Occluder {
             }
 
             if(var4 != null) {
-               Client.draggedWidget = var0;
+               client.draggedWidget = var0;
                var4 = ChatCrownType.method834(var0);
                if(var4 == null) {
                   var4 = var0.dragParent;
                }
 
-               Client.field817 = var4;
-               Client.field906 = var1;
-               Client.field838 = var2;
+               client.field817 = var4;
+               client.field906 = var1;
+               client.field838 = var2;
                class77.field2817 = 0;
-               Client.draggingWidget = false;
-               Client.draggingWidgetChanged(-1);
-               int var6 = Client.menuOptionCount - 1;
+               client.draggingWidget = false;
+               client.draggingWidgetChanged(-1);
+               int var6 = client.menuOptionCount - 1;
                if(var6 != -1) {
                   WorldComparator.method6482(var6);
                }

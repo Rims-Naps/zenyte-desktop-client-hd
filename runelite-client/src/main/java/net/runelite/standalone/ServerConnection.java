@@ -209,7 +209,7 @@ public class ServerConnection {
          return 1;
       } else if(var0 == 2702) {
          int var5 = class48.intStack[--class228.intStackSize];
-         SubInterface var4 = (SubInterface)Client.subInterfaces.method380((long)var5);
+         SubInterface var4 = (SubInterface)client.subInterfaces.method380((long)var5);
          if(var4 != null) {
             class48.intStack[++class228.intStackSize - 1] = 1;
          } else {
@@ -218,7 +218,7 @@ public class ServerConnection {
 
          return 1;
       } else if(var0 == 2706) {
-         class48.intStack[++class228.intStackSize - 1] = Client.toplevel;
+         class48.intStack[++class228.intStackSize - 1] = client.toplevel;
          return 1;
       } else {
          return 2;

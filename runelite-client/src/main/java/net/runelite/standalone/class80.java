@@ -33,10 +33,10 @@ public class class80 extends class127 {
       garbageValue = "-1994298062"
    )
    static final void method1166(String var0, int var1) {
-      TcpConnectionMessage var2 = FaceNormal.method5726(ClientProt.field2284, Client.serverConnection.isaac);
+      TcpConnectionMessage var2 = FaceNormal.method5726(ClientProt.field2284, client.serverConnection.isaac);
       var2.packetBuffer.method6114(AbstractSoundSystem.method338(var0) + 1);
       var2.packetBuffer.method6198(var0);
       var2.packetBuffer.method6114(var1);
-      Client.serverConnection.method5881(var2);
+      client.serverConnection.method5881(var2);
    }
 }

@@ -143,19 +143,19 @@ public class Size {
 
       if(ScriptEvent.cameraPitch < var7) {
          ScriptEvent.cameraPitch = (var7 - ScriptEvent.cameraPitch) * class225.field3289 / 1000 + ScriptEvent.cameraPitch + World.field1026;
-         Client.onCameraPitchChanged(-1);
+         client.onCameraPitchChanged(-1);
          if(ScriptEvent.cameraPitch > var7) {
             ScriptEvent.cameraPitch = var7;
-            Client.onCameraPitchChanged(-1);
+            client.onCameraPitchChanged(-1);
          }
       }
 
       if(ScriptEvent.cameraPitch > var7) {
          ScriptEvent.cameraPitch -= class225.field3289 * (ScriptEvent.cameraPitch - var7) / 1000 + World.field1026;
-         Client.onCameraPitchChanged(-1);
+         client.onCameraPitchChanged(-1);
          if(ScriptEvent.cameraPitch < var7) {
             ScriptEvent.cameraPitch = var7;
-            Client.onCameraPitchChanged(-1);
+            client.onCameraPitchChanged(-1);
          }
       }
 
@@ -199,8 +199,8 @@ public class Size {
       garbageValue = "86433056"
    )
    static void method4702() {
-      if(Client.camModeType == 1) {
-         Client.field726 = true;
+      if(client.camModeType == 1) {
+         client.field726 = true;
       }
 
    }
@@ -369,7 +369,7 @@ public class Size {
       garbageValue = "-1896196282"
    )
    static boolean method4700() {
-      return (Client.playerNameMask & 1) != 0;
+      return (client.playerNameMask & 1) != 0;
    }
 
    @ObfuscatedName("g")

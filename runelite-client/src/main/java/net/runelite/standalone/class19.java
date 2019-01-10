@@ -145,7 +145,7 @@ public abstract class class19 {
                return 1;
             } else if(var0 != 6511) {
                if(var0 == 6512) {
-                  Client.field788 = class48.intStack[--class228.intStackSize] == 1;
+                  client.field788 = class48.intStack[--class228.intStackSize] == 1;
                   return 1;
                } else {
                   int var8;
@@ -199,10 +199,10 @@ public abstract class class19 {
 
                      return 1;
                   } else if(var0 == 6518) {
-                     class48.intStack[++class228.intStackSize - 1] = Client.field770?1:0;
+                     class48.intStack[++class228.intStackSize - 1] = client.field770?1:0;
                      return 1;
                   } else if(var0 == 6519) {
-                     class48.intStack[++class228.intStackSize - 1] = Client.confClientType & 3;
+                     class48.intStack[++class228.intStackSize - 1] = client.confClientType & 3;
                      return 1;
                   } else if(var0 == 6520) {
                      return 1;

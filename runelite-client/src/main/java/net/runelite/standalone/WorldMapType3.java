@@ -189,7 +189,7 @@ public class WorldMapType3 implements WorldMapSectionBase {
    static final boolean method1673(ComponentType var0) {
       int var1 = var0.clientcode;
       if(var1 == 205) {
-         Client.field725 = 250;
+         client.field725 = 250;
          return true;
       } else {
          int var2;
@@ -197,27 +197,27 @@ public class WorldMapType3 implements WorldMapSectionBase {
          if(var1 >= 300 && var1 <= 313) {
             var2 = (var1 - 300) / 2;
             var3 = var1 & 1;
-            Client.field908.method620(var2, var3 == 1);
+            client.field908.method620(var2, var3 == 1);
          }
 
          if(var1 >= 314 && var1 <= 323) {
             var2 = (var1 - 314) / 2;
             var3 = var1 & 1;
-            Client.field908.method621(var2, var3 == 1);
+            client.field908.method621(var2, var3 == 1);
          }
 
          if(var1 == 324) {
-            Client.field908.method622(false);
+            client.field908.method622(false);
          }
 
          if(var1 == 325) {
-            Client.field908.method622(true);
+            client.field908.method622(true);
          }
 
          if(var1 == 326) {
-            TcpConnectionMessage var4 = FaceNormal.method5726(ClientProt.field2219, Client.serverConnection.isaac);
-            Client.field908.method623(var4.packetBuffer);
-            Client.serverConnection.method5881(var4);
+            TcpConnectionMessage var4 = FaceNormal.method5726(ClientProt.field2219, client.serverConnection.isaac);
+            client.field908.method623(var4.packetBuffer);
+            client.serverConnection.method5881(var4);
             return true;
          } else {
             return false;
@@ -231,14 +231,14 @@ public class WorldMapType3 implements WorldMapSectionBase {
       garbageValue = "103740146"
    )
    static void method1691() {
-      Client.menuOptionCount = 0;
-      Client.onMenuOptionsChanged(-1);
-      Client.isMenuOpen = false;
-      Client.menuOptions[0] = "Cancel";
-      Client.menuTargets[0] = "";
-      Client.menuTypes[0] = 1006;
-      Client.menuBooleanArray[0] = false;
-      Client.menuOptionCount = 1;
-      Client.onMenuOptionsChanged(-1);
+      client.menuOptionCount = 0;
+      client.onMenuOptionsChanged(-1);
+      client.isMenuOpen = false;
+      client.menuOptions[0] = "Cancel";
+      client.menuTargets[0] = "";
+      client.menuTypes[0] = 1006;
+      client.menuBooleanArray[0] = false;
+      client.menuOptionCount = 1;
+      client.onMenuOptionsChanged(-1);
    }
 }

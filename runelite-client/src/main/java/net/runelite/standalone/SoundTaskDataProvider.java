@@ -38,7 +38,7 @@ public class SoundTaskDataProvider implements class243 {
 
       var6 <<= var4;
       class311.clientVarps[var3] = class311.clientVarps[var3] & ~var6 | var1 << var4 & var6;
-      Client.settingsChanged(var3);
+      client.settingsChanged(var3);
    }
 
    @ObfuscatedName("fm")
@@ -58,18 +58,18 @@ public class SoundTaskDataProvider implements class243 {
       }
 
       if(var0.equalsIgnoreCase("displayfps")) {
-         Client.displayFps = !Client.displayFps;
+         client.displayFps = !client.displayFps;
       }
 
       if(var0.equalsIgnoreCase("renderself")) {
-         Client.field762 = !Client.field762;
+         client.field762 = !client.field762;
       }
 
       if(var0.equalsIgnoreCase("mouseovertext")) {
-         Client.field791 = !Client.field791;
+         client.field791 = !client.field791;
       }
 
-      if(Client.staffModLevel >= 2) {
+      if(client.staffModLevel >= 2) {
          if(var0.equalsIgnoreCase("errortest")) {
             throw new RuntimeException();
          }
@@ -79,11 +79,11 @@ public class SoundTaskDataProvider implements class243 {
          }
 
          if(var0.equalsIgnoreCase("fpson")) {
-            Client.displayFps = true;
+            client.displayFps = true;
          }
 
          if(var0.equalsIgnoreCase("fpsoff")) {
-            Client.displayFps = false;
+            client.displayFps = false;
          }
 
          if(var0.equalsIgnoreCase("gc")) {
@@ -95,10 +95,10 @@ public class SoundTaskDataProvider implements class243 {
          }
       }
 
-      TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2267, Client.serverConnection.isaac);
+      TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2267, client.serverConnection.isaac);
       var1.packetBuffer.method6114(var0.length() + 1);
       var1.packetBuffer.method6198(var0);
-      Client.serverConnection.method5881(var1);
+      client.serverConnection.method5881(var1);
    }
 
    @ObfuscatedName("jo")
@@ -107,7 +107,7 @@ public class SoundTaskDataProvider implements class243 {
       garbageValue = "99"
    )
    static final void method2527() {
-      Client.field837 = Client.cycleCntr;
+      client.field837 = client.cycleCntr;
       MapLabel.field221 = true;
    }
 

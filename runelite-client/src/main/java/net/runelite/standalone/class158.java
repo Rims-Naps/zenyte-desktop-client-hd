@@ -34,14 +34,14 @@ public final class class158 {
       if(class316.username == null || class316.username.length() <= 0) {
          if(GameEngine.options.rememberedUsername != null) {
             class316.username = GameEngine.options.rememberedUsername;
-            Client.onUsernameChanged(-1);
-            Client.Login_isUsernameRemembered = true;
+            client.onUsernameChanged(-1);
+            client.Login_isUsernameRemembered = true;
          } else {
-            Client.Login_isUsernameRemembered = false;
+            client.Login_isUsernameRemembered = false;
          }
       }
 
-      if(Client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
+      if(client.Login_isUsernameRemembered && class316.username != null && class316.username.length() > 0) {
          class316.currentLoginField = 1;
       } else {
          class316.currentLoginField = 0;
@@ -55,11 +55,11 @@ public final class class158 {
       garbageValue = "-1440028749"
    )
    public static void method2697(int var0, int var1, int var2, boolean var3) {
-      TcpConnectionMessage var4 = FaceNormal.method5726(ClientProt.field2211, Client.serverConnection.isaac);
-      var4.packetBuffer.method6202(var3?Client.field659:0);
+      TcpConnectionMessage var4 = FaceNormal.method5726(ClientProt.field2211, client.serverConnection.isaac);
+      var4.packetBuffer.method6202(var3?client.field659:0);
       var4.packetBuffer.method6178(var1);
       var4.packetBuffer.method6105(var2);
       var4.packetBuffer.method6063(var0);
-      Client.serverConnection.method5881(var4);
+      client.serverConnection.method5881(var4);
    }
 }

@@ -156,7 +156,7 @@ public class class56 {
             return 1;
          } else if(var0 == 1121) {
             Sequence.method4796(var3.id, var3.index);
-            Client.field880 = var3;
+            client.field880 = var3;
             class208.method4144(var3);
             return 1;
          } else if(var0 == 1122) {

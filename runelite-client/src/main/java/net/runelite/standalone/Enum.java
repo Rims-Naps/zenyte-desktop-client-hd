@@ -122,8 +122,8 @@ public class Enum extends CacheableNode {
       garbageValue = "21"
    )
    static void method6514() {
-      if(class4.localPlayer.x >> 7 == Client.destinationX && class4.localPlayer.y >> 7 == Client.destinationY) {
-         Client.destinationX = 0;
+      if(class4.localPlayer.x >> 7 == client.destinationX && class4.localPlayer.y >> 7 == client.destinationY) {
+         client.destinationX = 0;
       }
 
    }

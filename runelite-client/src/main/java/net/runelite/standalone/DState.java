@@ -159,17 +159,17 @@ public final class DState {
       garbageValue = "-75"
    )
    static final void method5638(String var0, String var1, int var2, int var3, int var4, int var5, boolean var6) {
-      if(!Client.isMenuOpen) {
-         if(Client.menuOptionCount < 500) {
-            Client.menuOptions[Client.menuOptionCount] = var0;
-            Client.menuTargets[Client.menuOptionCount] = var1;
-            Client.menuTypes[Client.menuOptionCount] = var2;
-            Client.menuIdentifiers[Client.menuOptionCount] = var3;
-            Client.menuActionParams0[Client.menuOptionCount] = var4;
-            Client.menuActionParams1[Client.menuOptionCount] = var5;
-            Client.menuBooleanArray[Client.menuOptionCount] = var6;
-            ++Client.menuOptionCount;
-            Client.onMenuOptionsChanged(-1);
+      if(!client.isMenuOpen) {
+         if(client.menuOptionCount < 500) {
+            client.menuOptions[client.menuOptionCount] = var0;
+            client.menuTargets[client.menuOptionCount] = var1;
+            client.menuTypes[client.menuOptionCount] = var2;
+            client.menuIdentifiers[client.menuOptionCount] = var3;
+            client.menuActionParams0[client.menuOptionCount] = var4;
+            client.menuActionParams1[client.menuOptionCount] = var5;
+            client.menuBooleanArray[client.menuOptionCount] = var6;
+            ++client.menuOptionCount;
+            client.onMenuOptionsChanged(-1);
          }
 
       }

@@ -377,7 +377,7 @@ public class WorldMapData implements RSWorldMapData {
          class316.leftBackground = class48.method776(var4);
          class316.rightBackground = class316.leftBackground.method2242();*/
          Assets.init();
-         if((Client.flags & 536870912) != 0) {
+         if((client.flags & 536870912) != 0) {
             Varbit.logoSprite = MapElementType.method2369(var1, "logo_deadman_mode", "");
          } else {
             Varbit.logoSprite = MapElementType.method2369(var1, "logo", "");
@@ -473,7 +473,7 @@ public class WorldMapData implements RSWorldMapData {
          WorldMapDecoration.field183 = new int['耀'];
          if(var2) {
             class316.username = "";
-            Client.onUsernameChanged(-1);
+            client.onUsernameChanged(-1);
             class316.password = "";
          }
 

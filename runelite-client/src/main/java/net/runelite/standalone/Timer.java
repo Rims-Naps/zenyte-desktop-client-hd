@@ -78,7 +78,7 @@ public abstract class Timer {
    )
    static void method5404() {
       class316.username = class316.username.trim();
-      Client.onUsernameChanged(-1);
+      client.onUsernameChanged(-1);
       if(class316.username.length() == 0) {
          class150.method2560("Please enter your username.", "If you created your account after November", "2010, this will be the creation email address.");
       } else {

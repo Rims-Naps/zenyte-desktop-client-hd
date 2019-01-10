@@ -53,7 +53,7 @@ public class FriendManager implements RSFriendManager {
       garbageValue = "-831196560"
    )
    final boolean method52() {
-      return this.friendContainer.method5226() || this.friendContainer.method5225() >= 200 && Client.field761 != 1;
+      return this.friendContainer.method5226() || this.friendContainer.method5225() >= 200 && client.field761 != 1;
    }
 
    @ObfuscatedName("r")
@@ -159,10 +159,10 @@ public class FriendManager implements RSFriendManager {
             } else if(this.method69(var2, false)) {
                WorldMapData.method1055(var1);
             } else {
-               TcpConnectionMessage var3 = FaceNormal.method5726(ClientProt.field2297, Client.serverConnection.isaac);
+               TcpConnectionMessage var3 = FaceNormal.method5726(ClientProt.field2297, client.serverConnection.isaac);
                var3.packetBuffer.method6114(AbstractSoundSystem.method338(var1));
                var3.packetBuffer.method6198(var1);
-               Client.serverConnection.method5881(var3);
+               client.serverConnection.method5881(var3);
             }
          }
       }
@@ -216,11 +216,11 @@ public class FriendManager implements RSFriendManager {
          Name var2 = new Name(var1, this.jagexLoginType);
          if(var2.method4714()) {
             if(this.friendContainer.method5231(var2)) {
-               Client.lastFriendTransmit = Client.cycleCntr;
-               TcpConnectionMessage var3 = FaceNormal.method5726(ClientProt.field2231, Client.serverConnection.isaac);
+               client.lastFriendTransmit = client.cycleCntr;
+               TcpConnectionMessage var3 = FaceNormal.method5726(ClientProt.field2231, client.serverConnection.isaac);
                var3.packetBuffer.method6114(AbstractSoundSystem.method338(var1));
                var3.packetBuffer.method6198(var1);
-               Client.serverConnection.method5881(var3);
+               client.serverConnection.method5881(var3);
             }
 
             IndexStoreActionHandler.method5750();
@@ -234,7 +234,7 @@ public class FriendManager implements RSFriendManager {
       garbageValue = "114"
    )
    final boolean method54() {
-      return this.ignoreContainer.method5226() || this.ignoreContainer.method5225() >= 100 && Client.field761 != 1;
+      return this.ignoreContainer.method5226() || this.ignoreContainer.method5225() >= 100 && client.field761 != 1;
    }
 
    @ObfuscatedName("u")
@@ -247,11 +247,11 @@ public class FriendManager implements RSFriendManager {
          Name var2 = new Name(var1, this.jagexLoginType);
          if(var2.method4714()) {
             if(this.ignoreContainer.method5231(var2)) {
-               Client.lastFriendTransmit = Client.cycleCntr;
-               TcpConnectionMessage var3 = FaceNormal.method5726(ClientProt.field2235, Client.serverConnection.isaac);
+               client.lastFriendTransmit = client.cycleCntr;
+               TcpConnectionMessage var3 = FaceNormal.method5726(ClientProt.field2235, client.serverConnection.isaac);
                var3.packetBuffer.method6114(AbstractSoundSystem.method338(var1));
                var3.packetBuffer.method6198(var1);
-               Client.serverConnection.method5881(var3);
+               client.serverConnection.method5881(var3);
             }
 
             GrandExchangeEvent.method808();

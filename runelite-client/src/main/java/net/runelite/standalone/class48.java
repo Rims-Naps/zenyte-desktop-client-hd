@@ -125,11 +125,11 @@ public class class48 {
       garbageValue = "-904353438"
    )
    static void method778() {
-      TcpConnectionMessage var0 = FaceNormal.method5726(ClientProt.field2242, Client.serverConnection.isaac);
+      TcpConnectionMessage var0 = FaceNormal.method5726(ClientProt.field2242, client.serverConnection.isaac);
       var0.packetBuffer.method6114(WorldMapRectangle.method127());
       var0.packetBuffer.method6063(FriendManager.canvasWidth);
       var0.packetBuffer.method6063(class230.canvasHeight);
-      Client.serverConnection.method5881(var0);
+      client.serverConnection.method5881(var0);
    }
 
    @ObfuscatedName("g")

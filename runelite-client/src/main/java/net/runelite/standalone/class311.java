@@ -58,9 +58,9 @@ public class class311 {
       garbageValue = "0"
    )
    static final void method5932(int var0, int var1, int var2, int var3) {
-      for(int var4 = 0; var4 < Client.widgetCount; ++var4) {
-         if(Client.widgetBoundsWidth[var4] + Client.widgetPositionX[var4] > var0 && Client.widgetPositionX[var4] < var0 + var2 && Client.widgetBoundsHeight[var4] + Client.widgetPositionY[var4] > var1 && Client.widgetPositionY[var4] < var3 + var1) {
-            Client.field849[var4] = true;
+      for(int var4 = 0; var4 < client.widgetCount; ++var4) {
+         if(client.widgetBoundsWidth[var4] + client.widgetPositionX[var4] > var0 && client.widgetPositionX[var4] < var0 + var2 && client.widgetBoundsHeight[var4] + client.widgetPositionY[var4] > var1 && client.widgetPositionY[var4] < var3 + var1) {
+            client.field849[var4] = true;
          }
       }
 

@@ -119,22 +119,22 @@ public final class GroundObject implements RSGroundObject {
       garbageValue = "-1542277702"
    )
    static final void method4581(boolean var0) {
-      for(int var1 = 0; var1 < Client.highResolutionNpcCount; ++var1) {
-         NPCEntity var2 = Client.npcs[Client.highResolutionNpcIndexes[var1]];
+      for(int var1 = 0; var1 < client.highResolutionNpcCount; ++var1) {
+         NPCEntity var2 = client.npcs[client.highResolutionNpcIndexes[var1]];
          if(var2 != null && var2.vmethod2900() && var2.type.isVisible == var0 && var2.type.method5838()) {
             int var3 = var2.x >> 7;
             int var4 = var2.y >> 7;
             if(var3 >= 0 && var3 < 104 && var4 >= 0 && var4 < 104) {
                if(var2.size == 1 && (var2.x & 127) == 64 && (var2.y & 127) == 64) {
-                  if(Client.field740[var3][var4] == Client.field741) {
+                  if(client.field740[var3][var4] == client.field741) {
                      continue;
                   }
 
-                  Client.field740[var3][var4] = Client.field741;
+                  client.field740[var3][var4] = client.field741;
                }
 
-               long var5 = WorldComparator.method6484(0, 0, 1, !var2.type.isClickable, Client.highResolutionNpcIndexes[var1]);
-               var2.field943 = Client.gameCycle;
+               long var5 = WorldComparator.method6484(0, 0, 1, !var2.type.isClickable, client.highResolutionNpcIndexes[var1]);
+               var2.field943 = client.gameCycle;
                class131.sceneManager.method3830(class228.level, var2.x, var2.y, MilliTimer.method2824(var2.size * 64 - 64 + var2.x, var2.size * 64 - 64 + var2.y, class228.level), var2.size * 64 - 64 + 60, var2, var2.angle, var5, var2.field941);
             }
          }

@@ -22,7 +22,7 @@ public class class60 implements Callable {
       garbageValue = "-45"
    )
    public static boolean method885() {
-      return Client.staffModLevel >= 2;
+      return client.staffModLevel >= 2;
    }
 
    @ObfuscatedName("m")
@@ -40,9 +40,9 @@ public class class60 implements Callable {
       garbageValue = "1669330682"
    )
    static final void method877() {
-      TcpConnectionMessage var0 = FaceNormal.method5726(ClientProt.field2291, Client.serverConnection.isaac);
+      TcpConnectionMessage var0 = FaceNormal.method5726(ClientProt.field2291, client.serverConnection.isaac);
       var0.packetBuffer.method6114(0);
-      Client.serverConnection.method5881(var0);
+      client.serverConnection.method5881(var0);
    }
 
    @ObfuscatedName("d")

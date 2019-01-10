@@ -27,7 +27,7 @@ public class class248 {
       garbageValue = "786051635"
    )
    static void method4712(int var0) {
-      for(IntegerNode var1 = (IntegerNode)Client.serverActiveProperties.method391(); var1 != null; var1 = (IntegerNode)Client.serverActiveProperties.method385()) {
+      for(IntegerNode var1 = (IntegerNode)client.serverActiveProperties.method391(); var1 != null; var1 = (IntegerNode)client.serverActiveProperties.method385()) {
          if((var1.hash >> 48 & 65535L) == (long)var0) {
             var1.method6469();
          }

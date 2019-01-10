@@ -61,7 +61,7 @@ public class class134 {
       garbageValue = "1527680135"
    )
    static final void method2200() {
-      for(PendingSpawn var0 = (PendingSpawn)Client.pendingSpawns.method4373(); var0 != null; var0 = (PendingSpawn)Client.pendingSpawns.method4358()) {
+      for(PendingSpawn var0 = (PendingSpawn)client.pendingSpawns.method4373(); var0 != null; var0 = (PendingSpawn)client.pendingSpawns.method4358()) {
          if(var0.hitpoints > 0) {
             --var0.hitpoints;
          }
@@ -92,7 +92,7 @@ public class class134 {
 
    @ObfuscatedName("ao")
    static void method2204(int var0, int var1) {
-      Client.copy$runWidgetOnLoadListener(var0, var1);
+      client.copy$runWidgetOnLoadListener(var0, var1);
       RSWidget[][] var2 = class166.clientInstance.getWidgets();
       boolean var3 = var2 != null && var2[var0] != null;
       if(var3) {

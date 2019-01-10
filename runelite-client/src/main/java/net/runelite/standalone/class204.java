@@ -163,9 +163,9 @@ public class class204 extends CacheableNode {
       garbageValue = "0"
    )
    static final void method4095(String var0) {
-      TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2278, Client.serverConnection.isaac);
+      TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2278, client.serverConnection.isaac);
       var1.packetBuffer.method6114(AbstractSoundSystem.method338(var0));
       var1.packetBuffer.method6198(var0);
-      Client.serverConnection.method5881(var1);
+      client.serverConnection.method5881(var1);
    }
 }

@@ -164,7 +164,7 @@ public final class SpotAnimation extends Entity implements RSGraphicsObject {
       }
 
       String var3;
-      if(var0.buttonType == 2 && !Client.spellSelected) {
+      if(var0.buttonType == 2 && !client.spellSelected) {
          var3 = class106.method1886(var0);
          if(var3 != null) {
             class316.method5992(var3, class31.method548(65280) + var0.spellName, 25, 0, -1, var0.id);
@@ -183,7 +183,7 @@ public final class SpotAnimation extends Entity implements RSGraphicsObject {
          class316.method5992(var0.tooltip, "", 29, 0, 0, var0.id);
       }
 
-      if(var0.buttonType == 6 && Client.field880 == null) {
+      if(var0.buttonType == 6 && client.field880 == null) {
          class316.method5992(var0.tooltip, "", 30, 0, -1, var0.id);
       }
 
@@ -205,24 +205,24 @@ public final class SpotAnimation extends Entity implements RSGraphicsObject {
                }
 
                if(var1 >= var6 && var2 >= var7 && var1 < var6 + 32 && var2 < var7 + 32) {
-                  Client.field797 = var15;
+                  client.field797 = var15;
                   class260.field104 = var0;
                   if(var0.objIds[var15] > 0) {
                      ObjType var8 = Varcs.method4770(var0.objIds[var15] - 1);
-                     if(Client.itemSelectionState == 1 && LoginProt.method870(class101.method1704(var0))) {
+                     if(client.itemSelectionState == 1 && LoginProt.method870(class101.method1704(var0))) {
                         if(var0.id != ChatLineBuffer.field1276 || var15 != MapLabel.selectedItemIndex) {
-                           class316.method5992("Use", Client.lastSelectedItemName + " " + "->" + " " + class31.method548(16748608) + var8.name, 31, var8.id, var15, var0.id);
+                           class316.method5992("Use", client.lastSelectedItemName + " " + "->" + " " + class31.method548(16748608) + var8.name, 31, var8.id, var15, var0.id);
                         }
-                     } else if(Client.spellSelected && LoginProt.method870(class101.method1704(var0))) {
+                     } else if(client.spellSelected && LoginProt.method870(class101.method1704(var0))) {
                         if((FontName.ifTargetMask & 16) == 16) {
-                           class316.method5992(Client.targetVerb, Client.opBase + " " + "->" + " " + class31.method548(16748608) + var8.name, 32, var8.id, var15, var0.id);
+                           class316.method5992(client.targetVerb, client.opBase + " " + "->" + " " + class31.method548(16748608) + var8.name, 32, var8.id, var15, var0.id);
                         }
                      } else {
                         String[] var9 = var8.iops;
                         int var10 = -1;
                         boolean var11;
-                        if(Client.field789) {
-                           var11 = Client.field790 || KeyFocusListener.keyPressed[81];
+                        if(client.field789) {
+                           var11 = client.field790 || KeyFocusListener.keyPressed[81];
                            if(var11) {
                               var10 = var8.method6319(982890618);
                            }
@@ -297,11 +297,11 @@ public final class SpotAnimation extends Entity implements RSGraphicsObject {
       }
 
       if(var0.isIf3) {
-         if(Client.spellSelected) {
+         if(client.spellSelected) {
             var4 = class101.method1704(var0);
             boolean var23 = (var4 >> 21 & 1) != 0;
             if(var23 && (FontName.ifTargetMask & 32) == 32) {
-               class316.method5992(Client.targetVerb, Client.opBase + " " + "->" + " " + var0.opBase, 58, 0, var0.index, var0.id);
+               class316.method5992(client.targetVerb, client.opBase + " " + "->" + " " + var0.opBase, 58, 0, var0.index, var0.id);
             }
          } else {
             for(var15 = 9; var15 >= 5; --var15) {

@@ -115,6 +115,6 @@ public class class315 {
       garbageValue = "-1864650036"
    )
    static void method5964(int var0) {
-      Client.camModeType = var0;
+      client.camModeType = var0;
    }
 }

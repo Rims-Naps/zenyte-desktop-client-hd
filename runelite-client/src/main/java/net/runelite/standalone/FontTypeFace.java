@@ -903,7 +903,7 @@ public abstract class FontTypeFace extends Rasterizer2D implements RSFontTypeFac
          for(int var11 = -var5; var11 < 0; ++var11) {
             if(var1[var3++] != 0) {
                int var12 = var0[var4];
-               Client.drawAlpha(var0, var4++, (((var12 & 65280) * var9 & 16711680) + ((var12 & 16711935) * var9 & -16711936) >> 8) + var2, 255 - var9);
+               client.drawAlpha(var0, var4++, (((var12 & 65280) * var9 & 16711680) + ((var12 & 16711935) * var9 & -16711936) >> 8) + var2, 255 - var9);
             } else {
                ++var4;
             }

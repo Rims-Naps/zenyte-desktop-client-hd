@@ -29,11 +29,11 @@ public class OwnWorldComparator implements Comparator {
          return 0;
       } else {
          if(this.field636) {
-            if(Client.world == var1.world) {
+            if(client.world == var1.world) {
                return -1;
             }
 
-            if(var2.world == Client.world) {
+            if(var2.world == client.world) {
                return 1;
             }
          }
@@ -71,10 +71,10 @@ public class OwnWorldComparator implements Comparator {
          class73.method1124(var5);
       }
 
-      Client.field734 = var3;
-      Client.spellSelected = true;
+      client.field734 = var3;
+      client.spellSelected = true;
       class174.field3796 = var0;
-      Client.field799 = var1;
+      client.field799 = var1;
       FontName.ifTargetMask = var2;
       class208.method4144(var4);
    }

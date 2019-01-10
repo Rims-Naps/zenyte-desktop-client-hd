@@ -65,11 +65,11 @@ public class TcpConnectionMessage extends Node {
       }
 
       int var3 = var0.method2833(2);
-      PlayerEntity var4 = Client.players[var1];
+      PlayerEntity var4 = client.players[var1];
       if(var3 == 0) {
          if(var2) {
             var4.field631 = false;
-         } else if(Client.localPlayerIndex == var1) {
+         } else if(client.localPlayerIndex == var1) {
             throw new RuntimeException();
          } else {
             class254.coords[var1] = (var4.field620 << 28) + (class107.baseY + var4.pathY[0] >> 13) + (class158.baseX + var4.pathX[0] >> 13 << 14);
@@ -80,8 +80,8 @@ public class TcpConnectionMessage extends Node {
             }
 
             class254.facingEntities[var1] = var4.interacting;
-            Client.players[var1] = null;
-            Client.cachedPlayersChanged(var1);
+            client.players[var1] = null;
+            client.cachedPlayersChanged(var1);
             if(var0.method2833(1) != 0) {
                class106.method1881(var0, var1);
             }
@@ -117,7 +117,7 @@ public class TcpConnectionMessage extends Node {
                ++var7;
             }
 
-            if(Client.localPlayerIndex != var1 || var4.x >= 1536 && var4.y >= 1536 && var4.x < 11776 && var4.y < 11776) {
+            if(client.localPlayerIndex != var1 || var4.x >= 1536 && var4.y >= 1536 && var4.x < 11776 && var4.y < 11776) {
                if(var2) {
                   var4.field631 = true;
                   var4.xInScene = var6;
@@ -181,7 +181,7 @@ public class TcpConnectionMessage extends Node {
                var7 += 2;
             }
 
-            if(Client.localPlayerIndex == var1 && (var4.x < 1536 || var4.y < 1536 || var4.x >= 11776 || var4.y >= 11776)) {
+            if(client.localPlayerIndex == var1 && (var4.x < 1536 || var4.y < 1536 || var4.x >= 11776 || var4.y >= 11776)) {
                var4.method2927(var6, var7);
                var4.field631 = false;
             } else if(var2) {
@@ -214,7 +214,7 @@ public class TcpConnectionMessage extends Node {
 
                var10 = var8 + var4.pathX[0];
                var11 = var9 + var4.pathY[0];
-               if(Client.localPlayerIndex != var1 || var4.x >= 1536 && var4.y >= 1536 && var4.x < 11776 && var4.y < 11776) {
+               if(client.localPlayerIndex != var1 || var4.x >= 1536 && var4.y >= 1536 && var4.x < 11776 && var4.y < 11776) {
                   if(var2) {
                      var4.field631 = true;
                      var4.xInScene = var10;
@@ -229,7 +229,7 @@ public class TcpConnectionMessage extends Node {
                }
 
                var4.field620 = (byte)(var7 + var4.field620 & 3);
-               if(Client.localPlayerIndex == var1) {
+               if(client.localPlayerIndex == var1) {
                   class228.level = var4.field620;
                }
 
@@ -240,7 +240,7 @@ public class TcpConnectionMessage extends Node {
                var9 = var6 & 16383;
                var10 = (var8 + class158.baseX + var4.pathX[0] & 16383) - class158.baseX;
                var11 = (var9 + class107.baseY + var4.pathY[0] & 16383) - class107.baseY;
-               if(Client.localPlayerIndex != var1 || var4.x >= 1536 && var4.y >= 1536 && var4.x < 11776 && var4.y < 11776) {
+               if(client.localPlayerIndex != var1 || var4.x >= 1536 && var4.y >= 1536 && var4.x < 11776 && var4.y < 11776) {
                   if(var2) {
                      var4.field631 = true;
                      var4.xInScene = var10;
@@ -255,7 +255,7 @@ public class TcpConnectionMessage extends Node {
                }
 
                var4.field620 = (byte)(var7 + var4.field620 & 3);
-               if(Client.localPlayerIndex == var1) {
+               if(client.localPlayerIndex == var1) {
                   class228.level = var4.field620;
                }
 

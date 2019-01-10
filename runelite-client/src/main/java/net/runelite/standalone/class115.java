@@ -145,12 +145,12 @@ public class class115 extends class310 {
    )
    static final void method2006(int var0) {
       if(var0 >= 0) {
-         int var1 = Client.menuActionParams0[var0];
-         int var2 = Client.menuActionParams1[var0];
-         int var3 = Client.menuTypes[var0];
-         int var4 = Client.menuIdentifiers[var0];
-         String var5 = Client.menuOptions[var0];
-         String var6 = Client.menuTargets[var0];
+         int var1 = client.menuActionParams0[var0];
+         int var2 = client.menuActionParams1[var0];
+         int var3 = client.menuTypes[var0];
+         int var4 = client.menuIdentifiers[var0];
+         String var5 = client.menuOptions[var0];
+         String var6 = client.menuTargets[var0];
          class39.method595(var1, var2, var3, var4, var5, var6, MouseInput.mouseLastPressedX, MouseInput.mouseLastPressedY, -2119291913);
       }
    }
@@ -207,7 +207,7 @@ public class class115 extends class310 {
       garbageValue = "-117"
    )
    static String method2003(int var0) {
-      return var0 < 0?"":(Client.menuTargets[var0].length() > 0?Client.menuOptions[var0] + " " + Client.menuTargets[var0]:Client.menuOptions[var0]);
+      return var0 < 0?"":(client.menuTargets[var0].length() > 0?client.menuOptions[var0] + " " + client.menuTargets[var0]:client.menuOptions[var0]);
    }
 
    @ObfuscatedName("gc")
@@ -246,11 +246,11 @@ public class class115 extends class310 {
       garbageValue = "57"
    )
    static final void method1983(int var0, int var1, int var2, int var3) {
-      ++Client.field741;
+      ++client.field741;
       Enum.method6514();
       World.method3770();
-      if(Client.field769 >= 0 && Client.players[Client.field769] != null) {
-         PlayerEntity.method2924(Client.players[Client.field769], false);
+      if(client.field769 >= 0 && client.players[client.field769] != null) {
+         PlayerEntity.method2924(client.players[client.field769], false);
       }
 
       GroundObject.method4581(true);
@@ -259,38 +259,38 @@ public class class115 extends class310 {
 
       int var6;
       for(var6 = 0; var6 < var4; ++var6) {
-         if(var5[var6] != Client.field769 && var5[var6] != Client.localPlayerIndex) {
-            PlayerEntity.method2924(Client.players[var5[var6]], true);
+         if(var5[var6] != client.field769 && var5[var6] != client.localPlayerIndex) {
+            PlayerEntity.method2924(client.players[var5[var6]], true);
          }
       }
 
       GroundObject.method4581(false);
 
-      for(ProjectileAnimation var28 = (ProjectileAnimation)Client.projectiles.method4373(); var28 != null; var28 = (ProjectileAnimation)Client.projectiles.method4358()) {
-         if(var28.floor == class228.level && Client.gameCycle <= var28.endCycle) {
-            if(Client.gameCycle >= var28.startMovementCycle) {
+      for(ProjectileAnimation var28 = (ProjectileAnimation)client.projectiles.method4373(); var28 != null; var28 = (ProjectileAnimation)client.projectiles.method4358()) {
+         if(var28.floor == class228.level && client.gameCycle <= var28.endCycle) {
+            if(client.gameCycle >= var28.startMovementCycle) {
                if(var28.interacting > 0) {
-                  NPCEntity var33 = Client.npcs[var28.interacting - 1];
+                  NPCEntity var33 = client.npcs[var28.interacting - 1];
                   if(var33 != null && var33.x >= 0 && var33.x < 13312 && var33.y >= 0 && var33.y < 13312) {
-                     var28.method5583(var33.x, var33.y, MilliTimer.method2824(var33.x, var33.y, var28.floor) - var28.endHeight, Client.gameCycle);
+                     var28.method5583(var33.x, var33.y, MilliTimer.method2824(var33.x, var33.y, var28.floor) - var28.endHeight, client.gameCycle);
                   }
                }
 
                if(var28.interacting < 0) {
                   var6 = -var28.interacting - 1;
                   PlayerEntity var34;
-                  if(var6 == Client.localPlayerIndex) {
+                  if(var6 == client.localPlayerIndex) {
                      var34 = class4.localPlayer;
                   } else {
-                     var34 = Client.players[var6];
+                     var34 = client.players[var6];
                   }
 
                   if(var34 != null && var34.x >= 0 && var34.x < 13312 && var34.y >= 0 && var34.y < 13312) {
-                     var28.method5583(var34.x, var34.y, MilliTimer.method2824(var34.x, var34.y, var28.floor) - var28.endHeight, Client.gameCycle);
+                     var28.method5583(var34.x, var34.y, MilliTimer.method2824(var34.x, var34.y, var28.floor) - var28.endHeight, client.gameCycle);
                   }
                }
 
-               var28.method5589(Client.field705);
+               var28.method5589(client.field705);
                class131.sceneManager.method3830(class228.level, (int)var28.x, (int)var28.y, (int)var28.z, 60, var28, var28.rotationX, -1L, false);
             }
          } else {
@@ -298,10 +298,10 @@ public class class115 extends class310 {
          }
       }
 
-      for(SpotAnimation var36 = (SpotAnimation)Client.spotAnimationDeque.method4373(); var36 != null; var36 = (SpotAnimation)Client.spotAnimationDeque.method4358()) {
+      for(SpotAnimation var36 = (SpotAnimation)client.spotAnimationDeque.method4373(); var36 != null; var36 = (SpotAnimation)client.spotAnimationDeque.method4358()) {
          if(var36.level == class228.level && !var36.finished) {
-            if(Client.gameCycle >= var36.startCycle) {
-               var36.method5439(Client.field705);
+            if(client.gameCycle >= var36.startCycle) {
+               var36.method5439(client.field705);
                if(var36.finished) {
                   var36.method6469();
                } else {
@@ -314,10 +314,10 @@ public class class115 extends class310 {
       }
 
       TotalQuantityComparator.method1189(var0, var1, var2, var3, true);
-      var0 = Client.Viewport_xOffset;
-      var1 = Client.Viewport_yOffset;
-      var2 = Client.viewportWidth;
-      var3 = Client.viewportHeight;
+      var0 = client.Viewport_xOffset;
+      var1 = client.Viewport_yOffset;
+      var2 = client.viewportWidth;
+      var3 = client.viewportHeight;
       Rasterizer2D.method469(var0, var1, var0 + var2, var3 + var1);
       Graphics3D.method2586();
       int var7;
@@ -332,17 +332,17 @@ public class class115 extends class310 {
       int var18;
       int var19;
       int var29;
-      if(!Client.field889) {
-         var4 = Client.cameraPitchTarget;
-         if(Client.field729 / 256 > var4) {
-            var4 = Client.field729 / 256;
+      if(!client.field889) {
+         var4 = client.cameraPitchTarget;
+         if(client.field729 / 256 > var4) {
+            var4 = client.field729 / 256;
          }
 
-         if(Client.field890[4] && Client.field892[4] + 128 > var4) {
-            var4 = Client.field892[4] + 128;
+         if(client.field890[4] && client.field892[4] + 128 > var4) {
+            var4 = client.field892[4] + 128;
          }
 
-         var29 = Client.mapAngle & 2047;
+         var29 = client.mapAngle & 2047;
          var6 = class192.field68;
          var7 = class195.field1717;
          var8 = class192.field70;
@@ -354,7 +354,7 @@ public class class115 extends class310 {
             var12 = 100;
          }
 
-         var13 = (Client.field898 - Client.field897) * var12 / 100 + Client.field897;
+         var13 = (client.field898 - client.field897) * var12 / 100 + client.field897;
          var11 = var13 * var9 / 256;
          var12 = 2048 - var4 & 2047;
          var13 = 2048 - var29 & 2047;
@@ -382,9 +382,9 @@ public class class115 extends class310 {
          Packet.cameraZ = var7 - var15;
          class98.cameraY = var8 - var16;
          ScriptEvent.cameraPitch = var4;
-         Client.onCameraPitchChanged(-1);
+         client.onCameraPitchChanged(-1);
          class39.cameraYaw = var29;
-         if(Client.camModeType == 1 && Client.staffModLevel >= 2 && Client.gameCycle % 50 == 0 && (class192.field68 >> 7 != class4.localPlayer.x >> 7 || class192.field70 >> 7 != class4.localPlayer.y >> 7)) {
+         if(client.camModeType == 1 && client.staffModLevel >= 2 && client.gameCycle % 50 == 0 && (class192.field68 >> 7 != class4.localPlayer.x >> 7 || class192.field70 >> 7 != class4.localPlayer.y >> 7)) {
             var17 = class4.localPlayer.field620;
             var18 = (class192.field68 >> 7) + class158.baseX;
             var19 = (class192.field70 >> 7) + class107.baseY;
@@ -393,14 +393,14 @@ public class class115 extends class310 {
       }
 
       int var10;
-      if(!Client.field889) {
+      if(!client.field889) {
          if(GameEngine.options.hideRoofs) {
             var29 = class228.level;
          } else {
             label804: {
                var6 = 3;
                if(ScriptEvent.cameraPitch < 310) {
-                  if(Client.camModeType == 1) {
+                  if(client.camModeType == 1) {
                      var7 = class192.field68 >> 7;
                      var8 = class192.field70 >> 7;
                   } else {
@@ -532,8 +532,8 @@ public class class115 extends class310 {
       var9 = class39.cameraYaw;
 
       for(var10 = 0; var10 < 5; ++var10) {
-         if(Client.field890[var10]) {
-            var11 = (int)(Math.random() * (double)(Client.field891[var10] * 2 + 1) - (double)Client.field891[var10] + Math.sin((double)Client.field893[var10] / 100.0D * (double)Client.field894[var10]) * (double)Client.field892[var10]);
+         if(client.field890[var10]) {
+            var11 = (int)(Math.random() * (double)(client.field891[var10] * 2 + 1) - (double)client.field891[var10] + Math.sin((double)client.field893[var10] / 100.0D * (double)client.field894[var10]) * (double)client.field892[var10]);
             if(var10 == 0) {
                class166.cameraX += var11;
             }
@@ -552,15 +552,15 @@ public class class115 extends class310 {
 
             if(var10 == 4) {
                ScriptEvent.cameraPitch += var11;
-               Client.onCameraPitchChanged(-1);
+               client.onCameraPitchChanged(-1);
                if(ScriptEvent.cameraPitch < 128) {
                   ScriptEvent.cameraPitch = 128;
-                  Client.onCameraPitchChanged(-1);
+                  client.onCameraPitchChanged(-1);
                }
 
                if(ScriptEvent.cameraPitch > 383) {
                   ScriptEvent.cameraPitch = 383;
-                  Client.onCameraPitchChanged(-1);
+                  client.onCameraPitchChanged(-1);
                }
             }
          }
@@ -589,23 +589,23 @@ public class class115 extends class310 {
       Hooks.clearColorBuffer(var0, var1, var2, var3, 0);
       class76.method1147();
       var12 = Graphics3D.Rasterizer3D_zoom;
-      Graphics3D.Rasterizer3D_zoom = Client.scale;
+      Graphics3D.Rasterizer3D_zoom = client.scale;
       class131.sceneManager.method3836(class166.cameraX, Packet.cameraZ, class98.cameraY, ScriptEvent.cameraPitch, class39.cameraYaw, var4);
       Graphics3D.Rasterizer3D_zoom = var12;
       class76.method1147();
       class131.sceneManager.method3809();
-      Client.overheadTextCount = 0;
+      client.overheadTextCount = 0;
       boolean var35 = false;
       var14 = -1;
       var15 = -1;
       var16 = class254.highResolutionPlayerCount;
       int[] var30 = class254.highResolutionPlayerIndexes;
 
-      for(var18 = 0; var18 < var16 + Client.highResolutionNpcCount; ++var18) {
+      for(var18 = 0; var18 < var16 + client.highResolutionNpcCount; ++var18) {
          Object var31;
          if(var18 < var16) {
-            var31 = Client.players[var30[var18]];
-            if(var30[var18] == Client.field769) {
+            var31 = client.players[var30[var18]];
+            if(var30[var18] == client.field769) {
                var35 = true;
                var14 = var18;
                continue;
@@ -616,62 +616,62 @@ public class class115 extends class310 {
                continue;
             }
          } else {
-            var31 = Client.npcs[Client.highResolutionNpcIndexes[var18 - var16]];
+            var31 = client.npcs[client.highResolutionNpcIndexes[var18 - var16]];
          }
 
          FriendManager.method121((PathingEntity)var31, var18, var0, var1, var2, var3, -1365633758);
       }
 
-      if(Client.field762 && var15 != -1) {
+      if(client.field762 && var15 != -1) {
          FriendManager.method121(class4.localPlayer, var15, var0, var1, var2, var3, -577288766);
       }
 
       if(var35) {
-         FriendManager.method121(Client.players[Client.field769], var14, var0, var1, var2, var3, -1669401018);
+         FriendManager.method121(client.players[client.field769], var14, var0, var1, var2, var3, -1669401018);
       }
 
-      for(var18 = 0; var18 < Client.overheadTextCount; ++var18) {
-         var19 = Client.overheadTextsX[var18];
-         int var20 = Client.overheadTextsY[var18];
-         int var21 = Client.overheadTextsOffsetX[var18];
-         int var22 = Client.overheadTextsOffsetY[var18];
+      for(var18 = 0; var18 < client.overheadTextCount; ++var18) {
+         var19 = client.overheadTextsX[var18];
+         int var20 = client.overheadTextsY[var18];
+         int var21 = client.overheadTextsOffsetX[var18];
+         int var22 = client.overheadTextsOffsetY[var18];
          boolean var23 = true;
 
          while(var23) {
             var23 = false;
 
             for(int var24 = 0; var24 < var18; ++var24) {
-               if(var20 + 2 > Client.overheadTextsY[var24] - Client.overheadTextsOffsetY[var24] && var20 - var22 < Client.overheadTextsY[var24] + 2 && var19 - var21 < Client.overheadTextsOffsetX[var24] + Client.overheadTextsX[var24] && var21 + var19 > Client.overheadTextsX[var24] - Client.overheadTextsOffsetX[var24] && Client.overheadTextsY[var24] - Client.overheadTextsOffsetY[var24] < var20) {
-                  var20 = Client.overheadTextsY[var24] - Client.overheadTextsOffsetY[var24];
+               if(var20 + 2 > client.overheadTextsY[var24] - client.overheadTextsOffsetY[var24] && var20 - var22 < client.overheadTextsY[var24] + 2 && var19 - var21 < client.overheadTextsOffsetX[var24] + client.overheadTextsX[var24] && var21 + var19 > client.overheadTextsX[var24] - client.overheadTextsOffsetX[var24] && client.overheadTextsY[var24] - client.overheadTextsOffsetY[var24] < var20) {
+                  var20 = client.overheadTextsY[var24] - client.overheadTextsOffsetY[var24];
                   var23 = true;
                }
             }
          }
 
-         Client.screenX = Client.overheadTextsX[var18];
-         Client.screenY = Client.overheadTextsY[var18] = var20;
-         String var32 = Client.overheadTexts[var18];
-         if(Client.field807 == 0) {
+         client.screenX = client.overheadTextsX[var18];
+         client.screenY = client.overheadTextsY[var18] = var20;
+         String var32 = client.overheadTexts[var18];
+         if(client.field807 == 0) {
             int var25 = 16776960;
-            if(Client.field736[var18] < 6) {
-               var25 = Client.field859[Client.field736[var18]];
+            if(client.field736[var18] < 6) {
+               var25 = client.field859[client.field736[var18]];
             }
 
-            if(Client.field736[var18] == 6) {
-               var25 = Client.field741 % 20 < 10?16711680:16776960;
+            if(client.field736[var18] == 6) {
+               var25 = client.field741 % 20 < 10?16711680:16776960;
             }
 
-            if(Client.field736[var18] == 7) {
-               var25 = Client.field741 % 20 < 10?255:'\uffff';
+            if(client.field736[var18] == 7) {
+               var25 = client.field741 % 20 < 10?255:'\uffff';
             }
 
-            if(Client.field736[var18] == 8) {
-               var25 = Client.field741 % 20 < 10?'뀀':8454016;
+            if(client.field736[var18] == 8) {
+               var25 = client.field741 % 20 < 10?'뀀':8454016;
             }
 
             int var26;
-            if(Client.field736[var18] == 9) {
-               var26 = 150 - Client.overheadTextsCyclesRemaining[var18];
+            if(client.field736[var18] == 9) {
+               var26 = 150 - client.overheadTextsCyclesRemaining[var18];
                if(var26 < 50) {
                   var25 = var26 * 1280 + 16711680;
                } else if(var26 < 100) {
@@ -681,8 +681,8 @@ public class class115 extends class310 {
                }
             }
 
-            if(Client.field736[var18] == 10) {
-               var26 = 150 - Client.overheadTextsCyclesRemaining[var18];
+            if(client.field736[var18] == 10) {
+               var26 = 150 - client.overheadTextsCyclesRemaining[var18];
                if(var26 < 50) {
                   var25 = var26 * 5 + 16711680;
                } else if(var26 < 100) {
@@ -692,8 +692,8 @@ public class class115 extends class310 {
                }
             }
 
-            if(Client.field736[var18] == 11) {
-               var26 = 150 - Client.overheadTextsCyclesRemaining[var18];
+            if(client.field736[var18] == 11) {
+               var26 = 150 - client.overheadTextsCyclesRemaining[var18];
                if(var26 < 50) {
                   var25 = 16777215 - var26 * 327685;
                } else if(var26 < 100) {
@@ -703,31 +703,31 @@ public class class115 extends class310 {
                }
             }
 
-            if(Client.field737[var18] == 0) {
-               class288.fontBold12.method1862(var32, var0 + Client.screenX, Client.screenY + var1, var25, 0);
+            if(client.field737[var18] == 0) {
+               class288.fontBold12.method1862(var32, var0 + client.screenX, client.screenY + var1, var25, 0);
             }
 
-            if(Client.field737[var18] == 1) {
-               class288.fontBold12.method1784(var32, var0 + Client.screenX, Client.screenY + var1, var25, 0, Client.field741);
+            if(client.field737[var18] == 1) {
+               class288.fontBold12.method1784(var32, var0 + client.screenX, client.screenY + var1, var25, 0, client.field741);
             }
 
-            if(Client.field737[var18] == 2) {
-               class288.fontBold12.method1785(var32, var0 + Client.screenX, Client.screenY + var1, var25, 0, Client.field741);
+            if(client.field737[var18] == 2) {
+               class288.fontBold12.method1785(var32, var0 + client.screenX, client.screenY + var1, var25, 0, client.field741);
             }
 
-            if(Client.field737[var18] == 3) {
-               class288.fontBold12.method1802(var32, var0 + Client.screenX, Client.screenY + var1, var25, 0, Client.field741, 150 - Client.overheadTextsCyclesRemaining[var18]);
+            if(client.field737[var18] == 3) {
+               class288.fontBold12.method1802(var32, var0 + client.screenX, client.screenY + var1, var25, 0, client.field741, 150 - client.overheadTextsCyclesRemaining[var18]);
             }
 
-            if(Client.field737[var18] == 4) {
-               var26 = (150 - Client.overheadTextsCyclesRemaining[var18]) * (class288.fontBold12.method1775(var32) + 100) / 150;
-               Rasterizer2D.method443(var0 + Client.screenX - 50, var1, var0 + Client.screenX + 50, var3 + var1);
-               class288.fontBold12.method1828(var32, var0 + Client.screenX + 50 - var26, Client.screenY + var1, var25, 0);
+            if(client.field737[var18] == 4) {
+               var26 = (150 - client.overheadTextsCyclesRemaining[var18]) * (class288.fontBold12.method1775(var32) + 100) / 150;
+               Rasterizer2D.method443(var0 + client.screenX - 50, var1, var0 + client.screenX + 50, var3 + var1);
+               class288.fontBold12.method1828(var32, var0 + client.screenX + 50 - var26, client.screenY + var1, var25, 0);
                Rasterizer2D.method469(var0, var1, var0 + var2, var3 + var1);
             }
 
-            if(Client.field737[var18] == 5) {
-               var26 = 150 - Client.overheadTextsCyclesRemaining[var18];
+            if(client.field737[var18] == 5) {
+               var26 = 150 - client.overheadTextsCyclesRemaining[var18];
                int var27 = 0;
                if(var26 < 25) {
                   var27 = var26 - 25;
@@ -735,35 +735,35 @@ public class class115 extends class310 {
                   var27 = var26 - 125;
                }
 
-               Rasterizer2D.method443(var0, Client.screenY + var1 - class288.fontBold12.verticalSpace - 1, var0 + var2, Client.screenY + var1 + 5);
-               class288.fontBold12.method1862(var32, var0 + Client.screenX, var27 + Client.screenY + var1, var25, 0);
+               Rasterizer2D.method443(var0, client.screenY + var1 - class288.fontBold12.verticalSpace - 1, var0 + var2, client.screenY + var1 + 5);
+               class288.fontBold12.method1862(var32, var0 + client.screenX, var27 + client.screenY + var1, var25, 0);
                Rasterizer2D.method469(var0, var1, var0 + var2, var3 + var1);
             }
          } else {
-            class288.fontBold12.method1862(var32, var0 + Client.screenX, Client.screenY + var1, 16776960, 0);
+            class288.fontBold12.method1862(var32, var0 + client.screenX, client.screenY + var1, 16776960, 0);
          }
       }
 
-      if(Client.hintArrowTargetType == 2) {
-         class166.method2813((Client.hintArrowX - class158.baseX << 7) + Client.hintArrowOffsetX, (Client.hintArrowY - class107.baseY << 7) + Client.hintArrowOffsetY, Client.field668 * 2);
-         if(Client.screenX > -1 && Client.gameCycle % 20 < 10) {
-            class158.headIconsHint[0].method2253(var0 + Client.screenX - 12, Client.screenY + var1 - 28);
+      if(client.hintArrowTargetType == 2) {
+         class166.method2813((client.hintArrowX - class158.baseX << 7) + client.hintArrowOffsetX, (client.hintArrowY - class107.baseY << 7) + client.hintArrowOffsetY, client.field668 * 2);
+         if(client.screenX > -1 && client.gameCycle % 20 < 10) {
+            class158.headIconsHint[0].method2253(var0 + client.screenX - 12, client.screenY + var1 - 28);
          }
       }
 
-      ((TextureProvider)Graphics3D.textureLoader).method2772(Client.field705);
+      ((TextureProvider)Graphics3D.textureLoader).method2772(client.field705);
       class260.method5009(var0, var1, var2, var3);
       class166.cameraX = var29;
       Packet.cameraZ = var6;
       class98.cameraY = var7;
       ScriptEvent.cameraPitch = var8;
-      Client.onCameraPitchChanged(-1);
+      client.onCameraPitchChanged(-1);
       class39.cameraYaw = var9;
-      if(Client.field654 && class98.method1661(true, false) == 0) {
-         Client.field654 = false;
+      if(client.field654 && class98.method1661(true, false) == 0) {
+         client.field654 = false;
       }
 
-      if(Client.field654) {
+      if(client.field654) {
          Rasterizer2D.method449(var0, var1, var2, var3, 0);
          MouseRecorder.method2747("Loading - please wait.", false);
       }

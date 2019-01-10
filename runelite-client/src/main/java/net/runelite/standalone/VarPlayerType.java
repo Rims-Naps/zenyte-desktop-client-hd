@@ -174,7 +174,7 @@ public class VarPlayerType extends CacheableNode {
             } else if(var0 == 3609) {
                var5 = class48.scriptStringStack[--class48.scriptStringStackSize];
                var5 = class202.method4069(var5);
-               class48.intStack[++class228.intStackSize - 1] = ServerProt.friendManager.method69(new Name(var5, Client.loginType), false)?1:0;
+               class48.intStack[++class228.intStackSize - 1] = ServerProt.friendManager.method69(new Name(var5, client.loginType), false)?1:0;
                return 1;
             } else if(var0 == 3611) {
                if(TotalQuantityComparator.clanMemberManager != null) {
@@ -259,7 +259,7 @@ public class VarPlayerType extends CacheableNode {
             } else if(var0 == 3623) {
                var5 = class48.scriptStringStack[--class48.scriptStringStackSize];
                var5 = class202.method4069(var5);
-               class48.intStack[++class228.intStackSize - 1] = ServerProt.friendManager.method96(new Name(var5, Client.loginType))?1:0;
+               class48.intStack[++class228.intStackSize - 1] = ServerProt.friendManager.method96(new Name(var5, client.loginType))?1:0;
                return 1;
             } else if(var0 == 3624) {
                var3 = class48.intStack[--class228.intStackSize];
@@ -467,8 +467,8 @@ public class VarPlayerType extends CacheableNode {
       garbageValue = "-1909325574"
    )
    static void method5534(Packet var0) {
-      if(Client.field708 != null) {
-         var0.method6072(Client.field708, 0, Client.field708.length);
+      if(client.field708 != null) {
+         var0.method6072(client.field708, 0, client.field708.length);
       } else {
          byte[] var2 = new byte[24];
 

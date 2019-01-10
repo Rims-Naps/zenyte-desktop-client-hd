@@ -326,11 +326,11 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
             }
 
             if(!this.isLowDetail && this.model != null) {
-               if(Client.gameCycle >= this.animationCycleEnd) {
+               if(client.gameCycle >= this.animationCycleEnd) {
                   this.model = null;
                }
 
-               if(Client.gameCycle >= this.animationCycleStart && Client.gameCycle < this.animationCycleEnd) {
+               if(client.gameCycle >= this.animationCycleStart && client.gameCycle < this.animationCycleEnd) {
                   var5 = this.model;
                   var5.method5469(this.field616 - super.x, this.field610 - this.field613, this.field612 - super.y);
                   if(super.orientation == 512) {
@@ -659,7 +659,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
          super.field951 = -1;
       }
 
-      this.name = new Name(var1.readString(), Client.loginType);
+      this.name = new Name(var1.readString(), client.loginType);
       this.method2891();
       this.method2903();
       if(this == class4.localPlayer) {
@@ -669,7 +669,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
       this.combatLevel = var1.readUnsignedByte();
       this.totalLevel = var1.method6080();
       this.hidden = var1.readUnsignedByte() == 1;
-      if(Client.socketType == 0 && Client.staffModLevel >= 2) {
+      if(client.socketType == 0 && client.staffModLevel >= 2) {
          this.hidden = false;
       }
 
@@ -689,7 +689,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
       FileOnDisk var0 = null;
 
       try {
-         var0 = class70.method1076("", Client.field646.name, true);
+         var0 = class70.method1076("", client.field646.name, true);
          Packet var1 = GameEngine.options.method6498();
          var0.method145(var1.payload, 0, var1.offset);
       } catch (Exception var3) {
@@ -756,7 +756,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
    static void method2924(PlayerEntity var0, boolean var1) {
       if(var0 != null && var0.vmethod2900() && !var0.hidden) {
          var0.isLowDetail = false;
-         if((Client.lowMemory && class254.highResolutionPlayerCount > 50 || class254.highResolutionPlayerCount > 200) && var1 && var0.poseAnimation == var0.idlePoseAnimation) {
+         if((client.lowMemory && class254.highResolutionPlayerCount > 50 || class254.highResolutionPlayerCount > 200) && var1 && var0.poseAnimation == var0.idlePoseAnimation) {
             var0.isLowDetail = true;
          }
 
@@ -764,22 +764,22 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
          int var3 = var0.y >> 7;
          if(var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
             long var4 = WorldComparator.method6484(0, 0, 0, false, var0.playerId);
-            if(var0.model != null && Client.gameCycle >= var0.animationCycleStart && Client.gameCycle < var0.animationCycleEnd) {
+            if(var0.model != null && client.gameCycle >= var0.animationCycleStart && client.gameCycle < var0.animationCycleEnd) {
                var0.isLowDetail = false;
                var0.field613 = MilliTimer.method2824(var0.x, var0.y, class228.level);
-               var0.field943 = Client.gameCycle;
+               var0.field943 = client.gameCycle;
                class131.sceneManager.method3807(class228.level, var0.x, var0.y, var0.field613, 60, var0, var0.angle, var4, var0.field608, var0.field606, var0.field621, var0.field623);
             } else {
                if((var0.x & 127) == 64 && (var0.y & 127) == 64) {
-                  if(Client.field740[var2][var3] == Client.field741) {
+                  if(client.field740[var2][var3] == client.field741) {
                      return;
                   }
 
-                  Client.field740[var2][var3] = Client.field741;
+                  client.field740[var2][var3] = client.field741;
                }
 
                var0.field613 = MilliTimer.method2824(var0.x, var0.y, class228.level);
-               var0.field943 = Client.gameCycle;
+               var0.field943 = client.gameCycle;
                class131.sceneManager.method3830(class228.level, var0.x, var0.y, var0.field613, 60, var0, var0.angle, var4, var0.field941);
             }
          }

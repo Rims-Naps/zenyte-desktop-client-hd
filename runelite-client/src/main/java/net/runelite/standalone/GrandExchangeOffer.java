@@ -141,10 +141,10 @@ public class GrandExchangeOffer implements RSGrandExchangeOffer {
    )
    static final void method2874(String var0) {
       if(TotalQuantityComparator.clanMemberManager != null) {
-         TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2220, Client.serverConnection.isaac);
+         TcpConnectionMessage var1 = FaceNormal.method5726(ClientProt.field2220, client.serverConnection.isaac);
          var1.packetBuffer.method6114(AbstractSoundSystem.method338(var0));
          var1.packetBuffer.method6198(var0);
-         Client.serverConnection.method5881(var1);
+         client.serverConnection.method5881(var1);
       }
    }
 

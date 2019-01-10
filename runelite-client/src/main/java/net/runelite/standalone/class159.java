@@ -65,22 +65,22 @@ public class class159 {
    )
    static void method2710() {
       int var0;
-      if(Client.loadingStage == 0) {
+      if(client.loadingStage == 0) {
          class131.sceneManager = new SceneManager(4, 104, 104, class98.tileHeights);
 
          for(var0 = 0; var0 < 4; ++var0) {
-            Client.collisionMaps[var0] = new CollisionData(104, 104);
+            client.collisionMaps[var0] = new CollisionData(104, 104);
          }
 
          TotalQuantityComparator.minimapSprite = new SpritePixels(512, 512);
          class316.loadingText = "Starting game engine...";
          class316.loadingBarPercentage = 5;
-         Client.loadingStage = 20;
-      } else if(Client.loadingStage == 20) {
+         client.loadingStage = 20;
+      } else if(client.loadingStage == 20) {
          class316.loadingText = "Prepared visibility map";
          class316.loadingBarPercentage = 10;
-         Client.loadingStage = 30;
-      } else if(Client.loadingStage == 30) {
+         client.loadingStage = 30;
+      } else if(client.loadingStage == 30) {
          WorldMapDecoration.anims = Occluder.method4632(0, false, true, true);
          GameCanvas.bases = Occluder.method4632(1, false, true, true);
          class98.configs = Occluder.method4632(2, true, false, true);
@@ -101,8 +101,8 @@ public class class159 {
          class36.defaults = Occluder.method4632(17, true, true, true);
          class316.loadingText = "Connecting to update server";
          class316.loadingBarPercentage = 20;
-         Client.loadingStage = 40;
-      } else if(Client.loadingStage == 40) {
+         client.loadingStage = 40;
+      } else if(client.loadingStage == 40) {
          byte var28 = 0;
          var0 = var28 + WorldMapDecoration.anims.method2639() * 4 / 100;
          var0 += GameCanvas.bases.method2639() * 4 / 100;
@@ -144,14 +144,14 @@ public class class159 {
             TradingPost.graphicsDefaults.method4013(class36.defaults);
             class316.loadingText = "Loaded update list";
             class316.loadingBarPercentage = 30;
-            Client.loadingStage = 45;
+            client.loadingStage = 45;
          }
-      } else if(Client.loadingStage == 45) {
-         CombatInfo1.method1156(22050, !Client.lowMemory, 2);
+      } else if(client.loadingStage == 45) {
+         CombatInfo1.method1156(22050, !client.lowMemory, 2);
          class257 var34 = new class257();
          var34.method4857(9, 128);
-         Client.soundSystem0 = class4.method41(GameEngine.taskManager, 0, 22050);
-         Client.soundSystem0.method330(var34);
+         client.soundSystem0 = class4.method41(GameEngine.taskManager, 0, 22050);
+         client.soundSystem0.method330(var34);
          UrlRequester.method4081(LocType.instruments, WorldMapType2.vorbis, class192.synths, var34);
          class116.soundSystem1 = class4.method41(GameEngine.taskManager, 1, 2048);
          class2.field413 = new class184();
@@ -159,34 +159,34 @@ public class class159 {
          class215.field3697 = new Resampler(22050, AbstractSoundSystem.sampleRate);
          class316.loadingText = "Prepared sound engine";
          class316.loadingBarPercentage = 35;
-         Client.loadingStage = 50;
+         client.loadingStage = 50;
          FontName.fonts = new Fonts(JagException.sprites, SpotAnimation.fontmetrics);
       } else {
          int var1;
-         if(Client.loadingStage == 50) {
+         if(client.loadingStage == 50) {
             FontName[] var33 = new FontName[]{FontName.FontName_plain12, FontName.FontName_bold12, FontName.field3741, FontName.field3743, FontName.field3742, FontName.FontName_plain11};
             var1 = var33.length;
             Fonts var25 = FontName.fonts;
             FontName[] var24 = new FontName[]{FontName.FontName_plain12, FontName.FontName_bold12, FontName.field3741, FontName.field3743, FontName.field3742, FontName.FontName_plain11};
-            Client.fontsMap = var25.method4045(var24);
-            if(Client.fontsMap.size() < var1) {
-               class316.loadingText = "Loading fonts - " + Client.fontsMap.size() * 100 / var1 + "%";
+            client.fontsMap = var25.method4045(var24);
+            if(client.fontsMap.size() < var1) {
+               class316.loadingText = "Loading fonts - " + client.fontsMap.size() * 100 / var1 + "%";
                class316.loadingBarPercentage = 40;
             } else {
-               WorldMapType1.fontPlain11 = (Font)Client.fontsMap.get(FontName.FontName_plain11);
-               TotalQuantityComparator.font_p12full = (Font)Client.fontsMap.get(FontName.FontName_plain12);
-               class288.fontBold12 = (Font)Client.fontsMap.get(FontName.FontName_bold12);
-               PlayerEntity.field634 = Client.field911.vmethod5955();
+               WorldMapType1.fontPlain11 = (Font)client.fontsMap.get(FontName.FontName_plain11);
+               TotalQuantityComparator.font_p12full = (Font)client.fontsMap.get(FontName.FontName_plain12);
+               class288.fontBold12 = (Font)client.fontsMap.get(FontName.FontName_bold12);
+               PlayerEntity.field634 = client.field911.vmethod5955();
                class316.loadingText = "Loaded fonts";
                class316.loadingBarPercentage = 40;
-               Client.loadingStage = 60;
+               client.loadingStage = 60;
             }
          } else {
             Js5 var2;
             int var18;
             int var31;
             Js5 var36;
-            if(Client.loadingStage == 60) {
+            if(client.loadingStage == 60) {
                var36 = Size.binary;
                var2 = JagException.sprites;
                var18 = 0;
@@ -247,9 +247,9 @@ public class class159 {
                   class316.loadingText = "Loaded title screen";
                   class316.loadingBarPercentage = 50;
                   class310.method5922(5);
-                  Client.loadingStage = 70;
+                  client.loadingStage = 70;
                }
-            } else if(Client.loadingStage == 70) {
+            } else if(client.loadingStage == 70) {
                if(!class98.configs.method1589()) {
                   class316.loadingText = "Loading config - " + class98.configs.method2649() + "%";
                   class316.loadingBarPercentage = 60;
@@ -263,10 +263,10 @@ public class class159 {
                   IDKType.identKit_ref = var2;
                   IDKType.field3367 = var3;
                   IDKType.field3368 = IDKType.identKit_ref.method1574(3);
-                  MapElementType.method2388(class98.configs, class113.models, Client.lowMemory);
+                  MapElementType.method2388(class98.configs, class113.models, client.lowMemory);
                   class34.method556(class98.configs, class113.models);
                   GameObject.method2035(class98.configs);
-                  WorldMapType2.method3155(class98.configs, class113.models, Client.isMembers, WorldMapType1.fontPlain11);
+                  WorldMapType2.method3155(class98.configs, class113.models, client.isMembers, WorldMapType1.fontPlain11);
                   MouseRecorder.method2746(class98.configs, WorldMapDecoration.anims, GameCanvas.bases);
                   class202.method4070(class98.configs, class113.models);
                   class193.method3793(class98.configs);
@@ -310,9 +310,9 @@ public class class159 {
 
                   class316.loadingText = "Loaded config";
                   class316.loadingBarPercentage = 60;
-                  Client.loadingStage = 80;
+                  client.loadingStage = 80;
                }
-            } else if(Client.loadingStage == 80) {
+            } else if(client.loadingStage == 80) {
                var0 = 0;
                if(class306.compass == null) {
                   class306.compass = class36.method576(JagException.sprites, TradingPost.graphicsDefaults.field3816, 0, (byte)-19);
@@ -725,19 +725,19 @@ public class class159 {
                   class0.mapscene[0].method828(var31 + var1, var23 + var31, var18 + var31);
                   class316.loadingText = "Loaded sprites";
                   class316.loadingBarPercentage = 70;
-                  Client.loadingStage = 90;
+                  client.loadingStage = 90;
                }
-            } else if(Client.loadingStage == 90) {
+            } else if(client.loadingStage == 90) {
                if(!WorldMapRectangle.textures.method1589()) {
                   class316.loadingText = "Loading textures - " + "0%";
                   class316.loadingBarPercentage = 90;
                } else {
-                  class144.field3688 = new TextureProvider(WorldMapRectangle.textures, JagException.sprites, 20, 0.8D, Client.lowMemory?64:128);
+                  class144.field3688 = new TextureProvider(WorldMapRectangle.textures, JagException.sprites, 20, 0.8D, client.lowMemory?64:128);
                   Graphics3D.method2566(class144.field3688);
                   Graphics3D.method2567(0.8D);
-                  Client.loadingStage = 100;
+                  client.loadingStage = 100;
                }
-            } else if(Client.loadingStage == 100) {
+            } else if(client.loadingStage == 100) {
                var0 = class144.field3688.method2766();
                if(var0 < 100) {
                   class316.loadingText = "Loading textures - " + var0 + "%";
@@ -745,15 +745,15 @@ public class class159 {
                } else {
                   class316.loadingText = "Loaded textures";
                   class316.loadingBarPercentage = 90;
-                  Client.loadingStage = 110;
+                  client.loadingStage = 110;
                }
-            } else if(Client.loadingStage == 110) {
+            } else if(client.loadingStage == 110) {
                MapIconReference.mouseRecorder = new MouseRecorder();
                GameEngine.taskManager.method4451(MapIconReference.mouseRecorder, 10);
                class316.loadingText = "Loaded input handler";
                class316.loadingBarPercentage = 92;
-               Client.loadingStage = 120;
-            } else if(Client.loadingStage == 120) {
+               client.loadingStage = 120;
+            } else if(client.loadingStage == 120) {
                if(!Size.binary.method1538("huffman", "")) {
                   class316.loadingText = "Loading wordpack - " + 0 + "%";
                   class316.loadingBarPercentage = 94;
@@ -762,9 +762,9 @@ public class class159 {
                   VarPlayerType.method5550(var16);
                   class316.loadingText = "Loaded wordpack";
                   class316.loadingBarPercentage = 94;
-                  Client.loadingStage = 130;
+                  client.loadingStage = 130;
                }
-            } else if(Client.loadingStage == 130) {
+            } else if(client.loadingStage == 130) {
                if(!class166.interfacesArchive.method1589()) {
                   class316.loadingText = "Loading interfaces - " + class166.interfacesArchive.method2649() * 4 / 5 + "%";
                   class316.loadingBarPercentage = 96;
@@ -777,16 +777,16 @@ public class class159 {
                } else {
                   class316.loadingText = "Loaded interfaces";
                   class316.loadingBarPercentage = 98;
-                  Client.loadingStage = 140;
+                  client.loadingStage = 140;
                }
-            } else if(Client.loadingStage == 140) {
+            } else if(client.loadingStage == 140) {
                class316.loadingBarPercentage = 100;
                if(!class19.worldmapdata.method1536(MapCacheArchiveNames.field291.name)) {
                   class316.loadingText = "Loading world map - " + class19.worldmapdata.method1530(MapCacheArchiveNames.field291.name) / 10 + "%";
                } else {
                   if(class219.worldMap == null) {
                      class219.worldMap = new WorldMap();
-                     class219.worldMap.method1192(class19.worldmapdata, class288.fontBold12, Client.fontsMap, class0.mapscene);
+                     class219.worldMap.method1192(class19.worldmapdata, class288.fontBold12, client.fontsMap, class0.mapscene);
                   }
 
                   var0 = class219.worldMap.method1196();
@@ -794,10 +794,10 @@ public class class159 {
                      class316.loadingText = "Loading world map - " + (var0 * 9 / 10 + 10) + "%";
                   } else {
                      class316.loadingText = "Loaded world map";
-                     Client.loadingStage = 150;
+                     client.loadingStage = 150;
                   }
                }
-            } else if(Client.loadingStage == 150) {
+            } else if(client.loadingStage == 150) {
                class310.method5922(10);
             }
          }

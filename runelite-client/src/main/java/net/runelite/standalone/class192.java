@@ -33,7 +33,7 @@ public class class192 {
       garbageValue = "38"
    )
    static void method3787(int var0, String var1, String var2, String var3) {
-      Client.onAddChatMessage(var0, var1, var2, var3);
+      client.onAddChatMessage(var0, var1, var2, var3);
       ChatLineBuffer var4 = (ChatLineBuffer)class202.chatLineMap.get(Integer.valueOf(var0));
       if(var4 == null) {
          var4 = new ChatLineBuffer();
@@ -43,7 +43,7 @@ public class class192 {
       ChatLine var5 = var4.method1933(var0, var1, var2, var3);
       class202.messages.method2749(var5, (long)var5.id);
       class202.field1247.method5799(var5);
-      Client.chatCycle = Client.cycleCntr;
+      client.chatCycle = client.cycleCntr;
    }
 
    @ObfuscatedName("e")

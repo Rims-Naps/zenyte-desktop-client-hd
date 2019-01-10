@@ -552,7 +552,7 @@ public class class196 extends Node {
          Timer.method5401(var1.children, var1.id, var3, var4, var2);
       }
 
-      SubInterface var5 = (SubInterface)Client.subInterfaces.method380((long)var1.id);
+      SubInterface var5 = (SubInterface)client.subInterfaces.method380((long)var1.id);
       if(var5 != null) {
          WorldMapManager.method904(var5.id, var3, var4, var2);
       }
@@ -620,100 +620,100 @@ public class class196 extends Node {
                var3 = 0;
             }
 
-            if(var3 != Client.field877) {
-               if(Client.field877 == 0 && Client.field878 != -1) {
-                  class139.method2413(ServerProt.music, Client.field878, 0, var3, false);
-                  Client.field879 = false;
+            if(var3 != client.field877) {
+               if(client.field877 == 0 && client.field878 != -1) {
+                  class139.method2413(ServerProt.music, client.field878, 0, var3, false);
+                  client.field879 = false;
                } else if(var3 == 0) {
                   WorldMapRegion.method4152();
-                  Client.field879 = false;
+                  client.field879 = false;
                } else {
                   DecorativeObject.method5024(var3);
                }
 
-               Client.field877 = var3;
+               client.field877 = var3;
             }
          }
 
          if(var1 == 4) {
             if(var2 == 0) {
-               Client.field888 = 127;
+               client.field888 = 127;
             }
 
             if(var2 == 1) {
-               Client.field888 = 96;
+               client.field888 = 96;
             }
 
             if(var2 == 2) {
-               Client.field888 = 64;
+               client.field888 = 64;
             }
 
             if(var2 == 3) {
-               Client.field888 = 32;
+               client.field888 = 32;
             }
 
             if(var2 == 4) {
-               Client.field888 = 0;
+               client.field888 = 0;
             }
          }
 
          if(var1 == 5) {
-            Client.field866 = var2;
+            client.field866 = var2;
          }
 
          if(var1 == 6) {
-            Client.field807 = var2;
+            client.field807 = var2;
          }
 
          if(var1 == 9) {
-            Client.field808 = var2;
+            client.field808 = var2;
          }
 
          if(var1 == 10) {
             if(var2 == 0) {
-               Client.field881 = 127;
+               client.field881 = 127;
             }
 
             if(var2 == 1) {
-               Client.field881 = 96;
+               client.field881 = 96;
             }
 
             if(var2 == 2) {
-               Client.field881 = 64;
+               client.field881 = 64;
             }
 
             if(var2 == 3) {
-               Client.field881 = 32;
+               client.field881 = 32;
             }
 
             if(var2 == 4) {
-               Client.field881 = 0;
+               client.field881 = 0;
             }
          }
 
          if(var1 == 17) {
-            Client.field813 = var2 & 65535;
+            client.field813 = var2 & 65535;
          }
 
          if(var1 == 18) {
-            Client.playerAttackOpPriority = (AttackOpPriority)class2.method20(class2.method16(), var2);
-            if(Client.playerAttackOpPriority == null) {
-               Client.playerAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
+            client.playerAttackOpPriority = (AttackOpPriority)class2.method20(class2.method16(), var2);
+            if(client.playerAttackOpPriority == null) {
+               client.playerAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
             }
          }
 
          if(var1 == 19) {
             if(var2 == -1) {
-               Client.field769 = -1;
+               client.field769 = -1;
             } else {
-               Client.field769 = var2 & 2047;
+               client.field769 = var2 & 2047;
             }
          }
 
          if(var1 == 22) {
-            Client.npcAttackOpPriority = (AttackOpPriority)class2.method20(class2.method16(), var2);
-            if(Client.npcAttackOpPriority == null) {
-               Client.npcAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
+            client.npcAttackOpPriority = (AttackOpPriority)class2.method20(class2.method16(), var2);
+            if(client.npcAttackOpPriority == null) {
+               client.npcAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
             }
          }
 

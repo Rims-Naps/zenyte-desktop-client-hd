@@ -52,13 +52,13 @@ public class MapIconReference {
       garbageValue = "-557263979"
    )
    static void method4837(int var0, int var1, int var2) {
-      if(Client.field888 != 0 && var1 != 0 && Client.queuedSoundEffectCount < 50) {
-         Client.queuedSoundEffectIDs[Client.queuedSoundEffectCount] = var0;
-         Client.unknownSoundValues1[Client.queuedSoundEffectCount] = var1;
-         Client.unknownSoundValues2[Client.queuedSoundEffectCount] = var2;
-         Client.audioEffects[Client.queuedSoundEffectCount] = null;
-         Client.soundLocations[Client.queuedSoundEffectCount] = 0;
-         ++Client.queuedSoundEffectCount;
+      if(client.field888 != 0 && var1 != 0 && client.queuedSoundEffectCount < 50) {
+         client.queuedSoundEffectIDs[client.queuedSoundEffectCount] = var0;
+         client.unknownSoundValues1[client.queuedSoundEffectCount] = var1;
+         client.unknownSoundValues2[client.queuedSoundEffectCount] = var2;
+         client.audioEffects[client.queuedSoundEffectCount] = null;
+         client.soundLocations[client.queuedSoundEffectCount] = 0;
+         ++client.queuedSoundEffectCount;
       }
 
    }
@@ -94,32 +94,32 @@ public class MapIconReference {
       int var2 = class254.highResolutionPlayerCount;
       int[] var3 = class254.highResolutionPlayerIndexes;
       boolean var4 = false;
-      Name var5 = new Name(var1, Client.loginType);
+      Name var5 = new Name(var1, client.loginType);
 
       for(int var6 = 0; var6 < var2; ++var6) {
-         PlayerEntity var7 = Client.players[var3[var6]];
+         PlayerEntity var7 = client.players[var3[var6]];
          if(var7 != null && var7 != class4.localPlayer && var7.name != null && var7.name.equals(var5)) {
             TcpConnectionMessage var8;
             if(var0 == 1) {
-               var8 = FaceNormal.method5726(ClientProt.field2308, Client.serverConnection.isaac);
+               var8 = FaceNormal.method5726(ClientProt.field2308, client.serverConnection.isaac);
                var8.packetBuffer.method6063(var3[var6]);
                var8.packetBuffer.method6105(0);
-               Client.serverConnection.method5881(var8);
+               client.serverConnection.method5881(var8);
             } else if(var0 == 4) {
-               var8 = FaceNormal.method5726(ClientProt.field2236, Client.serverConnection.isaac);
+               var8 = FaceNormal.method5726(ClientProt.field2236, client.serverConnection.isaac);
                var8.packetBuffer.method6115(var3[var6]);
                var8.packetBuffer.method6105(0);
-               Client.serverConnection.method5881(var8);
+               client.serverConnection.method5881(var8);
             } else if(var0 == 6) {
-               var8 = FaceNormal.method5726(ClientProt.field2300, Client.serverConnection.isaac);
+               var8 = FaceNormal.method5726(ClientProt.field2300, client.serverConnection.isaac);
                var8.packetBuffer.method6196(var3[var6]);
                var8.packetBuffer.method6106(0);
-               Client.serverConnection.method5881(var8);
+               client.serverConnection.method5881(var8);
             } else if(var0 == 7) {
-               var8 = FaceNormal.method5726(ClientProt.field2282, Client.serverConnection.isaac);
+               var8 = FaceNormal.method5726(ClientProt.field2282, client.serverConnection.isaac);
                var8.packetBuffer.method6106(0);
                var8.packetBuffer.method6178(var3[var6]);
-               Client.serverConnection.method5881(var8);
+               client.serverConnection.method5881(var8);
             }
 
             var4 = true;

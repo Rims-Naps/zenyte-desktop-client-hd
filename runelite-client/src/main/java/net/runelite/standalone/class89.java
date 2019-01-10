@@ -26,7 +26,7 @@ public class class89 {
       garbageValue = "1423162969"
    )
    static final void method1487(int var0, int var1) {
-      Deque var2 = Client.groundItemDeque[class228.level][var0][var1];
+      Deque var2 = client.groundItemDeque[class228.level][var0][var1];
       if(var2 == null) {
          class131.sceneManager.method3816(class228.level, var0, var1);
       } else {

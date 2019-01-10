@@ -121,7 +121,7 @@ public class IndexStoreActionHandler implements Runnable {
    )
    static final void method5750() {
       for(int var0 = 0; var0 < class254.highResolutionPlayerCount; ++var0) {
-         PlayerEntity var1 = Client.players[class254.highResolutionPlayerIndexes[var0]];
+         PlayerEntity var1 = client.players[class254.highResolutionPlayerIndexes[var0]];
          var1.method2891();
       }
 

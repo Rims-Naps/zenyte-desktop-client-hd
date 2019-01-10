@@ -549,9 +549,9 @@ public class Sequence extends CacheableNode implements RSSequence {
       garbageValue = "-719831937"
    )
    static void method4796(int var0, int var1) {
-      TcpConnectionMessage var2 = FaceNormal.method5726(ClientProt.field2207, Client.serverConnection.isaac);
+      TcpConnectionMessage var2 = FaceNormal.method5726(ClientProt.field2207, client.serverConnection.isaac);
       var2.packetBuffer.method6248(var0);
       var2.packetBuffer.method6196(var1);
-      Client.serverConnection.method5881(var2);
+      client.serverConnection.method5881(var2);
    }
 }

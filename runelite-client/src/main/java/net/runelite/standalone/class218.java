@@ -217,25 +217,25 @@ public class class218 extends TaskDataNode {
                var10 = LoginProt.method871(var3);
             }
 
-            TcpConnectionMessage var12 = FaceNormal.method5726(ClientProt.field2260, Client.serverConnection.isaac);
+            TcpConnectionMessage var12 = FaceNormal.method5726(ClientProt.field2260, client.serverConnection.isaac);
             var12.packetBuffer.method6230(var10);
-            Client.serverConnection.method5881(var12);
+            client.serverConnection.method5881(var12);
             return 1;
          } else {
             TcpConnectionMessage var14;
             if(var0 == 3105) {
                var3 = class48.scriptStringStack[--class48.scriptStringStackSize];
-               var14 = FaceNormal.method5726(ClientProt.field2302, Client.serverConnection.isaac);
+               var14 = FaceNormal.method5726(ClientProt.field2302, client.serverConnection.isaac);
                var14.packetBuffer.method6114(var3.length() + 1);
                var14.packetBuffer.method6198(var3);
-               Client.serverConnection.method5881(var14);
+               client.serverConnection.method5881(var14);
                return 1;
             } else if(var0 == 3106) {
                var3 = class48.scriptStringStack[--class48.scriptStringStackSize];
-               var14 = FaceNormal.method5726(ClientProt.field2215, Client.serverConnection.isaac);
+               var14 = FaceNormal.method5726(ClientProt.field2215, client.serverConnection.isaac);
                var14.packetBuffer.method6114(var3.length() + 1);
                var14.packetBuffer.method6198(var3);
-               Client.serverConnection.method5881(var14);
+               client.serverConnection.method5881(var14);
                return 1;
             } else {
                String var7;
@@ -277,9 +277,9 @@ public class class218 extends TaskDataNode {
                   return 1;
                } else if(var0 == 3115) {
                   var15 = class48.intStack[--class228.intStackSize];
-                  var14 = FaceNormal.method5726(ClientProt.field2249, Client.serverConnection.isaac);
+                  var14 = FaceNormal.method5726(ClientProt.field2249, client.serverConnection.isaac);
                   var14.packetBuffer.method6063(var15);
-                  Client.serverConnection.method5881(var14);
+                  client.serverConnection.method5881(var14);
                   return 1;
                } else if(var0 == 3116) {
                   var15 = class48.intStack[--class228.intStackSize];
@@ -291,63 +291,63 @@ public class class218 extends TaskDataNode {
                   } else if(var5.length() > 500) {
                      return 1;
                   } else {
-                     TcpConnectionMessage var6 = FaceNormal.method5726(ClientProt.field2223, Client.serverConnection.isaac);
+                     TcpConnectionMessage var6 = FaceNormal.method5726(ClientProt.field2223, client.serverConnection.isaac);
                      var6.packetBuffer.method6063(1 + AbstractSoundSystem.method338(var7) + AbstractSoundSystem.method338(var5));
                      var6.packetBuffer.method6198(var7);
                      var6.packetBuffer.method6114(var15);
                      var6.packetBuffer.method6198(var5);
-                     Client.serverConnection.method5881(var6);
+                     client.serverConnection.method5881(var6);
                      return 1;
                   }
                } else if(var0 == 3117) {
-                  Client.field789 = class48.intStack[--class228.intStackSize] == 1;
+                  client.field789 = class48.intStack[--class228.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3118) {
-                  Client.field791 = class48.intStack[--class228.intStackSize] == 1;
+                  client.field791 = class48.intStack[--class228.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3119) {
-                  Client.field762 = class48.intStack[--class228.intStackSize] == 1;
+                  client.field762 = class48.intStack[--class228.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3120) {
                   if(class48.intStack[--class228.intStackSize] == 1) {
-                     Client.playerNameMask |= 1;
+                     client.playerNameMask |= 1;
                   } else {
-                     Client.playerNameMask &= -2;
+                     client.playerNameMask &= -2;
                   }
 
                   return 1;
                } else if(var0 == 3121) {
                   if(class48.intStack[--class228.intStackSize] == 1) {
-                     Client.playerNameMask |= 2;
+                     client.playerNameMask |= 2;
                   } else {
-                     Client.playerNameMask &= -3;
+                     client.playerNameMask &= -3;
                   }
 
                   return 1;
                } else if(var0 == 3122) {
                   if(class48.intStack[--class228.intStackSize] == 1) {
-                     Client.playerNameMask |= 4;
+                     client.playerNameMask |= 4;
                   } else {
-                     Client.playerNameMask &= -5;
+                     client.playerNameMask &= -5;
                   }
 
                   return 1;
                } else if(var0 == 3123) {
                   if(class48.intStack[--class228.intStackSize] == 1) {
-                     Client.playerNameMask |= 8;
+                     client.playerNameMask |= 8;
                   } else {
-                     Client.playerNameMask &= -9;
+                     client.playerNameMask &= -9;
                   }
 
                   return 1;
                } else if(var0 == 3124) {
-                  Client.playerNameMask = 0;
+                  client.playerNameMask = 0;
                   return 1;
                } else if(var0 == 3125) {
-                  Client.field748 = class48.intStack[--class228.intStackSize] == 1;
+                  client.field748 = class48.intStack[--class228.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3126) {
-                  Client.field758 = class48.intStack[--class228.intStackSize] == 1;
+                  client.field758 = class48.intStack[--class228.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3127) {
                   class9.method139(class48.intStack[--class228.intStackSize] == 1);
@@ -357,8 +357,8 @@ public class class218 extends TaskDataNode {
                   return 1;
                } else if(var0 == 3129) {
                   class228.intStackSize -= 2;
-                  Client.field723 = class48.intStack[class228.intStackSize];
-                  Client.field724 = class48.intStack[class228.intStackSize + 1];
+                  client.field723 = class48.intStack[class228.intStackSize];
+                  client.field724 = class48.intStack[class228.intStackSize + 1];
                   return 1;
                } else if(var0 == 3130) {
                   class228.intStackSize -= 2;
@@ -379,22 +379,22 @@ public class class218 extends TaskDataNode {
                   class228.intStackSize -= 2;
                   return 1;
                } else if(var0 == 3136) {
-                  Client.field805 = 3;
-                  Client.field642 = class48.intStack[--class228.intStackSize];
+                  client.field805 = 3;
+                  client.field642 = class48.intStack[--class228.intStackSize];
                   return 1;
                } else if(var0 == 3137) {
-                  Client.field805 = 2;
-                  Client.field642 = class48.intStack[--class228.intStackSize];
+                  client.field805 = 2;
+                  client.field642 = class48.intStack[--class228.intStackSize];
                   return 1;
                } else if(var0 == 3138) {
-                  Client.field805 = 0;
+                  client.field805 = 0;
                   return 1;
                } else if(var0 == 3139) {
-                  Client.field805 = 1;
+                  client.field805 = 1;
                   return 1;
                } else if(var0 == 3140) {
-                  Client.field805 = 3;
-                  Client.field642 = var2?class113.field75.id:class48.field1080.id;
+                  client.field805 = 3;
+                  client.field642 = var2?class113.field75.id:class48.field1080.id;
                   return 1;
                } else {
                   boolean var8;
@@ -408,7 +408,7 @@ public class class218 extends TaskDataNode {
                      return 1;
                   } else if(var0 == 3143) {
                      var8 = class48.intStack[--class228.intStackSize] == 1;
-                     Client.Login_isUsernameRemembered = var8;
+                     client.Login_isUsernameRemembered = var8;
                      if(!var8) {
                         GameEngine.options.rememberedUsername = "";
                         PlayerEntity.method2919();
@@ -416,7 +416,7 @@ public class class218 extends TaskDataNode {
 
                      return 1;
                   } else if(var0 == 3144) {
-                     class48.intStack[++class228.intStackSize - 1] = Client.Login_isUsernameRemembered?1:0;
+                     class48.intStack[++class228.intStackSize - 1] = client.Login_isUsernameRemembered?1:0;
                      return 1;
                   } else {
                      return var0 == 3145?1:2;

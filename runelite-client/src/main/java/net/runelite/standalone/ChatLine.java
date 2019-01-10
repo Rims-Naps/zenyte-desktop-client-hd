@@ -63,7 +63,7 @@ public class ChatLine extends CacheableNode implements RSMessageNode {
       this.ignoreState = class132.UNSET;
       int var5 = ++class202.field1246 - 1;
       this.id = var5;
-      this.tick = Client.gameCycle;
+      this.tick = client.gameCycle;
       this.type = var1;
       this.name = var2;
       this.method5650();
@@ -110,7 +110,7 @@ public class ChatLine extends CacheableNode implements RSMessageNode {
    )
    final void method5650() {
       if(this.name != null) {
-         this.field592 = new Name(class202.method4069(this.name), Client.loginType);
+         this.field592 = new Name(class202.method4069(this.name), client.loginType);
       } else {
          this.field592 = null;
       }
@@ -233,7 +233,7 @@ public class ChatLine extends CacheableNode implements RSMessageNode {
    void method5643(int var1, String var2, String var3, String var4) {
       int var5 = ++class202.field1246 - 1;
       this.id = var5;
-      this.tick = Client.gameCycle;
+      this.tick = client.gameCycle;
       this.type = var1;
       this.name = var2;
       this.method5650();
@@ -248,7 +248,7 @@ public class ChatLine extends CacheableNode implements RSMessageNode {
       garbageValue = "16748608"
    )
    static boolean method5673() {
-      return Client.field790;
+      return client.field790;
    }
 
    @ObfuscatedName("a")

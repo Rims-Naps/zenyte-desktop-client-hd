@@ -410,9 +410,9 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
       garbageValue = "-48774980"
    )
    static final void method5594() {
-      for(int var0 = 0; var0 < Client.highResolutionNpcCount; ++var0) {
-         int var1 = Client.highResolutionNpcIndexes[var0];
-         NPCEntity var2 = Client.npcs[var1];
+      for(int var0 = 0; var0 < client.highResolutionNpcCount; ++var0) {
+         int var1 = client.highResolutionNpcIndexes[var0];
+         NPCEntity var2 = client.npcs[var1];
          if(var2 != null) {
             AuthProt.method1671(var2, var2.type.size);
          }
@@ -441,6 +441,6 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
          }
       }
 
-      Client.copy$processClientError(var0, var1, var2);
+      client.copy$processClientError(var0, var1, var2);
    }
 }

@@ -34,7 +34,7 @@ public class class82 extends class127 {
       garbageValue = "-1022267585"
    )
    int method1174(ChatPlayer var1, ChatPlayer var2) {
-      return Client.world == var1.world && var2.world == Client.world?(this.field1934?var1.method2067().method4717(var2.method2067()):var2.method2067().method4717(var1.method2067())):this.method2141(var1, var2);
+      return client.world == var1.world && var2.world == client.world?(this.field1934?var1.method2067().method4717(var2.method2067()):var2.method2067().method4717(var1.method2067())):this.method2141(var1, var2);
    }
 
    @ObfuscatedName("e")

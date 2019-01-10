@@ -91,18 +91,18 @@ public enum AuthProt implements Enumerated {
       int var2;
       int var3;
       int var4;
-      if(var0.field985 > Client.gameCycle) {
-         var2 = var0.field985 - Client.gameCycle;
+      if(var0.field985 > client.gameCycle) {
+         var2 = var0.field985 - client.gameCycle;
          var3 = var0.field983 * 128 + var0.size * 64;
          var4 = var0.field995 * 128 + var0.size * 64;
          var0.x += (var3 - var0.x) / var2;
          var0.y += (var4 - var0.y) / var2;
          var0.field955 = 0;
          var0.orientation = var0.field997;
-      } else if(var0.field977 >= Client.gameCycle) {
-         if(var0.field977 == Client.gameCycle || var0.animation == -1 || var0.actionAnimationDisable != 0 || var0.actionFrameCycle + 1 > MapCacheArchiveNames.method2149(var0.animation).frameLengths[var0.actionFrame]) {
+      } else if(var0.field977 >= client.gameCycle) {
+         if(var0.field977 == client.gameCycle || var0.animation == -1 || var0.actionAnimationDisable != 0 || var0.actionFrameCycle + 1 > MapCacheArchiveNames.method2149(var0.animation).frameLengths[var0.actionFrame]) {
             var2 = var0.field977 - var0.field985;
-            var3 = Client.gameCycle - var0.field985;
+            var3 = client.gameCycle - var0.field985;
             var4 = var0.field983 * 128 + var0.size * 64;
             int var5 = var0.field995 * 128 + var0.size * 64;
             int var6 = var0.field982 * 128 + var0.size * 64;
@@ -165,7 +165,7 @@ public enum AuthProt implements Enumerated {
          }
       }
 
-      if(var0.graphic != -1 && Client.gameCycle >= var0.graphicsDelay) {
+      if(var0.graphic != -1 && client.gameCycle >= var0.graphicsDelay) {
          if(var0.spotAnimFrame < 0) {
             var0.spotAnimFrame = 0;
          }
@@ -197,7 +197,7 @@ public enum AuthProt implements Enumerated {
 
       if(var0.animation != -1 && var0.actionAnimationDisable <= 1) {
          var8 = MapCacheArchiveNames.method2149(var0.animation);
-         if(var8.precedenceAnimating == 1 && var0.field959 > 0 && var0.field985 <= Client.gameCycle && var0.field977 < Client.gameCycle) {
+         if(var8.precedenceAnimating == 1 && var0.field959 > 0 && var0.field985 <= client.gameCycle && var0.field977 < client.gameCycle) {
             var0.actionAnimationDisable = 1;
             return;
          }

@@ -63,22 +63,22 @@ public class VarClientType extends CacheableNode {
    )
    static int method5426(int var0, class106 var1, boolean var2) {
       if(var0 == 5000) {
-         class48.intStack[++class228.intStackSize - 1] = Client.publicChatMode;
+         class48.intStack[++class228.intStackSize - 1] = client.publicChatMode;
          return 1;
       } else if(var0 == 5001) {
          class228.intStackSize -= 3;
-         Client.publicChatMode = class48.intStack[class228.intStackSize];
+         client.publicChatMode = class48.intStack[class228.intStackSize];
          Overlay.field3613 = ScriptState.method421(class48.intStack[class228.intStackSize + 1]);
          if(Overlay.field3613 == null) {
             Overlay.field3613 = class307.field3805;
          }
 
-         Client.tradeMode = class48.intStack[class228.intStackSize + 2];
-         TcpConnectionMessage var18 = FaceNormal.method5726(ClientProt.field2253, Client.serverConnection.isaac);
-         var18.packetBuffer.method6114(Client.publicChatMode);
+         client.tradeMode = class48.intStack[class228.intStackSize + 2];
+         TcpConnectionMessage var18 = FaceNormal.method5726(ClientProt.field2253, client.serverConnection.isaac);
+         var18.packetBuffer.method6114(client.publicChatMode);
          var18.packetBuffer.method6114(Overlay.field3613.field3807);
-         var18.packetBuffer.method6114(Client.tradeMode);
-         Client.serverConnection.method5881(var18);
+         var18.packetBuffer.method6114(client.tradeMode);
+         client.serverConnection.method5881(var18);
          return 1;
       } else {
          String var3;
@@ -88,12 +88,12 @@ public class VarClientType extends CacheableNode {
             class228.intStackSize -= 2;
             var4 = class48.intStack[class228.intStackSize];
             int var5 = class48.intStack[class228.intStackSize + 1];
-            TcpConnectionMessage var6 = FaceNormal.method5726(ClientProt.field2245, Client.serverConnection.isaac);
+            TcpConnectionMessage var6 = FaceNormal.method5726(ClientProt.field2245, client.serverConnection.isaac);
             var6.packetBuffer.method6114(AbstractSoundSystem.method338(var3) + 2);
             var6.packetBuffer.method6198(var3);
             var6.packetBuffer.method6114(var4 - 1);
             var6.packetBuffer.method6114(var5);
-            Client.serverConnection.method5881(var6);
+            client.serverConnection.method5881(var6);
             return 1;
          } else {
             int var10;
@@ -188,7 +188,7 @@ public class VarClientType extends CacheableNode {
                } else if(var14.startsWith("glow3:")) {
                   var17 = 11;
                   var3 = var3.substring("glow3:".length());
-               } else if(Client.languageId != 0) {
+               } else if(client.languageId != 0) {
                   if(var14.startsWith("yellow:")) {
                      var17 = 0;
                      var3 = var3.substring("yellow:".length());
@@ -245,7 +245,7 @@ public class VarClientType extends CacheableNode {
                } else if(var14.startsWith("slide:")) {
                   var7 = 5;
                   var3 = var3.substring("slide:".length());
-               } else if(Client.languageId != 0) {
+               } else if(client.languageId != 0) {
                   if(var14.startsWith("wave:")) {
                      var7 = 1;
                      var3 = var3.substring("wave:".length());
@@ -264,7 +264,7 @@ public class VarClientType extends CacheableNode {
                   }
                }
 
-               TcpConnectionMessage var8 = FaceNormal.method5726(ClientProt.field2230, Client.serverConnection.isaac);
+               TcpConnectionMessage var8 = FaceNormal.method5726(ClientProt.field2230, client.serverConnection.isaac);
                var8.packetBuffer.method6114(0);
                int var9 = var8.packetBuffer.offset;
                var8.packetBuffer.method6114(var4);
@@ -272,23 +272,23 @@ public class VarClientType extends CacheableNode {
                var8.packetBuffer.method6114(var7);
                class321.method6055(var8.packetBuffer, var3);
                var8.packetBuffer.writeByte(var8.packetBuffer.offset - var9);
-               Client.serverConnection.method5881(var8);
+               client.serverConnection.method5881(var8);
                return 1;
             } else if(var0 == 5009) {
                class48.scriptStringStackSize -= 2;
                var3 = class48.scriptStringStack[class48.scriptStringStackSize];
                String var12 = class48.scriptStringStack[class48.scriptStringStackSize + 1];
-               TcpConnectionMessage var11 = FaceNormal.method5726(ClientProt.field2232, Client.serverConnection.isaac);
+               TcpConnectionMessage var11 = FaceNormal.method5726(ClientProt.field2232, client.serverConnection.isaac);
                var11.packetBuffer.method6063(0);
                int var13 = var11.packetBuffer.offset;
                var11.packetBuffer.method6198(var3);
                class321.method6055(var11.packetBuffer, var12);
                var11.packetBuffer.method6074(var11.packetBuffer.offset - var13);
-               Client.serverConnection.method5881(var11);
+               client.serverConnection.method5881(var11);
                return 1;
             } else if(var0 != 5015) {
                if(var0 == 5016) {
-                  class48.intStack[++class228.intStackSize - 1] = Client.tradeMode;
+                  class48.intStack[++class228.intStackSize - 1] = client.tradeMode;
                   return 1;
                } else if(var0 == 5017) {
                   var10 = class48.intStack[--class228.intStackSize];
@@ -307,10 +307,10 @@ public class VarClientType extends CacheableNode {
                   SoundTaskDataProvider.method2528(var3);
                   return 1;
                } else if(var0 == 5021) {
-                  Client.field862 = class48.scriptStringStack[--class48.scriptStringStackSize].toLowerCase().trim();
+                  client.field862 = class48.scriptStringStack[--class48.scriptStringStackSize].toLowerCase().trim();
                   return 1;
                } else if(var0 == 5022) {
-                  class48.scriptStringStack[++class48.scriptStringStackSize - 1] = Client.field862;
+                  class48.scriptStringStack[++class48.scriptStringStackSize - 1] = client.field862;
                   return 1;
                } else {
                   return 2;

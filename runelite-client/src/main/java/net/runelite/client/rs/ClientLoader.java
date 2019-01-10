@@ -33,7 +33,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.standalone.Client;
+import net.runelite.standalone.client;
 
 @Slf4j
 @Singleton
@@ -55,7 +55,7 @@ public class ClientLoader
 	{
 		// the injected client is a runtime scoped dependency
 		//final Class<?> clientClass = ClientLoader.class.getClassLoader().loadClass(config.getInitialClass());
-		return loadFromClass(config, Client.class);
+		return loadFromClass(config, client.class);
 	}
 
 	private static Applet loadVanilla(final RSConfig config) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException

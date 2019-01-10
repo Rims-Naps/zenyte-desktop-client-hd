@@ -513,7 +513,7 @@ public final class WorldMapManager implements RSWorldMapManager {
    )
    static final void method945(boolean var0) {
       if(var0) {
-         Client.field681 = class316.field1172?AuthProt.field1965:AuthProt.field1966;
+         client.field681 = class316.field1172?AuthProt.field1965:AuthProt.field1966;
       } else {
          LinkedHashMap var1 = GameEngine.options.authRememberTokens;
          String var3 = class316.username;
@@ -524,7 +524,7 @@ public final class WorldMapManager implements RSWorldMapManager {
             var5 = (var5 << 5) - var5 + var3.charAt(var6);
          }
 
-         Client.field681 = var1.containsKey(Integer.valueOf(var5))?AuthProt.field1967:AuthProt.field1964;
+         client.field681 = var1.containsKey(Integer.valueOf(var5))?AuthProt.field1967:AuthProt.field1964;
       }
 
    }

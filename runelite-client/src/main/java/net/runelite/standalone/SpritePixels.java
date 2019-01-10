@@ -1574,7 +1574,7 @@ public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
             var2 = var1[(var3 >> 16) + var16];
             if(var2 != 0) {
                int var18 = var0[var5];
-               Client.drawAlpha(var0, var5++, ((var2 & 65280) * var12 + var13 * (var18 & 65280) & 16711680) + ((var18 & 16711935) * var13 + var12 * (var2 & 16711935) & -16711936) >> 8, var12);
+               client.drawAlpha(var0, var5++, ((var2 & 65280) * var12 + var13 * (var18 & 65280) & 16711680) + ((var18 & 16711935) * var13 + var12 * (var2 & 16711935) & -16711936) >> 8, var12);
             } else {
                ++var5;
             }
@@ -1645,7 +1645,7 @@ public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
             var2 = var1[var3++];
             if(var2 != 0) {
                int var13 = var0[var4];
-               Client.drawAlpha(var0, var4++, ((var13 & 16711935) * var10 + var9 * (var2 & 16711935) & -16711936) + ((var2 & 65280) * var9 + var10 * (var13 & 65280) & 16711680) >> 8, var9);
+               client.drawAlpha(var0, var4++, ((var13 & 16711935) * var10 + var9 * (var2 & 16711935) & -16711936) + ((var2 & 65280) * var9 + var10 * (var13 & 65280) & 16711680) >> 8, var9);
             } else {
                ++var4;
             }

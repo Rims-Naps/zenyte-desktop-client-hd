@@ -271,7 +271,7 @@ public class Varcs implements RSVarcs {
       garbageValue = "-1669314567"
    )
    FileOnDisk method4740(boolean var1) {
-      return class70.method1076("2", Client.field646.name, var1);
+      return class70.method1076("2", client.field646.name, var1);
    }
 
    @ObfuscatedName("d")

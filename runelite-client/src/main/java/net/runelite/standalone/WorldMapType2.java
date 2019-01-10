@@ -220,13 +220,13 @@ public class WorldMapType2 implements WorldMapSectionBase {
       garbageValue = "32"
    )
    static void method3151(int var0) {
-      Client.field870 = 0L;
+      client.field870 = 0L;
       if(var0 >= 2) {
-         Client.isResized = true;
-         Client.resizeChanged(-1);
+         client.isResized = true;
+         client.resizeChanged(-1);
       } else {
-         Client.isResized = false;
-         Client.resizeChanged(-1);
+         client.isResized = false;
+         client.resizeChanged(-1);
       }
 
       if(WorldMapRectangle.method127() == 1) {
@@ -235,7 +235,7 @@ public class WorldMapType2 implements WorldMapSectionBase {
          class166.clientInstance.method3075(7680, 2160, (short)5757);
       }
 
-      if(Client.gameState >= 25) {
+      if(client.gameState >= 25) {
          class48.method778();
       }
 

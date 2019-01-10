@@ -28,14 +28,14 @@ public class class107 {
       garbageValue = "442724531"
    )
    static final void method1888(boolean var0, Bit var1) {
-      Client.isDynamicRegion = var0;
+      client.isDynamicRegion = var0;
       int var2;
       int var3;
       int var5;
       int var6;
       int var7;
       int var8;
-      if(!Client.isDynamicRegion) {
+      if(!client.isDynamicRegion) {
          var2 = var1.method6101();
          var3 = var1.method6117();
          int var4 = var1.method6080();
@@ -89,9 +89,9 @@ public class class107 {
                for(var8 = 0; var8 < 13; ++var8) {
                   var9 = var1.method2833(1);
                   if(var9 == 1) {
-                     Client.instanceTemplateChunks[var6][var7][var8] = var1.method2833(26);
+                     client.instanceTemplateChunks[var6][var7][var8] = var1.method2833(26);
                   } else {
-                     Client.instanceTemplateChunks[var6][var7][var8] = -1;
+                     client.instanceTemplateChunks[var6][var7][var8] = -1;
                   }
                }
             }
@@ -116,7 +116,7 @@ public class class107 {
          for(var6 = 0; var6 < 4; ++var6) {
             for(var7 = 0; var7 < 13; ++var7) {
                for(var8 = 0; var8 < 13; ++var8) {
-                  var9 = Client.instanceTemplateChunks[var6][var7][var8];
+                  var9 = client.instanceTemplateChunks[var6][var7][var8];
                   if(var9 != -1) {
                      int var10 = var9 >> 14 & 1023;
                      int var11 = var9 >> 3 & 2047;

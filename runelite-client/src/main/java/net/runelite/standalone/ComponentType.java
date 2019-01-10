@@ -809,7 +809,7 @@ public class ComponentType extends Node implements RSWidget {
    )
    public SpritePixels method266(boolean var1, int var2) {
       if(this.getSpriteId() != -1) {
-         net.runelite.api.SpritePixels var3 = (net.runelite.api.SpritePixels)Client.widgetSpriteOverrides.get(Integer.valueOf(this.getId()));
+         net.runelite.api.SpritePixels var3 = (net.runelite.api.SpritePixels)client.widgetSpriteOverrides.get(Integer.valueOf(this.getId()));
          if(var3 != null) {
             return (SpritePixels)((RSSpritePixels)var3);
          }
@@ -2301,6 +2301,6 @@ public class ComponentType extends Node implements RSWidget {
    }
 
    private static void rl$$clinit() {
-      $assertionsDisabled = !Client.class.desiredAssertionStatus();
+      $assertionsDisabled = !client.class.desiredAssertionStatus();
    }
 }

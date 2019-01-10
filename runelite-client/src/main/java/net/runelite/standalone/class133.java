@@ -246,7 +246,7 @@ public class class133 implements Runnable {
    static final void method2199(Bit var0) {
       for(int var1 = 0; var1 < class254.extendedInfoPlayerCount; ++var1) {
          int var2 = class254.extendedInfoPlayerIndexes[var1];
-         PlayerEntity var3 = Client.players[var2];
+         PlayerEntity var3 = client.players[var2];
          int var4 = var0.readUnsignedByte();
          if((var4 & 8) != 0) {
             var4 += var0.readUnsignedByte() << 8;
@@ -281,7 +281,7 @@ public class class133 implements Runnable {
                   }
 
                   var12 = var0.method6092();
-                  var3.method2727(var8, var10, var9, var11, Client.gameCycle, var12);
+                  var3.method2727(var8, var10, var9, var11, client.gameCycle, var12);
                }
             }
 
@@ -294,7 +294,7 @@ public class class133 implements Runnable {
                      var11 = var0.method6092();
                      var12 = var0.method6192();
                      var13 = var10 > 0?var0.readUnsignedByte():var12;
-                     var3.method2729(var9, Client.gameCycle, var10, var11, var12, var13);
+                     var3.method2729(var9, client.gameCycle, var10, var11, var12, var13);
                   } else {
                      var3.method2715(var9);
                   }
@@ -307,10 +307,10 @@ public class class133 implements Runnable {
             var3.graphicChanged(-1);
             var6 = var0.method6273();
             var3.field980 = var6 >> 16;
-            var3.graphicsDelay = (var6 & 65535) + Client.gameCycle;
+            var3.graphicsDelay = (var6 & 65535) + client.gameCycle;
             var3.spotAnimFrame = 0;
             var3.spotAnimFrameCycle = 0;
-            if(var3.graphicsDelay > Client.gameCycle) {
+            if(var3.graphicsDelay > client.gameCycle) {
                var3.spotAnimFrame = -1;
             }
 
@@ -329,8 +329,8 @@ public class class133 implements Runnable {
             var3.field995 = var0.method6277();
             var3.field982 = var0.method6277();
             var3.field984 = var0.method6112();
-            var3.field985 = var0.method6117() + Client.gameCycle;
-            var3.field977 = var0.method6116() + Client.gameCycle;
+            var3.field985 = var0.method6117() + client.gameCycle;
+            var3.field977 = var0.method6116() + client.gameCycle;
             var3.field997 = var0.method6080();
             if(var3.field631) {
                var3.field983 += var3.xInScene;
@@ -406,7 +406,7 @@ public class class133 implements Runnable {
                   var19 = true;
                }
 
-               if(!var19 && Client.field680 == 0 && !var3.hidden) {
+               if(!var19 && client.field680 == 0 && !var3.hidden) {
                   class254.messageBuffer.offset = 0;
                   var0.method6090(class254.messageBuffer.payload, 0, var9);
                   class254.messageBuffer.offset = 0;
@@ -416,7 +416,7 @@ public class class133 implements Runnable {
                   var3.field974 = var6 & 255;
                   var3.overheadTextCyclesRemaining = 150;
                   var3.field958 = var18;
-                  var3.overheadFiltered = var3 != class4.localPlayer && var20.ignorable && "" != Client.field862 && var16.toLowerCase().indexOf(Client.field862) == -1;
+                  var3.overheadFiltered = var3 != class4.localPlayer && var20.ignorable && "" != client.field862 && var16.toLowerCase().indexOf(client.field862) == -1;
                   if(var20.moderator) {
                      var13 = var18?91:1;
                   } else {
@@ -479,18 +479,18 @@ public class class133 implements Runnable {
          class228.intStackSize -= 2;
          var3 = class48.intStack[class228.intStackSize];
          int var4 = class48.intStack[class228.intStackSize + 1];
-         if(!Client.field889) {
-            Client.cameraPitchTarget = var3;
-            Client.onCameraPitchTargetChanged(-1);
-            Client.mapAngle = var4;
+         if(!client.field889) {
+            client.cameraPitchTarget = var3;
+            client.onCameraPitchTargetChanged(-1);
+            client.mapAngle = var4;
          }
 
          return 1;
       } else if(var0 == 5505) {
-         class48.intStack[++class228.intStackSize - 1] = Client.cameraPitchTarget;
+         class48.intStack[++class228.intStackSize - 1] = client.cameraPitchTarget;
          return 1;
       } else if(var0 == 5506) {
-         class48.intStack[++class228.intStackSize - 1] = Client.mapAngle;
+         class48.intStack[++class228.intStackSize - 1] = client.mapAngle;
          return 1;
       } else if(var0 == 5530) {
          var3 = class48.intStack[--class228.intStackSize];
@@ -498,10 +498,10 @@ public class class133 implements Runnable {
             var3 = 0;
          }
 
-         Client.field719 = var3;
+         client.field719 = var3;
          return 1;
       } else if(var0 == 5531) {
-         class48.intStack[++class228.intStackSize - 1] = Client.field719;
+         class48.intStack[++class228.intStackSize - 1] = client.field719;
          return 1;
       } else {
          return 2;

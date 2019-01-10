@@ -75,31 +75,31 @@ public class GrandExchangeEvent {
       garbageValue = "613630657"
    )
    static void method812() {
-      Client.serverConnection.method5882();
-      Client.serverConnection.clientPacket.offset = 0;
-      Client.serverConnection.currentPacket = null;
-      Client.serverConnection.field1295 = null;
-      Client.serverConnection.field1284 = null;
-      Client.serverConnection.field1278 = null;
-      Client.serverConnection.currentPacketSize = 0;
-      Client.serverConnection.field1287 = 0;
-      Client.rebootTimer = 0;
-      Client.menuOptionCount = 0;
-      Client.onMenuOptionsChanged(-1);
-      Client.isMenuOpen = false;
-      Client.minimapRenderType = 0;
-      Client.destinationX = 0;
+      client.serverConnection.method5882();
+      client.serverConnection.clientPacket.offset = 0;
+      client.serverConnection.currentPacket = null;
+      client.serverConnection.field1295 = null;
+      client.serverConnection.field1284 = null;
+      client.serverConnection.field1278 = null;
+      client.serverConnection.currentPacketSize = 0;
+      client.serverConnection.field1287 = 0;
+      client.rebootTimer = 0;
+      client.menuOptionCount = 0;
+      client.onMenuOptionsChanged(-1);
+      client.isMenuOpen = false;
+      client.minimapRenderType = 0;
+      client.destinationX = 0;
 
       int var0;
       for(var0 = 0; var0 < 2048; ++var0) {
-         Client.players[var0] = null;
-         Client.cachedPlayersChanged(var0);
+         client.players[var0] = null;
+         client.cachedPlayersChanged(var0);
       }
 
       class4.localPlayer = null;
 
-      for(var0 = 0; var0 < Client.npcs.length; ++var0) {
-         NPCEntity var1 = Client.npcs[var0];
+      for(var0 = 0; var0 < client.npcs.length; ++var0) {
+         NPCEntity var1 = client.npcs[var0];
          if(var1 != null) {
             var1.interacting = -1;
             var1.interactingChanged(-1);
@@ -111,7 +111,7 @@ public class GrandExchangeEvent {
       class310.method5922(30);
 
       for(var0 = 0; var0 < 100; ++var0) {
-         Client.field848[var0] = true;
+         client.field848[var0] = true;
       }
 
       class48.method778();

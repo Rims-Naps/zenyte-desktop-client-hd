@@ -314,7 +314,7 @@ public class MapElementType extends CacheableNode implements RSArea {
    static final void method2387(int var0, int var1, int var2, int var3, SpritePixels var4, class96 var5) {
       int var6 = var3 * var3 + var2 * var2;
       if(var6 > 4225 && var6 < 90000) {
-         int var7 = Client.mapAngle & 2047;
+         int var7 = client.mapAngle & 2047;
          int var8 = Graphics3D.SINE[var7];
          int var9 = Graphics3D.COSINE[var7];
          int var10 = var9 * var2 + var3 * var8 >> 16;

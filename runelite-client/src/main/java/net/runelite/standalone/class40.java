@@ -37,7 +37,7 @@ public class class40 {
             var3 = var4 + var5 + "; Max-Age=" + 94608000L;
          }
 
-         Client var16 = class166.clientInstance;
+         client var16 = class166.clientInstance;
          var5 = "document.cookie=\"" + var3 + "\"";
          JSObject.getWindow(var16).eval(var5);
       } catch (Throwable var15) {

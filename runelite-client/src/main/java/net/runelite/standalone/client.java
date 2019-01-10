@@ -115,7 +115,7 @@ import net.runelite.rs.api.RSWorld;
 import org.slf4j.Logger;
 
 @ObfuscatedName("client")
-public final class Client extends GameEngine implements class236, RSClient {
+public final class client extends GameEngine implements class236, RSClient {
    @ObfuscatedName("pq")
    @ObfuscatedSignature(
       signature = "[Lls;"
@@ -1535,7 +1535,7 @@ public final class Client extends GameEngine implements class236, RSClient {
       rl$$clinit5();
    }
 
-   public Client() {
+   public client() {
       this.rl$$init();
    }
 
@@ -10475,12 +10475,12 @@ public final class Client extends GameEngine implements class236, RSClient {
    }
 
    private static void rl$$clinit2() {
-      $assertionsDisabled = !Client.class.desiredAssertionStatus();
+      $assertionsDisabled = !client.class.desiredAssertionStatus();
       oldPlayers = new PlayerEntity[2048];
    }
 
    private static void rl$$clinit3() {
-      $assertionsDisabled = !Client.class.desiredAssertionStatus();
+      $assertionsDisabled = !client.class.desiredAssertionStatus();
    }
 
    private static void rl$$clinit4() {
@@ -10489,6 +10489,6 @@ public final class Client extends GameEngine implements class236, RSClient {
    }
 
    private static void rl$$clinit5() {
-      $assertionsDisabled = !Client.class.desiredAssertionStatus();
+      $assertionsDisabled = !client.class.desiredAssertionStatus();
    }
 }

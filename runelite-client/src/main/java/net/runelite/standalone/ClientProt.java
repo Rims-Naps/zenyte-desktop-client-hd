@@ -677,7 +677,7 @@ public class ClientProt implements class102 {
    )
    static final void method6051() {
       SceneManager.regionLowMemory = false;
-      Client.lowMemory = false;
+      client.lowMemory = false;
    }
 
    @ObfuscatedName("g")

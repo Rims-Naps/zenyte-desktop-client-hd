@@ -59,22 +59,22 @@ final class TotalQuantityComparator implements Comparator {
       int var5 = var3 - 334;
       int var6;
       if(var5 < 0) {
-         var6 = Client.field649;
+         var6 = client.field649;
       } else if(var5 >= 100) {
-         var6 = Client.field896;
+         var6 = client.field896;
       } else {
-         var6 = (Client.field896 - Client.field649) * var5 / 100 + Client.field649;
+         var6 = (client.field896 - client.field649) * var5 / 100 + client.field649;
       }
 
       int var7 = var3 * var6 * 512 / (var2 * 334);
       int var8;
       int var9;
       short var10;
-      if(var7 < Client.field901) {
-         var10 = Client.field901;
+      if(var7 < client.field901) {
+         var10 = client.field901;
          var6 = var10 * var2 * 334 / (var3 * 512);
-         if(var6 > Client.field684) {
-            var6 = Client.field684;
+         if(var6 > client.field684) {
+            var6 = client.field684;
             var8 = var3 * var6 * 512 / (var10 * 334);
             var9 = (var2 - var8) / 2;
             if(var4) {
@@ -86,11 +86,11 @@ final class TotalQuantityComparator implements Comparator {
             var0 += var9;
             var2 -= var9 * 2;
          }
-      } else if(var7 > Client.field754) {
-         var10 = Client.field754;
+      } else if(var7 > client.field754) {
+         var10 = client.field754;
          var6 = var10 * var2 * 334 / (var3 * 512);
-         if(var6 < Client.field899) {
-            var6 = Client.field899;
+         if(var6 < client.field899) {
+            var6 = client.field899;
             var8 = var10 * var2 * 334 / (var6 * 512);
             var9 = (var3 - var8) / 2;
             if(var4) {
@@ -104,15 +104,15 @@ final class TotalQuantityComparator implements Comparator {
          }
       }
 
-      Client.scale = var3 * var6 / 334;
-      if(var2 != Client.viewportWidth || var3 != Client.viewportHeight) {
+      client.scale = var3 * var6 / 334;
+      if(var2 != client.viewportWidth || var3 != client.viewportHeight) {
          ScriptEvent.method4041(var2, var3);
       }
 
-      Client.Viewport_xOffset = var0;
-      Client.Viewport_yOffset = var1;
-      Client.viewportWidth = var2;
-      Client.viewportHeight = var3;
+      client.Viewport_xOffset = var0;
+      client.Viewport_yOffset = var1;
+      client.viewportWidth = var2;
+      client.viewportHeight = var3;
    }
 
    @ObfuscatedName("r")

@@ -29,7 +29,7 @@ public class class166 {
    @ObfuscatedSignature(
       signature = "Lclient;"
    )
-   static Client clientInstance;
+   static client clientInstance;
    @ObfuscatedName("x")
    @ObfuscatedSignature(
       signature = "[Ldr;"
@@ -68,7 +68,7 @@ public class class166 {
       garbageValue = "-14"
    )
    static boolean method2806(PlayerEntity var0) {
-      return Client.playerNameMask == 0?false:(class4.localPlayer == var0?class77.method1150():World.method3762() || Size.method4700() && var0.method2890() || class117.method2026() && var0.method2893());
+      return client.playerNameMask == 0?false:(class4.localPlayer == var0?class77.method1150():World.method3762() || Size.method4700() && var0.method2890() || class117.method2026() && var0.method2893());
    }
 
    @ObfuscatedName("i")
@@ -107,16 +107,16 @@ public class class166 {
          var8 = var3 * var5 - var4 * var1 >> 16;
          var1 = var3 * var4 + var5 * var1 >> 16;
          if(var1 >= 50) {
-            Client.screenX = var0 * Client.scale / var1 + Client.viewportWidth / 2;
-            Client.screenY = Client.viewportHeight / 2 + var8 * Client.scale / var1;
+            client.screenX = var0 * client.scale / var1 + client.viewportWidth / 2;
+            client.screenY = client.viewportHeight / 2 + var8 * client.scale / var1;
          } else {
-            Client.screenX = -1;
-            Client.screenY = -1;
+            client.screenX = -1;
+            client.screenY = -1;
          }
 
       } else {
-         Client.screenX = -1;
-         Client.screenY = -1;
+         client.screenX = -1;
+         client.screenY = -1;
       }
    }
 
