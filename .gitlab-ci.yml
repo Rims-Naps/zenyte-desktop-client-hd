@@ -36,6 +36,7 @@ cache:
 .validate: &validate
   stage: build
   script:
+    - 'mvn install:install-file -Dfile=./lib/plugin.jar -DgroupId=com.sun.jdk -DartifactId=plugin -Dpackaging=jar -Dversion=0.0.1'
     - 'mvn $MAVEN_CLI_OPTS clean install -DskipTests'
 
 # For merge requests do not `deploy` but only run `verify`.
