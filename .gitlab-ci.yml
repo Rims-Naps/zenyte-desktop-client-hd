@@ -68,7 +68,7 @@ deploy:jdk8:
   # Use stage test here, so the pages job may later pickup the created site.
   stage: test
   script:
-    - 'mvn -pl $MAVEN_CLI_OPTS runelite-client deploy --settings settings.xml'
+    - 'mvn $MAVEN_CLI_OPTS -pl runelite-client deploy --settings settings.xml'
   only:
     - master
   # Archive up the built documentation site.
