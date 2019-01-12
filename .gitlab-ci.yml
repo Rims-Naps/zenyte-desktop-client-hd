@@ -37,7 +37,7 @@ cache:
   stage: build
   script:
     - 'mvn install:install-file -Dfile=./lib/plugin.jar -DgroupId=com.sun.jdk -DartifactId=plugin -Dpackaging=jar -Dversion=0.0.1'
-    - 'mvn $MAVEN_CLI_OPTS clean install'
+    - 'mvn $MAVEN_CLI_OPTS clean install -pl runelite-client'
 
 # For merge requests do not `deploy` but only run `verify`.
 # See https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
@@ -71,8 +71,4 @@ deploy:jdk8:
     - 'mvn $MAVEN_CLI_OPTS -DskipTests -pl runelite-client deploy --settings settings.xml'
   only:
     - master
-  # Archive up the built documentation site.
-  artifacts:
-    paths:
-      - target/staging
   image: maven:3.6.0-jdk-8
