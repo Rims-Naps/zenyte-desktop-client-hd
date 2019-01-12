@@ -144,14 +144,6 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<dependency>
-				<groupId>com.sun.jdk</groupId>
-				<artifactId>plugin</artifactId>
-				<version>${version.java-plugin}</version>
-				<type>jar</type>
-				<scope>system</scope>
-				<systemPath>${java.home}/lib/plugin.jar</systemPath>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
