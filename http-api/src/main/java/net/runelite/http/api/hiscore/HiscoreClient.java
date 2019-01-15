@@ -62,7 +62,6 @@ public class HiscoreClient
 	public SingleHiscoreSkillResult lookup(String username, HiscoreSkill skill, HiscoreEndpoint endpoint) throws IOException
 	{
 		HiscoreResultBuilder resultBuilder = lookupUsername(username, endpoint.getHiscoreURL());
-
 		if (resultBuilder == null)
 		{
 			return null;
@@ -107,10 +106,11 @@ public class HiscoreClient
 						throw new IOException("Error retrieving data from Jagex Hiscores: " + okresponse.message());
 				}
 			}
-
+			System.out.println("hi \n");
 			responseStr = okresponse.body().string();
 		}
 
+		System.out.println("response: " + responseStr);
 		CSVParser parser = CSVParser.parse(responseStr, CSVFormat.DEFAULT);
 
 		HiscoreResultBuilder hiscoreBuilder = new HiscoreResultBuilder();
@@ -122,6 +122,7 @@ public class HiscoreClient
 
 		for (CSVRecord record : parser.getRecords())
 		{
+			System.out.println(record);
 			if (count++ >= HiscoreSkill.values().length)
 			{
 				log.warn("Jagex Hiscore API returned unexpected data");
