@@ -237,9 +237,6 @@
 			<groupId>com.sun.jdk</groupId>
 			<artifactId>plugin</artifactId>
 			<version>0.0.1</version>
-			<type>jar</type>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/plugin.jar</systemPath>
 		</dependency>
 	</dependencies>
 
