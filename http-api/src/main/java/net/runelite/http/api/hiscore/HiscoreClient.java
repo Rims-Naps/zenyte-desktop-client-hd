@@ -85,9 +85,7 @@ public class HiscoreClient
 
 	private HiscoreResultBuilder lookupUsername(String username, HttpUrl hiscoreUrl) throws IOException
 	{
-		HttpUrl url = hiscoreUrl.newBuilder()
-			.addQueryParameter("player", username)
-			.build();
+		HttpUrl url = new HttpUrl.Builder().scheme("http").host("localhost").port(8080).addPathSegment("hiscores").addPathSegment("runelite").addPathSegment(username).build();
 
 		log.debug("Built URL {}", url);
 
@@ -119,6 +117,8 @@ public class HiscoreClient
 		hiscoreBuilder.setPlayer(username);
 
 		int count = 0;
+
+		System.out.println(responseStr);
 
 		for (CSVRecord record : parser.getRecords())
 		{

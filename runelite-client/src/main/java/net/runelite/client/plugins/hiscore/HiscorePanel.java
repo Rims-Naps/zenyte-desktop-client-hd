@@ -202,6 +202,10 @@ public class HiscorePanel extends PluginPanel
 
 		for (HiscoreEndpoint endpoint : HiscoreEndpoint.values())
 		{
+
+			if(endpoint == HiscoreEndpoint.CUSTOM)
+				continue;
+
 			final BufferedImage iconImage = ImageUtil.getResourceStreamFromClass(getClass(), endpoint.name().toLowerCase() + ".png");
 
 			MaterialTab tab = new MaterialTab(new ImageIcon(iconImage), tabGroup, null);

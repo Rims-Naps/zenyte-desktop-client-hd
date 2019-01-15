@@ -30,6 +30,8 @@ import okhttp3.HttpUrl;
 
 public enum HiscoreEndpoint
 {
+
+	CUSTOM("Zenyte", "https://localhost:8080/hiscores/runelite/"),
 	NORMAL("Normal", "https://services.runescape.com/m=hiscore_oldschool/index_lite.ws"),
 	IRONMAN("Ironman", "https://services.runescape.com/m=hiscore_oldschool_ironman/index_lite.ws"),
 	HARDCORE_IRONMAN("Hardcore Ironman", "https://services.runescape.com/m=hiscore_oldschool_hardcore_ironman/index_lite.ws"),
@@ -41,10 +43,12 @@ public enum HiscoreEndpoint
 	private final String name;
 	private final HttpUrl hiscoreURL;
 
+	private static final String URL = "https://localhost:8080/hiscores/runelite/";
+
 	HiscoreEndpoint(String name, String hiscoreURL)
 	{
 		this.name = name;
-		this.hiscoreURL = HttpUrl.parse(hiscoreURL);
+		this.hiscoreURL = HttpUrl.parse(URL);
 	}
 
 	public String getName()

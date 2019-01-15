@@ -858,7 +858,7 @@ public class ChatCommandsPlugin extends Plugin
 			case HARDCORE_IRONMAN:
 				return HiscoreEndpoint.HARDCORE_IRONMAN;
 			default:
-				return HiscoreEndpoint.NORMAL;
+				return HiscoreEndpoint.CUSTOM;
 		}
 	}
 

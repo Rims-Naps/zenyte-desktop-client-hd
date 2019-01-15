@@ -233,14 +233,14 @@
 			<version>${guice.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>com.sun.jdk</groupId>
 			<artifactId>plugin</artifactId>
 			<version>0.0.1</version>
-			<!--<type>jar</type>-->
-			<!--<scope>system</scope>-->
-			<!--<systemPath>${project.basedir}/lib/plugin.jar</systemPath>-->
-		</dependency>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/plugin.jar</systemPath>
+		</dependency> -->
 	</dependencies>
 
 	<build>
