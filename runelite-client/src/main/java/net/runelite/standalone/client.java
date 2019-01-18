@@ -6484,7 +6484,7 @@ public final class client extends GameEngine implements class236, RSClient {
             byte var8 = 0;
 
             try {
-               class306.method5871("oldschool", var7, var8, 18);
+               class306.method5871("zenyte", var7, var8, 18);
             } catch (Exception var5) {
                ProjectileAnimation.method5582((String)null, var5, 2103817937);
             }
