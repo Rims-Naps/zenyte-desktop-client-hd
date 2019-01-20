@@ -50,13 +50,9 @@
 
 	<distributionManagement>
 		<repository>
-			<id>s3.artifacts.release</id>
-			<url>s3://${artifactrepo.url}/release</url>
+            <id>s3.artifacts.client</id>
+            <url>s3://${artifactrepo.url}/client</url>
 		</repository>
-		<snapshotRepository>
-			<id>s3.artifacts.snapshot</id>
-			<url>s3://${artifactrepo.url}/snapshot</url>
-		</snapshotRepository>
 	</distributionManagement>
 
 	<licenses>
