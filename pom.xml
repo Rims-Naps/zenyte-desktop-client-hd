@@ -43,15 +43,13 @@
 		<maven.javadoc.skip>true</maven.javadoc.skip>
 		<checkstyle.skip>true</checkstyle.skip>
 
-		<artifactrepo.url>zenyte-runelite</artifactrepo.url>
-
 		<rs.version>177</rs.version>
 	</properties>
 
 	<distributionManagement>
 		<repository>
             <id>s3.artifacts.client</id>
-            <url>s3://${artifactrepo.url}/client</url>
+			<url>s3://zenyte-runelite/release</url>
 		</repository>
 	</distributionManagement>
 
