@@ -1,10 +1,11 @@
 package net.runelite.standalone;
 
-import java.io.EOFException;
-import java.io.IOException;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.io.EOFException;
+import java.io.IOException;
 
 @ObfuscatedName("dr")
 public class CacheFile {
@@ -408,7 +409,7 @@ public class CacheFile {
          class316.field1161 = 2;
          class150.method2560("Your account has not logged out from its last", "session or the server is too busy right now.", "Please try again in a few minutes.");
       } else if(var0 == 6 || !client.field770 && var0 == 68) {
-         class150.method2560("RuneScape has been updated!", "Please reload this page.", "");
+         class150.method2560("Zenyte has been updated!", "Please reload the client.", "");
       } else if(var0 == 7) {
          class150.method2560("This world is full.", "Please use a different world.", "");
       } else if(var0 == 8) {
@@ -456,6 +457,8 @@ public class CacheFile {
          class150.method2560("Your account is currently inaccessible.", "Please try again in a few minutes.", "");
       } else if(var0 == 38) {
          class150.method2560("You need to vote to play!", "Visit runescape.com and vote,", "and then come back here!");
+      } else if (var0 == 39) {
+         class150.method2560("Zenyte has been updated!", "Please download the new client from discord.", "");
       } else if(var0 == 55) {
          class316.loginIndex = 8;
       } else {
