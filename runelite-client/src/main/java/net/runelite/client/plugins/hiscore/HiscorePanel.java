@@ -202,10 +202,8 @@ public class HiscorePanel extends PluginPanel
 
 		for (HiscoreEndpoint endpoint : HiscoreEndpoint.values())
 		{
-
 			if(endpoint == HiscoreEndpoint.CUSTOM)
 				continue;
-
 			final BufferedImage iconImage = ImageUtil.getResourceStreamFromClass(getClass(), endpoint.name().toLowerCase() + ".png");
 
 			MaterialTab tab = new MaterialTab(new ImageIcon(iconImage), tabGroup, null);
@@ -306,7 +304,7 @@ public class HiscorePanel extends PluginPanel
 		String directory = "/skill_icons";
 		if (skillName.equals("combat") || skillName.equals("overall"))
 		{
-			// Cannot use SpriteManager as HiscorePlugin loads before a Client is available
+			// Cannot use SpriteManager as HiscorePlugin loads before a client is available
 			directory += "/";
 		}
 		else

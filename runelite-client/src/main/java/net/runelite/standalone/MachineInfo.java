@@ -179,7 +179,7 @@ public class MachineInfo extends Node {
       var1.method6114(this.field3914?1:0);
       var1.method6063(this.maxMemoryMB);
       var1.method6114(this.field3916);
-      var1.method6064(this.field3917);
+      var1.writeMedium(this.field3917);
       var1.method6063(this.field3923);
       var1.method6265(this.field3919);
       var1.method6265(this.field3920);

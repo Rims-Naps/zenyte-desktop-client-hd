@@ -62,7 +62,7 @@ public class ParamType extends CacheableNode {
    )
    void method4101(Packet var1, int var2) {
       if(var2 == 1) {
-         byte var4 = var1.readByte();
+         byte var4 = var1.method6240();
          int var5 = var4 & 255;
          if(var5 == 0) {
             throw new IllegalArgumentException("");

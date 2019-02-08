@@ -409,7 +409,7 @@ public class ModelData extends Entity implements RSModelData {
          var2.offset = 0;
 
          for(var26 = 0; var26 < var11; ++var26) {
-            byte var27 = this.textureRenderTypes[var26] = var2.readByte();
+            byte var27 = this.textureRenderTypes[var26] = var2.method6240();
             if(var27 == 0) {
                ++var23;
             }
@@ -580,15 +580,15 @@ public class ModelData extends Entity implements RSModelData {
       for(var51 = 0; var51 < var10; ++var51) {
          this.faceColor[var51] = (short)var2.method6080();
          if(var12 == 1) {
-            this.faceRenderType[var51] = var3.readByte();
+            this.faceRenderType[var51] = var3.method6240();
          }
 
          if(var13 == 255) {
-            this.faceRenderPriorities[var51] = var4.readByte();
+            this.faceRenderPriorities[var51] = var4.method6240();
          }
 
          if(var14 == 1) {
-            this.faceAlphas[var51] = var5.readByte();
+            this.faceAlphas[var51] = var5.method6240();
          }
 
          if(var15 == 1) {
@@ -858,11 +858,11 @@ public class ModelData extends Entity implements RSModelData {
          }
 
          if(var13 == 255) {
-            this.faceRenderPriorities[var38] = var6.readByte();
+            this.faceRenderPriorities[var38] = var6.method6240();
          }
 
          if(var14 == 1) {
-            this.faceAlphas[var38] = var7.readByte();
+            this.faceAlphas[var38] = var7.method6240();
          }
 
          if(var15 == 1) {

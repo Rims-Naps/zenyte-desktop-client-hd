@@ -659,7 +659,7 @@ public final class GameObject implements RSGameObject {
          if(var3) {
             class316.leftBackground.method2273(class316.field1143, 0);
             class316.rightBackground.method2273(class316.field1143 + 382, 0);
-            //Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
+           // Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
          }
 
          if(client.gameState == 0 || client.gameState == 5) {
@@ -1011,7 +1011,7 @@ public final class GameObject implements RSGameObject {
             }
 
             class316.field1173 += var40;
-            var34 = (var40 + (Client.gameCycle & 1)) / 2;
+            var34 = (var40 + (client.gameCycle & 1)) / 2;
             if(var34 > 0) {
                for(var35 = 0; var35 < class316.field1173 * 100; ++var35) {
                   var36 = (int)(Math.random() * 124.0D) + 2;

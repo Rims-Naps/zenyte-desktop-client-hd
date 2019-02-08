@@ -211,7 +211,7 @@ public class ClientOptions implements RSPreferences {
                         class316.worldSelectShown = false;
                         class316.leftBackground.method2273(class316.field1143, 0);
                         class316.rightBackground.method2273(class316.field1143 + 382, 0);
-                        //Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
+                       // Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
                      }
                   }
                }

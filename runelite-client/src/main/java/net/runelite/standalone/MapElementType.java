@@ -3,11 +3,11 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSArea;
+import net.runelite.rs.api.RSMapElementConfig;
 import net.runelite.rs.api.RSSpritePixels;
 
 @ObfuscatedName("ii")
-public class MapElementType extends CacheableNode implements RSArea {
+public class MapElementType extends CacheableNode implements RSMapElementConfig {
    @ObfuscatedName("r")
    @ObfuscatedSignature(
       signature = "[Lii;"
@@ -190,7 +190,7 @@ public class MapElementType extends CacheableNode implements RSArea {
             this.field3330 = new byte[var3];
 
             for(var5 = 0; var5 < var3; ++var5) {
-               this.field3330[var5] = var1.readByte();
+               this.field3330[var5] = var1.method6240();
             }
          } else if(var2 != 16) {
             if(var2 == 17) {

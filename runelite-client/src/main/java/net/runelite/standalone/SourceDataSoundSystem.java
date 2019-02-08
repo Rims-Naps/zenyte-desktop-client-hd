@@ -102,7 +102,7 @@ public class SourceDataSoundSystem extends AbstractSoundSystem {
       garbageValue = "-917925486"
    )
    protected void vmethod6410() {
-      this.audioFormat = new AudioFormat((float) sampleRate, 16, class56.audioHighMemory?2:1, true, false);
+      this.audioFormat = new AudioFormat((float)AbstractSoundSystem.sampleRate, 16, class56.audioHighMemory?2:1, true, false);
       this.bytes = new byte[256 << (class56.audioHighMemory?2:1)];
    }
 }

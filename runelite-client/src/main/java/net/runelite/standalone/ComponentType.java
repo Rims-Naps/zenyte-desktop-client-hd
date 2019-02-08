@@ -739,7 +739,7 @@ public class ComponentType extends Node implements RSWidget {
                   return null;
                }
 
-               var7 = var8.method1408(var9.ambient + 64, var9.contrast + 768, -50, -10, -50);
+               var7 = var8.method1408(var9.ambient + 64, var9.contrast * 5 + 768, -50, -10, -50);
             }
 
             componentModelCache.method957(var7, (long)(var6 + (var5 << 16)));
@@ -863,10 +863,10 @@ public class ComponentType extends Node implements RSWidget {
          this.sizeY = var1.method6080();
       }
 
-      this.sizeXmode = var1.readByte();
-      this.sizeYmode = var1.readByte();
-      this.posXmode = var1.readByte();
-      this.posYmode = var1.readByte();
+      this.sizeXmode = var1.method6240();
+      this.sizeYmode = var1.method6240();
+      this.posXmode = var1.method6240();
+      this.posYmode = var1.method6240();
       this.layer = var1.method6080();
       if(this.layer == 65535) {
          this.layer = -1;

@@ -39,7 +39,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.MenuAction;
 import net.runelite.api.MenuEntry;
-import net.runelite.api.NPC;
 import net.runelite.api.NPCComposition;
 import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.api.events.MenuOptionClicked;
@@ -76,30 +75,6 @@ public class MenuManager
 	{
 		this.client = client;
 		this.eventBus = eventBus;
-	}
-
-	public void addNpcMenuOption(String option)
-	{
-		npcMenuOptions.add(option);
-
-		// add to surrounding npcs
-		for (NPC npc : client.getNpcs())
-		{
-			NPCComposition composition = npc.getComposition();
-			addNpcOption(composition, option);
-		}
-	}
-
-	public void removeNpcMenuOption(String option)
-	{
-		npcMenuOptions.remove(option);
-
-		// remove this option from all npc compositions
-		for (NPC npc : client.getNpcs())
-		{
-			NPCComposition composition = npc.getComposition();
-			removeNpcOption(composition, option);
-		}
 	}
 
 	/**
@@ -204,11 +179,11 @@ public class MenuManager
 		int newIdx = findEmptyPlayerMenuIndex();
 		if (newIdx == IDX_UPPER)
 		{
-			log.debug("Client has updated player menu index {} where option {} was, and there are no more free slots available", idx, menuText);
+			log.debug("client has updated player menu index {} where option {} was, and there are no more free slots available", idx, menuText);
 			return;
 		}
 
-		log.debug("Client has updated player menu index {} where option {} was, moving to index {}", idx, menuText, newIdx);
+		log.debug("client has updated player menu index {} where option {} was, moving to index {}", idx, menuText, newIdx);
 
 		playerMenuIndexMap.remove(idx);
 		addPlayerMenuItem(newIdx, menuText);

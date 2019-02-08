@@ -268,7 +268,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(IB)V",
       garbageValue = "-67"
    )
-   public void writeByte(int var1) {
+   public void method6075(int var1) {
       this.payload[this.offset - var1 - 1] = (byte)var1;
    }
 
@@ -433,7 +433,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(I)B",
       garbageValue = "2043532631"
    )
-   public byte readByte() {
+   public byte method6240() {
       return this.payload[++this.offset - 1];
    }
 
@@ -503,7 +503,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(II)V",
       garbageValue = "-1616226405"
    )
-   public void method6064(int var1) {
+   public void writeMedium(int var1) {
       this.payload[++this.offset - 1] = (byte)(var1 >> 16);
       this.payload[++this.offset - 1] = (byte)(var1 >> 8);
       this.payload[++this.offset - 1] = (byte)var1;

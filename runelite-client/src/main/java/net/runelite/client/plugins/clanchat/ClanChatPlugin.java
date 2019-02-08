@@ -24,29 +24,30 @@
  */
 package net.runelite.client.plugins.clanchat;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import com.google.inject.Provides;
-import net.runelite.api.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.inject.Inject;
+import net.runelite.api.ChatMessageType;
+import net.runelite.api.ClanMemberRank;
+import net.runelite.api.Client;
+import net.runelite.api.GameState;
+import net.runelite.api.VarClientStr;
+import net.runelite.api.widgets.WidgetType;
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.SetMessage;
 import net.runelite.api.events.VarClientStrChanged;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
-import net.runelite.api.widgets.WidgetType;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ClanManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.Text;
-
-import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
 
 @PluginDescriptor(
 	name = "Clan Chat",
@@ -58,8 +59,6 @@ public class ClanChatPlugin extends Plugin
 	private static final int MAX_CHATS = 10;
 	private static final String CLAN_CHAT_TITLE = "Clan Chat";
 	private static final String RECENT_TITLE = "Recent Clan Chats";
-	private static final Joiner JOINER = Joiner.on(',').skipNulls();
-	private static final Splitter SPLITTER = Splitter.on(',').trimResults().omitEmptyStrings();
 
 	@Inject
 	private Client client;
@@ -81,7 +80,7 @@ public class ClanChatPlugin extends Plugin
 	@Override
 	public void startUp()
 	{
-		chats = new ArrayList<>(SPLITTER.splitToList(config.chatsData()));
+		chats = new ArrayList<>(Text.fromCSV(config.chatsData()));
 	}
 
 	@Override
@@ -114,7 +113,7 @@ public class ClanChatPlugin extends Plugin
 			Widget owner = client.getWidget(WidgetInfo.CLAN_CHAT_OWNER);
 			if (client.getClanChatCount() > 0)
 			{
-				clanChatTitleWidget.setText(CLAN_CHAT_TITLE + " (" + client.getClanChatCount() + "/2000)");
+				clanChatTitleWidget.setText(CLAN_CHAT_TITLE + " (" + client.getClanChatCount() + "/100)");
 			}
 			else if (config.recentChats() && clanChatList.getChildren() == null && !Strings.isNullOrEmpty(owner.getText()))
 			{
@@ -222,6 +221,6 @@ public class ClanChatPlugin extends Plugin
 			chats.remove(0);
 		}
 
-		config.chatsData(JOINER.join(chats));
+		config.chatsData(Text.toCSV(chats));
 	}
 }

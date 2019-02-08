@@ -626,9 +626,9 @@ public class LocType extends CacheableNode implements RSObjectComposition {
       } else if(var2 == 28) {
          this.decorDisplacement = var1.readUnsignedByte();
       } else if(var2 == 29) {
-         this.ambient = var1.readByte();
+         this.ambient = var1.method6240();
       } else if(var2 == 39) {
-         this.contrast = var1.readByte() * 25;
+         this.contrast = var1.method6240() * 25;
       } else if(var2 >= 30 && var2 < 35) {
          this.actions[var2 - 30] = var1.readString();
          if(this.actions[var2 - 30].equalsIgnoreCase("Hidden")) {

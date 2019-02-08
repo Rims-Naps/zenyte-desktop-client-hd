@@ -25,15 +25,16 @@
  */
 package net.runelite.client.rs;
 
+import lombok.extern.slf4j.Slf4j;
+import net.runelite.standalone.client;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import java.applet.Applet;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-import lombok.extern.slf4j.Slf4j;
-import net.runelite.standalone.client;
 
 @Slf4j
 @Singleton

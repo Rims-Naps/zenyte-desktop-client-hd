@@ -290,12 +290,12 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
       return this.overheadIcon;
    }
 
-    @Override
-    public int getRsSkullIcon() {
-        return this.skullIcon;
-    }
+   @Override
+   public int getRsSkullIcon() {
+      return skullIcon;
+   }
 
-    public int _protect$getRsSkullIcon() {
+   public int _protect$getRsSkullIcon/* $FF was: 1protect$getRsSkullIcon*/() {
       return this.skullIcon;
    }
 
@@ -583,8 +583,8 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
    final void method2889(Packet var1) {
       var1.offset = 0;
       int var2 = var1.readUnsignedByte();
-      this.skullIcon = var1.readByte();
-      this.overheadIcon = var1.readByte();
+      this.skullIcon = var1.method6240();
+      this.overheadIcon = var1.method6240();
       int var3 = -1;
       this.team = 0;
       int[] var4 = new int[12];

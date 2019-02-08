@@ -33,7 +33,7 @@ import java.util.TreeMap;
 import javax.swing.JToolBar;
 
 /**
- * Client plugin toolbar.
+ * client plugin toolbar.
  */
 public class ClientPluginToolbar extends JToolBar
 {
@@ -47,7 +47,7 @@ public class ClientPluginToolbar extends JToolBar
 			.result());
 
 	/**
-	 * Instantiates a new Client plugin toolbar.
+	 * Instantiates a new client plugin toolbar.
 	 */
 	ClientPluginToolbar()
 	{

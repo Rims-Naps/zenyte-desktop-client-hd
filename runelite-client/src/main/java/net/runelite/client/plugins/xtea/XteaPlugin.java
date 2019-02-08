@@ -40,7 +40,7 @@ import net.runelite.http.api.xtea.XteaRequest;
 
 @PluginDescriptor(
 	name = "Xtea",
-	hidden = false
+	hidden = true
 )
 @Slf4j
 public class XteaPlugin extends Plugin
