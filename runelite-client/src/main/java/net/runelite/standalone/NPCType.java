@@ -96,7 +96,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
    short[] retexD;
    @ObfuscatedName("an")
    @ObfuscatedGetter(
-      intValue = 1007972655
+      intValue = 744895979
    )
    int contrast;
    @ObfuscatedName("i")
@@ -373,9 +373,9 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
       } else if(var2 == 99) {
          this.isVisible = true;
       } else if(var2 == 100) {
-         this.ambient = var1.readByte();
+         this.ambient = var1.method6240();
       } else if(var2 == 101) {
-         this.contrast = var1.readByte();
+         this.contrast = var1.method6240() * 5;
       } else if(var2 == 102) {
          this.headIcon = var1.method6080();
       } else if(var2 == 103) {
@@ -547,7 +547,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
                }
             }
 
-            var5 = var11.method1408(this.ambient + 64, this.contrast * 5 + 850, -30, -50, -30);
+            var5 = var11.method1408(this.ambient + 64, this.contrast + 850, -30, -50, -30);
             npcModelCache.method957(var5, (long)this.id);
          }
 

@@ -1,13 +1,10 @@
 package net.runelite.standalone;
 
-import net.runelite.api.Actor;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.events.ProjectileMoved;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSNPC;
-import net.runelite.rs.api.RSPlayer;
 import net.runelite.rs.api.RSProjectile;
 import net.runelite.rs.api.RSRunException;
 
@@ -172,10 +169,6 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
       }
    }
 
-   public int getRsInteracting() {
-      return this.interacting;
-   }
-
    public int getId() {
       return this.id;
    }
@@ -203,6 +196,11 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
       case 1484:
       case 1491:
       case 1495:
+      case 1583:
+      case 1596:
+      case 1598:
+      case 1662:
+      case 1663:
          return;
       default:
          LocalPoint var6 = new LocalPoint(var1, var2);
@@ -221,28 +219,6 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
    public int getRemainingCycles() {
       int var1 = class166.clientInstance.getGameCycle();
       return this.getEndCycle() - var1;
-   }
-
-   public Actor getInteracting() {
-      int var1 = this.getRsInteracting();
-      if(var1 == 0) {
-         return null;
-      } else {
-         int var2;
-         if(var1 > 0) {
-            var2 = var1 - 1;
-            RSNPC[] var4 = class166.clientInstance.getCachedNPCs();
-            return var4[var2];
-         } else {
-            var2 = -var1 - 1;
-            if(var2 == class166.clientInstance.getLocalInteractingIndex()) {
-               return class166.clientInstance.getLocalPlayer();
-            } else {
-               RSPlayer[] var3 = class166.clientInstance.getCachedPlayers();
-               return var3[var2];
-            }
-         }
-      }
    }
 
    public int getFloor() {

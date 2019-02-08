@@ -71,7 +71,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
    public int zoom2d;
    @ObfuscatedName("bz")
    @ObfuscatedGetter(
-      intValue = -1261879399
+      intValue = -1111369339
    )
    public int contrast;
    @ObfuscatedName("au")
@@ -565,7 +565,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
                this.retexD[var4] = (short)var1.method6080();
             }
          } else if(var2 == 42) {
-            this.shiftClickIndex = var1.readByte();
+            this.shiftClickIndex = var1.method6240();
          } else if(var2 == 65) {
             this.stockmarket = true;
          } else if(var2 == 78) {
@@ -601,9 +601,9 @@ public class ObjType extends CacheableNode implements RSItemComposition {
          } else if(var2 == 112) {
             this.resizeZ = var1.method6080();
          } else if(var2 == 113) {
-            this.ambient = var1.readByte();
+            this.ambient = var1.method6240();
          } else if(var2 == 114) {
-            this.contrast = var1.readByte() * 5;
+            this.contrast = var1.method6240();
          } else if(var2 == 115) {
             this.team = var1.readUnsignedByte();
          } else if(var2 == 139) {
@@ -857,7 +857,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
                }
             }
 
-            var5 = var6.method1408(this.ambient + 64, this.contrast + 768, -50, -10, -50);
+            var5 = var6.method1408(this.ambient + 64, this.contrast * 5 + 768, -50, -10, -50);
             var5.field1664 = true;
             itemModelCache.method957(var5, (long)this.id);
             return var5;

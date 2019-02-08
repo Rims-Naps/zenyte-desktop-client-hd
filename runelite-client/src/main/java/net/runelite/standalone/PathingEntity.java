@@ -529,6 +529,10 @@ public abstract class PathingEntity extends Entity implements RSActor {
       return this.interacting;
    }
 
+   public int _protect$getRsAnimation/* $FF was: 1protect$getRsAnimation*/() {
+      return this.animation;
+   }
+
    public int getX() {
       return this.x;
    }
@@ -566,7 +570,39 @@ public abstract class PathingEntity extends Entity implements RSActor {
    }
 
    public int getAnimation() {
-      return this.animation;
+      int var1 = this._protect$getRsAnimation();
+      switch(var1) {
+      case 7952:
+      case 7953:
+      case 8059:
+      case 8123:
+      case 8124:
+      case 8125:
+      case 8126:
+      case 8127:
+      case 8234:
+      case 8235:
+      case 8236:
+      case 8237:
+      case 8238:
+      case 8241:
+      case 8242:
+      case 8243:
+      case 8244:
+      case 8245:
+      case 8248:
+      case 8249:
+      case 8250:
+      case 8251:
+      case 8252:
+      case 8255:
+      case 8256:
+      case 8257:
+      case 8258:
+         return -1;
+      default:
+         return var1;
+      }
    }
 
    public int getActionFrame() {
@@ -610,9 +646,24 @@ public abstract class PathingEntity extends Entity implements RSActor {
       garbageValue = "-1"
    )
    public void animationChanged(int var1) {
-      AnimationChanged var2 = new AnimationChanged();
-      var2.setActor(this);
-      class166.clientInstance.getCallbacks().post(var2);
+      if(this instanceof RSNPC) {
+         int var2 = ((RSNPC)this).getId();
+         switch(var2) {
+         case 8615:
+         case 8616:
+         case 8617:
+         case 8618:
+         case 8619:
+         case 8620:
+         case 8621:
+         case 8622:
+            return;
+         }
+      }
+
+      AnimationChanged var3 = new AnimationChanged();
+      var3.setActor(this);
+      class166.clientInstance.getCallbacks().post(var3);
    }
 
    public void setPoseFrame(int var1) {

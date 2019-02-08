@@ -55,7 +55,7 @@ enum QuestStartLocation
 	BIOHAZARD("Biohazard", new WorldPoint(2591, 3335, 0)),
 	BONE_VOYAGE("Bone Voyage", new WorldPoint(3259, 3450, 0)),
 	CABIN_FEVER("Cabin Fever", new WorldPoint(3674, 3496, 0)),
-	CLIENT_OF_KOUREND("Client of Kourend", new WorldPoint(1823, 3690, 0)),
+	CLIENT_OF_KOUREND("client of Kourend", new WorldPoint(1823, 3690, 0)),
 	CLOCK_TOWER("Clock Tower", new WorldPoint(2568, 3249, 0)),
 	COLD_WAR("Cold War", new WorldPoint(2593, 3265, 0)),
 	CONTACT("Contact!", new WorldPoint(3280, 2770, 0)),

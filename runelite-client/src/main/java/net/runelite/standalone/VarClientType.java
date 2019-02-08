@@ -271,7 +271,7 @@ public class VarClientType extends CacheableNode {
                var8.packetBuffer.method6114(var17);
                var8.packetBuffer.method6114(var7);
                class321.method6055(var8.packetBuffer, var3);
-               var8.packetBuffer.writeByte(var8.packetBuffer.offset - var9);
+               var8.packetBuffer.method6075(var8.packetBuffer.offset - var9);
                client.serverConnection.method5881(var8);
                return 1;
             } else if(var0 == 5009) {

@@ -54,7 +54,7 @@ public class GrandExchangeOffer implements RSGrandExchangeOffer {
       garbageValue = "0"
    )
    public GrandExchangeOffer(Packet var1, boolean var2) {
-      this.state = var1.readByte();
+      this.state = var1.method6240();
       this.itemId = var1.method6080();
       this.price = var1.method6201();
       this.totalQuantity = var1.method6201();

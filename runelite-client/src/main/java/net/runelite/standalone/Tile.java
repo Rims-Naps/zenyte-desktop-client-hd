@@ -23,7 +23,6 @@ import net.runelite.api.events.WallObjectSpawned;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSCollisionData;
 import net.runelite.rs.api.RSDeque;
 import net.runelite.rs.api.RSGameObject;
 import net.runelite.rs.api.RSItem;
@@ -410,89 +409,93 @@ public final class Tile extends Node implements RSTile {
       if(this.getPlane() != var1.getPlane()) {
          return false;
       } else {
-         RSCollisionData[] var2 = class166.clientInstance.getCollisionMaps();
-         int var3 = this.getPlane();
-         int[][] var4 = var2[var3].getFlags();
-         Point var5 = this.getSceneLocation();
-         Point var6 = var1.getSceneLocation();
-         if(var5.getX() == var6.getX() && var5.getY() == var6.getY()) {
-            return true;
+         net.runelite.api.CollisionData[] var2 = class166.clientInstance.getCollisionMaps();
+         if(var2 == null) {
+            return false;
          } else {
-            int var7 = var6.getX() - var5.getX();
-            int var8 = var6.getY() - var5.getY();
-            int var9 = Math.abs(var7);
-            int var10 = Math.abs(var8);
-            int var11 = 131072;
-            int var12 = 131072;
-            if(var7 < 0) {
-               var11 |= 4096;
+            int var3 = this.getPlane();
+            int[][] var4 = var2[var3].getFlags();
+            Point var5 = this.getSceneLocation();
+            Point var6 = var1.getSceneLocation();
+            if(var5.getX() == var6.getX() && var5.getY() == var6.getY()) {
+               return true;
             } else {
-               var11 |= 65536;
-            }
-
-            if(var8 < 0) {
-               var12 |= 1024;
-            } else {
-               var12 |= 16384;
-            }
-
-            int var13;
-            int var14;
-            int var15;
-            int var16;
-            int var17;
-            int var18;
-            if(var9 > var10) {
-               var13 = var5.getX();
-               var14 = var5.getY() << 16;
-               var15 = (var8 << 16) / var9;
-               var14 += 32768;
-               if(var8 < 0) {
-                  --var14;
-               }
-
-               var16 = var7 < 0?-1:1;
-
-               while(var13 != var6.getX()) {
-                  var13 += var16;
-                  var17 = var14 >>> 16;
-                  if((var4[var13][var17] & var11) != 0) {
-                     return false;
-                  }
-
-                  var14 += var15;
-                  var18 = var14 >>> 16;
-                  if(var18 != var17 && (var4[var13][var18] & var12) != 0) {
-                     return false;
-                  }
-               }
-            } else {
-               var13 = var5.getY();
-               var14 = var5.getX() << 16;
-               var15 = (var7 << 16) / var10;
-               var14 += 32768;
+               int var7 = var6.getX() - var5.getX();
+               int var8 = var6.getY() - var5.getY();
+               int var9 = Math.abs(var7);
+               int var10 = Math.abs(var8);
+               int var11 = 131072;
+               int var12 = 131072;
                if(var7 < 0) {
-                  --var14;
+                  var11 |= 4096;
+               } else {
+                  var11 |= 65536;
                }
 
-               var16 = var8 < 0?-1:1;
+               if(var8 < 0) {
+                  var12 |= 1024;
+               } else {
+                  var12 |= 16384;
+               }
 
-               while(var13 != var6.getY()) {
-                  var13 += var16;
-                  var17 = var14 >>> 16;
-                  if((var4[var17][var13] & var12) != 0) {
-                     return false;
+               int var13;
+               int var14;
+               int var15;
+               int var16;
+               int var17;
+               int var18;
+               if(var9 > var10) {
+                  var13 = var5.getX();
+                  var14 = var5.getY() << 16;
+                  var15 = (var8 << 16) / var9;
+                  var14 += 32768;
+                  if(var8 < 0) {
+                     --var14;
                   }
 
-                  var14 += var15;
-                  var18 = var14 >>> 16;
-                  if(var18 != var17 && (var4[var18][var13] & var11) != 0) {
-                     return false;
+                  var16 = var7 < 0?-1:1;
+
+                  while(var13 != var6.getX()) {
+                     var13 += var16;
+                     var17 = var14 >>> 16;
+                     if((var4[var13][var17] & var11) != 0) {
+                        return false;
+                     }
+
+                     var14 += var15;
+                     var18 = var14 >>> 16;
+                     if(var18 != var17 && (var4[var13][var18] & var12) != 0) {
+                        return false;
+                     }
+                  }
+               } else {
+                  var13 = var5.getY();
+                  var14 = var5.getX() << 16;
+                  var15 = (var7 << 16) / var10;
+                  var14 += 32768;
+                  if(var7 < 0) {
+                     --var14;
+                  }
+
+                  var16 = var8 < 0?-1:1;
+
+                  while(var13 != var6.getY()) {
+                     var13 += var16;
+                     var17 = var14 >>> 16;
+                     if((var4[var17][var13] & var12) != 0) {
+                        return false;
+                     }
+
+                     var14 += var15;
+                     var18 = var14 >>> 16;
+                     if(var18 != var17 && (var4[var18][var13] & var11) != 0) {
+                        return false;
+                     }
                   }
                }
+
+               return true;
             }
-
-            return true;
          }
       }
    }

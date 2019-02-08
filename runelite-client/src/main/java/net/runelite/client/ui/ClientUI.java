@@ -93,7 +93,7 @@ import org.pushingpixels.substance.internal.utils.SubstanceCoreUtilities;
 import org.pushingpixels.substance.internal.utils.SubstanceTitlePaneUtilities;
 
 /**
- * Client UI.
+ * client UI.
  */
 @Slf4j
 @Singleton
@@ -320,7 +320,6 @@ public class ClientUI
 				() ->
 				{
 					saveClientBoundsConfig();
-					configManager.sendConfig();
 					runelite.shutdown();
 				},
 				this::showWarningOnExit

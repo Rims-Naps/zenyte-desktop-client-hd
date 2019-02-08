@@ -199,7 +199,7 @@ public final class WallObject implements RSWallObject {
                   var3 = (FileRequest)class258.NetCache_pendingPriorityWrites.method391();
                   var4 = new Packet(4);
                   var4.method6114(1);
-                  var4.method6064((int)var3.hash);
+                  var4.writeMedium((int)var3.hash);
                   class258.NetCache_socket.vmethod5623(var4.payload, 0, 4);
                   class258.NetCache_pendingPriorityResponses.method382(var3, var3.hash);
                   --class258.NetCache_pendingPriorityWritesCount;
@@ -210,7 +210,7 @@ public final class WallObject implements RSWallObject {
                   var3 = (FileRequest)class258.NetCache_pendingWritesQueue.method2519();
                   var4 = new Packet(4);
                   var4.method6114(0);
-                  var4.method6064((int)var3.hash);
+                  var4.writeMedium((int)var3.hash);
                   class258.NetCache_socket.vmethod5623(var4.payload, 0, 4);
                   var3.method419();
                   class258.NetCache_pendingResponses.method382(var3, var3.hash);

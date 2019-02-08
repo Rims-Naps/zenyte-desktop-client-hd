@@ -12,8 +12,8 @@ import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("bm")
 public class class48 {
-    public static int[] field845;
-   public static String[] field835;
+    public static String[] field835;
+   public static int[] field845;
    @ObfuscatedName("f")
    static boolean field1078;
    @ObfuscatedName("l")

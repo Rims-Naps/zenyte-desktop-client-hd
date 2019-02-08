@@ -36,7 +36,7 @@ public class class311 {
          try {
             Packet var1 = new Packet(4);
             var1.method6114(var0?2:3);
-            var1.method6064(0);
+            var1.writeMedium(0);
             class258.NetCache_socket.vmethod5623(var1.payload, 0, 4);
          } catch (IOException var4) {
             try {

@@ -460,7 +460,24 @@ public class Model extends Entity implements RSModel {
                var12 = modelViewportYs[var9];
                var13 = modelViewportYs[var10];
                int var14;
-               if(var1 && (var11 == -5000 || var12 == -5000 || var13 == -5000)) {
+               if(!var1 || var11 != -5000 && var12 != -5000 && var13 != -5000) {
+                  if(var2 && UnitPriceComparator.method547(modelViewportXs[var8], modelViewportXs[var9], modelViewportXs[var10], var11, var12, var13, var6)) {
+                     class195.field1714[++class195.Viewport_entityCountAtMouse - 1] = var4;
+                     var2 = false;
+                  }
+
+                  if((var11 - var12) * (modelViewportXs[var10] - modelViewportXs[var9]) - (var13 - var12) * (modelViewportXs[var8] - modelViewportXs[var9]) > 0) {
+                     field1678[var7] = false;
+                     if(var11 >= 0 && var12 >= 0 && var13 >= 0 && var11 <= Graphics3D.rasterClipX && var12 <= Graphics3D.rasterClipX && var13 <= Graphics3D.rasterClipX) {
+                        field1677[var7] = false;
+                     } else {
+                        field1677[var7] = true;
+                     }
+
+                     var14 = (field1681[var8] + field1681[var9] + field1681[var10]) / 3 + this.radius;
+                     field1689[var14][field1686[var14]++] = var7;
+                  }
+               } else {
                   var14 = yViewportBuffer[var8];
                   var15 = yViewportBuffer[var9];
                   var16 = yViewportBuffer[var10];
@@ -483,23 +500,6 @@ public class Model extends Entity implements RSModel {
                      field1678[var7] = true;
                      int var26 = (field1681[var8] + field1681[var9] + field1681[var10]) / 3 + this.radius;
                      field1689[var26][field1686[var26]++] = var7;
-                  }
-               } else {
-                  if(var2 && UnitPriceComparator.method547(modelViewportXs[var8], modelViewportXs[var9], modelViewportXs[var10], var11, var12, var13, var6)) {
-                     class195.field1714[++class195.Viewport_entityCountAtMouse - 1] = var4;
-                     var2 = false;
-                  }
-
-                  if((var11 - var12) * (modelViewportXs[var10] - modelViewportXs[var9]) - (var13 - var12) * (modelViewportXs[var8] - modelViewportXs[var9]) > 0) {
-                     field1678[var7] = false;
-                     if(var11 >= 0 && var12 >= 0 && var13 >= 0 && var11 <= Graphics3D.rasterClipX && var12 <= Graphics3D.rasterClipX && var13 <= Graphics3D.rasterClipX) {
-                        field1677[var7] = false;
-                     } else {
-                        field1677[var7] = true;
-                     }
-
-                     var14 = (field1681[var8] + field1681[var9] + field1681[var10]) / 3 + this.radius;
-                     field1689[var14][field1686[var14]++] = var7;
                   }
                }
             }

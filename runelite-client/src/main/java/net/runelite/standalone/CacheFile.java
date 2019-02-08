@@ -1,11 +1,10 @@
 package net.runelite.standalone;
 
+import java.io.EOFException;
+import java.io.IOException;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-
-import java.io.EOFException;
-import java.io.IOException;
 
 @ObfuscatedName("dr")
 public class CacheFile {
@@ -409,7 +408,7 @@ public class CacheFile {
          class316.field1161 = 2;
          class150.method2560("Your account has not logged out from its last", "session or the server is too busy right now.", "Please try again in a few minutes.");
       } else if(var0 == 6 || !client.field770 && var0 == 68) {
-         class150.method2560("Zenyte has been updated!", "Please reload the client.", "");
+         class150.method2560("Zenyte has been updated!", "Please reload this page.", "");
       } else if(var0 == 7) {
          class150.method2560("This world is full.", "Please use a different world.", "");
       } else if(var0 == 8) {

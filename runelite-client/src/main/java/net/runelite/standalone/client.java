@@ -2,11 +2,67 @@ package net.runelite.standalone;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.inject.Inject;
+import javax.inject.Named;
+import net.runelite.api.ChatMessageType;
+import net.runelite.api.Constants;
+import net.runelite.api.GameState;
+import net.runelite.api.GraphicsObject;
+import net.runelite.api.HintArrowType;
+import net.runelite.api.IndexDataBase;
+import net.runelite.api.InventoryID;
+import net.runelite.api.MenuAction;
+import net.runelite.api.MenuEntry;
+import net.runelite.api.NPC;
+import net.runelite.api.PacketBuffer;
+import net.runelite.api.Perspective;
+import net.runelite.api.Player;
 import net.runelite.api.Point;
-import net.runelite.api.*;
+import net.runelite.api.Prayer;
+import net.runelite.api.Projectile;
+import net.runelite.api.Skill;
+import net.runelite.api.VarClientInt;
+import net.runelite.api.VarClientStr;
+import net.runelite.api.VarPlayer;
+import net.runelite.api.Varbits;
+import net.runelite.api.WidgetNode;
+import net.runelite.api.WorldType;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.*;
+import net.runelite.api.events.BoostedLevelChanged;
+import net.runelite.api.events.CanvasSizeChanged;
+import net.runelite.api.events.ChatMessage;
+import net.runelite.api.events.ClanChanged;
+import net.runelite.api.events.ClientTick;
+import net.runelite.api.events.DraggingWidgetChanged;
+import net.runelite.api.events.ExperienceChanged;
+import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.GrandExchangeOfferChanged;
+import net.runelite.api.events.MenuEntryAdded;
+import net.runelite.api.events.MenuOpened;
+import net.runelite.api.events.NpcSpawned;
+import net.runelite.api.events.PlayerDespawned;
+import net.runelite.api.events.PlayerMenuOptionsChanged;
+import net.runelite.api.events.PlayerSpawned;
+import net.runelite.api.events.ResizeableChanged;
+import net.runelite.api.events.ScriptCallbackEvent;
+import net.runelite.api.events.UsernameChanged;
+import net.runelite.api.events.VarbitChanged;
 import net.runelite.api.hooks.Callbacks;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.api.vars.AccountType;
@@ -19,18 +75,6 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.*;
 import org.slf4j.Logger;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-import java.awt.*;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.net.Socket;
-import java.net.URL;
-import java.util.List;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @ObfuscatedName("client")
 public final class client extends GameEngine implements class236, RSClient {
@@ -698,7 +742,7 @@ public final class client extends GameEngine implements class236, RSClient {
    static int[] skillLevels;
    @ObfuscatedName("cx")
    @ObfuscatedGetter(
-      longValue = -918258204981993753L
+      longValue = 918258204981993753L
    )
    static long mouseLastLastPressedTimeMillis;
    @ObfuscatedName("ja")
@@ -956,7 +1000,7 @@ public final class client extends GameEngine implements class236, RSClient {
    static int field778;
    @ObfuscatedName("hp")
    @ObfuscatedGetter(
-      intValue = -1003168221
+      intValue = -844001445
    )
    static int field717;
    @ObfuscatedName("jl")
@@ -1183,7 +1227,7 @@ public final class client extends GameEngine implements class236, RSClient {
       gameState = 0;
       field654 = true;
       gameCycle = 0;
-      mouseLastLastPressedTimeMillis = -1L;
+      mouseLastLastPressedTimeMillis = 1L;
       field735 = -1;
       field643 = -1;
       field814 = -1L;
@@ -1532,7 +1576,7 @@ public final class client extends GameEngine implements class236, RSClient {
                var14.packetBuffer.method6114(0);
                var2 = var14.packetBuffer.offset;
                class43.method617(var14.packetBuffer);
-               var14.packetBuffer.writeByte(var14.packetBuffer.offset - var2);
+               var14.packetBuffer.method6075(var14.packetBuffer.offset - var2);
                serverConnection.method5881(var14);
             }
 
@@ -1541,7 +1585,7 @@ public final class client extends GameEngine implements class236, RSClient {
                var14.packetBuffer.method6114(0);
                var2 = var14.packetBuffer.offset;
                field904.method2495(var14.packetBuffer);
-               var14.packetBuffer.writeByte(var14.packetBuffer.offset - var2);
+               var14.packetBuffer.method6075(var14.packetBuffer.offset - var2);
                serverConnection.method5881(var14);
                field904.method2493();
             }
@@ -1637,7 +1681,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   }
 
                   if(var15 != null) {
-                     var15.packetBuffer.writeByte(var15.packetBuffer.offset - var3);
+                     var15.packetBuffer.method6075(var15.packetBuffer.offset - var3);
                      var7 = var15.packetBuffer.offset;
                      var15.packetBuffer.offset = var3;
                      var15.packetBuffer.method6114(var5 / var6);
@@ -1658,12 +1702,12 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(MouseInput.mouseLastButton == 1 || !WorldMapType3.middleMouseMovesCamera && MouseInput.mouseLastButton == 4 || MouseInput.mouseLastButton == 2) {
-               long var16 = (MouseInput.mouseLastPressedTimeMillis - mouseLastLastPressedTimeMillis) / 50L;
+               long var16 = (MouseInput.mouseLastPressedTimeMillis - mouseLastLastPressedTimeMillis * -1L) / 50L;
                if(var16 > 4095L) {
                   var16 = 4095L;
                }
 
-               mouseLastLastPressedTimeMillis = MouseInput.mouseLastPressedTimeMillis;
+               mouseLastLastPressedTimeMillis = MouseInput.mouseLastPressedTimeMillis * -1L;
                var3 = MouseInput.mouseLastPressedY;
                if(var3 < 0) {
                   var3 = 0;
@@ -1700,7 +1744,7 @@ public final class client extends GameEngine implements class236, RSClient {
 
                   field868 = var19;
                   var14.packetBuffer.method6105(KeyFocusListener.field377[var5]);
-                  var14.packetBuffer.method6064((int)var21);
+                  var14.packetBuffer.writeMedium((int)var21);
                }
 
                var14.packetBuffer.method6074(var14.packetBuffer.offset - var2);
@@ -1927,6 +1971,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   }
 
                   ++cycleCntr;
+                  onCycleCntrChanged(-1);
 
                   while(true) {
                      ComponentType var42;
@@ -1998,7 +2043,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                                          var45.packetBuffer.method6105(var29);
                                                          serverConnection.method5881(var45);
                                                       }
-                                                   } else if(this.method3173()) {
+                                                   } else if(this.method3173(-975793761)) {
                                                       this.method3542(field752, field845);
                                                    } else if(menuOptionCount > 0) {
                                                       class219.method4423(field752, field845);
@@ -2206,9 +2251,9 @@ public final class client extends GameEngine implements class236, RSClient {
                                              }
 
                                              if(MouseInput.mouseCurrentButton == 4 && WorldMapType3.middleMouseMovesCamera) {
-                                                var3 = MouseInput.mouseLastY * -976212263 - field717;
+                                                var3 = MouseInput.mouseLastY * -976212263 - field717 * -976212263;
                                                 field715 = var3 * 2;
-                                                field717 = var3 != -1 && var3 != 1?(MouseInput.mouseLastY * -976212263 + field717) / 2:MouseInput.mouseLastY * -976212263;
+                                                field717 = (var3 != -1 && var3 != 1?(MouseInput.mouseLastY * -976212263 + field717 * -976212263) / 2:MouseInput.mouseLastY * -976212263) * -1727565463;
                                                 var4 = field869 - MouseInput.mouseLastX;
                                                 field714 = var4 * 2;
                                                 field869 = var4 != -1 && var4 != 1?(field869 + MouseInput.mouseLastX) / 2:MouseInput.mouseLastX;
@@ -2229,7 +2274,7 @@ public final class client extends GameEngine implements class236, RSClient {
                                                    field715 /= 2;
                                                 }
 
-                                                field717 = MouseInput.mouseLastY * -976212263;
+                                                field717 = MouseInput.mouseLastY;
                                                 field869 = MouseInput.mouseLastX;
                                              }
 
@@ -2468,7 +2513,7 @@ public final class client extends GameEngine implements class236, RSClient {
                switch(field681.field1968) {
                case 0:
                case 3:
-                  var22.method6064(class228.authcode);
+                  var22.writeMedium(class228.authcode);
                   ++var22.offset;
                   break;
                case 1:
@@ -2504,7 +2549,7 @@ public final class client extends GameEngine implements class236, RSClient {
             var5.packetBuffer.method6063(0);
             var14 = var5.packetBuffer.offset;
             var5.packetBuffer.method6230(177);
-            var5.packetBuffer.method6230(2);
+            var5.packetBuffer.method6230(3);
             var5.packetBuffer.method6114(confClientType);
             var5.packetBuffer.method6072(var22.payload, 0, var22.offset);
             var7 = var5.packetBuffer.offset;
@@ -2739,7 +2784,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   var2.offset = 0;
                   ((class19)var1).vmethod5600(var2.payload, 0, serverConnection.currentPacketSize);
                   field904.method2492();
-                  mouseLastLastPressedTimeMillis = -1L;
+                  mouseLastLastPressedTimeMillis = 1L;
                   for (NPCEntity var15 : npcs) {
                      if (var15 == null)
                         continue;
@@ -5491,34 +5536,18 @@ public final class client extends GameEngine implements class236, RSClient {
    }
 
    @ObfuscatedName("ho")
-   @ObfuscatedSignature(
-      signature = "(I)Z",
-      garbageValue = "-975793761"
-   )
-   final boolean method3173() {
-      int var1 = menuOptionCount - 1;
-      boolean var3 = field866 == 1 && menuOptionCount > 2;
-      if(!var3) {
-         boolean var4;
-         if(var1 < 0) {
-            var4 = false;
+   final boolean method3173(int var1) {
+      if(this.copy$shouldLeftClickOpenMenu(var1)) {
+         return true;
+      } else {
+         int var2 = this.getMenuOptionCount();
+         if(var2 > 0) {
+            int var3 = this._protect$getMenuTypes()[var2 - 1];
+            return var3 == MenuAction.RUNELITE_OVERLAY.getId();
          } else {
-            int var5 = menuTypes[var1];
-            if(var5 >= 2000) {
-               var5 -= 2000;
-            }
-
-            if(var5 == 1007) {
-               var4 = true;
-            } else {
-               var4 = false;
-            }
+            return false;
          }
-
-         var3 = var4;
       }
-
-      return var3 && !menuBooleanArray[var1];
    }
 
    @ObfuscatedName("aw")
@@ -5828,16 +5857,19 @@ public final class client extends GameEngine implements class236, RSClient {
       }
    }
 
-   public int getPlayerIndexesCount() {
-      return class254.highResolutionPlayerCount;
-   }
-
-   public int getSelectedSceneTileX() {
-      return SceneManager.selectedRegionTileX;
-   }
-
-   public void setRSModIcons(RSIndexedSprite[] var1) {
-      FontTypeFace.modIcons = (IndexedSprite[])var1;
+   public RSCollisionData[] getCollisionMaps() {
+      if(this.isInInstancedRegion()) {
+         return this._protect$getRsCollisionMaps();
+      } else {
+         RSPlayer var1 = this.getLocalPlayer();
+         switch(var1.getWorldLocation().getRegionID()) {
+         case 8280:
+         case 8536:
+            return this._protect$getRsCollisionMaps();
+         default:
+            return null;
+         }
+      }
    }
 
    public int getMouseX() {
@@ -5884,6 +5916,18 @@ public final class client extends GameEngine implements class236, RSClient {
       return skillExperiences;
    }
 
+   public int getSelectedSceneTileX() {
+      return SceneManager.selectedRegionTileX;
+   }
+
+   public void setRSModIcons(RSIndexedSprite[] var1) {
+      FontTypeFace.modIcons = (IndexedSprite[])var1;
+   }
+
+   public int getPlayerIndexesCount() {
+      return class254.highResolutionPlayerCount;
+   }
+
    public boolean isStretchedEnabled() {
       return stretchedEnabled;
    }
@@ -5896,16 +5940,16 @@ public final class client extends GameEngine implements class236, RSClient {
       return this.getVarcs().getStrVarcs();
    }
 
-   public RSHashTable getItemContainers() {
-      return ItemContainer.itemContainers;
-   }
-
    public RSJagexLoginType getLoginType() {
       return loginType;
    }
 
-   public int getMenuOptionCount() {
-      return menuOptionCount;
+   public boolean isInInstancedRegion() {
+      return isDynamicRegion;
+   }
+
+   public RSHashTable getItemContainers() {
+      return ItemContainer.itemContainers;
    }
 
    public HintArrowType getHintArrowType() {
@@ -5924,16 +5968,42 @@ public final class client extends GameEngine implements class236, RSClient {
       return this.getVarbitValue(this.getVarps(), var2);
    }
 
-   public RSWidget[][] getWidgets() {
-      return class36.interfaces;
+   public final boolean copy$shouldLeftClickOpenMenu(int var1) {
+      int var2 = menuOptionCount - 1;
+      boolean var4 = field866 == 1 && menuOptionCount > 2;
+      if(!var4) {
+         boolean var5;
+         if(var2 < 0) {
+            var5 = false;
+         } else {
+            int var6 = menuTypes[var2];
+            if(var6 >= 2000) {
+               var6 -= 2000;
+            }
+
+            if(var6 == 1007) {
+               var5 = true;
+            } else {
+               var5 = false;
+            }
+         }
+
+         var4 = var5;
+      }
+
+      return var4 && !menuBooleanArray[var2];
+   }
+
+   public RSClanMemberManager getClanMemberManager() {
+      return TotalQuantityComparator.clanMemberManager;
    }
 
    public boolean isResized() {
       return isResized;
    }
 
-   public RSClanMemberManager getClanMemberManager() {
-      return TotalQuantityComparator.clanMemberManager;
+   public RSWidget[][] getWidgets() {
+      return class36.interfaces;
    }
 
    public RSFriendManager getFriendManager() {
@@ -5944,12 +6014,16 @@ public final class client extends GameEngine implements class236, RSClient {
       return new SpritePixels(var1, var2, var3);
    }
 
-   public int[] getVarps() {
-      return class311.clientVarps;
-   }
-
    public RSVarcs getVarcs() {
       return MapIconReference.varcs;
+   }
+
+   public int getMenuOptionCount() {
+      return menuOptionCount;
+   }
+
+   public int[] getVarps() {
+      return class311.clientVarps;
    }
 
    public String[] _protect$getMenuOptions/* $FF was: 1protect$getMenuOptions*/() {
@@ -5960,16 +6034,16 @@ public final class client extends GameEngine implements class236, RSClient {
       class192.method3787(var1, var2, var3, var4);
    }
 
-   public void setMouseCanvasHoverPositionX(int var1) {
-      SceneManager.mouseX2 = var1;
-   }
-
-   public RSDeque getProjectilesDeque() {
+   public RSDeque _protect$getProjectilesDeque/* $FF was: 1protect$getProjectilesDeque*/() {
       return projectiles;
    }
 
    public RSDeque getGraphicsObjectDeque() {
       return spotAnimationDeque;
+   }
+
+   public void setMouseCanvasHoverPositionX(int var1) {
+      SceneManager.mouseX2 = var1;
    }
 
    public MenuEntry[] getMenuEntries() {
@@ -5980,35 +6054,25 @@ public final class client extends GameEngine implements class236, RSClient {
       int[] var5 = this._protect$getMenuTypes();
       int[] var6 = this._protect$getMenuActionParams0();
       int[] var7 = this._protect$getMenuActionParams1();
-      MenuEntry[] var8 = new MenuEntry[var1];
+      boolean[] var8 = this.getMenuForceLeftClick();
+      MenuEntry[] var9 = new MenuEntry[var1];
 
-      for(int var9 = 0; var9 < var1; ++var9) {
-         MenuEntry var10 = var8[var9] = new MenuEntry();
-         var10.setOption(var2[var9]);
-         var10.setTarget(var3[var9]);
-         var10.setIdentifier(var4[var9]);
-         var10.setType(var5[var9]);
-         var10.setParam0(var6[var9]);
-         var10.setParam1(var7[var9]);
+      for(int var10 = 0; var10 < var1; ++var10) {
+         MenuEntry var11 = var9[var10] = new MenuEntry();
+         var11.setOption(var2[var10]);
+         var11.setTarget(var3[var10]);
+         var11.setIdentifier(var4[var10]);
+         var11.setType(var5[var10]);
+         var11.setParam0(var6[var10]);
+         var11.setParam1(var7[var10]);
+         var11.setForceLeftClick(var8[var10]);
       }
 
-      return var8;
+      return var9;
    }
 
    private void rl$$init() {
       this.varbitCache = CacheBuilder.newBuilder().maximumSize(128L).build();
-   }
-
-   public int[] getPlayerIndices() {
-      return class254.highResolutionPlayerIndexes;
-   }
-
-   public void setSceneLowMemory(boolean var1) {
-      SceneManager.regionLowMemory = var1;
-   }
-
-   public int getSelectedSceneTileY() {
-      return SceneManager.selectedRegionTileY;
    }
 
    public int getMouseY() {
@@ -6027,28 +6091,40 @@ public final class client extends GameEngine implements class236, RSClient {
       return highResolutionNpcIndexes;
    }
 
+   public void setSceneLowMemory(boolean var1) {
+      SceneManager.regionLowMemory = var1;
+   }
+
+   public int getSelectedSceneTileY() {
+      return SceneManager.selectedRegionTileY;
+   }
+
+   public int[] getPlayerIndices() {
+      return class254.highResolutionPlayerIndexes;
+   }
+
    public RSName createName(String var1, RSJagexLoginType var2) {
       return new Name(var1, (JagexLoginType)var2);
    }
 
-   public void _protect$menuAction/* $FF was: 1protect$menuAction*/(int var1, int var2, int var3, int var4, String var5, String var6, int var7, int var8) {
-      class39.method595(var1, var2, var3, var4, var5, var6, var7, var8, -1692443790);
-   }
-
-   public void decodeSprite(byte[] var1) {
-      SceneTilePaint.method667(var1);
-   }
-
-   public int get3dZoom() {
-      return Graphics3D.Rasterizer3D_zoom;
+   public RSSpritePixels getMinimapSprite() {
+      return TotalQuantityComparator.minimapSprite;
    }
 
    public int[] getQueuedSoundEffectIDs() {
       return queuedSoundEffectIDs;
    }
 
-   public RSSpritePixels getMinimapSprite() {
-      return TotalQuantityComparator.minimapSprite;
+   public void _protect$menuAction/* $FF was: 1protect$menuAction*/(int var1, int var2, int var3, int var4, String var5, String var6, int var7, int var8) {
+      class39.method595(var1, var2, var3, var4, var5, var6, var7, var8, -1692443790);
+   }
+
+   public int get3dZoom() {
+      return Graphics3D.Rasterizer3D_zoom;
+   }
+
+   public void decodeSprite(byte[] var1) {
+      SceneTilePaint.method667(var1);
    }
 
    public Widget getWidget(int var1, int var2) {
@@ -6078,6 +6154,10 @@ public final class client extends GameEngine implements class236, RSClient {
       int var6 = var4.getMostSignificantBit();
       int var7 = (1 << var6 - var8 + 1) - 1;
       var1[var4.getIndex()] = var1[var4.getIndex()] & ~(var7 << var8) | (var3 & var7) << var8;
+   }
+
+   public RSPlayer getLocalPlayer() {
+      return class4.localPlayer;
    }
 
    public Widget getWidget(WidgetInfo var1) {
@@ -6110,12 +6190,8 @@ public final class client extends GameEngine implements class236, RSClient {
       }
    }
 
-   public void setAudioHighMemory(boolean var1) {
-      class56.audioHighMemory = var1;
-   }
-
-   public void setMouseCanvasHoverPositionY(int var1) {
-      SceneManager.mouseY2 = var1;
+   public RSCollisionData[] _protect$getRsCollisionMaps/* $FF was: 1protect$getRsCollisionMaps*/() {
+      return collisionMaps;
    }
 
    public RSNPC[] getCachedNPCs() {
@@ -6126,12 +6202,20 @@ public final class client extends GameEngine implements class236, RSClient {
       return players;
    }
 
-   public int getIndexedSpriteCount() {
-      return class95.indexedSpriteCount;
+   public void setMouseCanvasHoverPositionY(int var1) {
+      SceneManager.mouseY2 = var1;
+   }
+
+   public void setAudioHighMemory(boolean var1) {
+      class56.audioHighMemory = var1;
    }
 
    public int[] getUnknownSoundValues1() {
       return unknownSoundValues1;
+   }
+
+   public int getIndexedSpriteCount() {
+      return class95.indexedSpriteCount;
    }
 
    public RSScene getScene() {
@@ -6150,16 +6234,16 @@ public final class client extends GameEngine implements class236, RSClient {
       LocType.objectCompositionLowDetail = var1;
    }
 
-   public int getIndexedSpriteWidth() {
-      return class95.indexedSpriteWidth;
+   public int[] getQueuedSoundEffectDelays() {
+      return unknownSoundValues2;
    }
 
    public RSSpritePixels createItemSprite(int var1, int var2, int var3, int var4, int var5, boolean var6) {
       return MapCacheArchiveNames.method2148(var1, var2, var3, var4, var5, var6);
    }
 
-   public int[] getQueuedSoundEffectDelays() {
-      return unknownSoundValues2;
+   public int getIndexedSpriteWidth() {
+      return class95.indexedSpriteWidth;
    }
 
    public int[] _protect$getMenuTypes/* $FF was: 1protect$getMenuTypes*/() {
@@ -6203,12 +6287,12 @@ public final class client extends GameEngine implements class236, RSClient {
       return new ScriptEvent();
    }
 
-   public int getIndexedSpriteHeight() {
-      return class95.indexedSpriteHeight;
-   }
-
    public RSSoundEffect[] getAudioEffects() {
       return audioEffects;
+   }
+
+   public int getIndexedSpriteHeight() {
+      return class95.indexedSpriteHeight;
    }
 
    public int[] _protect$getMenuActionParams0/* $FF was: 1protect$getMenuActionParams0*/() {
@@ -6292,12 +6376,12 @@ public final class client extends GameEngine implements class236, RSClient {
       return var41;
    }
 
-   public int[] getIndexedSpriteOffsetXs() {
-      return class95.indexedSpriteOffsetXs;
-   }
-
    public int[] getSoundLocations() {
       return soundLocations;
+   }
+
+   public int[] getIndexedSpriteOffsetXs() {
+      return class95.indexedSpriteOffsetXs;
    }
 
    public int[] _protect$getMenuActionParams1/* $FF was: 1protect$getMenuActionParams1*/() {
@@ -6308,12 +6392,20 @@ public final class client extends GameEngine implements class236, RSClient {
       method3577((ScriptEvent)var1, var2, 296778373);
    }
 
+   public int getQueuedSoundEffectCount() {
+      return queuedSoundEffectCount;
+   }
+
    public int[] getIndexedSpriteOffsetYs() {
       return class95.indexedSpriteOffsetYs;
    }
 
-   public int getQueuedSoundEffectCount() {
-      return queuedSoundEffectCount;
+   public boolean[] getMenuForceLeftClick() {
+      return menuBooleanArray;
+   }
+
+   public int[] getIndexSpriteWidths() {
+      return class95.indexSpriteWidths;
    }
 
    public void setMenuOptionCount(int var1) {
@@ -6350,10 +6442,6 @@ public final class client extends GameEngine implements class236, RSClient {
       return menuActionParams1;
    }
 
-   public int[] getIndexSpriteWidths() {
-      return class95.indexSpriteWidths;
-   }
-
    public int[] getIndexedSpriteHeights() {
       return VarClientType.indexedSpriteHeights;
    }
@@ -6372,12 +6460,12 @@ public final class client extends GameEngine implements class236, RSClient {
 
    }
 
-   public int[] getIndexedSpritePalette() {
-      return class95.indexedSpritePalette;
-   }
-
    public void setQueuedSoundEffectCount(int var1) {
       queuedSoundEffectCount = var1;
+   }
+
+   public int[] getIndexedSpritePalette() {
+      return class95.indexedSpritePalette;
    }
 
    public void setIndexedSpriteOffsetXs(int[] var1) {
@@ -6878,22 +6966,24 @@ public final class client extends GameEngine implements class236, RSClient {
       int[] var6 = this._protect$getMenuTypes();
       int[] var7 = this._protect$getMenuActionParams0();
       int[] var8 = this._protect$getMenuActionParams1();
-      MenuEntry[] var9 = var1;
-      int var10 = var1.length;
+      boolean[] var9 = this.getMenuForceLeftClick();
+      MenuEntry[] var10 = var1;
+      int var11 = var1.length;
 
-      for(int var11 = 0; var11 < var10; ++var11) {
-         MenuEntry var12 = var9[var11];
-         int var13 = var12.getIdentifier();
-         if((var13 == MenuAction.NPC_THIRD_OPTION.getId() || var13 == MenuAction.NPC_FIFTH_OPTION.getId()) && class166.clientInstance.getLocalPlayer().getWorldLocation().getRegionID() == 13358) {
-            var13 = MenuAction.CANCEL.getId();
+      for(int var12 = 0; var12 < var11; ++var12) {
+         MenuEntry var13 = var10[var12];
+         int var14 = var13.getIdentifier();
+         if((var14 == MenuAction.NPC_THIRD_OPTION.getId() || var14 == MenuAction.NPC_FIFTH_OPTION.getId()) && class166.clientInstance.getLocalPlayer().getWorldLocation().getRegionID() == 13358) {
+            var14 = MenuAction.CANCEL.getId();
          }
 
-         var3[var2] = var12.getOption();
-         var4[var2] = var12.getTarget();
-         var5[var2] = var13;
-         var6[var2] = var12.getType();
-         var7[var2] = var12.getParam0();
-         var8[var2] = var12.getParam1();
+         var3[var2] = var13.getOption();
+         var4[var2] = var13.getTarget();
+         var5[var2] = var14;
+         var6[var2] = var13.getType();
+         var7[var2] = var13.getParam0();
+         var8[var2] = var13.getParam1();
+         var9[var2] = var13.isForceLeftClick();
          ++var2;
       }
 
@@ -6903,11 +6993,22 @@ public final class client extends GameEngine implements class236, RSClient {
 
    public List getProjectiles() {
       ArrayList var1 = new ArrayList();
-      RSDeque var2 = this.getProjectilesDeque();
+      RSDeque var2 = this._protect$getProjectilesDeque();
       RSNode var3 = var2.getHead();
+      net.runelite.api.Node var4 = var3.getNext();
 
-      for(net.runelite.api.Node var4 = var3.getNext(); var4 != var3; var4 = var4.getNext()) {
-         var1.add((Projectile)var4);
+      while(var4 != var3) {
+         Projectile var5 = (Projectile)var4;
+         switch(var5.getId()) {
+         default:
+            var1.add(var5);
+         case 1583:
+         case 1596:
+         case 1598:
+         case 1662:
+         case 1663:
+            var4 = var4.getNext();
+         }
       }
 
       return var1;
@@ -7267,6 +7368,356 @@ public final class client extends GameEngine implements class236, RSClient {
       return new World();
    }
 
+   public Map getChatLineMap() {
+      return class202.chatLineMap;
+   }
+
+   public RSIterableHashTable getMessages() {
+      return class202.messages;
+   }
+
+   public RSItemComposition getItemDefinition(int var1) {
+      return Varcs.method4770(var1);
+   }
+
+   public RSPreferences getPreferences() {
+      return GameEngine.options;
+   }
+
+   public int getFPS() {
+      return GameEngine.FPS;
+   }
+
+   public RSSpritePixels[] getMapDots() {
+      return GameEngine.mapDots;
+   }
+
+   public RSNPCComposition getNpcDefinition(int var1) {
+      return FileRequest.method4030(var1);
+   }
+
+   public int getMouseIdleTicks() {
+      return MouseInput.mouseIdleTicks;
+   }
+
+   public int getMouseCurrentButton() {
+      return MouseInput.mouseCurrentButton;
+   }
+
+   public long getMouseLastPressedMillis() {
+      return MouseInput.mouseLastPressedTimeMillis;
+   }
+
+   public RSIndexedSprite[] getMapScene() {
+      return class0.mapscene;
+   }
+
+   public RSRenderOverview getRenderOverview() {
+      return class219.worldMap;
+   }
+
+   public int[] getMapRegions() {
+      return class208.mapRegions;
+   }
+
+   public boolean getViewportContainsMouse() {
+      return class195.Viewport_containsMouse;
+   }
+
+   public int getViewportMouseX() {
+      return class195.Viewport_mouseX;
+   }
+
+   public int getViewportMouseY() {
+      return class195.Viewport_mouseY;
+   }
+
+   public void setEntitiesAtMouseCount(int var1) {
+      class195.Viewport_entityCountAtMouse = var1;
+   }
+
+   public int getEntitiesAtMouseCount() {
+      return class195.Viewport_entityCountAtMouse;
+   }
+
+   public long[] getEntitiesAtMouse() {
+      return class195.field1714;
+   }
+
+   public int getCameraX() {
+      return class166.cameraX;
+   }
+
+   public void revalidateWidgetScroll(Widget[] var1, Widget var2, boolean var3) {
+      class196.method4011((ComponentType[])var1, (ComponentType)var2, var3);
+   }
+
+   @Override
+   public void menuAction(int var0, int var1, int var2, int var3, String var4, String var5, int var6, int var7) {
+      this.menuAction(var0, var1, var2, var3, var4, var5, var6, var7);
+   }
+
+   public RSTextureProvider getTextureProvider() {
+      return class144.field3688;
+   }
+
+   public int[][] getXteaKeys() {
+      return IndexStoreActionHandler.xteaKeys;
+   }
+
+   public void changeWorld(net.runelite.api.World var1) {
+      UrlRequest.method5575((World)var1);
+   }
+
+   public void setCompass(net.runelite.api.SpritePixels var1) {
+      class306.compass = (SpritePixels)var1;
+   }
+
+   public int getVarbit(int var1) {
+      return AbstractSoundSystem.method339(var1);
+   }
+
+   public RSNodeCache getVarbitCache() {
+      return Varbit.varbits;
+   }
+
+   public int getCanvasWidth() {
+      return FriendManager.canvasWidth;
+   }
+
+   public int getOculusOrbFocalPointX() {
+      return class192.field68;
+   }
+
+   public int getOculusOrbFocalPointY() {
+      return class192.field70;
+   }
+
+   public RSWidget getDraggedWidget() {
+      return draggedWidget;
+   }
+
+   public RSHashTable getWidgetFlags() {
+      return serverActiveProperties;
+   }
+
+   public RSHashTable getComponentTable() {
+      return subInterfaces;
+   }
+
+   public int[] getWidgetPositionsX() {
+      return widgetPositionX;
+   }
+
+   public void setGameDrawingMode(int var1) {
+      gameDrawingMode = var1;
+   }
+
+   public int getGameDrawingMode() {
+      return gameDrawingMode;
+   }
+
+   public int[] getWidgetPositionsY() {
+      return widgetPositionY;
+   }
+
+   public int getEnergy() {
+      return energy;
+   }
+
+   public int getWeight() {
+      return weight;
+   }
+
+   public boolean isDraggingWidget() {
+      return draggingWidget;
+   }
+
+   public void setDraggedOnWidget(Widget var1) {
+      draggedOnWidget = (ComponentType)var1;
+   }
+
+   public RSWidget getDraggedOnWidget() {
+      return draggedOnWidget;
+   }
+
+   public RSSpritePixels[] getMapIcons() {
+      return mapIcons;
+   }
+
+   public int getScale() {
+      return scale;
+   }
+
+   public int getViewportWidth() {
+      return viewportWidth;
+   }
+
+   public int getViewportHeight() {
+      return viewportHeight;
+   }
+
+   public int[] getChangedSkills() {
+      return changedSkills;
+   }
+
+   public RSGrandExchangeOffer[] getGrandExchangeOffers() {
+      return grandExchangeOffers;
+   }
+
+   public int getViewportXOffset() {
+      return Viewport_xOffset;
+   }
+
+   public void setChangedSkillsCount(int var1) {
+      changedSkillsCount = var1;
+   }
+
+   public int getChangedSkillsCount() {
+      return changedSkillsCount;
+   }
+
+   public int getViewportYOffset() {
+      return Viewport_yOffset;
+   }
+
+   public int getWorld() {
+      return world;
+   }
+
+   public int getGameCycle() {
+      return gameCycle;
+   }
+
+   public void setHintArrowTargetType(int var1) {
+      hintArrowTargetType = var1;
+   }
+
+   public int getHintArrowTargetType() {
+      return hintArrowTargetType;
+   }
+
+   public void setHintArrowNpcTargetIdx(int var1) {
+      hintArrowNpcTargetIdx = var1;
+   }
+
+   public int getHintArrowNpcTargetIdx() {
+      return hintArrowNpcTargetIdx;
+   }
+
+   public void setHintArrowPlayerTargetIdx(int var1) {
+      hintArrowPlayerTargetIdx = var1;
+   }
+
+   public int getHintArrowPlayerTargetIdx() {
+      return hintArrowPlayerTargetIdx;
+   }
+
+   public void setHintArrowX(int var1) {
+      hintArrowX = var1;
+   }
+
+   public int getHintArrowX() {
+      return hintArrowX;
+   }
+
+   public void setHintArrowY(int var1) {
+      hintArrowY = var1;
+   }
+
+   public int getHintArrowY() {
+      return hintArrowY;
+   }
+
+   public void setHintArrowOffsetX(int var1) {
+      hintArrowOffsetX = var1;
+   }
+
+   public void setHintArrowOffsetY(int var1) {
+      hintArrowOffsetY = var1;
+   }
+
+   public int[][][] getInstanceTemplateChunks() {
+      return instanceTemplateChunks;
+   }
+
+   public void setCameraPitchTarget(int var1) {
+      cameraPitchTarget = var1;
+   }
+
+   public int getCameraPitchTarget() {
+      return cameraPitchTarget;
+   }
+
+   public int getMapAngle() {
+      return mapAngle;
+   }
+
+   public void setOculusOrbState(int var1) {
+      camModeType = var1;
+   }
+
+   public int getOculusOrbState() {
+      return camModeType;
+   }
+
+   public void setOculusOrbNormalSpeed(int var1) {
+      field723 = var1;
+   }
+
+   public int[][] getOccupiedTilesTick() {
+      return field740;
+   }
+
+   public void setItemPressedDuration(int var1) {
+      itemPressedDuration = var1;
+   }
+
+   public int getItemPressedDuration() {
+      return itemPressedDuration;
+   }
+
+   public int getLocalInteractingIndex() {
+      return localPlayerIndex;
+   }
+
+   public int[] getPlayerMenuTypes() {
+      return playerMenuTypes;
+   }
+
+   public String[] getPlayerOptions() {
+      return playerOptions;
+   }
+
+   public boolean[] getPlayerOptionsPriorities() {
+      return playerOptionsPriorities;
+   }
+
+   public RSDeque[][][] getGroundItemDeque() {
+      return groundItemDeque;
+   }
+
+   @Override
+   public RSDeque getProjectilesDeque() {
+      return projectiles;
+   }
+
+   public boolean isMenuOpen() {
+      return isMenuOpen;
+   }
+
+   public void packetHandler() {
+      this.vmethod3160();
+   }
+
+   public void revalidateWidget(Widget var1) {
+      this.method3499((ComponentType)var1);
+   }
+
+   public int getRevision() {
+      return class45.revision;
+   }
+
    public void setAnimOffsetX(int var1) {
       Model.animOffsetX = var1;
    }
@@ -7279,25 +7730,24 @@ public final class client extends GameEngine implements class236, RSClient {
       Model.animOffsetZ = var1;
    }
 
-   public void revalidateWidgetScroll(Widget[] var1, Widget var2, boolean var3) {
-      class196.method4011((ComponentType[])var1, (ComponentType)var2, var3);
-   }
-
-   @Override
-   public void menuAction(int var0, int var1, int var2, int var3, String var4, String var5, int var6, int var7) {
-      this.menuAction(var0, var1, var2, var3, var4, var5, var6, var7);
+   public RSNodeCache getCachedModels2() {
+      return LocType.field3473;
    }
 
    public int getBaseY() {
       return class107.baseY;
    }
 
-   public RSIndexDataBase getIndexScripts() {
-      return UrlRequester.clientscripts;
+   public int getCameraZ() {
+      return Packet.cameraZ;
    }
 
-   public RSPlayer getLocalPlayer() {
-      return class4.localPlayer;
+   public int[][][] getTileHeights() {
+      return class98.tileHeights;
+   }
+
+   public int getCameraY() {
+      return class98.cameraY;
    }
 
    public int[] getIntStack() {
@@ -7316,112 +7766,16 @@ public final class client extends GameEngine implements class236, RSClient {
       return class48.scriptStringStackSize;
    }
 
-   public RSIndexedSprite[] getMapScene() {
-      return class0.mapscene;
+   public RSIndexDataBase getIndexScripts() {
+      return UrlRequester.clientscripts;
    }
 
-   public int getKeyboardIdleTicks() {
-      return KeyFocusListener.keyboardIdleTicks;
-   }
-
-   public RSNodeCache getCachedModels2() {
-      return LocType.field3473;
-   }
-
-   public int getRevision() {
-      return class45.revision;
-   }
-
-   public RSArea[] getMapAreas() {
+   public RSMapElementConfig[] getMapElementConfigs() {
       return MapElementType.mapElementTypes;
-   }
-
-   public RSItemComposition getItemDefinition(int var1) {
-      return Varcs.method4770(var1);
-   }
-
-   public void setUsername(String var1) {
-      class316.username = var1;
-   }
-
-   public String getUsername() {
-      return class316.username;
-   }
-
-   public void setPassword(String var1) {
-      class316.password = var1;
-   }
-
-   public int getCurrentLoginField() {
-      return class316.currentLoginField;
-   }
-
-   public void changeWorld(net.runelite.api.World var1) {
-      UrlRequest.method5575((World)var1);
-   }
-
-   public int getOculusOrbFocalPointX() {
-      return class192.field68;
-   }
-
-   public int getOculusOrbFocalPointY() {
-      return class192.field70;
-   }
-
-   public RSIndexDataBase getIndexSprites() {
-      return JagException.sprites;
-   }
-
-   public RSFrames getFrames(int var1) {
-      return class315.method5967(var1);
-   }
-
-   public int getCanvasHeight() {
-      return class230.canvasHeight;
-   }
-
-   public RSRenderOverview getRenderOverview() {
-      return class219.worldMap;
    }
 
    public int getBaseX() {
       return class158.baseX;
-   }
-
-   public void setIntStackSize(int var1) {
-      class228.intStackSize = var1;
-   }
-
-   public int getIntStackSize() {
-      return class228.intStackSize;
-   }
-
-   public Map getChatLineMap() {
-      return class202.chatLineMap;
-   }
-
-   public RSIterableHashTable getMessages() {
-      return class202.messages;
-   }
-
-   public int[][][] getTileHeights() {
-      return class98.tileHeights;
-   }
-
-   public int getCameraY() {
-      return class98.cameraY;
-   }
-
-   public int getCanvasWidth() {
-      return FriendManager.canvasWidth;
-   }
-
-   public void setCompass(net.runelite.api.SpritePixels var1) {
-      class306.compass = (SpritePixels)var1;
-   }
-
-   public RSNodeCache getVarbitCache() {
-      return Varbit.varbits;
    }
 
    public void setTileUpdateCount(int var1) {
@@ -7544,12 +7898,56 @@ public final class client extends GameEngine implements class236, RSClient {
       return SceneManager.method3919(var1, var2, var3, var4, var5, var6, var7, var8);
    }
 
-   public int getVarbit(int var1) {
-      return AbstractSoundSystem.method339(var1);
+   public RSFrames getFrames(int var1) {
+      return class315.method5967(var1);
    }
 
-   public RSWorld[] getWorldList() {
-      return World.worldList;
+   public void setIntStackSize(int var1) {
+      class228.intStackSize = var1;
+   }
+
+   public int getIntStackSize() {
+      return class228.intStackSize;
+   }
+
+   public int getCanvasHeight() {
+      return class230.canvasHeight;
+   }
+
+   public int getCameraYaw() {
+      return class39.cameraYaw;
+   }
+
+   public RSObjectComposition getObjectDefinition(int var1) {
+      return class225.method4485(var1);
+   }
+
+   public int getKeyboardIdleTicks() {
+      return KeyFocusListener.keyboardIdleTicks;
+   }
+
+   public int getCenterX() {
+      return Graphics3D.centerX;
+   }
+
+   public int getCenterY() {
+      return Graphics3D.centerY;
+   }
+
+   public int getRasterizer3D_clipNegativeMidX() {
+      return Graphics3D.Rasterizer3D_clipNegativeMidX;
+   }
+
+   public int getRasterizer3D_clipMidX2() {
+      return Graphics3D.Rasterizer3D_clipMidX2;
+   }
+
+   public int getRasterizer3D_clipNegativeMidY() {
+      return Graphics3D.Rasterizer3D_clipNegativeMidY;
+   }
+
+   public int getRasterizer3D_clipMidY2() {
+      return Graphics3D.Rasterizer3D_clipMidY2;
    }
 
    public int[] getGraphicsPixels() {
@@ -7584,328 +7982,36 @@ public final class client extends GameEngine implements class236, RSClient {
       Rasterizer2D.method449(var1, var2, var3, var4, var5);
    }
 
-   public int[][] getXteaKeys() {
-      return IndexStoreActionHandler.xteaKeys;
-   }
-
-   public RSNPCComposition getNpcDefinition(int var1) {
-      return FileRequest.method4030(var1);
-   }
-
-   public RSIndexedSprite[] getModIcons() {
-      return FontTypeFace.modIcons;
-   }
-
-   public int getCameraYaw() {
-      return class39.cameraYaw;
-   }
-
-   public int getMouseIdleTicks() {
-      return MouseInput.mouseIdleTicks;
-   }
-
-   public int getMouseCurrentButton() {
-      return MouseInput.mouseCurrentButton;
-   }
-
-   public long getMouseLastPressedMillis() {
-      return MouseInput.mouseLastPressedTimeMillis;
-   }
-
-   public int getCameraX() {
-      return class166.cameraX;
-   }
-
-   public int getCameraZ() {
-      return Packet.cameraZ;
+   public RSWorld[] getWorldList() {
+      return World.worldList;
    }
 
    public RSNodeCache getWidgetSpriteCache() {
       return ComponentType.field2661;
    }
 
-   public RSObjectComposition getObjectDefinition(int var1) {
-      return class225.method4485(var1);
+   public RSIndexedSprite[] getModIcons() {
+      return FontTypeFace.modIcons;
    }
 
-   public int[] getMapRegions() {
-      return class208.mapRegions;
+   public RSIndexDataBase getIndexSprites() {
+      return JagException.sprites;
    }
 
-   public int getCenterX() {
-      return Graphics3D.centerX;
+   public void setUsername(String var1) {
+      class316.username = var1;
    }
 
-   public int getCenterY() {
-      return Graphics3D.centerY;
+   public String getUsername() {
+      return class316.username;
    }
 
-   public int getRasterizer3D_clipNegativeMidX() {
-      return Graphics3D.Rasterizer3D_clipNegativeMidX;
+   public void setPassword(String var1) {
+      class316.password = var1;
    }
 
-   public int getRasterizer3D_clipMidX2() {
-      return Graphics3D.Rasterizer3D_clipMidX2;
-   }
-
-   public int getRasterizer3D_clipNegativeMidY() {
-      return Graphics3D.Rasterizer3D_clipNegativeMidY;
-   }
-
-   public int getRasterizer3D_clipMidY2() {
-      return Graphics3D.Rasterizer3D_clipMidY2;
-   }
-
-   public RSTextureProvider getTextureProvider() {
-      return class144.field3688;
-   }
-
-   public RSWidget getDraggedWidget() {
-      return draggedWidget;
-   }
-
-   public RSHashTable getWidgetFlags() {
-      return serverActiveProperties;
-   }
-
-   public RSHashTable getComponentTable() {
-      return subInterfaces;
-   }
-
-   public int[] getWidgetPositionsX() {
-      return widgetPositionX;
-   }
-
-   public void setGameDrawingMode(int var1) {
-      gameDrawingMode = var1;
-   }
-
-   public int getGameDrawingMode() {
-      return gameDrawingMode;
-   }
-
-   public int[] getWidgetPositionsY() {
-      return widgetPositionY;
-   }
-
-   public int getEnergy() {
-      return energy;
-   }
-
-   public int getWeight() {
-      return weight;
-   }
-
-   public boolean isDraggingWidget() {
-      return draggingWidget;
-   }
-
-   public void setDraggedOnWidget(Widget var1) {
-      draggedOnWidget = (ComponentType)var1;
-   }
-
-   public RSWidget getDraggedOnWidget() {
-      return draggedOnWidget;
-   }
-
-   public RSSpritePixels[] getMapIcons() {
-      return mapIcons;
-   }
-
-   public int getScale() {
-      return scale;
-   }
-
-   public int getViewportWidth() {
-      return viewportWidth;
-   }
-
-   public int getViewportHeight() {
-      return viewportHeight;
-   }
-
-   public int[] getChangedSkills() {
-      return changedSkills;
-   }
-
-   public RSGrandExchangeOffer[] getGrandExchangeOffers() {
-      return grandExchangeOffers;
-   }
-
-   public int getViewportXOffset() {
-      return Viewport_xOffset;
-   }
-
-   public void setChangedSkillsCount(int var1) {
-      changedSkillsCount = var1;
-   }
-
-   public int getChangedSkillsCount() {
-      return changedSkillsCount;
-   }
-
-   public int getViewportYOffset() {
-      return Viewport_yOffset;
-   }
-
-   public RSCollisionData[] getCollisionMaps() {
-      return collisionMaps;
-   }
-
-   public int getWorld() {
-      return world;
-   }
-
-   public int getGameCycle() {
-      return gameCycle;
-   }
-
-   public void setHintArrowTargetType(int var1) {
-      hintArrowTargetType = var1;
-   }
-
-   public int getHintArrowTargetType() {
-      return hintArrowTargetType;
-   }
-
-   public void setHintArrowNpcTargetIdx(int var1) {
-      hintArrowNpcTargetIdx = var1;
-   }
-
-   public int getHintArrowNpcTargetIdx() {
-      return hintArrowNpcTargetIdx;
-   }
-
-   public void setHintArrowPlayerTargetIdx(int var1) {
-      hintArrowPlayerTargetIdx = var1;
-   }
-
-   public int getHintArrowPlayerTargetIdx() {
-      return hintArrowPlayerTargetIdx;
-   }
-
-   public void setHintArrowX(int var1) {
-      hintArrowX = var1;
-   }
-
-   public int getHintArrowX() {
-      return hintArrowX;
-   }
-
-   public void setHintArrowY(int var1) {
-      hintArrowY = var1;
-   }
-
-   public int getHintArrowY() {
-      return hintArrowY;
-   }
-
-   public void setHintArrowOffsetX(int var1) {
-      hintArrowOffsetX = var1;
-   }
-
-   public void setHintArrowOffsetY(int var1) {
-      hintArrowOffsetY = var1;
-   }
-
-   public boolean isInInstancedRegion() {
-      return isDynamicRegion;
-   }
-
-   public int[][][] getInstanceTemplateChunks() {
-      return instanceTemplateChunks;
-   }
-
-   public void setCameraPitchTarget(int var1) {
-      cameraPitchTarget = var1;
-   }
-
-   public int getCameraPitchTarget() {
-      return cameraPitchTarget;
-   }
-
-   public int getMapAngle() {
-      return mapAngle;
-   }
-
-   public void setOculusOrbState(int var1) {
-      camModeType = var1;
-   }
-
-   public int getOculusOrbState() {
-      return camModeType;
-   }
-
-   public void setOculusOrbNormalSpeed(int var1) {
-      field723 = var1;
-   }
-
-   public int[][] getOccupiedTilesTick() {
-      return field740;
-   }
-
-   public void setItemPressedDuration(int var1) {
-      itemPressedDuration = var1;
-   }
-
-   public int getItemPressedDuration() {
-      return itemPressedDuration;
-   }
-
-   public int getLocalInteractingIndex() {
-      return localPlayerIndex;
-   }
-
-   public int[] getPlayerMenuTypes() {
-      return playerMenuTypes;
-   }
-
-   public String[] getPlayerOptions() {
-      return playerOptions;
-   }
-
-   public boolean[] getPlayerOptionsPriorities() {
-      return playerOptionsPriorities;
-   }
-
-   public RSDeque[][][] getGroundItemDeque() {
-      return groundItemDeque;
-   }
-
-   public boolean isMenuOpen() {
-      return isMenuOpen;
-   }
-
-   public void packetHandler() {
-      this.vmethod3160();
-   }
-
-   public void revalidateWidget(Widget var1) {
-      this.method3499((ComponentType)var1);
-   }
-
-   public boolean getViewportContainsMouse() {
-      return class195.Viewport_containsMouse;
-   }
-
-   public int getViewportMouseX() {
-      return class195.Viewport_mouseX;
-   }
-
-   public int getViewportMouseY() {
-      return class195.Viewport_mouseY;
-   }
-
-   public void setEntitiesAtMouseCount(int var1) {
-      class195.Viewport_entityCountAtMouse = var1;
-   }
-
-   public int getEntitiesAtMouseCount() {
-      return class195.Viewport_entityCountAtMouse;
-   }
-
-   public long[] getEntitiesAtMouse() {
-      return class195.field1714;
+   public int getCurrentLoginField() {
+      return class316.currentLoginField;
    }
 
    public void setCameraPitch(int var1) {
@@ -7914,18 +8020,6 @@ public final class client extends GameEngine implements class236, RSClient {
 
    public int getCameraPitch() {
       return ScriptEvent.cameraPitch;
-   }
-
-   public RSPreferences getPreferences() {
-      return GameEngine.options;
-   }
-
-   public int getFPS() {
-      return GameEngine.FPS;
-   }
-
-   public RSSpritePixels[] getMapDots() {
-      return GameEngine.mapDots;
    }
 
    @ObfuscatedName("je")
@@ -7999,7 +8093,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   var9.packetBuffer.method6063(draggedWidget.linkObjType);
                   serverConnection.method5881(var9);
                }
-            } else if(this.method3173()) {
+            } else if(this.method3173(170175048)) {
                this.method3542(field906 + field825, field826 + field838);
             } else if(menuOptionCount > 0) {
                class219.method4423(field906 + field825, field838 + field826);
@@ -8280,7 +8374,7 @@ public final class client extends GameEngine implements class236, RSClient {
                      }
                   }
 
-                  if((var16 == 1 || !WorldMapType3.middleMouseMovesCamera && var16 == 4) && this.method3173()) {
+                  if((var16 == 1 || !WorldMapType3.middleMouseMovesCamera && var16 == 4) && this.method3173(440979574)) {
                      var16 = 2;
                   }
 
@@ -8296,7 +8390,7 @@ public final class client extends GameEngine implements class236, RSClient {
                return;
             }
 
-            if(World.field1025 != null && !field673 && menuOptionCount > 0 && !this.method3173()) {
+            if(World.field1025 != null && !field673 && menuOptionCount > 0 && !this.method3173(-2072816976)) {
                class219.method4423(field752, field845);
             }
 
@@ -9873,7 +9967,7 @@ public final class client extends GameEngine implements class236, RSClient {
                               break label1203;
                            }
 
-                           if(var2 == 1009 || var2 == 1011 || var2 == 1010 || var2 == 1008 || var2 == 1012) {
+                           if(var2 == 1008 || var2 == 1011 || var2 == 1009 || var2 == 1010 || var2 == 1012) {
                               class219.worldMap.method1249(var2, var3, new Coordinates(var0), new Coordinates(var1));
                               break label1268;
                            }
@@ -10281,6 +10375,14 @@ public final class client extends GameEngine implements class236, RSClient {
          }
 
       }
+   }
+
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "-1"
+   )
+   public static void onCycleCntrChanged(int var0) {
+      class166.clientInstance.getCallbacks().post(new ClientTick());
    }
 
    @ObfuscatedSignature(

@@ -100,60 +100,69 @@ public class Varcs implements RSVarcs {
    void method4738() {
       FileOnDisk var1 = this.method4740(false);
 
-      try {
-         byte[] var2 = new byte[(int)var1.method148()];
-
-         int var4;
-         for(int var3 = 0; var3 < var2.length; var3 += var4) {
-            var4 = var1.method149(var2, var3, var2.length - var3);
-            if(var4 == -1) {
-               throw new EOFException();
-            }
-         }
-
-         Packet var13 = new Packet(var2);
-         if(var13.payload.length - var13.offset < 1) {
-            return;
-         }
-
-         int var14 = var13.readUnsignedByte();
-         if(var14 < 0 || var14 > 1) {
-            return;
-         }
-
-         int var15 = var13.method6080();
-
-         int var7;
-         int var8;
-         int var9;
-         for(var7 = 0; var7 < var15; ++var7) {
-            var8 = var13.method6080();
-            var9 = var13.method6201();
-            if(this.varcSerials[var8]) {
-               this.varCInts[var8] = var9;
-               this.onVarCIntChanged(var8);
-            }
-         }
-
-         var7 = var13.method6080();
-
-         for(var8 = 0; var8 < var7; ++var8) {
-            var9 = var13.method6080();
-            String var10 = var13.readString();
-            if(this.varcstringSerials[var9]) {
-               this.varCStrings[var9] = var10;
-               this.onVarCStrChanged(var9);
-            }
-         }
-      } catch (Exception var24) {
-         ;
-      } finally {
+      label204: {
          try {
-            var1.method146();
-         } catch (Exception var23) {
-            ;
+            byte[] var2 = new byte[(int)var1.method148()];
+
+            int var4;
+            for(int var3 = 0; var3 < var2.length; var3 += var4) {
+               var4 = var1.method149(var2, var3, var2.length - var3);
+               if(var4 == -1) {
+                  throw new EOFException();
+               }
+            }
+
+            Packet var13 = new Packet(var2);
+            if(var13.payload.length - var13.offset < 1) {
+               return;
+            }
+
+            int var14 = var13.readUnsignedByte();
+            if(var14 >= 0 && var14 <= 1) {
+               int var15 = var13.method6080();
+
+               int var7;
+               int var8;
+               int var9;
+               for(var7 = 0; var7 < var15; ++var7) {
+                  var8 = var13.method6080();
+                  var9 = var13.method6201();
+                  if(this.varcSerials[var8]) {
+                     this.varCInts[var8] = var9;
+                     this.onVarCIntChanged(var8);
+                  }
+               }
+
+               var7 = var13.method6080();
+               var8 = 0;
+
+               while(true) {
+                  if(var8 >= var7) {
+                     break label204;
+                  }
+
+                  var9 = var13.method6080();
+                  String var10 = var13.readString();
+                  if(this.varcstringSerials[var9]) {
+                     this.varCStrings[var9] = var10;
+                     this.onVarCStrChanged(var9);
+                  }
+
+                  ++var8;
+               }
+            }
+         } catch (Exception var24) {
+            break label204;
+         } finally {
+            try {
+               var1.method146();
+            } catch (Exception var23) {
+               ;
+            }
+
          }
 
+         return;
       }
 
       this.changed = false;
