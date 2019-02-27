@@ -161,7 +161,7 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
       long var2 = var1.method6084();
       this.method4639(GameSocket.method4295(var2));
       this.field3731 = var1.method6240();
-      int var4 = var1.method6080();
+      int var4 = var1.readUnsignedShort();
       if(var4 != 65535) {
          this.method5224();
 
