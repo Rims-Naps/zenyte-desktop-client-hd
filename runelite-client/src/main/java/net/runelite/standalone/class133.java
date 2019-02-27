@@ -331,7 +331,7 @@ public class class133 implements Runnable {
             var3.field984 = var0.method6112();
             var3.field985 = var0.method6117() + client.gameCycle;
             var3.field977 = var0.method6116() + client.gameCycle;
-            var3.field997 = var0.method6080();
+            var3.field997 = var0.readUnsignedShort();
             if(var3.field631) {
                var3.field983 += var3.xInScene;
                var3.field995 += var3.yInScene;
@@ -441,7 +441,7 @@ public class class133 implements Runnable {
          }
 
          if((var4 & 128) != 0) {
-            var6 = var0.method6080();
+            var6 = var0.readUnsignedShort();
             if(var6 == 65535) {
                var6 = -1;
             }

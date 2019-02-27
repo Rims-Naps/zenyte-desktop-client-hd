@@ -54,7 +54,7 @@ public class TradingPost {
       garbageValue = "1"
    )
    public TradingPost(Packet var1, boolean var2) {
-      int var3 = var1.method6080();
+      int var3 = var1.readUnsignedShort();
       boolean var4 = var1.readUnsignedByte() == 1;
       byte var5;
       if(var4) {
@@ -63,7 +63,7 @@ public class TradingPost {
          var5 = 0;
       }
 
-      int var6 = var1.method6080();
+      int var6 = var1.readUnsignedShort();
       this.events = new ArrayList(var6);
 
       for(int var7 = 0; var7 < var6; ++var7) {

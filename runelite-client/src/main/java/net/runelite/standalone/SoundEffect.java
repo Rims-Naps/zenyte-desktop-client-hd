@@ -31,8 +31,8 @@ public class SoundEffect implements RSSoundEffect {
          }
       }
 
-      this.start = var1.method6080();
-      this.end = var1.method6080();
+      this.start = var1.readUnsignedShort();
+      this.end = var1.readUnsignedShort();
    }
 
    @ObfuscatedName("r")

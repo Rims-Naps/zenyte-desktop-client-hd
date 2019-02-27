@@ -48,8 +48,8 @@ public class AudioEnvelope {
       this.phases = new int[this.segments];
 
       for(int var2 = 0; var2 < this.segments; ++var2) {
-         this.durations[var2] = var1.method6080();
-         this.phases[var2] = var1.method6080();
+         this.durations[var2] = var1.readUnsignedShort();
+         this.phases[var2] = var1.readUnsignedShort();
       }
 
    }
@@ -88,8 +88,8 @@ public class AudioEnvelope {
    )
    final void method2171(Packet var1) {
       this.form = var1.readUnsignedByte();
-      this.start = var1.method6201();
-      this.end = var1.method6201();
+      this.start = var1.readInt();
+      this.end = var1.readInt();
       this.method2168(var1);
    }
 }

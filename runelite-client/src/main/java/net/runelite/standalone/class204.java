@@ -53,7 +53,7 @@ public class class204 extends CacheableNode {
    )
    void method4085(Packet var1, int var2) {
       if(var2 == 2) {
-         this.field3299 = var1.method6080();
+         this.field3299 = var1.readUnsignedShort();
       }
 
    }

@@ -55,10 +55,10 @@ public class class113 extends class310 {
       } else {
          super.field150 = var2.readUnsignedByte();
          super.field148 = var2.readUnsignedByte();
-         super.field146 = var2.method6080();
-         super.field151 = var2.method6080();
-         super.field147 = var2.method6080();
-         super.field149 = var2.method6080();
+         super.field146 = var2.readUnsignedShort();
+         super.field151 = var2.readUnsignedShort();
+         super.field147 = var2.readUnsignedShort();
+         super.field149 = var2.readUnsignedShort();
          super.field148 = Math.min(super.field148, 4);
          super.field152 = new short[1][64][64];
          super.field153 = new short[super.field148][64][64];

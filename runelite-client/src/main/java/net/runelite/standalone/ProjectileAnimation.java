@@ -333,14 +333,14 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
       class106 var1 = new class106();
       Packet var2 = new Packet(var0);
       var2.offset = var2.payload.length - 2;
-      int var3 = var2.method6080();
+      int var3 = var2.readUnsignedShort();
       int var4 = var2.payload.length - 2 - var3 - 12;
       var2.offset = var4;
-      int var5 = var2.method6201();
-      var1.localIntCount = var2.method6080();
-      var1.localStringCount = var2.method6080();
-      var1.intStackCount = var2.method6080();
-      var1.stringStackCount = var2.method6080();
+      int var5 = var2.readInt();
+      var1.localIntCount = var2.readUnsignedShort();
+      var1.localStringCount = var2.readUnsignedShort();
+      var1.intStackCount = var2.readUnsignedShort();
+      var1.stringStackCount = var2.readUnsignedShort();
       int var6 = var2.readUnsignedByte();
       int var7;
       int var8;
@@ -348,13 +348,13 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
          var1.switches = var1.method1870(var6);
 
          for(var7 = 0; var7 < var6; ++var7) {
-            var8 = var2.method6080();
+            var8 = var2.readUnsignedShort();
             IterableHashTable var9 = new IterableHashTable(var8 > 0?TotalQuantityComparator.method1181(var8):1);
             var1.switches[var7] = var9;
 
             while(var8-- > 0) {
-               int var10 = var2.method6201();
-               int var11 = var2.method6201();
+               int var10 = var2.readInt();
+               int var11 = var2.readInt();
                var9.method2749(new IntegerNode(var11), (long)var10);
             }
          }
@@ -367,11 +367,11 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
       var1.stringOperands = new String[var5];
 
       for(var7 = 0; var2.offset < var4; var1.instructions[var7++] = var8) {
-         var8 = var2.method6080();
+         var8 = var2.readUnsignedShort();
          if(var8 == 3) {
             var1.stringOperands[var7] = var2.readString();
          } else if(var8 < 100 && var8 != 21 && var8 != 38 && var8 != 39) {
-            var1.intOperands[var7] = var2.method6201();
+            var1.intOperands[var7] = var2.readInt();
          } else {
             var1.intOperands[var7] = var2.readUnsignedByte();
          }

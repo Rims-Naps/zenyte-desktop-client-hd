@@ -261,9 +261,9 @@ public final class WallObject implements RSWallObject {
                      if(class267.currentRequest == null) {
                         class258.NetCache_responseHeaderBuffer.offset = 0;
                         var7 = class258.NetCache_responseHeaderBuffer.readUnsignedByte();
-                        var8 = class258.NetCache_responseHeaderBuffer.method6080();
+                        var8 = class258.NetCache_responseHeaderBuffer.readUnsignedShort();
                         int var9 = class258.NetCache_responseHeaderBuffer.readUnsignedByte();
-                        var10 = class258.NetCache_responseHeaderBuffer.method6201();
+                        var10 = class258.NetCache_responseHeaderBuffer.readInt();
                         long var11 = (long)(var8 + (var7 << 16));
                         FileRequest var13 = (FileRequest)class258.NetCache_pendingPriorityResponses.method380(var11);
                         IndexStoreActionHandler.field3246 = true;
@@ -319,8 +319,8 @@ public final class WallObject implements RSWallObject {
                               Js5 var17 = class258.NetCache_indexCaches[var8];
                               if(var17 != null) {
                                  class316.NetCache_reference.offset = var8 * 8 + 5;
-                                 var10 = class316.NetCache_reference.method6201();
-                                 int var18 = class316.NetCache_reference.method6201();
+                                 var10 = class316.NetCache_reference.readInt();
+                                 int var18 = class316.NetCache_reference.readInt();
                                  var17.method2658(var10, var18);
                               }
                            }

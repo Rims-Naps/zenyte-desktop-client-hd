@@ -55,11 +55,11 @@ public class GrandExchangeOffer implements RSGrandExchangeOffer {
    )
    public GrandExchangeOffer(Packet var1, boolean var2) {
       this.state = var1.method6240();
-      this.itemId = var1.method6080();
-      this.price = var1.method6201();
-      this.totalQuantity = var1.method6201();
-      this.quantitySold = var1.method6201();
-      this.spent = var1.method6201();
+      this.itemId = var1.readUnsignedShort();
+      this.price = var1.readInt();
+      this.totalQuantity = var1.readInt();
+      this.quantitySold = var1.readInt();
+      this.spent = var1.readInt();
    }
 
    @ObfuscatedName("r")

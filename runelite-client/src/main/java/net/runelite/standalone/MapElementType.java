@@ -178,13 +178,13 @@ public class MapElementType extends CacheableNode implements RSMapElementConfig 
                this.field3322[var4] = var1.method6123();
             }
 
-            var1.method6201();
+            var1.readInt();
             var4 = var1.readUnsignedByte();
             this.field3329 = new int[var4];
 
             int var5;
             for(var5 = 0; var5 < this.field3329.length; ++var5) {
-               this.field3329[var5] = var1.method6201();
+               this.field3329[var5] = var1.readInt();
             }
 
             this.field3330 = new byte[var3];
@@ -198,11 +198,11 @@ public class MapElementType extends CacheableNode implements RSMapElementConfig 
             } else if(var2 == 18) {
                var1.method6207();
             } else if(var2 == 19) {
-               this.category = var1.method6080();
+               this.category = var1.readUnsignedShort();
             } else if(var2 == 21) {
-               var1.method6201();
+               var1.readInt();
             } else if(var2 == 22) {
-               var1.method6201();
+               var1.readInt();
             } else if(var2 == 23) {
                var1.readUnsignedByte();
                var1.readUnsignedByte();

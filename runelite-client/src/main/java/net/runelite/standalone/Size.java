@@ -231,7 +231,7 @@ public class Size {
    public static void method4704(Packet var0, int var1) {
       ReflectionCheck var2 = new ReflectionCheck();
       var2.count = var0.readUnsignedByte();
-      var2.field3845 = var0.method6201();
+      var2.field3845 = var0.readInt();
       var2.type = new int[var2.count];
       var2.errorIdentifiers = new int[var2.count];
       var2.fields = new Field[var2.count];
@@ -261,7 +261,7 @@ public class Size {
                   int var12;
                   if(var4 == 3) {
                      for(int var11 = 0; var11 < var7; ++var11) {
-                        var12 = var0.method6201();
+                        var12 = var0.readInt();
                         var10[var11] = new byte[var12];
                         var0.method6090(var10[var11], 0, var12);
                      }
@@ -310,7 +310,7 @@ public class Size {
                var6 = var0.readString();
                var7 = 0;
                if(var4 == 1) {
-                  var7 = var0.method6201();
+                  var7 = var0.readInt();
                }
 
                var2.type[var3] = var4;

@@ -110,32 +110,32 @@ public final class SceneTilePaint implements RSSceneTilePaint {
    public static void method667(byte[] var0) {
       Packet var1 = new Packet(var0);
       var1.offset = var0.length - 2;
-      class95.indexedSpriteCount = var1.method6080();
+      class95.indexedSpriteCount = var1.readUnsignedShort();
       class95.indexedSpriteOffsetXs = new int[class95.indexedSpriteCount];
       class95.indexedSpriteOffsetYs = new int[class95.indexedSpriteCount];
       class95.indexSpriteWidths = new int[class95.indexedSpriteCount];
       VarClientType.indexedSpriteHeights = new int[class95.indexedSpriteCount];
       class95.spritePixels = new byte[class95.indexedSpriteCount][];
       var1.offset = var0.length - 7 - class95.indexedSpriteCount * 8;
-      class95.indexedSpriteWidth = var1.method6080();
-      class95.indexedSpriteHeight = var1.method6080();
+      class95.indexedSpriteWidth = var1.readUnsignedShort();
+      class95.indexedSpriteHeight = var1.readUnsignedShort();
       int var2 = (var1.readUnsignedByte() & 255) + 1;
 
       int var3;
       for(var3 = 0; var3 < class95.indexedSpriteCount; ++var3) {
-         class95.indexedSpriteOffsetXs[var3] = var1.method6080();
+         class95.indexedSpriteOffsetXs[var3] = var1.readUnsignedShort();
       }
 
       for(var3 = 0; var3 < class95.indexedSpriteCount; ++var3) {
-         class95.indexedSpriteOffsetYs[var3] = var1.method6080();
+         class95.indexedSpriteOffsetYs[var3] = var1.readUnsignedShort();
       }
 
       for(var3 = 0; var3 < class95.indexedSpriteCount; ++var3) {
-         class95.indexSpriteWidths[var3] = var1.method6080();
+         class95.indexSpriteWidths[var3] = var1.readUnsignedShort();
       }
 
       for(var3 = 0; var3 < class95.indexedSpriteCount; ++var3) {
-         VarClientType.indexedSpriteHeights[var3] = var1.method6080();
+         VarClientType.indexedSpriteHeights[var3] = var1.readUnsignedShort();
       }
 
       var1.offset = var0.length - 7 - class95.indexedSpriteCount * 8 - (var2 - 1) * 3;

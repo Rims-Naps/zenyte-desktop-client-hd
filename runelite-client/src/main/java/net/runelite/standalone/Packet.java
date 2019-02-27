@@ -83,8 +83,8 @@ public class Packet extends Node implements RSBuffer {
       this.offset = 0;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         int var4 = this.method6201();
-         int var5 = this.method6201();
+         int var4 = this.readInt();
+         int var5 = this.readInt();
          int var6 = 0;
          int var7 = -1640531527;
 
@@ -222,7 +222,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(B)I",
       garbageValue = "20"
    )
-   public int method6080() {
+   public int readUnsignedShort() {
       this.offset += 2;
       return (this.payload[this.offset - 1] & 255) + ((this.payload[this.offset - 2] & 255) << 8);
    }
@@ -258,8 +258,8 @@ public class Packet extends Node implements RSBuffer {
       garbageValue = "127"
    )
    public long method6084() {
-      long var1 = (long)this.method6201() & 4294967295L;
-      long var3 = (long)this.method6201() & 4294967295L;
+      long var1 = (long)this.readInt() & 4294967295L;
+      long var3 = (long)this.readInt() & 4294967295L;
       return (var1 << 32) + var3;
    }
 
@@ -413,7 +413,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(I)I",
       garbageValue = "2115207234"
    )
-   public int method6201() {
+   public int readInt() {
       this.offset += 4;
       return ((this.payload[this.offset - 3] & 255) << 16) + (this.payload[this.offset - 1] & 255) + ((this.payload[this.offset - 2] & 255) << 8) + ((this.payload[this.offset - 4] & 255) << 24);
    }
@@ -464,7 +464,7 @@ public class Packet extends Node implements RSBuffer {
       garbageValue = "130636952"
    )
    public int method6094() {
-      return this.payload[this.offset] < 0?this.method6201() & Integer.MAX_VALUE:this.method6080();
+      return this.payload[this.offset] < 0?this.readInt() & Integer.MAX_VALUE:this.readUnsignedShort();
    }
 
    @ObfuscatedName("av")
@@ -475,7 +475,7 @@ public class Packet extends Node implements RSBuffer {
    public boolean method6095() {
       this.offset -= 4;
       int var1 = NPCEntity.method2151(this.payload, 0, this.offset);
-      int var2 = this.method6201();
+      int var2 = this.readInt();
       return var2 == var1;
    }
 
@@ -540,8 +540,8 @@ public class Packet extends Node implements RSBuffer {
       int var5 = (var3 - var2) / 8;
 
       for(int var6 = 0; var6 < var5; ++var6) {
-         int var7 = this.method6201();
-         int var8 = this.method6201();
+         int var7 = this.readInt();
+         int var8 = this.readInt();
          int var9 = -957401312;
          int var10 = -1640531527;
 
@@ -642,7 +642,7 @@ public class Packet extends Node implements RSBuffer {
    )
    public int method6091() {
       int var1 = this.payload[this.offset] & 255;
-      return var1 < 128?this.readUnsignedByte() - 64:this.method6080() - 49152;
+      return var1 < 128?this.readUnsignedByte() - 64:this.readUnsignedShort() - 49152;
    }
 
    @ObfuscatedName("y")
@@ -681,8 +681,8 @@ public class Packet extends Node implements RSBuffer {
       int var5 = (var3 - var2) / 8;
 
       for(int var6 = 0; var6 < var5; ++var6) {
-         int var7 = this.method6201();
-         int var8 = this.method6201();
+         int var7 = this.readInt();
+         int var8 = this.readInt();
          int var9 = 0;
          int var10 = -1640531527;
 
@@ -716,7 +716,7 @@ public class Packet extends Node implements RSBuffer {
    )
    public int method6092() {
       int var1 = this.payload[this.offset] & 255;
-      return var1 < 128?this.readUnsignedByte():this.method6080() - 32768;
+      return var1 < 128?this.readUnsignedByte():this.readUnsignedShort() - 32768;
    }
 
    @ObfuscatedName("ax")
@@ -757,9 +757,9 @@ public class Packet extends Node implements RSBuffer {
    )
    public int method6207() {
       if(this.payload[this.offset] < 0) {
-         return this.method6201() & Integer.MAX_VALUE;
+         return this.readInt() & Integer.MAX_VALUE;
       } else {
-         int var1 = this.method6080();
+         int var1 = this.readUnsignedShort();
          return var1 == 32767?-1:var1;
       }
    }
@@ -985,8 +985,8 @@ public class Packet extends Node implements RSBuffer {
       this.offset = 0;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         int var4 = this.method6201();
-         int var5 = this.method6201();
+         int var4 = this.readInt();
+         int var5 = this.readInt();
          int var6 = -957401312;
          int var7 = -1640531527;
 

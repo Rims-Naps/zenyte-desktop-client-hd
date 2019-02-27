@@ -61,7 +61,7 @@ public class VarPlayerType extends CacheableNode {
    )
    void method5531(Packet var1, int var2) {
       if(var2 == 5) {
-         this.clientCode = var1.method6080();
+         this.clientCode = var1.readUnsignedShort();
       }
 
    }

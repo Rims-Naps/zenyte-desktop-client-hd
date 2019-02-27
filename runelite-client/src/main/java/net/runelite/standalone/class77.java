@@ -29,7 +29,7 @@ public class class77 {
    static final byte[] method1151(byte[] var0) {
       Packet var1 = new Packet(var0);
       int var2 = var1.readUnsignedByte();
-      int var3 = var1.method6201();
+      int var3 = var1.readInt();
       if(var3 < 0 || Js5Index.field3223 != 0 && var3 > Js5Index.field3223) {
          throw new RuntimeException();
       } else if(var2 == 0) {
@@ -37,7 +37,7 @@ public class class77 {
          var1.method6090(var4, 0, var3);
          return var4;
       } else {
-         int var6 = var1.method6201();
+         int var6 = var1.readInt();
          if(var6 < 0 || Js5Index.field3223 != 0 && var6 > Js5Index.field3223) {
             throw new RuntimeException();
          } else {

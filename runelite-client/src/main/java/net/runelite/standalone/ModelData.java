@@ -386,8 +386,8 @@ public class ModelData extends Entity implements RSModelData {
       Packet var7 = new Packet(var1);
       Packet var8 = new Packet(var1);
       var2.offset = var1.length - 23;
-      int var9 = var2.method6080();
-      int var10 = var2.method6080();
+      int var9 = var2.readUnsignedShort();
+      int var10 = var2.readUnsignedShort();
       int var11 = var2.readUnsignedByte();
       int var12 = var2.readUnsignedByte();
       int var13 = var2.readUnsignedByte();
@@ -395,11 +395,11 @@ public class ModelData extends Entity implements RSModelData {
       int var15 = var2.readUnsignedByte();
       int var16 = var2.readUnsignedByte();
       int var17 = var2.readUnsignedByte();
-      int var18 = var2.method6080();
-      int var19 = var2.method6080();
-      int var20 = var2.method6080();
-      int var21 = var2.method6080();
-      int var22 = var2.method6080();
+      int var18 = var2.readUnsignedShort();
+      int var19 = var2.readUnsignedShort();
+      int var20 = var2.readUnsignedShort();
+      int var21 = var2.readUnsignedShort();
+      int var22 = var2.readUnsignedShort();
       int var23 = 0;
       int var24 = 0;
       int var25 = 0;
@@ -578,7 +578,7 @@ public class ModelData extends Entity implements RSModelData {
       var8.offset = var36;
 
       for(var51 = 0; var51 < var10; ++var51) {
-         this.faceColor[var51] = (short)var2.method6080();
+         this.faceColor[var51] = (short)var2.readUnsignedShort();
          if(var12 == 1) {
             this.faceRenderType[var51] = var3.method6240();
          }
@@ -596,7 +596,7 @@ public class ModelData extends Entity implements RSModelData {
          }
 
          if(var16 == 1) {
-            this.faceTextures[var51] = (short)(var7.method6080() - 1);
+            this.faceTextures[var51] = (short)(var7.readUnsignedShort() - 1);
          }
 
          if(this.textureCoords != null && this.faceTextures[var51] != -1) {
@@ -664,9 +664,9 @@ public class ModelData extends Entity implements RSModelData {
       for(var55 = 0; var55 < var11; ++var55) {
          var56 = this.textureRenderTypes[var55] & 255;
          if(var56 == 0) {
-            this.texTriangleX[var55] = (short)var2.method6080();
-            this.texTriangleY[var55] = (short)var2.method6080();
-            this.texTriangleZ[var55] = (short)var2.method6080();
+            this.texTriangleX[var55] = (short)var2.readUnsignedShort();
+            this.texTriangleY[var55] = (short)var2.readUnsignedShort();
+            this.texTriangleZ[var55] = (short)var2.readUnsignedShort();
          }
       }
 
@@ -674,10 +674,10 @@ public class ModelData extends Entity implements RSModelData {
       var55 = var2.readUnsignedByte();
       if(var55 != 0) {
          new class31();
-         var2.method6080();
-         var2.method6080();
-         var2.method6080();
-         var2.method6201();
+         var2.readUnsignedShort();
+         var2.readUnsignedShort();
+         var2.readUnsignedShort();
+         var2.readInt();
       }
 
    }
@@ -692,18 +692,18 @@ public class ModelData extends Entity implements RSModelData {
       Packet var7 = new Packet(var1);
       Packet var8 = new Packet(var1);
       var4.offset = var1.length - 18;
-      int var9 = var4.method6080();
-      int var10 = var4.method6080();
+      int var9 = var4.readUnsignedShort();
+      int var10 = var4.readUnsignedShort();
       int var11 = var4.readUnsignedByte();
       int var12 = var4.readUnsignedByte();
       int var13 = var4.readUnsignedByte();
       int var14 = var4.readUnsignedByte();
       int var15 = var4.readUnsignedByte();
       int var16 = var4.readUnsignedByte();
-      int var17 = var4.method6080();
-      int var18 = var4.method6080();
-      int var19 = var4.method6080();
-      int var20 = var4.method6080();
+      int var17 = var4.readUnsignedShort();
+      int var18 = var4.readUnsignedShort();
+      int var19 = var4.readUnsignedShort();
+      int var20 = var4.readUnsignedShort();
       byte var21 = 0;
       int var45 = var21 + var9;
       int var23 = var45;
@@ -834,7 +834,7 @@ public class ModelData extends Entity implements RSModelData {
       var8.offset = var25;
 
       for(var38 = 0; var38 < var10; ++var38) {
-         this.faceColor[var38] = (short)var4.method6080();
+         this.faceColor[var38] = (short)var4.readUnsignedShort();
          if(var12 == 1) {
             var39 = var5.readUnsignedByte();
             if((var39 & 1) == 1) {
@@ -925,9 +925,9 @@ public class ModelData extends Entity implements RSModelData {
 
       for(var42 = 0; var42 < var11; ++var42) {
          this.textureRenderTypes[var42] = 0;
-         this.texTriangleX[var42] = (short)var4.method6080();
-         this.texTriangleY[var42] = (short)var4.method6080();
-         this.texTriangleZ[var42] = (short)var4.method6080();
+         this.texTriangleX[var42] = (short)var4.readUnsignedShort();
+         this.texTriangleY[var42] = (short)var4.readUnsignedShort();
+         this.texTriangleZ[var42] = (short)var4.readUnsignedShort();
       }
 
       if(this.textureCoords != null) {

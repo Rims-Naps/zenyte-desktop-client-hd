@@ -833,7 +833,7 @@ public class ComponentType extends Node implements RSWidget {
          for(int var4 = 0; var4 < var2; ++var4) {
             int var5 = var1.readUnsignedByte();
             if(var5 == 0) {
-               var3[var4] = new Integer(var1.method6201());
+               var3[var4] = new Integer(var1.readInt());
             } else if(var5 == 1) {
                var3[var4] = var1.readString();
             }
@@ -853,21 +853,21 @@ public class ComponentType extends Node implements RSWidget {
       var1.readUnsignedByte();
       this.isIf3 = true;
       this.type = var1.readUnsignedByte();
-      this.clientcode = var1.method6080();
+      this.clientcode = var1.readUnsignedShort();
       this.posX = var1.method6123();
       this.posY = var1.method6123();
-      this.sizeX = var1.method6080();
+      this.sizeX = var1.readUnsignedShort();
       if(this.type == 9) {
          this.sizeY = var1.method6123();
       } else {
-         this.sizeY = var1.method6080();
+         this.sizeY = var1.readUnsignedShort();
       }
 
       this.sizeXmode = var1.method6240();
       this.sizeYmode = var1.method6240();
       this.posXmode = var1.method6240();
       this.posYmode = var1.method6240();
-      this.layer = var1.method6080();
+      this.layer = var1.readUnsignedShort();
       if(this.layer == 65535) {
          this.layer = -1;
       } else {
@@ -877,53 +877,53 @@ public class ComponentType extends Node implements RSWidget {
       this.isHidden = var1.readUnsignedByte() == 1;
       this.onHiddenChanged(-1);
       if(this.type == 0) {
-         this.scrollWidth = var1.method6080();
-         this.scrollHeight = var1.method6080();
+         this.scrollWidth = var1.readUnsignedShort();
+         this.scrollHeight = var1.readUnsignedShort();
          this.noClickThrough = var1.readUnsignedByte() == 1;
       }
 
       if(this.type == 5) {
-         this.graphic = var1.method6201();
-         this.angle2d = var1.method6080();
+         this.graphic = var1.readInt();
+         this.angle2d = var1.readUnsignedShort();
          this.tile = var1.readUnsignedByte() == 1;
          this.trans = var1.readUnsignedByte();
          this.outline = var1.readUnsignedByte();
-         this.shadow = var1.method6201();
+         this.shadow = var1.readInt();
          this.vflip = var1.readUnsignedByte() == 1;
          this.hflip = var1.readUnsignedByte() == 1;
       }
 
       if(this.type == 6) {
          this.modelType = 1;
-         this.modelId = var1.method6080();
+         this.modelId = var1.readUnsignedShort();
          if(this.modelId == 65535) {
             this.modelId = -1;
          }
 
          this.offsetX2d = var1.method6123();
          this.offsetY2d = var1.method6123();
-         this.xan2d = var1.method6080();
-         this.yan2d = var1.method6080();
-         this.zan2d = var1.method6080();
-         this.zoom2d = var1.method6080();
-         this.animation = var1.method6080();
+         this.xan2d = var1.readUnsignedShort();
+         this.yan2d = var1.readUnsignedShort();
+         this.zan2d = var1.readUnsignedShort();
+         this.zoom2d = var1.readUnsignedShort();
+         this.animation = var1.readUnsignedShort();
          if(this.animation == 65535) {
             this.animation = -1;
          }
 
          this.orthogonal = var1.readUnsignedByte() == 1;
-         var1.method6080();
+         var1.readUnsignedShort();
          if(this.sizeXmode != 0) {
-            this.field2722 = var1.method6080();
+            this.field2722 = var1.readUnsignedShort();
          }
 
          if(this.sizeYmode != 0) {
-            var1.method6080();
+            var1.readUnsignedShort();
          }
       }
 
       if(this.type == 4) {
-         this.fontId = var1.method6080();
+         this.fontId = var1.readUnsignedShort();
          if(this.fontId == 65535) {
             this.fontId = -1;
          }
@@ -933,18 +933,18 @@ public class ComponentType extends Node implements RSWidget {
          this.horizTextAlign = var1.readUnsignedByte();
          this.vertTextAlign = var1.readUnsignedByte();
          this.textShadow = var1.readUnsignedByte() == 1;
-         this.color = var1.method6201();
+         this.color = var1.readInt();
       }
 
       if(this.type == 3) {
-         this.color = var1.method6201();
+         this.color = var1.readInt();
          this.filled = var1.readUnsignedByte() == 1;
          this.trans = var1.readUnsignedByte();
       }
 
       if(this.type == 9) {
          this.lineWidth = var1.readUnsignedByte();
-         this.color = var1.method6201();
+         this.color = var1.readInt();
          this.lineDirection = var1.readUnsignedByte() == 1;
       }
 
@@ -1905,20 +1905,20 @@ public class ComponentType extends Node implements RSWidget {
       this.isIf3 = false;
       this.type = var1.readUnsignedByte();
       this.buttonType = var1.readUnsignedByte();
-      this.clientcode = var1.method6080();
+      this.clientcode = var1.readUnsignedShort();
       this.posX = var1.method6123();
       this.posY = var1.method6123();
-      this.sizeX = var1.method6080();
-      this.sizeY = var1.method6080();
+      this.sizeX = var1.readUnsignedShort();
+      this.sizeY = var1.readUnsignedShort();
       this.trans = var1.readUnsignedByte();
-      this.layer = var1.method6080();
+      this.layer = var1.readUnsignedShort();
       if(this.layer == 65535) {
          this.layer = -1;
       } else {
          this.layer += this.id & -65536;
       }
 
-      this.field2788 = var1.method6080();
+      this.field2788 = var1.readUnsignedShort();
       if(this.field2788 == 65535) {
          this.field2788 = -1;
       }
@@ -1931,7 +1931,7 @@ public class ComponentType extends Node implements RSWidget {
 
          for(var3 = 0; var3 < var2; ++var3) {
             this.tableActions[var3] = var1.readUnsignedByte();
-            this.field2778[var3] = var1.method6080();
+            this.field2778[var3] = var1.readUnsignedShort();
          }
       }
 
@@ -1943,11 +1943,11 @@ public class ComponentType extends Node implements RSWidget {
          this.dynamicValues = new int[var3][];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            var5 = var1.method6080();
+            var5 = var1.readUnsignedShort();
             this.dynamicValues[var4] = new int[var5];
 
             for(var6 = 0; var6 < var5; ++var6) {
-               this.dynamicValues[var4][var6] = var1.method6080();
+               this.dynamicValues[var4][var6] = var1.readUnsignedShort();
                if(this.dynamicValues[var4][var6] == 65535) {
                   this.dynamicValues[var4][var6] = -1;
                }
@@ -1956,13 +1956,13 @@ public class ComponentType extends Node implements RSWidget {
       }
 
       if(this.type == 0) {
-         this.scrollHeight = var1.method6080();
+         this.scrollHeight = var1.readUnsignedShort();
          this.isHidden = var1.readUnsignedByte() == 1;
          this.onHiddenChanged(-1);
       }
 
       if(this.type == 1) {
-         var1.method6080();
+         var1.readUnsignedShort();
          var1.readUnsignedByte();
       }
 
@@ -2001,7 +2001,7 @@ public class ComponentType extends Node implements RSWidget {
             if(var9 == 1) {
                this.xSprites[var8] = var1.method6123();
                this.field2737[var8] = var1.method6123();
-               this.field2738[var8] = var1.method6201();
+               this.field2738[var8] = var1.readInt();
             } else {
                this.field2738[var8] = -1;
             }
@@ -2026,7 +2026,7 @@ public class ComponentType extends Node implements RSWidget {
          this.horizTextAlign = var1.readUnsignedByte();
          this.vertTextAlign = var1.readUnsignedByte();
          this.lineHeight = var1.readUnsignedByte();
-         this.fontId = var1.method6080();
+         this.fontId = var1.readUnsignedShort();
          if(this.fontId == 65535) {
             this.fontId = -1;
          }
@@ -2040,59 +2040,59 @@ public class ComponentType extends Node implements RSWidget {
       }
 
       if(this.type == 1 || this.type == 3 || this.type == 4) {
-         this.color = var1.method6201();
+         this.color = var1.readInt();
       }
 
       if(this.type == 3 || this.type == 4) {
-         this.field2693 = var1.method6201();
-         this.field2694 = var1.method6201();
-         this.field2695 = var1.method6201();
+         this.field2693 = var1.readInt();
+         this.field2694 = var1.readInt();
+         this.field2695 = var1.readInt();
       }
 
       if(this.type == 5) {
-         this.graphic = var1.method6201();
-         this.field2703 = var1.method6201();
+         this.graphic = var1.readInt();
+         this.field2703 = var1.readInt();
       }
 
       if(this.type == 6) {
          this.modelType = 1;
-         this.modelId = var1.method6080();
+         this.modelId = var1.readUnsignedShort();
          if(this.modelId == 65535) {
             this.modelId = -1;
          }
 
          this.field2687 = 1;
-         this.field2692 = var1.method6080();
+         this.field2692 = var1.readUnsignedShort();
          if(this.field2692 == 65535) {
             this.field2692 = -1;
          }
 
-         this.animation = var1.method6080();
+         this.animation = var1.readUnsignedShort();
          if(this.animation == 65535) {
             this.animation = -1;
          }
 
-         this.field2715 = var1.method6080();
+         this.field2715 = var1.readUnsignedShort();
          if(this.field2715 == 65535) {
             this.field2715 = -1;
          }
 
-         this.zoom2d = var1.method6080();
-         this.xan2d = var1.method6080();
-         this.yan2d = var1.method6080();
+         this.zoom2d = var1.readUnsignedShort();
+         this.xan2d = var1.readUnsignedShort();
+         this.yan2d = var1.readUnsignedShort();
       }
 
       if(this.type == 7) {
          this.objIds = new int[this.sizeX * this.sizeY];
          this.objCounts = new int[this.sizeX * this.sizeY];
          this.horizTextAlign = var1.readUnsignedByte();
-         this.fontId = var1.method6080();
+         this.fontId = var1.readUnsignedShort();
          if(this.fontId == 65535) {
             this.fontId = -1;
          }
 
          this.textShadow = var1.readUnsignedByte() == 1;
-         this.color = var1.method6201();
+         this.color = var1.readInt();
          this.paddingX = var1.method6123();
          this.paddingY = var1.method6123();
          var4 = var1.readUnsignedByte();
@@ -2118,7 +2118,7 @@ public class ComponentType extends Node implements RSWidget {
       if(this.buttonType == 2 || this.type == 2) {
          this.targetVerb = var1.readString();
          this.spellName = var1.readString();
-         var4 = var1.method6080() & 63;
+         var4 = var1.readUnsignedShort() & 63;
          this.activeProperties |= var4 << 11;
       }
 
@@ -2166,7 +2166,7 @@ public class ComponentType extends Node implements RSWidget {
          int[] var3 = new int[var2];
 
          for(int var4 = 0; var4 < var2; ++var4) {
-            var3[var4] = var1.method6201();
+            var3[var4] = var1.readInt();
          }
 
          return var3;

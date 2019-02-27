@@ -66,7 +66,7 @@ public class class96 extends CacheableNode {
          if(var4) {
             var6 = new ObjectNode(var0.readString());
          } else {
-            var6 = new IntegerNode(var0.method6201());
+            var6 = new IntegerNode(var0.readInt());
          }
 
          var1.method2749((Node)var6, (long)var5);

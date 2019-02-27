@@ -501,41 +501,41 @@ public class ObjType extends CacheableNode implements RSItemComposition {
    )
    void method6307(Packet var1, int var2) {
       if(var2 == 1) {
-         this.inventoryModel = var1.method6080();
+         this.inventoryModel = var1.readUnsignedShort();
       } else if(var2 == 2) {
          this.name = var1.readString();
       } else if(var2 == 4) {
-         this.zoom2d = var1.method6080();
+         this.zoom2d = var1.readUnsignedShort();
       } else if(var2 == 5) {
-         this.xan2d = var1.method6080();
+         this.xan2d = var1.readUnsignedShort();
       } else if(var2 == 6) {
-         this.yan2d = var1.method6080();
+         this.yan2d = var1.readUnsignedShort();
       } else if(var2 == 7) {
-         this.xof2d = var1.method6080();
+         this.xof2d = var1.readUnsignedShort();
          if(this.xof2d > 32767) {
             this.xof2d -= 65536;
          }
       } else if(var2 == 8) {
-         this.yof2d = var1.method6080();
+         this.yof2d = var1.readUnsignedShort();
          if(this.yof2d > 32767) {
             this.yof2d -= 65536;
          }
       } else if(var2 == 11) {
          this.stackable = 1;
       } else if(var2 == 12) {
-         this.cost = var1.method6201();
+         this.cost = var1.readInt();
       } else if(var2 == 16) {
          this.members = true;
       } else if(var2 == 23) {
-         this.maleModel = var1.method6080();
+         this.maleModel = var1.readUnsignedShort();
          this.maleOffset = var1.readUnsignedByte();
       } else if(var2 == 24) {
-         this.maleModel1 = var1.method6080();
+         this.maleModel1 = var1.readUnsignedShort();
       } else if(var2 == 25) {
-         this.femaleModel = var1.method6080();
+         this.femaleModel = var1.readUnsignedShort();
          this.femaleOffset = var1.readUnsignedByte();
       } else if(var2 == 26) {
-         this.femaleModel1 = var1.method6080();
+         this.femaleModel1 = var1.readUnsignedShort();
       } else if(var2 >= 30 && var2 < 35) {
          this.ops[var2 - 30] = var1.readString();
          if(this.ops[var2 - 30].equalsIgnoreCase("Hidden")) {
@@ -552,8 +552,8 @@ public class ObjType extends CacheableNode implements RSItemComposition {
             this.recolD = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.recolS[var4] = (short)var1.method6080();
-               this.recolD[var4] = (short)var1.method6080();
+               this.recolS[var4] = (short)var1.readUnsignedShort();
+               this.recolD[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 == 41) {
             var3 = var1.readUnsignedByte();
@@ -561,45 +561,45 @@ public class ObjType extends CacheableNode implements RSItemComposition {
             this.retexD = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.retexS[var4] = (short)var1.method6080();
-               this.retexD[var4] = (short)var1.method6080();
+               this.retexS[var4] = (short)var1.readUnsignedShort();
+               this.retexD[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 == 42) {
             this.shiftClickIndex = var1.method6240();
          } else if(var2 == 65) {
             this.stockmarket = true;
          } else if(var2 == 78) {
-            this.maleModel2 = var1.method6080();
+            this.maleModel2 = var1.readUnsignedShort();
          } else if(var2 == 79) {
-            this.femaleModel2 = var1.method6080();
+            this.femaleModel2 = var1.readUnsignedShort();
          } else if(var2 == 90) {
-            this.manHead = var1.method6080();
+            this.manHead = var1.readUnsignedShort();
          } else if(var2 == 91) {
-            this.womanHead = var1.method6080();
+            this.womanHead = var1.readUnsignedShort();
          } else if(var2 == 92) {
-            this.manHead2 = var1.method6080();
+            this.manHead2 = var1.readUnsignedShort();
          } else if(var2 == 93) {
-            this.womanHead2 = var1.method6080();
+            this.womanHead2 = var1.readUnsignedShort();
          } else if(var2 == 95) {
-            this.zan2d = var1.method6080();
+            this.zan2d = var1.readUnsignedShort();
          } else if(var2 == 97) {
-            this.certLink = var1.method6080();
+            this.certLink = var1.readUnsignedShort();
          } else if(var2 == 98) {
-            this.certTemplate = var1.method6080();
+            this.certTemplate = var1.readUnsignedShort();
          } else if(var2 >= 100 && var2 < 110) {
             if(this.countObj == null) {
                this.countObj = new int[10];
                this.countCo = new int[10];
             }
 
-            this.countObj[var2 - 100] = var1.method6080();
-            this.countCo[var2 - 100] = var1.method6080();
+            this.countObj[var2 - 100] = var1.readUnsignedShort();
+            this.countCo[var2 - 100] = var1.readUnsignedShort();
          } else if(var2 == 110) {
-            this.resizeX = var1.method6080();
+            this.resizeX = var1.readUnsignedShort();
          } else if(var2 == 111) {
-            this.resizeY = var1.method6080();
+            this.resizeY = var1.readUnsignedShort();
          } else if(var2 == 112) {
-            this.resizeZ = var1.method6080();
+            this.resizeZ = var1.readUnsignedShort();
          } else if(var2 == 113) {
             this.ambient = var1.method6240();
          } else if(var2 == 114) {
@@ -607,13 +607,13 @@ public class ObjType extends CacheableNode implements RSItemComposition {
          } else if(var2 == 115) {
             this.team = var1.readUnsignedByte();
          } else if(var2 == 139) {
-            this.boughtLink = var1.method6080();
+            this.boughtLink = var1.readUnsignedShort();
          } else if(var2 == 140) {
-            this.boughtTemplate = var1.method6080();
+            this.boughtTemplate = var1.readUnsignedShort();
          } else if(var2 == 148) {
-            this.placeholderLink = var1.method6080();
+            this.placeholderLink = var1.readUnsignedShort();
          } else if(var2 == 149) {
-            this.placeholderTemplate = var1.method6080();
+            this.placeholderTemplate = var1.readUnsignedShort();
          } else if(var2 == 249) {
             this.params = class96.method1621(var1, this.params);
          }

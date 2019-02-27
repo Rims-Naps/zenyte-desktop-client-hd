@@ -37,10 +37,10 @@ public class GrandExchangeEvent {
    GrandExchangeEvent(Packet var1, byte var2, int var3) {
       this.string1 = var1.readString();
       this.string2 = var1.readString();
-      this.world = var1.method6080();
+      this.world = var1.readUnsignedShort();
       this.field16 = var1.method6084();
-      int var4 = var1.method6201();
-      int var5 = var1.method6201();
+      int var4 = var1.readInt();
+      int var5 = var1.readInt();
       this.grandExchangeOffer = new GrandExchangeOffer();
       this.grandExchangeOffer.method2887(2);
       this.grandExchangeOffer.method2869(var2);

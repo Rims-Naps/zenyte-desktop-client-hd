@@ -344,8 +344,8 @@ public class WorldMapData implements RSWorldMapData {
       this.fileId = var2;
       this.identifier = var1.readString();
       this.name = var1.readString();
-      this.field197 = new Coordinates(var1.method6201());
-      this.field195 = var1.method6201();
+      this.field197 = new Coordinates(var1.readInt());
+      this.field195 = var1.readInt();
       var1.readUnsignedByte();
       this.field202 = var1.readUnsignedByte() == 1;
       this.initialMapSurfaceZoom = var1.readUnsignedByte();

@@ -205,16 +205,16 @@ public class class319 {
    void method5999(byte[] var1) {
       this.field2597.payload = var1;
       this.field2597.offset = 10;
-      int var2 = this.field2597.method6080();
-      this.field2588 = this.field2597.method6080();
+      int var2 = this.field2597.readUnsignedShort();
+      this.field2588 = this.field2597.readUnsignedShort();
       this.field2593 = 500000;
       this.field2589 = new int[var2];
 
       int var3;
       int var5;
       for(var3 = 0; var3 < var2; this.field2597.offset += var5) {
-         int var4 = this.field2597.method6201();
-         var5 = this.field2597.method6201();
+         int var4 = this.field2597.readInt();
+         var5 = this.field2597.readInt();
          if(var4 == 1297379947) {
             this.field2589[var3] = this.field2597.offset;
             ++var3;
