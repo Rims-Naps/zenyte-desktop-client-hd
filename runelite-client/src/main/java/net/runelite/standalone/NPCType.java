@@ -311,25 +311,25 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
          this.models = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.models[var4] = var1.method6080();
+            this.models[var4] = var1.readUnsignedShort();
          }
       } else if(var2 == 2) {
          this.name = var1.readString();
       } else if(var2 == 12) {
          this.size = var1.readUnsignedByte();
       } else if(var2 == 13) {
-         this.idleAnim = var1.method6080();
+         this.idleAnim = var1.readUnsignedShort();
       } else if(var2 == 14) {
-         this.walkAnim = var1.method6080();
+         this.walkAnim = var1.readUnsignedShort();
       } else if(var2 == 15) {
-         this.field3580 = var1.method6080();
+         this.field3580 = var1.readUnsignedShort();
       } else if(var2 == 16) {
-         this.field3575 = var1.method6080();
+         this.field3575 = var1.readUnsignedShort();
       } else if(var2 == 17) {
-         this.walkAnim = var1.method6080();
-         this.rotate180Anim = var1.method6080();
-         this.rotate90Anim = var1.method6080();
-         this.rotate270Anim = var1.method6080();
+         this.walkAnim = var1.readUnsignedShort();
+         this.rotate180Anim = var1.readUnsignedShort();
+         this.rotate90Anim = var1.readUnsignedShort();
+         this.rotate270Anim = var1.readUnsignedShort();
       } else if(var2 >= 30 && var2 < 35) {
          this.ops[var2 - 30] = var1.readString();
          this.actionsHook(var2 - 30);
@@ -343,8 +343,8 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
          this.recolD = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.recolS[var4] = (short)var1.method6080();
-            this.recolD[var4] = (short)var1.method6080();
+            this.recolS[var4] = (short)var1.readUnsignedShort();
+            this.recolD[var4] = (short)var1.readUnsignedShort();
          }
       } else if(var2 == 41) {
          var3 = var1.readUnsignedByte();
@@ -352,24 +352,24 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
          this.retexD = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.retexS[var4] = (short)var1.method6080();
-            this.retexD[var4] = (short)var1.method6080();
+            this.retexS[var4] = (short)var1.readUnsignedShort();
+            this.retexD[var4] = (short)var1.readUnsignedShort();
          }
       } else if(var2 == 60) {
          var3 = var1.readUnsignedByte();
          this.headModels = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.headModels[var4] = var1.method6080();
+            this.headModels[var4] = var1.readUnsignedShort();
          }
       } else if(var2 == 93) {
          this.isMinimapVisible = false;
       } else if(var2 == 95) {
-         this.level = var1.method6080();
+         this.level = var1.readUnsignedShort();
       } else if(var2 == 97) {
-         this.widthScale = var1.method6080();
+         this.widthScale = var1.readUnsignedShort();
       } else if(var2 == 98) {
-         this.heightScale = var1.method6080();
+         this.heightScale = var1.readUnsignedShort();
       } else if(var2 == 99) {
          this.isVisible = true;
       } else if(var2 == 100) {
@@ -377,9 +377,9 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
       } else if(var2 == 101) {
          this.contrast = var1.method6240() * 5;
       } else if(var2 == 102) {
-         this.headIcon = var1.method6080();
+         this.headIcon = var1.readUnsignedShort();
       } else if(var2 == 103) {
-         this.rotation = var1.method6080();
+         this.rotation = var1.readUnsignedShort();
       } else if(var2 != 106 && var2 != 118) {
          if(var2 == 107) {
             this.isClickable = false;
@@ -391,19 +391,19 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
             this.params = class96.method1621(var1, this.params);
          }
       } else {
-         this.multiNpcVarbit = var1.method6080();
+         this.multiNpcVarbit = var1.readUnsignedShort();
          if(this.multiNpcVarbit == 65535) {
             this.multiNpcVarbit = -1;
          }
 
-         this.multiNpcVarp = var1.method6080();
+         this.multiNpcVarp = var1.readUnsignedShort();
          if(this.multiNpcVarp == 65535) {
             this.multiNpcVarp = -1;
          }
 
          var3 = -1;
          if(var2 == 118) {
-            var3 = var1.method6080();
+            var3 = var1.readUnsignedShort();
             if(var3 == 65535) {
                var3 = -1;
             }
@@ -413,7 +413,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
          this.multiNpcs = new int[var4 + 2];
 
          for(int var5 = 0; var5 <= var4; ++var5) {
-            this.multiNpcs[var5] = var1.method6080();
+            this.multiNpcs[var5] = var1.readUnsignedShort();
             if(this.multiNpcs[var5] == 65535) {
                this.multiNpcs[var5] = -1;
             }

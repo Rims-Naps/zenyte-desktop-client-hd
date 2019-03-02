@@ -112,15 +112,15 @@ public class Spotanim extends CacheableNode {
    )
    void method5306(Packet var1, int var2) {
       if(var2 == 1) {
-         this.field3342 = var1.method6080();
+         this.field3342 = var1.readUnsignedShort();
       } else if(var2 == 2) {
-         this.field3348 = var1.method6080();
+         this.field3348 = var1.readUnsignedShort();
       } else if(var2 == 4) {
-         this.widthScale = var1.method6080();
+         this.widthScale = var1.readUnsignedShort();
       } else if(var2 == 5) {
-         this.heightScale = var1.method6080();
+         this.heightScale = var1.readUnsignedShort();
       } else if(var2 == 6) {
-         this.orientation = var1.method6080();
+         this.orientation = var1.readUnsignedShort();
       } else if(var2 == 7) {
          this.field3356 = var1.readUnsignedByte();
       } else if(var2 == 8) {
@@ -134,8 +134,8 @@ public class Spotanim extends CacheableNode {
             this.field3346 = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3349[var4] = (short)var1.method6080();
-               this.field3346[var4] = (short)var1.method6080();
+               this.field3349[var4] = (short)var1.readUnsignedShort();
+               this.field3346[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 == 41) {
             var3 = var1.readUnsignedByte();
@@ -143,8 +143,8 @@ public class Spotanim extends CacheableNode {
             this.field3352 = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3351[var4] = (short)var1.method6080();
-               this.field3352[var4] = (short)var1.method6080();
+               this.field3351[var4] = (short)var1.readUnsignedShort();
+               this.field3352[var4] = (short)var1.readUnsignedShort();
             }
          }
       }

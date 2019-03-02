@@ -118,7 +118,7 @@ public class HeadbarType extends CacheableNode implements RSCombatInfo2 {
    )
    void method4523(Packet var1, int var2) {
       if(var2 == 1) {
-         var1.method6080();
+         var1.readUnsignedShort();
       } else if(var2 == 2) {
          this.field3391 = var1.readUnsignedByte();
       } else if(var2 == 3) {
@@ -126,7 +126,7 @@ public class HeadbarType extends CacheableNode implements RSCombatInfo2 {
       } else if(var2 == 4) {
          this.field3394 = 0;
       } else if(var2 == 5) {
-         this.field3387 = var1.method6080();
+         this.field3387 = var1.readUnsignedShort();
       } else if(var2 == 6) {
          var1.readUnsignedByte();
       } else if(var2 == 7) {
@@ -134,7 +134,7 @@ public class HeadbarType extends CacheableNode implements RSCombatInfo2 {
       } else if(var2 == 8) {
          this.field3379 = var1.method6207();
       } else if(var2 == 11) {
-         this.field3394 = var1.method6080();
+         this.field3394 = var1.readUnsignedShort();
       } else if(var2 == 14) {
          this.healthScale = var1.readUnsignedByte();
       } else if(var2 == 15) {

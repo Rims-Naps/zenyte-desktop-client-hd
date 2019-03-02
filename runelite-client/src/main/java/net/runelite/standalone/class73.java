@@ -332,7 +332,7 @@ public class class73 {
             }
 
             if((var5 & 32) != 0) {
-               var16 = var1.method6080();
+               var16 = var1.readUnsignedShort();
                if(var16 == 65535) {
                   var16 = -1;
                }
@@ -362,7 +362,7 @@ public class class73 {
             }
 
             if((var5 & 4) != 0) {
-               var10001 = FileRequest.method4030(var1.method6080());
+               var10001 = FileRequest.method4030(var1.readUnsignedShort());
                var15.onCompositionChanged((RSNPCComposition)var10001);
                var15.type = var10001;
                var15.size = var15.type.size;

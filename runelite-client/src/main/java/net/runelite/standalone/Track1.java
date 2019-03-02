@@ -19,7 +19,7 @@ public class Track1 extends Node {
    Track1(Packet var1) {
       var1.offset = var1.payload.length - 3;
       int var2 = var1.readUnsignedByte();
-      int var3 = var1.method6080();
+      int var3 = var1.readUnsignedShort();
       int var4 = var2 * 10 + 14;
       var1.offset = 0;
       int var5 = 0;

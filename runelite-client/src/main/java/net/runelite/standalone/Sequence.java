@@ -129,24 +129,24 @@ public class Sequence extends CacheableNode implements RSSequence {
       int var3;
       int var4;
       if(var2 == 1) {
-         var3 = var1.method6080();
+         var3 = var1.readUnsignedShort();
          this.frameLengths = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.frameLengths[var4] = var1.method6080();
+            this.frameLengths[var4] = var1.readUnsignedShort();
          }
 
          this.frameIDs = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.frameIDs[var4] = var1.method6080();
+            this.frameIDs[var4] = var1.readUnsignedShort();
          }
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.frameIDs[var4] += var1.method6080() << 16;
+            this.frameIDs[var4] += var1.readUnsignedShort() << 16;
          }
       } else if(var2 == 2) {
-         this.frameStep = var1.method6080();
+         this.frameStep = var1.readUnsignedShort();
       } else if(var2 == 3) {
          var3 = var1.readUnsignedByte();
          this.interleaveLeave = new int[var3 + 1];
@@ -161,9 +161,9 @@ public class Sequence extends CacheableNode implements RSSequence {
       } else if(var2 == 5) {
          this.forcedPriority = var1.readUnsignedByte();
       } else if(var2 == 6) {
-         this.leftHandItem = var1.method6080();
+         this.leftHandItem = var1.readUnsignedShort();
       } else if(var2 == 7) {
-         this.rightHandItem = var1.method6080();
+         this.rightHandItem = var1.readUnsignedShort();
       } else if(var2 == 8) {
          this.maxLoops = var1.readUnsignedByte();
       } else if(var2 == 9) {
@@ -177,11 +177,11 @@ public class Sequence extends CacheableNode implements RSSequence {
          this.field3621 = new int[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3621[var4] = var1.method6080();
+            this.field3621[var4] = var1.readUnsignedShort();
          }
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.field3621[var4] += var1.method6080() << 16;
+            this.field3621[var4] += var1.readUnsignedShort() << 16;
          }
       } else if(var2 == 13) {
          var3 = var1.readUnsignedByte();

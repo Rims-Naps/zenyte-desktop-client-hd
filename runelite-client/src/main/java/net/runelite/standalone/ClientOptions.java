@@ -80,8 +80,8 @@ public class ClientOptions implements RSPreferences {
                int var3 = var1.readUnsignedByte();
 
                for(int var4 = 0; var4 < var3; ++var4) {
-                  int var5 = var1.method6201();
-                  int var6 = var1.method6201();
+                  int var5 = var1.readInt();
+                  int var6 = var1.readInt();
                   this.authRememberTokens.put(Integer.valueOf(var5), Integer.valueOf(var6));
                }
             }

@@ -38,7 +38,7 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
       signature = "(Llq;Lkh;)V"
    )
    public ClanMemberManager(JagexLoginType var1, class236 var2) {
-      super(100);
+      super(2000);
       this.field3726 = null;
       this.field3730 = null;
       this.field3729 = 1;
@@ -95,7 +95,7 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
    )
    public final void method4642(Packet var1) {
       Name var2 = new Name(var1.readString(), this.field3727);
-      int var3 = var1.method6080();
+      int var3 = var1.readUnsignedShort();
       byte var4 = var1.method6240();
       boolean var5 = false;
       if(var4 == -128) {
@@ -161,13 +161,13 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
       long var2 = var1.method6084();
       this.method4639(GameSocket.method4295(var2));
       this.field3731 = var1.method6240();
-      int var4 = var1.readUnsignedByte();
-      if(var4 != 255) {
+      int var4 = var1.readUnsignedShort();
+      if(var4 != 65535) {
          this.method5224();
 
          for(int var5 = 0; var5 < var4; ++var5) {
             ClanMember var6 = (ClanMember)this.method5302(new Name(var1.readString(), this.field3727));
-            int var7 = var1.method6080();
+            int var7 = var1.readUnsignedShort();
             var6.method794(var7, ++this.field3729 - 1);
             var6.rank = var1.method6240();
             var1.readString();

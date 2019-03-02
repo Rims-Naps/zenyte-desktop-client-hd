@@ -102,12 +102,12 @@ public class class115 extends class310 {
       } else {
          super.field150 = var2.readUnsignedByte();
          super.field148 = var2.readUnsignedByte();
-         super.field146 = var2.method6080();
-         super.field151 = var2.method6080();
+         super.field146 = var2.readUnsignedShort();
+         super.field151 = var2.readUnsignedShort();
          this.field333 = var2.readUnsignedByte();
          this.field336 = var2.readUnsignedByte();
-         super.field147 = var2.method6080();
-         super.field149 = var2.method6080();
+         super.field147 = var2.readUnsignedShort();
+         super.field149 = var2.readUnsignedShort();
          this.field330 = var2.readUnsignedByte();
          this.field329 = var2.readUnsignedByte();
          super.field148 = Math.min(super.field148, 4);

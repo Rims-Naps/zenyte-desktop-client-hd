@@ -110,10 +110,10 @@ public class WorldMapType2 implements WorldMapSectionBase {
    public void vmethod5829(Packet var1) {
       this.field271 = var1.readUnsignedByte();
       this.field267 = var1.readUnsignedByte();
-      this.field268 = var1.method6080();
-      this.field269 = var1.method6080();
-      this.field270 = var1.method6080();
-      this.field272 = var1.method6080();
+      this.field268 = var1.readUnsignedShort();
+      this.field269 = var1.readUnsignedShort();
+      this.field270 = var1.readUnsignedShort();
+      this.field272 = var1.readUnsignedShort();
       this.method3136();
    }
 

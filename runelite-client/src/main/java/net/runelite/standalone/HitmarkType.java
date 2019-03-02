@@ -169,7 +169,7 @@ public class HitmarkType extends CacheableNode {
       } else if(var2 == 8) {
          this.field3444 = var1.method6088();
       } else if(var2 == 9) {
-         this.field3428 = var1.method6080();
+         this.field3428 = var1.readUnsignedShort();
       } else if(var2 == 10) {
          this.field3431 = var1.method6123();
       } else if(var2 == 11) {
@@ -179,21 +179,21 @@ public class HitmarkType extends CacheableNode {
       } else if(var2 == 13) {
          this.field3446 = var1.method6123();
       } else if(var2 == 14) {
-         this.field3442 = var1.method6080();
+         this.field3442 = var1.readUnsignedShort();
       } else if(var2 == 17 || var2 == 18) {
-         this.multiMarkVarbit = var1.method6080();
+         this.multiMarkVarbit = var1.readUnsignedShort();
          if(this.multiMarkVarbit == 65535) {
             this.multiMarkVarbit = -1;
          }
 
-         this.multiMarkVarp = var1.method6080();
+         this.multiMarkVarp = var1.readUnsignedShort();
          if(this.multiMarkVarp == 65535) {
             this.multiMarkVarp = -1;
          }
 
          int var3 = -1;
          if(var2 == 18) {
-            var3 = var1.method6080();
+            var3 = var1.readUnsignedShort();
             if(var3 == 65535) {
                var3 = -1;
             }
@@ -203,7 +203,7 @@ public class HitmarkType extends CacheableNode {
          this.multiMark = new int[var4 + 2];
 
          for(int var5 = 0; var5 <= var4; ++var5) {
-            this.multiMark[var5] = var1.method6080();
+            this.multiMark[var5] = var1.readUnsignedShort();
             if(this.multiMark[var5] == 65535) {
                this.multiMark[var5] = -1;
             }

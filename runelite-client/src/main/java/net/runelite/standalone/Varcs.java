@@ -119,21 +119,21 @@ public class Varcs implements RSVarcs {
 
             int var14 = var13.readUnsignedByte();
             if(var14 >= 0 && var14 <= 1) {
-               int var15 = var13.method6080();
+               int var15 = var13.readUnsignedShort();
 
                int var7;
                int var8;
                int var9;
                for(var7 = 0; var7 < var15; ++var7) {
-                  var8 = var13.method6080();
-                  var9 = var13.method6201();
+                  var8 = var13.readUnsignedShort();
+                  var9 = var13.readInt();
                   if(this.varcSerials[var8]) {
                      this.varCInts[var8] = var9;
                      this.onVarCIntChanged(var8);
                   }
                }
 
-               var7 = var13.method6080();
+               var7 = var13.readUnsignedShort();
                var8 = 0;
 
                while(true) {
@@ -141,7 +141,7 @@ public class Varcs implements RSVarcs {
                      break label204;
                   }
 
-                  var9 = var13.method6080();
+                  var9 = var13.readUnsignedShort();
                   String var10 = var13.readString();
                   if(this.varcstringSerials[var9]) {
                      this.varCStrings[var9] = var10;

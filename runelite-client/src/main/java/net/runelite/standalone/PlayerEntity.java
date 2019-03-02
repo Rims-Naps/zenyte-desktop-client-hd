@@ -599,7 +599,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
             var7 = var1.readUnsignedByte();
             var4[var5] = var7 + (var6 << 8);
             if(var5 == 0 && var4[0] == 65535) {
-               var3 = var1.method6080();
+               var3 = var1.readUnsignedShort();
                break;
             }
 
@@ -623,38 +623,38 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
          var9[var6] = var7;
       }
 
-      super.idlePoseAnimation = var1.method6080();
+      super.idlePoseAnimation = var1.readUnsignedShort();
       if(super.idlePoseAnimation == 65535) {
          super.idlePoseAnimation = -1;
       }
 
-      super.field945 = var1.method6080();
+      super.field945 = var1.readUnsignedShort();
       if(super.field945 == 65535) {
          super.field945 = -1;
       }
 
       super.field957 = super.field945;
-      super.walkAnim = var1.method6080();
+      super.walkAnim = var1.readUnsignedShort();
       if(super.walkAnim == 65535) {
          super.walkAnim = -1;
       }
 
-      super.rotate180Anim = var1.method6080();
+      super.rotate180Anim = var1.readUnsignedShort();
       if(super.rotate180Anim == 65535) {
          super.rotate180Anim = -1;
       }
 
-      super.rotate90Anim = var1.method6080();
+      super.rotate90Anim = var1.readUnsignedShort();
       if(super.rotate90Anim == 65535) {
          super.rotate90Anim = -1;
       }
 
-      super.rotate270Anim = var1.method6080();
+      super.rotate270Anim = var1.readUnsignedShort();
       if(super.rotate270Anim == 65535) {
          super.rotate270Anim = -1;
       }
 
-      super.field951 = var1.method6080();
+      super.field951 = var1.readUnsignedShort();
       if(super.field951 == 65535) {
          super.field951 = -1;
       }
@@ -667,7 +667,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
       }
 
       this.combatLevel = var1.readUnsignedByte();
-      this.totalLevel = var1.method6080();
+      this.totalLevel = var1.readUnsignedShort();
       this.hidden = var1.readUnsignedByte() == 1;
       if(client.socketType == 0 && client.staffModLevel >= 2) {
          this.hidden = false;

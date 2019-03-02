@@ -348,16 +348,16 @@ public class class237 extends Node {
    @ObfuscatedName("c")
    void method4586(byte[] var1) {
       Packet var2 = new Packet(var1);
-      this.field1311 = var2.method6201();
-      this.field1312 = var2.method6201();
-      this.field1313 = var2.method6201();
-      this.field1314 = var2.method6201();
+      this.field1311 = var2.readInt();
+      this.field1312 = var2.readInt();
+      this.field1313 = var2.readInt();
+      this.field1314 = var2.readInt();
       if(this.field1314 < 0) {
          this.field1314 = ~this.field1314;
          this.field1317 = true;
       }
 
-      int var3 = var2.method6201();
+      int var3 = var2.readInt();
       this.field1319 = new byte[var3][];
 
       for(int var4 = 0; var4 < var3; ++var4) {

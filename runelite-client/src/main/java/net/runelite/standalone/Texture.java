@@ -36,7 +36,7 @@ public class Texture extends Node implements RSTexture {
    )
    Texture(Packet var1) {
       this.loaded = false;
-      this.field1593 = var1.method6080();
+      this.field1593 = var1.readUnsignedShort();
       this.field1602 = var1.readUnsignedByte() == 1;
       int var2 = var1.readUnsignedByte();
       if(var2 >= 1 && var2 <= 4) {
@@ -44,7 +44,7 @@ public class Texture extends Node implements RSTexture {
 
          int var3;
          for(var3 = 0; var3 < var2; ++var3) {
-            this.fileIds[var3] = var1.method6080();
+            this.fileIds[var3] = var1.readUnsignedShort();
          }
 
          if(var2 > 1) {
@@ -66,7 +66,7 @@ public class Texture extends Node implements RSTexture {
          this.field1598 = new int[var2];
 
          for(var3 = 0; var3 < var2; ++var3) {
-            this.field1598[var3] = var1.method6201();
+            this.field1598[var3] = var1.readInt();
          }
 
          this.field1599 = var1.readUnsignedByte();

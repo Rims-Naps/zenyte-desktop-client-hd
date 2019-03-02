@@ -24,7 +24,7 @@ public class class124 extends WorldMapData {
    )
    void method2088(Packet var1, Packet var2, Packet var3, int var4, boolean var5) {
       this.method999(var1, var4);
-      int var6 = var3.method6080();
+      int var6 = var3.readUnsignedShort();
       this.field327 = new HashSet(var6);
 
       int var7;
@@ -40,7 +40,7 @@ public class class124 extends WorldMapData {
          this.field327.add(var8);
       }
 
-      var7 = var3.method6080();
+      var7 = var3.readUnsignedShort();
       this.field324 = new HashSet(var7);
 
       for(int var11 = 0; var11 < var7; ++var11) {
@@ -65,11 +65,11 @@ public class class124 extends WorldMapData {
    )
    void method2089(Packet var1, boolean var2) {
       this.field326 = new LinkedList();
-      int var3 = var1.method6080();
+      int var3 = var1.readUnsignedShort();
 
       for(int var4 = 0; var4 < var3; ++var4) {
          int var5 = var1.method6207();
-         Coordinates var6 = new Coordinates(var1.method6201());
+         Coordinates var6 = new Coordinates(var1.readInt());
          boolean var7 = var1.readUnsignedByte() == 1;
          if(var2 || !var7) {
             this.field326.add(new class260(var5, var6));

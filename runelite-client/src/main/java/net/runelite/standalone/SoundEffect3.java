@@ -97,24 +97,24 @@ public class SoundEffect3 {
       this.pairs[0] = var3 >> 4;
       this.pairs[1] = var3 & 15;
       if(var3 != 0) {
-         this.unity[0] = var1.method6080();
-         this.unity[1] = var1.method6080();
+         this.unity[0] = var1.readUnsignedShort();
+         this.unity[1] = var1.readUnsignedShort();
          int var4 = var1.readUnsignedByte();
 
          int var5;
          int var6;
          for(var5 = 0; var5 < 2; ++var5) {
             for(var6 = 0; var6 < this.pairs[var5]; ++var6) {
-               this.phases[var5][0][var6] = var1.method6080();
-               this.magnitudes[var5][0][var6] = var1.method6080();
+               this.phases[var5][0][var6] = var1.readUnsignedShort();
+               this.magnitudes[var5][0][var6] = var1.readUnsignedShort();
             }
          }
 
          for(var5 = 0; var5 < 2; ++var5) {
             for(var6 = 0; var6 < this.pairs[var5]; ++var6) {
                if((var4 & 1 << var5 * 4 << var6) != 0) {
-                  this.phases[var5][1][var6] = var1.method6080();
-                  this.magnitudes[var5][1][var6] = var1.method6080();
+                  this.phases[var5][1][var6] = var1.readUnsignedShort();
+                  this.magnitudes[var5][1][var6] = var1.readUnsignedShort();
                } else {
                   this.phases[var5][1][var6] = this.phases[var5][0][var6];
                   this.magnitudes[var5][1][var6] = this.magnitudes[var5][0][var6];

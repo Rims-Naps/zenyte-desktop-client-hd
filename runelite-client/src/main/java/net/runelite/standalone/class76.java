@@ -46,7 +46,7 @@ public class class76 {
       int var6;
       int var7;
       if(ZoneProt.field2319 == var0) {
-         var2 = var1.method6080();
+         var2 = var1.readUnsignedShort();
          var3 = var1.method6192();
          var4 = var1.method6117();
          var5 = var1.readUnsignedByte();
@@ -106,6 +106,7 @@ public class class76 {
                var7 = var5 & 3;
                var31 = client.field704[var6];
                var32 = var1.method6117();
+               System.out.println("spawn obj: " + var32);
                if(var3 >= 0 && var4 >= 0 && var3 < 104 && var4 < 104) {
                   class77.method1152(class228.level, var3, var4, var31, var32, var6, var7, 0, -1);
                }
@@ -143,7 +144,7 @@ public class class76 {
                   var6 = var1.method6108();
                   var7 = (var6 >> 4 & 7) + class91.updateZoneX;
                   var31 = (var6 & 7) + CombatInfoListHolder.updateZoneY;
-                  var32 = var1.method6080();
+                  var32 = var1.readUnsignedShort();
                   if(var7 >= 0 && var31 >= 0 && var7 < 103 && var31 < 103) {
                      if(var5 == 0) {
                         WallObject var33 = class131.sceneManager.method3845(class228.level, var7, var31);
@@ -202,7 +203,7 @@ public class class76 {
                   int var14;
                   if(ZoneProt.field2316 == var0) {
                      var2 = var1.method6200() * 4;
-                     var3 = var1.method6080();
+                     var3 = var1.readUnsignedShort();
                      var4 = var1.method6117();
                      var5 = var1.method6200() * 4;
                      var6 = var1.method6119();
@@ -257,7 +258,7 @@ public class class76 {
                            var3 = var1.method6101();
                            byte var38 = var1.method6111();
                            var5 = var1.method6117();
-                           var6 = var1.method6080();
+                           var6 = var1.readUnsignedShort();
                            var7 = var1.method6192();
                            var31 = var7 >> 2;
                            var32 = var7 & 3;

@@ -88,7 +88,7 @@ public class IDKType extends CacheableNode {
             this.modelIds = new int[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.modelIds[var4] = var1.method6080();
+               this.modelIds[var4] = var1.readUnsignedShort();
             }
          } else if(var2 == 3) {
             this.nonSelectable = true;
@@ -98,8 +98,8 @@ public class IDKType extends CacheableNode {
             this.recolorToReplace = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.recolorToFind[var4] = (short)var1.method6080();
-               this.recolorToReplace[var4] = (short)var1.method6080();
+               this.recolorToFind[var4] = (short)var1.readUnsignedShort();
+               this.recolorToReplace[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 == 41) {
             var3 = var1.readUnsignedByte();
@@ -107,11 +107,11 @@ public class IDKType extends CacheableNode {
             this.retextureToReplace = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.retextureToFind[var4] = (short)var1.method6080();
-               this.retextureToReplace[var4] = (short)var1.method6080();
+               this.retextureToFind[var4] = (short)var1.readUnsignedShort();
+               this.retextureToReplace[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 >= 60 && var2 < 70) {
-            this.models[var2 - 60] = var1.method6080();
+            this.models[var2 - 60] = var1.readUnsignedShort();
          }
       }
 

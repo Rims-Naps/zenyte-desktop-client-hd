@@ -66,8 +66,8 @@ public class Js5 extends Js5Index implements RSIndexData {
       int var8 = this.id;
       if(class316.NetCache_reference != null) {
          class316.NetCache_reference.offset = var8 * 8 + 5;
-         int var9 = class316.NetCache_reference.method6201();
-         int var10 = class316.NetCache_reference.method6201();
+         int var9 = class316.NetCache_reference.readInt();
+         int var10 = class316.NetCache_reference.readInt();
          this.method2658(var9, var10);
       } else {
          class48.method777((Js5)null, 255, 255, 0, (byte)0, true);
@@ -183,7 +183,7 @@ public class Js5 extends Js5Index implements RSIndexData {
                } else {
                   int var8 = 0;
                   if(var7 >= 6) {
-                     var8 = var9.method6201();
+                     var8 = var9.readInt();
                   }
 
                   if(var8 != this.indexReferenceVersion) {

@@ -65,7 +65,7 @@ public class Varbit extends CacheableNode implements RSVarbit {
    )
    void method3115(Packet var1, int var2) {
       if(var2 == 1) {
-         this.configId = var1.method6080();
+         this.configId = var1.readUnsignedShort();
          this.leastSignificantBit = var1.readUnsignedByte();
          this.mostSignificantBit = var1.readUnsignedByte();
       }

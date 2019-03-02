@@ -578,7 +578,7 @@ public class LocType extends CacheableNode implements RSObjectComposition {
                this.objectModels = new int[var3];
 
                for(var4 = 0; var4 < var3; ++var4) {
-                  this.objectModels[var4] = var1.method6080();
+                  this.objectModels[var4] = var1.readUnsignedShort();
                   this.objectTypes[var4] = var1.readUnsignedByte();
                }
             }
@@ -595,7 +595,7 @@ public class LocType extends CacheableNode implements RSObjectComposition {
                this.objectModels = new int[var3];
 
                for(var4 = 0; var4 < var3; ++var4) {
-                  this.objectModels[var4] = var1.method6080();
+                  this.objectModels[var4] = var1.readUnsignedShort();
                }
             }
          }
@@ -617,7 +617,7 @@ public class LocType extends CacheableNode implements RSObjectComposition {
       } else if(var2 == 23) {
          this.modelClipped = true;
       } else if(var2 == 24) {
-         this.animationId = var1.method6080();
+         this.animationId = var1.readUnsignedShort();
          if(this.animationId == 65535) {
             this.animationId = -1;
          }
@@ -640,8 +640,8 @@ public class LocType extends CacheableNode implements RSObjectComposition {
          this.recolorToReplace = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.recolorToFind[var4] = (short)var1.method6080();
-            this.recolorToReplace[var4] = (short)var1.method6080();
+            this.recolorToFind[var4] = (short)var1.readUnsignedShort();
+            this.recolorToReplace[var4] = (short)var1.readUnsignedShort();
          }
       } else if(var2 == 41) {
          var3 = var1.readUnsignedByte();
@@ -649,21 +649,21 @@ public class LocType extends CacheableNode implements RSObjectComposition {
          this.textureToReplace = new short[var3];
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.textureToFind[var4] = (short)var1.method6080();
-            this.textureToReplace[var4] = (short)var1.method6080();
+            this.textureToFind[var4] = (short)var1.readUnsignedShort();
+            this.textureToReplace[var4] = (short)var1.readUnsignedShort();
          }
       } else if(var2 == 62) {
          this.isRotated = true;
       } else if(var2 == 64) {
          this.clipped = false;
       } else if(var2 == 65) {
-         this.modelSizeX = var1.method6080();
+         this.modelSizeX = var1.readUnsignedShort();
       } else if(var2 == 66) {
-         this.modelSizeHeight = var1.method6080();
+         this.modelSizeHeight = var1.readUnsignedShort();
       } else if(var2 == 67) {
-         this.modelSizeY = var1.method6080();
+         this.modelSizeY = var1.readUnsignedShort();
       } else if(var2 == 68) {
-         this.mapSceneId = var1.method6080();
+         this.mapSceneId = var1.readUnsignedShort();
       } else if(var2 == 69) {
          var1.readUnsignedByte();
       } else if(var2 == 70) {
@@ -680,39 +680,39 @@ public class LocType extends CacheableNode implements RSObjectComposition {
          this.supportItems = var1.readUnsignedByte();
       } else if(var2 != 77 && var2 != 92) {
          if(var2 == 78) {
-            this.ambientSoundId = var1.method6080();
+            this.ambientSoundId = var1.readUnsignedShort();
             this.int4 = var1.readUnsignedByte();
          } else if(var2 == 79) {
-            this.int5 = var1.method6080();
-            this.int6 = var1.method6080();
+            this.int5 = var1.readUnsignedShort();
+            this.int6 = var1.readUnsignedShort();
             this.int4 = var1.readUnsignedByte();
             var3 = var1.readUnsignedByte();
             this.field3499 = new int[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3499[var4] = var1.method6080();
+               this.field3499[var4] = var1.readUnsignedShort();
             }
          } else if(var2 == 81) {
             this.contouredGround = var1.readUnsignedByte() * 256;
          } else if(var2 == 82) {
-            this.mapIconId = var1.method6080();
+            this.mapIconId = var1.readUnsignedShort();
          } else if(var2 == 249) {
             this.params = class96.method1621(var1, this.params);
          }
       } else {
-         this.multiLocVarbit = var1.method6080();
+         this.multiLocVarbit = var1.readUnsignedShort();
          if(this.multiLocVarbit == 65535) {
             this.multiLocVarbit = -1;
          }
 
-         this.multiLocVarp = var1.method6080();
+         this.multiLocVarp = var1.readUnsignedShort();
          if(this.multiLocVarp == 65535) {
             this.multiLocVarp = -1;
          }
 
          var3 = -1;
          if(var2 == 92) {
-            var3 = var1.method6080();
+            var3 = var1.readUnsignedShort();
             if(var3 == 65535) {
                var3 = -1;
             }
@@ -722,7 +722,7 @@ public class LocType extends CacheableNode implements RSObjectComposition {
          this.multiLocs = new int[var4 + 2];
 
          for(int var5 = 0; var5 <= var4; ++var5) {
-            this.multiLocs[var5] = var1.method6080();
+            this.multiLocs[var5] = var1.readUnsignedShort();
             if(this.multiLocs[var5] == 65535) {
                this.multiLocs[var5] = -1;
             }

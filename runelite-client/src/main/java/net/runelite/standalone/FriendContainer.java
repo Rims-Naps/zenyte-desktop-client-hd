@@ -68,7 +68,7 @@ public class FriendContainer extends NameableContainer implements RSFriendContai
             boolean var3 = var1.readUnsignedByte() == 1;
             Name var4 = new Name(var1.readString(), this.field3716);
             Name var5 = new Name(var1.readString(), this.field3716);
-            int var6 = var1.method6080();
+            int var6 = var1.readUnsignedShort();
             int var7 = var1.readUnsignedByte();
             int var8 = var1.readUnsignedByte();
             boolean var9 = (var8 & 2) != 0;
@@ -76,7 +76,7 @@ public class FriendContainer extends NameableContainer implements RSFriendContai
             if(var6 > 0) {
                var1.readString();
                var1.readUnsignedByte();
-               var1.method6201();
+               var1.readInt();
             }
 
             var1.readString();

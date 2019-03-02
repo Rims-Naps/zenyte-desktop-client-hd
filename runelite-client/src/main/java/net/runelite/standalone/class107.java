@@ -38,12 +38,12 @@ public class class107 {
       if(!client.isDynamicRegion) {
          var2 = var1.method6101();
          var3 = var1.method6117();
-         int var4 = var1.method6080();
+         int var4 = var1.readUnsignedShort();
          IndexStoreActionHandler.xteaKeys = new int[var4][4];
 
          for(var5 = 0; var5 < var4; ++var5) {
             for(var6 = 0; var6 < 4; ++var6) {
-               IndexStoreActionHandler.xteaKeys[var5][var6] = var1.method6201();
+               IndexStoreActionHandler.xteaKeys[var5][var6] = var1.readInt();
             }
          }
 
@@ -80,7 +80,7 @@ public class class107 {
          var2 = var1.method6117();
          var3 = var1.method6101();
          boolean var15 = var1.readUnsignedByte() == 1;
-         var5 = var1.method6080();
+         var5 = var1.readUnsignedShort();
          var1.method2837();
 
          int var9;
@@ -102,7 +102,7 @@ public class class107 {
 
          for(var6 = 0; var6 < var5; ++var6) {
             for(var7 = 0; var7 < 4; ++var7) {
-               IndexStoreActionHandler.xteaKeys[var6][var7] = var1.method6201();
+               IndexStoreActionHandler.xteaKeys[var6][var7] = var1.readInt();
             }
          }
 
@@ -160,15 +160,15 @@ public class class107 {
          } else if(World.listFetcher.method5569()) {
             byte[] var0 = World.listFetcher.method5564();
             Packet var1 = new Packet(var0);
-            var1.method6201();
-            World.worldCount = var1.method6080();
+            var1.readInt();
+            World.worldCount = var1.readUnsignedShort();
             World.worldList = new World[World.worldCount];
 
             World var3;
             for(int var2 = 0; var2 < World.worldCount; var3.index = var2++) {
                var3 = World.worldList[var2] = new World();
-               var3.id = var1.method6080();
-               var3.mask = var1.method6201();
+               var3.id = var1.readUnsignedShort();
+               var3.mask = var1.readInt();
                var3.address = var1.readString();
                var3.activity = var1.readString();
                var3.location = var1.readUnsignedByte();

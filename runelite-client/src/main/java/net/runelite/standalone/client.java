@@ -2709,7 +2709,7 @@ public final class client extends GameEngine implements class236, RSClient {
                serverConnection.currentPacketSize = serverConnection.currentPacket.size;
                ((class19)var1).vmethod5600(var2.payload, 0, 2);
                var2.offset = 0;
-               serverConnection.currentPacketSize = var2.method6080();
+               serverConnection.currentPacketSize = var2.readUnsignedShort();
 
                try {
                   class256.method4839(class166.clientInstance, "zap");
@@ -2725,7 +2725,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   var2.offset = 0;
                   ((class19)var1).vmethod5600(var2.payload, 0, 2);
                   var2.offset = 0;
-                  TradingPost.field5 = var2.method6080();
+                  TradingPost.field5 = var2.readUnsignedShort();
                   loginState = 15;
                }
 
@@ -2748,7 +2748,7 @@ public final class client extends GameEngine implements class236, RSClient {
 
                      ((class19)var1).vmethod5600(var2.payload, 0, 2);
                      var2.offset = 0;
-                     serverConnection.currentPacketSize = var2.method6080();
+                     serverConnection.currentPacketSize = var2.readUnsignedShort();
                   }
 
                   if(((class19)var1).vmethod5598() >= serverConnection.currentPacketSize) {
@@ -3072,7 +3072,7 @@ public final class client extends GameEngine implements class236, RSClient {
 
                var1.method5880().vmethod5600(var3.payload, 0, 2);
                var3.offset = 0;
-               var1.currentPacketSize = var3.method6080();
+               var1.currentPacketSize = var3.readUnsignedShort();
             }
 
             if(!var2.vmethod5599(var1.currentPacketSize)) {
@@ -3121,8 +3121,8 @@ public final class client extends GameEngine implements class236, RSClient {
             int var10;
             int var16;
             if(ServerProt.field2196 == var1.currentPacket) {
-               var16 = var3.method6201();
-               var5 = var3.method6080();
+               var16 = var3.readInt();
+               var5 = var3.readUnsignedShort();
                if(var16 < -70000) {
                   var5 += 32768;
                }
@@ -3141,10 +3141,10 @@ public final class client extends GameEngine implements class236, RSClient {
                }
 
                SpotAnimation.method5442(var5);
-               var7 = var3.method6080();
+               var7 = var3.readUnsignedShort();
 
                for(var8 = 0; var8 < var7; ++var8) {
-                  var9 = var3.method6080();
+                  var9 = var3.readUnsignedShort();
                   var10 = var3.readUnsignedByte();
                   if(var10 == 255) {
                      var10 = var3.method6081();
@@ -3183,7 +3183,7 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2136 == var1.currentPacket) {
-               var16 = var3.method6201();
+               var16 = var3.readInt();
                var17 = var3.readString();
                var6 = WorldMapType1.method2440(var16);
                if(!var17.equals(var6.text)) {
@@ -3215,9 +3215,9 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2182 == var1.currentPacket) {
-               var16 = var3.method6080();
+               var16 = var3.readUnsignedShort();
                var5 = var3.readUnsignedByte();
-               var18 = var3.method6080();
+               var18 = var3.readUnsignedShort();
                MapIconReference.method4837(var16, var5, var18);
                var1.currentPacket = null;
                return true;
@@ -3235,6 +3235,32 @@ public final class client extends GameEngine implements class236, RSClient {
                return true;
             }
 
+            if(ServerProt.field3000 == var1.currentPacket) {
+               String setting = var3.readString();
+               int value = var3.readInt();
+               switch(setting) {
+                  case "hide_roofs":
+                     GameEngine.options.hideRoofs = value == 1;
+                     break;
+                  /*case "set_zoom":
+                     MapIconReference.varcs.varCInts[74] = value;
+                     MapIconReference.varcs.varCInts[75] = value;
+                     Packet.cameraZ = value;
+                     class39.cameraYaw = value;
+                     ScriptEvent.cameraPitch = value;
+                     Graphics3D.Rasterizer3D_zoom = value;
+                     class166.cameraX = value;
+                     class98.cameraY = value;
+                     setCameraX2(value);
+                     setCameraY2(value);
+                     setCameraZ2(value);
+                     break;*/
+               }
+               var1.currentPacket = null;
+               return true;
+            }
+
+
             if(ServerProt.field2201 == var1.currentPacket) {
                ClientOptions.method6506(var3, var1.currentPacketSize);
                class310.method5902();
@@ -3245,8 +3271,8 @@ public final class client extends GameEngine implements class236, RSClient {
             if(ServerProt.field2164 == var1.currentPacket) {
                World var41 = new World();
                var41.address = var3.readString();
-               var41.id = var3.method6080();
-               var5 = var3.method6201();
+               var41.id = var3.readUnsignedShort();
+               var5 = var3.readInt();
                var41.mask = var5;
                class310.method5922(45);
                var2.vmethod5603();
@@ -3257,8 +3283,8 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2161 == var1.currentPacket) {
-               var16 = var3.method6201();
-               var5 = var3.method6080();
+               var16 = var3.readInt();
+               var5 = var3.readUnsignedShort();
                if(var16 < -70000) {
                   var5 += 32768;
                }
@@ -3271,12 +3297,12 @@ public final class client extends GameEngine implements class236, RSClient {
 
                for(; var3.offset < var1.currentPacketSize; WorldMapType2.method3130(var5, var7, var8 - 1, var9)) {
                   var7 = var3.method6092();
-                  var8 = var3.method6080();
+                  var8 = var3.readUnsignedShort();
                   var9 = 0;
                   if(var8 != 0) {
                      var9 = var3.readUnsignedByte();
                      if(var9 == 255) {
-                        var9 = var3.method6201();
+                        var9 = var3.readInt();
                      }
                   }
 
@@ -3453,7 +3479,7 @@ public final class client extends GameEngine implements class236, RSClient {
                field889 = true;
                WorldMapType2.field266 = var3.readUnsignedByte();
                class170.field2361 = var3.readUnsignedByte();
-               UrlRequest.field1926 = var3.method6080();
+               UrlRequest.field1926 = var3.readUnsignedShort();
                ServerProt.field2206 = var3.readUnsignedByte();
                WorldMapManager.field314 = var3.readUnsignedByte();
                if(WorldMapManager.field314 >= 100) {
@@ -3487,8 +3513,8 @@ public final class client extends GameEngine implements class236, RSClient {
             SubInterface var19;
             ComponentType var20;
             if(ServerProt.field2142 == var1.currentPacket) {
-               var16 = var3.method6201();
-               var5 = var3.method6201();
+               var16 = var3.readInt();
+               var5 = var3.readInt();
                SubInterface var44 = (SubInterface)subInterfaces.method380((long)var5);
                var19 = (SubInterface)subInterfaces.method380((long)var16);
                if(var19 != null) {
@@ -3529,7 +3555,7 @@ public final class client extends GameEngine implements class236, RSClient {
             if(ServerProt.field2153 == var1.currentPacket) {
                hintArrowTargetType = var3.readUnsignedByte();
                if(hintArrowTargetType == 1) {
-                  hintArrowNpcTargetIdx = var3.method6080();
+                  hintArrowNpcTargetIdx = var3.readUnsignedShort();
                }
 
                if(hintArrowTargetType >= 2 && hintArrowTargetType <= 6) {
@@ -3559,13 +3585,13 @@ public final class client extends GameEngine implements class236, RSClient {
                   }
 
                   hintArrowTargetType = 2;
-                  hintArrowX = var3.method6080();
-                  hintArrowY = var3.method6080();
+                  hintArrowX = var3.readUnsignedShort();
+                  hintArrowY = var3.readUnsignedShort();
                   field668 = var3.readUnsignedByte();
                }
 
                if(hintArrowTargetType == 10) {
-                  hintArrowPlayerTargetIdx = var3.method6080();
+                  hintArrowPlayerTargetIdx = var3.readUnsignedShort();
                }
 
                var1.currentPacket = null;
@@ -3588,7 +3614,7 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2126 == var1.currentPacket) {
-               var16 = var3.method6201();
+               var16 = var3.readInt();
                SubInterface var52 = (SubInterface)subInterfaces.method380((long)var16);
                if(var52 != null) {
                   class116.method2007(var52, true);
@@ -3615,8 +3641,8 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2121 == var1.currentPacket) {
-               var16 = var3.method6080();
-               var5 = var3.method6201();
+               var16 = var3.readUnsignedShort();
+               var5 = var3.readInt();
                class311.serverVarps[var16] = var5;
                if(class311.clientVarps[var16] != var5) {
                   class311.clientVarps[var16] = var5;
@@ -3660,8 +3686,8 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2124 == var1.currentPacket) {
-               var16 = var3.method6201();
-               var5 = var3.method6080();
+               var16 = var3.readInt();
+               var5 = var3.readUnsignedShort();
                if(var5 == 65535) {
                   var5 = -1;
                }
@@ -3739,7 +3765,7 @@ public final class client extends GameEngine implements class236, RSClient {
                field889 = true;
                ClientOptions.field1027 = var3.readUnsignedByte();
                class230.field1939 = var3.readUnsignedByte();
-               class147.field208 = var3.method6080();
+               class147.field208 = var3.readUnsignedShort();
                World.field1026 = var3.readUnsignedByte();
                class225.field3289 = var3.readUnsignedByte();
                if(class225.field3289 >= 100) {
@@ -3800,11 +3826,11 @@ public final class client extends GameEngine implements class236, RSClient {
                   if(var38.charAt(var18) == 's') {
                      var50[var18 + 1] = var3.readString();
                   } else {
-                     var50[var18 + 1] = new Integer(var3.method6201());
+                     var50[var18 + 1] = new Integer(var3.readInt());
                   }
                }
 
-               var50[0] = new Integer(var3.method6201());
+               var50[0] = new Integer(var3.readInt());
                ScriptEvent var42 = new ScriptEvent();
                var42.params = var50;
                class73.method1124(var42);
@@ -3882,8 +3908,8 @@ public final class client extends GameEngine implements class236, RSClient {
             long var12;
             if(ServerProt.field2173 == var1.currentPacket) {
                var16 = var3.offset + var1.currentPacketSize;
-               var5 = var3.method6080();
-               var18 = var3.method6080();
+               var5 = var3.readUnsignedShort();
+               var18 = var3.readUnsignedShort();
                if(var5 != toplevel) {
                   toplevel = var5;
                   this.method3175(false);
@@ -3897,8 +3923,8 @@ public final class client extends GameEngine implements class236, RSClient {
 
                SubInterface var21;
                for(; var18-- > 0; var21.field555 = true) {
-                  var7 = var3.method6201();
-                  var8 = var3.method6080();
+                  var7 = var3.readInt();
+                  var8 = var3.readUnsignedShort();
                   var9 = var3.readUnsignedByte();
                   var21 = (SubInterface)subInterfaces.method380((long)var7);
                   if(var21 != null && var8 != var21.id) {
@@ -3922,10 +3948,10 @@ public final class client extends GameEngine implements class236, RSClient {
                serverActiveProperties = new HashTable(512);
 
                while(var3.offset < var16) {
-                  var7 = var3.method6201();
-                  var8 = var3.method6080();
-                  var9 = var3.method6080();
-                  var10 = var3.method6201();
+                  var7 = var3.readInt();
+                  var8 = var3.readUnsignedShort();
+                  var9 = var3.readUnsignedShort();
+                  var10 = var3.readInt();
 
                   for(int var11 = var8; var11 <= var9; ++var11) {
                      var12 = (long)var11 + ((long)var7 << 32);
@@ -4063,7 +4089,7 @@ public final class client extends GameEngine implements class236, RSClient {
             long var24;
             if(ServerProt.field2127 == var1.currentPacket) {
                var38 = var3.readString();
-               var22 = (long)var3.method6080();
+               var22 = (long)var3.readUnsignedShort();
                var24 = (long)var3.method6082();
                ChatCrownType var26 = (ChatCrownType)class2.method20(class116.method2020(), var3.readUnsignedByte());
                long var27 = (var22 << 32) + var24;
@@ -4106,7 +4132,7 @@ public final class client extends GameEngine implements class236, RSClient {
             if(ServerProt.field2171 == var1.currentPacket) {
                var38 = var3.readString();
                var22 = var3.method6084();
-               var24 = (long)var3.method6080();
+               var24 = (long)var3.readUnsignedShort();
                var31 = (long)var3.method6082();
                ChatCrownType var60 = (ChatCrownType)class2.method20(class116.method2020(), var3.readUnsignedByte());
                var12 = (var24 << 32) + var31;
@@ -4161,7 +4187,7 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2122 == var1.currentPacket) {
-               var16 = var3.method6201();
+               var16 = var3.readInt();
                if(var16 != field659) {
                   field659 = var16;
                   Size.method4702();
@@ -4186,8 +4212,8 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2186 == var1.currentPacket) {
-               var16 = var3.method6201();
-               var5 = var3.method6201();
+               var16 = var3.readInt();
+               var5 = var3.readInt();
                var18 = GZipDecompressor.method5443();
                TcpConnectionMessage var53 = FaceNormal.method5726(ClientProt.field2218, serverConnection.isaac);
                var53.packetBuffer.method6105(var18);
@@ -4252,7 +4278,7 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2165 == var1.currentPacket) {
-               var16 = var3.method6201();
+               var16 = var3.readInt();
                var43 = var3.readUnsignedByte() == 1;
                var6 = WorldMapType1.method2440(var16);
                if(var43 != var6.isHidden) {
@@ -4292,7 +4318,7 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2189 == var1.currentPacket) {
-               rebootTimer = var3.method6080() * 30;
+               rebootTimer = var3.readUnsignedShort() * 30;
                lastMiscTransmit = cycleCntr;
                var1.currentPacket = null;
                return true;
@@ -4332,7 +4358,7 @@ public final class client extends GameEngine implements class236, RSClient {
                }
 
                var18 = var3.method6081();
-               var7 = var3.method6080();
+               var7 = var3.readUnsignedShort();
                if(var7 == 65535) {
                   var7 = -1;
                }
@@ -8480,6 +8506,7 @@ public final class client extends GameEngine implements class236, RSClient {
          }
 
          System.out.println("Error: " + var3);
+         var1.printStackTrace();
          var3 = var3.replace(':', '.');
          var3 = var3.replace('@', '_');
          var3 = var3.replace('&', '_');
@@ -8489,6 +8516,7 @@ public final class client extends GameEngine implements class236, RSClient {
          }
 
          URL var4 = new URL(JagException.field1999.getCodeBase(), "clienterror.ws?c=" + class45.revision + "&u=" + JagException.localPlayerUsername + "&v1=" + Signlink.javaVendor + "&v2=" + Signlink.javaVersion + "&ct=" + class134.clientType + "&e=" + var3);
+
          DataInputStream var5 = new DataInputStream(var4.openStream());
          var5.read();
          var5.close();

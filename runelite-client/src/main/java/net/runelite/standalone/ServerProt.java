@@ -457,6 +457,8 @@ public class ServerProt {
    )
    public final int id;
 
+   public static final ServerProt field3000;
+
    static {
       field2178 = new ServerProt(0, -2);
       field2159 = new ServerProt(1, 0);
@@ -543,6 +545,7 @@ public class ServerProt {
       field2142 = new ServerProt(82, 8);
       field2166 = new ServerProt(83, 6);
       field2204 = new ServerProt(84, 2);
+      field3000 = new ServerProt(85, -2);
    }
 
    ServerProt(int var1, int var2) {
