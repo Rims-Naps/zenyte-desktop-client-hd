@@ -10,8 +10,8 @@ import java.io.InputStream;
 public class Assets {
 
     public static void init() {
-        class316.leftBackground = new SpritePixels(loadImage("left.png"), GameEngine.shell.getCanvas());
-        class316.rightBackground = new SpritePixels(loadImage("right.png"), GameEngine.shell.getCanvas());
+        class316.leftBackground = new SpritePixels(loadImage("left1.png"), GameEngine.shell.getCanvas());
+        class316.rightBackground = new SpritePixels(loadImage("right1.png"), GameEngine.shell.getCanvas());
     }
 
     private static byte[] loadImage(final String path) {
