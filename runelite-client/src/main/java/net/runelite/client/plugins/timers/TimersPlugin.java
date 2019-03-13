@@ -694,7 +694,7 @@ public class TimersPlugin extends Plugin
 		{
 			if (lastTeleportClicked == TeleportWidget.HOME_TELEPORT)
 			{
-				createGameTimer(HOME_TELEPORT);
+				//createGameTimer(HOME_TELEPORT);
 			}
 			else if (lastTeleportClicked == TeleportWidget.MINIGAME_TELEPORT)
 			{
