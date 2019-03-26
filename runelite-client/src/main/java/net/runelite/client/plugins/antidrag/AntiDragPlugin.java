@@ -26,9 +26,7 @@ package net.runelite.client.plugins.antidrag;
 
 import com.google.inject.Provides;
 import net.runelite.api.Client;
-import net.runelite.api.events.FocusChanged;
 import net.runelite.client.config.ConfigManager;
-import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 
@@ -37,7 +35,8 @@ import javax.inject.Inject;
 @PluginDescriptor(
 	name = "Anti Drag",
 	description = "Prevent dragging an item for a specified delay",
-	tags = {"antidrag", "delay", "inventory", "items"}
+	tags = {"antidrag", "delay", "inventory", "items"},
+    enabledByDefault = false
 )
 public class AntiDragPlugin extends Plugin
 {
@@ -67,12 +66,4 @@ public class AntiDragPlugin extends Plugin
 		client.setInventoryDragDelay(DEFAULT_DELAY);
 	}
 
-	@Subscribe
-	public void onFocusChanged(FocusChanged focusChanged)
-	{
-		if (!focusChanged.isFocused())
-		{
-			client.setInventoryDragDelay(DEFAULT_DELAY);
-		}
-	}
 }
