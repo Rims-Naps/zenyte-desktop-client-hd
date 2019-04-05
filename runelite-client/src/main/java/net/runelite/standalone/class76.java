@@ -48,7 +48,7 @@ public class class76 {
       if(ZoneProt.field2319 == var0) {
          var2 = var1.readUnsignedShort();
          var3 = var1.method6192();
-         var4 = var1.method6117();
+         var4 = var1.readUnsignedShort128();
          var5 = var1.readUnsignedByte();
          var6 = (var5 >> 4 & 7) + class91.updateZoneX;
          var7 = (var5 & 7) + CombatInfoListHolder.updateZoneY;
@@ -105,7 +105,7 @@ public class class76 {
                var6 = var5 >> 2;
                var7 = var5 & 3;
                var31 = client.field704[var6];
-               var32 = var1.method6117();
+               var32 = var1.readUnsignedShort128();
                System.out.println("spawn obj: " + var32);
                if(var3 >= 0 && var4 >= 0 && var3 < 104 && var4 < 104) {
                   class77.method1152(class228.level, var3, var4, var31, var32, var6, var7, 0, -1);
@@ -204,7 +204,7 @@ public class class76 {
                   if(ZoneProt.field2316 == var0) {
                      var2 = var1.method6200() * 4;
                      var3 = var1.readUnsignedShort();
-                     var4 = var1.method6117();
+                     var4 = var1.readUnsignedShort128();
                      var5 = var1.method6200() * 4;
                      var6 = var1.method6119();
                      var7 = var1.readUnsignedByte();
@@ -257,7 +257,7 @@ public class class76 {
                            byte var37 = var1.method6111();
                            var3 = var1.method6101();
                            byte var38 = var1.method6111();
-                           var5 = var1.method6117();
+                           var5 = var1.readUnsignedShort128();
                            var6 = var1.readUnsignedShort();
                            var7 = var1.method6192();
                            var31 = var7 >> 2;
@@ -327,7 +327,7 @@ public class class76 {
                         }
 
                         if(ZoneProt.field2329 == var0) {
-                           var2 = var1.method6117();
+                           var2 = var1.readUnsignedShort128();
                            var3 = var1.method6101();
                            var4 = var1.method6192();
                            var5 = (var4 >> 4 & 7) + class91.updateZoneX;

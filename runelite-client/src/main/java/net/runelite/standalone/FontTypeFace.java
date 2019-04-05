@@ -28,6 +28,7 @@ public abstract class FontTypeFace extends Rasterizer2D implements RSFontTypeFac
       signature = "[Lli;"
    )
    public static IndexedSprite[] modIcons;
+   public static IndexedSprite[] memberIcons;
    @ObfuscatedName("d")
    static int underlineRGB;
    @ObfuscatedName("j")
@@ -137,10 +138,18 @@ public abstract class FontTypeFace extends Rasterizer2D implements RSFontTypeFac
                      var6 = '<';
                   } else {
                      if(!var7.equals("gt")) {
-                        if(var7.startsWith("img=")) {
+                        if(var7.startsWith("img=") || var7.startsWith("irm=")) {
                            try {
                               int var8 = LoginProt.method871(var7.substring(4));
                               var4 += modIcons[var8].originalWidth;
+                              var3 = -1;
+                           } catch (Exception var10) {
+                              ;
+                           }
+                        } else if (var7.startsWith("member=")) {
+                           try {
+                              int var8 = LoginProt.method871(var7.substring(7));
+                              var4 += memberIcons[var8].originalWidth;
                               var3 = -1;
                            } catch (Exception var10) {
                               ;
@@ -242,7 +251,7 @@ public abstract class FontTypeFace extends Rasterizer2D implements RSFontTypeFac
                      var10 = '<';
                   } else {
                      if(!var11.equals("gt")) {
-                        if(var11.startsWith("img=")) {
+                        if(var11.startsWith("img=") || var11.startsWith("irm=")) {
                            try {
                               if(var4 != null) {
                                  var12 = var4[var8];
@@ -259,6 +268,30 @@ public abstract class FontTypeFace extends Rasterizer2D implements RSFontTypeFac
                               ++var8;
                               var14 = LoginProt.method871(var11.substring(4));
                               IndexedSprite var15 = modIcons[var14];
+                              var15.method824(var12 + var2, var13 + (var3 + this.verticalSpace - var15.originalHeight));
+                              var2 += var15.originalWidth;
+                              var7 = -1;
+                           } catch (Exception var19) {
+                              ;
+                           }
+                        }
+                        if(var11.startsWith("member=")) {
+                           try {
+                              if(var4 != null) {
+                                 var12 = var4[var8];
+                              } else {
+                                 var12 = 0;
+                              }
+
+                              if(var5 != null) {
+                                 var13 = var5[var8];
+                              } else {
+                                 var13 = 0;
+                              }
+
+                              ++var8;
+                              var14 = LoginProt.method871(var11.substring(7));
+                              IndexedSprite var15 = memberIcons[var14];
                               var15.method824(var12 + var2, var13 + (var3 + this.verticalSpace - var15.originalHeight));
                               var2 += var15.originalWidth;
                               var7 = -1;
@@ -357,10 +390,20 @@ public abstract class FontTypeFace extends Rasterizer2D implements RSFontTypeFac
                      var7 = '<';
                   } else {
                      if(!var8.equals("gt")) {
-                        if(var8.startsWith("img=")) {
+                        if(var8.startsWith("img=") || var8.startsWith("irm=")) {
                            try {
                               var9 = LoginProt.method871(var8.substring(4));
                               IndexedSprite var10 = modIcons[var9];
+                              var10.method824(var2, var3 + this.verticalSpace - var10.originalHeight);
+                              var2 += var10.originalWidth;
+                              var5 = -1;
+                           } catch (Exception var14) {
+                              ;
+                           }
+                        } else if (var8.startsWith("member=")) {
+                           try {
+                              var9 = LoginProt.method871(var8.substring(7));
+                              IndexedSprite var10 = memberIcons[var9];
                               var10.method824(var2, var3 + this.verticalSpace - var10.originalHeight);
                               var2 += var10.originalWidth;
                               var5 = -1;
@@ -757,10 +800,18 @@ public abstract class FontTypeFace extends Rasterizer2D implements RSFontTypeFac
                      }
 
                      var11 = '>';
-                  } else if(var16.startsWith("img=")) {
+                  } else if(var16.startsWith("img=") || var16.startsWith("irm=")) {
                      try {
                         int var17 = LoginProt.method871(var16.substring(4));
                         var4 += modIcons[var17].originalWidth;
+                        var11 = 0;
+                     } catch (Exception var20) {
+                        ;
+                     }
+                  } else if(var16.startsWith("member=")) {
+                     try {
+                        int var17 = LoginProt.method871(var16.substring(7));
+                        var4 += memberIcons[var17].originalWidth;
                         var11 = 0;
                      } catch (Exception var20) {
                         ;

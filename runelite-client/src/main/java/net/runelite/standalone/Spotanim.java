@@ -37,7 +37,7 @@ public class Spotanim extends CacheableNode {
    )
    int field3355;
    @ObfuscatedName("w")
-   short[] field3349;
+   short[] recolorToFind;
    @ObfuscatedName("x")
    @ObfuscatedGetter(
       intValue = 1318976635
@@ -56,7 +56,7 @@ public class Spotanim extends CacheableNode {
    )
    public int field3348;
    @ObfuscatedName("n")
-   short[] field3346;
+   short[] recolorToReplace;
    @ObfuscatedName("c")
    @ObfuscatedGetter(
       intValue = -1163250473
@@ -130,12 +130,12 @@ public class Spotanim extends CacheableNode {
          int var4;
          if(var2 == 40) {
             var3 = var1.readUnsignedByte();
-            this.field3349 = new short[var3];
-            this.field3346 = new short[var3];
+            this.recolorToFind = new short[var3];
+            this.recolorToReplace = new short[var3];
 
             for(var4 = 0; var4 < var3; ++var4) {
-               this.field3349[var4] = (short)var1.readUnsignedShort();
-               this.field3346[var4] = (short)var1.readUnsignedShort();
+               this.recolorToFind[var4] = (short)var1.readUnsignedShort();
+               this.recolorToReplace[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 == 41) {
             var3 = var1.readUnsignedByte();
@@ -165,9 +165,9 @@ public class Spotanim extends CacheableNode {
          }
 
          int var4;
-         if(this.field3349 != null) {
-            for(var4 = 0; var4 < this.field3349.length; ++var4) {
-               var3.method1411(this.field3349[var4], this.field3346[var4]);
+         if(this.recolorToFind != null) {
+            for(var4 = 0; var4 < this.recolorToFind.length; ++var4) {
+               var3.method1411(this.recolorToFind[var4], this.recolorToReplace[var4]);
             }
          }
 

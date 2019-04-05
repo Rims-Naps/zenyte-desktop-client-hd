@@ -72,7 +72,7 @@ public class class202 {
 
       for(int var2 = 0; var2 < var1.length; ++var2) {
          ChatCrownType var3 = var1[var2];
-         if(var3.icon != -1 && var0.startsWith(WorldMapDecoration.method2945(var3.icon))) {
+         if(var3.icon != -1 && var0.startsWith(WorldMapDecoration.getModIcon(var3.icon))) {
             var0 = var0.substring(6 + Integer.toString(var3.icon).length());
             break;
          }
