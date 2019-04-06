@@ -199,9 +199,9 @@ public class class133 implements Runnable {
             if ((var4 & 16) != 0) {
                 var6 = var0.readUnsignedShort128();
                 int compressed = var0.readUnsignedByte();
-                val staff = (compressed & 0x3);
-                val ironman = (compressed >> 2) & 0x7;
-                val member = (compressed >> 5) & 0x7;
+                int staff = (compressed & 0x3);
+                int ironman = (compressed >> 2) & 0x7;
+                int member = (compressed >> 5) & 0x7 - 1;
                 ChatCrownType staffRank = (ChatCrownType) class2.method20(class116.method2020(), staff);
                 ChatCrownType ironmanRank = (ChatCrownType) class2.method20(class116.method2020(), ironman);
                 boolean var18 = var0.method6108() == 1;

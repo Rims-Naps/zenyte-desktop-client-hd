@@ -4094,9 +4094,9 @@ public final class client extends GameEngine implements class236, RSClient {
                var22 = (long)var3.readUnsignedShort();
                var24 = (long)var3.method6082();
                int compressed = var3.readUnsignedByte();
-               val staff = (compressed & 0x3);
-               val ironman = (compressed >> 2) & 0x7;
-               val member = (compressed >> 5) & 0x7;
+               int staff = (compressed & 0x3);
+               int ironman = (compressed >> 2) & 0x7;
+               int member = (compressed >> 5) & 0x7 - 1;
                ChatCrownType staffRank = (ChatCrownType) class2.method20(class116.method2020(), staff);
                ChatCrownType ironmanRank = (ChatCrownType) class2.method20(class116.method2020(), ironman);
                long var27 = (var22 << 32) + var24;
@@ -4142,9 +4142,9 @@ public final class client extends GameEngine implements class236, RSClient {
                var24 = (long)var3.readUnsignedShort();
                var31 = (long)var3.method6082();
                int compressed = var3.readUnsignedByte();
-               val staff = (compressed & 0x3);
-               val ironman = (compressed >> 2) & 0x7;
-               val member = (compressed >> 5) & 0x7;
+               int staff = (compressed & 0x3);
+               int ironman = (compressed >> 2) & 0x7;
+               int member = (compressed >> 5) & 0x7 - 1;
                ChatCrownType staffRank = (ChatCrownType) class2.method20(class116.method2020(), staff);
                ChatCrownType ironmanRank = (ChatCrownType) class2.method20(class116.method2020(), ironman);
                var12 = (var24 << 32) + var31;
