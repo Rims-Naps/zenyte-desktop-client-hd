@@ -203,14 +203,14 @@ public class ClientOptions implements RSPreferences {
                      } else if(MouseInput.mouseLastPressedX >= class316.field1143 + 708 && MouseInput.mouseLastPressedY >= 4 && MouseInput.mouseLastPressedX <= class316.field1143 + 708 + 50 && MouseInput.mouseLastPressedY <= 20) {
                         class316.worldSelectShown = false;
                         class316.leftBackground.method2273(class316.field1143, 0);
-                        class316.rightBackground.method2273(class316.field1143 + 382, 0);
+                        //class316.rightBackground.method2273(class316.field1143 + 382, 0);
                         //Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
                      } else if(class316.field1164 != -1) {
                         World var5 = World.worldList[class316.field1164];
                         UrlRequest.method5575(var5);
                         class316.worldSelectShown = false;
                         class316.leftBackground.method2273(class316.field1143, 0);
-                        class316.rightBackground.method2273(class316.field1143 + 382, 0);
+                        //class316.rightBackground.method2273(class316.field1143 + 382, 0);
                        // Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
                      }
                   }
