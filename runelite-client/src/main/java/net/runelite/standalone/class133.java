@@ -1,6 +1,5 @@
 package net.runelite.standalone;
 
-import lombok.val;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
@@ -201,7 +200,7 @@ public class class133 implements Runnable {
                 int compressed = var0.readUnsignedByte();
                 int staff = (compressed & 0x3);
                 int ironman = (compressed >> 2) & 0x7;
-                int member = (compressed >> 5) & 0x7 - 1;
+                int member = ((compressed >> 5) & 0x7) - 1;
                 ChatCrownType staffRank = (ChatCrownType) class2.method20(class116.method2020(), staff);
                 ChatCrownType ironmanRank = (ChatCrownType) class2.method20(class116.method2020(), ironman);
                 boolean var18 = var0.method6108() == 1;
