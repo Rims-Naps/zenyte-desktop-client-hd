@@ -26,9 +26,10 @@
 package net.runelite.client.plugins.puzzlesolver.solver;
 
 import com.google.common.base.Stopwatch;
+import net.runelite.client.plugins.puzzlesolver.solver.pathfinding.Pathfinder;
+
 import java.time.Duration;
 import java.util.List;
-import net.runelite.client.plugins.puzzlesolver.solver.pathfinding.Pathfinder;
 
 public class PuzzleSolver implements Runnable
 {
@@ -78,7 +79,7 @@ public class PuzzleSolver implements Runnable
 
 	public boolean hasExceededWaitDuration()
 	{
-		return stopwatch.elapsed().compareTo(MAX_WAIT_DURATION) > 0;
+		return stopwatch == null || stopwatch.elapsed().compareTo(MAX_WAIT_DURATION) > 0;
 	}
 
 	public boolean hasFailed()

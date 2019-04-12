@@ -1,12 +1,13 @@
 package net.runelite.standalone;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map.Entry;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSPreferences;
+
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
 
 @ObfuscatedName("bj")
 public class ClientOptions implements RSPreferences {
@@ -203,14 +204,14 @@ public class ClientOptions implements RSPreferences {
                      } else if(MouseInput.mouseLastPressedX >= class316.field1143 + 708 && MouseInput.mouseLastPressedY >= 4 && MouseInput.mouseLastPressedX <= class316.field1143 + 708 + 50 && MouseInput.mouseLastPressedY <= 20) {
                         class316.worldSelectShown = false;
                         class316.leftBackground.method2273(class316.field1143, 0);
-                        class316.rightBackground.method2273(class316.field1143 + 382, 0);
+                        //class316.rightBackground.method2273(class316.field1143 + 382, 0);
                         //Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
                      } else if(class316.field1164 != -1) {
                         World var5 = World.worldList[class316.field1164];
                         UrlRequest.method5575(var5);
                         class316.worldSelectShown = false;
                         class316.leftBackground.method2273(class316.field1143, 0);
-                        class316.rightBackground.method2273(class316.field1143 + 382, 0);
+                        //class316.rightBackground.method2273(class316.field1143 + 382, 0);
                        // Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
                      }
                   }

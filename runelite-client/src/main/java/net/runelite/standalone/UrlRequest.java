@@ -1,12 +1,13 @@
 package net.runelite.standalone;
 
-import java.awt.Desktop;
-import java.awt.Desktop.Action;
-import java.net.URI;
-import java.net.URL;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.awt.*;
+import java.awt.Desktop.Action;
+import java.net.URI;
+import java.net.URL;
 
 @ObfuscatedName("eg")
 public class UrlRequest {

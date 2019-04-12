@@ -110,7 +110,7 @@ final class class116 implements Comparator {
       garbageValue = "-523285600"
    )
    public static ChatCrownType[] method2020() {
-      return new ChatCrownType[]{ChatCrownType.STAFF_MOD, ChatCrownType.HARDCORE_IRONMAN, ChatCrownType.IRONMAN, ChatCrownType.NONE, ChatCrownType.PLAYER_MOD, ChatCrownType.ULTIMATE_IRONMAN};
+      return new ChatCrownType[]{ChatCrownType.STAFF_MOD, ChatCrownType.HARDCORE_IRONMAN, ChatCrownType.IRONMAN, ChatCrownType.NONE, ChatCrownType.PLAYER_MOD, ChatCrownType.ULTIMATE_IRONMAN, ChatCrownType.DONATOR};
    }
 
    @ObfuscatedName("g")

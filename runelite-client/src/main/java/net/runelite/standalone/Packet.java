@@ -811,7 +811,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(I)I",
       garbageValue = "-1873828017"
    )
-   public int method6117() {
+   public int readUnsignedShort128() {
       this.offset += 2;
       return (this.payload[this.offset - 1] - 128 & 255) + ((this.payload[this.offset - 2] & 255) << 8);
    }

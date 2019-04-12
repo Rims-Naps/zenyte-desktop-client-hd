@@ -28,39 +28,12 @@ package net.runelite.client.plugins.cluescrolls;
 
 import com.google.inject.Binder;
 import com.google.inject.Provides;
-import java.awt.image.BufferedImage;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Stream;
-import javax.inject.Inject;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.ChatMessageType;
-import net.runelite.api.Client;
-import net.runelite.api.GameObject;
-import net.runelite.api.GameState;
-import net.runelite.api.InventoryID;
-import net.runelite.api.Item;
-import net.runelite.api.ItemComposition;
-import net.runelite.api.ItemID;
-import net.runelite.api.NPC;
-import net.runelite.api.ObjectComposition;
-import net.runelite.api.Scene;
-import net.runelite.api.Tile;
-import net.runelite.api.TileObject;
+import net.runelite.api.*;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.ConfigChanged;
-import net.runelite.api.events.GameStateChanged;
-import net.runelite.api.events.GameTick;
-import net.runelite.api.events.ItemContainerChanged;
-import net.runelite.api.events.MenuOptionClicked;
-import net.runelite.api.events.NpcDespawned;
-import net.runelite.api.events.NpcSpawned;
+import net.runelite.api.events.*;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.config.ConfigManager;
@@ -68,25 +41,20 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.cluescrolls.clues.AnagramClue;
-import net.runelite.client.plugins.cluescrolls.clues.CipherClue;
-import net.runelite.client.plugins.cluescrolls.clues.ClueScroll;
-import net.runelite.client.plugins.cluescrolls.clues.CoordinateClue;
-import net.runelite.client.plugins.cluescrolls.clues.CrypticClue;
-import net.runelite.client.plugins.cluescrolls.clues.EmoteClue;
-import net.runelite.client.plugins.cluescrolls.clues.FairyRingClue;
-import net.runelite.client.plugins.cluescrolls.clues.HotColdClue;
-import net.runelite.client.plugins.cluescrolls.clues.LocationClueScroll;
-import net.runelite.client.plugins.cluescrolls.clues.LocationsClueScroll;
-import net.runelite.client.plugins.cluescrolls.clues.MapClue;
-import net.runelite.client.plugins.cluescrolls.clues.NpcClueScroll;
-import net.runelite.client.plugins.cluescrolls.clues.ObjectClueScroll;
-import net.runelite.client.plugins.cluescrolls.clues.TextClueScroll;
-import net.runelite.client.plugins.cluescrolls.clues.ThreeStepCrypticClue;
+import net.runelite.client.plugins.cluescrolls.clues.*;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.worldmap.WorldMapPointManager;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.Text;
+
+import javax.inject.Inject;
+import java.awt.image.BufferedImage;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 @PluginDescriptor(
 	name = "Clue Scroll",
@@ -201,7 +169,13 @@ public class ClueScrollPlugin extends Plugin
 	}
 
 	@Subscribe
-	public void onMenuOptionClicked(final MenuOptionClicked event)
+    public void onWidgetLoaded(final WidgetLoaded event) {
+	    final MapClue clue = MapClue.forInterfaceId(event.getGroupId());
+	    if (clue != null) {
+	        updateClue(clue);
+        }
+    }
+	/*public void onMenuOptionClicked(final MenuOptionClicked event)
 	{
 		if (event.getMenuOption() != null && event.getMenuOption().equals("Read"))
 		{
@@ -213,7 +187,7 @@ public class ClueScrollPlugin extends Plugin
 				updateClue(MapClue.forItemId(clueItemId));
 			}
 		}
-	}
+	}*/
 
 	@Subscribe
 	public void onItemContainerChanged(final ItemContainerChanged event)

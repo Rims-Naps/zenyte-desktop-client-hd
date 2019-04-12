@@ -91,7 +91,15 @@ public class WorldMapDecoration {
       signature = "(II)Ljava/lang/String;",
       garbageValue = "703327785"
    )
-   static String method2945(int var0) {
-      return "<img=" + var0 + ">";
+   static String getModIcon(int var0) {
+      return var0 == -1 ? "" : "<img=" + var0 + ">";
+   }
+
+   static String getIronManIcon(int var0) {
+      return var0 == -1 ? "" : "<irm=" + var0 + ">";
+   }
+
+   static String getMemberIcon(int var0) {
+      return var0 == -1 ? "" : "<member=" + var0 + ">";
    }
 }

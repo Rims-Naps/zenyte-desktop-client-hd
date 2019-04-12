@@ -35,7 +35,9 @@ public enum ChatCrownType implements Enumerated {
    @ObfuscatedSignature(
       signature = "Lif;"
    )
-   HARDCORE_IRONMAN(5, 10, false, false, true);
+   HARDCORE_IRONMAN(5, 10, false, false, true),
+
+   DONATOR(15, 15, false, false, true);
 
    @ObfuscatedName("w")
    @ObfuscatedGetter(

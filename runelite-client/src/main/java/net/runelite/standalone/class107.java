@@ -37,7 +37,7 @@ public class class107 {
       int var8;
       if(!client.isDynamicRegion) {
          var2 = var1.method6101();
-         var3 = var1.method6117();
+         var3 = var1.readUnsignedShort128();
          int var4 = var1.readUnsignedShort();
          IndexStoreActionHandler.xteaKeys = new int[var4][4];
 
@@ -77,7 +77,7 @@ public class class107 {
 
          Signlink.method4454(var3, var2, true);
       } else {
-         var2 = var1.method6117();
+         var2 = var1.readUnsignedShort128();
          var3 = var1.method6101();
          boolean var15 = var1.readUnsignedByte() == 1;
          var5 = var1.readUnsignedShort();

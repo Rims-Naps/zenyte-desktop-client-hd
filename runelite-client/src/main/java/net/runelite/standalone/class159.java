@@ -693,6 +693,7 @@ public class class159 {
                if(MapIconReference.modIconSprites == null) {
                   var2 = JagException.sprites;
                   var18 = TradingPost.graphicsDefaults.field3823;
+                  System.out.println("test: " + var18);
                   var5 = var2.method1516(var18, 0, 1789634852);
                   if(var5 == null) {
                      var4 = false;
@@ -706,10 +707,27 @@ public class class159 {
                   } else {
                      var17 = GraphicsDefaults.method4016();
                   }
-
                   MapIconReference.modIconSprites = var17;
                } else {
                   ++var0;
+               }
+
+               if(MapIconReference.memberIconSprites == null) {
+                  var2 = JagException.sprites;
+                  var5 = var2.method1516(2158, 0, 1789634852);
+                  if(var5 == null) {
+                     var4 = false;
+                  } else {
+                     SceneTilePaint.method667(var5);
+                     var4 = true;
+                  }
+
+                  if(!var4) {
+                     var17 = null;
+                  } else {
+                     var17 = GraphicsDefaults.method4016();
+                  }
+                  MapIconReference.memberIconSprites = var17;
                }
 
                if(var0 < 11) {
@@ -717,6 +735,7 @@ public class class159 {
                   class316.loadingBarPercentage = 70;
                } else {
                   FontTypeFace.modIcons = MapIconReference.modIconSprites;
+                  FontTypeFace.memberIcons = MapIconReference.memberIconSprites;
                   Size.mapedge.method2311();
                   var1 = (int)(Math.random() * 21.0D) - 10;
                   int var23 = (int)(Math.random() * 21.0D) - 10;

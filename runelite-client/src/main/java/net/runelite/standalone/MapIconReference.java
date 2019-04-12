@@ -21,6 +21,7 @@ public class MapIconReference {
       signature = "[Lli;"
    )
    static IndexedSprite[] modIconSprites;
+   static IndexedSprite[] memberIconSprites;
    @ObfuscatedName("r")
    @ObfuscatedSignature(
       signature = "Lhz;"

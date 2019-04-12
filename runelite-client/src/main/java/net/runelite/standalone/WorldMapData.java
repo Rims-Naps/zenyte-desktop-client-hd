@@ -373,10 +373,9 @@ public class WorldMapData implements RSWorldMapData {
       } else {
          class316.loginIndex = var3;
          Rasterizer2D.method445();
-         /*byte[] var4 = var0.method1534("title.jpg", "");
+         byte[] var4 = var0.method1534("title.jpg", "");
          class316.leftBackground = class48.method776(var4);
-         class316.rightBackground = class316.leftBackground.method2242();*/
-         Assets.init();
+         //class316.rightBackground = class316.leftBackground.method2242();
          if((client.flags & 536870912) != 0) {
             Varbit.logoSprite = MapElementType.method2369(var1, "logo_deadman_mode", "");
          } else {
@@ -493,7 +492,7 @@ public class WorldMapData implements RSWorldMapData {
          class316.loginWindowX = class316.field1143 + 202;
          class260.field103 = class316.loginWindowX + 180;
          class316.leftBackground.method2273(class316.field1143, 0);
-         class316.rightBackground.method2273(class316.field1143 + 382, 0);
+         //class316.rightBackground.method2273(class316.field1143 + 382, 0);
          //Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
       }
    }

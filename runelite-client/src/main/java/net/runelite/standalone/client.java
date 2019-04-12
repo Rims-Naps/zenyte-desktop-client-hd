@@ -2,67 +2,12 @@ package net.runelite.standalone;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.net.Socket;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.inject.Inject;
-import javax.inject.Named;
-import net.runelite.api.ChatMessageType;
-import net.runelite.api.Constants;
-import net.runelite.api.GameState;
-import net.runelite.api.GraphicsObject;
-import net.runelite.api.HintArrowType;
-import net.runelite.api.IndexDataBase;
-import net.runelite.api.InventoryID;
-import net.runelite.api.MenuAction;
-import net.runelite.api.MenuEntry;
-import net.runelite.api.NPC;
-import net.runelite.api.PacketBuffer;
-import net.runelite.api.Perspective;
-import net.runelite.api.Player;
+import lombok.val;
 import net.runelite.api.Point;
-import net.runelite.api.Prayer;
-import net.runelite.api.Projectile;
-import net.runelite.api.Skill;
-import net.runelite.api.VarClientInt;
-import net.runelite.api.VarClientStr;
-import net.runelite.api.VarPlayer;
-import net.runelite.api.Varbits;
-import net.runelite.api.WidgetNode;
-import net.runelite.api.WorldType;
+import net.runelite.api.*;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.BoostedLevelChanged;
-import net.runelite.api.events.CanvasSizeChanged;
-import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.ClanChanged;
-import net.runelite.api.events.ClientTick;
-import net.runelite.api.events.DraggingWidgetChanged;
-import net.runelite.api.events.ExperienceChanged;
-import net.runelite.api.events.GameStateChanged;
-import net.runelite.api.events.GrandExchangeOfferChanged;
-import net.runelite.api.events.MenuEntryAdded;
-import net.runelite.api.events.MenuOpened;
-import net.runelite.api.events.NpcSpawned;
-import net.runelite.api.events.PlayerDespawned;
-import net.runelite.api.events.PlayerMenuOptionsChanged;
-import net.runelite.api.events.PlayerSpawned;
-import net.runelite.api.events.ResizeableChanged;
-import net.runelite.api.events.ScriptCallbackEvent;
-import net.runelite.api.events.UsernameChanged;
-import net.runelite.api.events.VarbitChanged;
+import net.runelite.api.events.*;
 import net.runelite.api.hooks.Callbacks;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.api.vars.AccountType;
@@ -75,6 +20,18 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.*;
 import org.slf4j.Logger;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.awt.*;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.URL;
+import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @ObfuscatedName("client")
 public final class client extends GameEngine implements class236, RSClient {
@@ -3242,8 +3199,8 @@ public final class client extends GameEngine implements class236, RSClient {
                   case "hide_roofs":
                      GameEngine.options.hideRoofs = value == 1;
                      break;
-                  /*case "set_zoom":
-                     MapIconReference.varcs.varCInts[74] = value;
+                  case "set_zoom":
+                     /*MapIconReference.varcs.varCInts[74] = value;
                      MapIconReference.varcs.varCInts[75] = value;
                      Packet.cameraZ = value;
                      class39.cameraYaw = value;
@@ -3253,8 +3210,8 @@ public final class client extends GameEngine implements class236, RSClient {
                      class98.cameraY = value;
                      setCameraX2(value);
                      setCameraY2(value);
-                     setCameraZ2(value);
-                     break;*/
+                     setCameraZ2(value);*/
+                     break;
                }
                var1.currentPacket = null;
                return true;
@@ -3360,7 +3317,7 @@ public final class client extends GameEngine implements class236, RSClient {
 
             if(ServerProt.field2157 == var1.currentPacket) {
                var16 = var3.method6121();
-               var5 = var3.method6117();
+               var5 = var3.readUnsignedShort128();
                if(var5 == 65535) {
                   var5 = -1;
                }
@@ -3656,7 +3613,7 @@ public final class client extends GameEngine implements class236, RSClient {
             }
 
             if(ServerProt.field2158 == var1.currentPacket) {
-               var16 = var3.method6117();
+               var16 = var3.readUnsignedShort128();
                var5 = var3.method6116();
                var18 = var3.method6273();
                var56 = WorldMapType1.method2440(var18);
@@ -3890,7 +3847,7 @@ public final class client extends GameEngine implements class236, RSClient {
 
             if(ServerProt.field2141 == var1.currentPacket) {
                var16 = var3.method6273();
-               var5 = var3.method6117();
+               var5 = var3.readUnsignedShort128();
                var18 = var5 >> 10 & 31;
                var7 = var5 >> 5 & 31;
                var8 = var5 & 31;
@@ -4091,7 +4048,12 @@ public final class client extends GameEngine implements class236, RSClient {
                var38 = var3.readString();
                var22 = (long)var3.readUnsignedShort();
                var24 = (long)var3.method6082();
-               ChatCrownType var26 = (ChatCrownType)class2.method20(class116.method2020(), var3.readUnsignedByte());
+               int compressed = var3.readUnsignedByte();
+               int staff = (compressed & 0x3);
+               int ironman = (compressed >> 2) & 0x7;
+               int member = (compressed >> 5) & 0x7 - 1;
+               ChatCrownType staffRank = (ChatCrownType) class2.method20(class116.method2020(), staff);
+               ChatCrownType ironmanRank = (ChatCrownType) class2.method20(class116.method2020(), ironman);
                long var27 = (var22 << 32) + var24;
                boolean var29 = false;
 
@@ -4111,17 +4073,17 @@ public final class client extends GameEngine implements class236, RSClient {
                   field864 = (field864 + 1) % 100;
                   String var30 = FontTypeFace.method1779(WorldMapDecorationType.method2691(MapLabel.method5551(var3)));
                   byte var46;
-                  if(var26.moderator) {
+                  if(staffRank.moderator) {
                      var46 = 7;
                   } else {
                      var46 = 3;
                   }
-
-                  if(var26.icon != -1) {
-                     ChatLine.method5672(var46, WorldMapDecoration.method2945(var26.icon) + var38, var30);
+                  ChatLine.method5672(var46, (staffRank.icon == -1 ? "" : WorldMapDecoration.getModIcon(staffRank.icon)) + WorldMapDecoration.getIronManIcon(ironmanRank.icon) + WorldMapDecoration.getMemberIcon(member) + var38, var30);
+                  /*if(staffRank.icon != -1) {
+                     ChatLine.method5672(var46, WorldMapDecoration.getModIcon(staffRank.icon) + var38, var30);
                   } else {
                      ChatLine.method5672(var46, var38, var30);
-                  }
+                  }*/
                }
 
                var1.currentPacket = null;
@@ -4134,7 +4096,12 @@ public final class client extends GameEngine implements class236, RSClient {
                var22 = var3.method6084();
                var24 = (long)var3.readUnsignedShort();
                var31 = (long)var3.method6082();
-               ChatCrownType var60 = (ChatCrownType)class2.method20(class116.method2020(), var3.readUnsignedByte());
+               int compressed = var3.readUnsignedByte();
+               int staff = (compressed & 0x3);
+               int ironman = (compressed >> 2) & 0x7;
+               int member = (compressed >> 5) & 0x7 - 1;
+               ChatCrownType staffRank = (ChatCrownType) class2.method20(class116.method2020(), staff);
+               ChatCrownType ironmanRank = (ChatCrownType) class2.method20(class116.method2020(), ironman);
                var12 = (var24 << 32) + var31;
                boolean var14 = false;
 
@@ -4145,7 +4112,7 @@ public final class client extends GameEngine implements class236, RSClient {
                   }
                }
 
-               if(var60.ignorable && ServerProt.friendManager.method96(new Name(var38, loginType))) {
+               if(staffRank.ignorable && ServerProt.friendManager.method96(new Name(var38, loginType))) {
                   var14 = true;
                }
 
@@ -4153,11 +4120,12 @@ public final class client extends GameEngine implements class236, RSClient {
                   field840[field864] = var12;
                   field864 = (field864 + 1) % 100;
                   String var34 = FontTypeFace.method1779(WorldMapDecorationType.method2691(MapLabel.method5551(var3)));
-                  if(var60.icon != -1) {
-                     class192.method3787(9, WorldMapDecoration.method2945(var60.icon) + var38, var34, VarPlayerType.method5549(var22));
+                  class192.method3787(9, (staffRank.icon == -1 ? "" : WorldMapDecoration.getModIcon(staffRank.icon)) + WorldMapDecoration.getIronManIcon(ironmanRank.icon) + WorldMapDecoration.getMemberIcon(member) + var38, var34, VarPlayerType.method5549(var22));
+                  /*if(staffRank.icon != -1) {
+                     class192.method3787(9, WorldMapDecoration.getModIcon(staffRank.icon) + var38, var34, VarPlayerType.method5549(var22));
                   } else {
                      class192.method3787(9, var38, var34, VarPlayerType.method5549(var22));
-                  }
+                  }*/
                }
 
                var1.currentPacket = null;
@@ -4245,7 +4213,7 @@ public final class client extends GameEngine implements class236, RSClient {
 
             if(ServerProt.field2180 == var1.currentPacket) {
                byte var48 = var3.method6277();
-               var5 = var3.method6117();
+               var5 = var3.readUnsignedShort128();
                class311.serverVarps[var5] = var48;
                if(class311.clientVarps[var5] != var48) {
                   class311.clientVarps[var5] = var48;
@@ -4352,7 +4320,7 @@ public final class client extends GameEngine implements class236, RSClient {
 
             if(ServerProt.field2195 == var1.currentPacket) {
                var16 = var3.method6125();
-               var5 = var3.method6117();
+               var5 = var3.readUnsignedShort128();
                if(var5 == 65535) {
                   var5 = -1;
                }
@@ -10538,5 +10506,73 @@ public final class client extends GameEngine implements class236, RSClient {
 
    private static void rl$$clinit5() {
       $assertionsDisabled = !client.class.desiredAssertionStatus();
+   }
+
+   public static int rgbToHSL16(int red, int green, int blue) {
+      //val rgb = 0xFFFF * red + 0xFF * green + blue;
+      val rgb = ((red & 0x0ff) << 16) | ((green & 0x0ff) << 8) |(blue & 0x0ff);
+      return rgbToHSL16(rgb);
+   }
+
+   public static int rgbToHSL16(int rgb) {
+      double r = (double) (rgb >> 16 & 0xff) / 256.0;
+      double g = (double) (rgb >> 8 & 0xff) / 256.0;
+      double b = (double) (rgb & 0xff) / 256.0;
+      double min = r;
+      if (g < min) {
+         min = g;
+      }
+      if (b < min) {
+         min = b;
+      }
+      double d_13_ = r;
+      if (g > d_13_) {
+         d_13_ = g;
+      }
+      if (b > d_13_) {
+         d_13_ = b;
+      }
+      double d_14_ = 0.0;
+      double d_15_ = 0.0;
+      double d_16_ = (min + d_13_) / 2.0;
+      if (min != d_13_) {
+         if (d_16_ < 0.5) {
+            d_15_ = (d_13_ - min) / (d_13_ + min);
+         }
+         if (d_16_ >= 0.5) {
+            d_15_ = (d_13_ - min) / (2.0 - d_13_ - min);
+         }
+         if (r == d_13_) {
+            d_14_ = (g - b) / (d_13_ - min);
+         } else if (d_13_ == g) {
+            d_14_ = 2.0 + (b - r) / (d_13_ - min);
+         } else if (d_13_ == b) {
+            d_14_ = 4.0 + (r - g) / (d_13_ - min);
+         }
+      }
+      d_14_ /= 6.0;
+      int h = (int) (256.0 * d_14_);
+      int s = (int) (256.0 * d_15_);
+      int l = (int) (256.0 * d_16_);
+      if (s < 0) {
+         s = 0;
+      } else if (s > 255) {
+         s = 255;
+      }
+      if (l < 0) {
+         l = 0;
+      } else if (l > 255) {
+         l = 255;
+      }
+      if (l > 243) {
+         s >>= 4;
+      } else if (l > 217) {
+         s >>= 3;
+      } else if (l > 192) {
+         s >>= 2;
+      } else if (l > 179) {
+         s >>= 1;
+      }
+      return ((l >> 1) + (((h & 0xff) >> 2 << 10) + (s >> 5 << 7)));
    }
 }

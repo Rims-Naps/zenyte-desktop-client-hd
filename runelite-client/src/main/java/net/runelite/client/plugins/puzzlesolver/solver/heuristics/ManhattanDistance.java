@@ -60,6 +60,7 @@ public class ManhattanDistance implements Heuristic
 					int goalX = piece % DIMENSION;
 					int goalY = piece / DIMENSION;
 
+
 					value += Math.abs(x - goalX) + Math.abs(y - goalY);
 				}
 			}
@@ -74,6 +75,7 @@ public class ManhattanDistance implements Heuristic
 				Doing this decreases the execution time of the heuristic by about 25%.
 			 */
 			value = parent.getHeuristicValue(this);
+
 
 			int x = parent.getEmptyPiece() % DIMENSION;
 			int y = parent.getEmptyPiece() / DIMENSION;

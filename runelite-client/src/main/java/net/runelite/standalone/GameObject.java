@@ -658,7 +658,7 @@ public final class GameObject implements RSGameObject {
       } else {
          if(var3) {
             class316.leftBackground.method2273(class316.field1143, 0);
-            class316.rightBackground.method2273(class316.field1143 + 382, 0);
+            //class316.rightBackground.method2273(class316.field1143 + 382, 0);
            // Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
          }
 
@@ -1136,7 +1136,7 @@ public final class GameObject implements RSGameObject {
          }
 
          Rasterizer2D.method469(class316.field1143 + 765 - 128, 9, class316.field1143 + 765, var39 + 7);
-         class316.rightBackground.method2273(class316.field1143 + 382, 0);
+         //class316.rightBackground.method2273(class316.field1143 + 382, 0);
          Rasterizer2D.method439();
          var23 = 0;
          var32 = WorldMapManager.rasterProvider.width * 9 + class316.field1143 + 637 + 24;

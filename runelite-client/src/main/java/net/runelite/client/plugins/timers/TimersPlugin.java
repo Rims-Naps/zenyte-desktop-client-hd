@@ -562,8 +562,6 @@ public class TimersPlugin extends Plugin
 			createGameTimer(ANTIVENOM_ANTIPOISON);
 		}
 
-		System.out.println(SANFEW_SERUM_DRINK_MESSAGE);
-		System.out.println(event.getMessage().equals(SANFEW_SERUM_DRINK_MESSAGE));
 		if (config.showAntiPoison() && event.getMessage().equals(SANFEW_SERUM_DRINK_MESSAGE))
 		{
 			createGameTimer(SANFEW);
