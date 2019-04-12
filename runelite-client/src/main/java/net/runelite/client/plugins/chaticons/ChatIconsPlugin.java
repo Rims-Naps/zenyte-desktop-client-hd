@@ -2,13 +2,11 @@ package net.runelite.client.plugins.chaticons;
 
 import com.google.inject.Provides;
 import net.runelite.api.Client;
-import net.runelite.api.Varbits;
 import net.runelite.api.events.SetMessage;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.chatnotifications.ChatNotificationsConfig;
 
 import javax.inject.Inject;
 
@@ -36,11 +34,14 @@ public class ChatIconsPlugin extends Plugin {
     @Subscribe
     public void onSetMessage(SetMessage message) {
         String name = message.getName();
-        if (config.hideMemberIcons() && name != null && name.contains("<member=")) {
-            name = name.replaceAll("\\<member=([0-9]|10)>", "");
+        if (name == null) {
+            return;
+        }
+        if (config.hideMemberIcons() && name.contains("<member=")) {
+            name = name.replaceAll("<member=([0-9]|10)>", "");
         }
         if (!config.displayAllIcons()) {
-            name = name.replaceAll("\\<irm=([0-9]|10)>", "");
+            name = name.replaceAll("<irm=([0-9]|10)>", "");
         }
         System.out.println(name);
         message.getMessageNode().setName(name);

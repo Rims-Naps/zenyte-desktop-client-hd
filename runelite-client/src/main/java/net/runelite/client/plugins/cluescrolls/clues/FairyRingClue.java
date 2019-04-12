@@ -25,14 +25,10 @@
 package net.runelite.client.plugins.cluescrolls.clues;
 
 import com.google.common.collect.ImmutableSet;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.util.Set;
 import lombok.Getter;
 import net.runelite.api.ItemID;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
-import static net.runelite.client.plugins.cluescrolls.ClueScrollOverlay.TITLED_CONTENT_COLOR;
 import net.runelite.client.plugins.cluescrolls.ClueScrollPlugin;
 import net.runelite.client.plugins.cluescrolls.clues.emote.ItemRequirement;
 import net.runelite.client.plugins.cluescrolls.clues.emote.SingleItemRequirement;
@@ -40,6 +36,11 @@ import net.runelite.client.ui.overlay.OverlayUtil;
 import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 import net.runelite.client.ui.overlay.components.TitleComponent;
+
+import java.awt.*;
+import java.util.Set;
+
+import static net.runelite.client.plugins.cluescrolls.ClueScrollOverlay.TITLED_CONTENT_COLOR;
 
 @Getter
 public class FairyRingClue extends ClueScroll implements TextClueScroll, LocationClueScroll

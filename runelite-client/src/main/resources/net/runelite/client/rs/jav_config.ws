@@ -1,6 +1,6 @@
 title=Zenyte
 adverturl=http://www.runescape.com/g=oldscape/bare_advert.ws
-codebase=http://192.154.213.172
+codebase=http://127.0.0.1
 cachedir=oldschool
 storebase=0
 initial_jar=gamepack_9323006.jar
@@ -48,7 +48,7 @@ param=6=1
 param=13=.runescape.com
 param=10=5
 param=15=0
-param=5=0
+param=5=33
 param=1=1
 param=3=true
 param=17=http://www.runescape.com/g=oldscape/slr.ws?order=LPWM

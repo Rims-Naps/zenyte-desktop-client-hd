@@ -229,7 +229,6 @@ public class class133 implements Runnable {
                         } else {
                             var13 = var18 ? 90 : 2;
                         }
-
                         ChatLine.method5672(var13, (staffRank.icon == -1 ? "" : WorldMapDecoration.getModIcon(staffRank.icon)) + WorldMapDecoration.getIronManIcon(ironmanRank.icon) + WorldMapDecoration.getMemberIcon(member) + var3.name.method4713(), var16);
                         /*if (staffRank.icon != -1) {
                             ChatLine.method5672(var13, WorldMapDecoration.getModIcon(staffRank.icon) + var3.name.method4713(), var16);

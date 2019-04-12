@@ -1,9 +1,10 @@
 package net.runelite.standalone;
 
-import java.util.Random;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSFontTypeFace;
+
+import java.util.Random;
 
 @ObfuscatedName("kx")
 public abstract class FontTypeFace extends Rasterizer2D implements RSFontTypeFace {

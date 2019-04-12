@@ -239,11 +239,6 @@
 			<version>${guice.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.sun.jdk</groupId>
-			<artifactId>plugin</artifactId>
-			<version>0.0.1</version>
-		</dependency>
 	</dependencies>
 
 	<build>
