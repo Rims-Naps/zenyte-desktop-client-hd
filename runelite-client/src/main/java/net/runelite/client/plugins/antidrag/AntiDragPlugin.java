@@ -26,7 +26,9 @@ package net.runelite.client.plugins.antidrag;
 
 import com.google.inject.Provides;
 import net.runelite.api.Client;
+import net.runelite.api.events.ConfigChanged;
 import net.runelite.client.config.ConfigManager;
+import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 
@@ -65,5 +67,12 @@ public class AntiDragPlugin extends Plugin
 	{
 		client.setInventoryDragDelay(DEFAULT_DELAY);
 	}
+
+    @Subscribe
+    public void onConfigChanged(ConfigChanged event) {
+        if (event.getGroup().equals("antiDrag")) {
+            client.setInventoryDragDelay(config.dragDelay());
+        }
+    }
 
 }
