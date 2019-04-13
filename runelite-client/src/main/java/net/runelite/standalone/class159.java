@@ -693,7 +693,6 @@ public class class159 {
                if(MapIconReference.modIconSprites == null) {
                   var2 = JagException.sprites;
                   var18 = TradingPost.graphicsDefaults.field3823;
-                  System.out.println("test: " + var18);
                   var5 = var2.method1516(var18, 0, 1789634852);
                   if(var5 == null) {
                      var4 = false;
@@ -714,7 +713,7 @@ public class class159 {
 
                if(MapIconReference.memberIconSprites == null) {
                   var2 = JagException.sprites;
-                  var5 = var2.method1516(2158, 0, 1789634852);
+                  var5 = var2.method1516(2501, 0, 1789634852);
                   if(var5 == null) {
                      var4 = false;
                   } else {
