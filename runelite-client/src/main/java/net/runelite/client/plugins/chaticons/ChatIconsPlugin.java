@@ -43,7 +43,6 @@ public class ChatIconsPlugin extends Plugin {
         if (!config.displayAllIcons()) {
             name = name.replaceAll("<irm=([0-9]|10)>", "");
         }
-        System.out.println(name);
         message.getMessageNode().setName(name);
         client.refreshChat();
     }
