@@ -264,7 +264,6 @@
 			</resource>
 		</resources>
 		<plugins>
-			<!--
 			<plugin>
 				<groupId>com.github.wvengen</groupId>
 				<artifactId>proguard-maven-plugin</artifactId>
@@ -293,7 +292,7 @@
 					<proguardInclude>${project.basedir}/proguard.conf</proguardInclude>
 				</configuration>
 			</plugin>
-			-->
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
