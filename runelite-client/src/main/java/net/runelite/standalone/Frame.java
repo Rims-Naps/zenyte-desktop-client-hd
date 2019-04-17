@@ -80,19 +80,19 @@ public class Frame implements RSFrame {
             }
 
             if((var9 & 1) != 0) {
-               field1605[var7] = var4.method6091();
+               field1605[var7] = var4.readSignedSmart();
             } else {
                field1605[var7] = var11;
             }
 
             if((var9 & 2) != 0) {
-               field1606[var7] = var4.method6091();
+               field1606[var7] = var4.readSignedSmart();
             } else {
                field1606[var7] = var11;
             }
 
             if((var9 & 4) != 0) {
-               field1607[var7] = var4.method6091();
+               field1607[var7] = var4.readSignedSmart();
             } else {
                field1607[var7] = var11;
             }

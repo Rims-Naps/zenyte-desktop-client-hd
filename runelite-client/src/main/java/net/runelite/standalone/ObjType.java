@@ -565,7 +565,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
                this.retexD[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 == 42) {
-            this.shiftClickIndex = var1.method6240();
+            this.shiftClickIndex = var1.readSignedByte();
          } else if(var2 == 65) {
             this.stockmarket = true;
          } else if(var2 == 78) {
@@ -601,9 +601,9 @@ public class ObjType extends CacheableNode implements RSItemComposition {
          } else if(var2 == 112) {
             this.resizeZ = var1.readUnsignedShort();
          } else if(var2 == 113) {
-            this.ambient = var1.method6240();
+            this.ambient = var1.readSignedByte();
          } else if(var2 == 114) {
-            this.contrast = var1.method6240();
+            this.contrast = var1.readSignedByte();
          } else if(var2 == 115) {
             this.team = var1.readUnsignedByte();
          } else if(var2 == 139) {

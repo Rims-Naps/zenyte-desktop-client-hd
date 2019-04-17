@@ -27,13 +27,7 @@
 package net.runelite.client.plugins.dailytaskindicators;
 
 import com.google.inject.Provides;
-import javax.inject.Inject;
-import net.runelite.api.ChatMessageType;
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.api.VarClientInt;
-import net.runelite.api.VarPlayer;
-import net.runelite.api.Varbits;
+import net.runelite.api.*;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.vars.AccountType;
@@ -46,9 +40,13 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 
+import javax.inject.Inject;
+
 @PluginDescriptor(
 	name = "Daily Task Indicator",
-	description = "Show chat notifications for daily tasks upon login"
+	description = "Show chat notifications for daily tasks upon login",
+    hidden = true,
+    enabledByDefault = false
 )
 public class DailyTasksPlugin extends Plugin
 {

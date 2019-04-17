@@ -373,9 +373,9 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
       } else if(var2 == 99) {
          this.isVisible = true;
       } else if(var2 == 100) {
-         this.ambient = var1.method6240();
+         this.ambient = var1.readSignedByte();
       } else if(var2 == 101) {
-         this.contrast = var1.method6240() * 5;
+         this.contrast = var1.readSignedByte() * 5;
       } else if(var2 == 102) {
          this.headIcon = var1.readUnsignedShort();
       } else if(var2 == 103) {

@@ -583,8 +583,8 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
    final void method2889(Packet var1) {
       var1.offset = 0;
       int var2 = var1.readUnsignedByte();
-      this.skullIcon = var1.method6240();
-      this.overheadIcon = var1.method6240();
+      this.skullIcon = var1.readSignedByte();
+      this.overheadIcon = var1.readSignedByte();
       int var3 = -1;
       this.team = 0;
       int[] var4 = new int[12];

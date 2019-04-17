@@ -168,7 +168,7 @@ public class AudioInstrument {
          }
 
          this.oscillatorVolume[var3] = var4;
-         this.oscillatorPitch[var3] = var1.method6091();
+         this.oscillatorPitch[var3] = var1.readSignedSmart();
          this.oscillatorDelays[var3] = var1.method6092();
       }
 
