@@ -433,7 +433,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(I)B",
       garbageValue = "2043532631"
    )
-   public byte method6240() {
+   public byte readSignedByte() {
       return this.payload[++this.offset - 1];
    }
 
@@ -640,7 +640,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(I)I",
       garbageValue = "1982278071"
    )
-   public int method6091() {
+   public int readSignedSmart() {
       int var1 = this.payload[this.offset] & 255;
       return var1 < 128?this.readUnsignedByte() - 64:this.readUnsignedShort() - 49152;
    }

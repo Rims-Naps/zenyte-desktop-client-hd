@@ -169,7 +169,7 @@ public class FrameMap extends Node implements RSFrameMap {
             }
 
             if(var7 <= 49) {
-               class82.tileOverlayIds[var1][var2][var3] = var0.method6240();
+               class82.tileOverlayIds[var1][var2][var3] = var0.readSignedByte();
                class98.tileOverlayPath[var1][var2][var3] = (byte)((var7 - 2) / 4);
                class157.overlayRotations[var1][var2][var3] = (byte)(var7 - 2 + var6 & 3);
             } else if(var7 <= 81) {

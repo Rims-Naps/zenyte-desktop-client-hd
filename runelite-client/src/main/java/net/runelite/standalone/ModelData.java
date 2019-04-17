@@ -409,7 +409,7 @@ public class ModelData extends Entity implements RSModelData {
          var2.offset = 0;
 
          for(var26 = 0; var26 < var11; ++var26) {
-            byte var27 = this.textureRenderTypes[var26] = var2.method6240();
+            byte var27 = this.textureRenderTypes[var26] = var2.readSignedByte();
             if(var27 == 0) {
                ++var23;
             }
@@ -545,17 +545,17 @@ public class ModelData extends Entity implements RSModelData {
          var52 = var2.readUnsignedByte();
          var53 = 0;
          if((var52 & 1) != 0) {
-            var53 = var3.method6091();
+            var53 = var3.readSignedSmart();
          }
 
          var54 = 0;
          if((var52 & 2) != 0) {
-            var54 = var4.method6091();
+            var54 = var4.readSignedSmart();
          }
 
          var55 = 0;
          if((var52 & 4) != 0) {
-            var55 = var5.method6091();
+            var55 = var5.readSignedSmart();
          }
 
          this.vertexX[var51] = var48 + var53;
@@ -580,15 +580,15 @@ public class ModelData extends Entity implements RSModelData {
       for(var51 = 0; var51 < var10; ++var51) {
          this.faceColor[var51] = (short)var2.readUnsignedShort();
          if(var12 == 1) {
-            this.faceRenderType[var51] = var3.method6240();
+            this.faceRenderType[var51] = var3.readSignedByte();
          }
 
          if(var13 == 255) {
-            this.faceRenderPriorities[var51] = var4.method6240();
+            this.faceRenderPriorities[var51] = var4.readSignedByte();
          }
 
          if(var14 == 1) {
-            this.faceAlphas[var51] = var5.method6240();
+            this.faceAlphas[var51] = var5.readSignedByte();
          }
 
          if(var15 == 1) {
@@ -615,9 +615,9 @@ public class ModelData extends Entity implements RSModelData {
       for(var55 = 0; var55 < var10; ++var55) {
          var56 = var3.readUnsignedByte();
          if(var56 == 1) {
-            var51 = var2.method6091() + var54;
-            var52 = var2.method6091() + var51;
-            var53 = var2.method6091() + var52;
+            var51 = var2.readSignedSmart() + var54;
+            var52 = var2.readSignedSmart() + var51;
+            var53 = var2.readSignedSmart() + var52;
             var54 = var53;
             this.trianglePointsX[var55] = var51;
             this.trianglePointsY[var55] = var52;
@@ -626,7 +626,7 @@ public class ModelData extends Entity implements RSModelData {
 
          if(var56 == 2) {
             var52 = var53;
-            var53 = var2.method6091() + var54;
+            var53 = var2.readSignedSmart() + var54;
             var54 = var53;
             this.trianglePointsX[var55] = var51;
             this.trianglePointsY[var55] = var52;
@@ -635,7 +635,7 @@ public class ModelData extends Entity implements RSModelData {
 
          if(var56 == 3) {
             var51 = var53;
-            var53 = var2.method6091() + var54;
+            var53 = var2.readSignedSmart() + var54;
             var54 = var53;
             this.trianglePointsX[var55] = var51;
             this.trianglePointsY[var55] = var52;
@@ -646,7 +646,7 @@ public class ModelData extends Entity implements RSModelData {
             int var57 = var51;
             var51 = var52;
             var52 = var57;
-            var53 = var2.method6091() + var54;
+            var53 = var2.readSignedSmart() + var54;
             var54 = var53;
             this.trianglePointsX[var55] = var51;
             this.trianglePointsY[var55] = var57;
@@ -803,17 +803,17 @@ public class ModelData extends Entity implements RSModelData {
          var39 = var4.readUnsignedByte();
          var40 = 0;
          if((var39 & 1) != 0) {
-            var40 = var5.method6091();
+            var40 = var5.readSignedSmart();
          }
 
          var41 = 0;
          if((var39 & 2) != 0) {
-            var41 = var6.method6091();
+            var41 = var6.readSignedSmart();
          }
 
          var42 = 0;
          if((var39 & 4) != 0) {
-            var42 = var7.method6091();
+            var42 = var7.readSignedSmart();
          }
 
          this.vertexX[var38] = var35 + var40;
@@ -858,11 +858,11 @@ public class ModelData extends Entity implements RSModelData {
          }
 
          if(var13 == 255) {
-            this.faceRenderPriorities[var38] = var6.method6240();
+            this.faceRenderPriorities[var38] = var6.readSignedByte();
          }
 
          if(var14 == 1) {
-            this.faceAlphas[var38] = var7.method6240();
+            this.faceAlphas[var38] = var7.readSignedByte();
          }
 
          if(var15 == 1) {
@@ -882,9 +882,9 @@ public class ModelData extends Entity implements RSModelData {
       for(var42 = 0; var42 < var10; ++var42) {
          var43 = var5.readUnsignedByte();
          if(var43 == 1) {
-            var38 = var4.method6091() + var41;
-            var39 = var4.method6091() + var38;
-            var40 = var4.method6091() + var39;
+            var38 = var4.readSignedSmart() + var41;
+            var39 = var4.readSignedSmart() + var38;
+            var40 = var4.readSignedSmart() + var39;
             var41 = var40;
             this.trianglePointsX[var42] = var38;
             this.trianglePointsY[var42] = var39;
@@ -893,7 +893,7 @@ public class ModelData extends Entity implements RSModelData {
 
          if(var43 == 2) {
             var39 = var40;
-            var40 = var4.method6091() + var41;
+            var40 = var4.readSignedSmart() + var41;
             var41 = var40;
             this.trianglePointsX[var42] = var38;
             this.trianglePointsY[var42] = var39;
@@ -902,7 +902,7 @@ public class ModelData extends Entity implements RSModelData {
 
          if(var43 == 3) {
             var38 = var40;
-            var40 = var4.method6091() + var41;
+            var40 = var4.readSignedSmart() + var41;
             var41 = var40;
             this.trianglePointsX[var42] = var38;
             this.trianglePointsY[var42] = var39;
@@ -913,7 +913,7 @@ public class ModelData extends Entity implements RSModelData {
             var44 = var38;
             var38 = var39;
             var39 = var44;
-            var40 = var4.method6091() + var41;
+            var40 = var4.readSignedSmart() + var41;
             var41 = var40;
             this.trianglePointsX[var42] = var38;
             this.trianglePointsY[var42] = var44;

@@ -863,10 +863,10 @@ public class ComponentType extends Node implements RSWidget {
          this.sizeY = var1.readUnsignedShort();
       }
 
-      this.sizeXmode = var1.method6240();
-      this.sizeYmode = var1.method6240();
-      this.posXmode = var1.method6240();
-      this.posYmode = var1.method6240();
+      this.sizeXmode = var1.readSignedByte();
+      this.sizeYmode = var1.readSignedByte();
+      this.posXmode = var1.readSignedByte();
+      this.posYmode = var1.readSignedByte();
       this.layer = var1.readUnsignedShort();
       if(this.layer == 65535) {
          this.layer = -1;

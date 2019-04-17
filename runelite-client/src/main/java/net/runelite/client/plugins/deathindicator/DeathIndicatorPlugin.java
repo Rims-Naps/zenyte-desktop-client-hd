@@ -26,12 +26,6 @@ package net.runelite.client.plugins.deathindicator;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.Provides;
-import java.awt.image.BufferedImage;
-import java.time.Duration;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.Set;
-import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
@@ -50,6 +44,13 @@ import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.ui.overlay.infobox.Timer;
 import net.runelite.client.ui.overlay.worldmap.WorldMapPointManager;
 import net.runelite.client.util.ImageUtil;
+
+import javax.inject.Inject;
+import java.awt.image.BufferedImage;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.Set;
 
 @PluginDescriptor(
 	name = "Death Indicator",
@@ -309,7 +310,7 @@ public class DeathIndicatorPlugin extends Plugin
 		if (hasDied() && config.showDeathInfoBox())
 		{
 			Instant now = Instant.now();
-			Duration timeLeft = Duration.ofHours(1).minus(Duration.between(config.timeOfDeath(), now));
+			Duration timeLeft = Duration.ofMinutes(3).minus(Duration.between(config.timeOfDeath(), now));
 			if (!timeLeft.isNegative() && !timeLeft.isZero())
 			{
 				deathTimer = new Timer(timeLeft.getSeconds(), ChronoUnit.SECONDS, getBonesImage(), this);

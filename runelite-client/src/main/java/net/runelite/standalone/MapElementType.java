@@ -190,7 +190,7 @@ public class MapElementType extends CacheableNode implements RSMapElementConfig 
             this.field3330 = new byte[var3];
 
             for(var5 = 0; var5 < var3; ++var5) {
-               this.field3330[var5] = var1.method6240();
+               this.field3330[var5] = var1.readSignedByte();
             }
          } else if(var2 != 16) {
             if(var2 == 17) {

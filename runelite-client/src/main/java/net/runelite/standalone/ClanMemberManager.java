@@ -96,7 +96,7 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
    public final void method4642(Packet var1) {
       Name var2 = new Name(var1.readString(), this.field3727);
       int var3 = var1.readUnsignedShort();
-      byte var4 = var1.method6240();
+      byte var4 = var1.readSignedByte();
       boolean var5 = false;
       if(var4 == -128) {
          var5 = true;
@@ -160,7 +160,7 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
       this.method4663(var1.readString());
       long var2 = var1.method6084();
       this.method4639(GameSocket.method4295(var2));
-      this.field3731 = var1.method6240();
+      this.field3731 = var1.readSignedByte();
       int var4 = var1.readUnsignedShort();
       if(var4 != 65535) {
          this.method5224();
@@ -169,7 +169,7 @@ public class ClanMemberManager extends NameableContainer implements RSClanMember
             ClanMember var6 = (ClanMember)this.method5302(new Name(var1.readString(), this.field3727));
             int var7 = var1.readUnsignedShort();
             var6.method794(var7, ++this.field3729 - 1);
-            var6.rank = var1.method6240();
+            var6.rank = var1.readSignedByte();
             var1.readString();
             this.method4645(var6);
          }

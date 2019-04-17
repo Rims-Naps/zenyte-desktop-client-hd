@@ -51,7 +51,7 @@ public class class196 extends Node {
 
       int var5;
       for(var5 = 0; var5 < var3; ++var5) {
-         var4[var5] = var2.method6240();
+         var4[var5] = var2.readSignedByte();
       }
 
       ++var2.offset;
@@ -68,7 +68,7 @@ public class class196 extends Node {
 
       int var8;
       for(var8 = 0; var8 < var6; ++var8) {
-         var7[var8] = var2.method6240();
+         var7[var8] = var2.readSignedByte();
       }
 
       ++var2.offset;
@@ -84,7 +84,7 @@ public class class196 extends Node {
       byte[] var10 = new byte[var9];
 
       for(int var11 = 0; var11 < var9; ++var11) {
-         var10[var11] = var2.method6240();
+         var10[var11] = var2.readSignedByte();
       }
 
       ++var2.offset;
@@ -146,7 +146,7 @@ public class class196 extends Node {
 
       int var19;
       for(var19 = 0; var19 < var17; ++var19) {
-         var18[var19] = var2.method6240();
+         var18[var19] = var2.readSignedByte();
       }
 
       ++var2.offset;
@@ -281,26 +281,26 @@ public class class196 extends Node {
          var28 = var39[var27];
          if(var28.field2521 != null) {
             for(var29 = 1; var29 < var28.field2521.length; var29 += 2) {
-               var28.field2521[var29] = var2.method6240();
+               var28.field2521[var29] = var2.readSignedByte();
             }
          }
 
          if(var28.field2524 != null) {
             for(var29 = 3; var29 < var28.field2524.length - 2; var29 += 2) {
-               var28.field2524[var29] = var2.method6240();
+               var28.field2524[var29] = var2.readSignedByte();
             }
          }
       }
 
       if(var47 != null) {
          for(var27 = 1; var27 < var47.length; var27 += 2) {
-            var47[var27] = var2.method6240();
+            var47[var27] = var2.readSignedByte();
          }
       }
 
       if(var41 != null) {
          for(var27 = 1; var27 < var41.length; var27 += 2) {
-            var41[var27] = var2.method6240();
+            var41[var27] = var2.readSignedByte();
          }
       }
 
