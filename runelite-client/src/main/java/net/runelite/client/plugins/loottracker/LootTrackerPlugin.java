@@ -82,8 +82,7 @@ import net.runelite.http.api.loottracker.LootTrackerClient;
 @PluginDescriptor(
 	name = "Loot Tracker",
 	description = "Tracks loot from monsters and minigames",
-	tags = {"drops"},
-	enabledByDefault = false
+	tags = {"drops"}
 )
 @Slf4j
 public class LootTrackerPlugin extends Plugin
