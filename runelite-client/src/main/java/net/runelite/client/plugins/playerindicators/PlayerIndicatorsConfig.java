@@ -24,10 +24,11 @@
  */
 package net.runelite.client.plugins.playerindicators;
 
-import java.awt.Color;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
+
+import java.awt.*;
 
 @ConfigGroup("playerindicators")
 public interface PlayerIndicatorsConfig extends Config
@@ -84,7 +85,7 @@ public interface PlayerIndicatorsConfig extends Config
 	)
 	default boolean drawClanMemberNames()
 	{
-		return true;
+		return false;
 	}
 
 	@ConfigItem(
