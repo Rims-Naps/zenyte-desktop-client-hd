@@ -37,6 +37,7 @@ import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.LayoutManager;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
@@ -52,6 +53,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
@@ -93,7 +95,7 @@ import org.pushingpixels.substance.internal.utils.SubstanceCoreUtilities;
 import org.pushingpixels.substance.internal.utils.SubstanceTitlePaneUtilities;
 
 /**
- * client UI.
+ * Client UI.
  */
 @Slf4j
 @Singleton
@@ -136,13 +138,13 @@ public class ClientUI
 
 	@Inject
 	private ClientUI(
-		RuneLiteProperties properties,
-		RuneLiteConfig config,
-		KeyManager keyManager,
-		MouseManager mouseManager,
-		@Nullable Applet client,
-		ConfigManager configManager,
-		Provider<ClientThread> clientThreadProvider)
+			RuneLiteProperties properties,
+			RuneLiteConfig config,
+			KeyManager keyManager,
+			MouseManager mouseManager,
+			@Nullable Applet client,
+			ConfigManager configManager,
+			Provider<ClientThread> clientThreadProvider)
 	{
 		this.properties = properties;
 		this.config = config;
@@ -157,8 +159,8 @@ public class ClientUI
 	public void onConfigChanged(ConfigChanged event)
 	{
 		if (!event.getGroup().equals("runelite") ||
-			event.getKey().equals(CONFIG_CLIENT_MAXIMIZED) ||
-			event.getKey().equals(CONFIG_CLIENT_BOUNDS))
+				event.getKey().equals(CONFIG_CLIENT_MAXIMIZED) ||
+				event.getKey().equals(CONFIG_CLIENT_BOUNDS))
 		{
 			return;
 		}
@@ -223,10 +225,12 @@ public class ClientUI
 			if (inTitle)
 			{
 				titleToolbar.addComponent(event.getButton(), button);
+				titleToolbar.revalidate();
 			}
 			else
 			{
 				pluginToolbar.addComponent(event.getButton(), button);
+				pluginToolbar.revalidate();
 			}
 		});
 	}
@@ -237,7 +241,9 @@ public class ClientUI
 		SwingUtilities.invokeLater(() ->
 		{
 			pluginToolbar.removeComponent(event.getButton());
+			pluginToolbar.revalidate();
 			titleToolbar.removeComponent(event.getButton());
+			titleToolbar.revalidate();
 			final PluginPanel pluginPanel = event.getButton().getPanel();
 
 			if (pluginPanel != null)
@@ -317,12 +323,12 @@ public class ClientUI
 			frame.setResizable(true);
 
 			SwingUtil.addGracefulExitCallback(frame,
-				() ->
-				{
-					saveClientBoundsConfig();
-					runelite.shutdown();
-				},
-				this::showWarningOnExit
+					() ->
+					{
+						saveClientBoundsConfig();
+						runelite.shutdown();
+					},
+					this::showWarningOnExit
 			);
 
 			container = new JPanel();
@@ -345,7 +351,7 @@ public class ClientUI
 
 			// Add key listener
 			final HotkeyListener sidebarListener = new HotkeyListener(() ->
-				new Keybind(KeyEvent.VK_F11, InputEvent.CTRL_DOWN_MASK))
+					new Keybind(KeyEvent.VK_F11, InputEvent.CTRL_DOWN_MASK))
 			{
 				@Override
 				public void hotkeyPressed()
@@ -434,16 +440,16 @@ public class ClientUI
 			sidebarClosedIcon = ImageUtil.flipImage(sidebarOpenIcon, true, false);
 
 			sidebarNavigationButton = NavigationButton
-				.builder()
-				.priority(100)
-				.icon(sidebarClosedIcon)
-				.onClick(this::toggleSidebar)
-				.build();
+					.builder()
+					.priority(100)
+					.icon(sidebarClosedIcon)
+					.onClick(this::toggleSidebar)
+					.build();
 
 			sidebarNavigationJButton = SwingUtil.createSwingButton(
-				sidebarNavigationButton,
-				0,
-				null);
+					sidebarNavigationButton,
+					0,
+					null);
 
 			titleToolbar.addComponent(sidebarNavigationButton, sidebarNavigationJButton);
 			toggleSidebar();
@@ -461,7 +467,7 @@ public class ClientUI
 				try
 				{
 					Rectangle clientBounds = configManager.getConfiguration(
-						CONFIG_GROUP, CONFIG_CLIENT_BOUNDS, Rectangle.class);
+							CONFIG_GROUP, CONFIG_CLIENT_BOUNDS, Rectangle.class);
 					if (clientBounds != null)
 					{
 						frame.setBounds(clientBounds);
@@ -494,9 +500,9 @@ public class ClientUI
 			Rectangle clientBounds = frame.getBounds();
 			Rectangle screenBounds = frame.getGraphicsConfiguration().getBounds();
 			if (clientBounds.x + clientBounds.width - CLIENT_WELL_HIDDEN_MARGIN < screenBounds.getX() ||
-				clientBounds.x + CLIENT_WELL_HIDDEN_MARGIN > screenBounds.getX() + screenBounds.getWidth() ||
-				clientBounds.y + CLIENT_WELL_HIDDEN_MARGIN_TOP < screenBounds.getY() ||
-				clientBounds.y + CLIENT_WELL_HIDDEN_MARGIN > screenBounds.getY() + screenBounds.getHeight())
+					clientBounds.x + CLIENT_WELL_HIDDEN_MARGIN > screenBounds.getX() + screenBounds.getWidth() ||
+					clientBounds.y + CLIENT_WELL_HIDDEN_MARGIN_TOP < screenBounds.getY() ||
+					clientBounds.y + CLIENT_WELL_HIDDEN_MARGIN > screenBounds.getY() + screenBounds.getHeight())
 			{
 				frame.setLocationRelativeTo(frame.getOwner());
 			}
@@ -510,13 +516,19 @@ public class ClientUI
 		});
 
 		// Show out of date dialog if needed
-		final boolean isOutdated = !(client instanceof Client);
-		if (isOutdated)
+		if (client == null)
 		{
 			SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(frame,
-				"RuneLite has not yet been updated to work with the latest\n"
-					+ "game update, it will work with reduced functionality until then.",
-				"RuneLite is outdated", INFORMATION_MESSAGE));
+					"Error loading client! Check your logs for more details.",
+					"Unable to load client",
+					ERROR_MESSAGE));
+		}
+		else if (!(client instanceof Client))
+		{
+			SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(frame,
+					"RuneLite has not yet been updated to work with the latest\n"
+							+ "game update, it will work with reduced functionality until then.",
+					"RuneLite is outdated", INFORMATION_MESSAGE));
 		}
 	}
 
@@ -591,6 +603,38 @@ public class ClientUI
 	}
 
 	/**
+	 * Changes cursor for client window. Requires ${@link ClientUI#open(RuneLite)} to be called first.
+	 * FIXME: This is working properly only on Windows, Linux and Mac are displaying cursor incorrectly
+	 * @param image cursor image
+	 * @param name cursor name
+	 */
+	public void setCursor(final BufferedImage image, final String name)
+	{
+		if (container == null)
+		{
+			return;
+		}
+
+		final java.awt.Point hotspot = new java.awt.Point(container.getX(), container.getY());
+		final Cursor cursorAwt = Toolkit.getDefaultToolkit().createCustomCursor(image, hotspot, name);
+		container.setCursor(cursorAwt);
+	}
+
+	/**
+	 * Resets client window cursor to default one.
+	 * @see ClientUI#setCursor(BufferedImage, String)
+	 */
+	public void resetCursor()
+	{
+		if (container == null)
+		{
+			return;
+		}
+
+		container.setCursor(Cursor.getDefaultCursor());
+	}
+
+	/**
 	 * Get offset of game canvas in game window
 	 *
 	 * @return game canvas offset
@@ -627,15 +671,15 @@ public class ClientUI
 		// Offset sidebar button if resizable mode logout is visible
 		final Widget logoutButton = client.getWidget(WidgetInfo.RESIZABLE_VIEWPORT_BOTTOM_LINE_LOGOUT_BUTTON);
 		final int y = logoutButton != null && !logoutButton.isHidden() && logoutButton.getParent() != null
-			? logoutButton.getHeight() + logoutButton.getRelativeY()
-			: 5;
+				? logoutButton.getHeight() + logoutButton.getRelativeY()
+				: 5;
 
 		final BufferedImage image = sidebarOpen ? sidebarClosedIcon : sidebarOpenIcon;
 
 		final Rectangle sidebarButtonRange = new Rectangle(x - 15, 0, image.getWidth() + 25, client.getRealDimensions().height);
 		final Point mousePosition = new Point(
-			client.getMouseCanvasPosition().getX() + client.getViewportXOffset(),
-			client.getMouseCanvasPosition().getY() + client.getViewportYOffset());
+				client.getMouseCanvasPosition().getX() + client.getViewportXOffset(),
+				client.getMouseCanvasPosition().getY() + client.getViewportYOffset());
 
 		if (sidebarButtonRange.contains(mousePosition.getX(), mousePosition.getY()))
 		{
