@@ -28,32 +28,24 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.google.inject.Provides;
-import java.util.HashSet;
-import java.util.Set;
-import javax.inject.Inject;
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.api.Skill;
-import net.runelite.api.VarPlayer;
-import net.runelite.api.Varbits;
-import net.runelite.api.events.ConfigChanged;
-import net.runelite.api.events.GameStateChanged;
-import net.runelite.api.events.VarbitChanged;
-import net.runelite.api.events.WidgetHiddenChanged;
-import net.runelite.api.events.WidgetLoaded;
+import net.runelite.api.*;
+import net.runelite.api.events.*;
 import net.runelite.api.widgets.Widget;
-import static net.runelite.api.widgets.WidgetID.COMBAT_GROUP_ID;
 import net.runelite.api.widgets.WidgetInfo;
-import static net.runelite.api.widgets.WidgetInfo.TO_GROUP;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import static net.runelite.client.plugins.attackstyles.AttackStyle.CASTING;
-import static net.runelite.client.plugins.attackstyles.AttackStyle.DEFENSIVE_CASTING;
-import static net.runelite.client.plugins.attackstyles.AttackStyle.OTHER;
 import net.runelite.client.ui.overlay.OverlayManager;
+
+import javax.inject.Inject;
+import java.util.HashSet;
+import java.util.Set;
+
+import static net.runelite.api.widgets.WidgetID.COMBAT_GROUP_ID;
+import static net.runelite.api.widgets.WidgetInfo.TO_GROUP;
+import static net.runelite.client.plugins.attackstyles.AttackStyle.*;
 
 @PluginDescriptor(
 	name = "Attack Styles",
@@ -261,7 +253,9 @@ public class AttackStylesPlugin extends Plugin
 			else if ((attackStyle == CASTING) && (castingMode == 1))
 			{
 				attackStyle = DEFENSIVE_CASTING;
-			}
+			} else if ((attackStyle == DEFENSIVE_CASTING) && (castingMode == 0)) {
+			    attackStyle = CASTING;
+            }
 		}
 	}
 
