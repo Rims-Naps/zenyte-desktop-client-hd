@@ -42,6 +42,7 @@
 
 		<maven.javadoc.skip>true</maven.javadoc.skip>
 		<checkstyle.skip>true</checkstyle.skip>
+		<maven.deploy.skip>true</maven.deploy.skip>
 
 		<rs.version>177</rs.version>
 	</properties>

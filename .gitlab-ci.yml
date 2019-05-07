@@ -17,7 +17,7 @@ build:
 deploy:release:
   stage: deploy
   script:
-    - 'mvn $MAVEN_CLI_OPTS -DskipTests -pl runelite-client deploy --settings settings.xml'
+    - 'mvn $MAVEN_CLI_OPTS -DskipTests deploy --settings settings.xml'
   only:
     - master
   image: maven:3.6.0-jdk-8
@@ -25,7 +25,7 @@ deploy:release:
 deploy:preview:
   stage: deploy
   script:
-    - 'mvn $MAVEN_CLI_OPTS -DskipTests -pl runelite-client deploy --settings settings.xml -DaltDeploymentRepository=s3.artifacts.client::default::s3://zenyte-runelite/preview'
+    - 'mvn $MAVEN_CLI_OPTS -DskipTests deploy --settings settings.xml -DaltDeploymentRepository=s3.artifacts.client::default::s3://zenyte-runelite/preview'
   only:
     - develop
   image: maven:3.6.0-jdk-8
