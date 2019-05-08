@@ -1,9 +1,5 @@
 package net.runelite.standalone;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Polygon;
-import java.awt.geom.Area;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.Angle;
@@ -15,6 +11,9 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSGameObject;
 import net.runelite.rs.api.RSModel;
 import net.runelite.rs.api.RSRenderable;
+
+import java.awt.*;
+import java.awt.geom.Area;
 
 @ObfuscatedName("em")
 public final class GameObject implements RSGameObject {
@@ -790,12 +789,12 @@ public final class GameObject implements RSGameObject {
                var1.method1862(class96.field2624, class260.field103, var39, 16777215, 0);
             } else if(class316.loginIndex == 3) {
                var39 = 201;
-               var0.method1862("Invalid username or password.", class316.loginWindowX + 180, var39, 16776960, 0);
-               var40 = var39 + 20;
+               var0.method1862("Invalid username or password.", class316.loginWindowX + 180, var39 + 20, 16776960, 0);
+               /*var40 = var39 + 20;
                var1.method1862("For accounts created after 24th November 2010, please use your", class316.loginWindowX + 180, var40, 16776960, 0);
                var40 += 15;
                var1.method1862("email address to login. Otherwise please login with your username.", class316.loginWindowX + 180, var40, 16776960, 0);
-               var40 += 15;
+               var40 += 15;*/
                var23 = class316.loginWindowX + 180;
                var6 = 276;
                class226.field3801.method824(var23 - 73, var6 - 20);
