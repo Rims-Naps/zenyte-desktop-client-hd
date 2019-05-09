@@ -1,10 +1,11 @@
 package net.runelite.standalone;
 
-import java.io.EOFException;
-import java.io.IOException;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.io.EOFException;
+import java.io.IOException;
 
 @ObfuscatedName("dr")
 public class CacheFile {
@@ -458,6 +459,8 @@ public class CacheFile {
          class150.method2560("You need to vote to play!", "Visit runescape.com and vote,", "and then come back here!");
       } else if (var0 == 39) {
          class150.method2560("Zenyte has been updated!", "Please download the new client from discord.", "");
+      } else if (var0 == 40) {
+          class150.method2560("An account by that name does not exist!", "Register it at zenyte.com today!", "");
       } else if(var0 == 55) {
          class316.loginIndex = 8;
       } else {
