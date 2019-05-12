@@ -6768,7 +6768,7 @@ public final class client extends GameEngine implements class245, RSClient {
                   }
                }
 
-               if(var46.ignorable && class258.friendManager.method2348(new Name(var37, KeyFocusListener.loginType))) {
+               if(staffRank.ignorable && class258.friendManager.method2348(new Name(var37, KeyFocusListener.loginType))) {
                   var48 = true;
                }
 
