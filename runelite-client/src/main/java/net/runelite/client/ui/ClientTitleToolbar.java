@@ -34,7 +34,7 @@ import java.util.TreeMap;
 import javax.swing.JPanel;
 
 /**
- * client title toolbar component.
+ * Client title toolbar component.
  */
 class ClientTitleToolbar extends JPanel
 {
@@ -48,7 +48,7 @@ class ClientTitleToolbar extends JPanel
 			.result());
 
 	/**
-	 * Instantiates a new client title toolbar.
+	 * Instantiates a new Client title toolbar.
 	 */
 	ClientTitleToolbar()
 	{

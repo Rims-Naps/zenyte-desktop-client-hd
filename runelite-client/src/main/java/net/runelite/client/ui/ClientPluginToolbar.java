@@ -34,7 +34,7 @@ import javax.swing.Box;
 import javax.swing.JToolBar;
 
 /**
- * client plugin toolbar.
+ * Client plugin toolbar.
  */
 public class ClientPluginToolbar extends JToolBar
 {
@@ -48,7 +48,7 @@ public class ClientPluginToolbar extends JToolBar
 			.result());
 
 	/**
-	 * Instantiates a new client plugin toolbar.
+	 * Instantiates a new Client plugin toolbar.
 	 */
 	ClientPluginToolbar()
 	{

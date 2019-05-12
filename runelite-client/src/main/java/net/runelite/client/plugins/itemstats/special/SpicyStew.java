@@ -121,7 +121,7 @@ public class SpicyStew implements Effect
 	 *
 	 * @param stat Stat that the spice boost affects.
 	 * @param spiceBoost Potential spice boost before capping.
-	 * @param client client API, needed to check current stat values.
+	 * @param client Client API, needed to check current stat values.
 	 * @return StatChange object with all required values.
 	 */
 	private static StatChange statChangeOf(Stat stat, int spiceBoost, Client client)

@@ -661,7 +661,7 @@ public class TcpConnectionMessage extends Node {
             }
 
             class203.field1183 += var30;
-            var34 = (var30 + (client.gameCycle & 1)) / 2;
+            var34 = (var30 + (Client.gameCycle & 1)) / 2;
             if(var34 > 0) {
                for(var10 = 0; var10 < class203.field1183 * 100; ++var10) {
                   var35 = (int)(Math.random() * 124.0D) + 2;

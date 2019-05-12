@@ -183,7 +183,7 @@ public class RuneLite
 			System.exit(0);
 		}
 
-		final boolean developerMode = true;//options.has("developer-mode") && RuneLiteProperties.getLauncherVersion() == null;
+		final boolean developerMode = options.has("developer-mode") && RuneLiteProperties.getLauncherVersion() == null;
 
 		if (developerMode)
 		{
@@ -223,7 +223,7 @@ public class RuneLite
 		final long end = System.currentTimeMillis();
 		final RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
 		final long uptime = rb.getUptime();
-		log.info("client initialization took {}ms. Uptime: {}ms", end - start, uptime);
+		log.info("Client initialization took {}ms. Uptime: {}ms", end - start, uptime);
 	}
 
 	public void start() throws Exception

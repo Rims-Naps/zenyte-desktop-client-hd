@@ -95,7 +95,7 @@ import org.pushingpixels.substance.internal.utils.SubstanceCoreUtilities;
 import org.pushingpixels.substance.internal.utils.SubstanceTitlePaneUtilities;
 
 /**
- * client UI.
+ * Client UI.
  */
 @Slf4j
 @Singleton

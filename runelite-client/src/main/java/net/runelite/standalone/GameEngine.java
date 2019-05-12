@@ -667,7 +667,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
    public void onRun() {
       this.thread = Thread.currentThread();
-      this.thread.setName("client");
+      this.thread.setName("Client");
    }
 
    public void onFocusGained(FocusEvent var1) {

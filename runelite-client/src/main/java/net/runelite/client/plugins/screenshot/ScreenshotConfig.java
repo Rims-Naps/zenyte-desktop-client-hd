@@ -34,7 +34,7 @@ public interface ScreenshotConfig extends Config
 {
 	@ConfigItem(
 		keyName = "includeFrame",
-		name = "Include client Frame",
+		name = "Include Client Frame",
 		description = "Configures whether or not the client frame is included in screenshots",
 		position = 0
 	)
