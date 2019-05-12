@@ -92,6 +92,6 @@ public class XteaPlugin extends Plugin
 			return;
 		}
 
-		//xteaClient.submit(xteaRequest);
+		xteaClient.submit(xteaRequest);
 	}
 }

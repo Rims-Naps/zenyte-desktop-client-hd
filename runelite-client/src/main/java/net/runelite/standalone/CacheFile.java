@@ -1,156 +1,149 @@
 package net.runelite.standalone;
 
+import java.io.EOFException;
+import java.io.IOException;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-import java.io.EOFException;
-import java.io.IOException;
-
-@ObfuscatedName("dr")
+@ObfuscatedName("dx")
 public class CacheFile {
-   @ObfuscatedName("bd")
-   @ObfuscatedSignature(
-      signature = "[Lli;"
-   )
-   static IndexedSprite[] slFlagSprites;
-   @ObfuscatedName("gd")
-   static byte[][] field1487;
-   @ObfuscatedName("dk")
-   @ObfuscatedSignature(
-      signature = "Lfh;"
-   )
-   static class19 rssocket;
-   @ObfuscatedName("l")
+   @ObfuscatedName("f")
    @ObfuscatedGetter(
-      longValue = -277200491994427015L
+      longValue = 4118804273345043159L
    )
-   long field1485;
-   @ObfuscatedName("r")
-   byte[] readPayload;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      longValue = 1277770930526225981L
-   )
-   long field1479;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      longValue = -5186938574076129537L
-   )
-   long position;
+   long field1509;
    @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = 1488999961
-   )
-   int field1480;
-   @ObfuscatedName("p")
-   @ObfuscatedGetter(
-      longValue = -2308069962712316579L
-   )
-   long field1484;
-   @ObfuscatedName("b")
-   @ObfuscatedGetter(
-      intValue = -239280477
-   )
-   int field1483;
-   @ObfuscatedName("n")
-   @ObfuscatedGetter(
-      longValue = -9066355691531523715L
+      longValue = 8900813318100807425L
    )
    long length;
-   @ObfuscatedName("c")
-   byte[] writePayload;
-   @ObfuscatedName("i")
+   @ObfuscatedName("x")
    @ObfuscatedGetter(
-      longValue = 8433036264062733217L
+      intValue = 1529466497
+   )
+   int field1506;
+   @ObfuscatedName("m")
+   @ObfuscatedGetter(
+      longValue = -7495971393692368667L
+   )
+   long position;
+   @ObfuscatedName("p")
+   @ObfuscatedGetter(
+      intValue = 1377119707
+   )
+   int field1510;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      longValue = 7625560096165464275L
    )
    long capacity;
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Ldn;"
+      signature = "Lda;"
    )
    FileOnDisk accessFile;
+   @ObfuscatedName("n")
+   @ObfuscatedGetter(
+      longValue = -2543243651016552385L
+   )
+   long field1505;
+   @ObfuscatedName("s")
+   byte[] readPayload;
+   @ObfuscatedName("h")
+   byte[] writePayload;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      longValue = 3783110478113031363L
+   )
+   long field1514;
 
    @ObfuscatedSignature(
-      signature = "(Ldn;II)V"
+      signature = "(Lda;II)V"
    )
    public CacheFile(FileOnDisk var1, int var2, int var3) throws IOException {
-      this.field1479 = -1L;
-      this.field1485 = -1L;
-      this.field1483 = 0;
+      this.field1514 = -1L;
+      this.field1509 = -1L;
+      this.field1510 = 0;
       this.accessFile = var1;
-      this.capacity = this.length = var1.method148();
+      this.capacity = this.length = var1.method5053();
       this.readPayload = new byte[var2];
       this.writePayload = new byte[var3];
       this.position = 0L;
    }
 
-   @ObfuscatedName("r")
-   public void method2099(long var1) throws IOException {
-      if(var1 < 0L) {
-         throw new IOException("");
-      } else {
-         this.position = var1;
-      }
-   }
-
-   @ObfuscatedName("e")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "(B)J",
-      garbageValue = "1"
+      signature = "(I)V",
+      garbageValue = "964125546"
    )
-   public long method2111() {
-      return this.capacity;
+   void method5579() throws IOException {
+      this.field1506 = 0;
+      if(this.position != this.field1505) {
+         this.accessFile.method5049(this.position);
+         this.field1505 = this.position;
+      }
+
+      int var1;
+      for(this.field1514 = this.position; this.field1506 < this.readPayload.length; this.field1506 += var1) {
+         var1 = this.accessFile.method5054(this.readPayload, this.field1506, this.readPayload.length - this.field1506);
+         if(var1 == -1) {
+            break;
+         }
+
+         this.field1505 += (long)var1;
+      }
+
    }
 
-   @ObfuscatedName("q")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
       signature = "([BI)V",
-      garbageValue = "-604403753"
+      garbageValue = "1946104322"
    )
-   public void method2101(byte[] var1) throws IOException {
-      this.method2102(var1, 0, var1.length);
+   public void method5577(byte[] var1) throws IOException {
+      this.method5576(var1, 0, var1.length);
    }
 
    @ObfuscatedName("m")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "805418179"
+      signature = "(B)V",
+      garbageValue = "15"
    )
-   void method2107() throws IOException {
-      if(this.field1485 != -1L) {
-         if(this.field1484 != this.field1485) {
-            this.accessFile.method147(this.field1485);
-            this.field1484 = this.field1485;
+   void method5581() throws IOException {
+      if(-1L != this.field1509) {
+         if(this.field1509 != this.field1505) {
+            this.accessFile.method5049(this.field1509);
+            this.field1505 = this.field1509;
          }
 
-         this.accessFile.method145(this.writePayload, 0, this.field1483);
-         this.field1484 += (long)(this.field1483 * 136693003) * -239280477L;
-         if(this.field1484 > this.length) {
-            this.length = this.field1484;
+         this.accessFile.method5050(this.writePayload, 0, this.field1510);
+         this.field1505 += 1377119707L * (long)(this.field1510 * 1255999059);
+         if(this.field1505 > this.length) {
+            this.length = this.field1505;
          }
 
          long var1 = -1L;
          long var3 = -1L;
-         if(this.field1485 >= this.field1479 && this.field1485 < this.field1479 + (long)this.field1480) {
-            var1 = this.field1485;
-         } else if(this.field1479 >= this.field1485 && this.field1479 < this.field1485 + (long)this.field1483) {
-            var1 = this.field1479;
+         if(this.field1509 >= this.field1514 && this.field1509 < this.field1514 + (long)this.field1506) {
+            var1 = this.field1509;
+         } else if(this.field1514 >= this.field1509 && this.field1514 < (long)this.field1510 + this.field1509) {
+            var1 = this.field1514;
          }
 
-         if((long)this.field1483 + this.field1485 > this.field1479 && this.field1485 + (long)this.field1483 <= (long)this.field1480 + this.field1479) {
-            var3 = (long)this.field1483 + this.field1485;
-         } else if(this.field1479 + (long)this.field1480 > this.field1485 && this.field1479 + (long)this.field1480 <= (long)this.field1483 + this.field1485) {
-            var3 = (long)this.field1480 + this.field1479;
+         if((long)this.field1510 + this.field1509 > this.field1514 && this.field1509 + (long)this.field1510 <= (long)this.field1506 + this.field1514) {
+            var3 = (long)this.field1510 + this.field1509;
+         } else if((long)this.field1506 + this.field1514 > this.field1509 && (long)this.field1506 + this.field1514 <= this.field1509 + (long)this.field1510) {
+            var3 = this.field1514 + (long)this.field1506;
          }
 
          if(var1 > -1L && var3 > var1) {
             int var5 = (int)(var3 - var1);
-            System.arraycopy(this.writePayload, (int)(var1 - this.field1485), this.readPayload, (int)(var1 - this.field1479), var5);
+            System.arraycopy(this.writePayload, (int)(var1 - this.field1509), this.readPayload, (int)(var1 - this.field1514), var5);
          }
 
-         this.field1485 = -1L;
-         this.field1483 = 0;
+         this.field1509 = -1L;
+         this.field1510 = 0;
       }
 
    }
@@ -158,93 +151,112 @@ public class CacheFile {
    @ObfuscatedName("p")
    @ObfuscatedSignature(
       signature = "([BIIB)V",
-      garbageValue = "-1"
+      garbageValue = "-47"
    )
-   public void method2108(byte[] var1, int var2, int var3) throws IOException {
+   public void method5583(byte[] var1, int var2, int var3) throws IOException {
       try {
-         if((long)var3 + this.position > this.capacity) {
-            this.capacity = this.position + (long)var3;
+         if(this.position + (long)var3 > this.capacity) {
+            this.capacity = (long)var3 + this.position;
          }
 
-         if(-1L != this.field1485 && (this.position < this.field1485 || this.position > (long)this.field1483 + this.field1485)) {
-            this.method2107();
+         if(this.field1509 != -1L && (this.position < this.field1509 || this.position > this.field1509 + (long)this.field1510)) {
+            this.method5581();
          }
 
-         if(-1L != this.field1485 && (long)var3 + this.position > this.field1485 + (long)this.writePayload.length) {
-            int var4 = (int)((long)this.writePayload.length - (this.position - this.field1485));
-            System.arraycopy(var1, var2, this.writePayload, (int)(this.position - this.field1485), var4);
+         if(this.field1509 != -1L && this.position + (long)var3 > (long)this.writePayload.length + this.field1509) {
+            int var4 = (int)((long)this.writePayload.length - (this.position - this.field1509));
+            System.arraycopy(var1, var2, this.writePayload, (int)(this.position - this.field1509), var4);
             this.position += (long)var4;
             var2 += var4;
             var3 -= var4;
-            this.field1483 = this.writePayload.length;
-            this.method2107();
+            this.field1510 = this.writePayload.length;
+            this.method5581();
          }
 
          if(var3 <= this.writePayload.length) {
             if(var3 > 0) {
-               if(-1L == this.field1485) {
-                  this.field1485 = this.position;
+               if(-1L == this.field1509) {
+                  this.field1509 = this.position;
                }
 
-               System.arraycopy(var1, var2, this.writePayload, (int)(this.position - this.field1485), var3);
+               System.arraycopy(var1, var2, this.writePayload, (int)(this.position - this.field1509), var3);
                this.position += (long)var3;
-               if(this.position - this.field1485 > (long)this.field1483) {
-                  this.field1483 = (int)(this.position - this.field1485);
+               if(this.position - this.field1509 > (long)this.field1510) {
+                  this.field1510 = (int)(this.position - this.field1509);
                }
 
             }
          } else {
-            if(this.position != this.field1484) {
-               this.accessFile.method147(this.position);
-               this.field1484 = this.position;
+            if(this.position != this.field1505) {
+               this.accessFile.method5049(this.position);
+               this.field1505 = this.position;
             }
 
-            this.accessFile.method145(var1, var2, var3);
-            this.field1484 += (long)var3;
-            if(this.field1484 > this.length) {
-               this.length = this.field1484;
+            this.accessFile.method5050(var1, var2, var3);
+            this.field1505 += (long)var3;
+            if(this.field1505 > this.length) {
+               this.length = this.field1505;
             }
 
             long var9 = -1L;
             long var6 = -1L;
-            if(this.position >= this.field1479 && this.position < (long)this.field1480 + this.field1479) {
+            if(this.position >= this.field1514 && this.position < this.field1514 + (long)this.field1506) {
                var9 = this.position;
-            } else if(this.field1479 >= this.position && this.field1479 < this.position + (long)var3) {
-               var9 = this.field1479;
+            } else if(this.field1514 >= this.position && this.field1514 < (long)var3 + this.position) {
+               var9 = this.field1514;
             }
 
-            if((long)var3 + this.position > this.field1479 && this.position + (long)var3 <= this.field1479 + (long)this.field1480) {
+            if(this.position + (long)var3 > this.field1514 && this.position + (long)var3 <= this.field1514 + (long)this.field1506) {
                var6 = (long)var3 + this.position;
-            } else if(this.field1479 + (long)this.field1480 > this.position && (long)this.field1480 + this.field1479 <= (long)var3 + this.position) {
-               var6 = this.field1479 + (long)this.field1480;
+            } else if((long)this.field1506 + this.field1514 > this.position && this.field1514 + (long)this.field1506 <= (long)var3 + this.position) {
+               var6 = this.field1514 + (long)this.field1506;
             }
 
             if(var9 > -1L && var6 > var9) {
                int var8 = (int)(var6 - var9);
-               System.arraycopy(var1, (int)(var9 + (long)var2 - this.position), this.readPayload, (int)(var9 - this.field1479), var8);
+               System.arraycopy(var1, (int)((long)var2 + var9 - this.position), this.readPayload, (int)(var9 - this.field1514), var8);
             }
 
             this.position += (long)var3;
          }
       } catch (IOException var12) {
-         this.field1484 = -1L;
+         this.field1505 = -1L;
          throw var12;
       }
    }
 
-   @ObfuscatedName("c")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "([BIII)V",
-      garbageValue = "749697465"
+      signature = "(I)V",
+      garbageValue = "1028754693"
    )
-   public void method2102(byte[] var1, int var2, int var3) throws IOException {
+   public void method5574() throws IOException {
+      this.method5581();
+      this.accessFile.method5051();
+   }
+
+   @ObfuscatedName("s")
+   public void method5575(long var1) throws IOException {
+      if(var1 < 0L) {
+         throw new IOException("");
+      } else {
+         this.position = var1;
+      }
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "([BIIB)V",
+      garbageValue = "-42"
+   )
+   public void method5576(byte[] var1, int var2, int var3) throws IOException {
       try {
          if(var3 + var2 > var1.length) {
             throw new ArrayIndexOutOfBoundsException(var3 + var2 - var1.length);
          }
 
-         if(-1L != this.field1485 && this.position >= this.field1485 && (long)var3 + this.position <= this.field1485 + (long)this.field1483) {
-            System.arraycopy(this.writePayload, (int)(this.position - this.field1485), var1, var2, var3);
+         if(-1L != this.field1509 && this.position >= this.field1509 && this.position + (long)var3 <= (long)this.field1510 + this.field1509) {
+            System.arraycopy(this.writePayload, (int)(this.position - this.field1509), var1, var2, var3);
             this.position += (long)var3;
             return;
          }
@@ -252,36 +264,36 @@ public class CacheFile {
          long var4 = this.position;
          int var7 = var3;
          int var8;
-         if(this.position >= this.field1479 && this.position < this.field1479 + (long)this.field1480) {
-            var8 = (int)((long)this.field1480 - (this.position - this.field1479));
+         if(this.position >= this.field1514 && this.position < this.field1514 + (long)this.field1506) {
+            var8 = (int)((long)this.field1506 - (this.position - this.field1514));
             if(var8 > var3) {
                var8 = var3;
             }
 
-            System.arraycopy(this.readPayload, (int)(this.position - this.field1479), var1, var2, var8);
+            System.arraycopy(this.readPayload, (int)(this.position - this.field1514), var1, var2, var8);
             this.position += (long)var8;
             var2 += var8;
             var3 -= var8;
          }
 
          if(var3 > this.readPayload.length) {
-            this.accessFile.method147(this.position);
+            this.accessFile.method5049(this.position);
 
-            for(this.field1484 = this.position; var3 > 0; var3 -= var8) {
-               var8 = this.accessFile.method149(var1, var2, var3);
+            for(this.field1505 = this.position; var3 > 0; var3 -= var8) {
+               var8 = this.accessFile.method5054(var1, var2, var3);
                if(var8 == -1) {
                   break;
                }
 
-               this.field1484 += (long)var8;
+               this.field1505 += (long)var8;
                this.position += (long)var8;
                var2 += var8;
             }
          } else if(var3 > 0) {
-            this.method2103();
+            this.method5579();
             var8 = var3;
-            if(var3 > this.field1480) {
-               var8 = this.field1480;
+            if(var3 > this.field1506) {
+               var8 = this.field1506;
             }
 
             System.arraycopy(this.readPayload, 0, var1, var2, var8);
@@ -290,9 +302,9 @@ public class CacheFile {
             this.position += (long)var8;
          }
 
-         if(this.field1485 != -1L) {
-            if(this.field1485 > this.position && var3 > 0) {
-               var8 = var2 + (int)(this.field1485 - this.position);
+         if(this.field1509 != -1L) {
+            if(this.field1509 > this.position && var3 > 0) {
+               var8 = var2 + (int)(this.field1509 - this.position);
                if(var8 > var3 + var2) {
                   var8 = var3 + var2;
                }
@@ -306,21 +318,21 @@ public class CacheFile {
 
             long var13 = -1L;
             long var10 = -1L;
-            if(this.field1485 >= var4 && this.field1485 < var4 + (long)var7) {
-               var13 = this.field1485;
-            } else if(var4 >= this.field1485 && var4 < this.field1485 + (long)this.field1483) {
+            if(this.field1509 >= var4 && this.field1509 < (long)var7 + var4) {
+               var13 = this.field1509;
+            } else if(var4 >= this.field1509 && var4 < this.field1509 + (long)this.field1510) {
                var13 = var4;
             }
 
-            if((long)this.field1483 + this.field1485 > var4 && (long)this.field1483 + this.field1485 <= (long)var7 + var4) {
-               var10 = (long)this.field1483 + this.field1485;
-            } else if((long)var7 + var4 > this.field1485 && (long)var7 + var4 <= (long)this.field1483 + this.field1485) {
+            if(this.field1509 + (long)this.field1510 > var4 && (long)this.field1510 + this.field1509 <= (long)var7 + var4) {
+               var10 = this.field1509 + (long)this.field1510;
+            } else if(var4 + (long)var7 > this.field1509 && (long)var7 + var4 <= this.field1509 + (long)this.field1510) {
                var10 = (long)var7 + var4;
             }
 
             if(var13 > -1L && var10 > var13) {
                int var12 = (int)(var10 - var13);
-               System.arraycopy(this.writePayload, (int)(var13 - this.field1485), var1, (int)(var13 - var4) + var2, var12);
+               System.arraycopy(this.writePayload, (int)(var13 - this.field1509), var1, (int)(var13 - var4) + var2, var12);
                if(var10 > this.position) {
                   var3 = (int)((long)var3 - (var10 - this.position));
                   this.position = var10;
@@ -328,7 +340,7 @@ public class CacheFile {
             }
          }
       } catch (IOException var16) {
-         this.field1484 = -1L;
+         this.field1505 = -1L;
          throw var16;
       }
 
@@ -337,152 +349,91 @@ public class CacheFile {
       }
    }
 
-   @ObfuscatedName("i")
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-2121542963"
+      signature = "(S)J",
+      garbageValue = "2725"
    )
-   void method2103() throws IOException {
-      this.field1480 = 0;
-      if(this.field1484 != this.position) {
-         this.accessFile.method147(this.position);
-         this.field1484 = this.position;
+   public long method5604() {
+      return this.capacity;
+   }
+
+   @ObfuscatedName("x")
+   @ObfuscatedSignature(
+      signature = "(II)I",
+      garbageValue = "-1459426456"
+   )
+   public static int method5580(int var0) {
+      return UrlRequester.method5572(class47.field1740[var0]);
+   }
+
+   @ObfuscatedName("m")
+   @ObfuscatedSignature(
+      signature = "(Lgx;J)V"
+   )
+   static void method5578(Packet var0, long var1) {
+      var1 /= 10L;
+      if(var1 < 0L) {
+         var1 = 0L;
+      } else if(var1 > 65535L) {
+         var1 = 65535L;
       }
 
-      int var1;
-      for(this.field1479 = this.position; this.field1480 < this.readPayload.length; this.field1480 += var1) {
-         var1 = this.accessFile.method149(this.readPayload, this.field1480, this.readPayload.length - this.field1480);
-         if(var1 == -1) {
-            break;
-         }
+      var0.writeShort((int)var1);
+   }
 
-         this.field1484 += (long)var1;
-      }
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "(I)Z",
+      garbageValue = "-1976780537"
+   )
+   public static boolean method5602() {
+      return class262.field2557 != 0?true:class3.field1860.method309();
+   }
 
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(II)I",
+      garbageValue = "137846791"
+   )
+   public static int method5603(int var0) {
+      return var0 >> 11 & 63;
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(IIS)I",
+      garbageValue = "1763"
+   )
+   static int method5605(int var0, int var1) {
+      ItemContainer var2 = (ItemContainer)ItemContainer.itemContainers.method6335((long)var0);
+      return var2 == null?-1:(var1 >= 0 && var1 < var2.itemIds.length?var2.itemIds[var1]:-1);
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(Liz;Liz;III)Lkt;",
+      garbageValue = "1152119571"
+   )
+   public static Font method5606(Js5Index var0, Js5Index var1, int var2, int var3) {
+      return !class205.method4006(var0, var2, var3)?null:class288.method5947(var1.method4115(var2, var3, 1600198682));
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
       signature = "(I)V",
-      garbageValue = "203747601"
+      garbageValue = "-1550843987"
    )
-   public void method2098() throws IOException {
-      this.method2107();
-      this.accessFile.method146();
-   }
-
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "(Ljava/lang/Throwable;Ljava/lang/String;)Lef;"
-   )
-   public static JagException method2128(Throwable var0, String var1) {
-      JagException var2;
-      if(var0 instanceof JagException) {
-         var2 = (JagException)var0;
-         var2.field2001 = var2.field2001 + ' ' + var1;
-      } else {
-         var2 = new JagException(var0, var1);
-      }
-
-      return var2;
-   }
-
-   @ObfuscatedName("fi")
-   @ObfuscatedSignature(
-      signature = "(II)V",
-      garbageValue = "-88617379"
-   )
-   static void method2129(int var0) {
-      if(var0 == -3) {
-         class150.method2560("Connection timed out.", "Please try using a different world.", "");
-      } else if(var0 == -2) {
-         class150.method2560("", "Error connecting to server.", "");
-      } else if(var0 == -1) {
-         class150.method2560("No response from server.", "Please try using a different world.", "");
-      } else if(var0 == 3) {
-         class316.loginIndex = 3;
-         class316.field1161 = 1;
-      } else if(var0 == 4) {
-         class316.loginIndex = 12;
-         class316.field1142 = 0;
-      } else if(var0 == 5) {
-         class316.field1161 = 2;
-         class150.method2560("Your account has not logged out from its last", "session or the server is too busy right now.", "Please try again in a few minutes.");
-      } else if(var0 == 6 || !client.field770 && var0 == 68) {
-         class150.method2560("Zenyte has been updated!", "Please reload this page.", "");
-      } else if(var0 == 7) {
-         class150.method2560("This world is full.", "Please use a different world.", "");
-      } else if(var0 == 8) {
-         class150.method2560("Unable to connect.", "Login server offline.", "");
-      } else if(var0 == 9) {
-         class150.method2560("Login limit exceeded.", "Too many connections from your address.", "");
-      } else if(var0 == 10) {
-         class150.method2560("Unable to connect.", "Bad session id.", "");
-      } else if(var0 == 11) {
-         class150.method2560("We suspect someone knows your password.", "Press \'change your password\' on front page.", "");
-      } else if(var0 == 12) {
-         class150.method2560("You need a members account to login to this world.", "Please subscribe, or use a different world.", "");
-      } else if(var0 == 13) {
-         class150.method2560("Could not complete login.", "Please try using a different world.", "");
-      } else if(var0 == 14) {
-         class150.method2560("The server is being updated.", "Please wait 1 minute and try again.", "");
-      } else if(var0 == 16) {
-         class150.method2560("Too many login attempts.", "Please wait a few minutes before trying again.", "");
-      } else if(var0 == 17) {
-         class150.method2560("You are standing in a members-only area.", "To play on this world move to a free area first", "");
-      } else if(var0 == 18) {
-         class316.loginIndex = 12;
-         class316.field1142 = 1;
-      } else if(var0 == 19) {
-         class150.method2560("This world is running a closed Beta.", "Sorry invited players only.", "Please use a different world.");
-      } else if(var0 == 20) {
-         class150.method2560("Invalid loginserver requested.", "Please try using a different world.", "");
-      } else if(var0 == 22) {
-         class150.method2560("Malformed login packet.", "Please try again.", "");
-      } else if(var0 == 23) {
-         class150.method2560("No reply from loginserver.", "Please wait 1 minute and try again.", "");
-      } else if(var0 == 24) {
-         class150.method2560("Error loading your profile.", "Please contact customer support.", "");
-      } else if(var0 == 25) {
-         class150.method2560("Unexpected loginserver response.", "Please try using a different world.", "");
-      } else if(var0 == 26) {
-         class150.method2560("This computers address has been blocked", "as it was used to break our rules.", "");
-      } else if(var0 == 27) {
-         class150.method2560("", "Service unavailable.", "");
-      } else if(var0 == 31) {
-         class150.method2560("Your account must have a displayname set", "in order to play the game.  Please set it", "via the website, or the main game.");
-      } else if(var0 == 32) {
-         class150.method2560("Your attempt to log into your account was", "unsuccessful.  Don\'t worry, you can sort", "this out by visiting the billing system.");
-      } else if(var0 == 37) {
-         class150.method2560("Your account is currently inaccessible.", "Please try again in a few minutes.", "");
-      } else if(var0 == 38) {
-         class150.method2560("You need to vote to play!", "Visit runescape.com and vote,", "and then come back here!");
-      } else if (var0 == 39) {
-         class150.method2560("Zenyte has been updated!", "Please download the new client from discord.", "");
-      } else if (var0 == 40) {
-          class150.method2560("An account by that name does not exist!", "Register it at zenyte.com today!", "");
-      } else if(var0 == 55) {
-         class316.loginIndex = 8;
-      } else {
-         if(var0 == 56) {
-            class150.method2560("Enter the 6-digit code generated by your", "authenticator app.", "");
-            class310.method5922(11);
-            return;
-         }
-
-         if(var0 == 57) {
-            class150.method2560("The code you entered was incorrect.", "Please try again.", "");
-            class310.method5922(11);
-            return;
-         }
-
-         if(var0 == 61) {
-            class316.loginIndex = 7;
+   static void method5601() {
+      if(class203.username == null || class203.username.length() <= 0) {
+         if(class312.options.rememberedUsername != null) {
+            class203.username = class312.options.rememberedUsername;
+            Client.onUsernameChanged(-1);
+            Client.Login_isUsernameRemembered = true;
          } else {
-            class150.method2560("Unexpected server response", "Please try using a different world.", "");
+            Client.Login_isUsernameRemembered = false;
          }
-      }
 
-      class310.method5922(10);
+      }
    }
 }

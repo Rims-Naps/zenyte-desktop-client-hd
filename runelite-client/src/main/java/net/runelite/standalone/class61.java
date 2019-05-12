@@ -1,59 +1,157 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jt")
-public class class61 {
-   @ObfuscatedName("q")
+@ObfuscatedName("bs")
+public final class class61 extends Node {
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(Liu;Ljava/lang/String;Ljava/lang/String;I)[Lls;",
-      garbageValue = "-2027075443"
+      signature = "Lhv;"
    )
-   public static SpritePixels[] method887(Js5Index var0, String var1, String var2) {
-      int var3 = var0.method1510(var1);
-      int var4 = var0.method1532(var3, var2);
-      byte[] var7 = var0.method1516(var3, var4, 1789634852);
-      boolean var6;
-      if(var7 == null) {
-         var6 = false;
+   static Deque field1061;
+   @ObfuscatedName("f")
+   @ObfuscatedGetter(
+      intValue = -437401471
+   )
+   int field1062;
+   @ObfuscatedName("l")
+   @ObfuscatedSignature(
+      signature = "Ldt;"
+   )
+   class166 field1050;
+   @ObfuscatedName("e")
+   int[] field1054;
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "Ljy;"
+   )
+   LocType field1064;
+   @ObfuscatedName("q")
+   @ObfuscatedGetter(
+      intValue = -807786543
+   )
+   int field1053;
+   @ObfuscatedName("x")
+   @ObfuscatedGetter(
+      intValue = 1613863125
+   )
+   int field1057;
+   @ObfuscatedName("m")
+   @ObfuscatedGetter(
+      intValue = -1314334491
+   )
+   int field1056;
+   @ObfuscatedName("p")
+   @ObfuscatedGetter(
+      intValue = -1992310679
+   )
+   int field1055;
+   @ObfuscatedName("b")
+   @ObfuscatedSignature(
+      signature = "Ldt;"
+   )
+   class166 field1058;
+   @ObfuscatedName("n")
+   @ObfuscatedGetter(
+      intValue = -1014964059
+   )
+   int field1063;
+   @ObfuscatedName("t")
+   @ObfuscatedGetter(
+      intValue = 66985199
+   )
+   int field1066;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = -312559283
+   )
+   int field1059;
+   @ObfuscatedName("h")
+   @ObfuscatedGetter(
+      intValue = 1536927781
+   )
+   int field1052;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      intValue = 1251333887
+   )
+   int field1051;
+
+   static {
+      field1061 = new Deque();
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "-1406079274"
+   )
+   void method917() {
+      int var1 = this.field1053;
+      LocType var2 = this.field1064.method395();
+      if(var2 != null) {
+         this.field1053 = var2.ambientSoundId;
+         this.field1056 = var2.int4 * 128;
+         this.field1059 = var2.int5;
+         this.field1063 = var2.int6;
+         this.field1054 = var2.field3451;
       } else {
-         SceneTilePaint.method667(var7);
-         var6 = true;
+         this.field1053 = -1;
+         this.field1056 = 0;
+         this.field1059 = 0;
+         this.field1063 = 0;
+         this.field1054 = null;
       }
 
-      SpritePixels[] var5;
-      if(!var6) {
-         var5 = null;
+      if(var1 != this.field1053 && this.field1058 != null) {
+         TotalQuantityComparator.field60.method3527(this.field1058);
+         this.field1058 = null;
+      }
+
+   }
+
+   @ObfuscatedName("av")
+   @ObfuscatedSignature(
+      signature = "([BB)[B",
+      garbageValue = "120"
+   )
+   static final byte[] method920(byte[] var0) {
+      Packet var1 = new Packet(var0);
+      int var2 = var1.readUnsignedByte();
+      int var3 = var1.method5091();
+      if(var3 < 0 || Js5Index.field3251 != 0 && var3 > Js5Index.field3251) {
+         throw new RuntimeException();
+      } else if(var2 == 0) {
+         byte[] var4 = new byte[var3];
+         var1.method5098(var4, 0, var3);
+         return var4;
       } else {
-         SpritePixels[] var8 = new SpritePixels[class95.indexedSpriteCount];
-
-         for(int var9 = 0; var9 < class95.indexedSpriteCount; ++var9) {
-            SpritePixels var10 = var8[var9] = new SpritePixels();
-            var10.maxWidth = class95.indexedSpriteWidth;
-            var10.maxHeight = class95.indexedSpriteHeight;
-            var10.offsetX = class95.indexedSpriteOffsetXs[var9];
-            var10.offsetY = class95.indexedSpriteOffsetYs[var9];
-            var10.width = class95.indexSpriteWidths[var9];
-            var10.height = VarClientType.indexedSpriteHeights[var9];
-            int var11 = var10.width * var10.height;
-            byte[] var12 = class95.spritePixels[var9];
-            var10.pixels = new int[var11];
-
-            for(int var13 = 0; var13 < var11; ++var13) {
-               var10.pixels[var13] = class95.indexedSpritePalette[var12[var13] & 255];
+         int var6 = var1.method5091();
+         if(var6 < 0 || Js5Index.field3251 != 0 && var6 > Js5Index.field3251) {
+            throw new RuntimeException();
+         } else {
+            byte[] var5 = new byte[var6];
+            if(var2 == 1) {
+               class278.method5620(var5, var6, var0, var3, 9);
+            } else {
+               Js5Index.gzip.method3615(var1, var5);
             }
+
+            return var5;
          }
-
-         class95.indexedSpriteOffsetXs = null;
-         class95.indexedSpriteOffsetYs = null;
-         class95.indexSpriteWidths = null;
-         VarClientType.indexedSpriteHeights = null;
-         class95.indexedSpritePalette = null;
-         class95.spritePixels = null;
-         var5 = var8;
       }
+   }
 
-      return var5;
+   @ObfuscatedName("ji")
+   @ObfuscatedSignature(
+      signature = "(III)V",
+      garbageValue = "1695815218"
+   )
+   static final void method923(int var0, int var1) {
+      if(ChatLine.method5915(var0)) {
+         DecorativeObject.method912(ComponentType.interfaces[var0], var1);
+      }
    }
 }

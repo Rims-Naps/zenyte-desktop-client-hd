@@ -24,11 +24,10 @@
  */
 package net.runelite.client.plugins.playerindicators;
 
+import java.awt.Color;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
-
-import java.awt.*;
 
 @ConfigGroup("playerindicators")
 public interface PlayerIndicatorsConfig extends Config
@@ -156,13 +155,13 @@ public interface PlayerIndicatorsConfig extends Config
 
 	@ConfigItem(
 		position = 11,
-		keyName = "drawOverheadPlayerNames",
-		name = "Draw names above players",
-		description = "Configures whether or not player names should be drawn above players"
+		keyName = "playerNamePosition",
+		name = "Name position",
+		description = "Configures the position of drawn player names, or if they should be disabled"
 	)
-	default boolean drawOverheadPlayerNames()
+	default PlayerNameLocation playerNamePosition()
 	{
-		return true;
+		return PlayerNameLocation.ABOVE_HEAD;
 	}
 
 	@ConfigItem(

@@ -1,8 +1,6 @@
 package net.runelite.standalone;
 
 import java.awt.Polygon;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,146 +19,141 @@ import net.runelite.rs.api.RSName;
 import net.runelite.rs.api.RSPlayer;
 import net.runelite.rs.api.RSPlayerComposition;
 
-@ObfuscatedName("bk")
+@ObfuscatedName("bw")
 public final class PlayerEntity extends PathingEntity implements RSPlayer {
-   @ObfuscatedName("so")
+   @ObfuscatedName("df")
    @ObfuscatedSignature(
-      signature = "Llr;"
+      signature = "Lin;"
    )
-   static MachineInfo field634;
-   @ObfuscatedName("gu")
-   @ObfuscatedSignature(
-      signature = "[Lls;"
-   )
-   static SpritePixels[] headIconsPk;
+   static Js5 defaults;
    @ObfuscatedName("f")
-   @ObfuscatedGetter(
-      intValue = -904103747
-   )
-   int field621;
-   @ObfuscatedName("l")
    String[] tagFragments;
-   @ObfuscatedName("v")
-   @ObfuscatedGetter(
-      intValue = 749185145
-   )
-   int field608;
-   @ObfuscatedName("r")
+   @ObfuscatedName("l")
    @ObfuscatedSignature(
-      signature = "Lhi;"
-   )
-   PlayerComposition composition;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = -830317817
-   )
-   int skullIcon;
-   @ObfuscatedName("af")
-   boolean field631;
-   @ObfuscatedName("k")
-   @ObfuscatedGetter(
-      intValue = -1155707111
-   )
-   int team;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = -1034386739
-   )
-   int totalLevel;
-   @ObfuscatedName("q")
-   @ObfuscatedGetter(
-      intValue = 1965661975
-   )
-   int overheadIcon;
-   @ObfuscatedName("x")
-   @ObfuscatedSignature(
-      signature = "Ldl;"
+      signature = "Ldv;"
    )
    Model model;
-   @ObfuscatedName("m")
-   @ObfuscatedGetter(
-      intValue = 1987323419
-   )
-   int field616;
-   @ObfuscatedName("p")
-   @ObfuscatedGetter(
-      intValue = -1702505993
-   )
-   int animationCycleEnd;
-   @ObfuscatedName("b")
-   @ObfuscatedGetter(
-      intValue = -453697303
-   )
-   int combatLevel;
-   @ObfuscatedName("aw")
-   @ObfuscatedGetter(
-      intValue = -1612023909
-   )
-   int yInScene;
-   @ObfuscatedName("o")
-   @ObfuscatedSignature(
-      signature = "Lkj;"
-   )
-   class132 field618;
-   @ObfuscatedName("a")
-   @ObfuscatedGetter(
-      intValue = -626130891
-   )
-   int field623;
-   @ObfuscatedName("z")
-   boolean hidden;
-   @ObfuscatedName("n")
-   @ObfuscatedGetter(
-      intValue = 1512657857
-   )
-   int field613;
-   @ObfuscatedName("t")
+   @ObfuscatedName("v")
    boolean isLowDetail;
-   @ObfuscatedName("i")
+   @ObfuscatedName("e")
    @ObfuscatedGetter(
-      intValue = -634896257
+      intValue = 1007197773
    )
-   int animationCycleStart;
-   @ObfuscatedName("y")
+   int field637;
+   @ObfuscatedName("r")
    @ObfuscatedGetter(
-      intValue = -608452623
+      intValue = 1646896689
    )
-   int playerId;
-   @ObfuscatedName("ax")
+   int field617;
+   @ObfuscatedName("af")
    @ObfuscatedGetter(
-      intValue = 1204818179
+      intValue = -169880463
    )
    int xInScene;
-   @ObfuscatedName("d")
+   @ObfuscatedName("k")
    @ObfuscatedGetter(
-      intValue = 828370233
+      intValue = 2058832411
    )
-   int field610;
-   @ObfuscatedName("j")
+   int field628;
+   @ObfuscatedName("w")
+   boolean hidden;
+   @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = -1891695379
+      intValue = -676759193
    )
-   int field612;
-   @ObfuscatedName("s")
+   int field633;
+   @ObfuscatedName("x")
    @ObfuscatedGetter(
-      intValue = -1298600591
+      intValue = 841091679
    )
-   int field620;
-   @ObfuscatedName("h")
+   int overheadIcon;
+   @ObfuscatedName("m")
    @ObfuscatedGetter(
-      intValue = 297845551
+      intValue = -507227167
    )
-   int field606;
-   @ObfuscatedName("u")
+   int totalLevel;
+   @ObfuscatedName("p")
+   @ObfuscatedGetter(
+      intValue = 130093369
+   )
+   int combatLevel;
+   @ObfuscatedName("ag")
+   boolean field635;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      intValue = -666305427
+   )
+   int animationCycleStart;
+   @ObfuscatedName("o")
+   @ObfuscatedGetter(
+      intValue = -647731317
+   )
+   int field630;
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lkj;"
-   )
-   class132 field607;
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "Lkg;"
+      signature = "Lkx;"
    )
    Name name;
+   @ObfuscatedName("z")
+   @ObfuscatedSignature(
+      signature = "Lkz;"
+   )
+   SocialState field634;
+   @ObfuscatedName("n")
+   @ObfuscatedGetter(
+      intValue = -1372159177
+   )
+   int animationCycleEnd;
+   @ObfuscatedName("c")
+   @ObfuscatedGetter(
+      intValue = 85931753
+   )
+   int playerId;
+   @ObfuscatedName("t")
+   @ObfuscatedGetter(
+      intValue = -429766051
+   )
+   int field622;
+   @ObfuscatedName("ay")
+   @ObfuscatedGetter(
+      intValue = 1778383835
+   )
+   int yInScene;
+   @ObfuscatedName("i")
+   @ObfuscatedGetter(
+      intValue = 1598019255
+   )
+   int field631;
+   @ObfuscatedName("y")
+   @ObfuscatedGetter(
+      intValue = -258556587
+   )
+   int field626;
+   @ObfuscatedName("d")
+   @ObfuscatedGetter(
+      intValue = 1580341907
+   )
+   int team;
+   @ObfuscatedName("j")
+   @ObfuscatedSignature(
+      signature = "Lkz;"
+   )
+   SocialState field620;
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "Lil;"
+   )
+   PlayerComposition composition;
+   @ObfuscatedName("u")
+   @ObfuscatedGetter(
+      intValue = 1193024319
+   )
+   int field625;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      intValue = -225579375
+   )
+   int skullIcon;
 
    PlayerEntity() {
       this.skullIcon = -1;
@@ -178,17 +171,27 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
       this.isLowDetail = false;
       this.team = 0;
       this.hidden = false;
-      this.field607 = class132.UNSET;
-      this.field618 = class132.UNSET;
-      this.field631 = false;
+      this.field620 = SocialState.UNSET;
+      this.field634 = SocialState.UNSET;
+      this.field635 = false;
+      this.rl$$init();
    }
 
-   @ObfuscatedName("v")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "(IIBI)V",
-      garbageValue = "1910801327"
+      signature = "(I)V",
+      garbageValue = "-1432688130"
    )
-   final void method2912(int var1, int var2, byte var3) {
+   void method6006() {
+      this.field634 = SocialState.UNSET;
+   }
+
+   @ObfuscatedName("e")
+   @ObfuscatedSignature(
+      signature = "(IIBB)V",
+      garbageValue = "-68"
+   )
+   final void method6012(int var1, int var2, byte var3) {
       if(super.queueSize < 9) {
          ++super.queueSize;
       }
@@ -207,79 +210,214 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
    @ObfuscatedName("r")
    @ObfuscatedSignature(
       signature = "(I)Z",
-      garbageValue = "-922368349"
+      garbageValue = "1474294283"
    )
-   boolean method2890() {
-      if(this.field607 == class132.UNSET) {
-         this.method2892();
-      }
-
-      return this.field607 == class132.CONTAINS;
-   }
-
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(B)V",
-      garbageValue = "9"
-   )
-   void method2891() {
-      this.field607 = class132.UNSET;
+   final boolean vmethod6005() {
+      return this.composition != null;
    }
 
    @ObfuscatedName("q")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-1489578028"
+      signature = "(I)Ldv;"
    )
-   void method2892() {
-      this.field607 = ServerProt.friendManager.method57(this.name)?class132.CONTAINS:class132.NOT_CONTAINS;
+   protected final Model vmethod6001(int var1) {
+      if(!ItemContainer.clientInstance.isInterpolatePlayerAnimations()) {
+         return (Model)this.copy$getModel(var1);
+      } else {
+         int var2 = this.getActionFrame();
+         int var3 = this.getPoseFrame();
+         int var4 = this.getSpotAnimFrame();
+
+         Model var5;
+         try {
+            this.setActionFrame(Integer.MIN_VALUE | this.getActionFrameCycle() << 16 | var2);
+            this.setPoseFrame(Integer.MIN_VALUE | this.getPoseFrameCycle() << 16 | var3);
+            this.setSpotAnimFrame(Integer.MIN_VALUE | this.getSpotAnimFrameCycle() << 16 | var4);
+            var5 = this.copy$getModel(var1);
+         } finally {
+            this.setActionFrame(var2);
+            this.setPoseFrame(var3);
+            this.setSpotAnimFrame(var4);
+         }
+
+         return (Model)var5;
+      }
    }
 
    @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(III)V",
-      garbageValue = "1367949802"
+      signature = "(B)V",
+      garbageValue = "100"
    )
-   void method2927(int var1, int var2) {
-      super.queueSize = 0;
-      super.field959 = 0;
-      super.field955 = 0;
-      super.pathX[0] = var1;
-      super.pathY[0] = var2;
-      int var3 = this.method2895();
-      super.x = super.pathX[0] * 128 + var3 * 64;
-      super.y = var3 * 64 + super.pathY[0] * 128;
+   void method6046() {
+      this.field620 = class258.friendManager.method2355(this.name)?SocialState.CONTAINS:SocialState.NOT_CONTAINS;
    }
 
    @ObfuscatedName("m")
    @ObfuscatedSignature(
       signature = "(B)I",
-      garbageValue = "-87"
+      garbageValue = "43"
    )
-   int method2895() {
-      return this.composition != null && this.composition.transformedNpcId != -1?FileRequest.method4030(this.composition.transformedNpcId).size:1;
+   int method6008() {
+      return this.composition != null && this.composition.transformedNpcId != -1?ZoneProt.method374(this.composition.transformedNpcId).size:1;
    }
 
    @ObfuscatedName("p")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "972255123"
+      signature = "(B)V",
+      garbageValue = "8"
    )
-   void method2894() {
-      this.field618 = TotalQuantityComparator.clanMemberManager != null && TotalQuantityComparator.clanMemberManager.method5247(this.name)?class132.CONTAINS:class132.NOT_CONTAINS;
+   void method6000() {
+      this.field634 = MapIconReference.clanMemberManager != null && MapIconReference.clanMemberManager.method5333(this.name)?SocialState.CONTAINS:SocialState.NOT_CONTAINS;
    }
 
-   @ObfuscatedName("c")
+   @ObfuscatedName("b")
    @ObfuscatedSignature(
-      signature = "(B)Z",
-      garbageValue = "0"
+      signature = "(IIBI)V",
+      garbageValue = "1431274386"
    )
-   boolean method2893() {
-      if(this.field618 == class132.UNSET) {
-         this.method2894();
+   final void method6010(int var1, int var2, byte var3) {
+      if(super.animation != -1 && AuthProt.method6374(super.animation).priority == 1) {
+         super.animation = -1;
+         this.animationChanged(-1);
       }
 
-      return this.field618 == class132.CONTAINS;
+      super.facingCoord = -1;
+      if(var1 >= 0 && var1 < 104 && var2 >= 0 && var2 < 104) {
+         if(super.pathX[0] >= 0 && super.pathX[0] < 104 && super.pathY[0] >= 0 && super.pathY[0] < 104) {
+            if(var3 == 2) {
+               class69.method986(this, var1, var2, (byte)2);
+            }
+
+            this.method6012(var1, var2, var3);
+         } else {
+            this.method6011(var1, var2);
+         }
+      } else {
+         this.method6011(var1, var2);
+      }
+
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(Lgx;B)V",
+      garbageValue = "47"
+   )
+   final void method6004(Packet var1) {
+      var1.offset = 0;
+      int var2 = var1.readUnsignedByte();
+      this.skullIcon = var1.method5230();
+      this.overheadIcon = var1.method5230();
+      int var3 = -1;
+      this.team = 0;
+      int[] var4 = new int[12];
+
+      int var6;
+      int var7;
+      for(int var5 = 0; var5 < 12; ++var5) {
+         var6 = var1.readUnsignedByte();
+         if(var6 == 0) {
+            var4[var5] = 0;
+         } else {
+            var7 = var1.readUnsignedByte();
+            var4[var5] = var7 + (var6 << 8);
+            if(var5 == 0 && var4[0] == 65535) {
+               var3 = var1.readUnsignedShort();
+               break;
+            }
+
+            if(var4[var5] >= 512) {
+               int var8 = class79.method1074(var4[var5] - 512).team;
+               if(var8 != 0) {
+                  this.team = var8;
+               }
+            }
+         }
+      }
+
+      int[] var9 = new int[5];
+
+      for(var6 = 0; var6 < 5; ++var6) {
+         var7 = var1.readUnsignedByte();
+         if(var7 < 0 || var7 >= PlayerComposition.colorsToReplace[var6].length) {
+            var7 = 0;
+         }
+
+         var9[var6] = var7;
+      }
+
+      super.idlePoseAnimation = var1.readUnsignedShort();
+      if(super.idlePoseAnimation == 65535) {
+         super.idlePoseAnimation = -1;
+      }
+
+      super.field945 = var1.readUnsignedShort();
+      if(super.field945 == 65535) {
+         super.field945 = -1;
+      }
+
+      super.field946 = super.field945;
+      super.walkAnim = var1.readUnsignedShort();
+      if(super.walkAnim == 65535) {
+         super.walkAnim = -1;
+      }
+
+      super.rotate180Anim = var1.readUnsignedShort();
+      if(super.rotate180Anim == 65535) {
+         super.rotate180Anim = -1;
+      }
+
+      super.rotate90Anim = var1.readUnsignedShort();
+      if(super.rotate90Anim == 65535) {
+         super.rotate90Anim = -1;
+      }
+
+      super.rotate270Anim = var1.readUnsignedShort();
+      if(super.rotate270Anim == 65535) {
+         super.rotate270Anim = -1;
+      }
+
+      super.field968 = var1.readUnsignedShort();
+      if(super.field968 == 65535) {
+         super.field968 = -1;
+      }
+
+      this.name = new Name(var1.readString(), KeyFocusListener.loginType);
+      this.method6023();
+      this.method6006();
+      if(this == class71.localPlayer) {
+         JagException.localPlayerUsername = this.name.method1530();
+      }
+
+      this.combatLevel = var1.readUnsignedByte();
+      this.totalLevel = var1.readUnsignedShort();
+      this.hidden = var1.readUnsignedByte() == 1;
+      if(Client.socketType == 0 && Client.staffModLevel >= 2) {
+         this.hidden = false;
+      }
+
+      if(this.composition == null) {
+         this.composition = new PlayerComposition();
+      }
+
+      this.composition.method828(var4, var9, var2 == 1, var3);
+   }
+
+   @ObfuscatedName("n")
+   @ObfuscatedSignature(
+      signature = "(III)V",
+      garbageValue = "-62129218"
+   )
+   void method6011(int var1, int var2) {
+      super.queueSize = 0;
+      super.field950 = 0;
+      super.field997 = 0;
+      super.pathX[0] = var1;
+      super.pathY[0] = var2;
+      int var3 = this.method6008();
+      super.x = super.pathX[0] * 1897470336 + var3 * -1198748480;
+      super.y = var3 * 64 + super.pathY[0] * 128;
    }
 
    public RSName getRsName() {
@@ -292,7 +430,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
 
    @Override
    public int getRsSkullIcon() {
-      return skullIcon;
+      return this.skullIcon;
    }
 
    public int _protect$getRsSkullIcon/* $FF was: 1protect$getRsSkullIcon*/() {
@@ -300,68 +438,68 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
    }
 
    @ObfuscatedSignature(
-      signature = "(I)Ldl;"
+      signature = "(I)Ldv;"
    )
    public final Model copy$getModel(int var1) {
       if(this.composition == null) {
          return null;
       } else {
-         Sequence var2 = super.animation != -1 && super.actionAnimationDisable == 0?MapCacheArchiveNames.method2149(super.animation):null;
-         Sequence var3 = super.poseAnimation != -1 && !this.isLowDetail && (super.idlePoseAnimation != super.poseAnimation || var2 == null)?MapCacheArchiveNames.method2149(super.poseAnimation):null;
-         Model var4 = this.composition.method625(var2, super.actionFrame, var3, super.poseFrame);
+         Sequence var2 = super.animation != -1 && super.actionAnimationDisable == 0?AuthProt.method6374(super.animation):null;
+         Sequence var3 = super.poseAnimation != -1 && !this.isLowDetail && (super.idlePoseAnimation != super.poseAnimation || var2 == null)?AuthProt.method6374(super.poseAnimation):null;
+         Model var4 = this.composition.method837(var2, super.actionFrame, var3, super.poseFrame);
          if(var4 == null) {
             return null;
          } else {
-            var4.method5457();
+            var4.method3833();
             super.logicalHeight = var4.modelHeight;
             Model var5;
             Model[] var6;
             if(!this.isLowDetail && super.graphic != -1 && super.spotAnimFrame != -1) {
-               var5 = IndexStoreActionHandler.method5748(super.graphic).method5304(super.spotAnimFrame);
+               var5 = SoundTask.method6414(super.graphic).method358(super.spotAnimFrame);
                if(var5 != null) {
-                  var5.method5469(0, -super.field980, 0);
+                  var5.method3889(0, -super.field992, 0);
                   var6 = new Model[]{var4, var5};
                   var4 = new Model(var6, 2);
                }
             }
 
             if(!this.isLowDetail && this.model != null) {
-               if(client.gameCycle >= this.animationCycleEnd) {
+               if(Client.gameCycle >= this.animationCycleEnd) {
                   this.model = null;
                }
 
-               if(client.gameCycle >= this.animationCycleStart && client.gameCycle < this.animationCycleEnd) {
+               if(Client.gameCycle >= this.animationCycleStart && Client.gameCycle < this.animationCycleEnd) {
                   var5 = this.model;
-                  var5.method5469(this.field616 - super.x, this.field610 - this.field613, this.field612 - super.y);
+                  var5.method3889(this.field637 - super.x * -1234429701, this.field617 - this.field633, this.field622 - super.y);
                   if(super.orientation == 512) {
-                     var5.method5464();
-                     var5.method5464();
-                     var5.method5464();
+                     var5.method3842();
+                     var5.method3842();
+                     var5.method3842();
                   } else if(super.orientation == 1024) {
-                     var5.method5464();
-                     var5.method5464();
+                     var5.method3842();
+                     var5.method3842();
                   } else if(super.orientation == 1536) {
-                     var5.method5464();
+                     var5.method3842();
                   }
 
                   var6 = new Model[]{var4, var5};
                   var4 = new Model(var6, 2);
                   if(super.orientation == 512) {
-                     var5.method5464();
+                     var5.method3842();
                   } else if(super.orientation == 1024) {
-                     var5.method5464();
-                     var5.method5464();
+                     var5.method3842();
+                     var5.method3842();
                   } else if(super.orientation == 1536) {
-                     var5.method5464();
-                     var5.method5464();
-                     var5.method5464();
+                     var5.method3842();
+                     var5.method3842();
+                     var5.method3842();
                   }
 
-                  var5.method5469(super.x - this.field616, this.field613 - this.field610, super.y - this.field612);
+                  var5.method3889(super.x * -1234429701 - this.field637, this.field633 - this.field617, super.y - this.field622);
                }
             }
 
-            var4.field1664 = true;
+            var4.field1696 = true;
             return var4;
          }
       }
@@ -381,6 +519,9 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
       }
 
       return var3;
+   }
+
+   private void rl$$init() {
    }
 
    public String getName() {
@@ -413,7 +554,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
    }
 
    public SkullIcon getSkullIcon() {
-      if(this != class166.clientInstance.getLocalPlayer()) {
+      if(this != ItemContainer.clientInstance.getLocalPlayer()) {
          return null;
       } else {
          switch(this._protect$getRsSkullIcon()) {
@@ -451,25 +592,36 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
          int var2 = this.getX();
          int var3 = this.getY();
          int var4 = this.getOrientation();
-         List var5 = var1.getTriangles();
-         var5 = this.rotate(var5, var4);
-         ArrayList var6 = new ArrayList();
-         Iterator var7 = var5.iterator();
+         int var5 = Perspective.getTileHeight(ItemContainer.clientInstance, new LocalPoint(var2, var3), ItemContainer.clientInstance.getPlane());
+         List var6 = var1.getTriangles();
+         var6 = this.rotate(var6, var4);
+         ArrayList var7 = new ArrayList();
+         Iterator var8 = var6.iterator();
 
-         while(var7.hasNext()) {
-            Triangle var8 = (Triangle)var7.next();
-            Vertex var9 = var8.getA();
-            Vertex var10 = var8.getB();
-            Vertex var11 = var8.getC();
-            Point var12 = Perspective.localToCanvas(class166.clientInstance, new LocalPoint(var2 - var9.getX(), var3 - var9.getZ()), class166.clientInstance.getPlane(), -var9.getY());
-            Point var13 = Perspective.localToCanvas(class166.clientInstance, new LocalPoint(var2 - var10.getX(), var3 - var10.getZ()), class166.clientInstance.getPlane(), -var10.getY());
-            Point var14 = Perspective.localToCanvas(class166.clientInstance, new LocalPoint(var2 - var11.getX(), var3 - var11.getZ()), class166.clientInstance.getPlane(), -var11.getY());
-            int[] var15 = new int[]{var12.getX(), var13.getX(), var14.getX()};
-            int[] var16 = new int[]{var12.getY(), var13.getY(), var14.getY()};
-            var6.add(new Polygon(var15, var16, 3));
+         while(var8.hasNext()) {
+            Triangle var9 = (Triangle)var8.next();
+            Vertex var10 = var9.getA();
+            Vertex var11 = var9.getB();
+            Vertex var12 = var9.getC();
+            Point var13 = Perspective.localToCanvas(ItemContainer.clientInstance, var2 - var10.getX(), var3 - var10.getZ(), var5 + var10.getY());
+            Point var14 = Perspective.localToCanvas(ItemContainer.clientInstance, var2 - var11.getX(), var3 - var11.getZ(), var5 + var11.getY());
+            Point var15 = Perspective.localToCanvas(ItemContainer.clientInstance, var2 - var12.getX(), var3 - var12.getZ(), var5 + var12.getY());
+            int[] var16 = new int[]{var13.getX(), var14.getX(), var15.getX()};
+            int[] var17 = new int[]{var13.getY(), var14.getY(), var15.getY()};
+            var7.add(new Polygon(var16, var17, 3));
          }
 
-         return (Polygon[])var6.toArray(new Polygon[var6.size()]);
+         return (Polygon[])var7.toArray(new Polygon[var7.size()]);
+      }
+   }
+
+   public Polygon getConvexHull() {
+      RSModel var1 = this.getModel();
+      if(var1 == null) {
+         return null;
+      } else {
+         int var2 = Perspective.getTileHeight(ItemContainer.clientInstance, new LocalPoint(this.getX(), this.getY()), ItemContainer.clientInstance.getPlane());
+         return var1.getConvexHull(this.getX(), this.getY(), this.getOrientation(), var2);
       }
    }
 
@@ -494,295 +646,186 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
    }
 
    public boolean isFriend() {
-      return this.method2890();
+      return this.method6002();
    }
 
    public boolean isClanMember() {
-      return this.method2893();
+      return this.method6025();
    }
 
-   @ObfuscatedName("i")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(B)V",
-      garbageValue = "3"
+      signature = "(B)Z",
+      garbageValue = "9"
    )
-   void method2903() {
-      this.field618 = class132.UNSET;
-   }
-
-   @ObfuscatedName("d")
-   @ObfuscatedSignature(
-      signature = "(I)Ldl;"
-   )
-   protected final Model vmethod5584(int var1) {
-      if(!class166.clientInstance.isInterpolatePlayerAnimations()) {
-         return (Model)this.copy$getModel(var1);
-      } else {
-         int var2 = this.getActionFrame();
-         int var3 = this.getPoseFrame();
-         int var4 = this.getSpotAnimFrame();
-
-         Model var5;
-         try {
-            this.setActionFrame(Integer.MIN_VALUE | this.getActionFrameCycle() << 16 | var2);
-            this.setPoseFrame(Integer.MIN_VALUE | this.getPoseFrameCycle() << 16 | var3);
-            this.setSpotAnimFrame(Integer.MIN_VALUE | this.getSpotAnimFrameCycle() << 16 | var4);
-            var5 = this.copy$getModel(var1);
-         } finally {
-            this.setActionFrame(var2);
-            this.setPoseFrame(var3);
-            this.setSpotAnimFrame(var4);
-         }
-
-         return (Model)var5;
-      }
-   }
-
-   @ObfuscatedName("j")
-   @ObfuscatedSignature(
-      signature = "(IIBB)V",
-      garbageValue = "50"
-   )
-   final void method2897(int var1, int var2, byte var3) {
-      if(super.animation != -1 && MapCacheArchiveNames.method2149(super.animation).priority == 1) {
-         super.animation = -1;
-         this.animationChanged(-1);
+   boolean method6002() {
+      if(this.field620 == SocialState.UNSET) {
+         this.method6046();
       }
 
-      super.facingCoord = -1;
-      if(var1 >= 0 && var1 < 104 && var2 >= 0 && var2 < 104) {
-         if(super.pathX[0] >= 0 && super.pathX[0] < 104 && super.pathY[0] >= 0 && super.pathY[0] < 104) {
-            if(var3 == 2) {
-               StructType.method5724(this, var1, var2, (byte)2);
-            }
-
-            this.method2912(var1, var2, var3);
-         } else {
-            this.method2927(var1, var2);
-         }
-      } else {
-         this.method2927(var1, var2);
-      }
-
+      return this.field620 == SocialState.CONTAINS;
    }
 
    @ObfuscatedName("h")
    @ObfuscatedSignature(
       signature = "(I)Z",
-      garbageValue = "1563766353"
+      garbageValue = "1459208315"
    )
-   final boolean vmethod2900() {
-      return this.composition != null;
+   boolean method6025() {
+      if(this.field634 == SocialState.UNSET) {
+         this.method6000();
+      }
+
+      return this.field634 == SocialState.CONTAINS;
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Lgl;S)V",
-      garbageValue = "5987"
+      signature = "(I)V",
+      garbageValue = "-2131355083"
    )
-   final void method2889(Packet var1) {
-      var1.offset = 0;
-      int var2 = var1.readUnsignedByte();
-      this.skullIcon = var1.readSignedByte();
-      this.overheadIcon = var1.readSignedByte();
-      int var3 = -1;
-      this.team = 0;
-      int[] var4 = new int[12];
-
-      int var6;
-      int var7;
-      for(int var5 = 0; var5 < 12; ++var5) {
-         var6 = var1.readUnsignedByte();
-         if(var6 == 0) {
-            var4[var5] = 0;
-         } else {
-            var7 = var1.readUnsignedByte();
-            var4[var5] = var7 + (var6 << 8);
-            if(var5 == 0 && var4[0] == 65535) {
-               var3 = var1.readUnsignedShort();
-               break;
-            }
-
-            if(var4[var5] >= 512) {
-               int var8 = Varcs.method4770(var4[var5] - 512).team;
-               if(var8 != 0) {
-                  this.team = var8;
-               }
-            }
-         }
-      }
-
-      int[] var9 = new int[5];
-
-      for(var6 = 0; var6 < 5; ++var6) {
-         var7 = var1.readUnsignedByte();
-         if(var7 < 0 || var7 >= VarPlayerType.colorsToReplace[var6].length) {
-            var7 = 0;
-         }
-
-         var9[var6] = var7;
-      }
-
-      super.idlePoseAnimation = var1.readUnsignedShort();
-      if(super.idlePoseAnimation == 65535) {
-         super.idlePoseAnimation = -1;
-      }
-
-      super.field945 = var1.readUnsignedShort();
-      if(super.field945 == 65535) {
-         super.field945 = -1;
-      }
-
-      super.field957 = super.field945;
-      super.walkAnim = var1.readUnsignedShort();
-      if(super.walkAnim == 65535) {
-         super.walkAnim = -1;
-      }
-
-      super.rotate180Anim = var1.readUnsignedShort();
-      if(super.rotate180Anim == 65535) {
-         super.rotate180Anim = -1;
-      }
-
-      super.rotate90Anim = var1.readUnsignedShort();
-      if(super.rotate90Anim == 65535) {
-         super.rotate90Anim = -1;
-      }
-
-      super.rotate270Anim = var1.readUnsignedShort();
-      if(super.rotate270Anim == 65535) {
-         super.rotate270Anim = -1;
-      }
-
-      super.field951 = var1.readUnsignedShort();
-      if(super.field951 == 65535) {
-         super.field951 = -1;
-      }
-
-      this.name = new Name(var1.readString(), client.loginType);
-      this.method2891();
-      this.method2903();
-      if(this == class4.localPlayer) {
-         JagException.localPlayerUsername = this.name.method4713();
-      }
-
-      this.combatLevel = var1.readUnsignedByte();
-      this.totalLevel = var1.readUnsignedShort();
-      this.hidden = var1.readUnsignedByte() == 1;
-      if(client.socketType == 0 && client.staffModLevel >= 2) {
-         this.hidden = false;
-      }
-
-      if(this.composition == null) {
-         this.composition = new PlayerComposition();
-      }
-
-      this.composition.method619(var4, var9, var2 == 1, var3);
+   void method6023() {
+      this.field620 = SocialState.UNSET;
    }
 
-   @ObfuscatedName("e")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-982450776"
+      signature = "(IILfu;Lfk;I)Z",
+      garbageValue = "-1712172848"
    )
-   static void method2919() {
-      FileOnDisk var0 = null;
+   public static final boolean method6047(int var0, int var1, class93 var2, CollisionData var3) {
+      int var4 = var0;
+      int var5 = var1;
+      byte var6 = 64;
+      byte var7 = 64;
+      int var8 = var0 - var6;
+      int var9 = var1 - var7;
+      class82.field2117[var6][var7] = 99;
+      class82.field2115[var6][var7] = 0;
+      byte var10 = 0;
+      int var11 = 0;
+      class82.field2121[var10] = var0;
+      byte var10001 = var10;
+      int var18 = var10 + 1;
+      class82.field2122[var10001] = var1;
+      int[][] var12 = var3.flags;
 
-      try {
-         var0 = class70.method1076("", client.field646.name, true);
-         Packet var1 = GameEngine.options.method6498();
-         var0.method145(var1.payload, 0, var1.offset);
-      } catch (Exception var3) {
-         ;
+      while(var18 != var11) {
+         var4 = class82.field2121[var11];
+         var5 = class82.field2122[var11];
+         var11 = var11 + 1 & 4095;
+         int var16 = var4 - var8;
+         int var17 = var5 - var9;
+         int var13 = var4 - var3.x;
+         int var14 = var5 - var3.y;
+         if(var2.vmethod1252(2, var4, var5, var3)) {
+            class82.field2119 = var4;
+            Item.field1222 = var5;
+            return true;
+         }
+
+         int var15 = class82.field2115[var16][var17] + 1;
+         if(var16 > 0 && class82.field2117[var16 - 1][var17] == 0 && (var12[var13 - 1][var14] & 19136782) == 0 && (var12[var13 - 1][var14 + 1] & 19136824) == 0) {
+            class82.field2121[var18] = var4 - 1;
+            class82.field2122[var18] = var5;
+            var18 = var18 + 1 & 4095;
+            class82.field2117[var16 - 1][var17] = 2;
+            class82.field2115[var16 - 1][var17] = var15;
+         }
+
+         if(var16 < 126 && class82.field2117[var16 + 1][var17] == 0 && (var12[var13 + 2][var14] & 19136899) == 0 && (var12[var13 + 2][var14 + 1] & 19136992) == 0) {
+            class82.field2121[var18] = var4 + 1;
+            class82.field2122[var18] = var5;
+            var18 = var18 + 1 & 4095;
+            class82.field2117[var16 + 1][var17] = 8;
+            class82.field2115[var16 + 1][var17] = var15;
+         }
+
+         if(var17 > 0 && class82.field2117[var16][var17 - 1] == 0 && (var12[var13][var14 - 1] & 19136782) == 0 && (var12[var13 + 1][var14 - 1] & 19136899) == 0) {
+            class82.field2121[var18] = var4;
+            class82.field2122[var18] = var5 - 1;
+            var18 = var18 + 1 & 4095;
+            class82.field2117[var16][var17 - 1] = 1;
+            class82.field2115[var16][var17 - 1] = var15;
+         }
+
+         if(var17 < 126 && class82.field2117[var16][var17 + 1] == 0 && (var12[var13][var14 + 2] & 19136824) == 0 && (var12[var13 + 1][var14 + 2] & 19136992) == 0) {
+            class82.field2121[var18] = var4;
+            class82.field2122[var18] = var5 + 1;
+            var18 = var18 + 1 & 4095;
+            class82.field2117[var16][var17 + 1] = 4;
+            class82.field2115[var16][var17 + 1] = var15;
+         }
+
+         if(var16 > 0 && var17 > 0 && class82.field2117[var16 - 1][var17 - 1] == 0 && (var12[var13 - 1][var14] & 19136830) == 0 && (var12[var13 - 1][var14 - 1] & 19136782) == 0 && (var12[var13][var14 - 1] & 19136911) == 0) {
+            class82.field2121[var18] = var4 - 1;
+            class82.field2122[var18] = var5 - 1;
+            var18 = var18 + 1 & 4095;
+            class82.field2117[var16 - 1][var17 - 1] = 3;
+            class82.field2115[var16 - 1][var17 - 1] = var15;
+         }
+
+         if(var16 < 126 && var17 > 0 && class82.field2117[var16 + 1][var17 - 1] == 0 && (var12[var13 + 1][var14 - 1] & 19136911) == 0 && (var12[var13 + 2][var14 - 1] & 19136899) == 0 && (var12[var13 + 2][var14] & 19136995) == 0) {
+            class82.field2121[var18] = var4 + 1;
+            class82.field2122[var18] = var5 - 1;
+            var18 = var18 + 1 & 4095;
+            class82.field2117[var16 + 1][var17 - 1] = 9;
+            class82.field2115[var16 + 1][var17 - 1] = var15;
+         }
+
+         if(var16 > 0 && var17 < 126 && class82.field2117[var16 - 1][var17 + 1] == 0 && (var12[var13 - 1][var14 + 1] & 19136830) == 0 && (var12[var13 - 1][var14 + 2] & 19136824) == 0 && (var12[var13][var14 + 2] & 19137016) == 0) {
+            class82.field2121[var18] = var4 - 1;
+            class82.field2122[var18] = var5 + 1;
+            var18 = var18 + 1 & 4095;
+            class82.field2117[var16 - 1][var17 + 1] = 6;
+            class82.field2115[var16 - 1][var17 + 1] = var15;
+         }
+
+         if(var16 < 126 && var17 < 126 && class82.field2117[var16 + 1][var17 + 1] == 0 && (var12[var13 + 1][var14 + 2] & 19137016) == 0 && (var12[var13 + 2][var14 + 2] & 19136992) == 0 && (var12[var13 + 2][var14 + 1] & 19136995) == 0) {
+            class82.field2121[var18] = var4 + 1;
+            class82.field2122[var18] = var5 + 1;
+            var18 = var18 + 1 & 4095;
+            class82.field2117[var16 + 1][var17 + 1] = 12;
+            class82.field2115[var16 + 1][var17 + 1] = var15;
+         }
       }
 
+      class82.field2119 = var4;
+      Item.field1222 = var5;
+      return false;
+   }
+
+   @ObfuscatedName("kg")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/String;I)V",
+      garbageValue = "1139788778"
+   )
+   static final void method6041(String var0) {
+      if(MapIconReference.clanMemberManager != null) {
+         TcpConnectionMessage var1 = class232.method4535(ClientProt.field2232, Client.serverConnection.isaac);
+         var1.packetBuffer.writeByte(OwnWorldComparator.method73(var0));
+         var1.packetBuffer.method5077(var0);
+         Client.serverConnection.method18(var1);
+      }
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(B)V",
+      garbageValue = "126"
+   )
+   public static void method6048() {
       try {
-         if(var0 != null) {
-            var0.method169(true);
+         class75.cacheDat.method5574();
+
+         for(int var0 = 0; var0 < OwnWorldComparator.archiveCount; ++var0) {
+            MouseRecorder.cacheIndex[var0].method5574();
          }
+
+         class75.masterIndex.method5574();
+         class75.uidDat.method5574();
       } catch (Exception var2) {
          ;
-      }
-
-   }
-
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(III)I",
-      garbageValue = "1540177752"
-   )
-   static int method2936(int var0, int var1) {
-      ItemContainer var2 = (ItemContainer)ItemContainer.itemContainers.method380((long)var0);
-      if(var2 == null) {
-         return 0;
-      } else if(var1 == -1) {
-         return 0;
-      } else {
-         int var3 = 0;
-
-         for(int var4 = 0; var4 < var2.stackSizes.length; ++var4) {
-            if(var2.itemIds[var4] == var1) {
-               var3 += var2.stackSizes[var4];
-            }
-         }
-
-         return var3;
-      }
-   }
-
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(Ljava/lang/String;I)Z",
-      garbageValue = "-1938910227"
-   )
-   static boolean method2935(String var0) {
-      if(var0 == null) {
-         return false;
-      } else {
-         try {
-            new URL(var0);
-            return true;
-         } catch (MalformedURLException var2) {
-            return false;
-         }
-      }
-   }
-
-   @ObfuscatedName("gx")
-   @ObfuscatedSignature(
-      signature = "(Lbk;ZB)V",
-      garbageValue = "28"
-   )
-   static void method2924(PlayerEntity var0, boolean var1) {
-      if(var0 != null && var0.vmethod2900() && !var0.hidden) {
-         var0.isLowDetail = false;
-         if((client.lowMemory && class254.highResolutionPlayerCount > 50 || class254.highResolutionPlayerCount > 200) && var1 && var0.poseAnimation == var0.idlePoseAnimation) {
-            var0.isLowDetail = true;
-         }
-
-         int var2 = var0.x >> 7;
-         int var3 = var0.y >> 7;
-         if(var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
-            long var4 = WorldComparator.method6484(0, 0, 0, false, var0.playerId);
-            if(var0.model != null && client.gameCycle >= var0.animationCycleStart && client.gameCycle < var0.animationCycleEnd) {
-               var0.isLowDetail = false;
-               var0.field613 = MilliTimer.method2824(var0.x, var0.y, class228.level);
-               var0.field943 = client.gameCycle;
-               class131.sceneManager.method3807(class228.level, var0.x, var0.y, var0.field613, 60, var0, var0.angle, var4, var0.field608, var0.field606, var0.field621, var0.field623);
-            } else {
-               if((var0.x & 127) == 64 && (var0.y & 127) == 64) {
-                  if(client.field740[var2][var3] == client.field741) {
-                     return;
-                  }
-
-                  client.field740[var2][var3] = client.field741;
-               }
-
-               var0.field613 = MilliTimer.method2824(var0.x, var0.y, class228.level);
-               var0.field943 = client.gameCycle;
-               class131.sceneManager.method3830(class228.level, var0.x, var0.y, var0.field613, 60, var0, var0.angle, var4, var0.field941);
-            }
-         }
       }
 
    }

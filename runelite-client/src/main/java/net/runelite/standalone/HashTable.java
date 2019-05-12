@@ -7,27 +7,27 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSHashTable;
 import net.runelite.rs.api.RSNode;
 
-@ObfuscatedName("gq")
+@ObfuscatedName("ht")
 public final class HashTable implements RSHashTable {
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "[Lgy;"
-   )
-   Node[] buckets;
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "Lgy;"
-   )
-   Node currentGet;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Lgy;"
+      signature = "Lhy;"
    )
    Node current;
-   @ObfuscatedName("c")
+   @ObfuscatedName("a")
+   int size;
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "[Lhy;"
+   )
+   Node[] buckets;
+   @ObfuscatedName("h")
    int index;
    @ObfuscatedName("g")
-   int size;
+   @ObfuscatedSignature(
+      signature = "Lhy;"
+   )
+   Node currentGet;
 
    public HashTable(int var1) {
       this.index = 0;
@@ -40,79 +40,42 @@ public final class HashTable implements RSHashTable {
          var3.previous = var3;
       }
 
+      this.rl$$init();
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(Lgy;J)V"
+      signature = "()Lhy;"
    )
-   public void method382(Node var1, long var2) {
-      if(var1.previous != null) {
-         var1.method6469();
-      }
-
-      Node var4 = this.buckets[(int)(var2 & (long)(this.size - 1))];
-      var1.previous = var4.previous;
-      var1.next = var4;
-      var1.previous.next = var1;
-      var1.next.previous = var1;
-      var1.hash = var2;
+   public Node method6338() {
+      this.index = 0;
+      return this.method6339();
    }
 
-   @ObfuscatedName("e")
-   void method383() {
-      for(int var1 = 0; var1 < this.size; ++var1) {
-         Node var2 = this.buckets[var1];
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(J)Lhy;"
+   )
+   public Node method6335(long var1) {
+      Node var3 = this.buckets[(int)(var1 & (long)(this.size - 1))];
 
-         while(true) {
-            Node var3 = var2.next;
-            if(var3 == var2) {
-               break;
-            }
-
-            var3.method6469();
+      for(this.currentGet = var3.next; var3 != this.currentGet; this.currentGet = this.currentGet.next) {
+         if(this.currentGet.hash == var1) {
+            Node var4 = this.currentGet;
+            this.currentGet = this.currentGet.next;
+            return var4;
          }
       }
 
       this.currentGet = null;
-      this.current = null;
-   }
-
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "()Lgy;"
-   )
-   public Node method391() {
-      this.index = 0;
-      return this.method385();
-   }
-
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "()Lgy;"
-   )
-   public Node method385() {
-      Node var1;
-      if(this.index > 0 && this.buckets[this.index - 1] != this.current) {
-         var1 = this.current;
-         this.current = var1.next;
-         return var1;
-      } else {
-         do {
-            if(this.index >= this.size) {
-               return null;
-            }
-
-            var1 = this.buckets[this.index++].next;
-         } while(var1 == this.buckets[this.index - 1]);
-
-         this.current = var1.next;
-         return var1;
-      }
+      return null;
    }
 
    public RSNode[] getBuckets() {
       return this.buckets;
+   }
+
+   private void rl$$init() {
    }
 
    public Collection getNodes() {
@@ -135,25 +98,66 @@ public final class HashTable implements RSHashTable {
    }
 
    public RSNode get(long var1) {
-      return this.method380(var1);
+      return this.method6335(var1);
+   }
+
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "(Lhy;J)V"
+   )
+   public void method6344(Node var1, long var2) {
+      if(var1.previous != null) {
+         var1.method432();
+      }
+
+      Node var4 = this.buckets[(int)(var2 & (long)(this.size - 1))];
+      var1.previous = var4.previous;
+      var1.next = var4;
+      var1.previous.next = var1;
+      var1.next.previous = var1;
+      var1.hash = var2;
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "()Lhy;"
+   )
+   public Node method6339() {
+      Node var1;
+      if(this.index > 0 && this.buckets[this.index - 1] != this.current) {
+         var1 = this.current;
+         this.current = var1.next;
+         return var1;
+      } else {
+         do {
+            if(this.index >= this.size) {
+               return null;
+            }
+
+            var1 = this.buckets[this.index++].next;
+         } while(var1 == this.buckets[this.index - 1]);
+
+         this.current = var1.next;
+         return var1;
+      }
    }
 
    @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(J)Lgy;"
-   )
-   public Node method380(long var1) {
-      Node var3 = this.buckets[(int)(var1 & (long)(this.size - 1))];
+   void method6349() {
+      for(int var1 = 0; var1 < this.size; ++var1) {
+         Node var2 = this.buckets[var1];
 
-      for(this.currentGet = var3.next; var3 != this.currentGet; this.currentGet = this.currentGet.next) {
-         if(this.currentGet.hash == var1) {
-            Node var4 = this.currentGet;
-            this.currentGet = this.currentGet.next;
-            return var4;
+         while(true) {
+            Node var3 = var2.next;
+            if(var3 == var2) {
+               break;
+            }
+
+            var3.method432();
          }
       }
 
       this.currentGet = null;
-      return null;
+      this.current = null;
    }
 }

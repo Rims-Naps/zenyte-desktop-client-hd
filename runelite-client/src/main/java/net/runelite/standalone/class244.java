@@ -1,51 +1,76 @@
 package net.runelite.standalone;
 
-import java.util.Comparator;
+import java.io.File;
+import java.io.IOException;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lw")
-public class class244 implements Comparator {
-   @ObfuscatedName("g")
-   final boolean field3834;
+@ObfuscatedName("ey")
+public class class244 extends class133 {
+   @ObfuscatedName("lx")
+   @ObfuscatedSignature(
+      signature = "Lia;"
+   )
+   static ComponentType field1961;
+   @ObfuscatedName("a")
+   final boolean field1960;
 
    public class244(boolean var1) {
-      this.field3834 = var1;
+      this.field1960 = var1;
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(Lkl;Lkl;I)I",
+      garbageValue = "-174181973"
+   )
+   int method4639(ChatPlayer var1, ChatPlayer var2) {
+      return var1.world != 0 && var2.world != 0?(this.field1960?var1.field3711 - var2.field3711:var2.field3711 - var1.field3711):this.method1960(var1, var2);
    }
 
    public int compare(Object var1, Object var2) {
-      return this.method4684((Nameable)var1, (Nameable)var2);
-   }
-
-   public boolean equals(Object var1) {
-      return super.equals(var1);
+      return this.method4639((ChatPlayer)var1, (ChatPlayer)var2);
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Ljr;Ljr;B)I",
-      garbageValue = "117"
+      signature = "(Ljava/lang/String;Ljava/lang/String;ZB)Lda;",
+      garbageValue = "2"
    )
-   int method4684(Nameable var1, Nameable var2) {
-      return this.field3834?var1.method2067().method4717(var2.method2067()):var2.method2067().method4717(var1.method2067());
-   }
-
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "(DDII)[D",
-      garbageValue = "-1180705805"
-   )
-   public static double[] method4683(double var0, double var2, int var4) {
-      int var5 = var4 * 2 + 1;
-      double[] var6 = new double[var5];
-      int var7 = -var4;
-
-      for(int var8 = 0; var7 <= var4; ++var8) {
-         double var11 = HitmarkType.method2239(((double)var7 - var0) / var2) / var2;
-         var6[var8] = var11;
-         ++var7;
+   public static FileOnDisk method4645(String var0, String var1, boolean var2) {
+      File var3 = new File(class75.cacheDirectory, "preferences" + var0 + ".dat");
+      if(var3.exists()) {
+         try {
+            FileOnDisk var10 = new FileOnDisk(var3, "rw", 10000L);
+            return var10;
+         } catch (IOException var9) {
+            ;
+         }
       }
 
-      return var6;
+      String var4 = "";
+      if(class47.historicCacheId == 33) {
+         var4 = "_rc";
+      } else if(class47.historicCacheId == 34) {
+         var4 = "_wip";
+      }
+
+      File var5 = new File(class69.homeDir, "jagex_" + var1 + "_preferences" + var0 + var4 + ".dat");
+      FileOnDisk var6;
+      if(!var2 && var5.exists()) {
+         try {
+            var6 = new FileOnDisk(var5, "rw", 10000L);
+            return var6;
+         } catch (IOException var8) {
+            ;
+         }
+      }
+
+      try {
+         var6 = new FileOnDisk(var3, "rw", 10000L);
+         return var6;
+      } catch (IOException var7) {
+         throw new RuntimeException();
+      }
    }
 }

@@ -1,195 +1,288 @@
 package net.runelite.standalone;
 
+import java.io.IOException;
+import net.runelite.api.events.PostHealthBar;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSCombatInfo2;
+import net.runelite.rs.api.RSBuffer;
+import net.runelite.rs.api.RSHealthBar;
+import net.runelite.rs.api.RSSpritePixels;
 
-@ObfuscatedName("jf")
-public class HeadbarType extends CacheableNode implements RSCombatInfo2 {
-   @ObfuscatedName("r")
+@ObfuscatedName("jp")
+public class HeadbarType extends CacheableNode implements RSHealthBar {
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "Liu;"
+      signature = "Lgp;"
    )
-   public static Js5Index field3380;
-   @ObfuscatedName("e")
+   static NodeCache field3387;
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lgv;"
+      signature = "Liz;"
    )
-   public static NodeCache field3385;
-   @ObfuscatedName("q")
+   public static Js5Index field3397;
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "Lgv;"
+      signature = "Liz;"
    )
-   public static NodeCache field3382;
+   static Js5Index field3385;
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "Liu;"
+      signature = "Lgp;"
    )
-   public static Js5Index field3389;
-   @ObfuscatedName("v")
+   public static NodeCache field3386;
+   @ObfuscatedName("l")
    @ObfuscatedGetter(
-      intValue = 382132199
-   )
-   public int field3393;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = 768727517
-   )
-   public int field3391;
-   @ObfuscatedName("x")
-   @ObfuscatedGetter(
-      intValue = 1894704517
+      intValue = -837920445
    )
    public int healthScale;
-   @ObfuscatedName("m")
+   @ObfuscatedName("e")
    @ObfuscatedGetter(
-      intValue = -1837917425
-   )
-   public int field3387;
-   @ObfuscatedName("p")
-   @ObfuscatedGetter(
-      intValue = 1615417507
-   )
-   public int field3381;
-   @ObfuscatedName("n")
-   @ObfuscatedGetter(
-      intValue = 852504283
-   )
-   public int field3386;
-   @ObfuscatedName("c")
-   @ObfuscatedGetter(
-      intValue = -1652351465
-   )
-   public int field3383;
-   @ObfuscatedName("i")
-   @ObfuscatedGetter(
-      intValue = 1633062419
+      intValue = 372450145
    )
    public int field3394;
-   @ObfuscatedName("d")
+   @ObfuscatedName("r")
    @ObfuscatedGetter(
-      intValue = -436830649
+      intValue = -1679460201
    )
-   int field3390;
-   @ObfuscatedName("j")
+   int field3389;
+   @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = -233086243
+      intValue = 84424049
    )
-   int field3379;
+   public int field3391;
+   @ObfuscatedName("m")
+   @ObfuscatedGetter(
+      intValue = -128708993
+   )
+   public int field3396;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      intValue = 1298817893
+   )
+   public int field3392;
+   @ObfuscatedName("o")
+   @ObfuscatedGetter(
+      intValue = 1473541421
+   )
+   public int field3398;
+   @ObfuscatedName("n")
+   @ObfuscatedGetter(
+      intValue = -121711597
+   )
+   public int field3393;
+   @ObfuscatedName("t")
+   @ObfuscatedGetter(
+      intValue = -1333320733
+   )
+   int field3384;
+   @ObfuscatedName("h")
+   @ObfuscatedGetter(
+      intValue = -597048601
+   )
+   public int field3400;
 
    static {
-      field3385 = new NodeCache(64);
-      field3382 = new NodeCache(64);
+      field3386 = new NodeCache(64);
+      field3387 = new NodeCache(64);
    }
 
-   HeadbarType() {
+   public HeadbarType() {
+      this.field3396 = 255;
       this.field3391 = 255;
-      this.field3386 = 255;
-      this.field3394 = -1;
-      this.field3381 = 1;
-      this.field3387 = 70;
-      this.field3390 = -1;
-      this.field3379 = -1;
+      this.field3392 = -1;
+      this.field3393 = 1;
+      this.field3394 = 70;
+      this.field3389 = -1;
+      this.field3384 = -1;
       this.healthScale = 30;
-      this.field3393 = 0;
+      this.field3398 = 0;
+      this.rl$$init();
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(Lgl;B)V",
-      garbageValue = "-97"
+      signature = "(B)Lld;"
    )
-   void method4514(Packet var1) {
-      while(true) {
-         int var2 = var1.readUnsignedByte();
-         if(var2 == 0) {
-            return;
-         }
-
-         this.method4523(var1, var2);
-      }
+   public SpritePixels method2049(byte var1) {
+      SpritePixels var2 = this.copy$getHealthBarFrontSprite(var1);
+      return var2 != null?(SpritePixels)var2:(Client.healthBarOverride == null?null:(SpritePixels)(this.getHealthScale() == 30?(RSSpritePixels)Client.healthBarOverride.frontSprite:(RSSpritePixels)Client.healthBarOverride.frontSpriteLarge));
    }
 
-   @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "(Lgl;II)V",
-      garbageValue = "-991537919"
+      signature = "(I)Lld;"
    )
-   void method4523(Packet var1, int var2) {
-      if(var2 == 1) {
-         var1.readUnsignedShort();
-      } else if(var2 == 2) {
-         this.field3391 = var1.readUnsignedByte();
-      } else if(var2 == 3) {
-         this.field3386 = var1.readUnsignedByte();
-      } else if(var2 == 4) {
-         this.field3394 = 0;
-      } else if(var2 == 5) {
-         this.field3387 = var1.readUnsignedShort();
-      } else if(var2 == 6) {
-         var1.readUnsignedByte();
-      } else if(var2 == 7) {
-         this.field3390 = var1.method6207();
-      } else if(var2 == 8) {
-         this.field3379 = var1.method6207();
-      } else if(var2 == 11) {
-         this.field3394 = var1.readUnsignedShort();
-      } else if(var2 == 14) {
-         this.healthScale = var1.readUnsignedByte();
-      } else if(var2 == 15) {
-         this.field3393 = var1.readUnsignedByte();
-      }
-
-   }
-
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "(I)Lls;",
-      garbageValue = "-1081176616"
-   )
-   public SpritePixels method4516() {
-      if(this.field3390 < 0) {
+   public SpritePixels copy$getHealthBarBackSprite(int var1) {
+      if(this.field3384 < 0) {
          return null;
       } else {
-         SpritePixels var1 = (SpritePixels)field3382.method951((long)this.field3390);
-         if(var1 != null) {
-            return var1;
+         SpritePixels var2 = (SpritePixels)field3387.method635((long)this.field3384);
+         if(var2 != null) {
+            return var2;
          } else {
-            var1 = class36.method576(field3380, this.field3390, 0, (byte)-8);
-            if(var1 != null) {
-               field3382.method957(var1, (long)this.field3390);
+            var2 = IDKType.method5403(field3385, this.field3384, 0, 779668259);
+            if(var2 != null) {
+               field3387.method628(var2, (long)this.field3384);
             }
 
-            return var1;
+            return var2;
          }
       }
    }
 
-   @ObfuscatedName("c")
    @ObfuscatedSignature(
-      signature = "(I)Lls;",
-      garbageValue = "-1057793537"
+      signature = "(B)Lld;"
    )
-   public SpritePixels method4517() {
-      if(this.field3379 < 0) {
+   public SpritePixels copy$getHealthBarFrontSprite(byte var1) {
+      if(this.field3389 < 0) {
          return null;
       } else {
-         SpritePixels var1 = (SpritePixels)field3382.method951((long)this.field3379);
-         if(var1 != null) {
-            return var1;
+         SpritePixels var2 = (SpritePixels)field3387.method635((long)this.field3389);
+         if(var2 != null) {
+            return var2;
          } else {
-            var1 = class36.method576(field3380, this.field3379, 0, (byte)29);
-            if(var1 != null) {
-               field3382.method957(var1, (long)this.field3379);
+            var2 = IDKType.method5403(field3385, this.field3389, 0, 893471558);
+            if(var2 != null) {
+               field3387.method628(var2, (long)this.field3389);
             }
 
-            return var1;
+            return var2;
          }
       }
+   }
+
+   public void onRead(RSBuffer var1) {
+      PostHealthBar var2 = new PostHealthBar();
+      var2.setHealthBar(this);
+      ItemContainer.clientInstance.getCallbacks().post(var2);
    }
 
    public int getHealthScale() {
       return this.healthScale;
+   }
+
+   private void rl$$init() {
+   }
+
+   public void setPadding(int var1) {
+      this.field3398 = var1;
+   }
+
+   public RSSpritePixels getHealthBarFrontSprite() {
+      return this.method2049((byte)-36);
+   }
+
+   public RSSpritePixels getHealthBarBackSprite() {
+      return this.method2050(72714445);
+   }
+
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "(Lgx;B)V",
+      garbageValue = "40"
+   )
+   public void method2056(Packet var1) {
+      while(true) {
+         int var2 = var1.readUnsignedByte();
+         if(var2 == 0) {
+            this.onRead(var1);
+            return;
+         }
+
+         this.method2048(var1, var2);
+      }
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(I)Lld;"
+   )
+   public SpritePixels method2050(int var1) {
+      SpritePixels var2 = this.copy$getHealthBarBackSprite(var1);
+      return var2 != null?(SpritePixels)var2:(Client.healthBarOverride == null?null:(SpritePixels)(this.getHealthScale() == 30?(RSSpritePixels)Client.healthBarOverride.backSprite:(RSSpritePixels)Client.healthBarOverride.backSpriteLarge));
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(Lgx;II)V",
+      garbageValue = "-990034819"
+   )
+   void method2048(Packet var1, int var2) {
+      if(var2 == 1) {
+         var1.readUnsignedShort();
+      } else if(var2 == 2) {
+         this.field3396 = var1.readUnsignedByte();
+      } else if(var2 == 3) {
+         this.field3391 = var1.readUnsignedByte();
+      } else if(var2 == 4) {
+         this.field3392 = 0;
+      } else if(var2 == 5) {
+         this.field3394 = var1.readUnsignedShort();
+      } else if(var2 == 6) {
+         var1.readUnsignedByte();
+      } else if(var2 == 7) {
+         this.field3389 = var1.method5287();
+      } else if(var2 == 8) {
+         this.field3384 = var1.method5287();
+      } else if(var2 == 11) {
+         this.field3392 = var1.readUnsignedShort();
+      } else if(var2 == 14) {
+         this.healthScale = var1.readUnsignedByte();
+      } else if(var2 == 15) {
+         this.field3398 = var1.readUnsignedByte();
+      }
+
+   }
+
+   @ObfuscatedName("hp")
+   @ObfuscatedSignature(
+      signature = "(ZI)V",
+      garbageValue = "1093187746"
+   )
+   static final void method2072(boolean var0) {
+      FontName.method513();
+      ++Client.serverConnection.field1313;
+      if(Client.serverConnection.field1313 >= 50 || var0) {
+         Client.serverConnection.field1313 = 0;
+         if(!Client.socketError && Client.serverConnection.method38() != null) {
+            TcpConnectionMessage var1 = class232.method4535(ClientProt.field2241, Client.serverConnection.isaac);
+            Client.serverConnection.method18(var1);
+
+            try {
+               Client.serverConnection.method17();
+            } catch (IOException var3) {
+               Client.socketError = true;
+            }
+         }
+
+      }
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/CharSequence;I)I",
+      garbageValue = "683895931"
+   )
+   public static int method2073(CharSequence var0) {
+      return ItemLayer.method525(var0, 10, true);
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(I)Z",
+      garbageValue = "1088043575"
+   )
+   public static final boolean method2071() {
+      KeyFocusListener var0 = KeyFocusListener.keyboard;
+      synchronized(KeyFocusListener.keyboard) {
+         if(KeyFocusListener.field406 == KeyFocusListener.field408) {
+            return false;
+         } else {
+            SocialState.currentPressedKey = KeyFocusListener.field403[KeyFocusListener.field406];
+            class129.currentTypedKey = KeyFocusListener.field402[KeyFocusListener.field406];
+            KeyFocusListener.field406 = KeyFocusListener.field406 + 1 & 127;
+            return true;
+         }
+      }
    }
 }

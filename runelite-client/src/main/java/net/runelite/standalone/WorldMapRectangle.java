@@ -4,133 +4,79 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("f")
+@ObfuscatedName("i")
 public final class WorldMapRectangle {
-   @ObfuscatedName("dl")
-   @ObfuscatedSignature(
-      signature = "Lih;"
-   )
-   static Js5 textures;
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedGetter(
-      intValue = 567457275
-   )
-   int worldMapRegionHeight;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = -307962233
-   )
-   int worldMapRegionX;
-   @ObfuscatedName("q")
-   @ObfuscatedGetter(
-      intValue = -966817739
+      intValue = -197218667
    )
    int worldMapRegionY;
-   // $FF: synthetic field
-   @ObfuscatedSignature(
-      signature = "Lae;"
-   )
-   final WorldMapManager this$0;
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      intValue = -954209651
+      intValue = -243331811
    )
    int worldMapRegionWidth;
+   // $FF: synthetic field
+   @ObfuscatedSignature(
+      signature = "Lav;"
+   )
+   final WorldMapManager this$0;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = 1916696597
+   )
+   int worldMapRegionHeight;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      intValue = -1963308613
+   )
+   int worldMapRegionX;
 
    @ObfuscatedSignature(
-      signature = "(Lae;)V"
+      signature = "(Lav;)V"
    )
    WorldMapRectangle(WorldMapManager var1) {
       this.this$0 = var1;
    }
 
-   @ObfuscatedName("m")
+   @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "(B)Lbe;",
-      garbageValue = "-53"
+      signature = "(Ljava/lang/String;I)V",
+      garbageValue = "2007427462"
    )
-   static World method124() {
-      return World.field1014 < World.worldCount?World.worldList[++World.field1014 - 1]:null;
+   static final void method3817(String var0) {
+      class54.method868("Please remove " + var0 + " from your ignore list first");
    }
 
    @ObfuscatedName("m")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-2108105930"
+      signature = "(II)I",
+      garbageValue = "-2026467059"
    )
-   public static void method126() {
-      IDKType.identKits.method952();
+   static int method3819(int var0) {
+      ChatLine var1 = (ChatLine)ChatHistory.messages.method2178((long)var0);
+      return var1 == null?-1:(var1.previous == ChatHistory.field1261.sentinel?-1:((ChatLine)var1.previous).id);
    }
 
-   @ObfuscatedName("jl")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(IIIB)Lbp;",
-      garbageValue = "68"
+      signature = "(IB)Ljq;",
+      garbageValue = "4"
    )
-   static final SubInterface method125(int var0, int var1, int var2) {
-      SubInterface var3 = new SubInterface();
-      var3.id = var1;
-      var3.mode = var2;
-      client.subInterfaces.method382(var3, (long)var0);
-      class76.method1149(var1);
-      ComponentType var4 = WorldMapType1.method2440(var0);
-      class208.method4144(var4);
-      if(client.field880 != null) {
-         class208.method4144(client.field880);
-         client.field880 = null;
-      }
-
-      for(int var5 = 0; var5 < client.menuOptionCount; ++var5) {
-         if(VarClientStringType.method184(client.menuTypes[var5])) {
-            if(var5 < client.menuOptionCount - 1) {
-               for(int var6 = var5; var6 < client.menuOptionCount - 1; ++var6) {
-                  client.menuOptions[var6] = client.menuOptions[var6 + 1];
-                  client.menuTargets[var6] = client.menuTargets[var6 + 1];
-                  client.menuTypes[var6] = client.menuTypes[var6 + 1];
-                  client.menuIdentifiers[var6] = client.menuIdentifiers[var6 + 1];
-                  client.menuActionParams0[var6] = client.menuActionParams0[var6 + 1];
-                  client.menuActionParams1[var6] = client.menuActionParams1[var6 + 1];
-                  client.menuBooleanArray[var6] = client.menuBooleanArray[var6 + 1];
-               }
-            }
-
-            --var5;
-            --client.menuOptionCount;
-            client.onMenuOptionsChanged(-1);
-         }
-      }
-
-      class261.method5015();
-      class196.method4011(class36.interfaces[var0 >> 16], var4, false);
-      class134.method2204(var1, -1672363479);
-      if(client.toplevel != -1) {
-         class124.method2087(client.toplevel, 1);
-      }
-
-      return var3;
-   }
-
-   @ObfuscatedName("d")
-   @ObfuscatedSignature(
-      signature = "(Liu;IIB)Z",
-      garbageValue = "1"
-   )
-   public static boolean method128(Js5Index var0, int var1, int var2) {
-      byte[] var3 = var0.method1516(var1, var2, 1789634852);
-      if(var3 == null) {
-         return false;
+   public static StructType method3818(int var0) {
+      StructType var1 = (StructType)StructType.structTypeCache.method635((long)var0);
+      if(var1 != null) {
+         return var1;
       } else {
-         SceneTilePaint.method667(var3);
-         return true;
-      }
-   }
+         byte[] var2 = StructType.field3414.method4115(34, var0, 758467340);
+         var1 = new StructType();
+         if(var2 != null) {
+            var1.method3055(new Packet(var2));
+         }
 
-   @ObfuscatedName("gj")
-   @ObfuscatedSignature(
-      signature = "(I)I",
-      garbageValue = "1993334484"
-   )
-   static int method127() {
-      return client.isResized?2:1;
+         var1.method3067();
+         StructType.structTypeCache.method628(var1, (long)var0);
+         return var1;
+      }
    }
 }

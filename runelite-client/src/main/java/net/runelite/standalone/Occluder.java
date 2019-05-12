@@ -4,177 +4,177 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ey")
+@ObfuscatedName("es")
 public final class Occluder {
+   @ObfuscatedName("fx")
+   @ObfuscatedSignature(
+      signature = "Lkt;"
+   )
+   static Font font_p12full;
+   @ObfuscatedName("gf")
+   @ObfuscatedSignature(
+      signature = "[Lld;"
+   )
+   static SpritePixels[] mapMarkers;
    @ObfuscatedName("f")
    @ObfuscatedGetter(
-      intValue = 540645209
-   )
-   int maxNormalY;
-   @ObfuscatedName("l")
-   @ObfuscatedGetter(
-      intValue = 1030991453
+      intValue = 1001198727
    )
    int minX;
-   @ObfuscatedName("v")
+   @ObfuscatedName("l")
    @ObfuscatedGetter(
-      intValue = 405620347
-   )
-   int maxNormalX;
-   @ObfuscatedName("r")
-   @ObfuscatedGetter(
-      intValue = -1340784751
-   )
-   int maxTIleX;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = -64947147
-   )
-   int minTileZ;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = -1726630277
-   )
-   int minZ;
-   @ObfuscatedName("q")
-   @ObfuscatedGetter(
-      intValue = -1584335085
-   )
-   int maxTileZ;
-   @ObfuscatedName("x")
-   @ObfuscatedGetter(
-      intValue = -1182015331
+      intValue = 1999293033
    )
    int minNormalX;
-   @ObfuscatedName("m")
+   @ObfuscatedName("e")
    @ObfuscatedGetter(
-      intValue = 620452521
+      intValue = 1101834461
    )
    int testDirection;
-   @ObfuscatedName("p")
+   @ObfuscatedName("r")
    @ObfuscatedGetter(
-      intValue = -789725613
+      intValue = 553866783
    )
-   int maxY;
-   @ObfuscatedName("b")
+   int field1896;
+   @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = 322686953
-   )
-   int maxX;
-   @ObfuscatedName("n")
-   @ObfuscatedGetter(
-      intValue = 392608351
+      intValue = -1617358619
    )
    int maxZ;
-   @ObfuscatedName("c")
+   @ObfuscatedName("x")
    @ObfuscatedGetter(
-      intValue = 702836457
+      intValue = 1650018735
    )
-   int type;
-   @ObfuscatedName("i")
+   int maxTileZ;
+   @ObfuscatedName("m")
    @ObfuscatedGetter(
-      intValue = 1261788411
+      intValue = 1380168209
+   )
+   int minZ;
+   @ObfuscatedName("p")
+   @ObfuscatedGetter(
+      intValue = -601042275
+   )
+   int maxX;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      intValue = 1963358269
    )
    int minY;
-   @ObfuscatedName("d")
+   @ObfuscatedName("o")
    @ObfuscatedGetter(
-      intValue = -693292763
+      intValue = -2044960001
    )
-   int field1863;
-   @ObfuscatedName("j")
+   int maxNormalX;
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      intValue = -1810033401
+      intValue = 682831251
    )
-   int field1875;
+   int minTileX;
+   @ObfuscatedName("n")
+   @ObfuscatedGetter(
+      intValue = 1124898469
+   )
+   int maxY;
+   @ObfuscatedName("t")
+   @ObfuscatedGetter(
+      intValue = 1090105655
+   )
+   int field1894;
+   @ObfuscatedName("y")
+   @ObfuscatedGetter(
+      intValue = 1619481095
+   )
+   int maxNormalY;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = -1180208517
+   )
+   int maxTIleX;
    @ObfuscatedName("h")
    @ObfuscatedGetter(
-      intValue = -1438211613
+      intValue = -1650121601
+   )
+   int type;
+   @ObfuscatedName("u")
+   @ObfuscatedGetter(
+      intValue = 1125333031
    )
    int minNormalY;
    @ObfuscatedName("g")
    @ObfuscatedGetter(
-      intValue = 64804221
+      intValue = -41154101
    )
-   int minTileX;
+   int minTileZ;
 
-   @ObfuscatedName("f")
+   @ObfuscatedName("n")
    @ObfuscatedSignature(
-      signature = "(IB)I",
-      garbageValue = "111"
+      signature = "([BI)V",
+      garbageValue = "1711204802"
    )
-   public static int method4634(int var0) {
-      return var0 > 0?1:(var0 < 0?-1:0);
-   }
+   static void method4536(byte[] var0) {
+      Packet var1 = new Packet(var0);
+      var1.offset = var0.length - 2;
+      class96.indexedSpriteCount = var1.readUnsignedShort();
+      class96.indexedSpriteOffsetXs = new int[class96.indexedSpriteCount];
+      GameCanvas.indexedSpriteOffsetYs = new int[class96.indexedSpriteCount];
+      class96.indexSpriteWidths = new int[class96.indexedSpriteCount];
+      class96.indexedSpriteHeights = new int[class96.indexedSpriteCount];
+      class241.spritePixels = new byte[class96.indexedSpriteCount][];
+      var1.offset = var0.length - 7 - class96.indexedSpriteCount * 8;
+      class96.indexedSpriteWidth = var1.readUnsignedShort();
+      class96.indexedSpriteHeight = var1.readUnsignedShort();
+      int var2 = (var1.readUnsignedByte() & 255) + 1;
 
-   @ObfuscatedName("hi")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "1996217068"
-   )
-   static void method4635() {
-      if(client.spellSelected) {
-         ComponentType var0 = class192.method3785(class174.field3796, client.field799);
-         if(var0 != null && var0.onTargetLeaveListener != null) {
-            ScriptEvent var1 = new ScriptEvent();
-            var1.source = var0;
-            var1.params = var0.onTargetLeaveListener;
-            class73.method1124(var1);
+      int var3;
+      for(var3 = 0; var3 < class96.indexedSpriteCount; ++var3) {
+         class96.indexedSpriteOffsetXs[var3] = var1.readUnsignedShort();
+      }
+
+      for(var3 = 0; var3 < class96.indexedSpriteCount; ++var3) {
+         GameCanvas.indexedSpriteOffsetYs[var3] = var1.readUnsignedShort();
+      }
+
+      for(var3 = 0; var3 < class96.indexedSpriteCount; ++var3) {
+         class96.indexSpriteWidths[var3] = var1.readUnsignedShort();
+      }
+
+      for(var3 = 0; var3 < class96.indexedSpriteCount; ++var3) {
+         class96.indexedSpriteHeights[var3] = var1.readUnsignedShort();
+      }
+
+      var1.offset = var0.length - 7 - class96.indexedSpriteCount * 8 - (var2 - 1) * 3;
+      class96.indexedSpritePalette = new int[var2];
+
+      for(var3 = 1; var3 < var2; ++var3) {
+         class96.indexedSpritePalette[var3] = var1.method5090();
+         if(class96.indexedSpritePalette[var3] == 0) {
+            class96.indexedSpritePalette[var3] = 1;
          }
-
-         client.spellSelected = false;
-         class208.method4144(var0);
-      }
-   }
-
-   @ObfuscatedName("ft")
-   @ObfuscatedSignature(
-      signature = "(IZZZB)Lih;",
-      garbageValue = "79"
-   )
-   static Js5 method4632(int var0, boolean var1, boolean var2, boolean var3) {
-      IndexFile var4 = null;
-      if(class166.cacheDat != null) {
-         var4 = new IndexFile(var0, class166.cacheDat, class166.cacheIndex[var0], 1000000);
       }
 
-      return new Js5(var4, class306.indexStore255, var0, var1, var2, var3);
-   }
+      var1.offset = 0;
 
-   @ObfuscatedName("jk")
-   @ObfuscatedSignature(
-      signature = "(Lhn;III)V",
-      garbageValue = "468651930"
-   )
-   static final void method4633(ComponentType var0, int var1, int var2) {
-      if(client.draggedWidget == null && !client.isMenuOpen) {
-         if(var0 != null) {
-            ComponentType var4 = ChatCrownType.method834(var0);
-            if(var4 == null) {
-               var4 = var0.dragParent;
+      for(var3 = 0; var3 < class96.indexedSpriteCount; ++var3) {
+         int var4 = class96.indexSpriteWidths[var3];
+         int var5 = class96.indexedSpriteHeights[var3];
+         int var6 = var4 * var5;
+         byte[] var7 = new byte[var6];
+         class241.spritePixels[var3] = var7;
+         int var8 = var1.readUnsignedByte();
+         int var9;
+         if(var8 == 0) {
+            for(var9 = 0; var9 < var6; ++var9) {
+               var7[var9] = var1.method5230();
             }
-
-            if(var4 != null) {
-               client.draggedWidget = var0;
-               var4 = ChatCrownType.method834(var0);
-               if(var4 == null) {
-                  var4 = var0.dragParent;
+         } else if(var8 == 1) {
+            for(var9 = 0; var9 < var4; ++var9) {
+               for(int var10 = 0; var10 < var5; ++var10) {
+                  var7[var9 + var10 * var4] = var1.method5230();
                }
-
-               client.field817 = var4;
-               client.field906 = var1;
-               client.field838 = var2;
-               class77.field2817 = 0;
-               client.draggingWidget = false;
-               client.draggingWidgetChanged(-1);
-               int var6 = client.menuOptionCount - 1;
-               if(var6 != -1) {
-                  WorldComparator.method6482(var6);
-               }
-
-               return;
             }
          }
-
       }
+
    }
 }

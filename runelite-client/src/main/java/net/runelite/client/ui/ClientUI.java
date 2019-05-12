@@ -138,13 +138,13 @@ public class ClientUI
 
 	@Inject
 	private ClientUI(
-			RuneLiteProperties properties,
-			RuneLiteConfig config,
-			KeyManager keyManager,
-			MouseManager mouseManager,
-			@Nullable Applet client,
-			ConfigManager configManager,
-			Provider<ClientThread> clientThreadProvider)
+		RuneLiteProperties properties,
+		RuneLiteConfig config,
+		KeyManager keyManager,
+		MouseManager mouseManager,
+		@Nullable Applet client,
+		ConfigManager configManager,
+		Provider<ClientThread> clientThreadProvider)
 	{
 		this.properties = properties;
 		this.config = config;
@@ -159,8 +159,8 @@ public class ClientUI
 	public void onConfigChanged(ConfigChanged event)
 	{
 		if (!event.getGroup().equals("runelite") ||
-				event.getKey().equals(CONFIG_CLIENT_MAXIMIZED) ||
-				event.getKey().equals(CONFIG_CLIENT_BOUNDS))
+			event.getKey().equals(CONFIG_CLIENT_MAXIMIZED) ||
+			event.getKey().equals(CONFIG_CLIENT_BOUNDS))
 		{
 			return;
 		}
@@ -323,12 +323,12 @@ public class ClientUI
 			frame.setResizable(true);
 
 			SwingUtil.addGracefulExitCallback(frame,
-					() ->
-					{
-						saveClientBoundsConfig();
-						runelite.shutdown();
-					},
-					this::showWarningOnExit
+				() ->
+				{
+					saveClientBoundsConfig();
+					runelite.shutdown();
+				},
+				this::showWarningOnExit
 			);
 
 			container = new JPanel();
@@ -351,7 +351,7 @@ public class ClientUI
 
 			// Add key listener
 			final HotkeyListener sidebarListener = new HotkeyListener(() ->
-					new Keybind(KeyEvent.VK_F11, InputEvent.CTRL_DOWN_MASK))
+				new Keybind(KeyEvent.VK_F11, InputEvent.CTRL_DOWN_MASK))
 			{
 				@Override
 				public void hotkeyPressed()
@@ -440,16 +440,16 @@ public class ClientUI
 			sidebarClosedIcon = ImageUtil.flipImage(sidebarOpenIcon, true, false);
 
 			sidebarNavigationButton = NavigationButton
-					.builder()
-					.priority(100)
-					.icon(sidebarClosedIcon)
-					.onClick(this::toggleSidebar)
-					.build();
+				.builder()
+				.priority(100)
+				.icon(sidebarClosedIcon)
+				.onClick(this::toggleSidebar)
+				.build();
 
 			sidebarNavigationJButton = SwingUtil.createSwingButton(
-					sidebarNavigationButton,
-					0,
-					null);
+				sidebarNavigationButton,
+				0,
+				null);
 
 			titleToolbar.addComponent(sidebarNavigationButton, sidebarNavigationJButton);
 			toggleSidebar();
@@ -467,7 +467,7 @@ public class ClientUI
 				try
 				{
 					Rectangle clientBounds = configManager.getConfiguration(
-							CONFIG_GROUP, CONFIG_CLIENT_BOUNDS, Rectangle.class);
+						CONFIG_GROUP, CONFIG_CLIENT_BOUNDS, Rectangle.class);
 					if (clientBounds != null)
 					{
 						frame.setBounds(clientBounds);
@@ -500,9 +500,9 @@ public class ClientUI
 			Rectangle clientBounds = frame.getBounds();
 			Rectangle screenBounds = frame.getGraphicsConfiguration().getBounds();
 			if (clientBounds.x + clientBounds.width - CLIENT_WELL_HIDDEN_MARGIN < screenBounds.getX() ||
-					clientBounds.x + CLIENT_WELL_HIDDEN_MARGIN > screenBounds.getX() + screenBounds.getWidth() ||
-					clientBounds.y + CLIENT_WELL_HIDDEN_MARGIN_TOP < screenBounds.getY() ||
-					clientBounds.y + CLIENT_WELL_HIDDEN_MARGIN > screenBounds.getY() + screenBounds.getHeight())
+				clientBounds.x + CLIENT_WELL_HIDDEN_MARGIN > screenBounds.getX() + screenBounds.getWidth() ||
+				clientBounds.y + CLIENT_WELL_HIDDEN_MARGIN_TOP < screenBounds.getY() ||
+				clientBounds.y + CLIENT_WELL_HIDDEN_MARGIN > screenBounds.getY() + screenBounds.getHeight())
 			{
 				frame.setLocationRelativeTo(frame.getOwner());
 			}
@@ -519,16 +519,16 @@ public class ClientUI
 		if (client == null)
 		{
 			SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(frame,
-					"Error loading client! Check your logs for more details.",
-					"Unable to load client",
-					ERROR_MESSAGE));
+				"Error loading client! Check your logs for more details.",
+				"Unable to load client",
+				ERROR_MESSAGE));
 		}
 		else if (!(client instanceof Client))
 		{
 			SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(frame,
-					"RuneLite has not yet been updated to work with the latest\n"
-							+ "game update, it will work with reduced functionality until then.",
-					"RuneLite is outdated", INFORMATION_MESSAGE));
+				"RuneLite has not yet been updated to work with the latest\n"
+					+ "game update, it will work with reduced functionality until then.",
+				"RuneLite is outdated", INFORMATION_MESSAGE));
 		}
 	}
 
@@ -671,15 +671,15 @@ public class ClientUI
 		// Offset sidebar button if resizable mode logout is visible
 		final Widget logoutButton = client.getWidget(WidgetInfo.RESIZABLE_VIEWPORT_BOTTOM_LINE_LOGOUT_BUTTON);
 		final int y = logoutButton != null && !logoutButton.isHidden() && logoutButton.getParent() != null
-				? logoutButton.getHeight() + logoutButton.getRelativeY()
-				: 5;
+			? logoutButton.getHeight() + logoutButton.getRelativeY()
+			: 5;
 
 		final BufferedImage image = sidebarOpen ? sidebarClosedIcon : sidebarOpenIcon;
 
 		final Rectangle sidebarButtonRange = new Rectangle(x - 15, 0, image.getWidth() + 25, client.getRealDimensions().height);
 		final Point mousePosition = new Point(
-				client.getMouseCanvasPosition().getX() + client.getViewportXOffset(),
-				client.getMouseCanvasPosition().getY() + client.getViewportYOffset());
+			client.getMouseCanvasPosition().getX() + client.getViewportXOffset(),
+			client.getMouseCanvasPosition().getY() + client.getViewportYOffset());
 
 		if (sidebarButtonRange.contains(mousePosition.getX(), mousePosition.getY()))
 		{

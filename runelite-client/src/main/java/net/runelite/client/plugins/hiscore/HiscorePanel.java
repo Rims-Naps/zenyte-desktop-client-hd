@@ -104,14 +104,14 @@ public class HiscorePanel extends PluginPanel
 	 * Real skills, ordered in the way they should be displayed in the panel.
 	 */
 	private static final List<HiscoreSkill> SKILLS = ImmutableList.of(
-		ATTACK, HITPOINTS, MINING,
-		STRENGTH, AGILITY, SMITHING,
-		DEFENCE, HERBLORE, FISHING,
-		RANGED, THIEVING, COOKING,
-		PRAYER, CRAFTING, FIREMAKING,
-		MAGIC, FLETCHING, WOODCUTTING,
-		RUNECRAFT, SLAYER, FARMING,
-		CONSTRUCTION, HUNTER
+			ATTACK, HITPOINTS, MINING,
+			STRENGTH, AGILITY, SMITHING,
+			DEFENCE, HERBLORE, FISHING,
+			RANGED, THIEVING, COOKING,
+			PRAYER, CRAFTING, FIREMAKING,
+			MAGIC, FLETCHING, WOODCUTTING,
+			RUNECRAFT, SLAYER, FARMING,
+			CONSTRUCTION, HUNTER
 	);
 
 	@Inject
@@ -409,13 +409,13 @@ public class HiscorePanel extends PluginPanel
 				if (result.getPlayer() != null)
 				{
 					int combatLevel = Experience.getCombatLevel(
-						result.getAttack().getLevel(),
-						result.getStrength().getLevel(),
-						result.getDefence().getLevel(),
-						result.getHitpoints().getLevel(),
-						result.getMagic().getLevel(),
-						result.getRanged().getLevel(),
-						result.getPrayer().getLevel()
+							result.getAttack().getLevel(),
+							result.getStrength().getLevel(),
+							result.getDefence().getLevel(),
+							result.getHitpoints().getLevel(),
+							result.getMagic().getLevel(),
+							result.getRanged().getLevel(),
+							result.getPrayer().getLevel()
 					);
 					label.setText(Integer.toString(combatLevel));
 				}
@@ -499,19 +499,19 @@ public class HiscorePanel extends PluginPanel
 		if (skill == null)
 		{
 			double combatLevel = Experience.getCombatLevelPrecise(
-				result.getAttack().getLevel(),
-				result.getStrength().getLevel(),
-				result.getDefence().getLevel(),
-				result.getHitpoints().getLevel(),
-				result.getMagic().getLevel(),
-				result.getRanged().getLevel(),
-				result.getPrayer().getLevel()
+					result.getAttack().getLevel(),
+					result.getStrength().getLevel(),
+					result.getDefence().getLevel(),
+					result.getHitpoints().getLevel(),
+					result.getMagic().getLevel(),
+					result.getRanged().getLevel(),
+					result.getPrayer().getLevel()
 			);
 
 			double combatExperience = result.getAttack().getExperience()
-				+ result.getStrength().getExperience() + result.getDefence().getExperience()
-				+ result.getHitpoints().getExperience() + result.getMagic().getExperience()
-				+ result.getRanged().getExperience() + result.getPrayer().getExperience();
+					+ result.getStrength().getExperience() + result.getDefence().getExperience()
+					+ result.getHitpoints().getExperience() + result.getMagic().getExperience()
+					+ result.getRanged().getExperience() + result.getPrayer().getExperience();
 
 			content += "<p><span style = 'color:white'>Skill:</span> Combat</p>";
 			content += "<p><span style = 'color:white'>Exact Combat Level:</span> " + StackFormatter.formatNumber(combatLevel) + "</p>";
@@ -528,19 +528,19 @@ public class HiscorePanel extends PluginPanel
 					String mediumRank = (result.getClueScrollMedium().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollMedium().getRank());
 					String hardRank = (result.getClueScrollHard().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollHard().getRank());
 					String eliteRank = (result.getClueScrollElite().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollElite().getRank());
-					String masterRank = (result.getClueScrollMaster().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollMaster().getRank());
+					//String masterRank = (result.getClueScrollMaster().getRank() == -1) ? "Unranked" : StackFormatter.formatNumber(result.getClueScrollMaster().getRank());
 					String all = (result.getClueScrollAll().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollAll().getLevel()));
 					String easy = (result.getClueScrollEasy().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollEasy().getLevel()));
 					String medium = (result.getClueScrollMedium().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollMedium().getLevel()));
 					String hard = (result.getClueScrollHard().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollHard().getLevel()));
 					String elite = (result.getClueScrollElite().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollElite().getLevel()));
-					String master = (result.getClueScrollMaster().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollMaster().getLevel()));
+					//String master = (result.getClueScrollMaster().getLevel() == -1 ? "0" : StackFormatter.formatNumber(result.getClueScrollMaster().getLevel()));
 					content += "<p><span style = 'color:white'>All:</span> " + all + " <span style = 'color:white'>Rank:</span> " + allRank + "</p>";
 					content += "<p><span style = 'color:white'>Easy:</span> " + easy + " <span style = 'color:white'>Rank:</span> " + easyRank + "</p>";
 					content += "<p><span style = 'color:white'>Medium:</span> " + medium + " <span style = 'color:white'>Rank:</span> " + mediumRank + "</p>";
 					content += "<p><span style = 'color:white'>Hard:</span> " + hard + " <span style = 'color:white'>Rank:</span> " + hardRank + "</p>";
 					content += "<p><span style = 'color:white'>Elite:</span> " + elite + " <span style = 'color:white'>Rank:</span> " + eliteRank + "</p>";
-					content += "<p><span style = 'color:white'>Master:</span> " + master + " <span style = 'color:white'>Rank:</span> " + masterRank + "</p>";
+					//content += "<p><span style = 'color:white'>Master:</span> " + master + " <span style = 'color:white'>Rank:</span> " + masterRank + "</p>";
 					break;
 				}
 				case BOUNTY_HUNTER_ROGUE:
@@ -618,11 +618,11 @@ public class HiscorePanel extends PluginPanel
 
 				// had to wrap the bar with an empty div, if i added the margin directly to the bar, it would mess up
 				content += "<div style = 'margin-top:3px'>"
-					+ "<div style = 'background: #070707; border: 1px solid #070707; height: 6px; width: 100%;'>"
-					+ "<div style = 'height: 6px; width: " + progress + "%; background: #dc8a00;'>"
-					+ "</div>"
-					+ "</div>"
-					+ "</div>";
+						+ "<div style = 'background: #070707; border: 1px solid #070707; height: 6px; width: 100%;'>"
+						+ "<div style = 'height: 6px; width: " + progress + "%; background: #dc8a00;'>"
+						+ "</div>"
+						+ "</div>"
+						+ "</div>";
 			}
 		}
 

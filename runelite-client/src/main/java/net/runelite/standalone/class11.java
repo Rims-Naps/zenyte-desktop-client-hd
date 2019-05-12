@@ -1,43 +1,73 @@
 package net.runelite.standalone;
 
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("gk")
 public class class11 {
-   @ObfuscatedName("r")
-   @ObfuscatedGetter(
-      longValue = -5277989372420888043L
-   )
-   static long field2419;
-   @ObfuscatedName("gm")
-   @ObfuscatedSignature(
-      signature = "[Lls;"
-   )
-   static SpritePixels[] mapMarkers;
-   @ObfuscatedName("g")
-   @ObfuscatedGetter(
-      longValue = -6979353868859175691L
-   )
-   static long field2420;
+   @ObfuscatedName("b")
+   public static void method171(int[] var0, int var1, int var2) {
+      for(var2 = var2 + var1 - 7; var1 < var2; var0[var1++] = 0) {
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+         var0[var1++] = 0;
+      }
 
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(IS)Z",
-      garbageValue = "256"
-   )
-   public static boolean method173(int var0) {
-      return (var0 >> 20 & 1) != 0;
+      for(var2 += 7; var1 < var2; var0[var1++] = 0) {
+         ;
+      }
+
    }
 
-   @ObfuscatedName("i")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "1409681026"
-   )
-   public static void method171() {
-      Spotanim.spotanims.method952();
-      Spotanim.SpotAnimationDefinition_cachedModels.method952();
+   @ObfuscatedName("a")
+   public static void method156(byte[] var0, int var1, byte[] var2, int var3, int var4) {
+      if(var2 == var0) {
+         if(var3 == var1) {
+            return;
+         }
+
+         if(var3 > var1 && var3 < var4 + var1) {
+            --var4;
+            var1 += var4;
+            var3 += var4;
+            var4 = var1 - var4;
+
+            for(var4 += 7; var1 >= var4; var2[var3--] = var0[var1--]) {
+               var2[var3--] = var0[var1--];
+               var2[var3--] = var0[var1--];
+               var2[var3--] = var0[var1--];
+               var2[var3--] = var0[var1--];
+               var2[var3--] = var0[var1--];
+               var2[var3--] = var0[var1--];
+               var2[var3--] = var0[var1--];
+            }
+
+            for(var4 -= 7; var1 >= var4; var2[var3--] = var0[var1--]) {
+               ;
+            }
+
+            return;
+         }
+      }
+
+      var4 += var1;
+
+      for(var4 -= 7; var1 < var4; var2[var3++] = var0[var1++]) {
+         var2[var3++] = var0[var1++];
+         var2[var3++] = var0[var1++];
+         var2[var3++] = var0[var1++];
+         var2[var3++] = var0[var1++];
+         var2[var3++] = var0[var1++];
+         var2[var3++] = var0[var1++];
+         var2[var3++] = var0[var1++];
+      }
+
+      for(var4 += 7; var1 < var4; var2[var3++] = var0[var1++]) {
+         ;
+      }
+
    }
 }

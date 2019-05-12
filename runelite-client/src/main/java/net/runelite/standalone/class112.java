@@ -4,153 +4,147 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ho")
-public class class112 extends Node {
+@ObfuscatedName("ka")
+public class class112 {
    @ObfuscatedName("f")
    @ObfuscatedGetter(
-      intValue = 1838475019
+      longValue = -6758735277535701557L
    )
-   int field2580;
-   @ObfuscatedName("l")
-   @ObfuscatedGetter(
-      intValue = 140417105
-   )
-   int field2568;
-   @ObfuscatedName("v")
-   @ObfuscatedGetter(
-      intValue = 114477921
-   )
-   int field2578;
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "Lhv;"
-   )
-   class196 field2571;
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "Lct;"
-   )
-   RawAudioNode field2565;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = -1318406025
-   )
-   int field2569;
+   long field3686;
    @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Lhb;"
+   @ObfuscatedGetter(
+      intValue = 1278380113
    )
-   class43 field2566;
+   int loginAttempts;
    @ObfuscatedName("x")
    @ObfuscatedGetter(
-      intValue = -1150554595
+      longValue = 1385251725868335585L
    )
-   int field2577;
+   long elapsedLoginAttemptTime;
    @ObfuscatedName("m")
    @ObfuscatedGetter(
-      intValue = -690233925
+      intValue = -838843165
    )
-   int field2574;
+   int field3688;
    @ObfuscatedName("p")
    @ObfuscatedGetter(
-      intValue = -1937218999
+      intValue = 1210592943
    )
-   int field2573;
+   int gameState;
    @ObfuscatedName("b")
    @ObfuscatedGetter(
-      intValue = 841340885
+      intValue = -718217661
    )
-   int field2570;
+   int field3689;
    @ObfuscatedName("a")
-   @ObfuscatedSignature(
-      signature = "Lda;"
-   )
-   class266 field2581;
-   @ObfuscatedName("z")
    @ObfuscatedGetter(
-      intValue = -1864442519
+      longValue = 331649546976032179L
    )
-   int field2567;
-   @ObfuscatedName("n")
+   long lastPacketReceivedTime;
+   @ObfuscatedName("s")
    @ObfuscatedGetter(
-      intValue = -1053330145
+      longValue = -45624293603189385L
    )
-   int field2586;
-   @ObfuscatedName("c")
-   @ObfuscatedGetter(
-      intValue = -1945201277
-   )
-   int field2583;
-   @ObfuscatedName("t")
-   @ObfuscatedGetter(
-      intValue = -430930619
-   )
-   int field2576;
-   @ObfuscatedName("i")
-   @ObfuscatedGetter(
-      intValue = 241961673
-   )
-   int field2572;
-   @ObfuscatedName("d")
-   @ObfuscatedGetter(
-      intValue = 869368161
-   )
-   int field2575;
-   @ObfuscatedName("j")
-   @ObfuscatedGetter(
-      intValue = 1421371783
-   )
-   int field2564;
+   long loginAttemptTimeStart;
    @ObfuscatedName("h")
    @ObfuscatedGetter(
-      intValue = -1363786397
+      longValue = 8613492977957081835L
    )
-   int field2579;
+   long elapsedLastPackedReceivedTime;
    @ObfuscatedName("g")
-   @ObfuscatedGetter(
-      intValue = 2102402217
-   )
-   int field2585;
+   public boolean field3683;
 
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "1830692633"
-   )
-   void method1956() {
-      this.field2571 = null;
-      this.field2565 = null;
-      this.field2566 = null;
-      this.field2581 = null;
+   public class112() {
+      this.lastPacketReceivedTime = -1L;
+      this.loginAttemptTimeStart = -1L;
+      this.field3683 = false;
+      this.elapsedLoginAttemptTime = 0L;
+      this.elapsedLastPackedReceivedTime = 0L;
+      this.field3686 = 0L;
+      this.gameState = 0;
+      this.field3688 = 0;
+      this.loginAttempts = 0;
+      this.field3689 = 0;
    }
 
-   @ObfuscatedName("j")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "1474359120"
+      signature = "(B)V",
+      garbageValue = "0"
    )
-   static final void method1958() {
-      class115.method2002("Your friend list is full. Max of 200 for free users, and 400 for members");
+   public void method1590() {
+      this.method1597();
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(II)Ljb;",
-      garbageValue = "-1189840038"
+      signature = "(I)V",
+      garbageValue = "1656439833"
    )
-   public static HitmarkType method1959(int var0) {
-      HitmarkType var1 = (HitmarkType)HitmarkType.hitmarkTypeCache.method951((long)var0);
-      if(var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = class92.field2355.method1516(32, var0, 1789634852);
-         var1 = new HitmarkType();
-         if(var2 != null) {
-            var1.method2206(new Packet(var2));
-         }
-
-         HitmarkType.hitmarkTypeCache.method957(var1, (long)var0);
-         return var1;
+   public void method1597() {
+      if(-1L != this.loginAttemptTimeStart) {
+         this.elapsedLoginAttemptTime = class318.method6317() - this.loginAttemptTimeStart;
+         this.loginAttemptTimeStart = -1L;
       }
+
+      ++this.loginAttempts;
+      this.field3683 = true;
+   }
+
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "(Lgx;I)V",
+      garbageValue = "1567582660"
+   )
+   public void method1592(Packet var1) {
+      CacheFile.method5578(var1, this.elapsedLastPackedReceivedTime);
+      CacheFile.method5578(var1, this.elapsedLoginAttemptTime);
+      CacheFile.method5578(var1, this.field3686);
+      var1.writeShort(this.gameState);
+      var1.writeShort(this.field3688);
+      var1.writeShort(this.loginAttempts);
+      var1.writeShort(this.field3689);
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "1748851192"
+   )
+   public void method1587() {
+      this.lastPacketReceivedTime = class318.method6317();
+   }
+
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "2058592549"
+   )
+   public void method1591() {
+      if(this.lastPacketReceivedTime != -1L) {
+         this.elapsedLastPackedReceivedTime = class318.method6317() - this.lastPacketReceivedTime;
+         this.lastPacketReceivedTime = -1L;
+      }
+
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "597337885"
+   )
+   public void method1603() {
+      this.field3683 = false;
+      this.field3688 = 0;
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(IB)V",
+      garbageValue = "99"
+   )
+   public void method1589(int var1) {
+      this.loginAttemptTimeStart = class318.method6317();
+      this.gameState = var1;
    }
 }

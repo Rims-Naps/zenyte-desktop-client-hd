@@ -7,64 +7,64 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSGraphicsObject;
 
-@ObfuscatedName("bx")
+@ObfuscatedName("ba")
 public final class SpotAnimation extends Entity implements RSGraphicsObject {
-   @ObfuscatedName("di")
+   @ObfuscatedName("r")
    @ObfuscatedSignature(
-      signature = "Lih;"
+      signature = "Lcw;"
    )
-   static Js5 fontmetrics;
-   @ObfuscatedName("l")
+   static class39 field1095;
+   @ObfuscatedName("f")
    @ObfuscatedGetter(
-      intValue = 363271655
+      intValue = -867255925
    )
    int height;
-   @ObfuscatedName("r")
-   @ObfuscatedGetter(
-      intValue = -1651212881
-   )
-   int startCycle;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = -1635763877
-   )
-   int level;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = -1481994629
-   )
-   int field1084;
    @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = -538215099
+      intValue = 1058182045
    )
-   int x;
-   @ObfuscatedName("b")
-   @ObfuscatedSignature(
-      signature = "Ljg;"
-   )
-   Sequence field1090;
-   @ObfuscatedName("n")
+   int field1086;
+   @ObfuscatedName("x")
    @ObfuscatedGetter(
-      intValue = 2143243713
-   )
-   int field1094;
-   @ObfuscatedName("c")
-   @ObfuscatedGetter(
-      intValue = -677291095
+      intValue = 1424250479
    )
    int y;
-   @ObfuscatedName("i")
-   boolean finished;
-   @ObfuscatedName("g")
+   @ObfuscatedName("m")
    @ObfuscatedGetter(
-      intValue = 1722620293
+      intValue = 953575315
+   )
+   int field1091;
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "Lju;"
+   )
+   Sequence field1088;
+   @ObfuscatedName("b")
+   boolean finished;
+   @ObfuscatedName("a")
+   @ObfuscatedGetter(
+      intValue = 1538944877
    )
    int id;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = 679010059
+   )
+   int startCycle;
+   @ObfuscatedName("h")
+   @ObfuscatedGetter(
+      intValue = 1605641487
+   )
+   int x;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      intValue = 1320502275
+   )
+   int level;
 
    SpotAnimation(int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-      this.field1084 = 0;
-      this.field1094 = 0;
+      this.field1091 = 0;
+      this.field1086 = 0;
       this.finished = false;
       this.id = var1;
       this.level = var2;
@@ -72,15 +72,52 @@ public final class SpotAnimation extends Entity implements RSGraphicsObject {
       this.y = var4;
       this.height = var5;
       this.startCycle = var7 + var6;
-      int var8 = IndexStoreActionHandler.method5748(this.id).field3348;
+      int var8 = SoundTask.method6414(this.id).field3358;
       if(var8 != -1) {
          this.finished = false;
-         this.field1090 = MapCacheArchiveNames.method2149(var8);
+         this.field1088 = AuthProt.method6374(var8);
       } else {
          this.finished = true;
       }
 
       this.rl$$init();
+   }
+
+   @ObfuscatedName("q")
+   @ObfuscatedSignature(
+      signature = "(I)Ldv;"
+   )
+   protected final Model vmethod6001(int var1) {
+      Spotanim var2 = SoundTask.method6414(this.id);
+      Model var3;
+      if(!this.finished) {
+         var3 = var2.method358(this.field1091);
+      } else {
+         var3 = var2.method358(-1);
+      }
+
+      return var3 == null?null:var3;
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(II)V",
+      garbageValue = "-415622752"
+   )
+   final void method1572(int var1) {
+      if(!this.finished) {
+         this.field1086 += var1;
+
+         while(this.field1086 > this.field1088.frameLengths[this.field1091]) {
+            this.field1086 -= this.field1088.frameLengths[this.field1091];
+            ++this.field1091;
+            if(this.field1091 >= this.field1088.frameIDs.length) {
+               this.finished = true;
+               break;
+            }
+         }
+
+      }
    }
 
    public int getX() {
@@ -93,7 +130,7 @@ public final class SpotAnimation extends Entity implements RSGraphicsObject {
 
    private void rl$$init() {
       GraphicsObjectCreated var1 = new GraphicsObjectCreated(this);
-      class166.clientInstance.getCallbacks().post(var1);
+      ItemContainer.clientInstance.getCallbacks().post(var1);
    }
 
    public LocalPoint getLocation() {
@@ -116,257 +153,117 @@ public final class SpotAnimation extends Entity implements RSGraphicsObject {
       return this.height;
    }
 
-   @ObfuscatedName("d")
+   @ObfuscatedName("m")
    @ObfuscatedSignature(
-      signature = "(I)Ldl;"
+      signature = "([BIIIIIIILen;[Lfk;S)V",
+      garbageValue = "21207"
    )
-   protected final Model vmethod5584(int var1) {
-      Spotanim var2 = IndexStoreActionHandler.method5748(this.id);
-      Model var3;
-      if(!this.finished) {
-         var3 = var2.method5304(this.field1084);
-      } else {
-         var3 = var2.method5304(-1);
-      }
+   static final void method1582(byte[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, SceneManager var8, CollisionData[] var9) {
+      Packet var10 = new Packet(var0);
+      int var11 = -1;
 
-      return var3 == null?null:var3;
-   }
+      while(true) {
+         int var12 = var10.method5088();
+         if(var12 == 0) {
+            return;
+         }
 
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(IB)V",
-      garbageValue = "0"
-   )
-   final void method5439(int var1) {
-      if(!this.finished) {
-         this.field1094 += var1;
+         var11 += var12;
+         int var13 = 0;
 
-         while(this.field1094 > this.field1090.frameLengths[this.field1084]) {
-            this.field1094 -= this.field1090.frameLengths[this.field1084];
-            ++this.field1084;
-            if(this.field1084 >= this.field1090.frameIDs.length) {
-               this.finished = true;
+         while(true) {
+            int var14 = var10.method5269();
+            if(var14 == 0) {
                break;
             }
-         }
 
-      }
-   }
-
-   @ObfuscatedName("ii")
-   @ObfuscatedSignature(
-      signature = "(Lhn;III)V",
-      garbageValue = "754256415"
-   )
-   static final void method5435(ComponentType var0, int var1, int var2) {
-      if(var0.buttonType == 1) {
-         class316.method5992(var0.tooltip, "", 24, 0, 0, var0.id);
-      }
-
-      String var3;
-      if(var0.buttonType == 2 && !client.spellSelected) {
-         var3 = class106.method1886(var0);
-         if(var3 != null) {
-            class316.method5992(var3, class31.method548(65280) + var0.spellName, 25, 0, -1, var0.id);
-         }
-      }
-
-      if(var0.buttonType == 3) {
-         class316.method5992("Close", "", 26, 0, 0, var0.id);
-      }
-
-      if(var0.buttonType == 4) {
-         class316.method5992(var0.tooltip, "", 28, 0, 0, var0.id);
-      }
-
-      if(var0.buttonType == 5) {
-         class316.method5992(var0.tooltip, "", 29, 0, 0, var0.id);
-      }
-
-      if(var0.buttonType == 6 && client.field880 == null) {
-         class316.method5992(var0.tooltip, "", 30, 0, -1, var0.id);
-      }
-
-      int var4;
-      int var5;
-      int var6;
-      int var7;
-      int var15;
-      if(var0.type == 2) {
-         var15 = 0;
-
-         for(var4 = 0; var4 < var0.height; ++var4) {
-            for(var5 = 0; var5 < var0.width; ++var5) {
-               var6 = (var0.paddingX + 32) * var5;
-               var7 = (var0.paddingY + 32) * var4;
-               if(var15 < 20) {
-                  var6 += var0.xSprites[var15];
-                  var7 += var0.field2737[var15];
-               }
-
-               if(var1 >= var6 && var2 >= var7 && var1 < var6 + 32 && var2 < var7 + 32) {
-                  client.field797 = var15;
-                  class260.field104 = var0;
-                  if(var0.objIds[var15] > 0) {
-                     ObjType var8 = Varcs.method4770(var0.objIds[var15] - 1);
-                     if(client.itemSelectionState == 1 && LoginProt.method870(class101.method1704(var0))) {
-                        if(var0.id != ChatLineBuffer.field1276 || var15 != MapLabel.selectedItemIndex) {
-                           class316.method5992("Use", client.lastSelectedItemName + " " + "->" + " " + class31.method548(16748608) + var8.name, 31, var8.id, var15, var0.id);
-                        }
-                     } else if(client.spellSelected && LoginProt.method870(class101.method1704(var0))) {
-                        if((FontName.ifTargetMask & 16) == 16) {
-                           class316.method5992(client.targetVerb, client.opBase + " " + "->" + " " + class31.method548(16748608) + var8.name, 32, var8.id, var15, var0.id);
-                        }
-                     } else {
-                        String[] var9 = var8.iops;
-                        int var10 = -1;
-                        boolean var11;
-                        if(client.field789) {
-                           var11 = client.field790 || KeyFocusListener.keyPressed[81];
-                           if(var11) {
-                              var10 = var8.method6319(982890618);
-                           }
-                        }
-
-                        if(LoginProt.method870(class101.method1704(var0))) {
-                           for(int var22 = 4; var22 >= 3; --var22) {
-                              if(var10 != var22) {
-                                 class260.method5007(var0, var8, var15, var22, false);
-                              }
-                           }
-                        }
-
-                        int var12 = class101.method1704(var0);
-                        var11 = (var12 >> 31 & 1) != 0;
-                        if(var11) {
-                           class316.method5992("Use", class31.method548(16748608) + var8.name, 38, var8.id, var15, var0.id);
-                        }
-
-                        Object var10000 = null;
-                        int var13;
-                        if(LoginProt.method870(class101.method1704(var0))) {
-                           for(var13 = 2; var13 >= 0; --var13) {
-                              if(var13 != var10) {
-                                 class260.method5007(var0, var8, var15, var13, false);
-                              }
-                           }
-
-                           if(var10 >= 0) {
-                              class260.method5007(var0, var8, var15, var10, true);
-                           }
-                        }
-
-                        var9 = var0.if1Ops;
-                        if(var9 != null) {
-                           for(var13 = 4; var13 >= 0; --var13) {
-                              if(var9[var13] != null) {
-                                 byte var14 = 0;
-                                 if(var13 == 0) {
-                                    var14 = 39;
-                                 }
-
-                                 if(var13 == 1) {
-                                    var14 = 40;
-                                 }
-
-                                 if(var13 == 2) {
-                                    var14 = 41;
-                                 }
-
-                                 if(var13 == 3) {
-                                    var14 = 42;
-                                 }
-
-                                 if(var13 == 4) {
-                                    var14 = 43;
-                                 }
-
-                                 class316.method5992(var9[var13], class31.method548(16748608) + var8.name, var14, var8.id, var15, var0.id);
-                              }
-                           }
-                        }
-
-                        class316.method5992("Examine", class31.method548(16748608) + var8.name, 1005, var8.id, var15, var0.id);
-                     }
+            var13 += var14 - 1;
+            int var15 = var13 & 63;
+            int var16 = var13 >> 6 & 63;
+            int var17 = var13 >> 12;
+            int var18 = var10.readUnsignedByte();
+            int var19 = var18 >> 2;
+            int var20 = var18 & 3;
+            if(var17 == var4 && var16 >= var5 && var16 < var5 + 8 && var15 >= var6 && var15 < var6 + 8) {
+               LocType var21 = GrandExchangeOffer.method1736(var11);
+               int var22 = var2 + class171.method2693(var16 & 7, var15 & 7, var7, var21.width, var21.length, var20);
+               int var23 = var3 + class140.method2017(var16 & 7, var15 & 7, var7, var21.width, var21.length, var20);
+               if(var22 > 0 && var23 > 0 && var22 < 103 && var23 < 103) {
+                  int var24 = var1;
+                  if((class91.tileSettings[1][var22][var23] & 2) == 2) {
+                     var24 = var1 - 1;
                   }
-               }
 
-               ++var15;
+                  CollisionData var25 = null;
+                  if(var24 >= 0) {
+                     var25 = var9[var24];
+                  }
+
+                  class253.method4728(var1, var22, var23, var11, var20 + var7 & 3, var19, var8, var25);
+               }
             }
          }
       }
-
-      if(var0.isIf3) {
-         if(client.spellSelected) {
-            var4 = class101.method1704(var0);
-            boolean var23 = (var4 >> 21 & 1) != 0;
-            if(var23 && (FontName.ifTargetMask & 32) == 32) {
-               class316.method5992(client.targetVerb, client.opBase + " " + "->" + " " + var0.opBase, 58, 0, var0.index, var0.id);
-            }
-         } else {
-            for(var15 = 9; var15 >= 5; --var15) {
-               var6 = class101.method1704(var0);
-               boolean var19 = (var6 >> var15 + 1 & 1) != 0;
-               String var16;
-               if(!var19 && var0.onOpListener == null) {
-                  var16 = null;
-               } else if(var0.ops != null && var0.ops.length > var15 && var0.ops[var15] != null && var0.ops[var15].trim().length() != 0) {
-                  var16 = var0.ops[var15];
-               } else {
-                  var16 = null;
-               }
-
-               if(var16 != null) {
-                  class316.method5992(var16, var0.opBase, 1007, var15 + 1, var0.index, var0.id);
-               }
-            }
-
-            var3 = class106.method1886(var0);
-            if(var3 != null) {
-               class316.method5992(var3, var0.opBase, 25, 0, var0.index, var0.id);
-            }
-
-            for(var4 = 4; var4 >= 0; --var4) {
-               var7 = class101.method1704(var0);
-               boolean var21 = (var7 >> var4 + 1 & 1) != 0;
-               String var17;
-               if(!var21 && var0.onOpListener == null) {
-                  var17 = null;
-               } else if(var0.ops != null && var0.ops.length > var4 && var0.ops[var4] != null && var0.ops[var4].trim().length() != 0) {
-                  var17 = var0.ops[var4];
-               } else {
-                  var17 = null;
-               }
-
-               if(var17 != null) {
-                  class316.method5992(var17, var0.opBase, 57, var4 + 1, var0.index, var0.id);
-               }
-            }
-
-            var5 = class101.method1704(var0);
-            boolean var20 = (var5 & 1) != 0;
-            if(var20) {
-               class316.method5992("Continue", "", 30, 0, var0.index, var0.id);
-            }
-         }
-      }
-
    }
 
-   @ObfuscatedName("c")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(IB)V",
-      garbageValue = "42"
+      signature = "(IB)Lcs;",
+      garbageValue = "-74"
    )
-   static void method5442(int var0) {
-      ItemContainer var1 = (ItemContainer)ItemContainer.itemContainers.method380((long)var0);
+   static class314 method1574(int var0) {
+      class314 var1 = (class314)class314.field1269.method635((long)var0);
       if(var1 != null) {
-         for(int var2 = 0; var2 < var1.itemIds.length; ++var2) {
-            var1.itemIds[var2] = -1;
-            var1.stackSizes[var2] = 0;
-            var1.stackSizesChanged(var2);
+         return var1;
+      } else {
+         byte[] var2 = class27.clientscripts.method4115(var0, 0, -1796617386);
+         if(var2 == null) {
+            return null;
+         } else {
+            var1 = class191.method3809(var2);
+            class314.field1269.method628(var1, (long)var0);
+            return var1;
          }
-
       }
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "([BB)Laf;",
+      garbageValue = "1"
+   )
+   static class57 method1583(byte[] var0) {
+      return var0 == null?new class57():new class57(class331.method6416(var0).pixels);
+   }
+
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "(IIIIB)V",
+      garbageValue = "-117"
+   )
+   static final void method1584(int var0, int var1, int var2, int var3) {
+      for(int var4 = var1; var4 <= var3 + var1; ++var4) {
+         for(int var5 = var0; var5 <= var0 + var2; ++var5) {
+            if(var5 >= 0 && var5 < 104 && var4 >= 0 && var4 < 104) {
+               class91.field511[0][var5][var4] = 127;
+               if(var0 == var5 && var5 > 0) {
+                  class91.tileHeights[0][var5][var4] = class91.tileHeights[0][var5 - 1][var4];
+               }
+
+               if(var5 == var0 + var2 && var5 < 103) {
+                  class91.tileHeights[0][var5][var4] = class91.tileHeights[0][var5 + 1][var4];
+               }
+
+               if(var4 == var1 && var4 > 0) {
+                  class91.tileHeights[0][var5][var4] = class91.tileHeights[0][var5][var4 - 1];
+               }
+
+               if(var4 == var3 + var1 && var4 < 103) {
+                  class91.tileHeights[0][var5][var4] = class91.tileHeights[0][var5][var4 + 1];
+               }
+            }
+         }
+      }
+
    }
 }

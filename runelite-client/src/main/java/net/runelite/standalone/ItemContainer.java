@@ -6,18 +6,35 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSItem;
 import net.runelite.rs.api.RSItemContainer;
 
-@ObfuscatedName("ba")
+@ObfuscatedName("bv")
 public class ItemContainer extends Node implements RSItemContainer {
-   @ObfuscatedName("g")
+   @ObfuscatedName("ak")
    @ObfuscatedSignature(
-      signature = "Lgq;"
+      signature = "Lclient;"
+   )
+   static Client clientInstance;
+   @ObfuscatedName("gd")
+   @ObfuscatedSignature(
+      signature = "[Lld;"
+   )
+   static SpritePixels[] headIconsPrayer;
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "Lht;"
    )
    static HashTable itemContainers;
-   @ObfuscatedName("r")
-   int[] itemIds;
-   @ObfuscatedName("e")
-   int[] stackSizes;
+   @ObfuscatedName("ad")
+   @ObfuscatedSignature(
+      signature = "Llh;"
+   )
+   static Bounds field551;
+   @ObfuscatedName("ao")
+   static String field553;
    public int rl$lastCycle;
+   @ObfuscatedName("s")
+   int[] itemIds;
+   @ObfuscatedName("g")
+   int[] stackSizes;
 
    static {
       itemContainers = new HashTable(32);
@@ -27,6 +44,7 @@ public class ItemContainer extends Node implements RSItemContainer {
       this.itemIds = new int[]{-1};
       this.stackSizes = new int[]{0};
       this.stackSizesChanged(-1);
+      this.rl$$init();
    }
 
    public int[] getItemIds() {
@@ -38,12 +56,15 @@ public class ItemContainer extends Node implements RSItemContainer {
    }
 
    public void stackSizesChanged(int var1) {
-      int var2 = class166.clientInstance.getGameCycle();
+      int var2 = clientInstance.getGameCycle();
       if(var2 != this.rl$lastCycle) {
          this.rl$lastCycle = var2;
          ItemContainerChanged var3 = new ItemContainerChanged(this);
-         class166.clientInstance.getCallbacks().postDeferred(var3);
+         clientInstance.getCallbacks().postDeferred(var3);
       }
+   }
+
+   private void rl$$init() {
    }
 
    public net.runelite.api.Item[] getItems() {
@@ -52,7 +73,7 @@ public class ItemContainer extends Node implements RSItemContainer {
       net.runelite.api.Item[] var3 = new net.runelite.api.Item[var1.length];
 
       for(int var4 = 0; var4 < var1.length; ++var4) {
-         RSItem var5 = class166.clientInstance.createItem();
+         RSItem var5 = clientInstance.createItem();
          var5.setId(var1[var4]);
          var5.setQuantity(var2[var4]);
          var3[var4] = var5;
@@ -61,51 +82,89 @@ public class ItemContainer extends Node implements RSItemContainer {
       return var3;
    }
 
-   @ObfuscatedName("k")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "(ILcx;ZI)I",
-      garbageValue = "1891084397"
+      signature = "(B)V",
+      garbageValue = "-85"
    )
-   static int method1931(int var0, class106 var1, boolean var2) {
-      ComponentType var3;
-      if(var0 >= 2000) {
-         var0 -= 1000;
-         var3 = WorldMapType1.method2440(class48.intStack[--class228.intStackSize]);
-      } else {
-         var3 = var2?class113.field75:class48.field1080;
+   static void method3962() {
+      ChatHistory.chatLineMap.clear();
+      ChatHistory.messages.method2180();
+      ChatHistory.field1261.method4679();
+      ChatHistory.field1262 = 0;
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "1118589205"
+   )
+   static void method3963() {
+      class266.field1977 = new int[2000];
+      int var0 = 0;
+      int var1 = 240;
+
+      int var3;
+      for(byte var2 = 12; var0 < 16; var1 -= var2) {
+         var3 = GrandExchangeOffer.method1725((double)((float)var1 / 360.0F), 0.9998999834060669D, (double)(0.075F + 0.425F * (float)var0 / 16.0F));
+         class266.field1977[var0] = var3;
+         ++var0;
       }
 
-      if(var0 == 1927) {
-         if(class48.field1075 >= 10) {
-            throw new RuntimeException();
-         } else if(var3.onResizeListener == null) {
-            return 0;
-         } else {
-            ScriptEvent var4 = new ScriptEvent();
-            var4.source = var3;
-            var4.params = var3.onResizeListener;
-            var4.field572 = class48.field1075 + 1;
-            client.field842.method4351(var4);
-            return 1;
+      var1 = 48;
+
+      for(int var5 = var1 / 6; var0 < class266.field1977.length; var1 -= var5) {
+         var3 = var0 * 2;
+
+         for(int var4 = GrandExchangeOffer.method1725((double)((float)var1 / 360.0F), 0.9998999834060669D, 0.5D); var0 < var3 && var0 < class266.field1977.length; ++var0) {
+            class266.field1977[var0] = var4;
          }
-      } else {
-         return 2;
+      }
+
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(Liz;Liz;Liz;Liz;I)V",
+      garbageValue = "1597297308"
+   )
+   public static void method3965(Js5Index var0, Js5Index var1, Js5Index var2, Js5Index var3) {
+      class234.componentIndex = var0;
+      LoginProt.field2329 = var1;
+      ComponentType.field2682 = var2;
+      class192.field2478 = var3;
+      ComponentType.interfaces = new ComponentType[class234.componentIndex.method4127()][];
+      ComponentType.validInterfaces = new boolean[class234.componentIndex.method4127()];
+   }
+
+   @ObfuscatedName("is")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/String;Ljava/lang/String;IIIIZI)V",
+      garbageValue = "1505601881"
+   )
+   static final void method3950(String var0, String var1, int var2, int var3, int var4, int var5, boolean var6) {
+      if(!Client.isMenuOpen) {
+         if(Client.menuOptionCount < 500) {
+            Client.menuOptions[Client.menuOptionCount] = var0;
+            Client.menuTargets[Client.menuOptionCount] = var1;
+            Client.menuTypes[Client.menuOptionCount] = var2;
+            Client.menuIdentifiers[Client.menuOptionCount] = var3;
+            Client.menuActionParams0[Client.menuOptionCount] = var4;
+            Client.menuActionParams1[Client.menuOptionCount] = var5;
+            Client.menuBooleanArray[Client.menuOptionCount] = var6;
+            ++Client.menuOptionCount;
+            Client.onMenuOptionsChanged(-1);
+         }
+
       }
    }
 
-   @ObfuscatedName("p")
+   @ObfuscatedName("h")
    @ObfuscatedSignature(
-      signature = "(Ljava/lang/CharSequence;I)I",
-      garbageValue = "1557015604"
+      signature = "(S)I",
+      garbageValue = "32767"
    )
-   public static int method1914(CharSequence var0) {
-      int var1 = var0.length();
-      int var2 = 0;
-
-      for(int var3 = 0; var3 < var1; ++var3) {
-         var2 = (var2 << 5) - var2 + FaceNormal.method5725(var0.charAt(var3));
-      }
-
-      return var2;
+   public static int method3964() {
+      return ++MouseInput.mouseIdleTicks - 1;
    }
 }

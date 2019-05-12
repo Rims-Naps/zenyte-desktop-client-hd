@@ -2,9 +2,9 @@ package net.runelite.standalone;
 
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("he")
+@ObfuscatedName("hq")
 public class ByteArrayNode extends Node {
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    public byte[] byteArray;
 
    public ByteArrayNode(byte[] var1) {

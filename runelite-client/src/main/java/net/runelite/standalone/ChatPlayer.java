@@ -5,28 +5,21 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSChatPlayer;
 
-@ObfuscatedName("kv")
+@ObfuscatedName("kl")
 public class ChatPlayer extends Nameable implements RSChatPlayer {
-   @ObfuscatedName("i")
-   @ObfuscatedSignature(
-      signature = "Liu;"
-   )
-   static Js5Index field3709;
-   @ObfuscatedName("j")
-   static int[] field3707;
-   @ObfuscatedName("l")
+   @ObfuscatedName("f")
    @ObfuscatedGetter(
-      intValue = 845682055
+      intValue = -2143445875
    )
-   public int field3706;
-   @ObfuscatedName("b")
+   public int field3711;
+   @ObfuscatedName("p")
    @ObfuscatedGetter(
-      intValue = -849994939
+      intValue = 1644405117
    )
    public int rank;
-   @ObfuscatedName("c")
+   @ObfuscatedName("h")
    @ObfuscatedGetter(
-      intValue = 1910801327
+      intValue = 2063532353
    )
    public int world;
 
@@ -34,22 +27,23 @@ public class ChatPlayer extends Nameable implements RSChatPlayer {
       this.world = -1;
    }
 
-   @ObfuscatedName("ay")
+   @ObfuscatedName("bg")
    @ObfuscatedSignature(
-      signature = "(B)I",
-      garbageValue = "0"
+      signature = "(B)Z",
+      garbageValue = "1"
    )
-   public int method793() {
-      return this.world;
+   public boolean method2031() {
+      return this.world > 0;
    }
 
-   @ObfuscatedName("ah")
+   @ObfuscatedName("bp")
    @ObfuscatedSignature(
-      signature = "(I)Z",
-      garbageValue = "-1699750405"
+      signature = "(III)V",
+      garbageValue = "-529904546"
    )
-   public boolean method797() {
-      return this.world > 0;
+   void method2021(int var1, int var2) {
+      this.world = var1;
+      this.field3711 = var2;
    }
 
    public int getRSRank() {
@@ -60,13 +54,12 @@ public class ChatPlayer extends Nameable implements RSChatPlayer {
       return this.world;
    }
 
-   @ObfuscatedName("am")
+   @ObfuscatedName("bv")
    @ObfuscatedSignature(
-      signature = "(III)V",
-      garbageValue = "1946948981"
+      signature = "(I)I",
+      garbageValue = "1635702531"
    )
-   void method794(int var1, int var2) {
-      this.world = var1;
-      this.field3706 = var2;
+   public int method2020() {
+      return this.world;
    }
 }

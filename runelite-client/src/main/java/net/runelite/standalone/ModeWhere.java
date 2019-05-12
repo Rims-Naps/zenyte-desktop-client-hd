@@ -4,34 +4,34 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("in")
+@ObfuscatedName("ix")
 public class ModeWhere {
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "Lin;"
-   )
-   static final ModeWhere BUILDLIVE;
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "Lin;"
-   )
-   static final ModeWhere RC;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Lin;"
+      signature = "Lix;"
    )
    static final ModeWhere WIP;
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lin;"
+      signature = "Lix;"
    )
    static final ModeWhere LIVE;
-   @ObfuscatedName("l")
-   @ObfuscatedGetter(
-      intValue = -232062523
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "Lix;"
    )
-   final int field3197;
-   @ObfuscatedName("c")
+   static final ModeWhere BUILDLIVE;
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "Lix;"
+   )
+   static final ModeWhere RC;
+   @ObfuscatedName("f")
+   @ObfuscatedGetter(
+      intValue = -70287847
+   )
+   final int field3216;
+   @ObfuscatedName("h")
    public final String identifier;
 
    static {
@@ -43,15 +43,30 @@ public class ModeWhere {
 
    ModeWhere(String var1, int var2) {
       this.identifier = var1;
-      this.field3197 = var2;
+      this.field3216 = var2;
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Liu;I)V",
-      garbageValue = "-1712592106"
+      signature = "(Lgx;I)Ljava/lang/String;",
+      garbageValue = "1904519986"
    )
-   public static void method2940(Js5Index var0) {
-      VarClientStringType.field3340 = var0;
+   public static String method1463(Packet var0) {
+      String var1;
+      try {
+         int var2 = var0.method5269();
+         if(var2 > 32767) {
+            var2 = 32767;
+         }
+
+         byte[] var3 = new byte[var2];
+         var0.offset += class202.huffman.method528(var0.payload, var0.offset, var3, 0, var2);
+         String var4 = TradingPost.method1607(var3, 0, var2);
+         var1 = var4;
+      } catch (Exception var6) {
+         var1 = "Cabbage";
+      }
+
+      return var1;
    }
 }

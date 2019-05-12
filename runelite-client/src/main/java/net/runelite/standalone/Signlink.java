@@ -7,26 +7,26 @@ import java.net.URL;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ff")
+@ObfuscatedName("fo")
 public class Signlink implements Runnable {
-   @ObfuscatedName("r")
-   public static String javaVersion;
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    public static String javaVendor;
-   @ObfuscatedName("l")
+   @ObfuscatedName("s")
+   public static String javaVersion;
+   @ObfuscatedName("f")
    boolean closed;
-   @ObfuscatedName("e")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "Let;"
-   )
-   Task currentTask;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Let;"
+      signature = "Lfn;"
    )
    Task cachedTask;
-   @ObfuscatedName("c")
+   @ObfuscatedName("h")
    Thread sysEventQueue;
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "Lfn;"
+   )
+   Task currentTask;
 
    public Signlink() {
       this.currentTask = null;
@@ -49,45 +49,32 @@ public class Signlink implements Runnable {
       this.sysEventQueue.start();
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(IIILjava/lang/Object;I)Let;",
-      garbageValue = "1997676403"
+      signature = "(Ljava/lang/Runnable;IS)Lfn;",
+      garbageValue = "-10659"
    )
-   final Task method4440(int var1, int var2, int var3, Object var4) {
-      Task var5 = new Task();
-      var5.type = var1;
-      var5.intArgument = var2;
-      var5.objectArgument = var4;
+   public final Task method5829(Runnable var1, int var2) {
+      return this.method5824(2, var2, 0, var1);
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "2052321346"
+   )
+   public final void method5822() {
       synchronized(this) {
-         if(this.cachedTask != null) {
-            this.cachedTask.task = var5;
-            this.cachedTask = var5;
-         } else {
-            this.cachedTask = this.currentTask = var5;
-         }
-
-         this.notify();
-         return var5;
+         this.closed = true;
+         this.notifyAll();
       }
-   }
 
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(Ljava/lang/String;II)Let;",
-      garbageValue = "1279574555"
-   )
-   public final Task method4438(String var1, int var2) {
-      return this.method4440(1, var2, 0, var1);
-   }
+      try {
+         this.sysEventQueue.join();
+      } catch (InterruptedException var3) {
+         ;
+      }
 
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "(Ljava/lang/Runnable;IB)Let;",
-      garbageValue = "-104"
-   )
-   public final Task method4451(Runnable var1, int var2) {
-      return this.method4440(2, var2, 0, var1);
    }
 
    public final void run() {
@@ -139,152 +126,91 @@ public class Signlink implements Runnable {
       }
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-2140513690"
+      signature = "(IIILjava/lang/Object;I)Lfn;",
+      garbageValue = "-2139659019"
    )
-   public final void method4441() {
+   final Task method5824(int var1, int var2, int var3, Object var4) {
+      Task var5 = new Task();
+      var5.type = var1;
+      var5.intArgument = var2;
+      var5.objectArgument = var4;
       synchronized(this) {
-         this.closed = true;
-         this.notifyAll();
-      }
-
-      try {
-         this.sysEventQueue.join();
-      } catch (InterruptedException var3) {
-         ;
-      }
-
-   }
-
-   @ObfuscatedName("gy")
-   @ObfuscatedSignature(
-      signature = "(IIZB)V",
-      garbageValue = "-124"
-   )
-   static final void method4454(int var0, int var1, boolean var2) {
-      if(!var2 || var0 != VertexNormal.field1727 || IndexFile.field2075 != var1) {
-         VertexNormal.field1727 = var0;
-         IndexFile.field2075 = var1;
-         class310.method5922(25);
-         MouseRecorder.method2747("Loading - please wait.", true);
-         int var3 = class158.baseX;
-         int var4 = class107.baseY;
-         class158.baseX = (var0 - 6) * 8;
-         class107.baseY = (var1 - 6) * 8;
-         int var5 = class158.baseX - var3;
-         int var6 = class107.baseY - var4;
-         var3 = class158.baseX;
-         var4 = class107.baseY;
-
-         int var7;
-         int var9;
-         for(var7 = 0; var7 < 32768; ++var7) {
-            NPCEntity var8 = client.npcs[var7];
-            if(var8 != null) {
-               for(var9 = 0; var9 < 10; ++var9) {
-                  var8.pathX[var9] -= var5;
-                  var8.pathY[var9] -= var6;
-               }
-
-               var8.x -= var5 * 128;
-               var8.y -= var6 * 128;
-            }
+         if(this.cachedTask != null) {
+            this.cachedTask.task = var5;
+            this.cachedTask = var5;
+         } else {
+            this.cachedTask = this.currentTask = var5;
          }
 
-         for(var7 = 0; var7 < 2048; ++var7) {
-            PlayerEntity var21 = client.players[var7];
-            if(var21 != null) {
-               for(var9 = 0; var9 < 10; ++var9) {
-                  var21.pathX[var9] -= var5;
-                  var21.pathY[var9] -= var6;
-               }
-
-               var21.x -= var5 * 128;
-               var21.y -= var6 * 128;
-            }
-         }
-
-         byte var20 = 0;
-         byte var18 = 104;
-         byte var22 = 1;
-         if(var5 < 0) {
-            var20 = 103;
-            var18 = -1;
-            var22 = -1;
-         }
-
-         byte var10 = 0;
-         byte var11 = 104;
-         byte var12 = 1;
-         if(var6 < 0) {
-            var10 = 103;
-            var11 = -1;
-            var12 = -1;
-         }
-
-         int var14;
-         for(int var13 = var20; var13 != var18; var13 += var22) {
-            for(var14 = var10; var14 != var11; var14 += var12) {
-               int var15 = var13 + var5;
-               int var16 = var14 + var6;
-
-               for(int var17 = 0; var17 < 4; ++var17) {
-                  if(var15 >= 0 && var16 >= 0 && var15 < 104 && var16 < 104) {
-                     client.groundItemDeque[var17][var13][var14] = client.groundItemDeque[var17][var15][var16];
-                  } else {
-                     client.groundItemDeque[var17][var13][var14] = null;
-                  }
-               }
-            }
-         }
-
-         for(PendingSpawn var19 = (PendingSpawn)client.pendingSpawns.method4373(); var19 != null; var19 = (PendingSpawn)client.pendingSpawns.method4358()) {
-            var19.x -= var5;
-            var19.y -= var6;
-            if(var19.x < 0 || var19.y < 0 || var19.x >= 104 || var19.y >= 104) {
-               var19.method6469();
-            }
-         }
-
-         if(client.destinationX != 0) {
-            client.destinationX -= var5;
-            client.destinationY -= var6;
-         }
-
-         client.queuedSoundEffectCount = 0;
-         client.field889 = false;
-         class166.cameraX -= var5 << 7;
-         class98.cameraY -= var6 << 7;
-         class192.field68 -= var5 << 7;
-         class192.field70 -= var6 << 7;
-         client.field661 = -1;
-         client.spotAnimationDeque.method4350();
-         client.projectiles.method4350();
-
-         for(var14 = 0; var14 < 4; ++var14) {
-            client.collisionMaps[var14].method196();
-         }
-
+         this.notify();
+         return var5;
       }
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Liu;III)Lli;",
-      garbageValue = "-1799882533"
+      signature = "(Ljava/lang/String;II)Lfn;",
+      garbageValue = "1741130223"
    )
-   static IndexedSprite method4455(Js5Index var0, int var1, int var2) {
-      byte[] var4 = var0.method1516(var1, var2, 1789634852);
-      boolean var3;
-      if(var4 == null) {
-         var3 = false;
-      } else {
-         SceneTilePaint.method667(var4);
-         var3 = true;
+   public final Task method5825(String var1, int var2) {
+      return this.method5824(1, var2, 0, var1);
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "([BILjava/lang/CharSequence;I)I",
+      garbageValue = "-729375129"
+   )
+   public static int method5843(byte[] var0, int var1, CharSequence var2) {
+      int var3 = var2.length();
+      int var4 = var1;
+
+      for(int var5 = 0; var5 < var3; ++var5) {
+         char var6 = var2.charAt(var5);
+         if(var6 <= 127) {
+            var0[var4++] = (byte)var6;
+         } else if(var6 <= 2047) {
+            var0[var4++] = (byte)(192 | var6 >> 6);
+            var0[var4++] = (byte)(128 | var6 & '?');
+         } else {
+            var0[var4++] = (byte)(224 | var6 >> '\f');
+            var0[var4++] = (byte)(128 | var6 >> 6 & 63);
+            var0[var4++] = (byte)(128 | var6 & '?');
+         }
       }
 
-      return !var3?null:Overlay.method405();
+      return var4 - var1;
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "([BIIII[Lfk;I)V",
+      garbageValue = "1940223955"
+   )
+   static final void method5842(byte[] var0, int var1, int var2, int var3, int var4, CollisionData[] var5) {
+      int var7;
+      int var8;
+      for(int var6 = 0; var6 < 4; ++var6) {
+         for(var7 = 0; var7 < 64; ++var7) {
+            for(var8 = 0; var8 < 64; ++var8) {
+               if(var7 + var1 > 0 && var7 + var1 < 103 && var8 + var2 > 0 && var8 + var2 < 103) {
+                  var5[var6].flags[var7 + var1][var8 + var2] &= -16777217;
+               }
+            }
+         }
+      }
+
+      Packet var10 = new Packet(var0);
+
+      for(var7 = 0; var7 < 4; ++var7) {
+         for(var8 = 0; var8 < 64; ++var8) {
+            for(int var9 = 0; var9 < 64; ++var9) {
+               Size.method4094(var10, var7, var8 + var1, var9 + var2, var3, var4, 0);
+            }
+         }
+      }
+
    }
 }

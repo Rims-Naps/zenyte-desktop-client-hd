@@ -112,6 +112,7 @@ public final class class98 {
             }
 
             if(var5 > 0 && var6.children[var5 - 1] == null) {
+               System.out.println(var6.id & 0xFFFF);
                throw new RuntimeException("" + (var5 - 1));
             } else {
                ComponentType var12 = new ComponentType();

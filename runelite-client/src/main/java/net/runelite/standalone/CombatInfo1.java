@@ -1,34 +1,63 @@
 package net.runelite.standalone;
 
+import net.runelite.api.events.WidgetLoaded;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSCombatInfo1;
+import net.runelite.rs.api.RSWidget;
 
-@ObfuscatedName("bg")
+@ObfuscatedName("by")
 public class CombatInfo1 extends Node implements RSCombatInfo1 {
-   @ObfuscatedName("r")
-   @ObfuscatedGetter(
-      intValue = -2009843137
+   @ObfuscatedName("qk")
+   @ObfuscatedSignature(
+      signature = "Lcz;"
    )
-   int healthRatio;
-   @ObfuscatedName("e")
+   static AbstractSoundSystem soundSystem1;
+   @ObfuscatedName("m")
    @ObfuscatedGetter(
-      intValue = 27673533
+      intValue = -917563253
    )
-   int health;
-   @ObfuscatedName("q")
+   static int field1006;
+   @ObfuscatedName("h")
    @ObfuscatedGetter(
-      intValue = -1594257837
+      intValue = 357083675
+   )
+   static int field1009;
+   @ObfuscatedName("x")
+   @ObfuscatedGetter(
+      intValue = 1553815911
    )
    int int2;
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      intValue = -538030707
+      intValue = -1922137535
    )
    int cycle;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = -1554469757
+   )
+   int healthRatio;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      intValue = 1566650169
+   )
+   int health;
 
    CombatInfo1(int var1, int var2, int var3, int var4) {
+      this.cycle = var1;
+      this.healthRatio = var2;
+      this.health = var3;
+      this.int2 = var4;
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(IIIIB)V",
+      garbageValue = "118"
+   )
+   void method54(int var1, int var2, int var3, int var4) {
       this.cycle = var1;
       this.healthRatio = var2;
       this.health = var3;
@@ -43,87 +72,68 @@ public class CombatInfo1 extends Node implements RSCombatInfo1 {
       return this.health;
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "(IIIII)V",
-      garbageValue = "242544624"
+      signature = "(I)V",
+      garbageValue = "-1154121261"
    )
-   void method1155(int var1, int var2, int var3, int var4) {
-      this.cycle = var1;
-      this.healthRatio = var2;
-      this.health = var3;
-      this.int2 = var4;
+   static void method58() {
+      if(class57.method910()) {
+         class203.worldSelectShown = true;
+         class203.field1152 = 0;
+         class203.field1153 = 0;
+      }
+
    }
 
-   @ObfuscatedName("an")
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(IB)I",
+      garbageValue = "1"
+   )
+   public static int method57(int var0) {
+      Varbit var1 = SoundTask.method6413(var0);
+      int var2 = var1.configId;
+      int var3 = var1.leastSignificantBit;
+      int var4 = var1.mostSignificantBit;
+      int var5 = class313.varpsMasks[var4 - var3];
+      return class313.clientVarps[var2] >> var3 & var5;
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(Lfy;B)V",
+      garbageValue = "8"
+   )
+   public static void method59(Huffman var0) {
+      class202.huffman = var0;
+   }
+
+   @ObfuscatedName("ah")
    @ObfuscatedSignature(
       signature = "(IZII)V",
-      garbageValue = "935134680"
+      garbageValue = "-1274402177"
    )
-   public static final void method1156(int var0, boolean var1, int var2) {
+   public static final void method56(int var0, boolean var1, int var2) {
       if(var0 >= 8000 && var0 <= 48000) {
-         AbstractSoundSystem.sampleRate = var0;
-         class56.audioHighMemory = var1;
-         WorldMapDecoration.field189 = var2;
+         MapIconReference.sampleRate = var0;
+         ContextMenuRow.audioHighMemory = var1;
+         AbstractSoundSystem.field1404 = var2;
       } else {
          throw new IllegalArgumentException();
       }
    }
 
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(IIB)I",
-      garbageValue = "-28"
-   )
-   static int method1157(int var0, int var1) {
-      Overlay var3 = (Overlay)Overlay.overlays.method951((long)var0);
-      Overlay var2;
-      if(var3 != null) {
-         var2 = var3;
-      } else {
-         byte[] var4 = Overlay.overlay_ref.method1516(4, var0, 1789634852);
-         var3 = new Overlay();
-         if(var4 != null) {
-            var3.method418(new Packet(var4), var0);
-         }
-
-         var3.method398();
-         Overlay.overlays.method957(var3, (long)var0);
-         var2 = var3;
+   @ObfuscatedName("ad")
+   static void method61(int var0, int var1) {
+      Client.copy$runWidgetOnLoadListener(var0, var1);
+      RSWidget[][] var2 = ItemContainer.clientInstance.getWidgets();
+      boolean var3 = var2 != null && var2[var0] != null;
+      if(var3) {
+         WidgetLoaded var4 = new WidgetLoaded();
+         var4.setGroupId(var0);
+         ItemContainer.clientInstance.getCallbacks().post(var4);
       }
 
-      if(var2 == null) {
-         return var1;
-      } else if(var2.otherRgbColor >= 0) {
-         return var2.otherRgbColor | -16777216;
-      } else if(var2.texture >= 0) {
-         int var10 = VertexNormal.method2548(Graphics3D.textureLoader.vmethod5363(var2.texture), 96);
-         return Graphics3D.colorPalette[var10] | -16777216;
-      } else if(var2.color == 16711935) {
-         return var1;
-      } else {
-         int var5 = var2.hue;
-         int var6 = var2.saturation;
-         int var7 = var2.lightness;
-         if(var7 > 179) {
-            var6 /= 2;
-         }
-
-         if(var7 > 192) {
-            var6 /= 2;
-         }
-
-         if(var7 > 217) {
-            var6 /= 2;
-         }
-
-         if(var7 > 243) {
-            var6 /= 2;
-         }
-
-         int var8 = (var6 / 32 << 7) + var7 / 2 + (var5 / 4 << 10);
-         int var9 = VertexNormal.method2548(var8, 96);
-         return Graphics3D.colorPalette[var9] | -16777216;
-      }
    }
 }

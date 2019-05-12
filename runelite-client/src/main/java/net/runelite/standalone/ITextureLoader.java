@@ -3,33 +3,33 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ex")
+@ObfuscatedName("ew")
 public interface ITextureLoader {
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(IB)[I",
-      garbageValue = "40"
-   )
-   int[] vmethod5375(int var1);
-
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "(II)I",
-      garbageValue = "1901823043"
-   )
-   int vmethod5363(int var1);
-
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "(IB)Z",
-      garbageValue = "-59"
-   )
-   boolean vmethod5366(int var1);
-
-   @ObfuscatedName("i")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
       signature = "(II)Z",
-      garbageValue = "844577854"
+      garbageValue = "-159952212"
    )
-   boolean vmethod5364(int var1);
+   boolean vmethod1153(int var1);
+
+   @ObfuscatedName("x")
+   @ObfuscatedSignature(
+      signature = "(II)I",
+      garbageValue = "-1592582549"
+   )
+   int vmethod1151(int var1);
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(IB)Z",
+      garbageValue = "-36"
+   )
+   boolean vmethod1152(int var1);
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(II)[I",
+      garbageValue = "1412569886"
+   )
+   int[] vmethod1150(int var1);
 }

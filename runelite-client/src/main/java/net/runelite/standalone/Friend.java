@@ -1,34 +1,44 @@
 package net.runelite.standalone;
 
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSFriend;
 import net.runelite.rs.api.RSName;
 
-@ObfuscatedName("ky")
+@ObfuscatedName("ks")
 public class Friend extends ChatPlayer implements RSFriend {
-   @ObfuscatedName("p")
-   @ObfuscatedGetter(
-      intValue = -1665373209
-   )
-   static int field3725;
-   @ObfuscatedName("r")
-   boolean field3724;
-   @ObfuscatedName("g")
-   boolean field3723;
+   @ObfuscatedName("a")
+   boolean field3729;
+   @ObfuscatedName("s")
+   boolean field3730;
 
-   @ObfuscatedName("aw")
+   Friend() {
+      this.rl$$init();
+   }
+
+   @ObfuscatedName("au")
    @ObfuscatedSignature(
-      signature = "(Ljr;I)I",
-      garbageValue = "889054617"
+      signature = "(Lkn;I)I",
+      garbageValue = "-665156315"
    )
-   public int vmethod2733(Nameable var1) {
-      return this.method2732((Friend)var1);
+   public int vmethod6266(Nameable var1) {
+      return this.method6269((Friend)var1);
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(Lks;B)I",
+      garbageValue = "81"
+   )
+   int method6269(Friend var1) {
+      return super.world == Client.world && Client.world != var1.world?-1:(Client.world == var1.world && super.world != Client.world?1:(super.world != 0 && var1.world == 0?-1:(var1.world != 0 && super.world == 0?1:(this.field3729 && !var1.field3729?-1:(!this.field3729 && var1.field3729?1:(this.field3730 && !var1.field3730?-1:(!this.field3730 && var1.field3730?1:(super.world != 0?super.field3711 - var1.field3711:var1.field3711 - super.field3711))))))));
+   }
+
+   private void rl$$init() {
    }
 
    public int compareTo(Object var1) {
-      return this.method2732((Friend)var1);
+      return this.method6269((Friend)var1);
    }
 
    public String getName() {
@@ -38,23 +48,5 @@ public class Friend extends ChatPlayer implements RSFriend {
    public String getPrevName() {
       RSName var1 = this.getRsPrevName();
       return var1 == null?null:var1.getName();
-   }
-
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(Lky;I)I",
-      garbageValue = "1165791195"
-   )
-   int method2732(Friend var1) {
-      return super.world == client.world && client.world != var1.world?-1:(client.world == var1.world && super.world != client.world?1:(super.world != 0 && var1.world == 0?-1:(var1.world != 0 && super.world == 0?1:(this.field3723 && !var1.field3723?-1:(!this.field3723 && var1.field3723?1:(this.field3724 && !var1.field3724?-1:(!this.field3724 && var1.field3724?1:(super.world != 0?super.field3706 - var1.field3706:var1.field3706 - super.field3706))))))));
-   }
-
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(II)I",
-      garbageValue = "-1048301153"
-   )
-   public static int method2731(int var0) {
-      return MapLabel.method5553(class195.field1714[var0]);
    }
 }

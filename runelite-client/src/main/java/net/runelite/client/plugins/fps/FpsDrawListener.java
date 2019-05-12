@@ -30,7 +30,7 @@ import net.runelite.api.events.FocusChanged;
 /**
  * FPS Draw Listener runs after the canvas has been painted with the buffered image (unused in this plugin)
  * It specifically is designed only to pause when RS decides to paint the canvas, after the canvas has been painted.
- * The RS client operates at 50 cycles happen per second in the RS client with higher priority than draws per second.
+ * The RS client operates at 50 cycles happen per second in the RS Client with higher priority than draws per second.
  * For high powered computers, drawing is limited by client cycles, so 50 is the max FPS observed.
  * After running a game cycle and a draw operation, the RS client burns the rest of the time with a nano timer.
  * For low powered computers, the RS client is often throttled by the hardware or OS and draws at 25-30 fps.

@@ -5,56 +5,66 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSDynamicObject;
 
-@ObfuscatedName("cy")
+@ObfuscatedName("co")
 public class Location extends Entity implements RSDynamicObject {
-   @ObfuscatedName("l")
+   @ObfuscatedName("od")
+   @ObfuscatedSignature(
+      signature = "Lff;"
+   )
+   static class224 mouseWheel;
+   @ObfuscatedName("ar")
+   @ObfuscatedSignature(
+      signature = "Llr;"
+   )
+   public static BufferProvider rasterProvider;
+   @ObfuscatedName("f")
    @ObfuscatedGetter(
-      intValue = 1653421913
+      intValue = 99477863
    )
    int sceneY;
-   @ObfuscatedName("r")
-   @ObfuscatedGetter(
-      intValue = -981205583
-   )
-   int type;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = -54568097
-   )
-   int orientation;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = 1697176731
-   )
-   int animFrame;
    @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = 2088221983
-   )
-   int level;
-   @ObfuscatedName("b")
-   @ObfuscatedSignature(
-      signature = "Ljg;"
-   )
-   Sequence animation;
-   @ObfuscatedName("n")
-   @ObfuscatedGetter(
-      intValue = -1253707747
+      intValue = 1071500809
    )
    int animCycleCount;
-   @ObfuscatedName("c")
+   @ObfuscatedName("x")
    @ObfuscatedGetter(
-      intValue = 940711893
+      intValue = -1836194755
+   )
+   int level;
+   @ObfuscatedName("m")
+   @ObfuscatedGetter(
+      intValue = -267134163
+   )
+   int animFrame;
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "Lju;"
+   )
+   Sequence animation;
+   @ObfuscatedName("a")
+   @ObfuscatedGetter(
+      intValue = -1934319317
+   )
+   int id;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = 1671892841
+   )
+   int type;
+   @ObfuscatedName("h")
+   @ObfuscatedGetter(
+      intValue = -1957562685
    )
    int sceneX;
    @ObfuscatedName("g")
    @ObfuscatedGetter(
-      intValue = -1351303971
+      intValue = 1318398919
    )
-   int id;
+   int orientation;
 
    @ObfuscatedSignature(
-      signature = "(IIIIIIIZLdd;)V"
+      signature = "(IIIIIIIZLem;)V"
    )
    Location(int var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, Entity var9) {
       this.id = var1;
@@ -64,16 +74,17 @@ public class Location extends Entity implements RSDynamicObject {
       this.sceneX = var5;
       this.sceneY = var6;
       if(var7 != -1) {
-         this.animation = MapCacheArchiveNames.method2149(var7);
+         this.animation = AuthProt.method6374(var7);
          this.animFrame = 0;
-         this.animCycleCount = client.gameCycle - 1;
+         this.animCycleCount = Client.gameCycle - 1;
          this.onAnimCycleCountChanged(-1);
          if(this.animation.replyMode == 0 && var9 != null && var9 instanceof Location) {
             Location var10 = (Location)var9;
-            if(this.animation == var10.animation) {
+            if(var10.animation == this.animation) {
                this.animFrame = var10.animFrame;
                this.animCycleCount = var10.animCycleCount;
                this.onAnimCycleCountChanged(-1);
+               this.rl$$init();
                return;
             }
          }
@@ -85,102 +96,14 @@ public class Location extends Entity implements RSDynamicObject {
          }
       }
 
+      this.rl$$init();
    }
 
-   public int getAnimFrame() {
-      return this.animFrame;
-   }
-
+   @ObfuscatedName("q")
    @ObfuscatedSignature(
-      signature = "(I)Ldl;"
+      signature = "(I)Ldv;"
    )
-   public final Model copy$getModel(int var1) {
-      if(this.animation != null) {
-         int var2 = client.gameCycle - this.animCycleCount;
-         if(var2 > 100 && this.animation.frameStep > 0) {
-            var2 = 100;
-         }
-
-         label53: {
-            do {
-               do {
-                  if(var2 <= this.animation.frameLengths[this.animFrame]) {
-                     break label53;
-                  }
-
-                  var2 -= this.animation.frameLengths[this.animFrame];
-                  ++this.animFrame;
-               } while(this.animFrame < this.animation.frameIDs.length);
-
-               this.animFrame -= this.animation.frameStep;
-            } while(this.animFrame >= 0 && this.animFrame < this.animation.frameIDs.length);
-
-            this.animation = null;
-         }
-
-         this.animCycleCount = client.gameCycle - var2;
-         this.onAnimCycleCountChanged(-1);
-      }
-
-      LocType var13 = class225.method4485(this.id);
-      if(var13.multiLocs != null) {
-         var13 = var13.method1717();
-      }
-
-      if(var13 == null) {
-         return null;
-      } else {
-         int var3;
-         int var4;
-         if(this.orientation != 1 && this.orientation != 3) {
-            var3 = var13.width;
-            var4 = var13.length;
-         } else {
-            var3 = var13.length;
-            var4 = var13.width;
-         }
-
-         int var5 = (var3 >> 1) + this.sceneX;
-         int var6 = (var3 + 1 >> 1) + this.sceneX;
-         int var7 = (var4 >> 1) + this.sceneY;
-         int var8 = (var4 + 1 >> 1) + this.sceneY;
-         int[][] var9 = class98.tileHeights[this.level];
-         int var10 = var9[var6][var8] + var9[var5][var7] + var9[var6][var7] + var9[var5][var8] >> 2;
-         int var11 = (this.sceneX << 7) + (var3 << 6);
-         int var12 = (this.sceneY << 7) + (var4 << 6);
-         return var13.method1750(this.type, this.orientation, var9, var11, var10, var12, this.animation, this.animFrame);
-      }
-   }
-
-   public void setAnimFrame(int var1) {
-      this.animFrame = var1;
-   }
-
-   public int getAnimCycleCount() {
-      return this.animCycleCount;
-   }
-
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-1"
-   )
-   public void onAnimCycleCountChanged(int var1) {
-      if(class166.clientInstance.isInterpolateObjectAnimations()) {
-         int var2 = class166.clientInstance.getGameCycle() - this.getAnimCycleCount();
-         this.setAnimFrame(Integer.MIN_VALUE | var2 << 16 | this.getAnimFrame());
-      }
-
-   }
-
-   public int getId() {
-      return this.id;
-   }
-
-   @ObfuscatedName("d")
-   @ObfuscatedSignature(
-      signature = "(I)Ldl;"
-   )
-   protected final Model vmethod5584(int var1) {
+   protected final Model vmethod6001(int var1) {
       boolean var8 = false;
 
       Model var3;
@@ -211,50 +134,105 @@ public class Location extends Entity implements RSDynamicObject {
       return (Model)var3;
    }
 
-   @ObfuscatedName("jc")
+   public int getAnimFrame() {
+      return this.animFrame;
+   }
+
    @ObfuscatedSignature(
-      signature = "(Lhn;IIIB)V",
-      garbageValue = "106"
+      signature = "(I)Ldv;"
    )
-   static final void method2965(ComponentType var0, int var1, int var2, int var3) {
-      class96 var4 = var0.method270(false);
-      if(var4 != null) {
-         if(client.minimapRenderType < 3) {
-            class306.compass.method2269(var1, var2, var4.field2626, var4.field2621, 25, 25, client.mapAngle, 256, var4.field2623, var4.field2622);
-         } else {
-            Rasterizer2D.method460(var1, var2, 0, var4.field2623, var4.field2622);
+   public final Model copy$getModel(int var1) {
+      if(this.animation != null) {
+         int var2 = Client.gameCycle - this.animCycleCount;
+         if(var2 > 100 && this.animation.frameStep > 0) {
+            var2 = 100;
          }
 
+         label54: {
+            do {
+               do {
+                  if(var2 <= this.animation.frameLengths[this.animFrame]) {
+                     break label54;
+                  }
+
+                  var2 -= this.animation.frameLengths[this.animFrame];
+                  ++this.animFrame;
+               } while(this.animFrame < this.animation.frameIDs.length);
+
+               this.animFrame -= this.animation.frameStep;
+            } while(this.animFrame >= 0 && this.animFrame < this.animation.frameIDs.length);
+
+            this.animation = null;
+         }
+
+         this.animCycleCount = Client.gameCycle - var2;
+         this.onAnimCycleCountChanged(-1);
+      }
+
+      LocType var13 = GrandExchangeOffer.method1736(this.id);
+      if(var13.multiLocs != null) {
+         var13 = var13.method395();
+      }
+
+      if(var13 == null) {
+         return null;
+      } else {
+         int var3;
+         int var4;
+         if(this.orientation != 1 && this.orientation != 3) {
+            var3 = var13.width;
+            var4 = var13.length;
+         } else {
+            var3 = var13.length;
+            var4 = var13.width;
+         }
+
+         int var5 = (var3 >> 1) + this.sceneX;
+         int var6 = (var3 + 1 >> 1) + this.sceneX;
+         int var7 = (var4 >> 1) + this.sceneY;
+         int var8 = (var4 + 1 >> 1) + this.sceneY;
+         int[][] var9 = class91.tileHeights[this.level];
+         int var10 = var9[var5][var7] + var9[var6][var7] + var9[var5][var8] + var9[var6][var8] >> 2;
+         int var11 = (this.sceneX << 7) + (var3 << 6);
+         int var12 = (this.sceneY << 7) + (var4 << 6);
+         return var13.method389(this.type, this.orientation, var9, var11, var10, var12, this.animation, this.animFrame);
       }
    }
 
-   @ObfuscatedName("h")
+   public void setAnimFrame(int var1) {
+      this.animFrame = var1;
+   }
+
+   public int getAnimCycleCount() {
+      return this.animCycleCount;
+   }
+
+   private void rl$$init() {
+   }
+
    @ObfuscatedSignature(
-      signature = "(ILcx;ZI)I",
-      garbageValue = "267457117"
+      signature = "(I)V",
+      garbageValue = "-1"
    )
-   static int method2961(int var0, class106 var1, boolean var2) {
-      ComponentType var3 = var2?class113.field75:class48.field1080;
-      if(var0 == 1500) {
-         class48.intStack[++class228.intStackSize - 1] = var3.x;
-         return 1;
-      } else if(var0 == 1501) {
-         class48.intStack[++class228.intStackSize - 1] = var3.y;
-         return 1;
-      } else if(var0 == 1502) {
-         class48.intStack[++class228.intStackSize - 1] = var3.width;
-         return 1;
-      } else if(var0 == 1503) {
-         class48.intStack[++class228.intStackSize - 1] = var3.height;
-         return 1;
-      } else if(var0 == 1504) {
-         class48.intStack[++class228.intStackSize - 1] = var3.isHidden?1:0;
-         return 1;
-      } else if(var0 == 1505) {
-         class48.intStack[++class228.intStackSize - 1] = var3.layer;
-         return 1;
-      } else {
-         return 2;
+   public void onAnimCycleCountChanged(int var1) {
+      if(ItemContainer.clientInstance.isInterpolateObjectAnimations()) {
+         int var2 = ItemContainer.clientInstance.getGameCycle() - this.getAnimCycleCount();
+         this.setAnimFrame(Integer.MIN_VALUE | var2 << 16 | this.getAnimFrame());
       }
+
+   }
+
+   public int getId() {
+      return this.id;
+   }
+
+   @ObfuscatedName("m")
+   @ObfuscatedSignature(
+      signature = "(I)Lbu;",
+      garbageValue = "-1183654420"
+   )
+   static World method4651() {
+      World.field1011 = 0;
+      return class302.method6066();
    }
 }

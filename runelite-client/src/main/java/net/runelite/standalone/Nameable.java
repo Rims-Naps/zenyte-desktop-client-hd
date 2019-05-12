@@ -6,53 +6,63 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSName;
 import net.runelite.rs.api.RSNameable;
 
-@ObfuscatedName("jr")
+@ObfuscatedName("kn")
 public class Nameable implements Comparable, RSNameable {
-   @ObfuscatedName("e")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "Lkg;"
-   )
-   Name name;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Lkg;"
+      signature = "Lkx;"
    )
    Name prevName;
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "Lkx;"
+   )
+   Name name;
 
-   @ObfuscatedName("af")
+   Nameable() {
+      this.rl$$init();
+   }
+
+   @ObfuscatedName("ae")
    @ObfuscatedSignature(
       signature = "(I)Ljava/lang/String;",
-      garbageValue = "-678646739"
+      garbageValue = "1600014077"
    )
-   public String method2073() {
-      return this.name == null?"":this.name.method4713();
+   public String method2754() {
+      return this.prevName == null?"":this.prevName.method1530();
    }
 
-   @ObfuscatedName("aw")
+   @ObfuscatedName("au")
    @ObfuscatedSignature(
-      signature = "(Ljr;I)I",
-      garbageValue = "889054617"
+      signature = "(Lkn;I)I",
+      garbageValue = "-665156315"
    )
-   public int vmethod2733(Nameable var1) {
-      return this.name.method4717(var1.name);
+   public int vmethod6266(Nameable var1) {
+      return this.name.method1533(var1.name);
    }
 
-   @ObfuscatedName("o")
+   @ObfuscatedName("av")
    @ObfuscatedSignature(
-      signature = "(B)Lkg;",
-      garbageValue = "-2"
+      signature = "(Lkx;Lkx;I)V",
+      garbageValue = "275778859"
    )
-   public Name method2067() {
-      return this.name;
+   void method2765(Name var1, Name var2) {
+      if(var1 == null) {
+         throw new NullPointerException();
+      } else {
+         this.name = var1;
+         this.prevName = var2;
+         this.onPrevNameChanged(-1);
+      }
    }
 
    @ObfuscatedName("an")
    @ObfuscatedSignature(
-      signature = "(I)Ljava/lang/String;",
-      garbageValue = "-417976815"
+      signature = "(I)Lkx;",
+      garbageValue = "1725814046"
    )
-   public String method2069() {
-      return this.prevName == null?"":this.prevName.method4713();
+   public Name method2752() {
+      return this.name;
    }
 
    public RSName getRsPrevName() {
@@ -63,45 +73,159 @@ public class Nameable implements Comparable, RSNameable {
       return this.name;
    }
 
+   private void rl$$init() {
+   }
+
    @ObfuscatedSignature(
       signature = "(I)V",
       garbageValue = "-1"
    )
    public void onPrevNameChanged(int var1) {
       NameableNameChanged var2 = new NameableNameChanged(this);
-      class166.clientInstance.getCallbacks().post(var2);
+      ItemContainer.clientInstance.getCallbacks().post(var2);
    }
 
    public int compareTo(Object var1) {
-      return this.vmethod2733((Nameable)var1);
+      return this.vmethod6266((Nameable)var1);
    }
 
-   @ObfuscatedName("ax")
+   @ObfuscatedName("at")
    @ObfuscatedSignature(
-      signature = "(Lkg;Lkg;B)V",
-      garbageValue = "0"
+      signature = "(I)Ljava/lang/String;",
+      garbageValue = "-182933370"
    )
-   void method2070(Name var1, Name var2) {
-      if(var1 == null) {
-         throw new NullPointerException();
+   public String method2763() {
+      return this.name == null?"":this.name.method1530();
+   }
+
+   @ObfuscatedName("ik")
+   @ObfuscatedSignature(
+      signature = "(II)Z",
+      garbageValue = "-725468391"
+   )
+   static final boolean method2777(int var0) {
+      if(var0 < 0) {
+         return false;
       } else {
-         this.name = var1;
-         this.prevName = var2;
-         this.onPrevNameChanged(-1);
+         int var1 = Client.menuTypes[var0];
+         if(var1 >= 2000) {
+            var1 -= 2000;
+         }
+
+         return var1 == 1007;
       }
    }
 
-   @ObfuscatedName("q")
+   @ObfuscatedName("ih")
    @ObfuscatedSignature(
-      signature = "(Ljava/lang/CharSequence;I)Ljava/lang/String;",
-      garbageValue = "463310943"
+      signature = "(IIIILjava/lang/String;I)V",
+      garbageValue = "-1114536787"
    )
-   public static String method2083(CharSequence var0) {
-      String var1 = VarPlayerType.method5549(Coordinates.method2470(var0));
-      if(var1 == null) {
-         var1 = "";
-      }
+   static void method2776(int var0, int var1, int var2, int var3, String var4) {
+      ComponentType var5 = UnitPriceComparator.method2289(var1, var2);
+      if(var5 != null) {
+         if(var5.onOpListener != null) {
+            ScriptEvent var6 = new ScriptEvent();
+            var6.source = var5;
+            var6.op = var0;
+            var6.opbase = var4;
+            var6.params = var5.onOpListener;
+            class192.method3810(var6);
+         }
 
-      return var1;
+         boolean var11 = true;
+         if(var5.clientcode > 0) {
+            var11 = class285.method5884(var5);
+         }
+
+         if(var11) {
+            int var8 = WorldComparator.method86(var5);
+            int var9 = var0 - 1;
+            boolean var7 = (var8 >> var9 + 1 & 1) != 0;
+            if(var7) {
+               TcpConnectionMessage var10;
+               if(var0 == 1) {
+                  var10 = class232.method4535(ClientProt.field2262, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+               if(var0 == 2) {
+                  var10 = class232.method4535(ClientProt.field2311, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+               if(var0 == 3) {
+                  var10 = class232.method4535(ClientProt.field2267, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+               if(var0 == 4) {
+                  var10 = class232.method4535(ClientProt.field2238, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+               if(var0 == 5) {
+                  var10 = class232.method4535(ClientProt.field2259, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+               if(var0 == 6) {
+                  var10 = class232.method4535(ClientProt.field2285, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+               if(var0 == 7) {
+                  var10 = class232.method4535(ClientProt.field2304, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+               if(var0 == 8) {
+                  var10 = class232.method4535(ClientProt.field2233, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+               if(var0 == 9) {
+                  var10 = class232.method4535(ClientProt.field2303, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+               if(var0 == 10) {
+                  var10 = class232.method4535(ClientProt.field2316, Client.serverConnection.isaac);
+                  var10.packetBuffer.writeInt(var1);
+                  var10.packetBuffer.writeShort(var2);
+                  var10.packetBuffer.writeShort(var3);
+                  Client.serverConnection.method18(var10);
+               }
+
+            }
+         }
+      }
    }
 }

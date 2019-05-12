@@ -4,6 +4,6 @@ import net.runelite.mapping.ObfuscatedName;
 
 @ObfuscatedName("dj")
 public abstract class AbstractIntegerNode0 extends Node {
-   @ObfuscatedName("l")
+   @ObfuscatedName("f")
    int int1;
 }

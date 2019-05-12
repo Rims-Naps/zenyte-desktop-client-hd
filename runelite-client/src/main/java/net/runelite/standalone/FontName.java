@@ -1,219 +1,200 @@
 package net.runelite.standalone;
 
+import java.awt.Component;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("km")
+@ObfuscatedName("kw")
 public class FontName {
-   @ObfuscatedName("ln")
+   @ObfuscatedName("qb")
    @ObfuscatedGetter(
-      intValue = 814290865
+      intValue = 182890269
    )
-   static int ifTargetMask;
-   @ObfuscatedName("fn")
+   static int field3757;
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "Lkc;"
+      signature = "Lkw;"
    )
-   static Fonts fonts;
-   @ObfuscatedName("l")
+   public static final FontName field3755;
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "Lkm;"
+      signature = "Lkw;"
    )
-   public static final FontName field3743;
-   @ObfuscatedName("r")
+   public static final FontName field3747;
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lkm;"
-   )
-   public static final FontName FontName_plain12;
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "Lkm;"
-   )
-   public static final FontName FontName_bold12;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Lkm;"
-   )
-   public static final FontName field3741;
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "Lkm;"
-   )
-   public static final FontName field3742;
-   @ObfuscatedName("d")
-   static int[] floorMultiplier;
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "Lkm;"
+      signature = "Lkw;"
    )
    public static final FontName FontName_plain11;
-   @ObfuscatedName("b")
-   String field3748;
+   @ObfuscatedName("he")
+   @ObfuscatedGetter(
+      intValue = 1857263827
+   )
+   static int cameraY;
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "Lkw;"
+   )
+   public static final FontName FontName_plain12;
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "Lkw;"
+   )
+   public static final FontName field3745;
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "Lkw;"
+   )
+   public static final FontName FontName_bold12;
+   @ObfuscatedName("p")
+   String field3750;
 
    static {
       FontName_plain11 = new FontName("p11_full");
       FontName_plain12 = new FontName("p12_full");
       FontName_bold12 = new FontName("b12_full");
-      field3741 = new FontName("verdana_11pt_regular");
-      field3742 = new FontName("verdana_13pt_regular");
-      field3743 = new FontName("verdana_15pt_regular");
+      field3747 = new FontName("verdana_11pt_regular");
+      field3745 = new FontName("verdana_13pt_regular");
+      field3755 = new FontName("verdana_15pt_regular");
    }
 
    FontName(String var1) {
-      this.field3748 = var1;
+      this.field3750 = var1;
    }
 
-   @ObfuscatedName("aa")
+   @ObfuscatedName("fl")
    @ObfuscatedSignature(
-      signature = "(II)I",
-      garbageValue = "-46607763"
+      signature = "(IZZZB)Lin;",
+      garbageValue = "26"
    )
-   static int method1975(int var0) {
-      return (int)Math.pow(2.0D, (double)(7.0F + (float)var0 / 256.0F));
+   static Js5 method508(int var0, boolean var1, boolean var2, boolean var3) {
+      IndexFile var4 = null;
+      if(class75.cacheDat != null) {
+         var4 = new IndexFile(var0, class75.cacheDat, MouseRecorder.cacheIndex[var0], 1000000);
+      }
+
+      return new Js5(var4, WorldMapType3.indexStore255, var0, var1, var2, var3);
    }
 
-   @ObfuscatedName("az")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(ILcx;ZI)I",
-      garbageValue = "1835436263"
+      signature = "(Ljava/awt/Component;I)V",
+      garbageValue = "1891508884"
    )
-   static int method1974(int var0, class106 var1, boolean var2) {
-      int var3;
-      int var4;
-      if(var0 == 4000) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var4 + var3;
-         return 1;
-      } else if(var0 == 4001) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var3 - var4;
-         return 1;
-      } else if(var0 == 4002) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var3 * var4;
-         return 1;
-      } else if(var0 == 4003) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var3 / var4;
-         return 1;
-      } else if(var0 == 4004) {
-         var3 = class48.intStack[--class228.intStackSize];
-         class48.intStack[++class228.intStackSize - 1] = (int)(Math.random() * (double)var3);
-         return 1;
-      } else if(var0 == 4005) {
-         var3 = class48.intStack[--class228.intStackSize];
-         class48.intStack[++class228.intStackSize - 1] = (int)(Math.random() * (double)(var3 + 1));
-         return 1;
-      } else if(var0 == 4006) {
-         class228.intStackSize -= 5;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         int var5 = class48.intStack[class228.intStackSize + 2];
-         int var6 = class48.intStack[class228.intStackSize + 3];
-         int var7 = class48.intStack[class228.intStackSize + 4];
-         class48.intStack[++class228.intStackSize - 1] = var3 + (var4 - var3) * (var7 - var5) / (var6 - var5);
-         return 1;
-      } else if(var0 == 4007) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var3 + var4 * var3 / 100;
-         return 1;
-      } else if(var0 == 4008) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var3 | 1 << var4;
-         return 1;
-      } else if(var0 == 4009) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var3 & -1 - (1 << var4);
-         return 1;
-      } else if(var0 == 4010) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = (var3 & 1 << var4) != 0?1:0;
-         return 1;
-      } else if(var0 == 4011) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var3 % var4;
-         return 1;
-      } else if(var0 == 4012) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         if(var3 == 0) {
-            class48.intStack[++class228.intStackSize - 1] = 0;
-         } else {
-            class48.intStack[++class228.intStackSize - 1] = (int)Math.pow((double)var3, (double)var4);
-         }
+   static void method512(Component var0) {
+      var0.addMouseListener(MouseInput.mouse);
+      var0.addMouseMotionListener(MouseInput.mouse);
+      var0.addFocusListener(MouseInput.mouse);
+   }
 
-         return 1;
-      } else if(var0 == 4013) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         if(var3 == 0) {
-            class48.intStack[++class228.intStackSize - 1] = 0;
-            return 1;
+   @ObfuscatedName("a")
+   public static String method517(long var0) {
+      if(var0 > 0L && var0 < 6582952005840035281L) {
+         if(0L == var0 % 37L) {
+            return null;
          } else {
-            switch(var4) {
-            case 0:
-               class48.intStack[++class228.intStackSize - 1] = Integer.MAX_VALUE;
-               break;
-            case 1:
-               class48.intStack[++class228.intStackSize - 1] = var3;
-               break;
-            case 2:
-               class48.intStack[++class228.intStackSize - 1] = (int)Math.sqrt((double)var3);
-               break;
-            case 3:
-               class48.intStack[++class228.intStackSize - 1] = (int)Math.cbrt((double)var3);
-               break;
-            case 4:
-               class48.intStack[++class228.intStackSize - 1] = (int)Math.sqrt(Math.sqrt((double)var3));
-               break;
-            default:
-               class48.intStack[++class228.intStackSize - 1] = (int)Math.pow((double)var3, 1.0D / (double)var4);
+            int var2 = 0;
+
+            for(long var3 = var0; var3 != 0L; var3 /= 37L) {
+               ++var2;
             }
 
-            return 1;
+            StringBuilder var5 = new StringBuilder(var2);
+
+            while(0L != var0) {
+               long var6 = var0;
+               var0 /= 37L;
+               var5.append(class217.field3802[(int)(var6 - var0 * 37L)]);
+            }
+
+            return var5.reverse().toString();
          }
-      } else if(var0 == 4014) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var3 & var4;
-         return 1;
-      } else if(var0 == 4015) {
-         class228.intStackSize -= 2;
-         var3 = class48.intStack[class228.intStackSize];
-         var4 = class48.intStack[class228.intStackSize + 1];
-         class48.intStack[++class228.intStackSize - 1] = var3 | var4;
-         return 1;
-      } else if(var0 == 4018) {
-         class228.intStackSize -= 3;
-         long var9 = (long)class48.intStack[class228.intStackSize];
-         long var11 = (long)class48.intStack[class228.intStackSize + 1];
-         long var13 = (long)class48.intStack[class228.intStackSize + 2];
-         class48.intStack[++class228.intStackSize - 1] = (int)(var9 * var13 / var11);
-         return 1;
       } else {
-         return 2;
+         return null;
       }
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(B)[Lkw;",
+      garbageValue = "-75"
+   )
+   public static FontName[] method510() {
+      return new FontName[]{FontName_bold12, field3755, field3745, FontName_plain12, field3747, FontName_plain11};
+   }
+
+   @ObfuscatedName("fk")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "-1149660355"
+   )
+   static final void method515() {
+      if(Client.field695 > 0) {
+         class285.method5866();
+      } else {
+         Client.field773.method1591();
+         class124.method1843(40);
+         class235.field2434 = Client.serverConnection.method38();
+         Client.serverConnection.method36();
+      }
+   }
+
+   @ObfuscatedName("fr")
+   @ObfuscatedSignature(
+      signature = "(B)V",
+      garbageValue = "20"
+   )
+   static final void method513() {
+      if(CombatInfo1.soundSystem1 != null) {
+         CombatInfo1.soundSystem1.method1747();
+      }
+
+      if(class191.soundSystem0 != null) {
+         class191.soundSystem0.method1747();
+      }
+
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(III)Lbl;",
+      garbageValue = "-898018151"
+   )
+   static ChatLine method514(int var0, int var1) {
+      ChatLineBuffer var2 = (ChatLineBuffer)ChatHistory.chatLineMap.get(Integer.valueOf(var0));
+      return var2.method4819(var1);
+   }
+
+   @ObfuscatedName("jj")
+   @ObfuscatedSignature(
+      signature = "(B)V",
+      garbageValue = "1"
+   )
+   static void method507() {
+      for(SubInterface var0 = (SubInterface)Client.subInterfaces.method6338(); var0 != null; var0 = (SubInterface)Client.subInterfaces.method6339()) {
+         int var1 = var0.id;
+         if(ChatLine.method5915(var1)) {
+            boolean var2 = true;
+            ComponentType[] var3 = ComponentType.interfaces[var1];
+
+            int var4;
+            for(var4 = 0; var4 < var3.length; ++var4) {
+               if(var3[var4] != null) {
+                  var2 = var3[var4].isIf3;
+                  break;
+               }
+            }
+
+            if(!var2) {
+               var4 = (int)var0.hash;
+               ComponentType var5 = ChatHistory.method6246(var4);
+               if(var5 != null) {
+                  WorldMapRegion.method5554(var5);
+               }
+            }
+         }
+      }
+
    }
 }

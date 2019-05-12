@@ -4,90 +4,66 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("if")
+@ObfuscatedName("is")
 public enum ChatCrownType implements Enumerated {
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lif;"
+      signature = "Lis;"
    )
    NONE(0, -1, true, false, true),
-   @ObfuscatedName("r")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "Lif;"
+      signature = "Lis;"
    )
    PLAYER_MOD(1, 0, true, true, true),
-   @ObfuscatedName("e")
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "Lif;"
+      signature = "Lis;"
    )
    STAFF_MOD(2, 1, true, true, false),
-   @ObfuscatedName("q")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "Lif;"
+      signature = "Lis;"
    )
    IRONMAN(3, 2, false, false, true),
-   @ObfuscatedName("c")
+   @ObfuscatedName("h")
    @ObfuscatedSignature(
-      signature = "Lif;"
+      signature = "Lis;"
    )
    ULTIMATE_IRONMAN(4, 3, false, false, true),
-   @ObfuscatedName("l")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "Lif;"
+      signature = "Lis;"
    )
-   HARDCORE_IRONMAN(5, 10, false, false, true),
+   HARDCORE_IRONMAN(5, 10, false, false, true);
 
-   DONATOR(15, 15, false, false, true);
-
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = 1432563027
-   )
+   @ObfuscatedName("e")
+   static int[] field3209;
+   @ObfuscatedName("q")
+   public final boolean moderator;
+   @ObfuscatedName("m")
    public final int icon;
-   @ObfuscatedName("b")
+   @ObfuscatedName("p")
    @ObfuscatedGetter(
-      intValue = 1712147215
+      intValue = 1798871115
    )
    final int id;
-   @ObfuscatedName("n")
-   public final boolean moderator;
-   @ObfuscatedName("i")
+   @ObfuscatedName("b")
    public final boolean ignorable;
 
    ChatCrownType(int var3, int var4, boolean var5, boolean var6, boolean var7) {
       this.id = var3;
-      this.icon = var4;
+      this.icon = var4 * 450411093;
       this.moderator = var6;
       this.ignorable = var7;
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(B)I",
-      garbageValue = "1"
+      signature = "(I)I",
+      garbageValue = "-303219076"
    )
-   public int vmethod5358() {
+   public int vmethod6373() {
       return this.id;
-   }
-
-   @ObfuscatedName("kj")
-   @ObfuscatedSignature(
-      signature = "(Lhn;I)Lhn;",
-      garbageValue = "-1495361248"
-   )
-   static ComponentType method834(ComponentType var0) {
-      int var1 = class113.method1965(class101.method1704(var0));
-      if(var1 == 0) {
-         return null;
-      } else {
-         for(int var2 = 0; var2 < var1; ++var2) {
-            var0 = WorldMapType1.method2440(var0.layer);
-            if(var0 == null) {
-               return null;
-            }
-         }
-
-         return var0;
-      }
    }
 }

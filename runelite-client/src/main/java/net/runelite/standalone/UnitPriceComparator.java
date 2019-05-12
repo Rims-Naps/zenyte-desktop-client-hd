@@ -4,47 +4,67 @@ import java.util.Comparator;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("l")
+@ObfuscatedName("n")
 final class UnitPriceComparator implements Comparator {
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "Llv;"
+   )
+   static IndexedSprite field78;
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(Lm;Lm;I)I",
+      garbageValue = "965460013"
+   )
+   int method2278(GrandExchangeEvent var1, GrandExchangeEvent var2) {
+      return var1.grandExchangeOffer.price < var2.grandExchangeOffer.price?-1:(var2.grandExchangeOffer.price == var1.grandExchangeOffer.price?0:1);
+   }
+
    public int compare(Object var1, Object var2) {
-      return this.method539((GrandExchangeEvent)var1, (GrandExchangeEvent)var2);
+      return this.method2278((GrandExchangeEvent)var1, (GrandExchangeEvent)var2);
    }
 
    public boolean equals(Object var1) {
       return super.equals(var1);
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(Le;Le;B)I",
-      garbageValue = "117"
+      signature = "(Liz;B)V",
+      garbageValue = "66"
    )
-   int method539(GrandExchangeEvent var1, GrandExchangeEvent var2) {
-      return var1.grandExchangeOffer.price < var2.grandExchangeOffer.price?-1:(var2.grandExchangeOffer.price == var1.grandExchangeOffer.price?0:1);
+   public static void method2283(Js5Index var0) {
+      Varbit.varbit_ref = var0;
    }
 
-   @ObfuscatedName("h")
+   @ObfuscatedName("jk")
    @ObfuscatedSignature(
-      signature = "(IIIIIIII)Z",
-      garbageValue = "2110516595"
+      signature = "(II)V",
+      garbageValue = "-2052973203"
    )
-   static final boolean method547(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
-      int var7 = class195.Viewport_mouseY + var6;
-      if(var7 < var0 && var7 < var1 && var7 < var2) {
-         return false;
-      } else {
-         var7 = class195.Viewport_mouseY - var6;
-         if(var7 > var0 && var7 > var1 && var7 > var2) {
-            return false;
-         } else {
-            var7 = class195.Viewport_mouseX + var6;
-            if(var7 < var3 && var7 < var4 && var7 < var5) {
-               return false;
-            } else {
-               var7 = class195.Viewport_mouseX - var6;
-               return var7 <= var3 || var7 <= var4 || var7 <= var5;
+   static final void method2288(int var0) {
+      if(ChatLine.method5915(var0)) {
+         ComponentType[] var1 = ComponentType.interfaces[var0];
+
+         for(int var2 = 0; var2 < var1.length; ++var2) {
+            ComponentType var3 = var1[var2];
+            if(var3 != null) {
+               var3.field2817 = 0;
+               var3.field2818 = 0;
             }
          }
+
       }
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(III)Lia;",
+      garbageValue = "1364610049"
+   )
+   public static ComponentType method2289(int var0, int var1) {
+      ComponentType var2 = ChatHistory.method6246(var0);
+      return var1 == -1?var2:(var2 != null && var2.children != null && var1 < var2.children.length?var2.children[var1]:null);
    }
 }

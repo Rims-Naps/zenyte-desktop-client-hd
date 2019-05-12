@@ -3,9 +3,9 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.rs.api.RSIntegerNode;
 
-@ObfuscatedName("hq")
+@ObfuscatedName("he")
 public class IntegerNode extends Node implements RSIntegerNode {
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    public int value;
 
    public IntegerNode(int var1) {

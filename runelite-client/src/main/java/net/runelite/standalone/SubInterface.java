@@ -5,135 +5,188 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSWidgetNode;
 
-@ObfuscatedName("bp")
+@ObfuscatedName("bk")
 public class SubInterface extends Node implements RSWidgetNode {
-   @ObfuscatedName("r")
-   @ObfuscatedGetter(
-      intValue = -669718059
+   @ObfuscatedName("gc")
+   @ObfuscatedSignature(
+      signature = "[Llv;"
    )
-   int mode;
-   @ObfuscatedName("e")
-   boolean field555;
-   @ObfuscatedName("g")
+   static IndexedSprite[] mapscene;
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      intValue = 2064335519
+      intValue = -912519809
    )
    int id;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = -1353246179
+   )
+   int mode;
+   @ObfuscatedName("g")
+   boolean field566;
 
    SubInterface() {
-      this.field555 = false;
+      this.field566 = false;
    }
 
    public int getId() {
       return this.id;
    }
 
-   @ObfuscatedName("m")
-   public static int method2437(long var0) {
-      return (int)(var0 >>> 17 & 4294967295L);
-   }
-
-   @ObfuscatedName("jp")
+   @ObfuscatedName("gu")
    @ObfuscatedSignature(
-      signature = "(IIIILls;Lhx;I)V",
-      garbageValue = "1982591191"
+      signature = "(Lbq;I)V",
+      garbageValue = "-1947807294"
    )
-   static final void method2438(int var0, int var1, int var2, int var3, SpritePixels var4, class96 var5) {
-      if(var4 != null) {
-         int var6 = client.mapAngle & 2047;
-         int var7 = var3 * var3 + var2 * var2;
-         if(var7 <= 6400) {
-            int var8 = Graphics3D.SINE[var6];
-            int var9 = Graphics3D.COSINE[var6];
-            int var10 = var9 * var2 + var3 * var8 >> 16;
-            int var11 = var3 * var9 - var8 * var2 >> 16;
-            if(var7 > 2500) {
-               var4.method2268(var10 + var5.field2626 / 2 - var4.maxWidth / 2, var5.field2621 / 2 - var11 - var4.maxHeight / 2, var0, var1, var5.field2626, var5.field2621, var5.field2623, var5.field2622);
-            } else {
-               var4.method2253(var0 + var10 + var5.field2626 / 2 - var4.maxWidth / 2, var5.field2621 / 2 + var1 - var11 - var4.maxHeight / 2);
+   static final void method2713(PathingEntity var0) {
+      if(var0.direction != 0) {
+         if(var0.interacting != -1) {
+            Object var1 = null;
+            if(var0.interacting < 32768) {
+               var1 = Client.npcs[var0.interacting];
+            } else if(var0.interacting >= 32768) {
+               var1 = Client.players[var0.interacting - 32768];
             }
 
+            if(var1 != null) {
+               int var2 = var0.x * -1234429701 - ((PathingEntity)var1).x * -1234429701;
+               int var3 = var0.y - ((PathingEntity)var1).y;
+               if(var2 != 0 || var3 != 0) {
+                  var0.orientation = (int)(Math.atan2((double)var2, (double)var3) * 325.949D) & 2047;
+               }
+            } else if(var0.field966) {
+               var0.interacting = -1;
+               var0.interactingChanged(-1);
+               var0.field966 = false;
+            }
+         }
+
+         if(var0.facingCoord != -1 && (var0.queueSize == 0 || var0.field997 > 0)) {
+            var0.orientation = var0.facingCoord;
+            var0.facingCoord = -1;
+         }
+
+         int var4 = var0.orientation - var0.angle & 2047;
+         if(var4 == 0 && var0.field966) {
+            var0.interacting = -1;
+            var0.interactingChanged(-1);
+            var0.field966 = false;
+         }
+
+         if(var4 != 0) {
+            ++var0.field991;
+            boolean var6;
+            if(var4 > 1024) {
+               var0.angle -= var0.direction;
+               var6 = true;
+               if(var4 < var0.direction || var4 > 2048 - var0.direction) {
+                  var0.angle = var0.orientation;
+                  var6 = false;
+               }
+
+               if(var0.poseAnimation == var0.idlePoseAnimation && (var0.field991 > 25 || var6)) {
+                  if(var0.field945 != -1) {
+                     var0.poseAnimation = var0.field945;
+                  } else {
+                     var0.poseAnimation = var0.walkAnim;
+                  }
+               }
+            } else {
+               var0.angle += var0.direction;
+               var6 = true;
+               if(var4 < var0.direction || var4 > 2048 - var0.direction) {
+                  var0.angle = var0.orientation;
+                  var6 = false;
+               }
+
+               if(var0.idlePoseAnimation == var0.poseAnimation && (var0.field991 > 25 || var6)) {
+                  if(var0.field946 != -1) {
+                     var0.poseAnimation = var0.field946;
+                  } else {
+                     var0.poseAnimation = var0.walkAnim;
+                  }
+               }
+            }
+
+            var0.angle &= 2047;
+         } else {
+            var0.field991 = 0;
+         }
+
+      }
+   }
+
+   @ObfuscatedName("jc")
+   @ObfuscatedSignature(
+      signature = "(II)Z",
+      garbageValue = "843292779"
+   )
+   static boolean method2712(int var0) {
+      for(int var1 = 0; var1 < Client.field870; ++var1) {
+         if(Client.field732[var1] == var0) {
+            return true;
          }
       }
+
+      return false;
    }
 
-   @ObfuscatedName("ky")
+   @ObfuscatedName("ku")
    @ObfuscatedSignature(
-      signature = "(Ljava/lang/String;ZB)Ljava/lang/String;",
-      garbageValue = "0"
+      signature = "(IIII)Lbk;",
+      garbageValue = "657209037"
    )
-   static String method2436(String var0, boolean var1) {
-      String var2 = var1?"https://":"http://";
-      if(client.socketType == 1) {
-         var0 = var0 + "-wtrc";
-      } else if(client.socketType == 2) {
-         var0 = var0 + "-wtqa";
-      } else if(client.socketType == 3) {
-         var0 = var0 + "-wtwip";
-      } else if(client.socketType == 5) {
-         var0 = var0 + "-wti";
-      } else if(client.socketType == 4) {
-         var0 = "local";
+   static final SubInterface method2711(int var0, int var1, int var2) {
+      SubInterface var3 = new SubInterface();
+      var3.id = var1;
+      var3.mode = var2;
+      Client.subInterfaces.method6344(var3, (long)var0);
+      UnitPriceComparator.method2288(var1);
+      ComponentType var4 = ChatHistory.method6246(var0);
+      WorldMapRegion.method5554(var4);
+      if(Client.field793 != null) {
+         WorldMapRegion.method5554(Client.field793);
+         Client.field793 = null;
       }
 
-      String var3 = "";
-      if(class116.sessionToken != null) {
-         var3 = "/p=" + class116.sessionToken;
-      }
+      for(int var5 = 0; var5 < Client.menuOptionCount; ++var5) {
+         int var7 = Client.menuTypes[var5];
+         boolean var6 = var7 == 57 || var7 == 58 || var7 == 1007 || var7 == 25 || var7 == 30;
+         if(var6) {
+            if(var5 < Client.menuOptionCount - 1) {
+               for(int var8 = var5; var8 < Client.menuOptionCount - 1; ++var8) {
+                  Client.menuOptions[var8] = Client.menuOptions[var8 + 1];
+                  Client.menuTargets[var8] = Client.menuTargets[var8 + 1];
+                  Client.menuTypes[var8] = Client.menuTypes[var8 + 1];
+                  Client.menuIdentifiers[var8] = Client.menuIdentifiers[var8 + 1];
+                  Client.menuActionParams0[var8] = Client.menuActionParams0[var8 + 1];
+                  Client.menuActionParams1[var8] = Client.menuActionParams1[var8 + 1];
+                  Client.menuBooleanArray[var8] = Client.menuBooleanArray[var8 + 1];
+               }
+            }
 
-      String var4 = "runescape.com";
-      return var2 + var0 + "." + var4 + "/l=" + client.languageId + "/a=" + client.field650 + var3 + "/";
-   }
-
-   @ObfuscatedName("hp")
-   @ObfuscatedSignature(
-      signature = "(III)V",
-      garbageValue = "-1996878906"
-   )
-   static void method2435(int var0, int var1) {
-      int var2 = class288.fontBold12.method1775("Choose Option");
-
-      int var3;
-      int var4;
-      for(var3 = 0; var3 < client.menuOptionCount; ++var3) {
-         var4 = class288.fontBold12.method1775(class115.method2003(var3));
-         if(var4 > var2) {
-            var2 = var4;
+            --var5;
+            --Client.menuOptionCount;
+            Client.onMenuOptionsChanged(-1);
          }
       }
 
-      var2 += 8;
-      var3 = client.menuOptionCount * 15 + 22;
-      var4 = var0 - var2 / 2;
-      if(var4 + var2 > FriendManager.canvasWidth) {
-         var4 = FriendManager.canvasWidth - var2;
+      FriendManager.method2414(class302.field3309 / 2 + class181.menuX, TotalQuantityComparator.menuY);
+      ScriptState.method1043(ComponentType.interfaces[var0 >> 16], var4, false);
+      CombatInfo1.method61(var1, -1150060619);
+      if(Client.toplevel != -1) {
+         class61.method923(Client.toplevel, 1);
       }
 
-      if(var4 < 0) {
-         var4 = 0;
-      }
-
-      int var5 = var1;
-      if(var1 + var3 > class230.canvasHeight) {
-         var5 = class230.canvasHeight - var3;
-      }
-
-      if(var5 < 0) {
-         var5 = 0;
-      }
-
-      class288.menuX = var4;
-      class106.menuY = var5;
-      class9.field1113 = var2;
-      class31.field1838 = client.menuOptionCount * 15 + 22;
+      return var3;
    }
 
-   @ObfuscatedName("j")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(B)V",
-      garbageValue = "-27"
+      signature = "(IB)J",
+      garbageValue = "-42"
    )
-   public static void method2439() {
-      PlayerComposition.field2636.method952();
+   public static long method2714(int var0) {
+      return class47.field1740[var0];
    }
 }

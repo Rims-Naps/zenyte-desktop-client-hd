@@ -9,55 +9,33 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ao")
+@ObfuscatedName("ap")
 public class SourceDataSoundSystem extends AbstractSoundSystem {
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
+   byte[] bytes;
+   @ObfuscatedName("a")
+   AudioFormat audioFormat;
+   @ObfuscatedName("s")
    SourceDataLine source;
-   @ObfuscatedName("e")
+   @ObfuscatedName("g")
    @ObfuscatedGetter(
-      intValue = 1936204333
+      intValue = 1111177813
    )
    int size;
-   @ObfuscatedName("q")
-   byte[] bytes;
-   @ObfuscatedName("g")
-   AudioFormat audioFormat;
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "(IB)V",
-      garbageValue = "-66"
+      signature = "(B)V",
+      garbageValue = "31"
    )
-   protected void vmethod6411(int var1) throws LineUnavailableException {
-      try {
-         Info var2 = new Info(SourceDataLine.class, this.audioFormat, var1 << (class56.audioHighMemory?2:1));
-         this.source = (SourceDataLine)AudioSystem.getLine(var2);
-         this.source.open();
-         this.source.start();
-         this.size = var1;
-      } catch (LineUnavailableException var3) {
-         if(class60.method883(var1) != 1) {
-            this.vmethod6411(TotalQuantityComparator.method1181(var1));
-         } else {
-            this.source = null;
-            throw var3;
-         }
-      }
+   protected void vmethod6072() {
+      this.source.flush();
    }
 
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(I)I",
-      garbageValue = "-1047007902"
-   )
-   protected int vmethod6412() {
-      return this.size - (this.source.available() >> (class56.audioHighMemory?2:1));
-   }
-
-   @ObfuscatedName("q")
-   protected void vmethod6413() {
+   @ObfuscatedName("x")
+   protected void vmethod6075() {
       int var1 = 256;
-      if(class56.audioHighMemory) {
+      if(ContextMenuRow.audioHighMemory) {
          var1 <<= 1;
       }
 
@@ -74,12 +52,44 @@ public class SourceDataSoundSystem extends AbstractSoundSystem {
       this.source.write(this.bytes, 0, var1 << 1);
    }
 
-   @ObfuscatedName("c")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
       signature = "(I)V",
-      garbageValue = "-1506242428"
+      garbageValue = "1700298966"
    )
-   protected void vmethod6419() {
+   protected void vmethod6091() {
+      this.audioFormat = new AudioFormat((float)MapIconReference.sampleRate, 16, ContextMenuRow.audioHighMemory?2:1, true, false);
+      this.bytes = new byte[256 << (ContextMenuRow.audioHighMemory?2:1)];
+   }
+
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "(II)V",
+      garbageValue = "1638303267"
+   )
+   protected void vmethod6071(int var1) throws LineUnavailableException {
+      try {
+         Info var2 = new Info(SourceDataLine.class, this.audioFormat, var1 << (ContextMenuRow.audioHighMemory?2:1));
+         this.source = (SourceDataLine)AudioSystem.getLine(var2);
+         this.source.open();
+         this.source.start();
+         this.size = var1;
+      } catch (LineUnavailableException var3) {
+         if(World.method4980(var1) != 1) {
+            this.vmethod6071(TotalQuantityComparator.method1122(var1));
+         } else {
+            this.source = null;
+            throw var3;
+         }
+      }
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "-1072337628"
+   )
+   protected void vmethod6076() {
       if(this.source != null) {
          this.source.close();
          this.source = null;
@@ -87,22 +97,12 @@ public class SourceDataSoundSystem extends AbstractSoundSystem {
 
    }
 
-   @ObfuscatedName("i")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "1925463504"
-   )
-   protected void vmethod6425() {
-      this.source.flush();
-   }
-
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-917925486"
+      signature = "(I)I",
+      garbageValue = "-1071054090"
    )
-   protected void vmethod6410() {
-      this.audioFormat = new AudioFormat((float)AbstractSoundSystem.sampleRate, 16, class56.audioHighMemory?2:1, true, false);
-      this.bytes = new byte[256 << (class56.audioHighMemory?2:1)];
+   protected int vmethod6074() {
+      return this.size - (this.source.available() >> (ContextMenuRow.audioHighMemory?2:1));
    }
 }

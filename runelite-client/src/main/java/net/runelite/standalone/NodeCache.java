@@ -5,30 +5,30 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSCacheableNode;
 import net.runelite.rs.api.RSNodeCache;
 
-@ObfuscatedName("gv")
+@ObfuscatedName("gp")
 public final class NodeCache implements RSNodeCache {
-   @ObfuscatedName("r")
-   int capacity;
-   @ObfuscatedName("e")
-   int remainingCapacity;
-   @ObfuscatedName("q")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "Lgq;"
+      signature = "Lht;"
    )
    HashTable table;
-   @ObfuscatedName("c")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lgf;"
+      signature = "Lho;"
+   )
+   CacheableNode field2495;
+   @ObfuscatedName("s")
+   int capacity;
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "Lgd;"
    )
    Node2LinkedList list;
    @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "Lhy;"
-   )
-   CacheableNode field2481;
+   int remainingCapacity;
 
    public NodeCache(int var1) {
-      this.field2481 = new CacheableNode();
+      this.field2495 = new CacheableNode();
       this.list = new Node2LinkedList();
       this.capacity = var1;
       this.remainingCapacity = var1;
@@ -41,45 +41,25 @@ public final class NodeCache implements RSNodeCache {
       this.table = new HashTable(var2);
    }
 
-   @ObfuscatedName("r")
-   public void method950(long var1) {
-      CacheableNode var3 = (CacheableNode)this.table.method380(var1);
-      if(var3 != null) {
-         var3.method6469();
-         var3.method419();
-         ++this.remainingCapacity;
-      }
-
-   }
-
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(Lhy;J)V"
-   )
-   public void method957(CacheableNode var1, long var2) {
-      if(this.remainingCapacity == 0) {
-         CacheableNode var4 = this.list.method2512();
-         var4.method6469();
-         var4.method419();
-         if(var4 == this.field2481) {
-            var4 = this.list.method2512();
-            var4.method6469();
-            var4.method419();
-         }
-      } else {
-         --this.remainingCapacity;
-      }
-
-      this.table.method382(var1, var2);
-      this.list.method2509(var1);
-   }
-
-   @ObfuscatedName("q")
-   public void method952() {
-      this.list.method2508();
-      this.table.method383();
-      this.field2481 = new CacheableNode();
+   @ObfuscatedName("x")
+   public void method629() {
+      this.list.method1230();
+      this.table.method6349();
+      this.field2495 = new CacheableNode();
       this.remainingCapacity = this.capacity;
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(J)Lho;"
+   )
+   public CacheableNode method635(long var1) {
+      CacheableNode var3 = (CacheableNode)this.table.method6335(var1);
+      if(var3 != null) {
+         this.list.method1226(var3);
+      }
+
+      return var3;
    }
 
    public void setCapacity(int var1) {
@@ -91,23 +71,43 @@ public final class NodeCache implements RSNodeCache {
    }
 
    public RSCacheableNode get(long var1) {
-      return this.method951(var1);
+      return this.method635(var1);
    }
 
    public void reset() {
-      this.method952();
+      this.method629();
+   }
+
+   @ObfuscatedName("s")
+   public void method625(long var1) {
+      CacheableNode var3 = (CacheableNode)this.table.method6335(var1);
+      if(var3 != null) {
+         var3.method432();
+         var3.method1606();
+         ++this.remainingCapacity;
+      }
+
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(J)Lhy;"
+      signature = "(Lho;J)V"
    )
-   public CacheableNode method951(long var1) {
-      CacheableNode var3 = (CacheableNode)this.table.method380(var1);
-      if(var3 != null) {
-         this.list.method2509(var3);
+   public void method628(CacheableNode var1, long var2) {
+      if(this.remainingCapacity == 0) {
+         CacheableNode var4 = this.list.method1244();
+         var4.method432();
+         var4.method1606();
+         if(var4 == this.field2495) {
+            var4 = this.list.method1244();
+            var4.method432();
+            var4.method1606();
+         }
+      } else {
+         --this.remainingCapacity;
       }
 
-      return var3;
+      this.table.method6344(var1, var2);
+      this.list.method1226(var1);
    }
 }

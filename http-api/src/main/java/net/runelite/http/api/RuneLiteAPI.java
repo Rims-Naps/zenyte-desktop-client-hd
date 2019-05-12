@@ -118,7 +118,7 @@ public class RuneLiteAPI
 	}
 
 	public static String getVersion() {
-		String version = "1.5.11";
+		String version = "1.5.22";
 		try {
 			Document document = Jsoup.connect("https://raw.githubusercontent.com/runelite/runelite/master/http-api/pom.xml").get();
 			version = document.select("parent").select("version").text();

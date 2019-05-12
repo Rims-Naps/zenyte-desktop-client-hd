@@ -1,97 +1,139 @@
 package net.runelite.standalone;
 
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.Calendar;
+import java.util.TimeZone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("i")
+@ObfuscatedName("gc")
 public class class192 {
-   @ObfuscatedName("st")
-   @ObfuscatedGetter(
-      intValue = -294209173
-   )
-   static int field69;
-   @ObfuscatedName("hi")
-   @ObfuscatedGetter(
-      intValue = 249775407
-   )
-   static int field70;
-   @ObfuscatedName("dp")
+   @ObfuscatedName("a")
+   static final String[][] MONTHS_ABBREVIATED;
+   @ObfuscatedName("n")
    @ObfuscatedSignature(
-      signature = "Lih;"
+      signature = "Liz;"
    )
-   static Js5 synths;
-   @ObfuscatedName("hs")
-   @ObfuscatedGetter(
-      intValue = -1428641971
-   )
-   static int field68;
+   static Js5Index field2478;
+   @ObfuscatedName("s")
+   static final String[] DAYS_ABBREVIATED;
+   @ObfuscatedName("g")
+   static Calendar GMT_CALENDAR;
 
-   @ObfuscatedName("r")
+   static {
+      MONTHS_ABBREVIATED = new String[][]{{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}, {"Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"}};
+      DAYS_ABBREVIATED = new String[]{"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+      Calendar.getInstance(TimeZone.getTimeZone("Europe/London"));
+      GMT_CALENDAR = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+   }
+
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;B)V",
-      garbageValue = "38"
+      signature = "(Lbr;I)V",
+      garbageValue = "418508405"
    )
-   static void method3787(int var0, String var1, String var2, String var3) {
-      client.onAddChatMessage(var0, var1, var2, var3);
-      ChatLineBuffer var4 = (ChatLineBuffer)class202.chatLineMap.get(Integer.valueOf(var0));
-      if(var4 == null) {
-         var4 = new ChatLineBuffer();
-         class202.chatLineMap.put(Integer.valueOf(var0), var4);
+   public static void method3810(ScriptEvent var0) {
+      class258.method4859(var0, 500000, -2128692103);
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(IIII)I",
+      garbageValue = "-2062416964"
+   )
+   public static int method3813(int var0, int var1, int var2) {
+      var2 &= 3;
+      return var2 == 0?var0:(var2 == 1?var1:(var2 == 2?7 - var0:7 - var1));
+   }
+
+   @ObfuscatedName("c")
+   @ObfuscatedSignature(
+      signature = "(ILcs;ZB)I",
+      garbageValue = "-19"
+   )
+   static int method3815(int var0, class314 var1, boolean var2) {
+      ComponentType var3 = ChatHistory.method6246(class281.intStack[--class281.intStackSize]);
+      if(var0 == 2800) {
+         class281.intStack[++class281.intStackSize - 1] = CacheFile.method5603(WorldComparator.method86(var3));
+         return 1;
+      } else if(var0 != 2801) {
+         if(var0 == 2802) {
+            if(var3.opBase == null) {
+               class281.scriptStringStack[++class295.scriptStringStackSize - 1] = "";
+            } else {
+               class281.scriptStringStack[++class295.scriptStringStackSize - 1] = var3.opBase;
+            }
+
+            return 1;
+         } else {
+            return 2;
+         }
+      } else {
+         int var4 = class281.intStack[--class281.intStackSize];
+         --var4;
+         if(var3.ops != null && var4 < var3.ops.length && var3.ops[var4] != null) {
+            class281.scriptStringStack[++class295.scriptStringStackSize - 1] = var3.ops[var4];
+         } else {
+            class281.scriptStringStack[++class295.scriptStringStackSize - 1] = "";
+         }
+
+         return 1;
+      }
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(IIIZIZB)V",
+      garbageValue = "111"
+   )
+   static void method3814(int var0, int var1, int var2, boolean var3, int var4, boolean var5) {
+      if(var0 < var1) {
+         int var6 = (var0 + var1) / 2;
+         int var7 = var0;
+         World var8 = class242.worldList[var6];
+         class242.worldList[var6] = class242.worldList[var1];
+         class242.worldList[var1] = var8;
+
+         for(int var9 = var0; var9 < var1; ++var9) {
+            if(PathingEntity.method2470(class242.worldList[var9], var8, var2, var3, var4, var5) <= 0) {
+               World var10 = class242.worldList[var9];
+               class242.worldList[var9] = class242.worldList[var7];
+               class242.worldList[var7++] = var10;
+            }
+         }
+
+         class242.worldList[var1] = class242.worldList[var7];
+         class242.worldList[var7] = var8;
+         method3814(var0, var7 - 1, var2, var3, var4, var5);
+         method3814(var7 + 1, var1, var2, var3, var4, var5);
       }
 
-      ChatLine var5 = var4.method1933(var0, var1, var2, var3);
-      class202.messages.method2749(var5, (long)var5.id);
-      class202.field1247.method5799(var5);
-      client.chatCycle = client.cycleCntr;
    }
 
-   @ObfuscatedName("e")
+   @ObfuscatedName("u")
    @ObfuscatedSignature(
-      signature = "(III)Lhn;",
-      garbageValue = "-1832191649"
+      signature = "(III)I",
+      garbageValue = "1050581304"
    )
-   public static ComponentType method3785(int var0, int var1) {
-      ComponentType var2 = WorldMapType1.method2440(var0);
-      return var1 == -1?var2:(var2 != null && var2.children != null && var1 < var2.children.length?var2.children[var1]:null);
-   }
+   static final int method3816(int var0, int var1) {
+      if(var0 == -2) {
+         return 12345678;
+      } else if(var0 == -1) {
+         if(var1 < 2) {
+            var1 = 2;
+         } else if(var1 > 126) {
+            var1 = 126;
+         }
 
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(CI)C",
-      garbageValue = "1861109886"
-   )
-   static char method3783(char var0) {
-      return (char)(var0 == 198?69:(var0 == 230?101:(var0 == 223?115:(var0 == 338?69:(var0 == 339?'e':'\u0000')))));
-   }
-
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(IB)Lcx;",
-      garbageValue = "0"
-   )
-   static class106 method3782(int var0) {
-      class106 var1 = (class106)class106.field1261.method951((long)var0);
-      if(var1 != null) {
          return var1;
       } else {
-         byte[] var2 = UrlRequester.clientscripts.method1516(var0, 0, 1789634852);
-         if(var2 == null) {
-            return null;
-         } else {
-            var1 = ProjectileAnimation.method5593(var2);
-            class106.field1261.method957(var1, (long)var0);
-            return var1;
+         var1 = (var0 & 127) * var1 / 128;
+         if(var1 < 2) {
+            var1 = 2;
+         } else if(var1 > 126) {
+            var1 = 126;
          }
-      }
-   }
 
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(IB)I",
-      garbageValue = "19"
-   )
-   public static int method3781(int var0) {
-      return var0 >> 11 & 63;
+         return (var0 & 65408) + var1;
+      }
    }
 }

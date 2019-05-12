@@ -5,66 +5,53 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSClanMember;
 
-@ObfuscatedName("jm")
+@ObfuscatedName("km")
 public class ClanMember extends ChatPlayer implements RSClanMember {
-   @ObfuscatedName("r")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lkj;"
+      signature = "Lkz;"
    )
-   class132 ignoreState;
-   @ObfuscatedName("g")
+   SocialState friendState;
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "Lkj;"
+      signature = "Lkz;"
    )
-   class132 friendState;
+   SocialState ignoreState;
 
    ClanMember() {
-      this.friendState = class132.UNSET;
-      this.ignoreState = class132.UNSET;
+      this.friendState = SocialState.UNSET;
+      this.ignoreState = SocialState.UNSET;
+      this.rl$$init();
    }
 
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "(I)Z",
-      garbageValue = "-1822391492"
-   )
-   public final boolean method963() {
-      if(this.friendState == class132.UNSET) {
-         this.method978();
-      }
-
-      return this.friendState == class132.CONTAINS;
-   }
-
-   @ObfuscatedName("e")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
       signature = "(I)V",
-      garbageValue = "955248941"
+      garbageValue = "1191680626"
    )
-   void method978() {
-      this.friendState = ServerProt.friendManager.friendContainer.method5247(super.name)?class132.CONTAINS:class132.NOT_CONTAINS;
+   void method1622() {
+      this.ignoreState = class258.friendManager.ignoreContainer.method5333(super.name)?SocialState.CONTAINS:SocialState.NOT_CONTAINS;
    }
 
-   @ObfuscatedName("q")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
       signature = "(I)V",
-      garbageValue = "-134704911"
+      garbageValue = "-1827293258"
    )
-   void method965() {
-      this.ignoreState = class132.UNSET;
+   void method1636() {
+      this.ignoreState = SocialState.UNSET;
    }
 
-   @ObfuscatedName("c")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(B)Z",
-      garbageValue = "16"
+      signature = "(I)V",
+      garbageValue = "-1615845702"
    )
-   public final boolean method966() {
-      if(this.ignoreState == class132.UNSET) {
-         this.method976();
-      }
+   void method1631() {
+      this.friendState = SocialState.UNSET;
+   }
 
-      return this.ignoreState == class132.CONTAINS;
+   private void rl$$init() {
    }
 
    public String getUsername() {
@@ -75,40 +62,65 @@ public class ClanMember extends ChatPlayer implements RSClanMember {
       return ClanMemberRank.valueOf(this.getRSRank());
    }
 
-   @ObfuscatedName("i")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "478358640"
+      signature = "(I)Z",
+      garbageValue = "-1965801811"
    )
-   void method976() {
-      this.ignoreState = ServerProt.friendManager.ignoreContainer.method5247(super.name)?class132.CONTAINS:class132.NOT_CONTAINS;
+   public final boolean method1620() {
+      if(this.friendState == SocialState.UNSET) {
+         this.method1621();
+      }
+
+      return this.friendState == SocialState.CONTAINS;
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(B)Z",
+      garbageValue = "-40"
+   )
+   public final boolean method1623() {
+      if(this.ignoreState == SocialState.UNSET) {
+         this.method1622();
+      }
+
+      return this.ignoreState == SocialState.CONTAINS;
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
       signature = "(I)V",
-      garbageValue = "-1236720127"
+      garbageValue = "-859955771"
    )
-   void method962() {
-      this.friendState = class132.UNSET;
+   void method1621() {
+      this.friendState = class258.friendManager.friendContainer.method5333(super.name)?SocialState.CONTAINS:SocialState.NOT_CONTAINS;
    }
 
-   @ObfuscatedName("c")
+   @ObfuscatedName("gj")
    @ObfuscatedSignature(
-      signature = "(I)Z",
-      garbageValue = "-206655980"
+      signature = "(II)V",
+      garbageValue = "-1194096980"
    )
-   public static final boolean method981() {
-      KeyFocusListener var0 = KeyFocusListener.keyboard;
-      synchronized(KeyFocusListener.keyboard) {
-         if(KeyFocusListener.field388 == KeyFocusListener.field390) {
-            return false;
-         } else {
-            ChatLine.currentPressedKey = KeyFocusListener.field369[KeyFocusListener.field388];
-            FaceNormal.currentTypedKey = KeyFocusListener.field384[KeyFocusListener.field388];
-            KeyFocusListener.field388 = KeyFocusListener.field388 + 1 & 127;
-            return true;
-         }
+   static void method1637(int var0) {
+      Client.field700 = 0L;
+      if(var0 >= 2) {
+         Client.isResized = true;
+         Client.resizeChanged(-1);
+      } else {
+         Client.isResized = false;
+         Client.resizeChanged(-1);
       }
+
+      if(class31.method520() == 1) {
+         ItemContainer.clientInstance.method4356(765, 503, -1561289393);
+      } else {
+         ItemContainer.clientInstance.method4356(7680, 2160, 1895422007);
+      }
+
+      if(Client.gameState >= 25) {
+         ScriptEvent.method1145();
+      }
+
    }
 }

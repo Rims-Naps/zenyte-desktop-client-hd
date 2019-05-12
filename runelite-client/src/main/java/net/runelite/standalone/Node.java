@@ -4,23 +4,27 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSNode;
 
-@ObfuscatedName("gy")
+@ObfuscatedName("hy")
 public class Node implements RSNode {
    @ObfuscatedName("ck")
-   public long hash;
-   @ObfuscatedName("cp")
    @ObfuscatedSignature(
-      signature = "Lgy;"
-   )
-   public Node next;
-   @ObfuscatedName("ch")
-   @ObfuscatedSignature(
-      signature = "Lgy;"
+      signature = "Lhy;"
    )
    Node previous;
+   @ObfuscatedName("co")
+   public long hash;
+   @ObfuscatedName("cr")
+   @ObfuscatedSignature(
+      signature = "Lhy;"
+   )
+   public Node next;
 
-   @ObfuscatedName("kj")
-   public void method6469() {
+   protected Node() {
+      this.rl$$init();
+   }
+
+   @ObfuscatedName("kl")
+   public void method432() {
       this.rl$unlink();
       if(this.previous != null) {
          this.previous.next = this.next;
@@ -30,16 +34,14 @@ public class Node implements RSNode {
       }
    }
 
-   @ObfuscatedName("kl")
-   public boolean method6470() {
-      return this.previous != null;
-   }
-
    public void onUnlink() {
    }
 
    public void rl$unlink() {
       this.onUnlink();
+   }
+
+   private void rl$$init() {
    }
 
    public long getHash() {
@@ -55,6 +57,11 @@ public class Node implements RSNode {
    }
 
    public void unlink() {
-      this.method6469();
+      this.method432();
+   }
+
+   @ObfuscatedName("ko")
+   public boolean method433() {
+      return this.previous != null;
    }
 }

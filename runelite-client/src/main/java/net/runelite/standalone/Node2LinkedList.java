@@ -3,11 +3,11 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gf")
+@ObfuscatedName("gd")
 public final class Node2LinkedList {
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lhy;"
+      signature = "Lho;"
    )
    CacheableNode sentinel;
 
@@ -17,63 +17,39 @@ public final class Node2LinkedList {
       this.sentinel.next = this.sentinel;
    }
 
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "(Lhy;)V"
-   )
-   public void method2510(CacheableNode var1) {
-      if(var1.next != null) {
-         var1.method419();
-      }
-
-      var1.next = this.sentinel;
-      var1.previous = this.sentinel.previous;
-      var1.next.previous = var1;
-      var1.previous.next = var1;
-   }
-
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "()Lhy;"
-   )
-   CacheableNode method2512() {
-      CacheableNode var1 = this.sentinel.previous;
-      if(var1 == this.sentinel) {
-         return null;
-      } else {
-         var1.method419();
-         return var1;
-      }
-   }
-
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "()Lhy;"
-   )
-   public CacheableNode method2519() {
-      CacheableNode var1 = this.sentinel.previous;
-      return var1 == this.sentinel?null:var1;
-   }
-
-   @ObfuscatedName("i")
-   void method2508() {
+   @ObfuscatedName("f")
+   void method1230() {
       while(true) {
          CacheableNode var1 = this.sentinel.previous;
          if(var1 == this.sentinel) {
             return;
          }
 
-         var1.method419();
+         var1.method1606();
       }
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(Lhy;)V"
+      signature = "()Lho;"
    )
-   public void method2509(CacheableNode var1) {
+   CacheableNode method1244() {
+      CacheableNode var1 = this.sentinel.previous;
+      if(var1 == this.sentinel) {
+         return null;
+      } else {
+         var1.method1606();
+         return var1;
+      }
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(Lho;)V"
+   )
+   public void method1226(CacheableNode var1) {
       if(var1.next != null) {
-         var1.method419();
+         var1.method1606();
       }
 
       var1.next = this.sentinel.next;
@@ -82,13 +58,37 @@ public final class Node2LinkedList {
       var1.previous.next = var1;
    }
 
-   @ObfuscatedName("e")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(Lhy;Lhy;)V"
+      signature = "(Lho;)V"
    )
-   static void method2514(CacheableNode var0, CacheableNode var1) {
+   public void method1228(CacheableNode var1) {
+      if(var1.next != null) {
+         var1.method1606();
+      }
+
+      var1.next = this.sentinel;
+      var1.previous = this.sentinel.previous;
+      var1.next.previous = var1;
+      var1.previous.next = var1;
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "()Lho;"
+   )
+   public CacheableNode method1231() {
+      CacheableNode var1 = this.sentinel.previous;
+      return var1 == this.sentinel?null:var1;
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(Lho;Lho;)V"
+   )
+   static void method1229(CacheableNode var0, CacheableNode var1) {
       if(var0.next != null) {
-         var0.method419();
+         var0.method1606();
       }
 
       var0.next = var1;

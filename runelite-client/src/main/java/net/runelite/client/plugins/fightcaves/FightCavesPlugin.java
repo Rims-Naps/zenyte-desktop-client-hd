@@ -151,7 +151,7 @@ public class FightCavesPlugin extends Plugin
 	{
 		final Matcher waveMatcher = WAVE_PATTERN.matcher(event.getMessage());
 
-		if (event.getType() != ChatMessageType.SERVER
+		if (event.getType() != ChatMessageType.GAMEMESSAGE
 			|| !inFightCave()
 			|| !waveMatcher.matches())
 		{

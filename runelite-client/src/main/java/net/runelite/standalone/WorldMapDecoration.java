@@ -4,39 +4,37 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("t")
+@ObfuscatedName("z")
 public class WorldMapDecoration {
-   @ObfuscatedName("dn")
+   @ObfuscatedName("qy")
+   @ObfuscatedGetter(
+      intValue = -310179935
+   )
+   static int field222;
+   @ObfuscatedName("pm")
+   static boolean field225;
+   @ObfuscatedName("gv")
    @ObfuscatedSignature(
-      signature = "Lih;"
+      signature = "[Lld;"
    )
-   static Js5 anims;
-   @ObfuscatedName("ae")
-   static int[] field183;
-   @ObfuscatedName("q")
-   static byte[][][] tileUnderlayIds;
-   @ObfuscatedName("aw")
-   static int[] field182;
-   @ObfuscatedName("n")
+   static SpritePixels[] headIconsHint;
+   @ObfuscatedName("d")
+   public static String osName;
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      intValue = -1425596791
-   )
-   static int field189;
-   @ObfuscatedName("r")
-   @ObfuscatedGetter(
-      intValue = -1705638817
-   )
-   final int decoration;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = -1838408627
-   )
-   final int rotation;
-   @ObfuscatedName("g")
-   @ObfuscatedGetter(
-      intValue = -939821209
+      intValue = 583557743
    )
    final int objectDefinitionId;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = -2047493595
+   )
+   final int decoration;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      intValue = -1582625725
+   )
+   final int rotation;
 
    WorldMapDecoration(int var1, int var2, int var3) {
       this.objectDefinitionId = var1;
@@ -44,62 +42,40 @@ public class WorldMapDecoration {
       this.rotation = var3;
    }
 
-   @ObfuscatedName("r")
-   public static boolean method2946(long var0) {
-      boolean var2 = 0L != var0;
-      if(var2) {
-         boolean var3 = (int)(var0 >>> 16 & 1L) == 1;
-         var2 = !var3;
+   @ObfuscatedName("jb")
+   @ObfuscatedSignature(
+      signature = "(IB)V",
+      garbageValue = "68"
+   )
+   static final void method2085(int var0) {
+      if(ChatLine.method5915(var0)) {
+         Resampler.method144(ComponentType.interfaces[var0], -1);
       }
-
-      return var2;
    }
 
-   @ObfuscatedName("ja")
+   @ObfuscatedName("fc")
    @ObfuscatedSignature(
-      signature = "(II)Z",
-      garbageValue = "67572877"
+      signature = "(Lju;IIII)V",
+      garbageValue = "2091066043"
    )
-   static boolean method2944(int var0) {
-      for(int var1 = 0; var1 < client.field865; ++var1) {
-         if(client.field867[var1] == var0) {
-            return true;
+   static void method2084(Sequence var0, int var1, int var2, int var3) {
+      if(Client.queuedSoundEffectCount < 50 && Client.field886 != 0) {
+         if(var0.field3628 != null && var1 < var0.field3628.length) {
+            int var4 = var0.field3628[var1];
+            if(var4 != 0) {
+               int var5 = var4 >> 8;
+               int var6 = var4 >> 4 & 7;
+               int var7 = var4 & 15;
+               Client.queuedSoundEffectIDs[Client.queuedSoundEffectCount] = var5;
+               Client.unknownSoundValues1[Client.queuedSoundEffectCount] = var6;
+               Client.unknownSoundValues2[Client.queuedSoundEffectCount] = 0;
+               Client.audioEffects[Client.queuedSoundEffectCount] = null;
+               int var8 = (var2 - 64) / 128;
+               int var9 = (var3 - 64) / 128;
+               Client.soundLocations[Client.queuedSoundEffectCount] = var7 + (var9 << 8) + (var8 << 16);
+               ++Client.queuedSoundEffectCount;
+            }
          }
       }
-
-      return false;
-   }
-
-   @ObfuscatedName("fp")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-904767418"
-   )
-   static final void method2943() {
-      if(client.field725 > 0) {
-         class9.method133();
-      } else {
-         client.field904.method2490();
-         class310.method5922(40);
-         class60.field524 = client.serverConnection.method5880();
-         client.serverConnection.method5879();
-      }
-   }
-
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(II)Ljava/lang/String;",
-      garbageValue = "703327785"
-   )
-   static String getModIcon(int var0) {
-      return var0 == -1 ? "" : "<img=" + var0 + ">";
-   }
-
-   static String getIronManIcon(int var0) {
-      return var0 == -1 ? "" : "<irm=" + var0 + ">";
-   }
-
-   static String getMemberIcon(int var0) {
-      return var0 == -1 ? "" : "<member=" + var0 + ">";
    }
 }

@@ -6,27 +6,27 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSIterableHashTable;
 import net.runelite.rs.api.RSNode;
 
-@ObfuscatedName("gr")
+@ObfuscatedName("gs")
 public final class IterableHashTable implements Iterable, RSIterableHashTable {
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "[Lgy;"
-   )
-   Node[] buckets;
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "Lgy;"
-   )
-   Node head;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Lgy;"
+      signature = "Lhy;"
    )
    Node tail;
-   @ObfuscatedName("c")
+   @ObfuscatedName("a")
+   int size;
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "[Lhy;"
+   )
+   Node[] buckets;
+   @ObfuscatedName("h")
    int index;
    @ObfuscatedName("g")
-   int size;
+   @ObfuscatedSignature(
+      signature = "Lhy;"
+   )
+   Node head;
 
    public IterableHashTable(int var1) {
       this.index = 0;
@@ -41,13 +41,49 @@ public final class IterableHashTable implements Iterable, RSIterableHashTable {
 
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(Lgy;J)V"
+      signature = "()Lhy;"
    )
-   public void method2749(Node var1, long var2) {
+   public Node method2181() {
+      this.index = 0;
+      return this.method2190();
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(J)Lhy;"
+   )
+   public Node method2178(long var1) {
+      Node var3 = this.buckets[(int)(var1 & (long)(this.size - 1))];
+
+      for(this.head = var3.next; var3 != this.head; this.head = this.head.next) {
+         if(this.head.hash == var1) {
+            Node var4 = this.head;
+            this.head = this.head.next;
+            return var4;
+         }
+      }
+
+      this.head = null;
+      return null;
+   }
+
+   public Iterator iterator() {
+      return new HashTableIterator(this);
+   }
+
+   public RSNode get(long var1) {
+      return this.method2178(var1);
+   }
+
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "(Lhy;J)V"
+   )
+   public void method2186(Node var1, long var2) {
       if(var1.previous != null) {
-         var1.method6469();
+         var1.method432();
       }
 
       Node var4 = this.buckets[(int)(var2 & (long)(this.size - 1))];
@@ -58,39 +94,11 @@ public final class IterableHashTable implements Iterable, RSIterableHashTable {
       var1.hash = var2;
    }
 
-   @ObfuscatedName("e")
-   public void method2757() {
-      for(int var1 = 0; var1 < this.size; ++var1) {
-         Node var2 = this.buckets[var1];
-
-         while(true) {
-            Node var3 = var2.next;
-            if(var3 == var2) {
-               break;
-            }
-
-            var3.method6469();
-         }
-      }
-
-      this.head = null;
-      this.tail = null;
-   }
-
-   @ObfuscatedName("q")
+   @ObfuscatedName("h")
    @ObfuscatedSignature(
-      signature = "()Lgy;"
+      signature = "()Lhy;"
    )
-   public Node method2751() {
-      this.index = 0;
-      return this.method2752();
-   }
-
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "()Lgy;"
-   )
-   public Node method2752() {
+   public Node method2190() {
       Node var1;
       if(this.index > 0 && this.buckets[this.index - 1] != this.tail) {
          var1 = this.tail;
@@ -110,30 +118,22 @@ public final class IterableHashTable implements Iterable, RSIterableHashTable {
       }
    }
 
-   public Iterator iterator() {
-      return new HashTableIterator(this);
-   }
-
-   public RSNode get(long var1) {
-      return this.method2764(var1);
-   }
-
    @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(J)Lgy;"
-   )
-   public Node method2764(long var1) {
-      Node var3 = this.buckets[(int)(var1 & (long)(this.size - 1))];
+   public void method2180() {
+      for(int var1 = 0; var1 < this.size; ++var1) {
+         Node var2 = this.buckets[var1];
 
-      for(this.head = var3.next; var3 != this.head; this.head = this.head.next) {
-         if(this.head.hash == var1) {
-            Node var4 = this.head;
-            this.head = this.head.next;
-            return var4;
+         while(true) {
+            Node var3 = var2.next;
+            if(var3 == var2) {
+               break;
+            }
+
+            var3.method432();
          }
       }
 
       this.head = null;
-      return null;
+      this.tail = null;
    }
 }

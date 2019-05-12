@@ -30,10 +30,11 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.util.Map;
 import java.util.TreeMap;
+import javax.swing.Box;
 import javax.swing.JToolBar;
 
 /**
- * client plugin toolbar.
+ * Client plugin toolbar.
  */
 public class ClientPluginToolbar extends JToolBar
 {
@@ -47,7 +48,7 @@ public class ClientPluginToolbar extends JToolBar
 			.result());
 
 	/**
-	 * Instantiates a new client plugin toolbar.
+	 * Instantiates a new Client plugin toolbar.
 	 */
 	ClientPluginToolbar()
 	{
@@ -57,7 +58,6 @@ public class ClientPluginToolbar extends JToolBar
 		setMinimumSize(new Dimension(TOOLBAR_WIDTH, TOOLBAR_HEIGHT));
 		setPreferredSize(new Dimension(TOOLBAR_WIDTH, TOOLBAR_HEIGHT));
 		setMaximumSize(new Dimension(TOOLBAR_WIDTH, Integer.MAX_VALUE));
-		addSeparator();
 	}
 
 	void addComponent(final NavigationButton button, final Component c)
@@ -86,6 +86,7 @@ public class ClientPluginToolbar extends JToolBar
 			if (!entry.getKey().isTab() && !isDelimited)
 			{
 				isDelimited = true;
+				add(Box.createVerticalGlue());
 				addSeparator();
 			}
 

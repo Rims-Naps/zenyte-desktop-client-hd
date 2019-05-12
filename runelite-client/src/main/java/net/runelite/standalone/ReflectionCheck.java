@@ -6,30 +6,30 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.rs.api.RSClassInfo;
 
-@ObfuscatedName("lo")
+@ObfuscatedName("ly")
 public class ReflectionCheck extends Node implements RSClassInfo {
-   @ObfuscatedName("l")
-   int[] field3848;
-   @ObfuscatedName("r")
+   @ObfuscatedName("f")
+   int[] field3854;
+   @ObfuscatedName("x")
+   int[] errorIdentifiers;
+   @ObfuscatedName("m")
+   byte[][][] args;
+   @ObfuscatedName("p")
+   Method[] methods;
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      intValue = -1643803809
+      intValue = 2098891529
+   )
+   int field3850;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = -1743299775
    )
    int count;
-   @ObfuscatedName("e")
-   int[] type;
-   @ObfuscatedName("w")
-   byte[][][] args;
-   @ObfuscatedName("q")
-   int[] errorIdentifiers;
-   @ObfuscatedName("b")
-   Method[] methods;
-   @ObfuscatedName("c")
+   @ObfuscatedName("h")
    Field[] fields;
    @ObfuscatedName("g")
-   @ObfuscatedGetter(
-      intValue = -1544626613
-   )
-   int field3845;
+   int[] type;
 
    public Field[] getFields() {
       return this.fields;

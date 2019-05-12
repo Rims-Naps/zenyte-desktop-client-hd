@@ -1,13 +1,24 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cu")
+@ObfuscatedName("dz")
 public class SoundTask implements Runnable {
-   @ObfuscatedName("g")
+   @ObfuscatedName("jt")
    @ObfuscatedSignature(
-      signature = "[Lcq;"
+      signature = "Lia;"
+   )
+   static ComponentType field1417;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = -183199
+   )
+   public static int field1418;
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "[Lcz;"
    )
    volatile AbstractSoundSystem[] systems;
 
@@ -20,162 +31,55 @@ public class SoundTask implements Runnable {
          for(int var1 = 0; var1 < 2; ++var1) {
             AbstractSoundSystem var2 = this.systems[var1];
             if(var2 != null) {
-               var2.method280();
+               var2.method1747();
             }
          }
       } catch (Exception var4) {
-         ProjectileAnimation.method5582((String)null, var4, 1672520275);
+         VertexNormal.method4110((String)null, var4, (byte)-87);
       }
 
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(CII)C",
-      garbageValue = "-1412869221"
+      signature = "(II)Ljt;",
+      garbageValue = "1853214968"
    )
-   static char method5017(char var0, int var1) {
-      if(var0 >= 192 && var0 <= 255) {
-         if(var0 >= 192 && var0 <= 198) {
-            return 'A';
+   public static Varbit method6413(int var0) {
+      Varbit var1 = (Varbit)Varbit.varbits.method635((long)var0);
+      if(var1 != null) {
+         return var1;
+      } else {
+         byte[] var2 = Varbit.varbit_ref.method4115(14, var0, 1062597372);
+         var1 = new Varbit();
+         if(var2 != null) {
+            var1.method933(new Packet(var2));
          }
 
-         if(var0 == 199) {
-            return 'C';
-         }
-
-         if(var0 >= 200 && var0 <= 203) {
-            return 'E';
-         }
-
-         if(var0 >= 204 && var0 <= 207) {
-            return 'I';
-         }
-
-         if(var0 >= 210 && var0 <= 214) {
-            return 'O';
-         }
-
-         if(var0 >= 217 && var0 <= 220) {
-            return 'U';
-         }
-
-         if(var0 == 221) {
-            return 'Y';
-         }
-
-         if(var0 == 223) {
-            return 's';
-         }
-
-         if(var0 >= 224 && var0 <= 230) {
-            return 'a';
-         }
-
-         if(var0 == 231) {
-            return 'c';
-         }
-
-         if(var0 >= 232 && var0 <= 235) {
-            return 'e';
-         }
-
-         if(var0 >= 236 && var0 <= 239) {
-            return 'i';
-         }
-
-         if(var0 >= 242 && var0 <= 246) {
-            return 'o';
-         }
-
-         if(var0 >= 249 && var0 <= 252) {
-            return 'u';
-         }
-
-         if(var0 == 253 || var0 == 255) {
-            return 'y';
-         }
+         Varbit.varbits.method628(var1, (long)var0);
+         return var1;
       }
-
-      return var0 == 338?'O':(var0 == 339?'o':(var0 == 376?'Y':var0));
    }
 
-   @ObfuscatedName("q")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(CS)C",
-      garbageValue = "11873"
+      signature = "(II)Ljh;",
+      garbageValue = "819592038"
    )
-   static char method5022(char var0) {
-      switch(var0) {
-      case ' ':
-      case '-':
-      case '_':
-      case ' ':
-         return '_';
-      case '#':
-      case '[':
-      case ']':
-         return var0;
-      case 'À':
-      case 'Á':
-      case 'Â':
-      case 'Ã':
-      case 'Ä':
-      case 'à':
-      case 'á':
-      case 'â':
-      case 'ã':
-      case 'ä':
-         return 'a';
-      case 'Ç':
-      case 'ç':
-         return 'c';
-      case 'È':
-      case 'É':
-      case 'Ê':
-      case 'Ë':
-      case 'è':
-      case 'é':
-      case 'ê':
-      case 'ë':
-         return 'e';
-      case 'Í':
-      case 'Î':
-      case 'Ï':
-      case 'í':
-      case 'î':
-      case 'ï':
-         return 'i';
-      case 'Ñ':
-      case 'ñ':
-         return 'n';
-      case 'Ò':
-      case 'Ó':
-      case 'Ô':
-      case 'Õ':
-      case 'Ö':
-      case 'ò':
-      case 'ó':
-      case 'ô':
-      case 'õ':
-      case 'ö':
-         return 'o';
-      case 'Ù':
-      case 'Ú':
-      case 'Û':
-      case 'Ü':
-      case 'ù':
-      case 'ú':
-      case 'û':
-      case 'ü':
-         return 'u';
-      case 'ß':
-         return 'b';
-      case 'ÿ':
-      case 'Ÿ':
-         return 'y';
-      default:
-         return Character.toLowerCase(var0);
+   public static Spotanim method6414(int var0) {
+      Spotanim var1 = (Spotanim)Spotanim.spotanims.method635((long)var0);
+      if(var1 != null) {
+         return var1;
+      } else {
+         byte[] var2 = Spotanim.SpotAnimationDefinition_indexCache.method4115(13, var0, 243114690);
+         var1 = new Spotanim();
+         var1.id = var0;
+         if(var2 != null) {
+            var1.method359(new Packet(var2));
+         }
+
+         Spotanim.spotanims.method628(var1, (long)var0);
+         return var1;
       }
    }
 }

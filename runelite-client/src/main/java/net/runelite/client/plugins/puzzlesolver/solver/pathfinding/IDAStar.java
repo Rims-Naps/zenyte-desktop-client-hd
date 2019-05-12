@@ -25,70 +25,82 @@
  */
 package net.runelite.client.plugins.puzzlesolver.solver.pathfinding;
 
+import java.util.ArrayList;
+import java.util.List;
 import net.runelite.client.plugins.puzzlesolver.solver.PuzzleState;
 import net.runelite.client.plugins.puzzlesolver.solver.heuristics.Heuristic;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * An implementation of the IDA* algorithm.
- * <p>
+ *
  * https://en.wikipedia.org/wiki/Iterative_deepening_A*
  */
-public class IDAStar extends Pathfinder {
-    public IDAStar(Heuristic heuristic) {
-        super(heuristic);
-    }
+public class IDAStar extends Pathfinder
+{
+	public IDAStar(Heuristic heuristic)
+	{
+		super(heuristic);
+	}
 
-    @Override
-    public List<PuzzleState> computePath(PuzzleState root) {
-        PuzzleState goalNode = path(root);
+	@Override
+	public List<PuzzleState> computePath(PuzzleState root)
+	{
+		PuzzleState goalNode = path(root);
 
-        List<PuzzleState> path = new ArrayList<>();
+		List<PuzzleState> path = new ArrayList<>();
 
-        PuzzleState parent = goalNode;
-        while (parent != null) {
-            path.add(0, parent);
-            parent = parent.getParent();
-        }
+		PuzzleState parent = goalNode;
+		while (parent != null)
+		{
+			path.add(0, parent);
+			parent = parent.getParent();
+		}
 
-        return path;
-    }
+		return path;
+	}
 
-    private PuzzleState path(PuzzleState root) {
-        int bound = root.getHeuristicValue(getHeuristic());
+	private PuzzleState path(PuzzleState root)
+	{
+		int bound = root.getHeuristicValue(getHeuristic());
 
-        while (true) {
-            PuzzleState t = search(root, 0, bound);
-            if (t != null) {
-                return t;
-            }
+		while (true)
+		{
+			PuzzleState t = search(root, 0, bound);
 
-            bound += 1;
-        }
-    }
+			if (t != null)
+			{
+				return t;
+			}
 
-    private PuzzleState search(PuzzleState node, int g, int bound) {
-        int h = node.getHeuristicValue(getHeuristic());
-        int f = g + h;
+			bound += 1;
+		}
+	}
 
-        if (f > bound) {
-            return null;
-        }
+	private PuzzleState search(PuzzleState node, int g, int bound)
+	{
+		int h = node.getHeuristicValue(getHeuristic());
+		int f = g + h;
 
-        if (h == 0) {
-            return node;
-        }
+		if (f > bound)
+		{
+			return null;
+		}
 
-        for (PuzzleState successor : node.computeMoves()) {
-            PuzzleState t = search(successor, g + 1, bound);
+		if (h == 0)
+		{
+			return node;
+		}
 
-            if (t != null) {
-                return t;
-            }
-        }
+		for (PuzzleState successor : node.computeMoves())
+		{
+			PuzzleState t = search(successor, g + 1, bound);
 
-        return null;
-    }
+			if (t != null)
+			{
+				return t;
+			}
+		}
+
+		return null;
+	}
 }

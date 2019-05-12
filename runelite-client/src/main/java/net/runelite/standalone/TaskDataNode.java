@@ -3,60 +3,60 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dz")
+@ObfuscatedName("do")
 public abstract class TaskDataNode extends Node {
-   @ObfuscatedName("f")
-   int field1443;
-   @ObfuscatedName("w")
-   volatile boolean field1445;
-   @ObfuscatedName("a")
+   @ObfuscatedName("k")
+   volatile boolean field1472;
+   @ObfuscatedName("o")
+   @ObfuscatedSignature(
+      signature = "Ldo;"
+   )
+   TaskDataNode field1469;
+   @ObfuscatedName("y")
    @ObfuscatedSignature(
       signature = "Ldj;"
    )
    AbstractIntegerNode0 data;
-   @ObfuscatedName("h")
-   @ObfuscatedSignature(
-      signature = "Ldz;"
-   )
-   TaskDataNode field1444;
+   @ObfuscatedName("u")
+   int field1470;
 
    protected TaskDataNode() {
-      this.field1445 = true;
+      this.field1472 = true;
    }
 
-   @ObfuscatedName("x")
-   protected abstract void vmethod6450(int var1);
+   @ObfuscatedName("f")
+   @ObfuscatedSignature(
+      signature = "()Ldo;"
+   )
+   protected abstract TaskDataNode vmethod5968();
+
+   @ObfuscatedName("fn")
+   final void method5971(int[] var1, int var2, int var3) {
+      if(this.field1472) {
+         this.vmethod5972(var1, var2, var3);
+      } else {
+         this.vmethod5976(var3);
+      }
+
+   }
+
+   @ObfuscatedName("q")
+   protected abstract void vmethod5972(int[] var1, int var2, int var3);
 
    @ObfuscatedName("m")
-   protected abstract int vmethod6465();
+   protected abstract int vmethod5970();
 
    @ObfuscatedName("p")
    @ObfuscatedSignature(
-      signature = "()Ldz;"
+      signature = "()Ldo;"
    )
-   protected abstract TaskDataNode vmethod6446();
+   protected abstract TaskDataNode vmethod5969();
 
-   @ObfuscatedName("av")
-   int vmethod6455() {
+   @ObfuscatedName("n")
+   protected abstract void vmethod5976(int var1);
+
+   @ObfuscatedName("ap")
+   int vmethod5966() {
       return 255;
-   }
-
-   @ObfuscatedName("i")
-   @ObfuscatedSignature(
-      signature = "()Ldz;"
-   )
-   protected abstract TaskDataNode vmethod6454();
-
-   @ObfuscatedName("d")
-   protected abstract void vmethod6449(int[] var1, int var2, int var3);
-
-   @ObfuscatedName("fc")
-   final void method6448(int[] var1, int var2, int var3) {
-      if(this.field1445) {
-         this.vmethod6449(var1, var2, var3);
-      } else {
-         this.vmethod6450(var3);
-      }
-
    }
 }
