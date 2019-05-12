@@ -114,23 +114,23 @@ public class ZoneProt {
       garbageValue = "0"
    )
    static final void method375(int var0, int var1) {
-      if(Client.menuOptionCount >= 2 || Client.itemSelectionState != 0 || Client.spellSelected) {
-         if(Client.field699) {
-            int var2 = Client.menuOptionCount - 1;
+      if(client.menuOptionCount >= 2 || client.itemSelectionState != 0 || client.spellSelected) {
+         if(client.field699) {
+            int var2 = client.menuOptionCount - 1;
             String var4;
-            if(Client.itemSelectionState == 1 && Client.menuOptionCount < 2) {
-               var4 = "Use" + " " + Client.lastSelectedItemName + " " + "->";
-            } else if(Client.spellSelected && Client.menuOptionCount < 2) {
-               var4 = Client.targetVerb + " " + Client.opBase + " " + "->";
+            if(client.itemSelectionState == 1 && client.menuOptionCount < 2) {
+               var4 = "Use" + " " + client.lastSelectedItemName + " " + "->";
+            } else if(client.spellSelected && client.menuOptionCount < 2) {
+               var4 = client.targetVerb + " " + client.opBase + " " + "->";
             } else {
                var4 = MilliTimer.method1071(var2);
             }
 
-            if(Client.menuOptionCount > 2) {
-               var4 = var4 + class308.method6152(16777215) + " " + '/' + " " + (Client.menuOptionCount - 2) + " more options";
+            if(client.menuOptionCount > 2) {
+               var4 = var4 + class308.method6152(16777215) + " " + '/' + " " + (client.menuOptionCount - 2) + " more options";
             }
 
-            class191.fontBold12.method6173(var4, var0 + 4, var1 + 15, 16777215, 0, Client.gameCycle / 1000);
+            class191.fontBold12.method6173(var4, var0 + 4, var1 + 15, 16777215, 0, client.gameCycle / 1000);
          }
       }
    }

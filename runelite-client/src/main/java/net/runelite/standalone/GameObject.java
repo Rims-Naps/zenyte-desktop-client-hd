@@ -360,13 +360,13 @@ public final class GameObject implements RSGameObject {
       garbageValue = "-1186758236"
    )
    static final void method1097(ComponentType var0, int var1, int var2, int var3, int var4, int var5, int var6) {
-      if(Client.field715) {
-         Client.field864 = 32;
+      if(client.field715) {
+         client.field864 = 32;
       } else {
-         Client.field864 = 0;
+         client.field864 = 0;
       }
 
-      Client.field715 = false;
+      client.field715 = false;
       int var7;
       if(MouseInput.mouseCurrentButton == 1 || !TextureProvider.middleMouseMovesCamera && MouseInput.mouseCurrentButton == 4) {
          if(var5 >= var1 && var5 < var1 + 16 && var6 >= var2 && var6 < var2 + 16) {
@@ -375,7 +375,7 @@ public final class GameObject implements RSGameObject {
          } else if(var5 >= var1 && var5 < var1 + 16 && var6 >= var3 + var2 - 16 && var6 < var3 + var2) {
             var0.scrollY += 4;
             WorldMapRegion.method5554(var0);
-         } else if(var5 >= var1 - Client.field864 && var5 < Client.field864 + var1 + 16 && var6 >= var2 + 16 && var6 < var3 + var2 - 16) {
+         } else if(var5 >= var1 - client.field864 && var5 < client.field864 + var1 + 16 && var6 >= var2 + 16 && var6 < var3 + var2 - 16) {
             var7 = var3 * (var3 - 32) / var4;
             if(var7 < 8) {
                var7 = 8;
@@ -385,14 +385,14 @@ public final class GameObject implements RSGameObject {
             int var9 = var3 - 32 - var7;
             var0.scrollY = var8 * (var4 - var3) / var9;
             WorldMapRegion.method5554(var0);
-            Client.field715 = true;
+            client.field715 = true;
          }
       }
 
-      if(Client.field847 != 0) {
+      if(client.field847 != 0) {
          var7 = var0.width;
          if(var5 >= var1 - var7 && var6 >= var2 && var5 < var1 + 16 && var6 <= var3 + var2) {
-            var0.scrollY += Client.field847 * 45;
+            var0.scrollY += client.field847 * 45;
             WorldMapRegion.method5554(var0);
          }
       }

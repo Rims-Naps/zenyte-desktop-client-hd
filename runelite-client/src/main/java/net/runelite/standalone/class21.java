@@ -51,7 +51,7 @@ public class class21 {
             var9 = Character.toLowerCase(var9);
             var10 = Character.toLowerCase(var10);
             if(var9 != var10) {
-               return Client.method3207(var9, var2) - Client.method3207(var10, var2);
+               return client.method3207(var9, var2) - client.method3207(var10, var2);
             }
          }
       }
@@ -67,7 +67,7 @@ public class class21 {
             var11 = Character.toLowerCase(var11);
             var12 = Character.toLowerCase(var12);
             if(var11 != var12) {
-               return Client.method3207(var11, var2) - Client.method3207(var12, var2);
+               return client.method3207(var11, var2) - client.method3207(var12, var2);
             }
          }
       }
@@ -80,7 +80,7 @@ public class class21 {
             var12 = var0.charAt(var18);
             char var13 = var1.charAt(var18);
             if(var13 != var12) {
-               return Client.method3207(var12, var2) - Client.method3207(var13, var2);
+               return client.method3207(var12, var2) - client.method3207(var13, var2);
             }
          }
 
@@ -110,7 +110,7 @@ public class class21 {
    )
    static final void method377(int var0, int var1, int var2, int var3, SpritePixels var4, class186 var5) {
       if(var4 != null) {
-         int var6 = Client.mapAngle & 2047;
+         int var6 = client.mapAngle & 2047;
          int var7 = var3 * var3 + var2 * var2;
          if(var7 <= 6400) {
             int var8 = Graphics3D.SINE[var6];

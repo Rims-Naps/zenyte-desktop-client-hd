@@ -655,7 +655,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
    )
    static int method4813(int var0, class314 var1, boolean var2) {
       if(var0 == 3300) {
-         class281.intStack[++class281.intStackSize - 1] = Client.gameCycle;
+         class281.intStack[++class281.intStackSize - 1] = client.gameCycle;
          return 1;
       } else {
          int var3;
@@ -684,15 +684,15 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
             return 1;
          } else if(var0 == 3305) {
             var3 = class281.intStack[--class281.intStackSize];
-            class281.intStack[++class281.intStackSize - 1] = Client.skillLevels[var3];
+            class281.intStack[++class281.intStackSize - 1] = client.skillLevels[var3];
             return 1;
          } else if(var0 == 3306) {
             var3 = class281.intStack[--class281.intStackSize];
-            class281.intStack[++class281.intStackSize - 1] = Client.skillBaseLevels[var3];
+            class281.intStack[++class281.intStackSize - 1] = client.skillBaseLevels[var3];
             return 1;
          } else if(var0 == 3307) {
             var3 = class281.intStack[--class281.intStackSize];
-            class281.intStack[++class281.intStackSize - 1] = Client.skillExperiences[var3];
+            class281.intStack[++class281.intStackSize - 1] = client.skillExperiences[var3];
             return 1;
          } else {
             int var5;
@@ -715,7 +715,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
                class281.intStack[++class281.intStackSize - 1] = var3 & 16383;
                return 1;
             } else if(var0 == 3312) {
-               class281.intStack[++class281.intStackSize - 1] = Client.isMembers?1:0;
+               class281.intStack[++class281.intStackSize - 1] = client.isMembers?1:0;
                return 1;
             } else if(var0 == 3313) {
                class281.intStackSize -= 2;
@@ -736,27 +736,27 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
                class281.intStack[++class281.intStackSize - 1] = LoginProt.method3821(var3, var4);
                return 1;
             } else if(var0 == 3316) {
-               if(Client.staffModLevel >= 2) {
-                  class281.intStack[++class281.intStackSize - 1] = Client.staffModLevel;
+               if(client.staffModLevel >= 2) {
+                  class281.intStack[++class281.intStackSize - 1] = client.staffModLevel;
                } else {
                   class281.intStack[++class281.intStackSize - 1] = 0;
                }
 
                return 1;
             } else if(var0 == 3317) {
-               class281.intStack[++class281.intStackSize - 1] = Client.rebootTimer;
+               class281.intStack[++class281.intStackSize - 1] = client.rebootTimer;
                return 1;
             } else if(var0 == 3318) {
-               class281.intStack[++class281.intStackSize - 1] = Client.world;
+               class281.intStack[++class281.intStackSize - 1] = client.world;
                return 1;
             } else if(var0 == 3321) {
-               class281.intStack[++class281.intStackSize - 1] = Client.energy;
+               class281.intStack[++class281.intStackSize - 1] = client.energy;
                return 1;
             } else if(var0 == 3322) {
-               class281.intStack[++class281.intStackSize - 1] = Client.weight;
+               class281.intStack[++class281.intStackSize - 1] = client.weight;
                return 1;
             } else if(var0 == 3323) {
-               if(Client.playermod) {
+               if(client.playermod) {
                   class281.intStack[++class281.intStackSize - 1] = 1;
                } else {
                   class281.intStack[++class281.intStackSize - 1] = 0;
@@ -764,7 +764,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
 
                return 1;
             } else if(var0 == 3324) {
-               class281.intStack[++class281.intStackSize - 1] = Client.flags;
+               class281.intStack[++class281.intStackSize - 1] = client.flags;
                return 1;
             } else if(var0 == 3325) {
                class281.intStackSize -= 4;

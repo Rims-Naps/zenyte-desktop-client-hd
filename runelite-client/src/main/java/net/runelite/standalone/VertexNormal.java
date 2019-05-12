@@ -62,7 +62,7 @@ public class VertexNormal {
          }
       }
 
-      Client.copy$processClientError(var0, var1, var2);
+      client.copy$processClientError(var0, var1, var2);
    }
 
    @ObfuscatedName("gz")

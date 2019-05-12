@@ -130,13 +130,13 @@ public class FontName {
       garbageValue = "-1149660355"
    )
    static final void method515() {
-      if(Client.field695 > 0) {
+      if(client.field695 > 0) {
          class285.method5866();
       } else {
-         Client.field773.method1591();
+         client.field773.method1591();
          class124.method1843(40);
-         class235.field2434 = Client.serverConnection.method38();
-         Client.serverConnection.method36();
+         class235.field2434 = client.serverConnection.method38();
+         client.serverConnection.method36();
       }
    }
 
@@ -172,7 +172,7 @@ public class FontName {
       garbageValue = "1"
    )
    static void method507() {
-      for(SubInterface var0 = (SubInterface)Client.subInterfaces.method6338(); var0 != null; var0 = (SubInterface)Client.subInterfaces.method6339()) {
+      for(SubInterface var0 = (SubInterface) client.subInterfaces.method6338(); var0 != null; var0 = (SubInterface) client.subInterfaces.method6339()) {
          int var1 = var0.id;
          if(ChatLine.method5915(var1)) {
             boolean var2 = true;

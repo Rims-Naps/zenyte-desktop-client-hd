@@ -300,7 +300,7 @@ public final class NPCEntity extends PathingEntity implements RSNPC {
    )
    static final void method1833(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
       if(var2 >= 1 && var3 >= 1 && var2 <= 102 && var3 <= 102) {
-         if(Client.lowMemory && var0 != ServerProt.level) {
+         if(client.lowMemory && var0 != ServerProt.level) {
             return;
          }
 
@@ -335,7 +335,7 @@ public final class NPCEntity extends PathingEntity implements RSNPC {
                class312.sceneManager.method3638(var0, var2, var3);
                var13 = GrandExchangeOffer.method1736(var39);
                if(var13.clipType != 0) {
-                  Client.collisionMaps[var0].method3589(var2, var3, var40, var41, var13.blocksProjectile);
+                  client.collisionMaps[var0].method3589(var2, var3, var40, var41, var13.blocksProjectile);
                }
             }
 
@@ -351,7 +351,7 @@ public final class NPCEntity extends PathingEntity implements RSNPC {
                }
 
                if(var13.clipType != 0) {
-                  Client.collisionMaps[var0].method3603(var2, var3, var13.width, var13.length, var41, var13.blocksProjectile);
+                  client.collisionMaps[var0].method3603(var2, var3, var13.width, var13.length, var41, var13.blocksProjectile);
                }
             }
 
@@ -359,7 +359,7 @@ public final class NPCEntity extends PathingEntity implements RSNPC {
                class312.sceneManager.method3794(var0, var2, var3);
                var13 = GrandExchangeOffer.method1736(var39);
                if(var13.clipType == 1) {
-                  Client.collisionMaps[var0].method3592(var2, var3);
+                  client.collisionMaps[var0].method3592(var2, var3);
                }
             }
          }
@@ -371,7 +371,7 @@ public final class NPCEntity extends PathingEntity implements RSNPC {
             }
 
             SceneManager var42 = class312.sceneManager;
-            CollisionData var14 = Client.collisionMaps[var0];
+            CollisionData var14 = client.collisionMaps[var0];
             LocType var15 = GrandExchangeOffer.method1736(var4);
             int var16;
             int var17;

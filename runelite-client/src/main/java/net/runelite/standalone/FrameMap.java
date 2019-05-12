@@ -81,7 +81,7 @@ public class FrameMap extends Node implements RSFrameMap {
          int var7;
          int var9;
          for(var7 = 0; var7 < 32768; ++var7) {
-            NPCEntity var8 = Client.npcs[var7];
+            NPCEntity var8 = client.npcs[var7];
             if(var8 != null) {
                for(var9 = 0; var9 < 10; ++var9) {
                   var8.pathX[var9] -= var5;
@@ -94,7 +94,7 @@ public class FrameMap extends Node implements RSFrameMap {
          }
 
          for(var7 = 0; var7 < 2048; ++var7) {
-            PlayerEntity var21 = Client.players[var7];
+            PlayerEntity var21 = client.players[var7];
             if(var21 != null) {
                for(var9 = 0; var9 < 10; ++var9) {
                   var21.pathX[var9] -= var5;
@@ -132,15 +132,15 @@ public class FrameMap extends Node implements RSFrameMap {
 
                for(int var17 = 0; var17 < 4; ++var17) {
                   if(var15 >= 0 && var16 >= 0 && var15 < 104 && var16 < 104) {
-                     Client.groundItemDeque[var17][var13][var14] = Client.groundItemDeque[var17][var15][var16];
+                     client.groundItemDeque[var17][var13][var14] = client.groundItemDeque[var17][var15][var16];
                   } else {
-                     Client.groundItemDeque[var17][var13][var14] = null;
+                     client.groundItemDeque[var17][var13][var14] = null;
                   }
                }
             }
          }
 
-         for(PendingSpawn var19 = (PendingSpawn)Client.pendingSpawns.method3930(); var19 != null; var19 = (PendingSpawn)Client.pendingSpawns.method3924()) {
+         for(PendingSpawn var19 = (PendingSpawn) client.pendingSpawns.method3930(); var19 != null; var19 = (PendingSpawn) client.pendingSpawns.method3924()) {
             var19.x -= var5;
             var19.y -= var6;
             if(var19.x < 0 || var19.y < 0 || var19.x >= 104 || var19.y >= 104) {
@@ -148,23 +148,23 @@ public class FrameMap extends Node implements RSFrameMap {
             }
          }
 
-         if(Client.destinationX != 0) {
-            Client.destinationX -= var5;
-            Client.destinationY -= var6;
+         if(client.destinationX != 0) {
+            client.destinationX -= var5;
+            client.destinationY -= var6;
          }
 
-         Client.queuedSoundEffectCount = 0;
-         Client.field893 = false;
+         client.queuedSoundEffectCount = 0;
+         client.field893 = false;
          class258.cameraX -= var5 << 7;
          FontName.cameraY -= var6 << 7;
-         Client.field725 -= var5 << 7;
+         client.field725 -= var5 << 7;
          class69.field135 -= var6 << 7;
-         Client.field874 = -1;
-         Client.spotAnimationDeque.method3936();
-         Client.projectiles.method3936();
+         client.field874 = -1;
+         client.spotAnimationDeque.method3936();
+         client.projectiles.method3936();
 
          for(var14 = 0; var14 < 4; ++var14) {
-            Client.collisionMaps[var14].method3599();
+            client.collisionMaps[var14].method3599();
          }
 
       }

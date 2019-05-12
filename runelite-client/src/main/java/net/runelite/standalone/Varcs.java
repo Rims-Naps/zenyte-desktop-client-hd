@@ -358,7 +358,7 @@ public class Varcs implements RSVarcs {
       garbageValue = "-595035793"
    )
    static final void method351(String var0, boolean var1) {
-      if(Client.field764) {
+      if(client.field764) {
          byte var2 = 4;
          int var3 = var2 + 6;
          int var4 = var2 + 6;
@@ -376,9 +376,9 @@ public class Varcs implements RSVarcs {
             int var9 = var5;
             int var10 = var6;
 
-            for(int var11 = 0; var11 < Client.interfaceCount; ++var11) {
-               if(Client.widgetPositionX[var11] + Client.widgetBoundsWidth[var11] > var7 && Client.widgetPositionX[var11] < var7 + var9 && Client.widgetBoundsHeight[var11] + Client.widgetPositionY[var11] > var8 && Client.widgetPositionY[var11] < var8 + var10) {
-                  Client.field923[var11] = true;
+            for(int var11 = 0; var11 < client.interfaceCount; ++var11) {
+               if(client.widgetPositionX[var11] + client.widgetBoundsWidth[var11] > var7 && client.widgetPositionX[var11] < var7 + var9 && client.widgetBoundsHeight[var11] + client.widgetPositionY[var11] > var8 && client.widgetPositionY[var11] < var8 + var10) {
+                  client.field923[var11] = true;
                }
             }
          }

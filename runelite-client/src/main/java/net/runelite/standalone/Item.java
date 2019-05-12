@@ -120,10 +120,10 @@ public final class Item extends Entity implements RSItem {
 
       } else {
          if(var7 != -1) {
-            Client.field795[var7] = true;
+            client.field795[var7] = true;
          } else {
             for(int var8 = 0; var8 < 100; ++var8) {
-               Client.field795[var8] = true;
+               client.field795[var8] = true;
             }
          }
 
@@ -160,25 +160,25 @@ public final class Item extends Entity implements RSItem {
                var10 = HeadbarType.method2073(var3);
             }
 
-            TcpConnectionMessage var12 = class232.method4535(ClientProt.field2283, Client.serverConnection.isaac);
+            TcpConnectionMessage var12 = class232.method4535(ClientProt.field2283, client.serverConnection.isaac);
             var12.packetBuffer.writeInt(var10);
-            Client.serverConnection.method18(var12);
+            client.serverConnection.method18(var12);
             return 1;
          } else {
             TcpConnectionMessage var14;
             if(var0 == 3105) {
                var3 = class281.scriptStringStack[--class295.scriptStringStackSize];
-               var14 = class232.method4535(ClientProt.field2314, Client.serverConnection.isaac);
+               var14 = class232.method4535(ClientProt.field2314, client.serverConnection.isaac);
                var14.packetBuffer.writeByte(var3.length() + 1);
                var14.packetBuffer.method5077(var3);
-               Client.serverConnection.method18(var14);
+               client.serverConnection.method18(var14);
                return 1;
             } else if(var0 == 3106) {
                var3 = class281.scriptStringStack[--class295.scriptStringStackSize];
-               var14 = class232.method4535(ClientProt.field2227, Client.serverConnection.isaac);
+               var14 = class232.method4535(ClientProt.field2227, client.serverConnection.isaac);
                var14.packetBuffer.writeByte(var3.length() + 1);
                var14.packetBuffer.method5077(var3);
-               Client.serverConnection.method18(var14);
+               client.serverConnection.method18(var14);
                return 1;
             } else {
                String var7;
@@ -220,9 +220,9 @@ public final class Item extends Entity implements RSItem {
                   return 1;
                } else if(var0 == 3115) {
                   var15 = class281.intStack[--class281.intStackSize];
-                  var14 = class232.method4535(ClientProt.field2261, Client.serverConnection.isaac);
+                  var14 = class232.method4535(ClientProt.field2261, client.serverConnection.isaac);
                   var14.packetBuffer.writeShort(var15);
-                  Client.serverConnection.method18(var14);
+                  client.serverConnection.method18(var14);
                   return 1;
                } else if(var0 == 3116) {
                   var15 = class281.intStack[--class281.intStackSize];
@@ -234,63 +234,63 @@ public final class Item extends Entity implements RSItem {
                   } else if(var5.length() > 500) {
                      return 1;
                   } else {
-                     TcpConnectionMessage var6 = class232.method4535(ClientProt.field2320, Client.serverConnection.isaac);
+                     TcpConnectionMessage var6 = class232.method4535(ClientProt.field2320, client.serverConnection.isaac);
                      var6.packetBuffer.writeShort(1 + OwnWorldComparator.method73(var7) + OwnWorldComparator.method73(var5));
                      var6.packetBuffer.method5077(var7);
                      var6.packetBuffer.writeByte(var15);
                      var6.packetBuffer.method5077(var5);
-                     Client.serverConnection.method18(var6);
+                     client.serverConnection.method18(var6);
                      return 1;
                   }
                } else if(var0 == 3117) {
-                  Client.field660 = class281.intStack[--class281.intStackSize] == 1;
+                  client.field660 = class281.intStack[--class281.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3118) {
-                  Client.field699 = class281.intStack[--class281.intStackSize] == 1;
+                  client.field699 = class281.intStack[--class281.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3119) {
-                  Client.field768 = class281.intStack[--class281.intStackSize] == 1;
+                  client.field768 = class281.intStack[--class281.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3120) {
                   if(class281.intStack[--class281.intStackSize] == 1) {
-                     Client.playerNameMask |= 1;
+                     client.playerNameMask |= 1;
                   } else {
-                     Client.playerNameMask &= -2;
+                     client.playerNameMask &= -2;
                   }
 
                   return 1;
                } else if(var0 == 3121) {
                   if(class281.intStack[--class281.intStackSize] == 1) {
-                     Client.playerNameMask |= 2;
+                     client.playerNameMask |= 2;
                   } else {
-                     Client.playerNameMask &= -3;
+                     client.playerNameMask &= -3;
                   }
 
                   return 1;
                } else if(var0 == 3122) {
                   if(class281.intStack[--class281.intStackSize] == 1) {
-                     Client.playerNameMask |= 4;
+                     client.playerNameMask |= 4;
                   } else {
-                     Client.playerNameMask &= -5;
+                     client.playerNameMask &= -5;
                   }
 
                   return 1;
                } else if(var0 == 3123) {
                   if(class281.intStack[--class281.intStackSize] == 1) {
-                     Client.playerNameMask |= 8;
+                     client.playerNameMask |= 8;
                   } else {
-                     Client.playerNameMask &= -9;
+                     client.playerNameMask &= -9;
                   }
 
                   return 1;
                } else if(var0 == 3124) {
-                  Client.playerNameMask = 0;
+                  client.playerNameMask = 0;
                   return 1;
                } else if(var0 == 3125) {
-                  Client.field754 = class281.intStack[--class281.intStackSize] == 1;
+                  client.field754 = class281.intStack[--class281.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3126) {
-                  Client.field764 = class281.intStack[--class281.intStackSize] == 1;
+                  client.field764 = class281.intStack[--class281.intStackSize] == 1;
                   return 1;
                } else if(var0 == 3127) {
                   class205.method4005(class281.intStack[--class281.intStackSize] == 1);
@@ -300,8 +300,8 @@ public final class Item extends Entity implements RSItem {
                   return 1;
                } else if(var0 == 3129) {
                   class281.intStackSize -= 2;
-                  Client.field788 = class281.intStack[class281.intStackSize];
-                  Client.field730 = class281.intStack[class281.intStackSize + 1];
+                  client.field788 = class281.intStack[class281.intStackSize];
+                  client.field730 = class281.intStack[class281.intStackSize + 1];
                   return 1;
                } else if(var0 == 3130) {
                   class281.intStackSize -= 2;
@@ -322,22 +322,22 @@ public final class Item extends Entity implements RSItem {
                   class281.intStackSize -= 2;
                   return 1;
                } else if(var0 == 3136) {
-                  Client.field858 = 3;
-                  Client.field812 = class281.intStack[--class281.intStackSize];
+                  client.field858 = 3;
+                  client.field812 = class281.intStack[--class281.intStackSize];
                   return 1;
                } else if(var0 == 3137) {
-                  Client.field858 = 2;
-                  Client.field812 = class281.intStack[--class281.intStackSize];
+                  client.field858 = 2;
+                  client.field812 = class281.intStack[--class281.intStackSize];
                   return 1;
                } else if(var0 == 3138) {
-                  Client.field858 = 0;
+                  client.field858 = 0;
                   return 1;
                } else if(var0 == 3139) {
-                  Client.field858 = 1;
+                  client.field858 = 1;
                   return 1;
                } else if(var0 == 3140) {
-                  Client.field858 = 3;
-                  Client.field812 = var2?ClientOptions.field1035.id:class290.field1119.id;
+                  client.field858 = 3;
+                  client.field812 = var2?ClientOptions.field1035.id:class290.field1119.id;
                   return 1;
                } else {
                   boolean var8;
@@ -351,7 +351,7 @@ public final class Item extends Entity implements RSItem {
                      return 1;
                   } else if(var0 == 3143) {
                      var8 = class281.intStack[--class281.intStackSize] == 1;
-                     Client.Login_isUsernameRemembered = var8;
+                     client.Login_isUsernameRemembered = var8;
                      if(!var8) {
                         class312.options.rememberedUsername = "";
                         class72.method1041();
@@ -359,7 +359,7 @@ public final class Item extends Entity implements RSItem {
 
                      return 1;
                   } else if(var0 == 3144) {
-                     class281.intStack[++class281.intStackSize - 1] = Client.Login_isUsernameRemembered?1:0;
+                     class281.intStack[++class281.intStackSize - 1] = client.Login_isUsernameRemembered?1:0;
                      return 1;
                   } else if(var0 == 3145) {
                      return 1;
@@ -405,62 +405,62 @@ public final class Item extends Entity implements RSItem {
    static int method4635(int var0, class314 var1, boolean var2) {
       if(var0 == 6200) {
          class281.intStackSize -= 2;
-         Client.field899 = (short)class44.method671(class281.intStack[class281.intStackSize]);
-         if(Client.field899 <= 0) {
-            Client.field899 = 256;
+         client.field899 = (short)class44.method671(class281.intStack[class281.intStackSize]);
+         if(client.field899 <= 0) {
+            client.field899 = 256;
          }
 
-         Client.field900 = (short)class44.method671(class281.intStack[class281.intStackSize + 1]);
-         if(Client.field900 <= 0) {
-            Client.field900 = 256;
+         client.field900 = (short)class44.method671(class281.intStack[class281.intStackSize + 1]);
+         if(client.field900 <= 0) {
+            client.field900 = 256;
          }
 
          return 1;
       } else if(var0 == 6201) {
          class281.intStackSize -= 2;
-         Client.field901 = (short)class281.intStack[class281.intStackSize];
-         if(Client.field901 <= 0) {
-            Client.field901 = 256;
+         client.field901 = (short)class281.intStack[class281.intStackSize];
+         if(client.field901 <= 0) {
+            client.field901 = 256;
          }
 
-         Client.field902 = (short)class281.intStack[class281.intStackSize + 1];
-         if(Client.field902 <= 0) {
-            Client.field902 = 320;
+         client.field902 = (short)class281.intStack[class281.intStackSize + 1];
+         if(client.field902 <= 0) {
+            client.field902 = 320;
          }
 
          return 1;
       } else if(var0 == 6202) {
          class281.intStackSize -= 4;
-         Client.field903 = (short)class281.intStack[class281.intStackSize];
-         if(Client.field903 <= 0) {
-            Client.field903 = 1;
+         client.field903 = (short)class281.intStack[class281.intStackSize];
+         if(client.field903 <= 0) {
+            client.field903 = 1;
          }
 
-         Client.field872 = (short)class281.intStack[class281.intStackSize + 1];
-         if(Client.field872 <= 0) {
-            Client.field872 = 32767;
-         } else if(Client.field872 < Client.field903) {
-            Client.field872 = Client.field903;
+         client.field872 = (short)class281.intStack[class281.intStackSize + 1];
+         if(client.field872 <= 0) {
+            client.field872 = 32767;
+         } else if(client.field872 < client.field903) {
+            client.field872 = client.field903;
          }
 
-         Client.field905 = (short)class281.intStack[class281.intStackSize + 2];
-         if(Client.field905 <= 0) {
-            Client.field905 = 1;
+         client.field905 = (short)class281.intStack[class281.intStackSize + 2];
+         if(client.field905 <= 0) {
+            client.field905 = 1;
          }
 
-         Client.field906 = (short)class281.intStack[class281.intStackSize + 3];
-         if(Client.field906 <= 0) {
-            Client.field906 = 32767;
-         } else if(Client.field906 < Client.field905) {
-            Client.field906 = Client.field905;
+         client.field906 = (short)class281.intStack[class281.intStackSize + 3];
+         if(client.field906 <= 0) {
+            client.field906 = 32767;
+         } else if(client.field906 < client.field905) {
+            client.field906 = client.field905;
          }
 
          return 1;
       } else if(var0 == 6203) {
-         if(Client.field821 != null) {
-            class7.method111(0, 0, Client.field821.width, Client.field821.height, false);
-            class281.intStack[++class281.intStackSize - 1] = Client.viewportWidth;
-            class281.intStack[++class281.intStackSize - 1] = Client.viewportHeight;
+         if(client.field821 != null) {
+            class7.method111(0, 0, client.field821.width, client.field821.height, false);
+            class281.intStack[++class281.intStackSize - 1] = client.viewportWidth;
+            class281.intStack[++class281.intStackSize - 1] = client.viewportHeight;
          } else {
             class281.intStack[++class281.intStackSize - 1] = -1;
             class281.intStack[++class281.intStackSize - 1] = -1;
@@ -468,12 +468,12 @@ public final class Item extends Entity implements RSItem {
 
          return 1;
       } else if(var0 == 6204) {
-         class281.intStack[++class281.intStackSize - 1] = Client.field901;
-         class281.intStack[++class281.intStackSize - 1] = Client.field902;
+         class281.intStack[++class281.intStackSize - 1] = client.field901;
+         class281.intStack[++class281.intStackSize - 1] = client.field902;
          return 1;
       } else if(var0 == 6205) {
-         class281.intStack[++class281.intStackSize - 1] = class69.method977(Client.field899);
-         class281.intStack[++class281.intStackSize - 1] = class69.method977(Client.field900);
+         class281.intStack[++class281.intStackSize - 1] = class69.method977(client.field899);
+         class281.intStack[++class281.intStackSize - 1] = class69.method977(client.field900);
          return 1;
       } else {
          return 2;
@@ -486,7 +486,7 @@ public final class Item extends Entity implements RSItem {
       garbageValue = "-1308361213"
    )
    static final void method4637(PathingEntity var0) {
-      int var1 = var0.field985 - Client.gameCycle;
+      int var1 = var0.field985 - client.gameCycle;
       int var2 = var0.field981 * 128 + var0.size * 64;
       int var3 = var0.field983 * 128 + var0.size * 64;
       var0.x += (var2 - var0.x * -1234429701) / var1 * 451031603;

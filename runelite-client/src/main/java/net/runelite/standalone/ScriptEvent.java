@@ -154,10 +154,10 @@ public class ScriptEvent extends Node implements RSScriptEvent {
       garbageValue = "-189012971"
    )
    static void method1145() {
-      TcpConnectionMessage var0 = class232.method4535(ClientProt.field2313, Client.serverConnection.isaac);
+      TcpConnectionMessage var0 = class232.method4535(ClientProt.field2313, client.serverConnection.isaac);
       var0.packetBuffer.writeByte(class31.method520());
       var0.packetBuffer.writeShort(GrandExchangeOffer.canvasWidth);
       var0.packetBuffer.writeShort(class258.canvasHeight);
-      Client.serverConnection.method18(var0);
+      client.serverConnection.method18(var0);
    }
 }

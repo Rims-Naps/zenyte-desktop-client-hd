@@ -546,21 +546,21 @@ public class ServerProt {
       garbageValue = "-736957171"
    )
    static void method6321() {
-      if(Client.field845 && class71.localPlayer != null) {
+      if(client.field845 && class71.localPlayer != null) {
          int var0 = class71.localPlayer.pathX[0];
          int var1 = class71.localPlayer.pathY[0];
          if(var0 < 0 || var1 < 0 || var0 >= 104 || var1 >= 104) {
             return;
          }
 
-         Client.field725 = class71.localPlayer.x * -1234429701;
-         int var2 = TcpConnectionMessage.method5618(class71.localPlayer.x * -1234429701, class71.localPlayer.y, level) - Client.field724;
+         client.field725 = class71.localPlayer.x * -1234429701;
+         int var2 = TcpConnectionMessage.method5618(class71.localPlayer.x * -1234429701, class71.localPlayer.y, level) - client.field724;
          if(var2 < class252.field2538) {
             class252.field2538 = var2;
          }
 
          class69.field135 = class71.localPlayer.y;
-         Client.field845 = false;
+         client.field845 = false;
       }
 
    }

@@ -96,8 +96,8 @@ public class Size {
       int var7;
       int var8;
       int var9;
-      for(var7 = 0; var7 < Client.menuOptionCount; ++var7) {
-         var8 = (Client.menuOptionCount - 1 - var7) * 15 + var1 + 31;
+      for(var7 = 0; var7 < client.menuOptionCount; ++var7) {
+         var8 = (client.menuOptionCount - 1 - var7) * 15 + var1 + 31;
          var9 = 16777215;
          if(var5 > var0 && var5 < var0 + var2 && var6 > var8 - 13 && var6 < var8 + 3) {
             var9 = 16776960;
@@ -111,9 +111,9 @@ public class Size {
       var9 = class302.field3309;
       int var10 = class288.field1949;
 
-      for(int var11 = 0; var11 < Client.interfaceCount; ++var11) {
-         if(Client.widgetPositionX[var11] + Client.widgetBoundsWidth[var11] > var7 && Client.widgetPositionX[var11] < var9 + var7 && Client.widgetPositionY[var11] + Client.widgetBoundsHeight[var11] > var8 && Client.widgetPositionY[var11] < var8 + var10) {
-            Client.field923[var11] = true;
+      for(int var11 = 0; var11 < client.interfaceCount; ++var11) {
+         if(client.widgetPositionX[var11] + client.widgetBoundsWidth[var11] > var7 && client.widgetPositionX[var11] < var9 + var7 && client.widgetPositionY[var11] + client.widgetBoundsHeight[var11] > var8 && client.widgetPositionY[var11] < var8 + var10) {
+            client.field923[var11] = true;
          }
       }
 
@@ -125,11 +125,11 @@ public class Size {
       garbageValue = "124"
    )
    static class93 method4089(int var0, int var1) {
-      Client.field818.field2127 = var0;
-      Client.field818.field2126 = var1;
-      Client.field818.field2130 = 1;
-      Client.field818.field2129 = 1;
-      return Client.field818;
+      client.field818.field2127 = var0;
+      client.field818.field2126 = var1;
+      client.field818.field2130 = 1;
+      client.field818.field2129 = 1;
+      return client.field818;
    }
 
    @ObfuscatedName("a")

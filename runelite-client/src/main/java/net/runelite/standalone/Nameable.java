@@ -107,7 +107,7 @@ public class Nameable implements Comparable, RSNameable {
       if(var0 < 0) {
          return false;
       } else {
-         int var1 = Client.menuTypes[var0];
+         int var1 = client.menuTypes[var0];
          if(var1 >= 2000) {
             var1 -= 2000;
          }
@@ -145,83 +145,83 @@ public class Nameable implements Comparable, RSNameable {
             if(var7) {
                TcpConnectionMessage var10;
                if(var0 == 1) {
-                  var10 = class232.method4535(ClientProt.field2262, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2262, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
                if(var0 == 2) {
-                  var10 = class232.method4535(ClientProt.field2311, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2311, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
                if(var0 == 3) {
-                  var10 = class232.method4535(ClientProt.field2267, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2267, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
                if(var0 == 4) {
-                  var10 = class232.method4535(ClientProt.field2238, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2238, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
                if(var0 == 5) {
-                  var10 = class232.method4535(ClientProt.field2259, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2259, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
                if(var0 == 6) {
-                  var10 = class232.method4535(ClientProt.field2285, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2285, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
                if(var0 == 7) {
-                  var10 = class232.method4535(ClientProt.field2304, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2304, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
                if(var0 == 8) {
-                  var10 = class232.method4535(ClientProt.field2233, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2233, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
                if(var0 == 9) {
-                  var10 = class232.method4535(ClientProt.field2303, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2303, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
                if(var0 == 10) {
-                  var10 = class232.method4535(ClientProt.field2316, Client.serverConnection.isaac);
+                  var10 = class232.method4535(ClientProt.field2316, client.serverConnection.isaac);
                   var10.packetBuffer.writeInt(var1);
                   var10.packetBuffer.writeShort(var2);
                   var10.packetBuffer.writeShort(var3);
-                  Client.serverConnection.method18(var10);
+                  client.serverConnection.method18(var10);
                }
 
             }

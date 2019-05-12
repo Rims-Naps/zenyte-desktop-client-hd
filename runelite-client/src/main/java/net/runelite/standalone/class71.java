@@ -309,7 +309,7 @@ public abstract class class71 {
       garbageValue = "-1940446669"
    )
    static boolean method1032() {
-      return Client.field796;
+      return client.field796;
    }
 
    @ObfuscatedName("u")

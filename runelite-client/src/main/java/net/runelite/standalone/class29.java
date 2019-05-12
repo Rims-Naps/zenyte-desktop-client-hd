@@ -32,7 +32,7 @@ public class class29 extends class93 {
       garbageValue = "-39"
    )
    static final void method504() {
-      for(PendingSpawn var0 = (PendingSpawn)Client.pendingSpawns.method3930(); var0 != null; var0 = (PendingSpawn)Client.pendingSpawns.method3924()) {
+      for(PendingSpawn var0 = (PendingSpawn) client.pendingSpawns.method3930(); var0 != null; var0 = (PendingSpawn) client.pendingSpawns.method3924()) {
          if(var0.hitpoints == -1) {
             var0.delay = 0;
             FileRequest.method1171(var0);

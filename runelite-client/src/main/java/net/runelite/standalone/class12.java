@@ -11,7 +11,7 @@ public class class12 {
       garbageValue = "-1237176758"
    )
    static final void method179(ZoneProt var0) {
-      Bit var1 = Client.serverConnection.clientPacket;
+      Bit var1 = client.serverConnection.clientPacket;
       int var3;
       int var5;
       int var6;
@@ -27,7 +27,7 @@ public class class12 {
          var5 = var1.method5117();
          var6 = var5 >> 2;
          var7 = var5 & 3;
-         var8 = Client.field709[var6];
+         var8 = client.field709[var6];
          var9 = var1.method5125();
          if(var3 >= 0 && var38 >= 0 && var3 < 104 && var38 < 104) {
             WorldMapType1.method4931(ServerProt.level, var3, var38, var8, var9, var6, var7, 0, -1);
@@ -41,7 +41,7 @@ public class class12 {
          var6 = (var5 >> 4 & 7) + VarPlayerType.field3319;
          var7 = (var5 & 7) + class318.field115;
          if(var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
-            Deque var42 = Client.groundItemDeque[ServerProt.level][var6][var7];
+            Deque var42 = client.groundItemDeque[ServerProt.level][var6][var7];
             if(var42 != null) {
                for(Item var32 = (Item)var42.method3930(); var32 != null; var32 = (Item)var42.method3924()) {
                   if((var37 & 32767) == var32.id && var38 == var32.quantity) {
@@ -69,7 +69,7 @@ public class class12 {
             var7 = var1.method5115();
             var8 = var7 >> 2;
             var9 = var7 & 3;
-            var10 = Client.field709[var8];
+            var10 = client.field709[var8];
             byte var11 = var1.method5118();
             var12 = var1.method5309();
             var13 = var1.method5119();
@@ -77,10 +77,10 @@ public class class12 {
             int var15 = (var14 >> 4 & 7) + VarPlayerType.field3319;
             int var16 = (var14 & 7) + class318.field115;
             PlayerEntity var17;
-            if(var12 == Client.localPlayerIndex) {
+            if(var12 == client.localPlayerIndex) {
                var17 = class71.localPlayer;
             } else {
-               var17 = Client.players[var12];
+               var17 = client.players[var12];
             }
 
             if(var17 != null) {
@@ -106,8 +106,8 @@ public class class12 {
                Model var29 = var18.method388(var8, var9, var25, var27, var26, var28);
                if(var29 != null) {
                   WorldMapType1.method4931(ServerProt.level, var15, var16, var10, -1, 0, 0, var6 + 1, var3 + 1);
-                  var17.animationCycleStart = var6 + Client.gameCycle;
-                  var17.animationCycleEnd = var3 + Client.gameCycle;
+                  var17.animationCycleStart = var6 + client.gameCycle;
+                  var17.animationCycleEnd = var3 + client.gameCycle;
                   var17.model = var29;
                   var17.field637 = var15 * 128 + var19 * 64;
                   var17.field622 = var16 * 128 + var20 * 64;
@@ -137,7 +137,7 @@ public class class12 {
             var37 = var1.method5117();
             var3 = var37 >> 2;
             var38 = var37 & 3;
-            var5 = Client.field709[var3];
+            var5 = client.field709[var3];
             var6 = var1.method5117();
             var7 = (var6 >> 4 & 7) + VarPlayerType.field3319;
             var8 = (var6 & 7) + class318.field115;
@@ -151,7 +151,7 @@ public class class12 {
                var37 = var1.method5117();
                var3 = var37 >> 2;
                var38 = var37 & 3;
-               var5 = Client.field709[var3];
+               var5 = client.field709[var3];
                var6 = var1.method5244();
                var7 = (var6 >> 4 & 7) + VarPlayerType.field3319;
                var8 = (var6 & 7) + class318.field115;
@@ -218,8 +218,8 @@ public class class12 {
                if(var6 >= 0 && var7 >= 0 && var6 < 104 && var7 < 104) {
                   var6 = var6 * 128 + 64;
                   var7 = var7 * 128 + 64;
-                  SpotAnimation var31 = new SpotAnimation(var37, ServerProt.level, var6, var7, TcpConnectionMessage.method5618(var6, var7, ServerProt.level) - var3, var38, Client.gameCycle);
-                  Client.spotAnimationDeque.method3906(var31);
+                  SpotAnimation var31 = new SpotAnimation(var37, ServerProt.level, var6, var7, TcpConnectionMessage.method5618(var6, var7, ServerProt.level) - var3, var38, client.gameCycle);
+                  client.spotAnimationDeque.method3906(var31);
                }
 
             } else if(ZoneProt.field2337 == var0) {
@@ -243,9 +243,9 @@ public class class12 {
                   var12 = var12 * 128 + 64;
                   var14 = var14 * 128 + 64;
                   var41 = var41 * 128 + 64;
-                  ProjectileAnimation var34 = new ProjectileAnimation(var38, ServerProt.level, var39, var12, TcpConnectionMessage.method5618(var39, var12, ServerProt.level) - var5, var9 + Client.gameCycle, var3 + Client.gameCycle, var7, var8, var6, var37);
-                  var34.method4012(var14, var41, TcpConnectionMessage.method5618(var14, var41, ServerProt.level) - var37, var9 + Client.gameCycle);
-                  Client.projectiles.method3906(var34);
+                  ProjectileAnimation var34 = new ProjectileAnimation(var38, ServerProt.level, var39, var12, TcpConnectionMessage.method5618(var39, var12, ServerProt.level) - var5, var9 + client.gameCycle, var3 + client.gameCycle, var7, var8, var6, var37);
+                  var34.method4012(var14, var41, TcpConnectionMessage.method5618(var14, var41, ServerProt.level) - var37, var9 + client.gameCycle);
+                  client.projectiles.method3906(var34);
                }
 
             } else {
@@ -262,11 +262,11 @@ public class class12 {
                         var36.id = var3;
                         var36.quantityChanged(var37);
                         var36.quantity = var37;
-                        if(Client.groundItemDeque[ServerProt.level][var5][var6] == null) {
-                           Client.groundItemDeque[ServerProt.level][var5][var6] = new Deque();
+                        if(client.groundItemDeque[ServerProt.level][var5][var6] == null) {
+                           client.groundItemDeque[ServerProt.level][var5][var6] = new Deque();
                         }
 
-                        Client.groundItemDeque[ServerProt.level][var5][var6].method3906(var36);
+                        client.groundItemDeque[ServerProt.level][var5][var6].method3906(var36);
                         class232.method4511(var5, var6);
                      }
 
@@ -282,13 +282,13 @@ public class class12 {
                         var9 = var1.method5281();
                         if(var3 >= 0 && var38 >= 0 && var3 < 104 && var38 < 104) {
                            var10 = var7 + 1;
-                           if(class71.localPlayer.pathX[0] >= var3 - var10 && class71.localPlayer.pathX[0] <= var3 + var10 && class71.localPlayer.pathY[0] >= var38 - var10 && class71.localPlayer.pathY[0] <= var38 + var10 && Client.field886 != 0 && var8 > 0 && Client.queuedSoundEffectCount < 50) {
-                              Client.queuedSoundEffectIDs[Client.queuedSoundEffectCount] = var9;
-                              Client.unknownSoundValues1[Client.queuedSoundEffectCount] = var8;
-                              Client.unknownSoundValues2[Client.queuedSoundEffectCount] = var5;
-                              Client.audioEffects[Client.queuedSoundEffectCount] = null;
-                              Client.soundLocations[Client.queuedSoundEffectCount] = var7 + (var38 << 8) + (var3 << 16);
-                              ++Client.queuedSoundEffectCount;
+                           if(class71.localPlayer.pathX[0] >= var3 - var10 && class71.localPlayer.pathX[0] <= var3 + var10 && class71.localPlayer.pathY[0] >= var38 - var10 && class71.localPlayer.pathY[0] <= var38 + var10 && client.field886 != 0 && var8 > 0 && client.queuedSoundEffectCount < 50) {
+                              client.queuedSoundEffectIDs[client.queuedSoundEffectCount] = var9;
+                              client.unknownSoundValues1[client.queuedSoundEffectCount] = var8;
+                              client.unknownSoundValues2[client.queuedSoundEffectCount] = var5;
+                              client.audioEffects[client.queuedSoundEffectCount] = null;
+                              client.soundLocations[client.queuedSoundEffectCount] = var7 + (var38 << 8) + (var3 << 16);
+                              ++client.queuedSoundEffectCount;
                            }
                         }
                      }
@@ -300,7 +300,7 @@ public class class12 {
                   var38 = (var37 & 7) + class318.field115;
                   var5 = var1.method5281();
                   if(var3 >= 0 && var38 >= 0 && var3 < 104 && var38 < 104) {
-                     Deque var35 = Client.groundItemDeque[ServerProt.level][var3][var38];
+                     Deque var35 = client.groundItemDeque[ServerProt.level][var3][var38];
                      if(var35 != null) {
                         for(var36 = (Item)var35.method3930(); var36 != null; var36 = (Item)var35.method3924()) {
                            if((var5 & 32767) == var36.id) {
@@ -310,7 +310,7 @@ public class class12 {
                         }
 
                         if(var35.method3930() == null) {
-                           Client.groundItemDeque[ServerProt.level][var3][var38] = null;
+                           client.groundItemDeque[ServerProt.level][var3][var38] = null;
                         }
 
                         class232.method4511(var3, var38);
@@ -480,7 +480,7 @@ public class class12 {
 
                   for(var2 = 1; var2 < 2048; ++var2) {
                      PlayerList.skipHistory[var2] = (byte)(PlayerList.skipHistory[var2] >> 1);
-                     PlayerEntity var8 = Client.players[var2];
+                     PlayerEntity var8 = client.players[var2];
                      if(var8 != null) {
                         PlayerList.highResolutionPlayerIndexes[++PlayerList.highResolutionPlayerCount - 1] = var2;
                      } else {

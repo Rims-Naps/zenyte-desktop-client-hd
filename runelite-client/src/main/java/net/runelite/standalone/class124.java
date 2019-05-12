@@ -12,16 +12,16 @@ public class class124 {
       garbageValue = "-1893789506"
    )
    static void method1843(int var0) {
-      if(var0 != Client.gameState) {
-         if(Client.gameState == 0) {
+      if(var0 != client.gameState) {
+         if(client.gameState == 0) {
             ItemContainer.clientInstance.method4386();
          }
 
          if(var0 == 20 || var0 == 40 || var0 == 45) {
-            Client.loginState = 0;
-            Client.field843 = 0;
-            Client.field683 = 0;
-            Client.field773.method1589(var0);
+            client.loginState = 0;
+            client.field843 = 0;
+            client.field683 = 0;
+            client.field773.method1589(var0);
             if(var0 != 20) {
                AuthProt.method6377(false);
             }
@@ -32,17 +32,17 @@ public class class124 {
             class235.field2434 = null;
          }
 
-         if(Client.gameState == 25) {
-            Client.field705 = 0;
-            Client.field701 = 0;
-            Client.field702 = 1;
-            Client.field703 = 0;
-            Client.field800 = 1;
+         if(client.gameState == 25) {
+            client.field705 = 0;
+            client.field701 = 0;
+            client.field702 = 1;
+            client.field703 = 0;
+            client.field800 = 1;
          }
 
          if(var0 != 5 && var0 != 10) {
             if(var0 == 20) {
-               LoginProt.method3820(class44.binary, ModeGame.sprites, true, Client.gameState == 11?4:0);
+               LoginProt.method3820(class44.binary, ModeGame.sprites, true, client.gameState == 11?4:0);
             } else if(var0 == 11) {
                LoginProt.method3820(class44.binary, ModeGame.sprites, false, 4);
             } else if(class203.field1149) {
@@ -93,8 +93,8 @@ public class class124 {
             LoginProt.method3820(class44.binary, ModeGame.sprites, true, 0);
          }
 
-         Client.gameState = var0;
-         Client.gameStateChanged(-1);
+         client.gameState = var0;
+         client.gameStateChanged(-1);
       }
    }
 

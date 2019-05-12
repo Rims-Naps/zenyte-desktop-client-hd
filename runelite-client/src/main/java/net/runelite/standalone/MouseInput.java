@@ -343,7 +343,7 @@ public class MouseInput implements MouseListener, MouseMotionListener, FocusList
    static final void method1911(Bit var0) {
       for(int var1 = 0; var1 < PlayerList.extendedInfoPlayerCount; ++var1) {
          int var2 = PlayerList.extendedInfoPlayerIndexes[var1];
-         PlayerEntity var3 = Client.players[var2];
+         PlayerEntity var3 = client.players[var2];
          int var4 = var0.readUnsignedByte();
          if((var4 & 8) != 0) {
             var4 += var0.readUnsignedByte() << 8;
@@ -360,9 +360,9 @@ public class MouseInput implements MouseListener, MouseMotionListener, FocusList
       garbageValue = "-829996718"
    )
    static final void method1914(int var0, int var1, int var2, int var3) {
-      for(int var4 = 0; var4 < Client.interfaceCount; ++var4) {
-         if(Client.widgetBoundsWidth[var4] + Client.widgetPositionX[var4] > var0 && Client.widgetPositionX[var4] < var0 + var2 && Client.widgetBoundsHeight[var4] + Client.widgetPositionY[var4] > var1 && Client.widgetPositionY[var4] < var3 + var1) {
-            Client.field795[var4] = true;
+      for(int var4 = 0; var4 < client.interfaceCount; ++var4) {
+         if(client.widgetBoundsWidth[var4] + client.widgetPositionX[var4] > var0 && client.widgetPositionX[var4] < var0 + var2 && client.widgetBoundsHeight[var4] + client.widgetPositionY[var4] > var1 && client.widgetPositionY[var4] < var3 + var1) {
+            client.field795[var4] = true;
          }
       }
 
@@ -447,7 +447,7 @@ public class MouseInput implements MouseListener, MouseMotionListener, FocusList
                   return 1;
                } else if(var0 == 4107) {
                   class295.scriptStringStackSize -= 2;
-                  class281.intStack[++class281.intStackSize - 1] = WorldMapDataGroup.method960(class21.method380(class281.scriptStringStack[class295.scriptStringStackSize], class281.scriptStringStack[class295.scriptStringStackSize + 1], Client.languageId));
+                  class281.intStack[++class281.intStackSize - 1] = WorldMapDataGroup.method960(class21.method380(class281.scriptStringStack[class295.scriptStringStackSize], class281.scriptStringStack[class295.scriptStringStackSize + 1], client.languageId));
                   return 1;
                } else {
                   int var5;

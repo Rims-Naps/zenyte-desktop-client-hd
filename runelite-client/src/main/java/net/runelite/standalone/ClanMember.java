@@ -103,13 +103,13 @@ public class ClanMember extends ChatPlayer implements RSClanMember {
       garbageValue = "-1194096980"
    )
    static void method1637(int var0) {
-      Client.field700 = 0L;
+      client.field700 = 0L;
       if(var0 >= 2) {
-         Client.isResized = true;
-         Client.resizeChanged(-1);
+         client.isResized = true;
+         client.resizeChanged(-1);
       } else {
-         Client.isResized = false;
-         Client.resizeChanged(-1);
+         client.isResized = false;
+         client.resizeChanged(-1);
       }
 
       if(class31.method520() == 1) {
@@ -118,7 +118,7 @@ public class ClanMember extends ChatPlayer implements RSClanMember {
          ItemContainer.clientInstance.method4356(7680, 2160, 1895422007);
       }
 
-      if(Client.gameState >= 25) {
+      if(client.gameState >= 25) {
          ScriptEvent.method1145();
       }
 

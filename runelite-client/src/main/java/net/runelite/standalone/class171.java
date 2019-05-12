@@ -240,10 +240,10 @@ public class class171 implements Runnable {
       garbageValue = "34"
    )
    static void method2694(int var0, int var1) {
-      TcpConnectionMessage var2 = class232.method4535(ClientProt.field2257, Client.serverConnection.isaac);
+      TcpConnectionMessage var2 = class232.method4535(ClientProt.field2257, client.serverConnection.isaac);
       var2.packetBuffer.method5132(var0);
       var2.packetBuffer.method5122(var1);
-      Client.serverConnection.method18(var2);
+      client.serverConnection.method18(var2);
    }
 
    @ObfuscatedName("a")

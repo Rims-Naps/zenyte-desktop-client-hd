@@ -32,7 +32,7 @@ public class ScriptState {
          Frames.method6063(var1.children, var1.id, var3, var4, var2);
       }
 
-      SubInterface var5 = (SubInterface)Client.subInterfaces.method6335((long)var1.id);
+      SubInterface var5 = (SubInterface) client.subInterfaces.method6335((long)var1.id);
       if(var5 != null) {
          int var6 = var5.id;
          if(ChatLine.method5915(var6)) {

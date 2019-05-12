@@ -651,22 +651,22 @@ public class class258 {
    )
    static int method4860(int var0, class314 var1, boolean var2) {
       if(var0 == 5000) {
-         class281.intStack[++class281.intStackSize - 1] = Client.publicChatMode;
+         class281.intStack[++class281.intStackSize - 1] = client.publicChatMode;
          return 1;
       } else if(var0 == 5001) {
          class281.intStackSize -= 3;
-         Client.publicChatMode = class281.intStack[class281.intStackSize];
+         client.publicChatMode = class281.intStack[class281.intStackSize];
          class135.field106 = class142.method2033(class281.intStack[class281.intStackSize + 1]);
          if(class135.field106 == null) {
             class135.field106 = class16.field3812;
          }
 
-         Client.tradeMode = class281.intStack[class281.intStackSize + 2];
-         TcpConnectionMessage var18 = class232.method4535(ClientProt.field2234, Client.serverConnection.isaac);
-         var18.packetBuffer.writeByte(Client.publicChatMode);
+         client.tradeMode = class281.intStack[class281.intStackSize + 2];
+         TcpConnectionMessage var18 = class232.method4535(ClientProt.field2234, client.serverConnection.isaac);
+         var18.packetBuffer.writeByte(client.publicChatMode);
          var18.packetBuffer.writeByte(class135.field106.field3811);
-         var18.packetBuffer.writeByte(Client.tradeMode);
-         Client.serverConnection.method18(var18);
+         var18.packetBuffer.writeByte(client.tradeMode);
+         client.serverConnection.method18(var18);
          return 1;
       } else {
          String var3;
@@ -676,12 +676,12 @@ public class class258 {
             class281.intStackSize -= 2;
             var4 = class281.intStack[class281.intStackSize];
             int var5 = class281.intStack[class281.intStackSize + 1];
-            TcpConnectionMessage var6 = class232.method4535(ClientProt.field2246, Client.serverConnection.isaac);
+            TcpConnectionMessage var6 = class232.method4535(ClientProt.field2246, client.serverConnection.isaac);
             var6.packetBuffer.writeByte(OwnWorldComparator.method73(var3) + 2);
             var6.packetBuffer.method5077(var3);
             var6.packetBuffer.writeByte(var4 - 1);
             var6.packetBuffer.writeByte(var5);
-            Client.serverConnection.method18(var6);
+            client.serverConnection.method18(var6);
             return 1;
          } else {
             int var10;
@@ -776,7 +776,7 @@ public class class258 {
                } else if(var14.startsWith("glow3:")) {
                   var17 = 11;
                   var3 = var3.substring("glow3:".length());
-               } else if(Client.languageId != 0) {
+               } else if(client.languageId != 0) {
                   if(var14.startsWith("yellow:")) {
                      var17 = 0;
                      var3 = var3.substring("yellow:".length());
@@ -833,7 +833,7 @@ public class class258 {
                } else if(var14.startsWith("slide:")) {
                   var7 = 5;
                   var3 = var3.substring("slide:".length());
-               } else if(Client.languageId != 0) {
+               } else if(client.languageId != 0) {
                   if(var14.startsWith("wave:")) {
                      var7 = 1;
                      var3 = var3.substring("wave:".length());
@@ -852,7 +852,7 @@ public class class258 {
                   }
                }
 
-               TcpConnectionMessage var8 = class232.method4535(ClientProt.field2278, Client.serverConnection.isaac);
+               TcpConnectionMessage var8 = class232.method4535(ClientProt.field2278, client.serverConnection.isaac);
                var8.packetBuffer.writeByte(0);
                int var9 = var8.packetBuffer.offset;
                var8.packetBuffer.writeByte(var4);
@@ -860,23 +860,23 @@ public class class258 {
                var8.packetBuffer.writeByte(var7);
                InvType.method1565(var8.packetBuffer, var3);
                var8.packetBuffer.method5083(var8.packetBuffer.offset - var9);
-               Client.serverConnection.method18(var8);
+               client.serverConnection.method18(var8);
                return 1;
             } else if(var0 == 5009) {
                class295.scriptStringStackSize -= 2;
                var3 = class281.scriptStringStack[class295.scriptStringStackSize];
                String var12 = class281.scriptStringStack[class295.scriptStringStackSize + 1];
-               TcpConnectionMessage var11 = class232.method4535(ClientProt.field2244, Client.serverConnection.isaac);
+               TcpConnectionMessage var11 = class232.method4535(ClientProt.field2244, client.serverConnection.isaac);
                var11.packetBuffer.writeShort(0);
                int var13 = var11.packetBuffer.offset;
                var11.packetBuffer.method5077(var3);
                InvType.method1565(var11.packetBuffer, var12);
                var11.packetBuffer.method5082(var11.packetBuffer.offset - var13);
-               Client.serverConnection.method18(var11);
+               client.serverConnection.method18(var11);
                return 1;
             } else if(var0 != 5015) {
                if(var0 == 5016) {
-                  class281.intStack[++class281.intStackSize - 1] = Client.tradeMode;
+                  class281.intStack[++class281.intStackSize - 1] = client.tradeMode;
                   return 1;
                } else if(var0 == 5017) {
                   var10 = class281.intStack[--class281.intStackSize];
@@ -895,10 +895,10 @@ public class class258 {
                   WorldMapType3.method577(var3);
                   return 1;
                } else if(var0 == 5021) {
-                  Client.field789 = class281.scriptStringStack[--class295.scriptStringStackSize].toLowerCase().trim();
+                  client.field789 = class281.scriptStringStack[--class295.scriptStringStackSize].toLowerCase().trim();
                   return 1;
                } else if(var0 == 5022) {
-                  class281.scriptStringStack[++class295.scriptStringStackSize - 1] = Client.field789;
+                  class281.scriptStringStack[++class295.scriptStringStackSize - 1] = client.field789;
                   return 1;
                } else if(var0 == 5023) {
                   var3 = class281.scriptStringStack[--class295.scriptStringStackSize];
@@ -936,9 +936,9 @@ public class class258 {
 
       } else {
          try {
-            Client.copy$runScript(var0, var1, var2);
+            client.copy$runScript(var0, var1, var2);
          } finally {
-            Client.currentScript = null;
+            client.currentScript = null;
          }
 
       }

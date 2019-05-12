@@ -96,9 +96,9 @@ public abstract class BufferProvider implements RSBufferProvider {
                int var14 = var10 + var2;
                if(var13 > 0 && var14 > 0 && var13 < 103 && var14 < 103) {
                   LocType var15 = GrandExchangeOffer.method1736(var5);
-                  if(var12 != 22 || !Client.lowMemory || var15.field3471 != 0 || var15.clipType == 1 || var15.obstructsGround) {
+                  if(var12 != 22 || !client.lowMemory || var15.field3471 != 0 || var15.clipType == 1 || var15.obstructsGround) {
                      if(!var15.method386()) {
-                        ++Client.field703;
+                        ++client.field703;
                         var3 = false;
                      }
 

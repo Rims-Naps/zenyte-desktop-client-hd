@@ -1076,8 +1076,8 @@ public class class15 extends TaskDataNode {
       garbageValue = "19907189"
    )
    static void method311(Packet var0) {
-      if(Client.field688 != null) {
-         var0.method5080(Client.field688, 0, Client.field688.length);
+      if(client.field688 != null) {
+         var0.method5080(client.field688, 0, client.field688.length);
       } else {
          byte[] var2 = new byte[24];
 

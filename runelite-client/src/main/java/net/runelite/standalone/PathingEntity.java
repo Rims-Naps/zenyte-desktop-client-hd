@@ -1031,7 +1031,7 @@ public abstract class PathingEntity extends Entity implements RSActor {
             return 1;
          } else if(var0 == 1121) {
             class171.method2694(var3.id, var3.index);
-            Client.field793 = var3;
+            client.field793 = var3;
             WorldMapRegion.method5554(var3);
             return 1;
          } else if(var0 == 1122) {

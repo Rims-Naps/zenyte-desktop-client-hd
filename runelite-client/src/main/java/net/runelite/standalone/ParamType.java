@@ -109,13 +109,13 @@ public class ParamType extends CacheableNode {
       garbageValue = "-171465302"
    )
    static void method609(int var0, int var1, int var2) {
-      if(Client.field885 != 0 && var1 != 0 && Client.queuedSoundEffectCount < 50) {
-         Client.queuedSoundEffectIDs[Client.queuedSoundEffectCount] = var0;
-         Client.unknownSoundValues1[Client.queuedSoundEffectCount] = var1;
-         Client.unknownSoundValues2[Client.queuedSoundEffectCount] = var2;
-         Client.audioEffects[Client.queuedSoundEffectCount] = null;
-         Client.soundLocations[Client.queuedSoundEffectCount] = 0;
-         ++Client.queuedSoundEffectCount;
+      if(client.field885 != 0 && var1 != 0 && client.queuedSoundEffectCount < 50) {
+         client.queuedSoundEffectIDs[client.queuedSoundEffectCount] = var0;
+         client.unknownSoundValues1[client.queuedSoundEffectCount] = var1;
+         client.unknownSoundValues2[client.queuedSoundEffectCount] = var2;
+         client.audioEffects[client.queuedSoundEffectCount] = null;
+         client.soundLocations[client.queuedSoundEffectCount] = 0;
+         ++client.queuedSoundEffectCount;
       }
 
    }

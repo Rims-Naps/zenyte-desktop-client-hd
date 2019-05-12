@@ -480,7 +480,7 @@ public class CollisionData implements RSCollisionData {
       garbageValue = "-1208395324"
    )
    static final void method3613() {
-      Client.field898 = Client.cycleCntr;
+      client.field898 = client.cycleCntr;
       WorldMapDecoration.field225 = true;
    }
 }

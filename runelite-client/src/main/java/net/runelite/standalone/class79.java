@@ -77,7 +77,7 @@ public class class79 {
       garbageValue = "1832000360"
    )
    static void method1075() {
-      Client.serverConnection.method18(class232.method4535(ClientProt.field2256, Client.serverConnection.isaac));
-      Client.camModeType = 0;
+      client.serverConnection.method18(class232.method4535(ClientProt.field2256, client.serverConnection.isaac));
+      client.camModeType = 0;
    }
 }

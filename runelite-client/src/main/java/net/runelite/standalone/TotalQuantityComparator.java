@@ -61,9 +61,9 @@ final class TotalQuantityComparator implements Comparator {
       garbageValue = "698596186"
    )
    static void method1112() {
-      Client.menuOptionCount = 0;
-      Client.onMenuOptionsChanged(-1);
-      Client.isMenuOpen = false;
+      client.menuOptionCount = 0;
+      client.onMenuOptionsChanged(-1);
+      client.isMenuOpen = false;
    }
 
    @ObfuscatedName("g")

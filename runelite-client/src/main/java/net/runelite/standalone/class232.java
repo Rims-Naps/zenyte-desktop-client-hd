@@ -150,7 +150,7 @@ public class class232 extends class71 {
       garbageValue = "384190356"
    )
    static final void method4511(int var0, int var1) {
-      Deque var2 = Client.groundItemDeque[ServerProt.level][var0][var1];
+      Deque var2 = client.groundItemDeque[ServerProt.level][var0][var1];
       if(var2 == null) {
          class312.sceneManager.method3642(ServerProt.level, var0, var1);
       } else {

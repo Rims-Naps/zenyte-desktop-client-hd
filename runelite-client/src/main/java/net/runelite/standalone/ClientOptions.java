@@ -172,7 +172,7 @@ public class ClientOptions implements RSPreferences {
          return 1;
       } else if(var0 == 2702) {
          int var5 = class281.intStack[--class281.intStackSize];
-         SubInterface var4 = (SubInterface)Client.subInterfaces.method6335((long)var5);
+         SubInterface var4 = (SubInterface) client.subInterfaces.method6335((long)var5);
          if(var4 != null) {
             class281.intStack[++class281.intStackSize - 1] = 1;
          } else {
@@ -181,7 +181,7 @@ public class ClientOptions implements RSPreferences {
 
          return 1;
       } else if(var0 == 2706) {
-         class281.intStack[++class281.intStackSize - 1] = Client.toplevel;
+         class281.intStack[++class281.intStackSize - 1] = client.toplevel;
          return 1;
       } else {
          return 2;
@@ -212,10 +212,10 @@ public class ClientOptions implements RSPreferences {
       garbageValue = "2111120092"
    )
    static final void method1090(String var0) {
-      TcpConnectionMessage var1 = class232.method4535(ClientProt.field2228, Client.serverConnection.isaac);
+      TcpConnectionMessage var1 = class232.method4535(ClientProt.field2228, client.serverConnection.isaac);
       var1.packetBuffer.writeByte(OwnWorldComparator.method73(var0));
       var1.packetBuffer.method5077(var0);
-      Client.serverConnection.method18(var1);
+      client.serverConnection.method18(var1);
    }
 
    @ObfuscatedName("at")
@@ -246,9 +246,9 @@ public class ClientOptions implements RSPreferences {
    static final void method1095(PathingEntity var0, int var1) {
       Sequence var2;
       int var11;
-      if(var0.field985 > Client.gameCycle) {
+      if(var0.field985 > client.gameCycle) {
          Item.method4637(var0);
-      } else if(var0.field986 >= Client.gameCycle) {
+      } else if(var0.field986 >= client.gameCycle) {
          class331.method6415(var0);
       } else {
          var0.poseAnimation = var0.idlePoseAnimation;
@@ -452,7 +452,7 @@ public class ClientOptions implements RSPreferences {
          }
       }
 
-      if(var0.graphic != -1 && Client.gameCycle >= var0.graphicsDelay) {
+      if(var0.graphic != -1 && client.gameCycle >= var0.graphicsDelay) {
          if(var0.spotAnimFrame < 0) {
             var0.spotAnimFrame = 0;
          }
@@ -484,7 +484,7 @@ public class ClientOptions implements RSPreferences {
 
       if(var0.animation != -1 && var0.actionAnimationDisable <= 1) {
          var2 = AuthProt.method6374(var0.animation);
-         if(var2.precedenceAnimating == 1 && var0.field950 > 0 && var0.field985 <= Client.gameCycle && var0.field986 < Client.gameCycle) {
+         if(var2.precedenceAnimating == 1 && var0.field950 > 0 && var0.field985 <= client.gameCycle && var0.field986 < client.gameCycle) {
             var0.actionAnimationDisable = 1;
             return;
          }

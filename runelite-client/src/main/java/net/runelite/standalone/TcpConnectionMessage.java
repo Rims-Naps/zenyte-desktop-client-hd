@@ -103,8 +103,8 @@ public class TcpConnectionMessage extends Node {
             FaceNormal.field1878 = WorldMapRegion.method5496(ModeGame.sprites, "leftarrow", "");
          }
 
-         if(Client.field925 == null) {
-            Client.field925 = WorldMapRegion.method5496(ModeGame.sprites, "rightarrow", "");
+         if(client.field925 == null) {
+            client.field925 = WorldMapRegion.method5496(ModeGame.sprites, "rightarrow", "");
          }
 
          Rasterizer2D.method692(class203.field1168, 23, 765, 480, 0);
@@ -220,8 +220,8 @@ public class TcpConnectionMessage extends Node {
                FaceNormal.field1878.method4282(8, class258.canvasHeight / 2 - FaceNormal.field1878.height / 2);
             }
 
-            if(Client.field925 != null && class203.field1152 < class203.field1153) {
-               Client.field925.method4282(GrandExchangeOffer.canvasWidth - Client.field925.width - 8, class258.canvasHeight / 2 - Client.field925.height / 2);
+            if(client.field925 != null && class203.field1152 < class203.field1153) {
+               client.field925.method4282(GrandExchangeOffer.canvasWidth - client.field925.width - 8, class258.canvasHeight / 2 - client.field925.height / 2);
             }
 
             var13 = var35 + 23;
@@ -316,7 +316,7 @@ public class TcpConnectionMessage extends Node {
             //class203.logoSprite.method4282(class203.field1168 + 382 - class203.logoSprite.width / 2, 18);
          }
 
-         if(Client.gameState == 0 || Client.gameState == 5) {
+         if(client.gameState == 0 || client.gameState == 5) {
             var4 = 20;
             var0.method6222("Zenyte is loading - please wait...", class203.loginWindowX + 180, 245 - var4, 16777215, -1);
             var5 = 253 - var4;
@@ -331,7 +331,7 @@ public class TcpConnectionMessage extends Node {
          String var25;
          short var29;
          short var31;
-         if(Client.gameState == 20) {
+         if(client.gameState == 20) {
             class27.field1974.method4282(class203.loginWindowX + 180 - class27.field1974.width / 2, 271 - class27.field1974.height / 2);
             var29 = 201;
             var0.method6222(class203.loginMessage1, class203.loginWindowX + 180, var29, 16776960, 0);
@@ -357,7 +357,7 @@ public class TcpConnectionMessage extends Node {
             }
          }
 
-         if(Client.gameState == 10 || Client.gameState == 11) {
+         if(client.gameState == 10 || client.gameState == 11) {
             class27.field1974.method4282(class203.loginWindowX, 171);
             short var6;
             if(class203.loginIndex == 0) {
@@ -404,13 +404,13 @@ public class TcpConnectionMessage extends Node {
                   ;
                }
 
-               var0.method6165(FontTypeFace.method6234(var25) + (class203.currentLoginField == 0 & Client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.field1176 - 70, var30, 16777215, 0);
+               var0.method6165(FontTypeFace.method6234(var25) + (class203.currentLoginField == 0 & client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.field1176 - 70, var30, 16777215, 0);
                var30 += 15;
-               var0.method6165("Password: " + NPCType.method4812(class203.password) + (class203.currentLoginField == 1 & Client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.field1176 - 108, var30, 16777215, 0);
+               var0.method6165("Password: " + NPCType.method4812(class203.password) + (class203.currentLoginField == 1 & client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.field1176 - 108, var30, 16777215, 0);
                var30 += 15;
                var29 = 277;
                var8 = class203.field1176 + -117;
-               IndexedSprite var28 = MouseRecorder.method125(Client.Login_isUsernameRemembered, class203.field1180);
+               IndexedSprite var28 = MouseRecorder.method125(client.Login_isUsernameRemembered, class203.field1180);
                var28.method4282(var8, var29);
                var8 = var8 + var28.width + 5;
                var1.method6165("Remember username", var8, var29 + 13, 16776960, 0);
@@ -465,7 +465,7 @@ public class TcpConnectionMessage extends Node {
                   var30 += 15;
                   var0.method6222(class203.loginMessage3, class203.loginWindowX + 180, var30, 16777215, 0);
                   var30 += 15;
-                  var0.method6165("PIN: " + NPCType.method4812(ClientOptions.field1037) + (Client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.loginWindowX + 180 - 108, var30, 16777215, 0);
+                  var0.method6165("PIN: " + NPCType.method4812(ClientOptions.field1037) + (client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.loginWindowX + 180 - 108, var30, 16777215, 0);
                   var30 -= 8;
                   var0.method6165("Trust this computer", class203.loginWindowX + 180 - 9, var30, 16776960, 0);
                   var30 += 15;
@@ -507,7 +507,7 @@ public class TcpConnectionMessage extends Node {
                      ;
                   }
 
-                  var0.method6165(FontTypeFace.method6234(var25) + (Client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.loginWindowX + 180 - 34, var30, 16777215, 0);
+                  var0.method6165(FontTypeFace.method6234(var25) + (client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.loginWindowX + 180 - 34, var30, 16777215, 0);
                   var30 += 15;
                   var8 = class203.loginWindowX + 180 - 80;
                   var9 = 321;
@@ -661,7 +661,7 @@ public class TcpConnectionMessage extends Node {
             }
 
             class203.field1183 += var30;
-            var34 = (var30 + (Client.gameCycle & 1)) / 2;
+            var34 = (var30 + (client.gameCycle & 1)) / 2;
             if(var34 > 0) {
                for(var10 = 0; var10 < class203.field1183 * 100; ++var10) {
                   var35 = (int)(Math.random() * 124.0D) + 2;
@@ -814,14 +814,14 @@ public class TcpConnectionMessage extends Node {
          }
 
          class203.titlemuteSprite[class312.options.muted?1:0].method4282(class203.field1168 + 765 - 40, 463);
-         if(Client.gameState > 5 && Client.languageId == 0) {
+         if(client.gameState > 5 && client.languageId == 0) {
             if(WorldMapDataGroup.field308 != null) {
                var30 = class203.field1168 + 5;
                var31 = 463;
                byte var36 = 100;
                byte var33 = 35;
                WorldMapDataGroup.field308.method4282(var30, var31);
-               var0.method6222("World" + " " + Client.world, var36 / 2 + var30, var33 / 2 + var31 - 2, 16777215, 0);
+               var0.method6222("World" + " " + client.world, var36 / 2 + var30, var33 / 2 + var31 - 2, 16777215, 0);
                if(World.listFetcher != null) {
                   var1.method6222("Loading...", var36 / 2 + var30, var33 / 2 + var31 + 12, 16777215, 0);
                } else {

@@ -31,7 +31,7 @@ public class class95 {
    )
    static final void method1263(PlayerEntity var0, int var1, int var2, int var3) {
       if(class71.localPlayer != var0) {
-         if(Client.menuOptionCount < 400) {
+         if(client.menuOptionCount < 400) {
             String var4;
             int var7;
             if(var0.totalLevel == 0) {
@@ -66,22 +66,22 @@ public class class95 {
             }
 
             int var10;
-            if(Client.itemSelectionState == 1) {
-               class290.method5964("Use", Client.lastSelectedItemName + " " + "->" + " " + class308.method6152(16777215) + var4, 14, var1, var2, var3);
-            } else if(Client.spellSelected) {
+            if(client.itemSelectionState == 1) {
+               class290.method5964("Use", client.lastSelectedItemName + " " + "->" + " " + class308.method6152(16777215) + var4, 14, var1, var2, var3);
+            } else if(client.spellSelected) {
                if((class240.ifTargetMask & 8) == 8) {
-                  class290.method5964(Client.targetVerb, Client.opBase + " " + "->" + " " + class308.method6152(16777215) + var4, 15, var1, var2, var3);
+                  class290.method5964(client.targetVerb, client.opBase + " " + "->" + " " + class308.method6152(16777215) + var4, 15, var1, var2, var3);
                }
             } else {
                for(var10 = 7; var10 >= 0; --var10) {
-                  if(Client.playerOptions[var10] != null) {
+                  if(client.playerOptions[var10] != null) {
                      short var11 = 0;
-                     if(Client.playerOptions[var10].equalsIgnoreCase("Attack")) {
-                        if(AttackOpPriority.HIDDEN == Client.playerAttackOpPriority) {
+                     if(client.playerOptions[var10].equalsIgnoreCase("Attack")) {
+                        if(AttackOpPriority.HIDDEN == client.playerAttackOpPriority) {
                            continue;
                         }
 
-                        if(Client.playerAttackOpPriority == AttackOpPriority.UNPRIORITISED || Client.playerAttackOpPriority == AttackOpPriority.COMBAT_LEVEL_BASED && var0.combatLevel > class71.localPlayer.combatLevel) {
+                        if(client.playerAttackOpPriority == AttackOpPriority.UNPRIORITISED || client.playerAttackOpPriority == AttackOpPriority.COMBAT_LEVEL_BASED && var0.combatLevel > class71.localPlayer.combatLevel) {
                            var11 = 2000;
                         }
 
@@ -92,20 +92,20 @@ public class class95 {
                               var11 = 0;
                            }
                         }
-                     } else if(Client.playerOptionsPriorities[var10]) {
+                     } else if(client.playerOptionsPriorities[var10]) {
                         var11 = 2000;
                      }
 
                      boolean var12 = false;
-                     var7 = Client.playerMenuTypes[var10] + var11;
-                     class290.method5964(Client.playerOptions[var10], class308.method6152(16777215) + var4, var7, var1, var2, var3);
+                     var7 = client.playerMenuTypes[var10] + var11;
+                     class290.method5964(client.playerOptions[var10], class308.method6152(16777215) + var4, var7, var1, var2, var3);
                   }
                }
             }
 
-            for(var10 = 0; var10 < Client.menuOptionCount; ++var10) {
-               if(Client.menuTypes[var10] == 23) {
-                  Client.menuTargets[var10] = class308.method6152(16777215) + var4;
+            for(var10 = 0; var10 < client.menuOptionCount; ++var10) {
+               if(client.menuTypes[var10] == 23) {
+                  client.menuTargets[var10] = class308.method6152(16777215) + var4;
                   break;
                }
             }
@@ -122,7 +122,7 @@ public class class95 {
    static final void method1264(int var0, int var1, int var2, int var3, SpritePixels var4, class186 var5) {
       int var6 = var3 * var3 + var2 * var2;
       if(var6 > 4225 && var6 < 90000) {
-         int var7 = Client.mapAngle & 2047;
+         int var7 = client.mapAngle & 2047;
          int var8 = Graphics3D.SINE[var7];
          int var9 = Graphics3D.COSINE[var7];
          int var10 = var9 * var2 + var3 * var8 >> 16;
@@ -145,6 +145,6 @@ public class class95 {
       garbageValue = "-631018208"
    )
    static void method1262(int var0) {
-      Client.camModeType = var0;
+      client.camModeType = var0;
    }
 }

@@ -79,15 +79,15 @@ public class class47 {
                }
 
                if(var6 == 1) {
-                  var7 = Client.skillLevels[var2[var4++]];
+                  var7 = client.skillLevels[var2[var4++]];
                }
 
                if(var6 == 2) {
-                  var7 = Client.skillBaseLevels[var2[var4++]];
+                  var7 = client.skillBaseLevels[var2[var4++]];
                }
 
                if(var6 == 3) {
-                  var7 = Client.skillExperiences[var2[var4++]];
+                  var7 = client.skillExperiences[var2[var4++]];
                }
 
                int var9;
@@ -99,7 +99,7 @@ public class class47 {
                   var9 += var2[var4++];
                   var10 = ChatHistory.method6246(var9);
                   var11 = var2[var4++];
-                  if(var11 != -1 && (!class79.method1074(var11).members || Client.isMembers)) {
+                  if(var11 != -1 && (!class79.method1074(var11).members || client.isMembers)) {
                      for(var12 = 0; var12 < var10.objIds.length; ++var12) {
                         if(var11 + 1 == var10.objIds[var12]) {
                            var7 += var10.objCounts[var12];
@@ -113,7 +113,7 @@ public class class47 {
                }
 
                if(var6 == 6) {
-                  var7 = class95.field2864[Client.skillBaseLevels[var2[var4++]] - 1];
+                  var7 = class95.field2864[client.skillBaseLevels[var2[var4++]] - 1];
                }
 
                if(var6 == 7) {
@@ -127,7 +127,7 @@ public class class47 {
                if(var6 == 9) {
                   for(var9 = 0; var9 < 25; ++var9) {
                      if(class95.field2865[var9]) {
-                        var7 += Client.skillBaseLevels[var9];
+                        var7 += client.skillBaseLevels[var9];
                      }
                   }
                }
@@ -137,7 +137,7 @@ public class class47 {
                   var9 += var2[var4++];
                   var10 = ChatHistory.method6246(var9);
                   var11 = var2[var4++];
-                  if(var11 != -1 && (!class79.method1074(var11).members || Client.isMembers)) {
+                  if(var11 != -1 && (!class79.method1074(var11).members || client.isMembers)) {
                      for(var12 = 0; var12 < var10.objIds.length; ++var12) {
                         if(var11 + 1 == var10.objIds[var12]) {
                            var7 = 999999999;
@@ -148,11 +148,11 @@ public class class47 {
                }
 
                if(var6 == 11) {
-                  var7 = Client.energy;
+                  var7 = client.energy;
                }
 
                if(var6 == 12) {
-                  var7 = Client.weight;
+                  var7 = client.weight;
                }
 
                if(var6 == 13) {
@@ -297,8 +297,8 @@ public class class47 {
    static final void method774(ComponentType var0, int var1, int var2, int var3) {
       class186 var4 = var0.method5675(false);
       if(var4 != null) {
-         if(Client.minimapRenderType < 3) {
-            class232.compass.method1384(var1, var2, var4.field2641, var4.field2640, 25, 25, Client.mapAngle, 256, var4.field2643, var4.field2642);
+         if(client.minimapRenderType < 3) {
+            class232.compass.method1384(var1, var2, var4.field2641, var4.field2640, 25, 25, client.mapAngle, 256, var4.field2643, var4.field2642);
          } else {
             Rasterizer2D.method704(var1, var2, 0, var4.field2643, var4.field2642);
          }

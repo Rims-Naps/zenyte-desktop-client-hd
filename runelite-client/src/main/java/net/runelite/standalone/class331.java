@@ -16,9 +16,9 @@ public class class331 {
       garbageValue = "1042070324"
    )
    static final void method6415(PathingEntity var0) {
-      if(var0.field986 == Client.gameCycle || var0.animation == -1 || var0.actionAnimationDisable != 0 || var0.actionFrameCycle + 1 > AuthProt.method6374(var0.animation).frameLengths[var0.actionFrame]) {
+      if(var0.field986 == client.gameCycle || var0.animation == -1 || var0.actionAnimationDisable != 0 || var0.actionFrameCycle + 1 > AuthProt.method6374(var0.animation).frameLengths[var0.actionFrame]) {
          int var1 = var0.field986 - var0.field985;
-         int var2 = Client.gameCycle - var0.field985;
+         int var2 = client.gameCycle - var0.field985;
          int var3 = var0.field981 * 128 + var0.size * 64;
          int var4 = var0.field983 * 128 + var0.size * 64;
          int var5 = var0.field943 * 128 + var0.size * 64;

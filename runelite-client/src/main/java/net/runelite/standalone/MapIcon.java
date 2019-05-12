@@ -157,7 +157,7 @@ public abstract class MapIcon {
          var2 = 100;
       }
 
-      int var3 = (Client.field902 - Client.field901) * var2 / 100 + Client.field901;
+      int var3 = (client.field902 - client.field901) * var2 / 100 + client.field901;
       return var0 * var3 / 256;
    }
 

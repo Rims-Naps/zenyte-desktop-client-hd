@@ -53,10 +53,10 @@ public class class3 {
       garbageValue = "31725"
    )
    static final void method53(String var0, int var1) {
-      TcpConnectionMessage var2 = class232.method4535(ClientProt.field2296, Client.serverConnection.isaac);
+      TcpConnectionMessage var2 = class232.method4535(ClientProt.field2296, client.serverConnection.isaac);
       var2.packetBuffer.writeByte(OwnWorldComparator.method73(var0) + 1);
       var2.packetBuffer.method5077(var0);
       var2.packetBuffer.writeByte(var1);
-      Client.serverConnection.method18(var2);
+      client.serverConnection.method18(var2);
    }
 }

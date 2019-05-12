@@ -207,59 +207,59 @@ public class class44 extends TaskDataNode {
       garbageValue = "-50"
    )
    static final void method672() {
-      Bit var0 = Client.serverConnection.clientPacket;
+      Bit var0 = client.serverConnection.clientPacket;
       var0.method2663();
       int var1 = var0.method2652(8);
       int var2;
-      if(var1 < Client.highResolutionNpcCount) {
-         for(var2 = var1; var2 < Client.highResolutionNpcCount; ++var2) {
-            Client.npcIndexesToRemove[++Client.npcsToRemoveCount - 1] = Client.highResolutionNpcIndexes[var2];
+      if(var1 < client.highResolutionNpcCount) {
+         for(var2 = var1; var2 < client.highResolutionNpcCount; ++var2) {
+            client.npcIndexesToRemove[++client.npcsToRemoveCount - 1] = client.highResolutionNpcIndexes[var2];
          }
       }
 
-      if(var1 > Client.highResolutionNpcCount) {
+      if(var1 > client.highResolutionNpcCount) {
          throw new RuntimeException("");
       } else {
-         Client.highResolutionNpcCount = 0;
+         client.highResolutionNpcCount = 0;
 
          for(var2 = 0; var2 < var1; ++var2) {
-            int var3 = Client.highResolutionNpcIndexes[var2];
-            NPCEntity var4 = Client.npcs[var3];
+            int var3 = client.highResolutionNpcIndexes[var2];
+            NPCEntity var4 = client.npcs[var3];
             int var5 = var0.method2652(1);
             if(var5 == 0) {
-               Client.highResolutionNpcIndexes[++Client.highResolutionNpcCount - 1] = var3;
-               var4.lastUpdatedAt = Client.gameCycle;
+               client.highResolutionNpcIndexes[++client.highResolutionNpcCount - 1] = var3;
+               var4.lastUpdatedAt = client.gameCycle;
             } else {
                int var6 = var0.method2652(2);
                if(var6 == 0) {
-                  Client.highResolutionNpcIndexes[++Client.highResolutionNpcCount - 1] = var3;
-                  var4.lastUpdatedAt = Client.gameCycle;
-                  Client.extendedInfoNpcIndexes[++Client.extendedInfoNpcCount - 1] = var3;
+                  client.highResolutionNpcIndexes[++client.highResolutionNpcCount - 1] = var3;
+                  var4.lastUpdatedAt = client.gameCycle;
+                  client.extendedInfoNpcIndexes[++client.extendedInfoNpcCount - 1] = var3;
                } else {
                   int var7;
                   int var8;
                   if(var6 == 1) {
-                     Client.highResolutionNpcIndexes[++Client.highResolutionNpcCount - 1] = var3;
-                     var4.lastUpdatedAt = Client.gameCycle;
+                     client.highResolutionNpcIndexes[++client.highResolutionNpcCount - 1] = var3;
+                     var4.lastUpdatedAt = client.gameCycle;
                      var7 = var0.method2652(3);
                      var4.method1821(var7, (byte)1);
                      var8 = var0.method2652(1);
                      if(var8 == 1) {
-                        Client.extendedInfoNpcIndexes[++Client.extendedInfoNpcCount - 1] = var3;
+                        client.extendedInfoNpcIndexes[++client.extendedInfoNpcCount - 1] = var3;
                      }
                   } else if(var6 == 2) {
-                     Client.highResolutionNpcIndexes[++Client.highResolutionNpcCount - 1] = var3;
-                     var4.lastUpdatedAt = Client.gameCycle;
+                     client.highResolutionNpcIndexes[++client.highResolutionNpcCount - 1] = var3;
+                     var4.lastUpdatedAt = client.gameCycle;
                      var7 = var0.method2652(3);
                      var4.method1821(var7, (byte)2);
                      var8 = var0.method2652(3);
                      var4.method1821(var8, (byte)2);
                      int var9 = var0.method2652(1);
                      if(var9 == 1) {
-                        Client.extendedInfoNpcIndexes[++Client.extendedInfoNpcCount - 1] = var3;
+                        client.extendedInfoNpcIndexes[++client.extendedInfoNpcCount - 1] = var3;
                      }
                   } else if(var6 == 3) {
-                     Client.npcIndexesToRemove[++Client.npcsToRemoveCount - 1] = var3;
+                     client.npcIndexesToRemove[++client.npcsToRemoveCount - 1] = var3;
                   }
                }
             }

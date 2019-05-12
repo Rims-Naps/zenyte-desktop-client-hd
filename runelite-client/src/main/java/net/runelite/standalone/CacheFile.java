@@ -428,10 +428,10 @@ public class CacheFile {
       if(class203.username == null || class203.username.length() <= 0) {
          if(class312.options.rememberedUsername != null) {
             class203.username = class312.options.rememberedUsername;
-            Client.onUsernameChanged(-1);
-            Client.Login_isUsernameRemembered = true;
+            client.onUsernameChanged(-1);
+            client.Login_isUsernameRemembered = true;
          } else {
-            Client.Login_isUsernameRemembered = false;
+            client.Login_isUsernameRemembered = false;
          }
 
       }

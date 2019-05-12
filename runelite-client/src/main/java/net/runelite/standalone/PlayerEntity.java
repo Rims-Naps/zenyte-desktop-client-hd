@@ -393,7 +393,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
       this.combatLevel = var1.readUnsignedByte();
       this.totalLevel = var1.readUnsignedShort();
       this.hidden = var1.readUnsignedByte() == 1;
-      if(Client.socketType == 0 && Client.staffModLevel >= 2) {
+      if(client.socketType == 0 && client.staffModLevel >= 2) {
          this.hidden = false;
       }
 
@@ -464,11 +464,11 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
             }
 
             if(!this.isLowDetail && this.model != null) {
-               if(Client.gameCycle >= this.animationCycleEnd) {
+               if(client.gameCycle >= this.animationCycleEnd) {
                   this.model = null;
                }
 
-               if(Client.gameCycle >= this.animationCycleStart && Client.gameCycle < this.animationCycleEnd) {
+               if(client.gameCycle >= this.animationCycleStart && client.gameCycle < this.animationCycleEnd) {
                   var5 = this.model;
                   var5.method3889(this.field637 - super.x * -1234429701, this.field617 - this.field633, this.field622 - super.y);
                   if(super.orientation == 512) {
@@ -802,10 +802,10 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
    )
    static final void method6041(String var0) {
       if(MapIconReference.clanMemberManager != null) {
-         TcpConnectionMessage var1 = class232.method4535(ClientProt.field2232, Client.serverConnection.isaac);
+         TcpConnectionMessage var1 = class232.method4535(ClientProt.field2232, client.serverConnection.isaac);
          var1.packetBuffer.writeByte(OwnWorldComparator.method73(var0));
          var1.packetBuffer.method5077(var0);
-         Client.serverConnection.method18(var1);
+         client.serverConnection.method18(var1);
       }
    }
 

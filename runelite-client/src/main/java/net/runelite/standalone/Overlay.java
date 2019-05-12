@@ -259,31 +259,31 @@ public class Overlay extends CacheableNode {
          WorldMapRegion.method5554(var4);
       }
 
-      for(var5 = 0; var5 < Client.menuOptionCount; ++var5) {
-         int var7 = Client.menuTypes[var5];
+      for(var5 = 0; var5 < client.menuOptionCount; ++var5) {
+         int var7 = client.menuTypes[var5];
          boolean var6 = var7 == 57 || var7 == 58 || var7 == 1007 || var7 == 25 || var7 == 30;
          if(var6) {
-            if(var5 < Client.menuOptionCount - 1) {
-               for(int var8 = var5; var8 < Client.menuOptionCount - 1; ++var8) {
-                  Client.menuOptions[var8] = Client.menuOptions[var8 + 1];
-                  Client.menuTargets[var8] = Client.menuTargets[var8 + 1];
-                  Client.menuTypes[var8] = Client.menuTypes[var8 + 1];
-                  Client.menuIdentifiers[var8] = Client.menuIdentifiers[var8 + 1];
-                  Client.menuActionParams0[var8] = Client.menuActionParams0[var8 + 1];
-                  Client.menuActionParams1[var8] = Client.menuActionParams1[var8 + 1];
-                  Client.menuBooleanArray[var8] = Client.menuBooleanArray[var8 + 1];
+            if(var5 < client.menuOptionCount - 1) {
+               for(int var8 = var5; var8 < client.menuOptionCount - 1; ++var8) {
+                  client.menuOptions[var8] = client.menuOptions[var8 + 1];
+                  client.menuTargets[var8] = client.menuTargets[var8 + 1];
+                  client.menuTypes[var8] = client.menuTypes[var8 + 1];
+                  client.menuIdentifiers[var8] = client.menuIdentifiers[var8 + 1];
+                  client.menuActionParams0[var8] = client.menuActionParams0[var8 + 1];
+                  client.menuActionParams1[var8] = client.menuActionParams1[var8 + 1];
+                  client.menuBooleanArray[var8] = client.menuBooleanArray[var8 + 1];
                }
             }
 
             --var5;
-            --Client.menuOptionCount;
-            Client.onMenuOptionsChanged(-1);
+            --client.menuOptionCount;
+            client.onMenuOptionsChanged(-1);
          }
       }
 
       FriendManager.method2414(class302.field3309 / 2 + class181.menuX, TotalQuantityComparator.menuY);
-      if(Client.toplevel != -1) {
-         class61.method923(Client.toplevel, 1);
+      if(client.toplevel != -1) {
+         class61.method923(client.toplevel, 1);
       }
 
    }

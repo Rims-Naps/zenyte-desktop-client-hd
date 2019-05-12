@@ -157,37 +157,37 @@ public class FriendContainer extends NameableContainer implements RSFriendContai
    static final void method6441(ComponentType var0) {
       int var1 = var0.clientcode;
       if(var1 == 324) {
-         if(Client.field861 == -1) {
-            Client.field861 = var0.graphic;
-            Client.field908 = var0.field2736;
+         if(client.field861 == -1) {
+            client.field861 = var0.graphic;
+            client.field908 = var0.field2736;
          }
 
-         if(Client.field918.isFemale) {
-            var0.graphic = Client.field861;
+         if(client.field918.isFemale) {
+            var0.graphic = client.field861;
          } else {
-            var0.graphic = Client.field908;
+            var0.graphic = client.field908;
          }
 
       } else if(var1 == 325) {
-         if(Client.field861 == -1) {
-            Client.field861 = var0.graphic;
-            Client.field908 = var0.field2736;
+         if(client.field861 == -1) {
+            client.field861 = var0.graphic;
+            client.field908 = var0.field2736;
          }
 
-         if(Client.field918.isFemale) {
-            var0.graphic = Client.field908;
+         if(client.field918.isFemale) {
+            var0.graphic = client.field908;
          } else {
-            var0.graphic = Client.field861;
+            var0.graphic = client.field861;
          }
 
       } else if(var1 == 327) {
          var0.xan2d = 150;
-         var0.yan2d = (int)(Math.sin((double)Client.gameCycle / 40.0D) * 256.0D) & 2047;
+         var0.yan2d = (int)(Math.sin((double) client.gameCycle / 40.0D) * 256.0D) & 2047;
          var0.modelType = 5;
          var0.modelId = 0;
       } else if(var1 == 328) {
          var0.xan2d = 150;
-         var0.yan2d = (int)(Math.sin((double)Client.gameCycle / 40.0D) * 256.0D) & 2047;
+         var0.yan2d = (int)(Math.sin((double) client.gameCycle / 40.0D) * 256.0D) & 2047;
          var0.modelType = 5;
          var0.modelId = 1;
       }
@@ -200,11 +200,11 @@ public class FriendContainer extends NameableContainer implements RSFriendContai
    )
    static void method6439(Packet var0, int var1) {
       byte[] var2 = var0.payload;
-      if(Client.field688 == null) {
-         Client.field688 = new byte[24];
+      if(client.field688 == null) {
+         client.field688 = new byte[24];
       }
 
-      class11.method156(var2, var1, Client.field688, 0, 24);
+      class11.method156(var2, var1, client.field688, 0, 24);
       if(class75.uidDat != null) {
          try {
             class75.uidDat.method5575(0L);

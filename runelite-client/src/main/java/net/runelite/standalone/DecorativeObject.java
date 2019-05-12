@@ -226,19 +226,19 @@ public final class DecorativeObject implements RSDecorativeObject {
    )
    static final void method914(boolean var0, Bit var1) {
       while(true) {
-         if(var1.method2654(Client.serverConnection.currentPacketSize) >= 27) {
+         if(var1.method2654(client.serverConnection.currentPacketSize) >= 27) {
             int var2 = var1.method2652(15);
             if(var2 != 32767) {
                boolean var3 = false;
-               if(Client.npcs[var2] == null) {
-                  Client.npcs[var2] = new NPCEntity();
-                  Client.cachedNPCsChanged(var2);
+               if(client.npcs[var2] == null) {
+                  client.npcs[var2] = new NPCEntity();
+                  client.cachedNPCsChanged(var2);
                   var3 = true;
                }
 
-               NPCEntity var4 = Client.npcs[var2];
-               Client.highResolutionNpcIndexes[++Client.highResolutionNpcCount - 1] = var2;
-               var4.lastUpdatedAt = Client.gameCycle;
+               NPCEntity var4 = client.npcs[var2];
+               client.highResolutionNpcIndexes[++client.highResolutionNpcCount - 1] = var2;
+               var4.lastUpdatedAt = client.gameCycle;
                int var5;
                if(var0) {
                   var5 = var1.method2652(8);
@@ -253,14 +253,14 @@ public final class DecorativeObject implements RSDecorativeObject {
                }
 
                int var6 = var1.method2652(1);
-               int var7 = Client.npcFacingDirections[var1.method2652(3)];
+               int var7 = client.npcFacingDirections[var1.method2652(3)];
                if(var3) {
                   var4.orientation = var4.angle = var7;
                }
 
                int var8 = var1.method2652(1);
                if(var8 == 1) {
-                  Client.extendedInfoNpcIndexes[++Client.extendedInfoNpcCount - 1] = var2;
+                  client.extendedInfoNpcIndexes[++client.extendedInfoNpcCount - 1] = var2;
                }
 
                int var9;
@@ -337,7 +337,7 @@ public final class DecorativeObject implements RSDecorativeObject {
                   method912(var3.children, var1);
                }
 
-               SubInterface var4 = (SubInterface)Client.subInterfaces.method6335((long)var3.id);
+               SubInterface var4 = (SubInterface) client.subInterfaces.method6335((long)var3.id);
                if(var4 != null) {
                   class61.method923(var4.id, var1);
                }

@@ -188,7 +188,7 @@ public class WorldMapType1 implements WorldMapSectionBase {
    static final void method4931(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       PendingSpawn var9 = null;
 
-      for(PendingSpawn var10 = (PendingSpawn)Client.pendingSpawns.method3930(); var10 != null; var10 = (PendingSpawn)Client.pendingSpawns.method3924()) {
+      for(PendingSpawn var10 = (PendingSpawn) client.pendingSpawns.method3930(); var10 != null; var10 = (PendingSpawn) client.pendingSpawns.method3924()) {
          if(var0 == var10.level && var10.x == var1 && var2 == var10.y && var3 == var10.type) {
             var9 = var10;
             break;
@@ -202,7 +202,7 @@ public class WorldMapType1 implements WorldMapSectionBase {
          var9.x = var1;
          var9.y = var2;
          FileRequest.method1171(var9);
-         Client.pendingSpawns.method3906(var9);
+         client.pendingSpawns.method3906(var9);
       }
 
       var9.id = var4;

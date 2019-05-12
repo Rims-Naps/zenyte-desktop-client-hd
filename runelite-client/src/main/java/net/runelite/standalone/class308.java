@@ -143,31 +143,31 @@ public class class308 implements Callable {
       garbageValue = "-2128676579"
    )
    static final void method6155() {
-      for(ProjectileAnimation var0 = (ProjectileAnimation)Client.projectiles.method3930(); var0 != null; var0 = (ProjectileAnimation)Client.projectiles.method3924()) {
-         if(var0.floor == ServerProt.level && Client.gameCycle <= var0.endCycle) {
-            if(Client.gameCycle >= var0.startMovementCycle) {
+      for(ProjectileAnimation var0 = (ProjectileAnimation) client.projectiles.method3930(); var0 != null; var0 = (ProjectileAnimation) client.projectiles.method3924()) {
+         if(var0.floor == ServerProt.level && client.gameCycle <= var0.endCycle) {
+            if(client.gameCycle >= var0.startMovementCycle) {
                if(var0.interacting > 0) {
-                  NPCEntity var1 = Client.npcs[var0.interacting - 1];
+                  NPCEntity var1 = client.npcs[var0.interacting - 1];
                   if(var1 != null && var1.x * -1234429701 >= 0 && var1.x * -1234429701 < 13312 && var1.y >= 0 && var1.y < 13312) {
-                     var0.method4012(var1.x * -1234429701, var1.y, TcpConnectionMessage.method5618(var1.x * -1234429701, var1.y, var0.floor) - var0.endHeight, Client.gameCycle);
+                     var0.method4012(var1.x * -1234429701, var1.y, TcpConnectionMessage.method5618(var1.x * -1234429701, var1.y, var0.floor) - var0.endHeight, client.gameCycle);
                   }
                }
 
                if(var0.interacting < 0) {
                   int var2 = -var0.interacting - 1;
                   PlayerEntity var3;
-                  if(var2 == Client.localPlayerIndex) {
+                  if(var2 == client.localPlayerIndex) {
                      var3 = class71.localPlayer;
                   } else {
-                     var3 = Client.players[var2];
+                     var3 = client.players[var2];
                   }
 
                   if(var3 != null && var3.x * -1234429701 >= 0 && var3.x * -1234429701 < 13312 && var3.y >= 0 && var3.y < 13312) {
-                     var0.method4012(var3.x * -1234429701, var3.y, TcpConnectionMessage.method5618(var3.x * -1234429701, var3.y, var0.floor) - var0.endHeight, Client.gameCycle);
+                     var0.method4012(var3.x * -1234429701, var3.y, TcpConnectionMessage.method5618(var3.x * -1234429701, var3.y, var0.floor) - var0.endHeight, client.gameCycle);
                   }
                }
 
-               var0.method4015(Client.field710);
+               var0.method4015(client.field710);
                class312.sceneManager.method3754(ServerProt.level, (int)var0.x, (int)var0.y, (int)var0.z, 60, var0, var0.rotationX, -1L, false);
             }
          } else {

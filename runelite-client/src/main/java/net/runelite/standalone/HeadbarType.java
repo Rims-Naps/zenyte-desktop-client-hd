@@ -106,7 +106,7 @@ public class HeadbarType extends CacheableNode implements RSHealthBar {
    )
    public SpritePixels method2049(byte var1) {
       SpritePixels var2 = this.copy$getHealthBarFrontSprite(var1);
-      return var2 != null?(SpritePixels)var2:(Client.healthBarOverride == null?null:(SpritePixels)(this.getHealthScale() == 30?(RSSpritePixels)Client.healthBarOverride.frontSprite:(RSSpritePixels)Client.healthBarOverride.frontSpriteLarge));
+      return var2 != null?(SpritePixels)var2:(client.healthBarOverride == null?null:(SpritePixels)(this.getHealthScale() == 30?(RSSpritePixels) client.healthBarOverride.frontSprite:(RSSpritePixels) client.healthBarOverride.frontSpriteLarge));
    }
 
    @ObfuscatedSignature(
@@ -199,7 +199,7 @@ public class HeadbarType extends CacheableNode implements RSHealthBar {
    )
    public SpritePixels method2050(int var1) {
       SpritePixels var2 = this.copy$getHealthBarBackSprite(var1);
-      return var2 != null?(SpritePixels)var2:(Client.healthBarOverride == null?null:(SpritePixels)(this.getHealthScale() == 30?(RSSpritePixels)Client.healthBarOverride.backSprite:(RSSpritePixels)Client.healthBarOverride.backSpriteLarge));
+      return var2 != null?(SpritePixels)var2:(client.healthBarOverride == null?null:(SpritePixels)(this.getHealthScale() == 30?(RSSpritePixels) client.healthBarOverride.backSprite:(RSSpritePixels) client.healthBarOverride.backSpriteLarge));
    }
 
    @ObfuscatedName("g")
@@ -241,17 +241,17 @@ public class HeadbarType extends CacheableNode implements RSHealthBar {
    )
    static final void method2072(boolean var0) {
       FontName.method513();
-      ++Client.serverConnection.field1313;
-      if(Client.serverConnection.field1313 >= 50 || var0) {
-         Client.serverConnection.field1313 = 0;
-         if(!Client.socketError && Client.serverConnection.method38() != null) {
-            TcpConnectionMessage var1 = class232.method4535(ClientProt.field2241, Client.serverConnection.isaac);
-            Client.serverConnection.method18(var1);
+      ++client.serverConnection.field1313;
+      if(client.serverConnection.field1313 >= 50 || var0) {
+         client.serverConnection.field1313 = 0;
+         if(!client.socketError && client.serverConnection.method38() != null) {
+            TcpConnectionMessage var1 = class232.method4535(ClientProt.field2241, client.serverConnection.isaac);
+            client.serverConnection.method18(var1);
 
             try {
-               Client.serverConnection.method17();
+               client.serverConnection.method17();
             } catch (IOException var3) {
-               Client.socketError = true;
+               client.socketError = true;
             }
          }
 

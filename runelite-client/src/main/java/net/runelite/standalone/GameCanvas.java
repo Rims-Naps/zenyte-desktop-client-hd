@@ -121,11 +121,11 @@ public final class GameCanvas extends Canvas implements RSGameCanvas {
       class2.cameraZ = var1 - var10;
       FontName.cameraY = var2 - var11;
       GZipDecompressor.cameraPitch = var3;
-      Client.onCameraPitchChanged(-1);
+      client.onCameraPitchChanged(-1);
       class142.cameraYaw = var4;
-      if(Client.camModeType == 1 && Client.staffModLevel >= 2 && Client.gameCycle % 50 == 0 && (class71.localPlayer.x * -1234429701 >> 7 != Client.field725 >> 7 || class69.field135 >> 7 != class71.localPlayer.y >> 7)) {
+      if(client.camModeType == 1 && client.staffModLevel >= 2 && client.gameCycle % 50 == 0 && (class71.localPlayer.x * -1234429701 >> 7 != client.field725 >> 7 || class69.field135 >> 7 != class71.localPlayer.y >> 7)) {
          var12 = class71.localPlayer.field631;
-         var13 = (Client.field725 >> 7) + class53.baseX;
+         var13 = (client.field725 >> 7) + class53.baseX;
          var14 = (class69.field135 >> 7) + class312.baseY;
          WorldMapManager.method2322(var13, var14, var12, true);
       }
@@ -138,8 +138,8 @@ public final class GameCanvas extends Canvas implements RSGameCanvas {
       garbageValue = "-1480716398"
    )
    static void method4866() {
-      if(Client.spellSelected) {
-         ComponentType var0 = UnitPriceComparator.method2289(class255.field2065, Client.field853);
+      if(client.spellSelected) {
+         ComponentType var0 = UnitPriceComparator.method2289(class255.field2065, client.field853);
          if(var0 != null && var0.onTargetLeaveListener != null) {
             ScriptEvent var1 = new ScriptEvent();
             var1.source = var0;
@@ -147,7 +147,7 @@ public final class GameCanvas extends Canvas implements RSGameCanvas {
             class192.method3810(var1);
          }
 
-         Client.spellSelected = false;
+         client.spellSelected = false;
          WorldMapRegion.method5554(var0);
       }
    }

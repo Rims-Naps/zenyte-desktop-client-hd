@@ -453,12 +453,12 @@ public final class WorldMapManager implements RSWorldMapManager {
       garbageValue = "744248380"
    )
    static void method2322(int var0, int var1, int var2, boolean var3) {
-      TcpConnectionMessage var4 = class232.method4535(ClientProt.field2280, Client.serverConnection.isaac);
-      var4.packetBuffer.method5131(Client.field731);
+      TcpConnectionMessage var4 = class232.method4535(ClientProt.field2280, client.serverConnection.isaac);
+      var4.packetBuffer.method5131(client.field731);
       var4.packetBuffer.method5121(var1);
       var4.packetBuffer.method5232(var2);
       var4.packetBuffer.writeShort(var0);
-      Client.serverConnection.method18(var4);
+      client.serverConnection.method18(var4);
    }
 
    @ObfuscatedName("gn")
@@ -531,19 +531,19 @@ public final class WorldMapManager implements RSWorldMapManager {
 
       if(GZipDecompressor.cameraPitch < var7) {
          GZipDecompressor.cameraPitch = (var7 - GZipDecompressor.cameraPitch) * class235.field2436 / 1000 + GZipDecompressor.cameraPitch + Size.field119;
-         Client.onCameraPitchChanged(-1);
+         client.onCameraPitchChanged(-1);
          if(GZipDecompressor.cameraPitch > var7) {
             GZipDecompressor.cameraPitch = var7;
-            Client.onCameraPitchChanged(-1);
+            client.onCameraPitchChanged(-1);
          }
       }
 
       if(GZipDecompressor.cameraPitch > var7) {
          GZipDecompressor.cameraPitch -= class235.field2436 * (GZipDecompressor.cameraPitch - var7) / 1000 + Size.field119;
-         Client.onCameraPitchChanged(-1);
+         client.onCameraPitchChanged(-1);
          if(GZipDecompressor.cameraPitch < var7) {
             GZipDecompressor.cameraPitch = var7;
-            Client.onCameraPitchChanged(-1);
+            client.onCameraPitchChanged(-1);
          }
       }
 
@@ -588,22 +588,22 @@ public final class WorldMapManager implements RSWorldMapManager {
    )
    static void method2327() {
       int var0;
-      if(Client.loadingStage == 0) {
+      if(client.loadingStage == 0) {
          class312.sceneManager = new SceneManager(4, 104, 104, class91.tileHeights);
 
          for(var0 = 0; var0 < 4; ++var0) {
-            Client.collisionMaps[var0] = new CollisionData(104, 104);
+            client.collisionMaps[var0] = new CollisionData(104, 104);
          }
 
          class281.minimapSprite = new SpritePixels(512, 512);
          class203.loadingText = "Starting game engine...";
          class203.loadingBarPercentage = 5;
-         Client.loadingStage = 20;
-      } else if(Client.loadingStage == 20) {
+         client.loadingStage = 20;
+      } else if(client.loadingStage == 20) {
          class203.loadingText = "Prepared visibility map";
          class203.loadingBarPercentage = 10;
-         Client.loadingStage = 30;
-      } else if(Client.loadingStage == 30) {
+         client.loadingStage = 30;
+      } else if(client.loadingStage == 30) {
          class181.anims = FontName.method508(0, false, true, true);
          class87.bases = FontName.method508(1, false, true, true);
          class177.configs = FontName.method508(2, true, false, true);
@@ -626,8 +626,8 @@ public final class WorldMapManager implements RSWorldMapManager {
          Size.field125 = FontName.method508(20, false, true, true);
          class203.loadingText = "Connecting to update server";
          class203.loadingBarPercentage = 20;
-         Client.loadingStage = 40;
-      } else if(Client.loadingStage == 40) {
+         client.loadingStage = 40;
+      } else if(client.loadingStage == 40) {
          byte var25 = 0;
          var0 = var25 + class181.anims.method2743() * 4 / 100;
          var0 += class87.bases.method2743() * 4 / 100;
@@ -673,13 +673,13 @@ public final class WorldMapManager implements RSWorldMapManager {
             ModeGame.field3227.method2175(LoginProt.worldmapdata);
             class203.loadingText = "Loaded update list";
             class203.loadingBarPercentage = 30;
-            Client.loadingStage = 45;
+            client.loadingStage = 45;
          }
       } else {
          Js5 var2;
          Js5 var22;
-         if(Client.loadingStage == 45) {
-            CombatInfo1.method56(22050, !Client.lowMemory, 2);
+         if(client.loadingStage == 45) {
+            CombatInfo1.method56(22050, !client.lowMemory, 2);
             class15 var27 = new class15();
             var27.method201(9, 128);
             class191.soundSystem0 = MapIcon.method4083(class315.taskManager, 0, 22050);
@@ -697,26 +697,26 @@ public final class WorldMapManager implements RSWorldMapManager {
             WorldComparator.field36 = new Resampler(22050, MapIconReference.sampleRate);
             class203.loadingText = "Prepared sound engine";
             class203.loadingBarPercentage = 35;
-            Client.loadingStage = 50;
+            client.loadingStage = 50;
             CombatInfoListHolder.fonts = new Fonts(ModeGame.sprites, KeyFocusListener.fontmetrics);
-         } else if(Client.loadingStage == 50) {
+         } else if(client.loadingStage == 50) {
             var0 = FontName.method510().length;
-            Client.fontsMap = CombatInfoListHolder.fonts.method6418(FontName.method510());
-            if(Client.fontsMap.size() < var0) {
-               class203.loadingText = "Loading fonts - " + Client.fontsMap.size() * 100 / var0 + "%";
+            client.fontsMap = CombatInfoListHolder.fonts.method6418(FontName.method510());
+            if(client.fontsMap.size() < var0) {
+               class203.loadingText = "Loading fonts - " + client.fontsMap.size() * 100 / var0 + "%";
                class203.loadingBarPercentage = 40;
             } else {
-               Client.fontPlain11 = (Font)Client.fontsMap.get(FontName.FontName_plain11);
-               Occluder.font_p12full = (Font)Client.fontsMap.get(FontName.FontName_plain12);
-               class191.fontBold12 = (Font)Client.fontsMap.get(FontName.FontName_bold12);
-               WorldMapType2.machineInfo = Client.field915.vmethod6314();
+               client.fontPlain11 = (Font) client.fontsMap.get(FontName.FontName_plain11);
+               Occluder.font_p12full = (Font) client.fontsMap.get(FontName.FontName_plain12);
+               class191.fontBold12 = (Font) client.fontsMap.get(FontName.FontName_bold12);
+               WorldMapType2.machineInfo = client.field915.vmethod6314();
                class203.loadingText = "Loaded fonts";
                class203.loadingBarPercentage = 40;
-               Client.loadingStage = 60;
+               client.loadingStage = 60;
             }
          } else {
             int var16;
-            if(Client.loadingStage == 60) {
+            if(client.loadingStage == 60) {
                var22 = class44.binary;
                var2 = ModeGame.sprites;
                var16 = 0;
@@ -777,9 +777,9 @@ public final class WorldMapManager implements RSWorldMapManager {
                   class203.loadingText = "Loaded title screen";
                   class203.loadingBarPercentage = 50;
                   class124.method1843(5);
-                  Client.loadingStage = 70;
+                  client.loadingStage = 70;
                }
-            } else if(Client.loadingStage == 70) {
+            } else if(client.loadingStage == 70) {
                if(!class177.configs.method4120()) {
                   class203.loadingText = "Loading config - " + class177.configs.method2731() + "%";
                   class203.loadingBarPercentage = 60;
@@ -787,14 +787,14 @@ public final class WorldMapManager implements RSWorldMapManager {
                   ClientOptions.method1094(class177.configs);
                   World.method4938(class177.configs);
                   ServerConnection.method21(class177.configs, WorldMapData.models);
-                  GameObject.method1098(class177.configs, WorldMapData.models, Client.lowMemory);
+                  GameObject.method1098(class177.configs, WorldMapData.models, client.lowMemory);
                   OwnWorldComparator.method75(class177.configs, WorldMapData.models);
                   Js5 var26 = class177.configs;
                   StructType.field3414 = var26;
                   var22 = class177.configs;
                   var2 = WorldMapData.models;
-                  boolean var28 = Client.isMembers;
-                  Font var17 = Client.fontPlain11;
+                  boolean var28 = client.isMembers;
+                  Font var17 = client.fontPlain11;
                   class48.item_ref = var22;
                   class60.ItemDefinition_modelIndexCache = var2;
                   ObjType.isMembersWorld = var28;
@@ -829,9 +829,9 @@ public final class WorldMapManager implements RSWorldMapManager {
                   class57.method903(class177.configs, ModeGame.sprites);
                   class203.loadingText = "Loaded config";
                   class203.loadingBarPercentage = 60;
-                  Client.loadingStage = 80;
+                  client.loadingStage = 80;
                }
-            } else if(Client.loadingStage == 80) {
+            } else if(client.loadingStage == 80) {
                var0 = 0;
                if(class232.compass == null) {
                   class232.compass = IDKType.method5403(ModeGame.sprites, ModeGame.field3227.field3826, 0, -1942416918);
@@ -985,19 +985,19 @@ public final class WorldMapManager implements RSWorldMapManager {
                   SubInterface.mapscene[0].method4281(var20 + var4, var4 + var21, var4 + var16);
                   class203.loadingText = "Loaded sprites";
                   class203.loadingBarPercentage = 70;
-                  Client.loadingStage = 90;
+                  client.loadingStage = 90;
                }
-            } else if(Client.loadingStage == 90) {
+            } else if(client.loadingStage == 90) {
                if(!class93.textures.method4120()) {
                   class203.loadingText = "Loading textures - " + "0%";
                   class203.loadingBarPercentage = 90;
                } else {
-                  class29.field608 = new TextureProvider(class93.textures, ModeGame.sprites, 20, 0.8D, Client.lowMemory?64:128);
+                  class29.field608 = new TextureProvider(class93.textures, ModeGame.sprites, 20, 0.8D, client.lowMemory?64:128);
                   Graphics3D.method2142(class29.field608);
                   Graphics3D.method2121(0.8D);
-                  Client.loadingStage = 100;
+                  client.loadingStage = 100;
                }
-            } else if(Client.loadingStage == 100) {
+            } else if(client.loadingStage == 100) {
                var0 = class29.field608.method1158();
                if(var0 < 100) {
                   class203.loadingText = "Loading textures - " + var0 + "%";
@@ -1005,15 +1005,15 @@ public final class WorldMapManager implements RSWorldMapManager {
                } else {
                   class203.loadingText = "Loaded textures";
                   class203.loadingBarPercentage = 90;
-                  Client.loadingStage = 110;
+                  client.loadingStage = 110;
                }
-            } else if(Client.loadingStage == 110) {
+            } else if(client.loadingStage == 110) {
                class72.mouseRecorder = new MouseRecorder();
                class315.taskManager.method5829(class72.mouseRecorder, 10);
                class203.loadingText = "Loaded input handler";
                class203.loadingBarPercentage = 92;
-               Client.loadingStage = 120;
-            } else if(Client.loadingStage == 120) {
+               client.loadingStage = 120;
+            } else if(client.loadingStage == 120) {
                if(!class44.binary.method4136("huffman", "")) {
                   class203.loadingText = "Loading wordpack - " + 0 + "%";
                   class203.loadingBarPercentage = 94;
@@ -1022,9 +1022,9 @@ public final class WorldMapManager implements RSWorldMapManager {
                   CombatInfo1.method59(var15);
                   class203.loadingText = "Loaded wordpack";
                   class203.loadingBarPercentage = 94;
-                  Client.loadingStage = 130;
+                  client.loadingStage = 130;
                }
-            } else if(Client.loadingStage == 130) {
+            } else if(client.loadingStage == 130) {
                if(!class129.interfacesArchive.method4120()) {
                   class203.loadingText = "Loading interfaces - " + class129.interfacesArchive.method2731() * 4 / 5 + "%";
                   class203.loadingBarPercentage = 96;
@@ -1037,22 +1037,22 @@ public final class WorldMapManager implements RSWorldMapManager {
                } else {
                   class203.loadingText = "Loaded interfaces";
                   class203.loadingBarPercentage = 98;
-                  Client.loadingStage = 140;
+                  client.loadingStage = 140;
                }
-            } else if(Client.loadingStage == 140) {
+            } else if(client.loadingStage == 140) {
                class203.loadingBarPercentage = 100;
                if(!Sequence.field3630.method4157(WorldMapDataGroup.field309.name)) {
                   class203.loadingText = "Loading world map - " + Sequence.field3630.method4139(WorldMapDataGroup.field309.name) / 10 + "%";
                } else {
                   if(class69.worldMap == null) {
                      class69.worldMap = new WorldMap();
-                     class69.worldMap.method2863(Sequence.field3630, PlayerEntity.defaults, Size.field125, class191.fontBold12, Client.fontsMap, SubInterface.mapscene);
+                     class69.worldMap.method2863(Sequence.field3630, PlayerEntity.defaults, Size.field125, class191.fontBold12, client.fontsMap, SubInterface.mapscene);
                   }
 
                   class203.loadingText = "Loaded world map";
-                  Client.loadingStage = 150;
+                  client.loadingStage = 150;
                }
-            } else if(Client.loadingStage == 150) {
+            } else if(client.loadingStage == 150) {
                class124.method1843(10);
             }
          }
@@ -1066,7 +1066,7 @@ public final class WorldMapManager implements RSWorldMapManager {
    )
    static void method2306(Js5 var0, String var1) {
       class142 var2 = new class142(var0, var1);
-      Client.field919.add(var2);
+      client.field919.add(var2);
    }
 
    @ObfuscatedName("ke")
@@ -1075,8 +1075,8 @@ public final class WorldMapManager implements RSWorldMapManager {
       garbageValue = "-411428613"
    )
    static final void method2329() {
-      TcpConnectionMessage var0 = class232.method4535(ClientProt.field2297, Client.serverConnection.isaac);
+      TcpConnectionMessage var0 = class232.method4535(ClientProt.field2297, client.serverConnection.isaac);
       var0.packetBuffer.writeByte(0);
-      Client.serverConnection.method18(var0);
+      client.serverConnection.method18(var0);
    }
 }

@@ -43,9 +43,9 @@ public class SubInterface extends Node implements RSWidgetNode {
          if(var0.interacting != -1) {
             Object var1 = null;
             if(var0.interacting < 32768) {
-               var1 = Client.npcs[var0.interacting];
+               var1 = client.npcs[var0.interacting];
             } else if(var0.interacting >= 32768) {
-               var1 = Client.players[var0.interacting - 32768];
+               var1 = client.players[var0.interacting - 32768];
             }
 
             if(var1 != null) {
@@ -122,8 +122,8 @@ public class SubInterface extends Node implements RSWidgetNode {
       garbageValue = "843292779"
    )
    static boolean method2712(int var0) {
-      for(int var1 = 0; var1 < Client.field870; ++var1) {
-         if(Client.field732[var1] == var0) {
+      for(int var1 = 0; var1 < client.field870; ++var1) {
+         if(client.field732[var1] == var0) {
             return true;
          }
       }
@@ -140,42 +140,42 @@ public class SubInterface extends Node implements RSWidgetNode {
       SubInterface var3 = new SubInterface();
       var3.id = var1;
       var3.mode = var2;
-      Client.subInterfaces.method6344(var3, (long)var0);
+      client.subInterfaces.method6344(var3, (long)var0);
       UnitPriceComparator.method2288(var1);
       ComponentType var4 = ChatHistory.method6246(var0);
       WorldMapRegion.method5554(var4);
-      if(Client.field793 != null) {
-         WorldMapRegion.method5554(Client.field793);
-         Client.field793 = null;
+      if(client.field793 != null) {
+         WorldMapRegion.method5554(client.field793);
+         client.field793 = null;
       }
 
-      for(int var5 = 0; var5 < Client.menuOptionCount; ++var5) {
-         int var7 = Client.menuTypes[var5];
+      for(int var5 = 0; var5 < client.menuOptionCount; ++var5) {
+         int var7 = client.menuTypes[var5];
          boolean var6 = var7 == 57 || var7 == 58 || var7 == 1007 || var7 == 25 || var7 == 30;
          if(var6) {
-            if(var5 < Client.menuOptionCount - 1) {
-               for(int var8 = var5; var8 < Client.menuOptionCount - 1; ++var8) {
-                  Client.menuOptions[var8] = Client.menuOptions[var8 + 1];
-                  Client.menuTargets[var8] = Client.menuTargets[var8 + 1];
-                  Client.menuTypes[var8] = Client.menuTypes[var8 + 1];
-                  Client.menuIdentifiers[var8] = Client.menuIdentifiers[var8 + 1];
-                  Client.menuActionParams0[var8] = Client.menuActionParams0[var8 + 1];
-                  Client.menuActionParams1[var8] = Client.menuActionParams1[var8 + 1];
-                  Client.menuBooleanArray[var8] = Client.menuBooleanArray[var8 + 1];
+            if(var5 < client.menuOptionCount - 1) {
+               for(int var8 = var5; var8 < client.menuOptionCount - 1; ++var8) {
+                  client.menuOptions[var8] = client.menuOptions[var8 + 1];
+                  client.menuTargets[var8] = client.menuTargets[var8 + 1];
+                  client.menuTypes[var8] = client.menuTypes[var8 + 1];
+                  client.menuIdentifiers[var8] = client.menuIdentifiers[var8 + 1];
+                  client.menuActionParams0[var8] = client.menuActionParams0[var8 + 1];
+                  client.menuActionParams1[var8] = client.menuActionParams1[var8 + 1];
+                  client.menuBooleanArray[var8] = client.menuBooleanArray[var8 + 1];
                }
             }
 
             --var5;
-            --Client.menuOptionCount;
-            Client.onMenuOptionsChanged(-1);
+            --client.menuOptionCount;
+            client.onMenuOptionsChanged(-1);
          }
       }
 
       FriendManager.method2414(class302.field3309 / 2 + class181.menuX, TotalQuantityComparator.menuY);
       ScriptState.method1043(ComponentType.interfaces[var0 >> 16], var4, false);
       CombatInfo1.method61(var1, -1150060619);
-      if(Client.toplevel != -1) {
-         class61.method923(Client.toplevel, 1);
+      if(client.toplevel != -1) {
+         class61.method923(client.toplevel, 1);
       }
 
       return var3;

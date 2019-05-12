@@ -280,14 +280,14 @@ public final class KeyFocusListener implements KeyListener, FocusListener, RSKey
       }
 
       if(var0.clientcode == 1337) {
-         Client.field821 = var0;
+         client.field821 = var0;
       }
 
       if(var3 && var0.onResizeListener != null && (var4 != var0.width || var5 != var0.height)) {
          ScriptEvent var6 = new ScriptEvent();
          var6.source = var0;
          var6.params = var0.onResizeListener;
-         Client.field848.method3906(var6);
+         client.field848.method3906(var6);
       }
 
    }

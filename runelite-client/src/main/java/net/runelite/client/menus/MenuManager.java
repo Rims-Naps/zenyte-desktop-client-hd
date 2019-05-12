@@ -179,11 +179,11 @@ public class MenuManager
 		int newIdx = findEmptyPlayerMenuIndex();
 		if (newIdx == IDX_UPPER)
 		{
-			log.debug("Client has updated player menu index {} where option {} was, and there are no more free slots available", idx, menuText);
+			log.debug("client has updated player menu index {} where option {} was, and there are no more free slots available", idx, menuText);
 			return;
 		}
 
-		log.debug("Client has updated player menu index {} where option {} was, moving to index {}", idx, menuText, newIdx);
+		log.debug("client has updated player menu index {} where option {} was, moving to index {}", idx, menuText, newIdx);
 
 		playerMenuIndexMap.remove(idx);
 		addPlayerMenuItem(newIdx, menuText);

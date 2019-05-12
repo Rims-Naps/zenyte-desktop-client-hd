@@ -223,7 +223,7 @@ public class RuneLite
 		final long end = System.currentTimeMillis();
 		final RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
 		final long uptime = rb.getUptime();
-		log.info("Client initialization took {}ms. Uptime: {}ms", end - start, uptime);
+		log.info("client initialization took {}ms. Uptime: {}ms", end - start, uptime);
 	}
 
 	public void start() throws Exception

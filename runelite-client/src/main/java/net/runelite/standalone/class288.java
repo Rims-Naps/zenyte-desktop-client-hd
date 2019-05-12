@@ -24,7 +24,7 @@ public class class288 extends class133 {
       garbageValue = "54344777"
    )
    int method5938(ChatPlayer var1, ChatPlayer var2) {
-      return Client.world == var1.world && var2.world == Client.world?(this.field1948?var1.method2752().method1533(var2.method2752()):var2.method2752().method1533(var1.method2752())):this.method1960(var1, var2);
+      return client.world == var1.world && var2.world == client.world?(this.field1948?var1.method2752().method1533(var2.method2752()):var2.method2752().method1533(var1.method2752())):this.method1960(var1, var2);
    }
 
    public int compare(Object var1, Object var2) {
@@ -38,11 +38,11 @@ public class class288 extends class133 {
    )
    static void method5941(int var0) {
       class312.topContextMenuRow = new ContextMenuRow();
-      class312.topContextMenuRow.param0 = Client.menuActionParams0[var0];
-      class312.topContextMenuRow.param1 = Client.menuActionParams1[var0];
-      class312.topContextMenuRow.type = Client.menuTypes[var0];
-      class312.topContextMenuRow.identifier = Client.menuIdentifiers[var0];
-      class312.topContextMenuRow.option = Client.menuOptions[var0];
+      class312.topContextMenuRow.param0 = client.menuActionParams0[var0];
+      class312.topContextMenuRow.param1 = client.menuActionParams1[var0];
+      class312.topContextMenuRow.type = client.menuTypes[var0];
+      class312.topContextMenuRow.identifier = client.menuIdentifiers[var0];
+      class312.topContextMenuRow.option = client.menuOptions[var0];
    }
 
    @ObfuscatedName("q")
@@ -172,7 +172,7 @@ public class class288 extends class133 {
                return 1;
             } else if(var0 != 6511) {
                if(var0 == 6512) {
-                  Client.field794 = class281.intStack[--class281.intStackSize] == 1;
+                  client.field794 = class281.intStack[--class281.intStackSize] == 1;
                   return 1;
                } else {
                   int var8;
@@ -226,10 +226,10 @@ public class class288 extends class133 {
 
                      return 1;
                   } else if(var0 == 6518) {
-                     class281.intStack[++class281.intStackSize - 1] = Client.field656?1:0;
+                     class281.intStack[++class281.intStackSize - 1] = client.field656?1:0;
                      return 1;
                   } else if(var0 == 6519) {
-                     class281.intStack[++class281.intStackSize - 1] = Client.confClientType & 3;
+                     class281.intStack[++class281.intStackSize - 1] = client.confClientType & 3;
                      return 1;
                   } else if(var0 == 6520) {
                      return 1;

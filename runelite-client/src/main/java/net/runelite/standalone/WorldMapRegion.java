@@ -1085,8 +1085,8 @@ public class WorldMapRegion {
       garbageValue = "13492"
    )
    static void method5554(ComponentType var0) {
-      if(var0.loopCycle == Client.field658) {
-         Client.field795[var0.boundsIndex] = true;
+      if(var0.loopCycle == client.field658) {
+         client.field795[var0.boundsIndex] = true;
       }
 
    }

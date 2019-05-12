@@ -85,7 +85,7 @@ public class class135 extends class71 {
    )
    static final void method1990() {
       HeadbarType.method2072(false);
-      Client.field701 = 0;
+      client.field701 = 0;
       boolean var0 = true;
 
       int var1;
@@ -94,7 +94,7 @@ public class class135 extends class71 {
             class336.field3640[var1] = class142.maps.method4115(class129.landMapFileIds[var1], 0, -1686636514);
             if(class336.field3640[var1] == null) {
                var0 = false;
-               ++Client.field701;
+               ++client.field701;
             }
          }
 
@@ -102,15 +102,15 @@ public class class135 extends class71 {
             GameObject.field1932[var1] = class142.maps.method4178(WorldComparator.landRegionFileIds[var1], 0, Varcs.xteaKeys[var1]);
             if(GameObject.field1932[var1] == null) {
                var0 = false;
-               ++Client.field701;
+               ++client.field701;
             }
          }
       }
 
       if(!var0) {
-         Client.field705 = 1;
+         client.field705 = 1;
       } else {
-         Client.field703 = 0;
+         client.field703 = 0;
          var0 = true;
 
          int var3;
@@ -120,7 +120,7 @@ public class class135 extends class71 {
             if(var2 != null) {
                var3 = (class82.mapRegions[var1] >> 8) * 64 - class53.baseX;
                var4 = (class82.mapRegions[var1] & 255) * 64 - class312.baseY;
-               if(Client.isDynamicRegion) {
+               if(client.isDynamicRegion) {
                   var3 = 10;
                   var4 = 10;
                }
@@ -130,9 +130,9 @@ public class class135 extends class71 {
          }
 
          if(!var0) {
-            Client.field705 = 2;
+            client.field705 = 2;
          } else {
-            if(Client.field705 != 0) {
+            if(client.field705 != 0) {
                Varcs.method351("Loading - please wait." + "<br>" + " (" + 100 + "%" + ")", true);
             }
 
@@ -140,7 +140,7 @@ public class class135 extends class71 {
             class312.sceneManager.method3622();
 
             for(var1 = 0; var1 < 4; ++var1) {
-               Client.collisionMaps[var1].method3599();
+               client.collisionMaps[var1].method3599();
             }
 
             int var13;
@@ -171,7 +171,7 @@ public class class135 extends class71 {
             class61.field1061.method3936();
             HeadbarType.method2072(true);
             int var15;
-            if(!Client.isDynamicRegion) {
+            if(!client.isDynamicRegion) {
                byte[] var5;
                for(var13 = 0; var13 < var1; ++var13) {
                   var3 = (class82.mapRegions[var13] >> 8) * 64 - class53.baseX;
@@ -179,7 +179,7 @@ public class class135 extends class71 {
                   var5 = class336.field3640[var13];
                   if(var5 != null) {
                      FontName.method513();
-                     Signlink.method5842(var5, var3, var4, KeyFocusListener.field412 * 8 - 48, class308.field534 * 8 - 48, Client.collisionMaps);
+                     Signlink.method5842(var5, var3, var4, KeyFocusListener.field412 * 8 - 48, class308.field534 * 8 - 48, client.collisionMaps);
                   }
                }
 
@@ -201,7 +201,7 @@ public class class135 extends class71 {
                      var4 = (class82.mapRegions[var13] >> 8) * 64 - class53.baseX;
                      var15 = (class82.mapRegions[var13] & 255) * 64 - class312.baseY;
                      FontName.method513();
-                     AbstractSoundSystem.method1802(var14, var4, var15, class312.sceneManager, Client.collisionMaps);
+                     AbstractSoundSystem.method1802(var14, var4, var15, class312.sceneManager, client.collisionMaps);
                   }
                }
             }
@@ -209,7 +209,7 @@ public class class135 extends class71 {
             int var6;
             int var7;
             int var8;
-            if(Client.isDynamicRegion) {
+            if(client.isDynamicRegion) {
                int var9;
                int var10;
                int var11;
@@ -219,7 +219,7 @@ public class class135 extends class71 {
                   for(var3 = 0; var3 < 13; ++var3) {
                      for(var4 = 0; var4 < 13; ++var4) {
                         boolean var18 = false;
-                        var6 = Client.instanceTemplateChunks[var13][var3][var4];
+                        var6 = client.instanceTemplateChunks[var13][var3][var4];
                         if(var6 != -1) {
                            var7 = var6 >> 24 & 3;
                            var8 = var6 >> 1 & 3;
@@ -229,7 +229,7 @@ public class class135 extends class71 {
 
                            for(int var12 = 0; var12 < class82.mapRegions.length; ++var12) {
                               if(class82.mapRegions[var12] == var11 && class336.field3640[var12] != null) {
-                                 GrandExchangeEvent.method1564(class336.field3640[var12], var13, var3 * 8, var4 * 8, var7, (var9 & 7) * 8, (var10 & 7) * 8, var8, Client.collisionMaps);
+                                 GrandExchangeEvent.method1564(class336.field3640[var12], var13, var3 * 8, var4 * 8, var7, (var9 & 7) * 8, (var10 & 7) * 8, var8, client.collisionMaps);
                                  var18 = true;
                                  break;
                               }
@@ -273,7 +273,7 @@ public class class135 extends class71 {
 
                for(var13 = 0; var13 < 13; ++var13) {
                   for(var3 = 0; var3 < 13; ++var3) {
-                     var4 = Client.instanceTemplateChunks[0][var13][var3];
+                     var4 = client.instanceTemplateChunks[0][var13][var3];
                      if(var4 == -1) {
                         SpotAnimation.method1584(var13 * 8, var3 * 8, 8, 8);
                      }
@@ -287,7 +287,7 @@ public class class135 extends class71 {
 
                   for(var3 = 0; var3 < 13; ++var3) {
                      for(var4 = 0; var4 < 13; ++var4) {
-                        var15 = Client.instanceTemplateChunks[var13][var3][var4];
+                        var15 = client.instanceTemplateChunks[var13][var3][var4];
                         if(var15 != -1) {
                            var6 = var15 >> 24 & 3;
                            var7 = var15 >> 1 & 3;
@@ -297,7 +297,7 @@ public class class135 extends class71 {
 
                            for(var11 = 0; var11 < class82.mapRegions.length; ++var11) {
                               if(class82.mapRegions[var11] == var10 && GameObject.field1932[var11] != null) {
-                                 SpotAnimation.method1582(GameObject.field1932[var11], var13, var3 * 8, var4 * 8, var6, (var8 & 7) * 8, (var9 & 7) * 8, var7, class312.sceneManager, Client.collisionMaps);
+                                 SpotAnimation.method1582(GameObject.field1932[var11], var13, var3 * 8, var4 * 8, var6, (var8 & 7) * 8, (var9 & 7) * 8, var7, class312.sceneManager, client.collisionMaps);
                                  break;
                               }
                            }
@@ -309,7 +309,7 @@ public class class135 extends class71 {
 
             HeadbarType.method2072(true);
             FontName.method513();
-            GroundObject.method4109(class312.sceneManager, Client.collisionMaps);
+            GroundObject.method4109(class312.sceneManager, client.collisionMaps);
             HeadbarType.method2072(true);
             var13 = class91.field506;
             if(var13 > ServerProt.level) {
@@ -320,7 +320,7 @@ public class class135 extends class71 {
                var13 = ServerProt.level - 1;
             }
 
-            if(Client.lowMemory) {
+            if(client.lowMemory) {
                class312.sceneManager.method3623(class91.field506);
             } else {
                class312.sceneManager.method3623(0);
@@ -337,12 +337,12 @@ public class class135 extends class71 {
             LocType.field3455.method629();
             TcpConnectionMessage var17;
             if(ItemContainer.clientInstance.method4389()) {
-               var17 = class232.method4535(ClientProt.field2235, Client.serverConnection.isaac);
+               var17 = class232.method4535(ClientProt.field2235, client.serverConnection.isaac);
                var17.packetBuffer.writeInt(1057001181);
-               Client.serverConnection.method18(var17);
+               client.serverConnection.method18(var17);
             }
 
-            if(!Client.isDynamicRegion) {
+            if(!client.isDynamicRegion) {
                var3 = (KeyFocusListener.field412 - 6) / 8;
                var4 = (KeyFocusListener.field412 + 6) / 8;
                var15 = (class308.field534 - 6) / 8;
@@ -372,8 +372,8 @@ public class class135 extends class71 {
             ChatCrownType.field3209 = null;
             ChatLineBuffer.floorMultiplier = null;
             class91.field513 = null;
-            var17 = class232.method4535(ClientProt.field2295, Client.serverConnection.isaac);
-            Client.serverConnection.method18(var17);
+            var17 = class232.method4535(ClientProt.field2295, client.serverConnection.isaac);
+            client.serverConnection.method18(var17);
             ClientOptions.method1077();
          }
       }

@@ -147,7 +147,7 @@ public class WorldMapType2 implements WorldMapSectionBase {
       garbageValue = "1400"
    )
    static final void method3094(NPCType var0, int var1, int var2, int var3) {
-      if(Client.menuOptionCount < 400) {
+      if(client.menuOptionCount < 400) {
          NPCType old = var0;
          if(var0.multiNpcs != null) {
             var0 = var0.method4782();
@@ -155,7 +155,7 @@ public class WorldMapType2 implements WorldMapSectionBase {
 
          if(var0 != null) {
             if(var0.isClickable) {
-               if(!var0.isLowPriorityOps || Client.field819 == var1) {
+               if(!var0.isLowPriorityOps || client.field819 == var1) {
                   String var4 = var0.name;
                   int var7;
                   int var8;
@@ -187,18 +187,18 @@ public class WorldMapType2 implements WorldMapSectionBase {
                      var4 = var4 + var6 + " " + " (" + "level-" + var0.level + ")";
                   }
 
-                  if(var0.isLowPriorityOps && Client.field794) {
+                  if(var0.isLowPriorityOps && client.field794) {
                      class290.method5964("Examine", class308.method6152(16776960) + var4, 1003, var1, var2, var3);
                   }
 
-                  if(Client.itemSelectionState == 1) {
-                     class290.method5964("Use", Client.lastSelectedItemName + " " + "->" + " " + class308.method6152(16776960) + var4, 7, var1, var2, var3);
-                  } else if(Client.spellSelected) {
+                  if(client.itemSelectionState == 1) {
+                     class290.method5964("Use", client.lastSelectedItemName + " " + "->" + " " + class308.method6152(16776960) + var4, 7, var1, var2, var3);
+                  } else if(client.spellSelected) {
                      if((class240.ifTargetMask & 2) == 2) {
-                        class290.method5964(Client.targetVerb, Client.opBase + " " + "->" + " " + class308.method6152(16776960) + var4, 8, var1, var2, var3);
+                        class290.method5964(client.targetVerb, client.opBase + " " + "->" + " " + class308.method6152(16776960) + var4, 8, var1, var2, var3);
                      }
                   } else {
-                     int var10 = var0.isLowPriorityOps && Client.field794?2000:0;
+                     int var10 = var0.isLowPriorityOps && client.field794?2000:0;
                      String[] var11 = var0.ops;
                      String[] oldVar11 = old.changedOptions;
                      if(var11 != null) {
@@ -235,8 +235,8 @@ public class WorldMapType2 implements WorldMapSectionBase {
                         for(var7 = 4; var7 >= 0; --var7) {
                            if(var11[var7] != null && var11[var7].equalsIgnoreCase("Attack")) {
                               short var12 = 0;
-                              if(AttackOpPriority.HIDDEN != Client.npcAttackOpPriority) {
-                                 if(Client.npcAttackOpPriority == AttackOpPriority.UNPRIORITISED || Client.npcAttackOpPriority == AttackOpPriority.COMBAT_LEVEL_BASED && var0.level > class71.localPlayer.combatLevel) {
+                              if(AttackOpPriority.HIDDEN != client.npcAttackOpPriority) {
+                                 if(client.npcAttackOpPriority == AttackOpPriority.UNPRIORITISED || client.npcAttackOpPriority == AttackOpPriority.COMBAT_LEVEL_BASED && var0.level > class71.localPlayer.combatLevel) {
                                     var12 = 2000;
                                  }
 
@@ -267,7 +267,7 @@ public class WorldMapType2 implements WorldMapSectionBase {
                         }
                      }
 
-                     if(!var0.isLowPriorityOps || !Client.field794) {
+                     if(!var0.isLowPriorityOps || !client.field794) {
                         class290.method5964("Examine", class308.method6152(16776960) + var4, 1003, var1, var2, var3);
                      }
                   }
@@ -302,48 +302,48 @@ public class WorldMapType2 implements WorldMapSectionBase {
       int var3;
       if(var0 == 3903) {
          var3 = class281.intStack[--class281.intStackSize];
-         class281.intStack[++class281.intStackSize - 1] = Client.grandExchangeOffers[var3].method1735();
+         class281.intStack[++class281.intStackSize - 1] = client.grandExchangeOffers[var3].method1735();
          return 1;
       } else if(var0 == 3904) {
          var3 = class281.intStack[--class281.intStackSize];
-         class281.intStack[++class281.intStackSize - 1] = Client.grandExchangeOffers[var3].itemId;
+         class281.intStack[++class281.intStackSize - 1] = client.grandExchangeOffers[var3].itemId;
          return 1;
       } else if(var0 == 3905) {
          var3 = class281.intStack[--class281.intStackSize];
-         class281.intStack[++class281.intStackSize - 1] = Client.grandExchangeOffers[var3].price;
+         class281.intStack[++class281.intStackSize - 1] = client.grandExchangeOffers[var3].price;
          return 1;
       } else if(var0 == 3906) {
          var3 = class281.intStack[--class281.intStackSize];
-         class281.intStack[++class281.intStackSize - 1] = Client.grandExchangeOffers[var3].totalQuantity;
+         class281.intStack[++class281.intStackSize - 1] = client.grandExchangeOffers[var3].totalQuantity;
          return 1;
       } else if(var0 == 3907) {
          var3 = class281.intStack[--class281.intStackSize];
-         class281.intStack[++class281.intStackSize - 1] = Client.grandExchangeOffers[var3].quantitySold;
+         class281.intStack[++class281.intStackSize - 1] = client.grandExchangeOffers[var3].quantitySold;
          return 1;
       } else if(var0 == 3908) {
          var3 = class281.intStack[--class281.intStackSize];
-         class281.intStack[++class281.intStackSize - 1] = Client.grandExchangeOffers[var3].spent;
+         class281.intStack[++class281.intStackSize - 1] = client.grandExchangeOffers[var3].spent;
          return 1;
       } else {
          int var12;
          if(var0 == 3910) {
             var3 = class281.intStack[--class281.intStackSize];
-            var12 = Client.grandExchangeOffers[var3].method1720();
+            var12 = client.grandExchangeOffers[var3].method1720();
             class281.intStack[++class281.intStackSize - 1] = var12 == 0?1:0;
             return 1;
          } else if(var0 == 3911) {
             var3 = class281.intStack[--class281.intStackSize];
-            var12 = Client.grandExchangeOffers[var3].method1720();
+            var12 = client.grandExchangeOffers[var3].method1720();
             class281.intStack[++class281.intStackSize - 1] = var12 == 2?1:0;
             return 1;
          } else if(var0 == 3912) {
             var3 = class281.intStack[--class281.intStackSize];
-            var12 = Client.grandExchangeOffers[var3].method1720();
+            var12 = client.grandExchangeOffers[var3].method1720();
             class281.intStack[++class281.intStackSize - 1] = var12 == 5?1:0;
             return 1;
          } else if(var0 == 3913) {
             var3 = class281.intStack[--class281.intStackSize];
-            var12 = Client.grandExchangeOffers[var3].method1720();
+            var12 = client.grandExchangeOffers[var3].method1720();
             class281.intStack[++class281.intStackSize - 1] = var12 == 1?1:0;
             return 1;
          } else {
@@ -367,8 +367,8 @@ public class WorldMapType2 implements WorldMapSectionBase {
                var13 = class281.intStack[class281.intStackSize] == 1;
                boolean var4 = class281.intStack[class281.intStackSize + 1] == 1;
                if(GameCanvas.tradingPost != null) {
-                  Client.field917.field641 = var4;
-                  GameCanvas.tradingPost.method1612(Client.field917, var13);
+                  client.field917.field641 = var4;
+                  GameCanvas.tradingPost.method1612(client.field917, var13);
                }
 
                return 1;
@@ -459,6 +459,6 @@ public class WorldMapType2 implements WorldMapSectionBase {
       garbageValue = "-49"
    )
    static final void method3089() {
-      Client.lastFriendTransmit = Client.cycleCntr;
+      client.lastFriendTransmit = client.cycleCntr;
    }
 }

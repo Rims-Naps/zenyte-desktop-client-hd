@@ -104,22 +104,22 @@ public class TradingPost {
       garbageValue = "5"
    )
    static final void method1608(boolean var0) {
-      for(int var1 = 0; var1 < Client.highResolutionNpcCount; ++var1) {
-         NPCEntity var2 = Client.npcs[Client.highResolutionNpcIndexes[var1]];
+      for(int var1 = 0; var1 < client.highResolutionNpcCount; ++var1) {
+         NPCEntity var2 = client.npcs[client.highResolutionNpcIndexes[var1]];
          if(var2 != null && var2.vmethod6005() && var2.type.isVisible == var0 && var2.type.method4783()) {
             int var3 = var2.x * -1234429701 >> 7;
             int var4 = var2.y >> 7;
             if(var3 >= 0 && var3 < 104 && var4 >= 0 && var4 < 104) {
                if(var2.size == 1 && (var2.x * -1234429701 & 127) == 64 && (var2.y & 127) == 64) {
-                  if(Client.field746[var3][var4] == Client.field907) {
+                  if(client.field746[var3][var4] == client.field907) {
                      continue;
                   }
 
-                  Client.field746[var3][var4] = Client.field907;
+                  client.field746[var3][var4] = client.field907;
                }
 
-               long var5 = ChatHistory.method6263(0, 0, 1, !var2.type.isClickable, Client.highResolutionNpcIndexes[var1]);
-               var2.field960 = Client.gameCycle;
+               long var5 = ChatHistory.method6263(0, 0, 1, !var2.type.isClickable, client.highResolutionNpcIndexes[var1]);
+               var2.field960 = client.gameCycle;
                class312.sceneManager.method3754(ServerProt.level, var2.x * -1234429701, var2.y, TcpConnectionMessage.method5618(var2.x * -1234429701 + (var2.size * 64 - 64), var2.size * 64 - 64 + var2.y, ServerProt.level), var2.size * 64 - 64 + 60, var2, var2.angle, var5, var2.field941);
             }
          }
@@ -138,7 +138,7 @@ public class TradingPost {
       }
 
       String var3;
-      if(var0.buttonType == 2 && !Client.spellSelected) {
+      if(var0.buttonType == 2 && !client.spellSelected) {
          var3 = class125.method1854(var0);
          if(var3 != null) {
             class290.method5964(var3, class308.method6152(65280) + var0.spellName, 25, 0, -1, var0.id);
@@ -157,7 +157,7 @@ public class TradingPost {
          class290.method5964(var0.tooltip, "", 29, 0, 0, var0.id);
       }
 
-      if(var0.buttonType == 6 && Client.field793 == null) {
+      if(var0.buttonType == 6 && client.field793 == null) {
          class290.method5964(var0.tooltip, "", 30, 0, -1, var0.id);
       }
 
@@ -177,23 +177,23 @@ public class TradingPost {
                }
 
                if(var1 >= var6 && var2 >= var7 && var1 < var6 + 32 && var2 < var7 + 32) {
-                  Client.field721 = var13;
+                  client.field721 = var13;
                   SoundTask.field1417 = var0;
                   if(var0.objIds[var13] > 0) {
                      ObjType var8 = class79.method1074(var0.objIds[var13] - 1);
-                     if(Client.itemSelectionState == 1 && class252.method4727(WorldComparator.method86(var0))) {
+                     if(client.itemSelectionState == 1 && class252.method4727(WorldComparator.method86(var0))) {
                         if(var0.id != class132.field3198 || var13 != class29.selectedItemIndex) {
-                           class290.method5964("Use", Client.lastSelectedItemName + " " + "->" + " " + class308.method6152(16748608) + var8.name, 31, var8.id, var13, var0.id);
+                           class290.method5964("Use", client.lastSelectedItemName + " " + "->" + " " + class308.method6152(16748608) + var8.name, 31, var8.id, var13, var0.id);
                         }
-                     } else if(Client.spellSelected && class252.method4727(WorldComparator.method86(var0))) {
+                     } else if(client.spellSelected && class252.method4727(WorldComparator.method86(var0))) {
                         if((class240.ifTargetMask & 16) == 16) {
-                           class290.method5964(Client.targetVerb, Client.opBase + " " + "->" + " " + class308.method6152(16748608) + var8.name, 32, var8.id, var13, var0.id);
+                           class290.method5964(client.targetVerb, client.opBase + " " + "->" + " " + class308.method6152(16748608) + var8.name, 32, var8.id, var13, var0.id);
                         }
                      } else {
                         String[] var9 = var8.iops;
                         int var10 = -1;
-                        if(Client.field660) {
-                           boolean var11 = Client.field796 || KeyFocusListener.keyPressed[81];
+                        if(client.field660) {
+                           boolean var11 = client.field796 || KeyFocusListener.keyPressed[81];
                            if(var11) {
                               var10 = var8.method2228(-702567274);
                            }
@@ -265,11 +265,11 @@ public class TradingPost {
       }
 
       if(var0.isIf3) {
-         if(Client.spellSelected) {
+         if(client.spellSelected) {
             var4 = WorldComparator.method86(var0);
             boolean var18 = (var4 >> 21 & 1) != 0;
             if(var18 && (class240.ifTargetMask & 32) == 32) {
-               class290.method5964(Client.targetVerb, Client.opBase + " " + "->" + " " + var0.opBase, 58, 0, var0.index, var0.id);
+               class290.method5964(client.targetVerb, client.opBase + " " + "->" + " " + var0.opBase, 58, 0, var0.index, var0.id);
             }
          } else {
             for(var13 = 9; var13 >= 5; --var13) {
@@ -364,103 +364,103 @@ public class TradingPost {
                var3 = 0;
             }
 
-            if(var3 != Client.field882) {
-               if(Client.field882 == 0 && Client.field680 != -1) {
-                  WorldMapDataGroup.method957(class75.music, Client.field680, 0, var3, false);
-                  Client.field884 = false;
+            if(var3 != client.field882) {
+               if(client.field882 == 0 && client.field680 != -1) {
+                  WorldMapDataGroup.method957(class75.music, client.field680, 0, var3, false);
+                  client.field884 = false;
                } else if(var3 == 0) {
                   class75.method1055();
-                  Client.field884 = false;
+                  client.field884 = false;
                } else {
                   class167.method2641(var3);
                }
 
-               Client.field882 = var3;
+               client.field882 = var3;
             }
          }
 
          if(var4 == 4) {
             if(var2 == 0) {
-               Client.field885 = 127;
+               client.field885 = 127;
             }
 
             if(var2 == 1) {
-               Client.field885 = 96;
+               client.field885 = 96;
             }
 
             if(var2 == 2) {
-               Client.field885 = 64;
+               client.field885 = 64;
             }
 
             if(var2 == 3) {
-               Client.field885 = 32;
+               client.field885 = 32;
             }
 
             if(var2 == 4) {
-               Client.field885 = 0;
+               client.field885 = 0;
             }
          }
 
          if(var4 == 5) {
-            Client.field784 = var2;
+            client.field784 = var2;
          }
 
          if(var4 == 6) {
-            Client.field813 = var2;
+            client.field813 = var2;
          }
 
          if(var4 == 9) {
-            Client.field814 = var2;
+            client.field814 = var2;
          }
 
          if(var4 == 10) {
             if(var2 == 0) {
-               Client.field886 = 127;
+               client.field886 = 127;
             }
 
             if(var2 == 1) {
-               Client.field886 = 96;
+               client.field886 = 96;
             }
 
             if(var2 == 2) {
-               Client.field886 = 64;
+               client.field886 = 64;
             }
 
             if(var2 == 3) {
-               Client.field886 = 32;
+               client.field886 = 32;
             }
 
             if(var2 == 4) {
-               Client.field886 = 0;
+               client.field886 = 0;
             }
          }
 
          if(var4 == 17) {
-            Client.field819 = var2 & 65535;
+            client.field819 = var2 & 65535;
          }
 
          AttackOpPriority[] var5;
          if(var4 == 18) {
             var5 = new AttackOpPriority[]{AttackOpPriority.COMBAT_LEVEL_BASED, AttackOpPriority.PRIORITISED, AttackOpPriority.UNPRIORITISED, AttackOpPriority.HIDDEN};
-            Client.playerAttackOpPriority = (AttackOpPriority)PlayerList.method4757(var5, var2);
-            if(Client.playerAttackOpPriority == null) {
-               Client.playerAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
+            client.playerAttackOpPriority = (AttackOpPriority)PlayerList.method4757(var5, var2);
+            if(client.playerAttackOpPriority == null) {
+               client.playerAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
             }
          }
 
          if(var4 == 19) {
             if(var2 == -1) {
-               Client.field776 = -1;
+               client.field776 = -1;
             } else {
-               Client.field776 = var2 & 2047;
+               client.field776 = var2 & 2047;
             }
          }
 
          if(var4 == 22) {
             var5 = new AttackOpPriority[]{AttackOpPriority.COMBAT_LEVEL_BASED, AttackOpPriority.PRIORITISED, AttackOpPriority.UNPRIORITISED, AttackOpPriority.HIDDEN};
-            Client.npcAttackOpPriority = (AttackOpPriority)PlayerList.method4757(var5, var2);
-            if(Client.npcAttackOpPriority == null) {
-               Client.npcAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
+            client.npcAttackOpPriority = (AttackOpPriority)PlayerList.method4757(var5, var2);
+            if(client.npcAttackOpPriority == null) {
+               client.npcAttackOpPriority = AttackOpPriority.COMBAT_LEVEL_BASED;
             }
          }
 

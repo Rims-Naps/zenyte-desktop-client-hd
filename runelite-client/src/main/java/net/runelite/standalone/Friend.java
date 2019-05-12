@@ -31,7 +31,7 @@ public class Friend extends ChatPlayer implements RSFriend {
       garbageValue = "81"
    )
    int method6269(Friend var1) {
-      return super.world == Client.world && Client.world != var1.world?-1:(Client.world == var1.world && super.world != Client.world?1:(super.world != 0 && var1.world == 0?-1:(var1.world != 0 && super.world == 0?1:(this.field3729 && !var1.field3729?-1:(!this.field3729 && var1.field3729?1:(this.field3730 && !var1.field3730?-1:(!this.field3730 && var1.field3730?1:(super.world != 0?super.field3711 - var1.field3711:var1.field3711 - super.field3711))))))));
+      return super.world == client.world && client.world != var1.world?-1:(client.world == var1.world && super.world != client.world?1:(super.world != 0 && var1.world == 0?-1:(var1.world != 0 && super.world == 0?1:(this.field3729 && !var1.field3729?-1:(!this.field3729 && var1.field3729?1:(this.field3730 && !var1.field3730?-1:(!this.field3730 && var1.field3730?1:(super.world != 0?super.field3711 - var1.field3711:var1.field3711 - super.field3711))))))));
    }
 
    private void rl$$init() {

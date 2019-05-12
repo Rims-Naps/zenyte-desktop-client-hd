@@ -88,10 +88,10 @@ public final class class191 {
          class192.method3810(var5);
       }
 
-      Client.field673 = var3;
-      Client.spellSelected = true;
+      client.field673 = var3;
+      client.spellSelected = true;
       class255.field2065 = var0;
-      Client.field853 = var1;
+      client.field853 = var1;
       class240.ifTargetMask = var2;
       WorldMapRegion.method5554(var4);
    }
@@ -183,7 +183,7 @@ public final class class191 {
             var4.source = var3;
             var4.params = var3.onResizeListener;
             var4.field582 = class281.field1080 + 1;
-            Client.field848.method3906(var4);
+            client.field848.method3906(var4);
             return 1;
          }
       } else {

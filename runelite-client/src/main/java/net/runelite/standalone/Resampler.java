@@ -156,7 +156,7 @@ public class Resampler {
                   method144(var3.children, var3.id);
                }
 
-               SubInterface var4 = (SubInterface)Client.subInterfaces.method6335((long)var3.id);
+               SubInterface var4 = (SubInterface) client.subInterfaces.method6335((long)var3.id);
                if(var4 != null) {
                   WorldMapDecoration.method2085(var4.id);
                }
@@ -175,7 +175,7 @@ public class Resampler {
                   if(var5 != -1) {
                      Sequence var6 = AuthProt.method6374(var5);
 
-                     for(var3.field2818 += Client.field710; var3.field2818 > var6.frameLengths[var3.field2817]; WorldMapRegion.method5554(var3)) {
+                     for(var3.field2818 += client.field710; var3.field2818 > var6.frameLengths[var3.field2817]; WorldMapRegion.method5554(var3)) {
                         var3.field2818 -= var6.frameLengths[var3.field2817];
                         ++var3.field2817;
                         if(var3.field2817 >= var6.frameIDs.length) {
@@ -191,8 +191,8 @@ public class Resampler {
                if(var3.field2745 != 0 && !var3.isIf3) {
                   int var8 = var3.field2745 >> 16;
                   var5 = var3.field2745 << 16 >> 16;
-                  var8 *= Client.field710;
-                  var5 *= Client.field710;
+                  var8 *= client.field710;
+                  var5 *= client.field710;
                   var3.xan2d = var8 + var3.xan2d & 2047;
                   var3.yan2d = var5 + var3.yan2d & 2047;
                   WorldMapRegion.method5554(var3);

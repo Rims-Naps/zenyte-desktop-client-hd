@@ -420,7 +420,7 @@ public class WorldMap implements RSRenderOverview {
          this.method2887(var1, var2, var3, var4, var7);
       } else {
          if(!this.worldMapManager.method2298()) {
-            this.worldMapManager.method2291(this.worldmapdata, this.worldMapData.method1653(), Client.isMembers);
+            this.worldMapManager.method2291(this.worldmapdata, this.worldMapData.method1653(), client.isMembers);
             if(!this.worldMapManager.method2298()) {
                return;
             }
@@ -879,7 +879,7 @@ public class WorldMap implements RSRenderOverview {
       garbageValue = "1012984441"
    )
    boolean method2883(int var1, int var2, int var3, int var4, int var5, int var6) {
-      return this.field3948 == null?true:(this.field3948.width == var1 && this.field3948.height == var2?(this.worldMapManager.field326 != this.field3958?true:(this.field4008 != Client.field797?true:(var3 <= 0 && var4 <= 0?var3 + var1 < var5 || var2 + var4 < var6:true))):true);
+      return this.field3948 == null?true:(this.field3948.width == var1 && this.field3948.height == var2?(this.worldMapManager.field326 != this.field3958?true:(this.field4008 != client.field797?true:(var3 <= 0 && var4 <= 0?var3 + var1 < var5 || var2 + var4 < var6:true))):true);
    }
 
    @ObfuscatedName("bk")
@@ -1135,7 +1135,7 @@ public class WorldMap implements RSRenderOverview {
             this.field4007 = this.method2898() - var6 / 2 - var7;
             this.field3958 = this.worldMapManager.field326;
             WorldMapType1.field216.method92(this.field3962, this.field4007, this.field3948, (float)this.field3958 / var10);
-            this.field4008 = Client.field797;
+            this.field4008 = client.field797;
             var13 = var1 - (var11 + var7 - this.field3962) * this.worldMapManager.field326;
             var14 = var2 - this.worldMapManager.field326 * (var7 - (var12 - this.field4007));
          }
@@ -1279,12 +1279,12 @@ public class WorldMap implements RSRenderOverview {
                int var13 = this.field4002.x;
                var9 = this.field4002.y;
                var10 = this.field4002.z;
-               TcpConnectionMessage var11 = class232.method4535(ClientProt.field2280, Client.serverConnection.isaac);
+               TcpConnectionMessage var11 = class232.method4535(ClientProt.field2280, client.serverConnection.isaac);
                var11.packetBuffer.method5131(0);
                var11.packetBuffer.method5121(var9);
                var11.packetBuffer.method5232(var10);
                var11.packetBuffer.writeShort(var13);
-               Client.serverConnection.method18(var11);
+               client.serverConnection.method18(var11);
             } else {
                boolean var8 = true;
                if(this.field3991) {
@@ -1296,9 +1296,9 @@ public class WorldMap implements RSRenderOverview {
                }
 
                if(var8) {
-                  TcpConnectionMessage var12 = class232.method4535(ClientProt.field2290, Client.serverConnection.isaac);
+                  TcpConnectionMessage var12 = class232.method4535(ClientProt.field2290, client.serverConnection.isaac);
                   var12.packetBuffer.method5131(this.field4002.method886());
-                  Client.serverConnection.method18(var12);
+                  client.serverConnection.method18(var12);
                   this.field3988 = 0L;
                }
             }
@@ -1328,7 +1328,7 @@ public class WorldMap implements RSRenderOverview {
    public void method2885(int var1, int var2, int var3, int var4) {
       if(this.field3964.method4663()) {
          if(!this.worldMapManager.method2298()) {
-            this.worldMapManager.method2291(this.worldmapdata, this.worldMapData.method1653(), Client.isMembers);
+            this.worldMapManager.method2291(this.worldmapdata, this.worldMapData.method1653(), client.isMembers);
             if(!this.worldMapManager.method2298()) {
                return;
             }

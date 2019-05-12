@@ -108,9 +108,9 @@ public class class69 extends MapIcon {
          if(var1 >= var6 && var1 < 104 - var6 && var2 >= var6 && var2 < 104 - var6) {
             int var8 = var0.method6008();
             class93 var9 = Size.method4089(var1, var2);
-            CollisionData var10 = Client.collisionMaps[var0.field631];
-            int[] var11 = Client.field922;
-            int[] var12 = Client.field876;
+            CollisionData var10 = client.collisionMaps[var0.field631];
+            int[] var11 = client.field922;
+            int[] var12 = client.field876;
 
             int var13;
             int var14;
@@ -550,7 +550,7 @@ public class class69 extends MapIcon {
             var13 = var7;
             if(var7 >= 1) {
                for(var14 = 0; var14 < var13 - 1; ++var14) {
-                  var0.method6012(Client.field922[var14], Client.field876[var14], var3);
+                  var0.method6012(client.field922[var14], client.field876[var14], var3);
                }
 
             }

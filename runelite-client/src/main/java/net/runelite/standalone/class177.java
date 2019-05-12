@@ -25,6 +25,6 @@ public class class177 {
       garbageValue = "0"
    )
    public static boolean method2854() {
-      return Client.staffModLevel >= 2;
+      return client.staffModLevel >= 2;
    }
 }

@@ -76,7 +76,7 @@ public class Location extends Entity implements RSDynamicObject {
       if(var7 != -1) {
          this.animation = AuthProt.method6374(var7);
          this.animFrame = 0;
-         this.animCycleCount = Client.gameCycle - 1;
+         this.animCycleCount = client.gameCycle - 1;
          this.onAnimCycleCountChanged(-1);
          if(this.animation.replyMode == 0 && var9 != null && var9 instanceof Location) {
             Location var10 = (Location)var9;
@@ -143,7 +143,7 @@ public class Location extends Entity implements RSDynamicObject {
    )
    public final Model copy$getModel(int var1) {
       if(this.animation != null) {
-         int var2 = Client.gameCycle - this.animCycleCount;
+         int var2 = client.gameCycle - this.animCycleCount;
          if(var2 > 100 && this.animation.frameStep > 0) {
             var2 = 100;
          }
@@ -165,7 +165,7 @@ public class Location extends Entity implements RSDynamicObject {
             this.animation = null;
          }
 
-         this.animCycleCount = Client.gameCycle - var2;
+         this.animCycleCount = client.gameCycle - var2;
          this.onAnimCycleCountChanged(-1);
       }
 

@@ -2257,8 +2257,8 @@ public class SceneManager implements RSScene {
       }
 
       boolean var8 = ItemContainer.clientInstance.isGpu();
-      if(!var8 && Client.skyboxColor != 0) {
-         ItemContainer.clientInstance.RasterizerFillRectangle(ItemContainer.clientInstance.getViewportXOffset(), ItemContainer.clientInstance.getViewportYOffset(), ItemContainer.clientInstance.getViewportWidth(), ItemContainer.clientInstance.getViewportHeight(), Client.skyboxColor);
+      if(!var8 && client.skyboxColor != 0) {
+         ItemContainer.clientInstance.RasterizerFillRectangle(ItemContainer.clientInstance.getViewportXOffset(), ItemContainer.clientInstance.getViewportYOffset(), ItemContainer.clientInstance.getViewportWidth(), ItemContainer.clientInstance.getViewportHeight(), client.skyboxColor);
       }
 
       int var9 = this.getMaxX();
@@ -2286,7 +2286,7 @@ public class SceneManager implements RSScene {
          var4 = 383;
       }
 
-      if(!Client.pitchRelaxEnabled) {
+      if(!client.pitchRelaxEnabled) {
          var15 = var4;
       }
 
@@ -2815,14 +2815,14 @@ public class SceneManager implements RSScene {
    }
 
    public static boolean shouldDraw(Object var0, boolean var1) {
-      if(!Client.isHidingEntities) {
+      if(!client.isHidingEntities) {
          return true;
       } else {
          boolean var4;
          label94: {
             if(var0 instanceof RSPlayer) {
-               boolean var2 = var1?Client.hideLocalPlayer2D:Client.hideLocalPlayer;
-               boolean var3 = var1?Client.hidePlayers2D:Client.hidePlayers;
+               boolean var2 = var1? client.hideLocalPlayer2D: client.hideLocalPlayer;
+               boolean var3 = var1? client.hidePlayers2D: client.hidePlayers;
                var4 = var0 == ItemContainer.clientInstance.getLocalPlayer();
                if(var4) {
                   if(var2) {
@@ -2834,15 +2834,15 @@ public class SceneManager implements RSScene {
             } else {
                if(var0 instanceof RSNPC) {
                   RSNPC var6 = (RSNPC)var0;
-                  if(!Client.hideAttackers && var6.getInteracting() == ItemContainer.clientInstance.getLocalPlayer()) {
+                  if(!client.hideAttackers && var6.getInteracting() == ItemContainer.clientInstance.getLocalPlayer()) {
                      return true;
                   }
 
-                  return var1?!Client.hideNPCs2D:!Client.hideNPCs;
+                  return var1?!client.hideNPCs2D:!client.hideNPCs;
                }
 
                if(var0 instanceof RSProjectile) {
-                  return !Client.hideProjectiles;
+                  return !client.hideProjectiles;
                }
             }
 
@@ -2850,7 +2850,7 @@ public class SceneManager implements RSScene {
          }
 
          RSPlayer var5 = (RSPlayer)var0;
-         return !Client.hideAttackers && var5.getInteracting() == ItemContainer.clientInstance.getLocalPlayer()?true:(var5.getName() == null?false:!Client.hideFriends && var5.isFriend() || !var4 && !Client.hideClanMates && var5.isClanMember());
+         return !client.hideAttackers && var5.getInteracting() == ItemContainer.clientInstance.getLocalPlayer()?true:(var5.getName() == null?false:!client.hideFriends && var5.isFriend() || !var4 && !client.hideClanMates && var5.isClanMember());
       }
    }
 
@@ -2899,7 +2899,7 @@ public class SceneManager implements RSScene {
          int var76 = PlayerList.highResolutionPlayerCount;
          int[] var8 = PlayerList.highResolutionPlayerIndexes;
          byte var9 = 0;
-         if(var1 < var76 && var0.field960 == Client.gameCycle) {
+         if(var1 < var76 && var0.field960 == client.gameCycle) {
             if(var6 == -845922967) {
                return;
             }
@@ -2908,9 +2908,9 @@ public class SceneManager implements RSScene {
                PlayerEntity var10 = (PlayerEntity)var0;
                if(var1 < var76) {
                   DecorativeObject.method913(var0, var0.logicalHeight + 15);
-                  FontTypeFace var11 = (FontTypeFace)Client.fontsMap.get(FontName.FontName_plain12);
+                  FontTypeFace var11 = (FontTypeFace) client.fontsMap.get(FontName.FontName_plain12);
                   byte var12 = 9;
-                  var11.method6222(var10.name.method1530(), var2 + Client.screenX, var3 + Client.screenY - var12, 16777215, 0);
+                  var11.method6222(var10.name.method1530(), var2 + client.screenX, var3 + client.screenY - var12, 16777215, 0);
                   var9 = 18;
                }
             }
@@ -2924,7 +2924,7 @@ public class SceneManager implements RSScene {
             DecorativeObject.method913(var0, var0.logicalHeight + 15);
 
             for(CombatInfoListHolder var88 = (CombatInfoListHolder)var0.combatInfoList.method4703(); var88 != null; var88 = (CombatInfoListHolder)var0.combatInfoList.method4704()) {
-               CombatInfo1 var78 = var88.method805(Client.gameCycle);
+               CombatInfo1 var78 = var88.method805(client.gameCycle);
                if(var78 == null) {
                   if(var88.method806()) {
                      var88.method432();
@@ -2950,7 +2950,7 @@ public class SceneManager implements RSScene {
 
                   int var18 = 255;
                   boolean var19 = true;
-                  int var20 = Client.gameCycle - var78.cycle;
+                  int var20 = client.gameCycle - var78.cycle;
                   int var21 = var16 * var78.health / var13.healthScale;
                   int var22;
                   int var93;
@@ -2995,8 +2995,8 @@ public class SceneManager implements RSScene {
 
                         var22 = var14.height;
                         var77 += var22;
-                        var23 = var2 + Client.screenX - (var16 >> 1);
-                        var24 = var3 + Client.screenY - var77;
+                        var23 = var2 + client.screenX - (var16 >> 1);
+                        var24 = var3 + client.screenY - var77;
                         var23 -= var17;
                         if(var18 >= 0 && var18 < 255) {
                            var14.method1374(var23, var24, var18);
@@ -3015,9 +3015,9 @@ public class SceneManager implements RSScene {
                   }
 
                   var77 += 5;
-                  if(Client.screenX > -1) {
-                     var22 = var2 + Client.screenX - (var16 >> 1);
-                     var23 = var3 + Client.screenY - var77;
+                  if(client.screenX > -1) {
+                     var22 = var2 + client.screenX - (var16 >> 1);
+                     var23 = var3 + client.screenY - var77;
                      Rasterizer2D.method692(var22, var23, var93, 5, 65280);
                      Rasterizer2D.method692(var93 + var22, var23, var16 - var93, 5, 16711680);
                   }
@@ -3050,33 +3050,33 @@ public class SceneManager implements RSScene {
                }
 
                DecorativeObject.method913(var0, var0.logicalHeight + 15);
-               if(Client.screenX > -1) {
+               if(client.screenX > -1) {
                   if(var89.skullIcon != -1) {
                      var77 += 25;
-                     IndexStoreActionHandler.headIconsPk[var89.skullIcon].method1311(var2 + Client.screenX - 12, var3 + Client.screenY - var77);
+                     IndexStoreActionHandler.headIconsPk[var89.skullIcon].method1311(var2 + client.screenX - 12, var3 + client.screenY - var77);
                   }
 
                   if(var89.overheadIcon != -1) {
                      var77 += 25;
-                     ItemContainer.headIconsPrayer[var89.overheadIcon].method1311(var2 + Client.screenX - 12, var3 + Client.screenY - var77);
+                     ItemContainer.headIconsPrayer[var89.overheadIcon].method1311(var2 + client.screenX - 12, var3 + client.screenY - var77);
                   }
                }
             }
 
-            if(var1 >= 0 && Client.hintArrowTargetType == 10) {
+            if(var1 >= 0 && client.hintArrowTargetType == 10) {
                if(var6 == -845922967) {
                   return;
                }
 
-               if(var8[var1] == Client.hintArrowPlayerTargetIdx) {
+               if(var8[var1] == client.hintArrowPlayerTargetIdx) {
                   DecorativeObject.method913(var0, var0.logicalHeight + 15);
-                  if(Client.screenX > -1) {
+                  if(client.screenX > -1) {
                      if(var6 == -845922967) {
                         return;
                      }
 
                      var77 += WorldMapDecoration.headIconsHint[1].height;
-                     WorldMapDecoration.headIconsHint[1].method1311(var2 + Client.screenX - 12, var3 + Client.screenY - var77);
+                     WorldMapDecoration.headIconsHint[1].method1311(var2 + client.screenX - 12, var3 + client.screenY - var77);
                   }
                }
             }
@@ -3088,20 +3088,20 @@ public class SceneManager implements RSScene {
 
             if(var90.headIcon >= 0 && var90.headIcon < ItemContainer.headIconsPrayer.length) {
                DecorativeObject.method913(var0, var0.logicalHeight + 15);
-               if(Client.screenX > -1) {
-                  ItemContainer.headIconsPrayer[var90.headIcon].method1311(var2 + Client.screenX - 12, var3 + Client.screenY - 30);
+               if(client.screenX > -1) {
+                  ItemContainer.headIconsPrayer[var90.headIcon].method1311(var2 + client.screenX - 12, var3 + client.screenY - 30);
                }
             }
 
-            if(Client.hintArrowTargetType == 1 && Client.highResolutionNpcIndexes[var1 - var76] == Client.hintArrowNpcTargetIdx) {
+            if(client.hintArrowTargetType == 1 && client.highResolutionNpcIndexes[var1 - var76] == client.hintArrowNpcTargetIdx) {
                if(var6 == -845922967) {
                   return;
                }
 
-               if(Client.gameCycle % 20 < 10) {
+               if(client.gameCycle % 20 < 10) {
                   DecorativeObject.method913(var0, var0.logicalHeight + 15);
-                  if(Client.screenX > -1) {
-                     WorldMapDecoration.headIconsHint[0].method1311(var2 + Client.screenX - 12, var3 + Client.screenY - 28);
+                  if(client.screenX > -1) {
+                     WorldMapDecoration.headIconsHint[0].method1311(var2 + client.screenX - 12, var3 + client.screenY - 28);
                   }
                }
             }
@@ -3122,13 +3122,13 @@ public class SceneManager implements RSScene {
                      return;
                   }
 
-                  if(Client.publicChatMode != 4) {
+                  if(client.publicChatMode != 4) {
                      if(var0.field953) {
                         break label765;
                      }
 
-                     if(Client.publicChatMode != 0 && Client.publicChatMode != 3) {
-                        if(Client.publicChatMode != 1) {
+                     if(client.publicChatMode != 0 && client.publicChatMode != 3) {
+                        if(client.publicChatMode != 1) {
                            break label765;
                         }
 
@@ -3144,16 +3144,16 @@ public class SceneManager implements RSScene {
                }
 
                DecorativeObject.method913(var0, var0.logicalHeight);
-               if(Client.screenX > -1 && Client.overheadTextCount < Client.field760) {
-                  Client.overheadTextsOffsetX[Client.overheadTextCount] = class191.fontBold12.method6160(var0.overhead) / 2;
-                  Client.overheadTextsOffsetY[Client.overheadTextCount] = class191.fontBold12.verticalSpace;
-                  Client.overheadTextsX[Client.overheadTextCount] = Client.screenX;
-                  Client.overheadTextsY[Client.overheadTextCount] = Client.screenY;
-                  Client.field742[Client.overheadTextCount] = var0.field956;
-                  Client.field743[Client.overheadTextCount] = var0.field957;
-                  Client.overheadTextsCyclesRemaining[Client.overheadTextCount] = var0.overheadTextCyclesRemaining;
-                  Client.overheadTexts[Client.overheadTextCount] = var0.overhead;
-                  ++Client.overheadTextCount;
+               if(client.screenX > -1 && client.overheadTextCount < client.field760) {
+                  client.overheadTextsOffsetX[client.overheadTextCount] = class191.fontBold12.method6160(var0.overhead) / 2;
+                  client.overheadTextsOffsetY[client.overheadTextCount] = class191.fontBold12.verticalSpace;
+                  client.overheadTextsX[client.overheadTextCount] = client.screenX;
+                  client.overheadTextsY[client.overheadTextCount] = client.screenY;
+                  client.field742[client.overheadTextCount] = var0.field956;
+                  client.field743[client.overheadTextCount] = var0.field957;
+                  client.overheadTextsCyclesRemaining[client.overheadTextCount] = var0.overheadTextCyclesRemaining;
+                  client.overheadTexts[client.overheadTextCount] = var0.overhead;
+                  ++client.overheadTextCount;
                }
             }
          }
@@ -3164,7 +3164,7 @@ public class SceneManager implements RSScene {
             HitmarkType var92 = null;
             int var81 = 0;
             if(var80 >= 0) {
-               if(var91 <= Client.gameCycle) {
+               if(var91 <= client.gameCycle) {
                   continue;
                }
 
@@ -3193,7 +3193,7 @@ public class SceneManager implements RSScene {
                }
             }
 
-            if(var91 - var81 <= Client.gameCycle) {
+            if(var91 - var81 <= client.gameCycle) {
                if(var92 == null) {
                   if(var6 == -845922967) {
                      return;
@@ -3202,7 +3202,7 @@ public class SceneManager implements RSScene {
                   var0.hitsplatCycles[var79] = -1;
                } else {
                   DecorativeObject.method913(var0, var0.logicalHeight / 2);
-                  if(Client.screenX > -1) {
+                  if(client.screenX > -1) {
                      if(var6 == -845922967) {
                         return;
                      }
@@ -3212,17 +3212,17 @@ public class SceneManager implements RSScene {
                            return;
                         }
 
-                        Client.screenY -= 20;
+                        client.screenY -= 20;
                      }
 
                      if(var79 == 2) {
-                        Client.screenX -= 15;
-                        Client.screenY -= 10;
+                        client.screenX -= 15;
+                        client.screenY -= 10;
                      }
 
                      if(var79 == 3) {
-                        Client.screenX += 15;
-                        Client.screenY -= 10;
+                        client.screenX += 15;
+                        client.screenY -= 10;
                      }
 
                      SpritePixels var83 = null;
@@ -3351,17 +3351,17 @@ public class SceneManager implements RSScene {
 
                      Font var87 = var92.method4024();
                      if(var87 == null) {
-                        var87 = Client.fontPlain11;
+                        var87 = client.fontPlain11;
                      }
 
                      Font var45;
                      if(var82 != null) {
                         var45 = var82.method4024();
                         if(var45 == null) {
-                           var45 = Client.fontPlain11;
+                           var45 = client.fontPlain11;
                         }
                      } else {
-                        var45 = Client.fontPlain11;
+                        var45 = client.fontPlain11;
                      }
 
                      String var46 = null;
@@ -3465,11 +3465,11 @@ public class SceneManager implements RSScene {
                         }
                      }
 
-                     var63 = var0.hitsplatCycles[var79] - Client.gameCycle;
+                     var63 = var0.hitsplatCycles[var79] - client.gameCycle;
                      int var64 = var92.field3442 - var63 * var92.field3442 / var92.field3437;
                      int var65 = var63 * var92.field3443 / var92.field3437 + -var92.field3443;
-                     int var66 = var64 + (var2 + Client.screenX - (var52 >> 1));
-                     int var67 = var65 + (var3 + Client.screenY - 12);
+                     int var66 = var64 + (var2 + client.screenX - (var52 >> 1));
+                     int var67 = var65 + (var3 + client.screenY - 12);
                      int var68 = var67;
                      int var69 = var67 + var43;
                      int var70 = var67 + var92.field3444 + 15;

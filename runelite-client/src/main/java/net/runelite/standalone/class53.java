@@ -64,14 +64,14 @@ final class class53 implements Comparator {
       garbageValue = "-610393002"
    )
    static final void method860(boolean var0, Bit var1) {
-      Client.isDynamicRegion = var0;
+      client.isDynamicRegion = var0;
       int var2;
       int var3;
       int var5;
       int var6;
       int var7;
       int var8;
-      if(!Client.isDynamicRegion) {
+      if(!client.isDynamicRegion) {
          var2 = var1.method5281();
          var3 = var1.method5125();
          int var4 = var1.readUnsignedShort();
@@ -125,9 +125,9 @@ final class class53 implements Comparator {
                for(var8 = 0; var8 < 13; ++var8) {
                   var9 = var1.method2652(1);
                   if(var9 == 1) {
-                     Client.instanceTemplateChunks[var6][var7][var8] = var1.method2652(26);
+                     client.instanceTemplateChunks[var6][var7][var8] = var1.method2652(26);
                   } else {
-                     Client.instanceTemplateChunks[var6][var7][var8] = -1;
+                     client.instanceTemplateChunks[var6][var7][var8] = -1;
                   }
                }
             }
@@ -152,7 +152,7 @@ final class class53 implements Comparator {
          for(var6 = 0; var6 < 4; ++var6) {
             for(var7 = 0; var7 < 13; ++var7) {
                for(var8 = 0; var8 < 13; ++var8) {
-                  var9 = Client.instanceTemplateChunks[var6][var7][var8];
+                  var9 = client.instanceTemplateChunks[var6][var7][var8];
                   if(var9 != -1) {
                      int var10 = var9 >> 14 & 1023;
                      int var11 = var9 >> 3 & 2047;
@@ -219,12 +219,12 @@ final class class53 implements Comparator {
       garbageValue = "29"
    )
    static void method866(int var0) {
-      if(var0 == -1 && !Client.field884) {
+      if(var0 == -1 && !client.field884) {
          class75.method1055();
-      } else if(var0 != -1 && var0 != Client.field680 && Client.field882 != 0 && !Client.field884) {
-         GZipDecompressor.method3620(2, class75.music, var0, 0, Client.field882, false);
+      } else if(var0 != -1 && var0 != client.field680 && client.field882 != 0 && !client.field884) {
+         GZipDecompressor.method3620(2, class75.music, var0, 0, client.field882, false);
       }
 
-      Client.field680 = var0;
+      client.field680 = var0;
    }
 }

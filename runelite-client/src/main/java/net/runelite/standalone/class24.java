@@ -182,7 +182,7 @@ public class class24 implements WorldMapSectionBase {
       var9.setWidgetId(var1);
       ItemContainer.clientInstance.getCallbacks().post(var9);
       if(!var9.isConsumed()) {
-         Client.copy$menuAction(var0, var1, var2, var3, var4, var5, var6, var7, var8);
+         client.copy$menuAction(var0, var1, var2, var3, var4, var5, var6, var7, var8);
       }
    }
 }

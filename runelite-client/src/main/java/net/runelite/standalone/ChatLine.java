@@ -107,7 +107,7 @@ public class ChatLine extends CacheableNode implements RSMessageNode {
    void method5888(int var1, String var2, String var3, String var4) {
       int var5 = ++ChatHistory.field1262 - 1;
       this.id = var5;
-      this.tick = Client.gameCycle;
+      this.tick = client.gameCycle;
       this.type = var1;
       this.name = var2;
       this.method5904();

@@ -55,7 +55,7 @@ final class class285 implements class143 {
    static final boolean method5884(ComponentType var0) {
       int var1 = var0.clientcode;
       if(var1 == 205) {
-         Client.field695 = 250;
+         client.field695 = 250;
          return true;
       } else {
          int var2;
@@ -63,27 +63,27 @@ final class class285 implements class143 {
          if(var1 >= 300 && var1 <= 313) {
             var2 = (var1 - 300) / 2;
             var3 = var1 & 1;
-            Client.field918.method813(var2, var3 == 1);
+            client.field918.method813(var2, var3 == 1);
          }
 
          if(var1 >= 314 && var1 <= 323) {
             var2 = (var1 - 314) / 2;
             var3 = var1 & 1;
-            Client.field918.method840(var2, var3 == 1);
+            client.field918.method840(var2, var3 == 1);
          }
 
          if(var1 == 324) {
-            Client.field918.method815(false);
+            client.field918.method815(false);
          }
 
          if(var1 == 325) {
-            Client.field918.method815(true);
+            client.field918.method815(true);
          }
 
          if(var1 == 326) {
-            TcpConnectionMessage var4 = class232.method4535(ClientProt.field2231, Client.serverConnection.isaac);
-            Client.field918.method816(var4.packetBuffer);
-            Client.serverConnection.method18(var4);
+            TcpConnectionMessage var4 = class232.method4535(ClientProt.field2231, client.serverConnection.isaac);
+            client.field918.method816(var4.packetBuffer);
+            client.serverConnection.method18(var4);
             return true;
          } else {
             return false;
@@ -139,7 +139,7 @@ final class class285 implements class143 {
       garbageValue = "-45"
    )
    static final void method5866() {
-      Client.serverConnection.method20();
+      client.serverConnection.method20();
       Overlay.overlays.method629();
       FloorUnderlayDefinition.underlays.method629();
       IDKType.identKits.method629();
@@ -180,13 +180,13 @@ final class class285 implements class143 {
       class312.sceneManager.method3622();
 
       for(int var0 = 0; var0 < 4; ++var0) {
-         Client.collisionMaps[var0].method3599();
+         client.collisionMaps[var0].method3599();
       }
 
       System.gc();
       Entity.method1812(2);
-      Client.field680 = -1;
-      Client.field884 = false;
+      client.field680 = -1;
+      client.field884 = false;
 
       for(class61 var1 = (class61)class61.field1061.method3930(); var1 != null; var1 = (class61)class61.field1061.method3924()) {
          if(var1.field1058 != null) {

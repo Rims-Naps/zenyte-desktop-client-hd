@@ -158,18 +158,18 @@ public final class Bit extends Packet implements RSPacketBuffer {
       garbageValue = "-1024721112"
    )
    static final void method2674() {
-      TcpConnectionMessage var0 = class232.method4535(ClientProt.field2265, Client.serverConnection.isaac);
-      Client.serverConnection.method18(var0);
+      TcpConnectionMessage var0 = class232.method4535(ClientProt.field2265, client.serverConnection.isaac);
+      client.serverConnection.method18(var0);
 
-      for(SubInterface var1 = (SubInterface)Client.subInterfaces.method6338(); var1 != null; var1 = (SubInterface)Client.subInterfaces.method6339()) {
+      for(SubInterface var1 = (SubInterface) client.subInterfaces.method6338(); var1 != null; var1 = (SubInterface) client.subInterfaces.method6339()) {
          if(var1.mode == 0 || var1.mode == 3) {
             Overlay.method6405(var1, true);
          }
       }
 
-      if(Client.field793 != null) {
-         WorldMapRegion.method5554(Client.field793);
-         Client.field793 = null;
+      if(client.field793 != null) {
+         WorldMapRegion.method5554(client.field793);
+         client.field793 = null;
       }
 
    }

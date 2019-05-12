@@ -295,7 +295,7 @@ public final class GroundObject implements RSGroundObject {
                      var16 -= class91.field513[var19];
                   }
 
-                  if(var17 >= 1 && var17 < 103 && (!Client.lowMemory || (class91.tileSettings[0][var11][var17] & 2) != 0 || (class91.tileSettings[var2][var11][var17] & 16) == 0)) {
+                  if(var17 >= 1 && var17 < 103 && (!client.lowMemory || (class91.tileSettings[0][var11][var17] & 2) != 0 || (class91.tileSettings[var2][var11][var17] & 16) == 0)) {
                      if(var2 < class91.field506) {
                         class91.field506 = var2;
                      }
@@ -641,8 +641,8 @@ public final class GroundObject implements RSGroundObject {
       garbageValue = "-54"
    )
    static void method4108(World var0) {
-      if(var0.method4949() != Client.isMembers) {
-         Client.isMembers = var0.method4949();
+      if(var0.method4949() != client.isMembers) {
+         client.isMembers = var0.method4949();
          boolean var1 = var0.method4949();
          if(var1 != ObjType.isMembersWorld) {
             ParamType.method623();
@@ -651,10 +651,10 @@ public final class GroundObject implements RSGroundObject {
       }
 
       class135.host = var0.address;
-      Client.world = var0.id;
-      Client.flags = var0.mask;
-      class323.port1 = Client.socketType == 0?43594:var0.id + 40000;
-      class54.port2 = Client.socketType == 0?443:var0.id + 50000;
+      client.world = var0.id;
+      client.flags = var0.mask;
+      class323.port1 = client.socketType == 0?43594:var0.id + 40000;
+      class54.port2 = client.socketType == 0?443:var0.id + 50000;
       GameSocket.myWorldPort = class323.port1;
    }
 }

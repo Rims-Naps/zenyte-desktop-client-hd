@@ -62,7 +62,7 @@ public enum AuthProt implements Enumerated {
    )
    static final void method6377(boolean var0) {
       if(var0) {
-         Client.field914 = class203.field1182?field1985:field1983;
+         client.field914 = class203.field1182?field1985:field1983;
       } else {
          LinkedHashMap var1 = class312.options.authRememberTokens;
          String var3 = class203.username;
@@ -73,7 +73,7 @@ public enum AuthProt implements Enumerated {
             var5 = (var5 << 5) - var5 + var3.charAt(var6);
          }
 
-         Client.field914 = var1.containsKey(Integer.valueOf(var5))?field1981:field1982;
+         client.field914 = var1.containsKey(Integer.valueOf(var5))?field1981:field1982;
       }
 
    }

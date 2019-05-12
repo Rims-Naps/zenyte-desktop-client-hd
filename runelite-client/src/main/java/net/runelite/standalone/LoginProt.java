@@ -94,7 +94,7 @@ public class LoginProt implements class291 {
          byte[] var4 = var0.method4135("title.jpg", "");
          class302.leftBackground = class331.method6416(var4);
          //class203.rightBackground = class302.leftBackground.method1300();
-         if((Client.flags & 536870912) != 0) {
+         if((client.flags & 536870912) != 0) {
             class203.logoSprite = WorldMapRegion.method5496(var1, "logo_deadman_mode", "");
          } else {
             class203.logoSprite = WorldMapRegion.method5496(var1, "logo", "");
@@ -173,7 +173,7 @@ public class LoginProt implements class291 {
          WorldMapType3.field146 = new int['耀'];
          if(var2) {
             class203.username = "";
-            Client.onUsernameChanged(-1);
+            client.onUsernameChanged(-1);
             class203.password = "";
          }
 

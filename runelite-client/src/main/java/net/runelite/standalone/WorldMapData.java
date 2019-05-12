@@ -381,7 +381,7 @@ public class WorldMapData implements RSWorldMapData {
    )
    static int method1716(int var0, class314 var1, boolean var2) {
       if(var0 == 5630) {
-         Client.field695 = 250;
+         client.field695 = 250;
          return 1;
       } else {
          return 2;

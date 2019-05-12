@@ -59,21 +59,21 @@ public class WorldMapDecoration {
       garbageValue = "2091066043"
    )
    static void method2084(Sequence var0, int var1, int var2, int var3) {
-      if(Client.queuedSoundEffectCount < 50 && Client.field886 != 0) {
+      if(client.queuedSoundEffectCount < 50 && client.field886 != 0) {
          if(var0.field3628 != null && var1 < var0.field3628.length) {
             int var4 = var0.field3628[var1];
             if(var4 != 0) {
                int var5 = var4 >> 8;
                int var6 = var4 >> 4 & 7;
                int var7 = var4 & 15;
-               Client.queuedSoundEffectIDs[Client.queuedSoundEffectCount] = var5;
-               Client.unknownSoundValues1[Client.queuedSoundEffectCount] = var6;
-               Client.unknownSoundValues2[Client.queuedSoundEffectCount] = 0;
-               Client.audioEffects[Client.queuedSoundEffectCount] = null;
+               client.queuedSoundEffectIDs[client.queuedSoundEffectCount] = var5;
+               client.unknownSoundValues1[client.queuedSoundEffectCount] = var6;
+               client.unknownSoundValues2[client.queuedSoundEffectCount] = 0;
+               client.audioEffects[client.queuedSoundEffectCount] = null;
                int var8 = (var2 - 64) / 128;
                int var9 = (var3 - 64) / 128;
-               Client.soundLocations[Client.queuedSoundEffectCount] = var7 + (var9 << 8) + (var8 << 16);
-               ++Client.queuedSoundEffectCount;
+               client.soundLocations[client.queuedSoundEffectCount] = var7 + (var9 << 8) + (var8 << 16);
+               ++client.queuedSoundEffectCount;
             }
          }
       }

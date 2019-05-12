@@ -34,7 +34,7 @@ public class class253 extends class26 {
       garbageValue = "1648545588"
    )
    static final void method4728(int var0, int var1, int var2, int var3, int var4, int var5, SceneManager var6, CollisionData var7) {
-      if(!Client.lowMemory || (class91.tileSettings[0][var1][var2] & 2) != 0 || (class91.tileSettings[var0][var1][var2] & 16) == 0) {
+      if(!client.lowMemory || (class91.tileSettings[0][var1][var2] & 2) != 0 || (class91.tileSettings[var0][var1][var2] & 16) == 0) {
          if(var0 < class91.field506) {
             class91.field506 = var0;
          }
@@ -86,7 +86,7 @@ public class class253 extends class26 {
 
          Object var22;
          if(var5 == 22) {
-            if(!Client.lowMemory || var8.field3471 != 0 || var8.clipType == 1 || var8.obstructsGround) {
+            if(!client.lowMemory || var8.field3471 != 0 || var8.clipType == 1 || var8.obstructsGround) {
                if(var8.animationId == -1 && var8.multiLocs == null) {
                   var22 = var8.method387(22, var4, var15, var17, var16, var18);
                } else {

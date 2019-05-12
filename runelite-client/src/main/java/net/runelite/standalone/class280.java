@@ -36,21 +36,21 @@ public class class280 implements Comparator {
       garbageValue = "2133455997"
    )
    static boolean method5703(PlayerEntity var0) {
-      if(Client.playerNameMask == 0) {
+      if(client.playerNameMask == 0) {
          return false;
       } else {
          boolean var1;
          if(class71.localPlayer != var0) {
-            var1 = (Client.playerNameMask & 4) != 0;
+            var1 = (client.playerNameMask & 4) != 0;
             boolean var2 = var1;
             if(!var1) {
-               boolean var3 = (Client.playerNameMask & 1) != 0;
+               boolean var3 = (client.playerNameMask & 1) != 0;
                var2 = var3 && var0.method6002();
             }
 
             return var2 || class129.method1897() && var0.method6025();
          } else {
-            var1 = (Client.playerNameMask & 8) != 0;
+            var1 = (client.playerNameMask & 8) != 0;
             return var1;
          }
       }

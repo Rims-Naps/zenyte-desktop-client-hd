@@ -68,7 +68,7 @@ public class FriendManager implements RSFriendManager {
       garbageValue = "2"
    )
    final boolean method2341() {
-      return this.friendContainer.method5323() || this.friendContainer.method5322() >= 200 && Client.field767 != 1;
+      return this.friendContainer.method5323() || this.friendContainer.method5322() >= 200 && client.field767 != 1;
    }
 
    @ObfuscatedName("v")
@@ -77,7 +77,7 @@ public class FriendManager implements RSFriendManager {
       garbageValue = "-1669991055"
    )
    final boolean method2351() {
-      return this.ignoreContainer.method5323() || this.ignoreContainer.method5322() >= 100 && Client.field767 != 1;
+      return this.ignoreContainer.method5323() || this.ignoreContainer.method5322() >= 100 && client.field767 != 1;
    }
 
    @ObfuscatedName("x")
@@ -153,10 +153,10 @@ public class FriendManager implements RSFriendManager {
             } else if(this.method2347(var2, false)) {
                class181.method3044(var1);
             } else {
-               TcpConnectionMessage var3 = class232.method4535(ClientProt.field2309, Client.serverConnection.isaac);
+               TcpConnectionMessage var3 = class232.method4535(ClientProt.field2309, client.serverConnection.isaac);
                var3.packetBuffer.writeByte(OwnWorldComparator.method73(var1));
                var3.packetBuffer.method5077(var1);
-               Client.serverConnection.method18(var3);
+               client.serverConnection.method18(var3);
             }
          }
       }
@@ -183,14 +183,14 @@ public class FriendManager implements RSFriendManager {
          if(var2.method1532()) {
             if(this.friendContainer.method5328(var2)) {
                WorldMapType2.method3089();
-               TcpConnectionMessage var3 = class232.method4535(ClientProt.field2273, Client.serverConnection.isaac);
+               TcpConnectionMessage var3 = class232.method4535(ClientProt.field2273, client.serverConnection.isaac);
                var3.packetBuffer.writeByte(OwnWorldComparator.method73(var1));
                var3.packetBuffer.method5077(var1);
-               Client.serverConnection.method18(var3);
+               client.serverConnection.method18(var3);
             }
 
             for(int var5 = 0; var5 < PlayerList.highResolutionPlayerCount; ++var5) {
-               PlayerEntity var4 = Client.players[PlayerList.highResolutionPlayerIndexes[var5]];
+               PlayerEntity var4 = client.players[PlayerList.highResolutionPlayerIndexes[var5]];
                var4.method6023();
             }
 
@@ -250,10 +250,10 @@ public class FriendManager implements RSFriendManager {
          if(var2.method1532()) {
             if(this.ignoreContainer.method5328(var2)) {
                WorldMapType2.method3089();
-               TcpConnectionMessage var3 = class232.method4535(ClientProt.field2247, Client.serverConnection.isaac);
+               TcpConnectionMessage var3 = class232.method4535(ClientProt.field2247, client.serverConnection.isaac);
                var3.packetBuffer.writeByte(OwnWorldComparator.method73(var1));
                var3.packetBuffer.method5077(var1);
-               Client.serverConnection.method18(var3);
+               client.serverConnection.method18(var3);
             }
 
             class333.method6434();
@@ -291,7 +291,7 @@ public class FriendManager implements RSFriendManager {
       this.state = 2;
 
       for(int var3 = 0; var3 < PlayerList.highResolutionPlayerCount; ++var3) {
-         PlayerEntity var4 = Client.players[PlayerList.highResolutionPlayerIndexes[var3]];
+         PlayerEntity var4 = client.players[PlayerList.highResolutionPlayerIndexes[var3]];
          var4.method6023();
       }
 
@@ -354,7 +354,7 @@ public class FriendManager implements RSFriendManager {
 
       int var3;
       int var4;
-      for(var3 = 0; var3 < Client.menuOptionCount; ++var3) {
+      for(var3 = 0; var3 < client.menuOptionCount; ++var3) {
          var4 = class191.fontBold12.method6160(MilliTimer.method1071(var3));
          if(var4 > var2) {
             var2 = var4;
@@ -362,7 +362,7 @@ public class FriendManager implements RSFriendManager {
       }
 
       var2 += 8;
-      var3 = Client.menuOptionCount * 15 + 22;
+      var3 = client.menuOptionCount * 15 + 22;
       var4 = var0 - var2 / 2;
       if(var2 + var4 > GrandExchangeOffer.canvasWidth) {
          var4 = GrandExchangeOffer.canvasWidth - var2;
@@ -384,6 +384,6 @@ public class FriendManager implements RSFriendManager {
       class181.menuX = var4;
       TotalQuantityComparator.menuY = var5;
       class302.field3309 = var2;
-      class288.field1949 = Client.menuOptionCount * 15 + 22;
+      class288.field1949 = client.menuOptionCount * 15 + 22;
    }
 }

@@ -38,6 +38,6 @@ public class class205 {
       garbageValue = "116"
    )
    static void method4005(boolean var0) {
-      Client.field796 = var0;
+      client.field796 = var0;
    }
 }

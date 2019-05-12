@@ -213,18 +213,18 @@ public class WorldMapType3 implements WorldMapSectionBase {
       }
 
       if(var0.equalsIgnoreCase("displayfps")) {
-         Client.displayFps = !Client.displayFps;
+         client.displayFps = !client.displayFps;
       }
 
       if(var0.equalsIgnoreCase("renderself")) {
-         Client.field768 = !Client.field768;
+         client.field768 = !client.field768;
       }
 
       if(var0.equalsIgnoreCase("mouseovertext")) {
-         Client.field699 = !Client.field699;
+         client.field699 = !client.field699;
       }
 
-      if(Client.staffModLevel >= 2) {
+      if(client.staffModLevel >= 2) {
          if(var0.equalsIgnoreCase("errortest")) {
             throw new RuntimeException();
          }
@@ -234,11 +234,11 @@ public class WorldMapType3 implements WorldMapSectionBase {
          }
 
          if(var0.equalsIgnoreCase("fpson")) {
-            Client.displayFps = true;
+            client.displayFps = true;
          }
 
          if(var0.equalsIgnoreCase("fpsoff")) {
-            Client.displayFps = false;
+            client.displayFps = false;
          }
 
          if(var0.equalsIgnoreCase("gc")) {
@@ -250,10 +250,10 @@ public class WorldMapType3 implements WorldMapSectionBase {
          }
       }
 
-      TcpConnectionMessage var1 = class232.method4535(ClientProt.field2279, Client.serverConnection.isaac);
+      TcpConnectionMessage var1 = class232.method4535(ClientProt.field2279, client.serverConnection.isaac);
       var1.packetBuffer.writeByte(var0.length() + 1);
       var1.packetBuffer.method5077(var0);
-      Client.serverConnection.method18(var1);
+      client.serverConnection.method18(var1);
    }
 
    @ObfuscatedName("gw")
@@ -266,8 +266,8 @@ public class WorldMapType3 implements WorldMapSectionBase {
       int[] var1 = PlayerList.highResolutionPlayerIndexes;
 
       for(int var2 = 0; var2 < var0; ++var2) {
-         if(var1[var2] != Client.field776 && var1[var2] != Client.localPlayerIndex) {
-            class82.method1102(Client.players[var1[var2]], true);
+         if(var1[var2] != client.field776 && var1[var2] != client.localPlayerIndex) {
+            class82.method1102(client.players[var1[var2]], true);
          }
       }
 

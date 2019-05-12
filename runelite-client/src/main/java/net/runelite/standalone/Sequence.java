@@ -560,7 +560,7 @@ public class Sequence extends CacheableNode implements RSSequence {
                }
 
                var11 = var0.method5269();
-               var2.method2452(var7, var9, var8, var10, Client.gameCycle, var11);
+               var2.method2452(var7, var9, var8, var10, client.gameCycle, var11);
             }
          }
 
@@ -573,7 +573,7 @@ public class Sequence extends CacheableNode implements RSSequence {
                   var10 = var0.method5269();
                   var11 = var0.method5115();
                   var12 = var9 > 0?var0.readUnsignedByte():var11;
-                  var2.method2456(var8, Client.gameCycle, var9, var10, var11, var12);
+                  var2.method2456(var8, client.gameCycle, var9, var10, var11, var12);
                } else {
                   var2.method2457(var8);
                }
@@ -586,10 +586,10 @@ public class Sequence extends CacheableNode implements RSSequence {
          var2.graphicChanged(-1);
          var5 = var0.method5133();
          var2.field992 = var5 >> 16;
-         var2.graphicsDelay = (var5 & 65535) + Client.gameCycle;
+         var2.graphicsDelay = (var5 & 65535) + client.gameCycle;
          var2.spotAnimFrame = 0;
          var2.spotAnimFrameCycle = 0;
-         if(var2.graphicsDelay > Client.gameCycle) {
+         if(var2.graphicsDelay > client.gameCycle) {
             var2.spotAnimFrame = -1;
          }
 
@@ -608,8 +608,8 @@ public class Sequence extends CacheableNode implements RSSequence {
          var2.field983 = var0.method5118();
          var2.field943 = var0.method5118();
          var2.field984 = var0.method5120();
-         var2.field985 = var0.method5125() + Client.gameCycle;
-         var2.field986 = var0.method5309() + Client.gameCycle;
+         var2.field985 = var0.method5125() + client.gameCycle;
+         var2.field986 = var0.method5309() + client.gameCycle;
          var2.field987 = var0.readUnsignedShort();
          if(var2.field635) {
             var2.field981 += var2.xInScene;
@@ -687,7 +687,7 @@ public class Sequence extends CacheableNode implements RSSequence {
                var18 = true;
             }
 
-            if(!var18 && Client.field763 == 0 && !var2.hidden) {
+            if(!var18 && client.field763 == 0 && !var2.hidden) {
                PlayerList.messageBuffer.offset = 0;
                var0.method5098(PlayerList.messageBuffer.payload, 0, var8);
                PlayerList.messageBuffer.offset = 0;
@@ -698,7 +698,7 @@ public class Sequence extends CacheableNode implements RSSequence {
                var2.field957 = var5 & 255;
                var2.overheadTextCyclesRemaining = 150;
                var2.field953 = var17;
-               var2.overheadFiltered = var2 != class71.localPlayer && var19.ignorable && "" != Client.field789 && var15.toLowerCase().indexOf(Client.field789) == -1;
+               var2.overheadFiltered = var2 != class71.localPlayer && var19.ignorable && "" != client.field789 && var15.toLowerCase().indexOf(client.field789) == -1;
                if(var19.moderator) {
                   var12 = var17?91:1;
                } else {

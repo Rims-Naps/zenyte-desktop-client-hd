@@ -101,7 +101,7 @@ final class class312 implements class143 {
       ChatLine var5 = var4.method4816(var0, var1, var2, var3);
       ChatHistory.messages.method2186(var5, (long)var5.id);
       ChatHistory.field1261.method4672(var5);
-      Client.chatCycle = Client.cycleCntr;
-      Client.onAddChatMessage(var0, var1, var2, var3);
+      client.chatCycle = client.cycleCntr;
+      client.onAddChatMessage(var0, var1, var2, var3);
    }
 }

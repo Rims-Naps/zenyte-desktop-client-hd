@@ -48,7 +48,7 @@ public class class82 {
    static void method1102(PlayerEntity var0, boolean var1) {
       if(var0 != null && var0.vmethod6005() && !var0.hidden) {
          var0.isLowDetail = false;
-         if((Client.lowMemory && PlayerList.highResolutionPlayerCount > 50 || PlayerList.highResolutionPlayerCount > 200) && var1 && var0.poseAnimation == var0.idlePoseAnimation) {
+         if((client.lowMemory && PlayerList.highResolutionPlayerCount > 50 || PlayerList.highResolutionPlayerCount > 200) && var1 && var0.poseAnimation == var0.idlePoseAnimation) {
             var0.isLowDetail = true;
          }
 
@@ -56,22 +56,22 @@ public class class82 {
          int var3 = var0.y >> 7;
          if(var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
             long var4 = ChatHistory.method6263(0, 0, 0, false, var0.playerId);
-            if(var0.model != null && Client.gameCycle >= var0.animationCycleStart && Client.gameCycle < var0.animationCycleEnd) {
+            if(var0.model != null && client.gameCycle >= var0.animationCycleStart && client.gameCycle < var0.animationCycleEnd) {
                var0.isLowDetail = false;
                var0.field633 = TcpConnectionMessage.method5618(var0.x * -1234429701, var0.y, ServerProt.level);
-               var0.field960 = Client.gameCycle;
+               var0.field960 = client.gameCycle;
                class312.sceneManager.method3783(ServerProt.level, var0.x * -1234429701, var0.y, var0.field633, 60, var0, var0.angle, var4, var0.field630, var0.field625, var0.field626, var0.field628);
             } else {
                if((var0.x * -1234429701 & 127) == 64 && (var0.y & 127) == 64) {
-                  if(Client.field746[var2][var3] == Client.field907) {
+                  if(client.field746[var2][var3] == client.field907) {
                      return;
                   }
 
-                  Client.field746[var2][var3] = Client.field907;
+                  client.field746[var2][var3] = client.field907;
                }
 
                var0.field633 = TcpConnectionMessage.method5618(var0.x * -1234429701, var0.y, ServerProt.level);
-               var0.field960 = Client.gameCycle;
+               var0.field960 = client.gameCycle;
                class312.sceneManager.method3754(ServerProt.level, var0.x * -1234429701, var0.y, var0.field633, 60, var0, var0.angle, var4, var0.field941);
             }
          }

@@ -1010,7 +1010,7 @@ public class Packet extends Node implements RSBuffer {
       }
 
       CacheFile.method5601();
-      if(Client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
+      if(client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
          class203.currentLoginField = 1;
       } else {
          class203.currentLoginField = 0;

@@ -44,7 +44,7 @@ public class class266 extends class133 {
 
       var6 <<= var4;
       class313.clientVarps[var3] = class313.clientVarps[var3] & ~var6 | var1 << var4 & var6;
-      Client.settingsChanged(var3);
+      client.settingsChanged(var3);
    }
 
    @ObfuscatedName("ab")

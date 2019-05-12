@@ -213,12 +213,12 @@ public class GrandExchangeOffer implements RSGrandExchangeOffer {
    )
    static void method1734() {
       TotalQuantityComparator.method1112();
-      Client.menuOptions[0] = "Cancel";
-      Client.menuTargets[0] = "";
-      Client.menuTypes[0] = 1006;
-      Client.menuBooleanArray[0] = false;
-      Client.menuOptionCount = 1;
-      Client.onMenuOptionsChanged(-1);
+      client.menuOptions[0] = "Cancel";
+      client.menuTargets[0] = "";
+      client.menuTypes[0] = 1006;
+      client.menuBooleanArray[0] = false;
+      client.menuOptionCount = 1;
+      client.onMenuOptionsChanged(-1);
    }
 
    @ObfuscatedName("s")

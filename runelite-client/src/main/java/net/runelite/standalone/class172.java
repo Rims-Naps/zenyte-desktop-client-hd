@@ -114,7 +114,7 @@ public class class172 extends MapIcon {
       garbageValue = "946517733"
    )
    static final void method2695(int var0, int var1, int var2, int var3) {
-      if(Client.itemSelectionState == 0 && !Client.spellSelected) {
+      if(client.itemSelectionState == 0 && !client.spellSelected) {
          class290.method5964("Walk here", "", 23, 0, var0 - var2, var1 - var3);
       }
 
@@ -128,8 +128,8 @@ public class class172 extends MapIcon {
             if(-1L != var4) {
                var8 = (int)(var4 >>> 0 & 127L);
                var10 = (int)(var4 >>> 7 & 127L);
-               PlayerEntity var12 = Client.players[Client.field776];
-               class95.method1263(var12, Client.field776, var8, var10);
+               PlayerEntity var12 = client.players[client.field776];
+               class95.method1263(var12, client.field776, var8, var10);
             }
 
             return;
@@ -155,11 +155,11 @@ public class class172 extends MapIcon {
                      break label325;
                   }
 
-                  if(Client.itemSelectionState == 1) {
-                     class290.method5964("Use", Client.lastSelectedItemName + " " + "->" + " " + class308.method6152(65535) + var18.name, 1, var17, var14, var26);
-                  } else if(Client.spellSelected) {
+                  if(client.itemSelectionState == 1) {
+                     class290.method5964("Use", client.lastSelectedItemName + " " + "->" + " " + class308.method6152(65535) + var18.name, 1, var17, var14, var26);
+                  } else if(client.spellSelected) {
                      if((class240.ifTargetMask & 4) == 4) {
-                        class290.method5964(Client.targetVerb, Client.opBase + " " + "->" + " " + class308.method6152(65535) + var18.name, 2, var17, var14, var26);
+                        class290.method5964(client.targetVerb, client.opBase + " " + "->" + " " + class308.method6152(65535) + var18.name, 2, var17, var14, var26);
                      }
                   } else {
                      String[] var27 = var18.actions;
@@ -202,16 +202,16 @@ public class class172 extends MapIcon {
                int[] var34;
                int var36;
                if(var16 == 1) {
-                  NPCEntity var31 = Client.npcs[var17];
+                  NPCEntity var31 = client.npcs[var17];
                   if(var31 == null) {
                      break label325;
                   }
 
                   if(var31.type.size == 1 && (var31.x * -1234429701 & 127) == 64 && (var31.y & 127) == 64) {
-                     for(var19 = 0; var19 < Client.highResolutionNpcCount; ++var19) {
-                        var20 = Client.npcs[Client.highResolutionNpcIndexes[var19]];
+                     for(var19 = 0; var19 < client.highResolutionNpcCount; ++var19) {
+                        var20 = client.npcs[client.highResolutionNpcIndexes[var19]];
                         if(var20 != null && var20 != var31 && var20.type.size == 1 && var31.x * -1234429701 == var20.x * -1234429701 && var20.y == var31.y) {
-                           WorldMapType2.method3094(var20.type, Client.highResolutionNpcIndexes[var19], var14, var26);
+                           WorldMapType2.method3094(var20.type, client.highResolutionNpcIndexes[var19], var14, var26);
                         }
                      }
 
@@ -219,7 +219,7 @@ public class class172 extends MapIcon {
                      var34 = PlayerList.highResolutionPlayerIndexes;
 
                      for(var36 = 0; var36 < var19; ++var36) {
-                        var22 = Client.players[var34[var36]];
+                        var22 = client.players[var34[var36]];
                         if(var22 != null && var31.x * -1234429701 == var22.x * -1234429701 && var31.y == var22.y) {
                            class95.method1263(var22, var34[var36], var14, var26);
                         }
@@ -230,16 +230,16 @@ public class class172 extends MapIcon {
                }
 
                if(var16 == 0) {
-                  PlayerEntity var32 = Client.players[var17];
+                  PlayerEntity var32 = client.players[var17];
                   if(var32 == null) {
                      break label325;
                   }
 
                   if((var32.x * -1234429701 & 127) == 64 && (var32.y & 127) == 64) {
-                     for(var19 = 0; var19 < Client.highResolutionNpcCount; ++var19) {
-                        var20 = Client.npcs[Client.highResolutionNpcIndexes[var19]];
+                     for(var19 = 0; var19 < client.highResolutionNpcCount; ++var19) {
+                        var20 = client.npcs[client.highResolutionNpcIndexes[var19]];
                         if(var20 != null && var20.type.size == 1 && var32.x * -1234429701 == var20.x * -1234429701 && var32.y == var20.y) {
-                           WorldMapType2.method3094(var20.type, Client.highResolutionNpcIndexes[var19], var14, var26);
+                           WorldMapType2.method3094(var20.type, client.highResolutionNpcIndexes[var19], var14, var26);
                         }
                      }
 
@@ -247,14 +247,14 @@ public class class172 extends MapIcon {
                      var34 = PlayerList.highResolutionPlayerIndexes;
 
                      for(var36 = 0; var36 < var19; ++var36) {
-                        var22 = Client.players[var34[var36]];
+                        var22 = client.players[var34[var36]];
                         if(var22 != null && var22 != var32 && var22.x * -1234429701 == var32.x * -1234429701 && var32.y == var22.y) {
                            class95.method1263(var22, var34[var36], var14, var26);
                         }
                      }
                   }
 
-                  if(var17 != Client.field776) {
+                  if(var17 != client.field776) {
                      class95.method1263(var32, var17, var14, var26);
                   } else {
                      var4 = var24;
@@ -262,15 +262,15 @@ public class class172 extends MapIcon {
                }
 
                if(var16 == 3) {
-                  Deque var33 = Client.groundItemDeque[ServerProt.level][var14][var26];
+                  Deque var33 = client.groundItemDeque[ServerProt.level][var14][var26];
                   if(var33 != null) {
                      for(Item var37 = (Item)var33.method3912(); var37 != null; var37 = (Item)var33.method3929()) {
                         ObjType var35 = class79.method1074(var37.id);
-                        if(Client.itemSelectionState == 1) {
-                           class290.method5964("Use", Client.lastSelectedItemName + " " + "->" + " " + class308.method6152(16748608) + var35.name, 16, var37.id, var14, var26);
-                        } else if(Client.spellSelected) {
+                        if(client.itemSelectionState == 1) {
+                           class290.method5964("Use", client.lastSelectedItemName + " " + "->" + " " + class308.method6152(16748608) + var35.name, 16, var37.id, var14, var26);
+                        } else if(client.spellSelected) {
                            if((class240.ifTargetMask & 1) == 1) {
-                              class290.method5964(Client.targetVerb, Client.opBase + " " + "->" + " " + class308.method6152(16748608) + var35.name, 17, var37.id, var14, var26);
+                              class290.method5964(client.targetVerb, client.opBase + " " + "->" + " " + class308.method6152(16748608) + var35.name, 17, var37.id, var14, var26);
                            }
                         } else {
                            String[] var29 = var35.ops;

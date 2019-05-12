@@ -539,10 +539,10 @@ public class class64 extends Node {
       garbageValue = "77830172"
    )
    static final void method949(int var0, int var1) {
-      if(Client.hintArrowTargetType == 2) {
-         class75.method1048((Client.hintArrowX - class53.baseX << 7) + Client.hintArrowOffsetX, (Client.hintArrowY - class312.baseY << 7) + Client.hintArrowOffsetY, Client.field877 * 2);
-         if(Client.screenX > -1 && Client.gameCycle % 20 < 10) {
-            WorldMapDecoration.headIconsHint[0].method1311(var0 + Client.screenX - 12, Client.screenY + var1 - 28);
+      if(client.hintArrowTargetType == 2) {
+         class75.method1048((client.hintArrowX - class53.baseX << 7) + client.hintArrowOffsetX, (client.hintArrowY - class312.baseY << 7) + client.hintArrowOffsetY, client.field877 * 2);
+         if(client.screenX > -1 && client.gameCycle % 20 < 10) {
+            WorldMapDecoration.headIconsHint[0].method1311(var0 + client.screenX - 12, client.screenY + var1 - 28);
          }
 
       }

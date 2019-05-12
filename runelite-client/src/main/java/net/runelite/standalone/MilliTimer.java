@@ -121,7 +121,7 @@ public class MilliTimer extends Timer {
       garbageValue = "424482690"
    )
    static String method1071(int var0) {
-      return var0 < 0?"":(Client.menuTargets[var0].length() > 0?Client.menuOptions[var0] + " " + Client.menuTargets[var0]:Client.menuOptions[var0]);
+      return var0 < 0?"":(client.menuTargets[var0].length() > 0? client.menuOptions[var0] + " " + client.menuTargets[var0]: client.menuOptions[var0]);
    }
 
    @ObfuscatedName("a")
@@ -158,11 +158,11 @@ public class MilliTimer extends Timer {
             PlayerList.extendedInfoPlayerIndexes[++PlayerList.extendedInfoPlayerCount - 1] = var1;
          }
 
-         if(Client.players[var1] != null) {
+         if(client.players[var1] != null) {
             throw new RuntimeException();
          } else {
-            PlayerEntity var10000 = Client.players[var1] = new PlayerEntity();
-            Client.cachedPlayersChanged(var1);
+            PlayerEntity var10000 = client.players[var1] = new PlayerEntity();
+            client.cachedPlayersChanged(var1);
             PlayerEntity var6 = var10000;
             var6.playerId = var1;
             if(PlayerList.appearances[var1] != null) {

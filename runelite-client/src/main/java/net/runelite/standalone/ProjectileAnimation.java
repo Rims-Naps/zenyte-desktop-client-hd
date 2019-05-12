@@ -383,7 +383,7 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
             var3 = var3 + "; Expires=" + class285.method5886(class318.method6317() + 94608000000L) + "; Max-Age=" + 94608000L;
          }
 
-         Client var4 = ItemContainer.clientInstance;
+         client var4 = ItemContainer.clientInstance;
          String var5 = "document.cookie=\"" + var3 + "\"";
          JSObject.getWindow(var4).eval(var5);
       } catch (Throwable var6) {

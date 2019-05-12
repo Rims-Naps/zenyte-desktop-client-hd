@@ -209,18 +209,18 @@ public class GameSocket implements Runnable {
          class281.intStackSize -= 2;
          var3 = class281.intStack[class281.intStackSize];
          int var4 = class281.intStack[class281.intStackSize + 1];
-         if(!Client.field893) {
-            Client.cameraPitchTarget = var3;
-            Client.onCameraPitchTargetChanged(-1);
-            Client.mapAngle = var4;
+         if(!client.field893) {
+            client.cameraPitchTarget = var3;
+            client.onCameraPitchTargetChanged(-1);
+            client.mapAngle = var4;
          }
 
          return 1;
       } else if(var0 == 5505) {
-         class281.intStack[++class281.intStackSize - 1] = Client.cameraPitchTarget;
+         class281.intStack[++class281.intStackSize - 1] = client.cameraPitchTarget;
          return 1;
       } else if(var0 == 5506) {
-         class281.intStack[++class281.intStackSize - 1] = Client.mapAngle;
+         class281.intStack[++class281.intStackSize - 1] = client.mapAngle;
          return 1;
       } else if(var0 == 5530) {
          var3 = class281.intStack[--class281.intStackSize];
@@ -228,10 +228,10 @@ public class GameSocket implements Runnable {
             var3 = 0;
          }
 
-         Client.field724 = var3;
+         client.field724 = var3;
          return 1;
       } else if(var0 == 5531) {
-         class281.intStack[++class281.intStackSize - 1] = Client.field724;
+         class281.intStack[++class281.intStackSize - 1] = client.field724;
          return 1;
       } else {
          return 2;

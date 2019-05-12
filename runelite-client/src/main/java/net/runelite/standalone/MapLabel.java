@@ -69,7 +69,7 @@ public class MapLabel {
       } else if(var0 == 5) {
          class203.field1172 = 2;
          TextureProvider.method1169("Your account has not logged out from its last", "session or the server is too busy right now.", "Please try again in a few minutes.");
-      } else if(var0 == 68 || !Client.field656 && var0 == 6) {
+      } else if(var0 == 68 || !client.field656 && var0 == 6) {
          TextureProvider.method1169("Zenyte has been updated!", "Please reload this page.", "");
       } else if(var0 == 7) {
          TextureProvider.method1169("This world is full.", "Please use a different world.", "");
@@ -154,9 +154,9 @@ public class MapLabel {
    )
    static final void method2856(Bit var0) {
       var0.method2663();
-      int var1 = Client.localPlayerIndex;
-      PlayerEntity var10000 = Client.players[var1] = new PlayerEntity();
-      Client.cachedPlayersChanged(var1);
+      int var1 = client.localPlayerIndex;
+      PlayerEntity var10000 = client.players[var1] = new PlayerEntity();
+      client.cachedPlayersChanged(var1);
       class71.localPlayer = var10000;
       PlayerEntity var2 = var10000;
       var2.playerId = var1;
@@ -201,8 +201,8 @@ public class MapLabel {
       garbageValue = "1082843241"
    )
    static final void method2855(ComponentType var0, int var1, int var2) {
-      if(Client.minimapRenderType == 0 || Client.minimapRenderType == 3) {
-         if(!Client.isMenuOpen && (MouseInput.mouseLastButton == 1 || !TextureProvider.middleMouseMovesCamera && MouseInput.mouseLastButton == 4)) {
+      if(client.minimapRenderType == 0 || client.minimapRenderType == 3) {
+         if(!client.isMenuOpen && (MouseInput.mouseLastButton == 1 || !TextureProvider.middleMouseMovesCamera && MouseInput.mouseLastButton == 4)) {
             class186 var3 = var0.method5675(true);
             if(var3 == null) {
                return;
@@ -213,21 +213,21 @@ public class MapLabel {
             if(var3.method3566(var4, var5)) {
                var4 -= var3.field2641 / 2;
                var5 -= var3.field2640 / 2;
-               int var6 = Client.mapAngle & 2047;
+               int var6 = client.mapAngle & 2047;
                int var7 = Graphics3D.SINE[var6];
                int var8 = Graphics3D.COSINE[var6];
                int var9 = var5 * var7 + var8 * var4 >> 11;
                int var10 = var5 * var8 - var7 * var4 >> 11;
                int var11 = class71.localPlayer.x * -1234429701 + var9 >> 7;
                int var12 = class71.localPlayer.y - var10 >> 7;
-               TcpConnectionMessage var13 = class232.method4535(ClientProt.field2271, Client.serverConnection.isaac);
+               TcpConnectionMessage var13 = class232.method4535(ClientProt.field2271, client.serverConnection.isaac);
                var13.packetBuffer.writeByte(18);
                var13.packetBuffer.method5122(var12 + class312.baseY);
                var13.packetBuffer.method5122(var11 + class53.baseX);
                var13.packetBuffer.method5112(KeyFocusListener.keyPressed[82]?(KeyFocusListener.keyPressed[81]?2:1):0);
                var13.packetBuffer.writeByte(var4);
                var13.packetBuffer.writeByte(var5);
-               var13.packetBuffer.writeShort(Client.mapAngle);
+               var13.packetBuffer.writeShort(client.mapAngle);
                var13.packetBuffer.writeByte(57);
                var13.packetBuffer.writeByte(0);
                var13.packetBuffer.writeByte(0);
@@ -235,9 +235,9 @@ public class MapLabel {
                var13.packetBuffer.writeShort(class71.localPlayer.x * -1234429701);
                var13.packetBuffer.writeShort(class71.localPlayer.y);
                var13.packetBuffer.writeByte(63);
-               Client.serverConnection.method18(var13);
-               Client.destinationX = var11;
-               Client.destinationY = var12;
+               client.serverConnection.method18(var13);
+               client.destinationX = var11;
+               client.destinationY = var12;
             }
          }
 

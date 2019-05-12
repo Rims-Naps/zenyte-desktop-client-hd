@@ -28,11 +28,11 @@ public class OwnWorldComparator implements Comparator {
          return 0;
       } else {
          if(this.field641) {
-            if(Client.world == var1.world) {
+            if(client.world == var1.world) {
                return -1;
             }
 
-            if(var2.world == Client.world) {
+            if(var2.world == client.world) {
                return 1;
             }
          }
@@ -55,19 +55,19 @@ public class OwnWorldComparator implements Comparator {
       garbageValue = "-1026205356"
    )
    static final void method69() {
-      Client.field763 = 0;
+      client.field763 = 0;
       int var0 = (class71.localPlayer.x * -1234429701 >> 7) + class53.baseX;
       int var1 = (class71.localPlayer.y >> 7) + class312.baseY;
       if(var0 >= 3053 && var0 <= 3156 && var1 >= 3056 && var1 <= 3136) {
-         Client.field763 = 1;
+         client.field763 = 1;
       }
 
       if(var0 >= 3072 && var0 <= 3118 && var1 >= 9492 && var1 <= 9535) {
-         Client.field763 = 1;
+         client.field763 = 1;
       }
 
-      if(Client.field763 == 1 && var0 >= 3139 && var0 <= 3199 && var1 >= 3008 && var1 <= 3062) {
-         Client.field763 = 0;
+      if(client.field763 == 1 && var0 >= 3139 && var0 <= 3199 && var1 >= 3008 && var1 <= 3062) {
+         client.field763 = 0;
       }
 
    }

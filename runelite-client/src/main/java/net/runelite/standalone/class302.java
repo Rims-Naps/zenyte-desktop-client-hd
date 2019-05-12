@@ -73,17 +73,17 @@ public enum class302 implements Enumerated {
       garbageValue = "2006083218"
    )
    static final void method6070(boolean var0, Bit var1) {
-      Client.updateNpcs(var0, var1);
-      Client.npcsToRemoveCount = 0;
-      Client.extendedInfoNpcCount = 0;
+      client.updateNpcs(var0, var1);
+      client.npcsToRemoveCount = 0;
+      client.extendedInfoNpcCount = 0;
       class44.method672();
       DecorativeObject.method914(var0, var1);
 
       int var2;
       int var3;
-      for(var2 = 0; var2 < Client.extendedInfoNpcCount; ++var2) {
-         var3 = Client.extendedInfoNpcIndexes[var2];
-         NPCEntity var4 = Client.npcs[var3];
+      for(var2 = 0; var2 < client.extendedInfoNpcCount; ++var2) {
+         var3 = client.extendedInfoNpcIndexes[var2];
+         NPCEntity var4 = client.npcs[var3];
          int var5 = var1.readUnsignedByte();
          if((var5 & 1) != 0) {
             var4.interacting = var1.method5309();
@@ -176,7 +176,7 @@ public enum class302 implements Enumerated {
                   }
 
                   var12 = var1.method5269();
-                  var4.method2452(var8, var10, var9, var11, Client.gameCycle, var12);
+                  var4.method2452(var8, var10, var9, var11, client.gameCycle, var12);
                }
             }
 
@@ -189,7 +189,7 @@ public enum class302 implements Enumerated {
                      var11 = var1.method5269();
                      var12 = var1.readUnsignedByte();
                      int var13 = var10 > 0?var1.method5117():var12;
-                     var4.method2456(var9, Client.gameCycle, var10, var11, var12, var13);
+                     var4.method2456(var9, client.gameCycle, var10, var11, var12, var13);
                   } else {
                      var4.method2457(var9);
                   }
@@ -202,10 +202,10 @@ public enum class302 implements Enumerated {
             var4.graphicChanged(-1);
             var6 = var1.method5133();
             var4.field992 = var6 >> 16;
-            var4.graphicsDelay = (var6 & 65535) + Client.gameCycle;
+            var4.graphicsDelay = (var6 & 65535) + client.gameCycle;
             var4.spotAnimFrame = 0;
             var4.spotAnimFrameCycle = 0;
-            if(var4.graphicsDelay > Client.gameCycle) {
+            if(var4.graphicsDelay > client.gameCycle) {
                var4.spotAnimFrame = -1;
             }
 
@@ -232,23 +232,23 @@ public enum class302 implements Enumerated {
          }
       }
 
-      for(var2 = 0; var2 < Client.npcsToRemoveCount; ++var2) {
-         var3 = Client.npcIndexesToRemove[var2];
-         if(Client.npcs[var3].lastUpdatedAt != Client.gameCycle) {
-            NPCEntity var10000 = Client.npcs[var3];
-            Client.npcs[var3].onCompositionChanged((RSNPCComposition)null);
+      for(var2 = 0; var2 < client.npcsToRemoveCount; ++var2) {
+         var3 = client.npcIndexesToRemove[var2];
+         if(client.npcs[var3].lastUpdatedAt != client.gameCycle) {
+            NPCEntity var10000 = client.npcs[var3];
+            client.npcs[var3].onCompositionChanged((RSNPCComposition)null);
             var10000.type = null;
-            Client.npcs[var3] = null;
-            Client.cachedNPCsChanged(var3);
+            client.npcs[var3] = null;
+            client.cachedNPCsChanged(var3);
          }
       }
 
-      if(var1.offset != Client.serverConnection.currentPacketSize) {
-         throw new RuntimeException(var1.offset + "," + Client.serverConnection.currentPacketSize);
+      if(var1.offset != client.serverConnection.currentPacketSize) {
+         throw new RuntimeException(var1.offset + "," + client.serverConnection.currentPacketSize);
       } else {
-         for(var2 = 0; var2 < Client.highResolutionNpcCount; ++var2) {
-            if(Client.npcs[Client.highResolutionNpcIndexes[var2]] == null) {
-               throw new RuntimeException(var2 + "," + Client.highResolutionNpcCount);
+         for(var2 = 0; var2 < client.highResolutionNpcCount; ++var2) {
+            if(client.npcs[client.highResolutionNpcIndexes[var2]] == null) {
+               throw new RuntimeException(var2 + "," + client.highResolutionNpcCount);
             }
          }
 

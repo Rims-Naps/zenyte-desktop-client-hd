@@ -25,8 +25,8 @@ public class class31 {
       garbageValue = "-1845068165"
    )
    static void method522() {
-      if(Client.camModeType == 1) {
-         Client.field845 = true;
+      if(client.camModeType == 1) {
+         client.field845 = true;
       }
 
    }
@@ -74,6 +74,6 @@ public class class31 {
       garbageValue = "-1179599101"
    )
    static int method520() {
-      return Client.isResized?2:1;
+      return client.isResized?2:1;
    }
 }

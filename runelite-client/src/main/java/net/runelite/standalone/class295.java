@@ -28,9 +28,9 @@ public class class295 {
       garbageValue = "-1501146909"
    )
    static final void method5996() {
-      for(int var0 = 0; var0 < Client.highResolutionNpcCount; ++var0) {
-         int var1 = Client.highResolutionNpcIndexes[var0];
-         NPCEntity var2 = Client.npcs[var1];
+      for(int var0 = 0; var0 < client.highResolutionNpcCount; ++var0) {
+         int var1 = client.highResolutionNpcIndexes[var0];
+         NPCEntity var2 = client.npcs[var1];
          if(var2 != null) {
             ClientOptions.method1095(var2, var2.type.size);
          }

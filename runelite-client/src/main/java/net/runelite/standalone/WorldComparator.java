@@ -56,15 +56,15 @@ final class WorldComparator implements Comparator {
    )
    static String method84(String var0, boolean var1) {
       String var2 = var1?"https://":"http://";
-      if(Client.socketType == 1) {
+      if(client.socketType == 1) {
          var0 = var0 + "-wtrc";
-      } else if(Client.socketType == 2) {
+      } else if(client.socketType == 2) {
          var0 = var0 + "-wtqa";
-      } else if(Client.socketType == 3) {
+      } else if(client.socketType == 3) {
          var0 = var0 + "-wtwip";
-      } else if(Client.socketType == 5) {
+      } else if(client.socketType == 5) {
          var0 = var0 + "-wti";
-      } else if(Client.socketType == 4) {
+      } else if(client.socketType == 4) {
          var0 = "local";
       }
 
@@ -74,7 +74,7 @@ final class WorldComparator implements Comparator {
       }
 
       String var4 = "runescape.com";
-      return var2 + var0 + "." + var4 + "/l=" + Client.languageId + "/a=" + ClientOptions.field1034 + var3 + "/";
+      return var2 + var0 + "." + var4 + "/l=" + client.languageId + "/a=" + ClientOptions.field1034 + var3 + "/";
    }
 
    @ObfuscatedName("kt")
@@ -83,7 +83,7 @@ final class WorldComparator implements Comparator {
       garbageValue = "557758524"
    )
    static int method86(ComponentType var0) {
-      IntegerNode var1 = (IntegerNode)Client.serverActiveProperties.method6335((long)var0.index + ((long)var0.id << 32));
+      IntegerNode var1 = (IntegerNode) client.serverActiveProperties.method6335((long)var0.index + ((long)var0.id << 32));
       return var1 != null?var1.value:var0.activeProperties;
    }
 

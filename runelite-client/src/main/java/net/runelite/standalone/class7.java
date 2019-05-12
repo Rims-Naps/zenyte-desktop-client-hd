@@ -204,22 +204,22 @@ public class class7 {
       int var5 = var3 - 334;
       int var6;
       if(var5 < 0) {
-         var6 = Client.field899;
+         var6 = client.field899;
       } else if(var5 >= 100) {
-         var6 = Client.field900;
+         var6 = client.field900;
       } else {
-         var6 = (Client.field900 - Client.field899) * var5 / 100 + Client.field899;
+         var6 = (client.field900 - client.field899) * var5 / 100 + client.field899;
       }
 
       int var7 = var3 * var6 * 512 / (var2 * 334);
       int var8;
       int var9;
       short var10;
-      if(var7 < Client.field905) {
-         var10 = Client.field905;
+      if(var7 < client.field905) {
+         var10 = client.field905;
          var6 = var10 * var2 * 334 / (var3 * 512);
-         if(var6 > Client.field872) {
-            var6 = Client.field872;
+         if(var6 > client.field872) {
+            var6 = client.field872;
             var8 = var3 * var6 * 512 / (var10 * 334);
             var9 = (var2 - var8) / 2;
             if(var4) {
@@ -231,11 +231,11 @@ public class class7 {
             var0 += var9;
             var2 -= var9 * 2;
          }
-      } else if(var7 > Client.field906) {
-         var10 = Client.field906;
+      } else if(var7 > client.field906) {
+         var10 = client.field906;
          var6 = var10 * var2 * 334 / (var3 * 512);
-         if(var6 < Client.field903) {
-            var6 = Client.field903;
+         if(var6 < client.field903) {
+            var6 = client.field903;
             var8 = var10 * var2 * 334 / (var6 * 512);
             var9 = (var3 - var8) / 2;
             if(var4) {
@@ -249,14 +249,14 @@ public class class7 {
          }
       }
 
-      Client.scale = var3 * var6 / 334;
-      if(var2 != Client.viewportWidth || var3 != Client.viewportHeight) {
+      client.scale = var3 * var6 / 334;
+      if(var2 != client.viewportWidth || var3 != client.viewportHeight) {
          class53.method856(var2, var3);
       }
 
-      Client.Viewport_xOffset = var0;
-      Client.Viewport_yOffset = var1;
-      Client.viewportWidth = var2;
-      Client.viewportHeight = var3;
+      client.Viewport_xOffset = var0;
+      client.Viewport_yOffset = var1;
+      client.viewportWidth = var2;
+      client.viewportHeight = var3;
    }
 }

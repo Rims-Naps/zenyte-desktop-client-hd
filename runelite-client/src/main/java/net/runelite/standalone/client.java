@@ -130,7 +130,7 @@ import netscape.javascript.JSObject;
 import org.slf4j.Logger;
 
 @ObfuscatedName("client")
-public final class Client extends GameEngine implements class245, RSClient {
+public final class client extends GameEngine implements class245, RSClient {
    @ObfuscatedName("pn")
    @ObfuscatedSignature(
       signature = "[Lld;"
@@ -1547,7 +1547,7 @@ public final class Client extends GameEngine implements class245, RSClient {
       rl$$clinit5();
    }
 
-   public Client() {
+   public client() {
       this.rl$$init();
       this.rl$$init1();
       this.rl$$init2();
@@ -8323,7 +8323,7 @@ public final class Client extends GameEngine implements class245, RSClient {
 
       if(class312.options != null) {
          try {
-            Client var3 = ItemContainer.clientInstance;
+            client var3 = ItemContainer.clientInstance;
             Object[] var4 = new Object[]{Integer.valueOf(class31.method520())};
             JSObject.getWindow(var3).call("resize", var4);
          } catch (Throwable var5) {
@@ -10531,12 +10531,12 @@ public final class Client extends GameEngine implements class245, RSClient {
    }
 
    private static void rl$$clinit2() {
-      $assertionsDisabled = !Client.class.desiredAssertionStatus();
+      $assertionsDisabled = !client.class.desiredAssertionStatus();
       oldPlayers = new PlayerEntity[2048];
    }
 
    private static void rl$$clinit3() {
-      $assertionsDisabled = !Client.class.desiredAssertionStatus();
+      $assertionsDisabled = !client.class.desiredAssertionStatus();
    }
 
    private static void rl$$clinit4() {
@@ -10545,7 +10545,7 @@ public final class Client extends GameEngine implements class245, RSClient {
    }
 
    private static void rl$$clinit5() {
-      $assertionsDisabled = !Client.class.desiredAssertionStatus();
+      $assertionsDisabled = !client.class.desiredAssertionStatus();
    }
 
    static void aag() {

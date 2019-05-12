@@ -31,7 +31,7 @@ public class SoundTaskDataProvider implements class39 {
    static final void method6145(ComponentType[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
       for(int var8 = 0; var8 < var0.length; ++var8) {
          ComponentType var9 = var0[var8];
-         if(var9 != null && var9.layer == var1 && (!var9.isIf3 || var9.type == 0 || var9.hasHook || WorldComparator.method86(var9) != 0 || var9 == Client.field823 || var9.clientcode == 1338)) {
+         if(var9 != null && var9.layer == var1 && (!var9.isIf3 || var9.type == 0 || var9.hasHook || WorldComparator.method86(var9) != 0 || var9 == client.field823 || var9.clientcode == 1338)) {
             if(var9.isIf3) {
                if(class91.method1200(var9)) {
                   continue;
@@ -86,27 +86,27 @@ public class SoundTaskDataProvider implements class39 {
                }
             }
 
-            if(var9 == Client.draggedWidget) {
-               Client.field830 = true;
-               Client.field831 = var10;
-               Client.field832 = var11;
+            if(var9 == client.draggedWidget) {
+               client.field830 = true;
+               client.field831 = var10;
+               client.field832 = var11;
             }
 
             boolean var32 = false;
             if(var9.field2763) {
-               switch(Client.field858) {
+               switch(client.field858) {
                case 0:
                   var32 = true;
                case 1:
                default:
                   break;
                case 2:
-                  if(Client.field812 == var9.id >>> 16) {
+                  if(client.field812 == var9.id >>> 16) {
                      var32 = true;
                   }
                   break;
                case 3:
-                  if(var9.id == Client.field812) {
+                  if(var9.id == client.field812) {
                      var32 = true;
                   }
                }
@@ -117,7 +117,7 @@ public class SoundTaskDataProvider implements class39 {
                   ScriptEvent var26;
                   if(var9.noClickThrough) {
                      if(MouseInput.mouseLastX >= var12 && MouseInput.mouseLastY >= var13 && MouseInput.mouseLastX < var14 && MouseInput.mouseLastY < var15) {
-                        for(var26 = (ScriptEvent)Client.field848.method3930(); var26 != null; var26 = (ScriptEvent)Client.field848.method3924()) {
+                        for(var26 = (ScriptEvent) client.field848.method3930(); var26 != null; var26 = (ScriptEvent) client.field848.method3924()) {
                            if(var26.field573) {
                               var26.method432();
                               var26.source.field2820 = false;
@@ -125,16 +125,16 @@ public class SoundTaskDataProvider implements class39 {
                         }
 
                         if(WorldMapRegion.field267 == 0) {
-                           Client.draggedWidget = null;
-                           Client.field823 = null;
+                           client.draggedWidget = null;
+                           client.field823 = null;
                         }
 
-                        if(!Client.isMenuOpen) {
+                        if(!client.isMenuOpen) {
                            GrandExchangeOffer.method1734();
                         }
                      }
                   } else if(var9.noScrollThrough && MouseInput.mouseLastX >= var12 && MouseInput.mouseLastY >= var13 && MouseInput.mouseLastX < var14 && MouseInput.mouseLastY < var15) {
-                     for(var26 = (ScriptEvent)Client.field848.method3930(); var26 != null; var26 = (ScriptEvent)Client.field848.method3924()) {
+                     for(var26 = (ScriptEvent) client.field848.method3930(); var26 != null; var26 = (ScriptEvent) client.field848.method3924()) {
                         if(var26.field573 && var26.source.onScrollWheelListener == var26.params) {
                            var26.method432();
                         }
@@ -151,7 +151,7 @@ public class SoundTaskDataProvider implements class39 {
 
                boolean var33 = var17 >= var12 && var18 >= var13 && var17 < var14 && var18 < var15;
                if(var9.clientcode == 1337) {
-                  if(!Client.field663 && !Client.isMenuOpen && var33) {
+                  if(!client.field663 && !client.isMenuOpen && var33) {
                      class172.method2695(var17, var18, var12, var13);
                   }
                } else if(var9.clientcode == 1338) {
@@ -161,7 +161,7 @@ public class SoundTaskDataProvider implements class39 {
                      class69.worldMap.method2865(MouseInput.mouseLastX, MouseInput.mouseLastY, var33, var10, var11, var9.width, var9.height);
                   }
 
-                  if(!Client.isMenuOpen && var33) {
+                  if(!client.isMenuOpen && var33) {
                      if(var9.clientcode == 1400) {
                         class69.worldMap.method2917(var10, var11, var9.width, var9.height, var17, var18);
                      } else {
@@ -184,7 +184,7 @@ public class SoundTaskDataProvider implements class39 {
 
                               if(SubInterface.method2712(var9.opKeys[var20][var23]) || var24) {
                                  var21 = true;
-                                 if(var9.opKeysIgnoreHeld != null && var9.opKeysIgnoreHeld[var20] > Client.gameCycle) {
+                                 if(var9.opKeysIgnoreHeld != null && var9.opKeysIgnoreHeld[var20] > client.gameCycle) {
                                     break;
                                  }
 
@@ -203,12 +203,12 @@ public class SoundTaskDataProvider implements class39 {
                            } else if(var20 == 10) {
                               GameCanvas.method4866();
                               class191.method3801(var9.id, var9.index, CacheFile.method5603(WorldComparator.method86(var9)), var9.linkObjType);
-                              Client.targetVerb = class125.method1854(var9);
-                              if(Client.targetVerb == null) {
-                                 Client.targetVerb = "null";
+                              client.targetVerb = class125.method1854(var9);
+                              if(client.targetVerb == null) {
+                                 client.targetVerb = "null";
                               }
 
-                              Client.opBase = var9.opBase + class308.method6152(16777215);
+                              client.opBase = var9.opBase + class308.method6152(16777215);
                            }
 
                            var23 = var9.opKeyRates[var20];
@@ -222,9 +222,9 @@ public class SoundTaskDataProvider implements class39 {
 
                            if(var23 != 0) {
                               if(var9.opKeysIgnoreHeld[var20] == 0) {
-                                 var9.opKeysIgnoreHeld[var20] = var23 + Client.gameCycle + var9.field2754[var20];
+                                 var9.opKeysIgnoreHeld[var20] = var23 + client.gameCycle + var9.field2754[var20];
                               } else {
-                                 var9.opKeysIgnoreHeld[var20] = var23 + Client.gameCycle;
+                                 var9.opKeysIgnoreHeld[var20] = var23 + client.gameCycle;
                               }
                            } else {
                               var9.opKeysIgnoreHeld[var20] = Integer.MAX_VALUE;
@@ -262,28 +262,28 @@ public class SoundTaskDataProvider implements class39 {
                         class69.worldMap.method2866(var17, var18, var33 & var34, var33 & var21);
                      }
 
-                     if(Client.draggedWidget != null && var9 != Client.draggedWidget && var33 && Bit.method2649(WorldComparator.method86(var9))) {
-                        Client.draggedOnWidget = var9;
+                     if(client.draggedWidget != null && var9 != client.draggedWidget && var33 && Bit.method2649(WorldComparator.method86(var9))) {
+                        client.draggedOnWidget = var9;
                      }
 
-                     if(var9 == Client.field823) {
-                        Client.field904 = true;
-                        Client.field757 = var10;
-                        Client.field829 = var11;
+                     if(var9 == client.field823) {
+                        client.field904 = true;
+                        client.field757 = var10;
+                        client.field829 = var11;
                      }
 
                      if(var9.hasHook) {
                         ScriptEvent var27;
-                        if(var33 && Client.field847 != 0 && var9.onScrollWheelListener != null) {
+                        if(var33 && client.field847 != 0 && var9.onScrollWheelListener != null) {
                            var27 = new ScriptEvent();
                            var27.field573 = true;
                            var27.source = var9;
-                           var27.mouseY = Client.field847;
+                           var27.mouseY = client.field847;
                            var27.params = var9.onScrollWheelListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
-                        if(Client.draggedWidget != null || GameCanvas.field420 != null || Client.isMenuOpen) {
+                        if(client.draggedWidget != null || GameCanvas.field420 != null || client.isMenuOpen) {
                            var21 = false;
                            var34 = false;
                            var33 = false;
@@ -298,7 +298,7 @@ public class SoundTaskDataProvider implements class39 {
                               var27.mouseX = MouseInput.mouseLastPressedX - var10;
                               var27.mouseY = MouseInput.mouseLastPressedY - var11;
                               var27.params = var9.onClickListener;
-                              Client.field848.method3906(var27);
+                              client.field848.method3906(var27);
                            }
                         }
 
@@ -309,7 +309,7 @@ public class SoundTaskDataProvider implements class39 {
                            var27.mouseX = MouseInput.mouseLastX - var10;
                            var27.mouseY = MouseInput.mouseLastY - var11;
                            var27.params = var9.onClickRepeatListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
                         if(var9.field2723 && !var34) {
@@ -321,7 +321,7 @@ public class SoundTaskDataProvider implements class39 {
                               var27.mouseX = MouseInput.mouseLastX - var10;
                               var27.mouseY = MouseInput.mouseLastY - var11;
                               var27.params = var9.onReleaseListener;
-                              Client.field850.method3906(var27);
+                              client.field850.method3906(var27);
                            }
                         }
 
@@ -332,7 +332,7 @@ public class SoundTaskDataProvider implements class39 {
                            var27.mouseX = MouseInput.mouseLastX - var10;
                            var27.mouseY = MouseInput.mouseLastY - var11;
                            var27.params = var9.onHoldListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
                         if(!var9.field2820 && var33) {
@@ -344,7 +344,7 @@ public class SoundTaskDataProvider implements class39 {
                               var27.mouseX = MouseInput.mouseLastX - var10;
                               var27.mouseY = MouseInput.mouseLastY - var11;
                               var27.params = var9.onMouseOverListener;
-                              Client.field848.method3906(var27);
+                              client.field848.method3906(var27);
                            }
                         }
 
@@ -355,7 +355,7 @@ public class SoundTaskDataProvider implements class39 {
                            var27.mouseX = MouseInput.mouseLastX - var10;
                            var27.mouseY = MouseInput.mouseLastY - var11;
                            var27.params = var9.onMouseRepeatListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
                         if(var9.field2820 && !var33) {
@@ -367,7 +367,7 @@ public class SoundTaskDataProvider implements class39 {
                               var27.mouseX = MouseInput.mouseLastX - var10;
                               var27.mouseY = MouseInput.mouseLastY - var11;
                               var27.params = var9.onMouseLeaveListener;
-                              Client.field850.method3906(var27);
+                              client.field850.method3906(var27);
                            }
                         }
 
@@ -375,24 +375,24 @@ public class SoundTaskDataProvider implements class39 {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onTimerListener;
-                           Client.field921.method3906(var27);
+                           client.field921.method3906(var27);
                         }
 
                         ScriptEvent var30;
                         int var35;
                         int var36;
-                        if(var9.onVarTransmitListener != null && Client.field836 > var9.field2722) {
-                           if(var9.varTransmitTriggers != null && Client.field836 - var9.field2722 <= 32) {
+                        if(var9.onVarTransmitListener != null && client.field836 > var9.field2722) {
+                           if(var9.varTransmitTriggers != null && client.field836 - var9.field2722 <= 32) {
                               label903:
-                              for(var35 = var9.field2722; var35 < Client.field836; ++var35) {
-                                 var23 = Client.field835[var35 & 31];
+                              for(var35 = var9.field2722; var35 < client.field836; ++var35) {
+                                 var23 = client.field835[var35 & 31];
 
                                  for(var36 = 0; var36 < var9.varTransmitTriggers.length; ++var36) {
                                     if(var23 == var9.varTransmitTriggers[var36]) {
                                        var30 = new ScriptEvent();
                                        var30.source = var9;
                                        var30.params = var9.onVarTransmitListener;
-                                       Client.field848.method3906(var30);
+                                       client.field848.method3906(var30);
                                        break label903;
                                     }
                                  }
@@ -401,24 +401,24 @@ public class SoundTaskDataProvider implements class39 {
                               var27 = new ScriptEvent();
                               var27.source = var9;
                               var27.params = var9.onVarTransmitListener;
-                              Client.field848.method3906(var27);
+                              client.field848.method3906(var27);
                            }
 
-                           var9.field2722 = Client.field836;
+                           var9.field2722 = client.field836;
                         }
 
-                        if(var9.onInvTransmitListener != null && Client.field681 > var9.field2824) {
-                           if(var9.invTransmitTriggers != null && Client.field681 - var9.field2824 <= 32) {
+                        if(var9.onInvTransmitListener != null && client.field681 > var9.field2824) {
+                           if(var9.invTransmitTriggers != null && client.field681 - var9.field2824 <= 32) {
                               label879:
-                              for(var35 = var9.field2824; var35 < Client.field681; ++var35) {
-                                 var23 = Client.field837[var35 & 31];
+                              for(var35 = var9.field2824; var35 < client.field681; ++var35) {
+                                 var23 = client.field837[var35 & 31];
 
                                  for(var36 = 0; var36 < var9.invTransmitTriggers.length; ++var36) {
                                     if(var23 == var9.invTransmitTriggers[var36]) {
                                        var30 = new ScriptEvent();
                                        var30.source = var9;
                                        var30.params = var9.onInvTransmitListener;
-                                       Client.field848.method3906(var30);
+                                       client.field848.method3906(var30);
                                        break label879;
                                     }
                                  }
@@ -427,24 +427,24 @@ public class SoundTaskDataProvider implements class39 {
                               var27 = new ScriptEvent();
                               var27.source = var9;
                               var27.params = var9.onInvTransmitListener;
-                              Client.field848.method3906(var27);
+                              client.field848.method3906(var27);
                            }
 
-                           var9.field2824 = Client.field681;
+                           var9.field2824 = client.field681;
                         }
 
-                        if(var9.onStatTransmitListener != null && Client.changedSkillsCount > var9.field2825) {
-                           if(var9.statTransmitTriggers != null && Client.changedSkillsCount - var9.field2825 <= 32) {
+                        if(var9.onStatTransmitListener != null && client.changedSkillsCount > var9.field2825) {
+                           if(var9.statTransmitTriggers != null && client.changedSkillsCount - var9.field2825 <= 32) {
                               label855:
-                              for(var35 = var9.field2825; var35 < Client.changedSkillsCount; ++var35) {
-                                 var23 = Client.changedSkills[var35 & 31];
+                              for(var35 = var9.field2825; var35 < client.changedSkillsCount; ++var35) {
+                                 var23 = client.changedSkills[var35 & 31];
 
                                  for(var36 = 0; var36 < var9.statTransmitTriggers.length; ++var36) {
                                     if(var23 == var9.statTransmitTriggers[var36]) {
                                        var30 = new ScriptEvent();
                                        var30.source = var9;
                                        var30.params = var9.onStatTransmitListener;
-                                       Client.field848.method3906(var30);
+                                       client.field848.method3906(var30);
                                        break label855;
                                     }
                                  }
@@ -453,70 +453,70 @@ public class SoundTaskDataProvider implements class39 {
                               var27 = new ScriptEvent();
                               var27.source = var9;
                               var27.params = var9.onStatTransmitListener;
-                              Client.field848.method3906(var27);
+                              client.field848.method3906(var27);
                            }
 
-                           var9.field2825 = Client.changedSkillsCount;
+                           var9.field2825 = client.changedSkillsCount;
                         }
 
-                        if(Client.chatCycle > var9.field2822 && var9.onChatTransmitListener != null) {
+                        if(client.chatCycle > var9.field2822 && var9.onChatTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onChatTransmitListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
-                        if(Client.lastFriendTransmit > var9.field2822 && var9.onFriendTransmitListener != null) {
+                        if(client.lastFriendTransmit > var9.field2822 && var9.onFriendTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onFriendTransmitListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
-                        if(Client.field898 > var9.field2822 && var9.onClanTransmitListener != null) {
+                        if(client.field898 > var9.field2822 && var9.onClanTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onClanTransmitListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
-                        if(Client.field648 > var9.field2822 && var9.onStockTransmitListener != null) {
+                        if(client.field648 > var9.field2822 && var9.onStockTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onStockTransmitListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
-                        if(Client.field675 > var9.field2822 && var9.onCamFinishedListener != null) {
+                        if(client.field675 > var9.field2822 && var9.onCamFinishedListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onCamFinishedListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
-                        if(Client.lastMiscTransmit > var9.field2822 && var9.onMiscTransmitListener != null) {
+                        if(client.lastMiscTransmit > var9.field2822 && var9.onMiscTransmitListener != null) {
                            var27 = new ScriptEvent();
                            var27.source = var9;
                            var27.params = var9.onMiscTransmitListener;
-                           Client.field848.method3906(var27);
+                           client.field848.method3906(var27);
                         }
 
-                        var9.field2822 = Client.cycleCntr;
+                        var9.field2822 = client.cycleCntr;
                         if(var9.onKeyListener != null) {
-                           for(var35 = 0; var35 < Client.field870; ++var35) {
+                           for(var35 = 0; var35 < client.field870; ++var35) {
                               ScriptEvent var31 = new ScriptEvent();
                               var31.source = var9;
-                              var31.typedKeyCode = Client.field732[var35];
-                              var31.typedKeyChar = Client.field871[var35];
+                              var31.typedKeyCode = client.field732[var35];
+                              var31.typedKeyChar = client.field871[var35];
                               var31.params = var9.onKeyListener;
-                              Client.field848.method3906(var31);
+                              client.field848.method3906(var31);
                            }
                         }
                      }
                   }
 
                   if(!var9.isIf3) {
-                     if(Client.draggedWidget != null || GameCanvas.field420 != null || Client.isMenuOpen) {
+                     if(client.draggedWidget != null || GameCanvas.field420 != null || client.isMenuOpen) {
                         continue;
                      }
 
@@ -543,10 +543,10 @@ public class SoundTaskDataProvider implements class39 {
                         method6145(var9.children, var9.id, var12, var13, var14, var15, var10 - var9.scrollX, var11 - var9.scrollY);
                      }
 
-                     SubInterface var28 = (SubInterface)Client.subInterfaces.method6335((long)var9.id);
+                     SubInterface var28 = (SubInterface) client.subInterfaces.method6335((long)var9.id);
                      if(var28 != null) {
-                        if(var28.mode == 0 && MouseInput.mouseLastX >= var12 && MouseInput.mouseLastY >= var13 && MouseInput.mouseLastX < var14 && MouseInput.mouseLastY < var15 && !Client.isMenuOpen) {
-                           for(ScriptEvent var29 = (ScriptEvent)Client.field848.method3930(); var29 != null; var29 = (ScriptEvent)Client.field848.method3924()) {
+                        if(var28.mode == 0 && MouseInput.mouseLastX >= var12 && MouseInput.mouseLastY >= var13 && MouseInput.mouseLastX < var14 && MouseInput.mouseLastY < var15 && !client.isMenuOpen) {
+                           for(ScriptEvent var29 = (ScriptEvent) client.field848.method3930(); var29 != null; var29 = (ScriptEvent) client.field848.method3924()) {
                               if(var29.field573) {
                                  var29.method432();
                                  var29.source.field2820 = false;
@@ -554,11 +554,11 @@ public class SoundTaskDataProvider implements class39 {
                            }
 
                            if(WorldMapRegion.field267 == 0) {
-                              Client.draggedWidget = null;
-                              Client.field823 = null;
+                              client.draggedWidget = null;
+                              client.field823 = null;
                            }
 
-                           if(!Client.isMenuOpen) {
+                           if(!client.isMenuOpen) {
                               GrandExchangeOffer.method1734();
                            }
                         }

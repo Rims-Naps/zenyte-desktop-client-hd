@@ -126,7 +126,7 @@ public class MouseRecorder implements Runnable {
                      --class203.field1152;
                   }
 
-                  if(class203.field1152 < class203.field1153 && Client.field925 != null && MouseInput.mouseLastPressedX >= GrandExchangeOffer.canvasWidth - Client.field925.width - 5 && MouseInput.mouseLastPressedX <= GrandExchangeOffer.canvasWidth && MouseInput.mouseLastPressedY >= class258.canvasHeight / 2 - 50 && MouseInput.mouseLastPressedY <= class258.canvasHeight / 2 + 50) {
+                  if(class203.field1152 < class203.field1153 && client.field925 != null && MouseInput.mouseLastPressedX >= GrandExchangeOffer.canvasWidth - client.field925.width - 5 && MouseInput.mouseLastPressedX <= GrandExchangeOffer.canvasWidth && MouseInput.mouseLastPressedY >= class258.canvasHeight / 2 - 50 && MouseInput.mouseLastPressedY <= class258.canvasHeight / 2 + 50) {
                      ++class203.field1152;
                   }
                }
@@ -142,7 +142,7 @@ public class MouseRecorder implements Runnable {
                if(class203.field1152 > 0 && FaceNormal.field1878 != null) {
                   --class203.field1152;
                }
-            } else if(SocialState.currentPressedKey == 97 && class203.field1152 < class203.field1153 && Client.field925 != null) {
+            } else if(SocialState.currentPressedKey == 97 && class203.field1152 < class203.field1153 && client.field925 != null) {
                ++class203.field1152;
             }
          }
@@ -161,27 +161,27 @@ public class MouseRecorder implements Runnable {
             }
          }
 
-         if(Client.gameState != 5) {
+         if(client.gameState != 5) {
             if(-1L == class203.field1190) {
                class203.field1190 = class318.method6317() + 1000L;
             }
 
             long var13 = class318.method6317();
             boolean var18;
-            if(Client.field919 != null && Client.field920 < Client.field919.size()) {
+            if(client.field919 != null && client.field920 < client.field919.size()) {
                while(true) {
-                  if(Client.field920 >= Client.field919.size()) {
+                  if(client.field920 >= client.field919.size()) {
                      var18 = true;
                      break;
                   }
 
-                  class142 var16 = (class142)Client.field919.get(Client.field920);
+                  class142 var16 = (class142) client.field919.get(client.field920);
                   if(!var16.method2036()) {
                      var18 = false;
                      break;
                   }
 
-                  ++Client.field920;
+                  ++client.field920;
                }
             } else {
                var18 = true;
@@ -195,8 +195,8 @@ public class MouseRecorder implements Runnable {
             }
 
             ++class203.field1165;
-            if(Client.gameState == 10 || Client.gameState == 11) {
-               if(Client.languageId == 0) {
+            if(client.gameState == 10 || client.gameState == 11) {
+               if(client.languageId == 0) {
                   if(MouseInput.mouseLastButton == 1 || !TextureProvider.middleMouseMovesCamera && MouseInput.mouseLastButton == 4) {
                      var4 = class203.field1168 + 5;
                      short var5 = 463;
@@ -244,19 +244,19 @@ public class MouseRecorder implements Runnable {
 
                   var8 = class203.field1176 + 80;
                   if(var4 == 1 && var19 >= var8 - 75 && var19 <= var8 + 75 && var20 >= var9 - 20 && var20 <= var9 + 20 || var21) {
-                     if((Client.flags & 33554432) != 0) {
+                     if((client.flags & 33554432) != 0) {
                         class203.Login_response0 = "";
                         class203.loginMessage1 = "This is a <col=00ffff>Beta<col=ffffff> world.";
                         class203.loginMessage2 = "Your normal account will not be affected.";
                         class203.loginMessage3 = "";
                         class203.loginIndex = 1;
-                        if(Client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
+                        if(client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
                            class203.currentLoginField = 1;
                         } else {
                            class203.currentLoginField = 0;
                         }
-                     } else if((Client.flags & 4) != 0) {
-                        if((Client.flags & 1024) != 0) {
+                     } else if((client.flags & 4) != 0) {
+                        if((client.flags & 1024) != 0) {
                            class203.loginMessage1 = "This is a <col=ffff00>High Risk <col=ff0000>PvP<col=ffffff> world.";
                            class203.loginMessage2 = "Players can attack each other almost everywhere";
                            class203.loginMessage3 = "and the Protect Item prayer won\'t work.";
@@ -268,18 +268,18 @@ public class MouseRecorder implements Runnable {
 
                         class203.Login_response0 = "Warning!";
                         class203.loginIndex = 1;
-                        if(Client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
+                        if(client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
                            class203.currentLoginField = 1;
                         } else {
                            class203.currentLoginField = 0;
                         }
-                     } else if((Client.flags & 1024) != 0) {
+                     } else if((client.flags & 1024) != 0) {
                         class203.loginMessage1 = "This is a <col=ffff00>High Risk<col=ffffff> world.";
                         class203.loginMessage2 = "The Protect Item prayer will";
                         class203.loginMessage3 = "not work on this world.";
                         class203.Login_response0 = "Warning!";
                         class203.loginIndex = 1;
-                        if(Client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
+                        if(client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
                            class203.currentLoginField = 1;
                         } else {
                            class203.currentLoginField = 0;
@@ -325,7 +325,7 @@ public class MouseRecorder implements Runnable {
                         var9 = 321;
                         if(var4 == 1 && var19 >= var8 - 75 && var19 <= var8 + 75 && var20 >= var9 - 20 && var20 <= var9 + 20) {
                            class203.username = class203.username.trim();
-                           Client.onUsernameChanged(-1);
+                           client.onUsernameChanged(-1);
                            if(class203.username.length() == 0) {
                               TextureProvider.method1169("", "Please enter your username/email address.", "");
                               return;
@@ -346,7 +346,7 @@ public class MouseRecorder implements Runnable {
                         if(var4 == 1 && var19 >= var8 - 75 && var19 <= var8 + 75 && var20 >= var9 - 20 && var20 <= var9 + 20) {
                            class203.loginIndex = 0;
                            class203.username = "";
-                           Client.onUsernameChanged(-1);
+                           client.onUsernameChanged(-1);
                            class203.password = "";
                            SoundTaskDataProvider.authcode = 0;
                            ClientOptions.field1037 = "";
@@ -357,8 +357,8 @@ public class MouseRecorder implements Runnable {
                         var9 = 277;
                         class203.field1180 = var19 >= var8 && var19 < var8 + class132.field3195 && var20 >= var9 && var20 < var9 + class71.field187;
                         if(var4 == 1 && class203.field1180) {
-                           Client.Login_isUsernameRemembered = !Client.Login_isUsernameRemembered;
-                           if(!Client.Login_isUsernameRemembered && class312.options.rememberedUsername != null) {
+                           client.Login_isUsernameRemembered = !client.Login_isUsernameRemembered;
+                           if(!client.Login_isUsernameRemembered && class312.options.rememberedUsername != null) {
                               class312.options.rememberedUsername = null;
                               class72.method1041();
                            }
@@ -371,9 +371,9 @@ public class MouseRecorder implements Runnable {
                            class312.options.hideUsername = !class312.options.hideUsername;
                            if(!class312.options.hideUsername) {
                               class203.username = "";
-                              Client.onUsernameChanged(-1);
+                              client.onUsernameChanged(-1);
                               class312.options.rememberedUsername = null;
-                              if(Client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
+                              if(client.Login_isUsernameRemembered && class203.username != null && class203.username.length() > 0) {
                                  class203.currentLoginField = 1;
                               } else {
                                  class203.currentLoginField = 0;
@@ -397,7 +397,7 @@ public class MouseRecorder implements Runnable {
                               if(SocialState.currentPressedKey == 13) {
                                  class203.loginIndex = 0;
                                  class203.username = "";
-                                 Client.onUsernameChanged(-1);
+                                 client.onUsernameChanged(-1);
                                  class203.password = "";
                                  SoundTaskDataProvider.authcode = 0;
                                  ClientOptions.field1037 = "";
@@ -405,7 +405,7 @@ public class MouseRecorder implements Runnable {
                               } else if(class203.currentLoginField == 0) {
                                  if(SocialState.currentPressedKey == 85 && class203.username.length() > 0) {
                                     class203.username = class203.username.substring(0, class203.username.length() - 1);
-                                    Client.onUsernameChanged(-1);
+                                    client.onUsernameChanged(-1);
                                  }
 
                                  if(SocialState.currentPressedKey == 84 || SocialState.currentPressedKey == 80) {
@@ -414,7 +414,7 @@ public class MouseRecorder implements Runnable {
 
                                  if(var10 && class203.username.length() < 320) {
                                     class203.username = class203.username + class129.currentTypedKey;
-                                    Client.onUsernameChanged(-1);
+                                    client.onUsernameChanged(-1);
                                  }
                               } else if(class203.currentLoginField == 1) {
                                  if(SocialState.currentPressedKey == 85 && class203.password.length() > 0) {
@@ -427,7 +427,7 @@ public class MouseRecorder implements Runnable {
 
                                  if(SocialState.currentPressedKey == 84) {
                                     class203.username = class203.username.trim();
-                                    Client.onUsernameChanged(-1);
+                                    client.onUsernameChanged(-1);
                                     if(class203.username.length() == 0) {
                                        TextureProvider.method1169("", "Please enter your username/email address.", "");
                                        return;
@@ -499,7 +499,7 @@ public class MouseRecorder implements Runnable {
                            if(var4 == 1 && var19 >= var22 - 75 && var19 <= var22 + 75 && var20 >= var24 - 20 && var20 <= var24 + 20) {
                               class203.loginIndex = 0;
                               class203.username = "";
-                              Client.onUsernameChanged(-1);
+                              client.onUsernameChanged(-1);
                               class203.password = "";
                               SoundTaskDataProvider.authcode = 0;
                               ClientOptions.field1037 = "";
@@ -518,7 +518,7 @@ public class MouseRecorder implements Runnable {
                               if(SocialState.currentPressedKey == 13) {
                                  class203.loginIndex = 0;
                                  class203.username = "";
-                                 Client.onUsernameChanged(-1);
+                                 client.onUsernameChanged(-1);
                                  class203.password = "";
                                  SoundTaskDataProvider.authcode = 0;
                                  ClientOptions.field1037 = "";
@@ -575,7 +575,7 @@ public class MouseRecorder implements Runnable {
                               } else {
                                  if(SocialState.currentPressedKey == 85 && class203.username.length() > 0) {
                                     class203.username = class203.username.substring(0, class203.username.length() - 1);
-                                    Client.onUsernameChanged(-1);
+                                    client.onUsernameChanged(-1);
                                  }
 
                                  if(SocialState.currentPressedKey == 84) {
@@ -585,7 +585,7 @@ public class MouseRecorder implements Runnable {
 
                                  if(var25 && class203.username.length() < 320) {
                                     class203.username = class203.username + class129.currentTypedKey;
-                                    Client.onUsernameChanged(-1);
+                                    client.onUsernameChanged(-1);
                                  }
                               }
                            }
@@ -705,26 +705,26 @@ public class MouseRecorder implements Runnable {
       garbageValue = "8"
    )
    static final void method128(ComponentType[] var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8) {
-      Client.renderWidgetLayer(var0, var1, var2, var3, var4, var5, var6, var7, var8);
+      client.renderWidgetLayer(var0, var1, var2, var3, var4, var5, var6, var7, var8);
       Rasterizer2D.method684(var2, var3, var4, var5);
       Graphics3D.method2087();
 
       for(int var9 = 0; var9 < var0.length; ++var9) {
          ComponentType var10 = var0[var9];
-         if(var10 != null && (var10.layer == var1 || var1 == -1412584499 && var10 == Client.draggedWidget)) {
+         if(var10 != null && (var10.layer == var1 || var1 == -1412584499 && var10 == client.draggedWidget)) {
             int var11;
             if(var8 == -1) {
-               Client.widgetPositionX[Client.interfaceCount] = var10.x + var6;
-               Client.widgetPositionY[Client.interfaceCount] = var7 + var10.y;
-               Client.widgetBoundsWidth[Client.interfaceCount] = var10.width;
-               Client.widgetBoundsHeight[Client.interfaceCount] = var10.height;
-               var11 = ++Client.interfaceCount - 1;
+               client.widgetPositionX[client.interfaceCount] = var10.x + var6;
+               client.widgetPositionY[client.interfaceCount] = var7 + var10.y;
+               client.widgetBoundsWidth[client.interfaceCount] = var10.width;
+               client.widgetBoundsHeight[client.interfaceCount] = var10.height;
+               var11 = ++client.interfaceCount - 1;
             } else {
                var11 = var8;
             }
 
             var10.boundsIndex = var11;
-            var10.loopCycle = Client.gameCycle;
+            var10.loopCycle = client.gameCycle;
             if(!var10.isIf3 || !class91.method1200(var10)) {
                if(var10.clientcode > 0) {
                   FriendContainer.method6441(var10);
@@ -735,7 +735,7 @@ public class MouseRecorder implements Runnable {
                int var14 = var10.trans;
                int var15;
                int var16;
-               if(var10 == Client.draggedWidget) {
+               if(var10 == client.draggedWidget) {
                   if(var1 != -1412584499 && !var10.dragRenderBehavior) {
                      GrandExchangeOffer.field69 = var0;
                      WorldMapType2.field286 = var6;
@@ -743,25 +743,25 @@ public class MouseRecorder implements Runnable {
                      continue;
                   }
 
-                  if(Client.draggingWidget && Client.field904) {
+                  if(client.draggingWidget && client.field904) {
                      var15 = MouseInput.mouseLastX;
                      var16 = MouseInput.mouseLastY;
-                     var15 -= Client.field824;
-                     var16 -= Client.field802;
-                     if(var15 < Client.field757) {
-                        var15 = Client.field757;
+                     var15 -= client.field824;
+                     var16 -= client.field802;
+                     if(var15 < client.field757) {
+                        var15 = client.field757;
                      }
 
-                     if(var15 + var10.width > Client.field757 + Client.field823.width) {
-                        var15 = Client.field757 + Client.field823.width - var10.width;
+                     if(var15 + var10.width > client.field757 + client.field823.width) {
+                        var15 = client.field757 + client.field823.width - var10.width;
                      }
 
-                     if(var16 < Client.field829) {
-                        var16 = Client.field829;
+                     if(var16 < client.field829) {
+                        var16 = client.field829;
                      }
 
-                     if(var16 + var10.height > Client.field829 + Client.field823.height) {
-                        var16 = Client.field829 + Client.field823.height - var10.height;
+                     if(var16 + var10.height > client.field829 + client.field823.height) {
+                        var16 = client.field829 + client.field823.height - var10.height;
                      }
 
                      var12 = var15;
@@ -817,14 +817,14 @@ public class MouseRecorder implements Runnable {
                if(!var10.isIf3 || var15 < var17 && var16 < var18) {
                   if(var10.clientcode != 0) {
                      if(var10.clientcode == 1336) {
-                        if(Client.displayFps) {
+                        if(client.displayFps) {
                            var13 += 15;
                            Occluder.font_p12full.method6158("Fps:" + GameEngine.FPS, var12 + var10.width, var13, 16776960, -1);
                            var13 += 15;
                            Runtime var41 = Runtime.getRuntime();
                            var20 = (int)((var41.totalMemory() - var41.freeMemory()) / 1024L);
                            var21 = 16776960;
-                           if(var20 > 327680 && !Client.lowMemory) {
+                           if(var20 > 327680 && !client.lowMemory) {
                               var21 = 16711680;
                            }
 
@@ -835,10 +835,10 @@ public class MouseRecorder implements Runnable {
                      }
 
                      if(var10.clientcode == 1337) {
-                        Client.field798 = var12;
-                        Client.field799 = var13;
+                        client.field798 = var12;
+                        client.field799 = var13;
                         class234.method4540(var12, var13, var10.width, var10.height);
-                        Client.field795[var10.boundsIndex] = true;
+                        client.field795[var10.boundsIndex] = true;
                         Rasterizer2D.method684(var2, var3, var4, var5);
                         continue;
                      }
@@ -856,7 +856,7 @@ public class MouseRecorder implements Runnable {
                      }
 
                      if(var10.clientcode == 1400) {
-                        class69.worldMap.method2882(var12, var13, var10.width, var10.height, Client.gameCycle);
+                        class69.worldMap.method2882(var12, var13, var10.width, var10.height, client.gameCycle);
                      }
 
                      if(var10.clientcode == 1401) {
@@ -884,7 +884,7 @@ public class MouseRecorder implements Runnable {
                         method128(var10.children, var10.id, var15, var16, var17, var18, var12 - var10.scrollX, var13 - var10.scrollY, var11);
                      }
 
-                     SubInterface var30 = (SubInterface)Client.subInterfaces.method6335((long)var10.id);
+                     SubInterface var30 = (SubInterface) client.subInterfaces.method6335((long)var10.id);
                      if(var30 != null) {
                         Item.method4636(var30.id, var15, var16, var17, var18, var12, var13, var11);
                      }
@@ -893,7 +893,7 @@ public class MouseRecorder implements Runnable {
                      Graphics3D.method2087();
                   }
 
-                  if(Client.isResized || Client.field856[var11] || Client.gameDrawingMode > 1) {
+                  if(client.isResized || client.field856[var11] || client.gameDrawingMode > 1) {
                      if(var10.type == 0 && !var10.isIf3 && var10.scrollHeight > var10.height) {
                         HitmarkType.method4056(var12 + var10.width, var13, var10.scrollY, var10.height, var10.scrollHeight);
                      }
@@ -928,18 +928,18 @@ public class MouseRecorder implements Runnable {
                                     boolean var37 = false;
                                     boolean var38 = false;
                                     var26 = var10.objIds[var19] - 1;
-                                    if(var22 + 32 > var2 && var22 < var4 && var23 + 32 > var3 && var23 < var5 || var10 == GameCanvas.field420 && var19 == Client.field783) {
+                                    if(var22 + 32 > var2 && var22 < var4 && var23 + 32 > var3 && var23 < var5 || var10 == GameCanvas.field420 && var19 == client.field783) {
                                        SpritePixels var27;
-                                       if(Client.itemSelectionState == 1 && var19 == class29.selectedItemIndex && var10.id == class132.field3198) {
+                                       if(client.itemSelectionState == 1 && var19 == class29.selectedItemIndex && var10.id == class132.field3198) {
                                           var27 = class139.method1992(var26, var10.objCounts[var19], 2, 0, 2, false);
                                        } else {
                                           var27 = class139.method1992(var26, var10.objCounts[var19], 1, 3153952, 2, false);
                                        }
 
                                        if(var27 != null) {
-                                          if(var10 == GameCanvas.field420 && var19 == Client.field783) {
-                                             var24 = MouseInput.mouseLastX - Client.field685;
-                                             var25 = MouseInput.mouseLastY - Client.field809;
+                                          if(var10 == GameCanvas.field420 && var19 == client.field783) {
+                                             var24 = MouseInput.mouseLastX - client.field685;
+                                             var25 = MouseInput.mouseLastY - client.field809;
                                              if(var24 < 5 && var24 > -5) {
                                                 var24 = 0;
                                              }
@@ -948,7 +948,7 @@ public class MouseRecorder implements Runnable {
                                                 var25 = 0;
                                              }
 
-                                             if(Client.itemPressedDuration < 5) {
+                                             if(client.itemPressedDuration < 5) {
                                                 var24 = 0;
                                                 var25 = 0;
                                              }
@@ -958,9 +958,9 @@ public class MouseRecorder implements Runnable {
                                                 ComponentType var28 = var0[var1 & 65535];
                                                 int var29;
                                                 if(var25 + var23 < Rasterizer2D.drawingAreaTop && var28.scrollY > 0) {
-                                                   var29 = (Rasterizer2D.drawingAreaTop - var23 - var25) * Client.field710 / 3;
-                                                   if(var29 > Client.field710 * 10) {
-                                                      var29 = Client.field710 * 10;
+                                                   var29 = (Rasterizer2D.drawingAreaTop - var23 - var25) * client.field710 / 3;
+                                                   if(var29 > client.field710 * 10) {
+                                                      var29 = client.field710 * 10;
                                                    }
 
                                                    if(var29 > var28.scrollY) {
@@ -968,14 +968,14 @@ public class MouseRecorder implements Runnable {
                                                    }
 
                                                    var28.scrollY -= var29;
-                                                   Client.field809 += var29;
+                                                   client.field809 += var29;
                                                    WorldMapRegion.method5554(var28);
                                                 }
 
                                                 if(var25 + var23 + 32 > Rasterizer2D.drawingAreaRight && var28.scrollY < var28.scrollHeight - var28.height) {
-                                                   var29 = (var25 + var23 + 32 - Rasterizer2D.drawingAreaRight) * Client.field710 / 3;
-                                                   if(var29 > Client.field710 * 10) {
-                                                      var29 = Client.field710 * 10;
+                                                   var29 = (var25 + var23 + 32 - Rasterizer2D.drawingAreaRight) * client.field710 / 3;
+                                                   if(var29 > client.field710 * 10) {
+                                                      var29 = client.field710 * 10;
                                                    }
 
                                                    if(var29 > var28.scrollHeight - var28.height - var28.scrollY) {
@@ -983,11 +983,11 @@ public class MouseRecorder implements Runnable {
                                                    }
 
                                                    var28.scrollY += var29;
-                                                   Client.field809 -= var29;
+                                                   client.field809 -= var29;
                                                    WorldMapRegion.method5554(var28);
                                                 }
                                              }
-                                          } else if(var10 == class285.field1 && var19 == Client.pressedItemIndex) {
+                                          } else if(var10 == class285.field1 && var19 == client.pressedItemIndex) {
                                              var27.method1374(var22, var23, 128);
                                           } else {
                                              var27.method1311(var22, var23);
@@ -1072,7 +1072,7 @@ public class MouseRecorder implements Runnable {
                                     }
                                  }
 
-                                 if(var10 == Client.field793) {
+                                 if(var10 == client.field793) {
                                     var45 = "Please wait...";
                                     var20 = var10.color;
                                  }
@@ -1164,7 +1164,7 @@ public class MouseRecorder implements Runnable {
                                     }
                                  } else if(var10.modelType == 5) {
                                     if(var10.modelId == 0) {
-                                       var42 = Client.field918.method837((Sequence)null, -1, (Sequence)null, -1);
+                                       var42 = client.field918.method837((Sequence)null, -1, (Sequence)null, -1);
                                     } else {
                                        var42 = class71.localPlayer.vmethod6001(-2033135869);
                                     }
@@ -1237,7 +1237,7 @@ public class MouseRecorder implements Runnable {
                                     }
                                  }
 
-                                 if(var10.type == 8 && var10 == class244.field1961 && Client.field801 == Client.field769) {
+                                 if(var10.type == 8 && var10 == class244.field1961 && client.field801 == client.field769) {
                                     var19 = 0;
                                     var20 = 0;
                                     Font var32 = Occluder.font_p12full;

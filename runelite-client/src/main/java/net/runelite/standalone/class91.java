@@ -73,12 +73,12 @@ public final class class91 {
    )
    static final void method1224(int var0) {
       if(var0 >= 0) {
-         int var1 = Client.menuActionParams0[var0];
-         int var2 = Client.menuActionParams1[var0];
-         int var3 = Client.menuTypes[var0];
-         int var4 = Client.menuIdentifiers[var0];
-         String var5 = Client.menuOptions[var0];
-         String var6 = Client.menuTargets[var0];
+         int var1 = client.menuActionParams0[var0];
+         int var2 = client.menuActionParams1[var0];
+         int var3 = client.menuTypes[var0];
+         int var4 = client.menuIdentifiers[var0];
+         String var5 = client.menuOptions[var0];
+         String var6 = client.menuTargets[var0];
          class24.method464(var1, var2, var3, var4, var5, var6, MouseInput.mouseLastPressedX, MouseInput.mouseLastPressedY, 59694331);
       }
    }

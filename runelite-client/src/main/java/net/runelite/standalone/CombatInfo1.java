@@ -126,7 +126,7 @@ public class CombatInfo1 extends Node implements RSCombatInfo1 {
 
    @ObfuscatedName("ad")
    static void method61(int var0, int var1) {
-      Client.copy$runWidgetOnLoadListener(var0, var1);
+      client.copy$runWidgetOnLoadListener(var0, var1);
       RSWidget[][] var2 = ItemContainer.clientInstance.getWidgets();
       boolean var3 = var2 != null && var2[var0] != null;
       if(var3) {

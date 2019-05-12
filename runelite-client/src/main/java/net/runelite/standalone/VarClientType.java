@@ -66,29 +66,29 @@ public class VarClientType extends CacheableNode {
       Name var5 = new Name(var1, KeyFocusListener.loginType);
 
       for(int var6 = 0; var6 < var2; ++var6) {
-         PlayerEntity var7 = Client.players[var3[var6]];
+         PlayerEntity var7 = client.players[var3[var6]];
          if(var7 != null && var7 != class71.localPlayer && var7.name != null && var7.name.equals(var5)) {
             TcpConnectionMessage var8;
             if(var0 == 1) {
-               var8 = class232.method4535(ClientProt.field2266, Client.serverConnection.isaac);
+               var8 = class232.method4535(ClientProt.field2266, client.serverConnection.isaac);
                var8.packetBuffer.writeShort(var3[var6]);
                var8.packetBuffer.method5232(0);
-               Client.serverConnection.method18(var8);
+               client.serverConnection.method18(var8);
             } else if(var0 == 4) {
-               var8 = class232.method4535(ClientProt.field2237, Client.serverConnection.isaac);
+               var8 = class232.method4535(ClientProt.field2237, client.serverConnection.isaac);
                var8.packetBuffer.method5123(var3[var6]);
                var8.packetBuffer.method5232(0);
-               Client.serverConnection.method18(var8);
+               client.serverConnection.method18(var8);
             } else if(var0 == 6) {
-               var8 = class232.method4535(ClientProt.field2258, Client.serverConnection.isaac);
+               var8 = class232.method4535(ClientProt.field2258, client.serverConnection.isaac);
                var8.packetBuffer.method5122(var3[var6]);
                var8.packetBuffer.method5307(0);
-               Client.serverConnection.method18(var8);
+               client.serverConnection.method18(var8);
             } else if(var0 == 7) {
-               var8 = class232.method4535(ClientProt.field2294, Client.serverConnection.isaac);
+               var8 = class232.method4535(ClientProt.field2294, client.serverConnection.isaac);
                var8.packetBuffer.method5307(0);
                var8.packetBuffer.method5121(var3[var6]);
-               Client.serverConnection.method18(var8);
+               client.serverConnection.method18(var8);
             }
 
             var4 = true;

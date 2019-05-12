@@ -18,11 +18,11 @@ public class class100 extends class133 {
       garbageValue = "-2049072557"
    )
    int method1433(ChatPlayer var1, ChatPlayer var2) {
-      if(Client.world == var1.world) {
-         if(var2.world != Client.world) {
+      if(client.world == var1.world) {
+         if(var2.world != client.world) {
             return this.field1953?-1:1;
          }
-      } else if(var2.world == Client.world) {
+      } else if(var2.world == client.world) {
          return this.field1953?1:-1;
       }
 

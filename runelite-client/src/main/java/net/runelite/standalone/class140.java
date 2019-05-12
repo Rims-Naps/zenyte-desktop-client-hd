@@ -295,10 +295,10 @@ public final class class140 extends class323 implements Runnable {
    )
    static final void method2016(String var0) {
       if(!var0.equals("")) {
-         TcpConnectionMessage var1 = class232.method4535(ClientProt.field2297, Client.serverConnection.isaac);
+         TcpConnectionMessage var1 = class232.method4535(ClientProt.field2297, client.serverConnection.isaac);
          var1.packetBuffer.writeByte(OwnWorldComparator.method73(var0));
          var1.packetBuffer.method5077(var0);
-         Client.serverConnection.method18(var1);
+         client.serverConnection.method18(var1);
       }
    }
 

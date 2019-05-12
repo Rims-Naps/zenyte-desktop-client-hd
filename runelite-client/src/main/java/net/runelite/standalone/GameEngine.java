@@ -261,16 +261,16 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       }
 
       GrandExchangeOffer.canvasWidth = Math.max(var1.getWidth(), this.field461);
-      Client.canvasWidthChanged(-1);
+      client.canvasWidthChanged(-1);
       class258.canvasHeight = Math.max(var1.getHeight(), this.field451);
-      Client.canvasHeightChanged(-1);
+      client.canvasHeightChanged(-1);
       Insets var2;
       if(this.frame != null) {
          var2 = this.frame.getInsets();
          GrandExchangeOffer.canvasWidth -= var2.right + var2.left;
-         Client.canvasWidthChanged(-1);
+         client.canvasWidthChanged(-1);
          class258.canvasHeight -= var2.top + var2.bottom;
-         Client.canvasHeightChanged(-1);
+         client.canvasHeightChanged(-1);
       }
 
       this.canvas = new GameCanvas(this);
@@ -368,9 +368,9 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
          shell = this;
          GrandExchangeOffer.canvasWidth = var1;
-         Client.canvasWidthChanged(-1);
+         client.canvasWidthChanged(-1);
          class258.canvasHeight = var2;
-         Client.canvasHeightChanged(-1);
+         client.canvasHeightChanged(-1);
          JagException.revision = var3;
          JagException.field2022 = this;
          if(class315.taskManager == null) {
@@ -667,7 +667,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
    public void onRun() {
       this.thread = Thread.currentThread();
-      this.thread.setName("Client");
+      this.thread.setName("client");
    }
 
    public void onFocusGained(FocusEvent var1) {
@@ -730,9 +730,9 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
          }
 
          GrandExchangeOffer.canvasWidth = Math.min(this.field457, this.field473);
-         Client.canvasWidthChanged(-1);
+         client.canvasWidthChanged(-1);
          class258.canvasHeight = Math.min(this.field458, this.field464);
-         Client.canvasHeightChanged(-1);
+         client.canvasHeightChanged(-1);
          this.field459 = (this.field457 - GrandExchangeOffer.canvasWidth) / 2;
          this.field460 = 0;
          this.canvas.setSize(GrandExchangeOffer.canvasWidth, class258.canvasHeight);

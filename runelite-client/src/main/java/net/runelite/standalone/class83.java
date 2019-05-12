@@ -47,7 +47,7 @@ public class class83 extends class133 {
 
       int var1;
       for(var1 = 0; var1 < PlayerList.highResolutionPlayerCount; ++var1) {
-         PlayerEntity var2 = Client.players[var0[var1]];
+         PlayerEntity var2 = client.players[var0[var1]];
          if(var2 != null && var2.overheadTextCyclesRemaining > 0) {
             --var2.overheadTextCyclesRemaining;
             if(var2.overheadTextCyclesRemaining == 0) {
@@ -57,9 +57,9 @@ public class class83 extends class133 {
          }
       }
 
-      for(var1 = 0; var1 < Client.highResolutionNpcCount; ++var1) {
-         int var4 = Client.highResolutionNpcIndexes[var1];
-         NPCEntity var3 = Client.npcs[var4];
+      for(var1 = 0; var1 < client.highResolutionNpcCount; ++var1) {
+         int var4 = client.highResolutionNpcIndexes[var1];
+         NPCEntity var3 = client.npcs[var4];
          if(var3 != null && var3.overheadTextCyclesRemaining > 0) {
             --var3.overheadTextCyclesRemaining;
             if(var3.overheadTextCyclesRemaining == 0) {

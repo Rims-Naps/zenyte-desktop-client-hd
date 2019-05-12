@@ -78,8 +78,8 @@ public abstract class Entity extends CacheableNode implements RSRenderable {
       class186 var4 = var0.method5675(false);
       if(var4 != null) {
          Rasterizer2D.method684(var1, var2, var4.field2641 + var1, var2 + var4.field2640);
-         if(Client.minimapRenderType != 2 && Client.minimapRenderType != 5) {
-            int var5 = Client.mapAngle & 2047;
+         if(client.minimapRenderType != 2 && client.minimapRenderType != 5) {
+            int var5 = client.mapAngle & 2047;
             int var6 = class71.localPlayer.x * -1234429701 / 32 + 48;
             int var7 = 464 - class71.localPlayer.y / 32;
             class281.minimapSprite.method1384(var1, var2, var4.field2641, var4.field2640, var6, var7, var5, 256, var4.field2643, var4.field2642);
@@ -87,17 +87,17 @@ public abstract class Entity extends CacheableNode implements RSRenderable {
             int var8;
             int var9;
             int var10;
-            for(var8 = 0; var8 < Client.field875; ++var8) {
-               var9 = Client.field712[var8] * 4 + 2 - class71.localPlayer.x * -1234429701 / 32;
-               var10 = Client.field805[var8] * 4 + 2 - class71.localPlayer.y / 32;
-               class21.method377(var1, var2, var9, var10, Client.mapIcons[var8], var4);
+            for(var8 = 0; var8 < client.field875; ++var8) {
+               var9 = client.field712[var8] * 4 + 2 - class71.localPlayer.x * -1234429701 / 32;
+               var10 = client.field805[var8] * 4 + 2 - class71.localPlayer.y / 32;
+               class21.method377(var1, var2, var9, var10, client.mapIcons[var8], var4);
             }
 
             int var11;
             int var12;
             for(var8 = 0; var8 < 104; ++var8) {
                for(var9 = 0; var9 < 104; ++var9) {
-                  Deque var15 = Client.groundItemDeque[ServerProt.level][var8][var9];
+                  Deque var15 = client.groundItemDeque[ServerProt.level][var8][var9];
                   if(var15 != null) {
                      var11 = var8 * 4 + 2 - class71.localPlayer.x * -1234429701 / 32;
                      var12 = var9 * 4 + 2 - class71.localPlayer.y / 32;
@@ -106,8 +106,8 @@ public abstract class Entity extends CacheableNode implements RSRenderable {
                }
             }
 
-            for(var8 = 0; var8 < Client.highResolutionNpcCount; ++var8) {
-               NPCEntity var16 = Client.npcs[Client.highResolutionNpcIndexes[var8]];
+            for(var8 = 0; var8 < client.highResolutionNpcCount; ++var8) {
+               NPCEntity var16 = client.npcs[client.highResolutionNpcIndexes[var8]];
                if(var16 != null && var16.vmethod6005()) {
                   NPCType var18 = var16.type;
                   if(var18 != null && var18.multiNpcs != null) {
@@ -126,7 +126,7 @@ public abstract class Entity extends CacheableNode implements RSRenderable {
             int[] var19 = PlayerList.highResolutionPlayerIndexes;
 
             for(var10 = 0; var10 < var8; ++var10) {
-               PlayerEntity var17 = Client.players[var19[var10]];
+               PlayerEntity var17 = client.players[var19[var10]];
                if(var17 != null && var17.vmethod6005() && !var17.hidden && var17 != class71.localPlayer) {
                   var12 = var17.x * -1234429701 / 32 - class71.localPlayer.x * -1234429701 / 32;
                   int var13 = var17.y / 32 - class71.localPlayer.y / 32;
@@ -147,9 +147,9 @@ public abstract class Entity extends CacheableNode implements RSRenderable {
                }
             }
 
-            if(Client.hintArrowTargetType != 0 && Client.gameCycle % 20 < 10) {
-               if(Client.hintArrowTargetType == 1 && Client.hintArrowNpcTargetIdx >= 0 && Client.hintArrowNpcTargetIdx < Client.npcs.length) {
-                  NPCEntity var20 = Client.npcs[Client.hintArrowNpcTargetIdx];
+            if(client.hintArrowTargetType != 0 && client.gameCycle % 20 < 10) {
+               if(client.hintArrowTargetType == 1 && client.hintArrowNpcTargetIdx >= 0 && client.hintArrowNpcTargetIdx < client.npcs.length) {
+                  NPCEntity var20 = client.npcs[client.hintArrowNpcTargetIdx];
                   if(var20 != null) {
                      var11 = var20.x * -1234429701 / 32 - class71.localPlayer.x * -1234429701 / 32;
                      var12 = var20.y / 32 - class71.localPlayer.y / 32;
@@ -157,14 +157,14 @@ public abstract class Entity extends CacheableNode implements RSRenderable {
                   }
                }
 
-               if(Client.hintArrowTargetType == 2) {
-                  var10 = Client.hintArrowX * 4 - class53.baseX * 4 + 2 - class71.localPlayer.x * -1234429701 / 32;
-                  var11 = Client.hintArrowY * 4 - class312.baseY * 4 + 2 - class71.localPlayer.y / 32;
+               if(client.hintArrowTargetType == 2) {
+                  var10 = client.hintArrowX * 4 - class53.baseX * 4 + 2 - class71.localPlayer.x * -1234429701 / 32;
+                  var11 = client.hintArrowY * 4 - class312.baseY * 4 + 2 - class71.localPlayer.y / 32;
                   class95.method1264(var1, var2, var10, var11, Occluder.mapMarkers[1], var4);
                }
 
-               if(Client.hintArrowTargetType == 10 && Client.hintArrowPlayerTargetIdx >= 0 && Client.hintArrowPlayerTargetIdx < Client.players.length) {
-                  PlayerEntity var21 = Client.players[Client.hintArrowPlayerTargetIdx];
+               if(client.hintArrowTargetType == 10 && client.hintArrowPlayerTargetIdx >= 0 && client.hintArrowPlayerTargetIdx < client.players.length) {
+                  PlayerEntity var21 = client.players[client.hintArrowPlayerTargetIdx];
                   if(var21 != null) {
                      var11 = var21.x * -1234429701 / 32 - class71.localPlayer.x * -1234429701 / 32;
                      var12 = var21.y / 32 - class71.localPlayer.y / 32;
@@ -173,9 +173,9 @@ public abstract class Entity extends CacheableNode implements RSRenderable {
                }
             }
 
-            if(Client.destinationX != 0) {
-               var10 = Client.destinationX * 4 + 2 - class71.localPlayer.x * -1234429701 / 32;
-               var11 = Client.destinationY * 4 + 2 - class71.localPlayer.y / 32;
+            if(client.destinationX != 0) {
+               var10 = client.destinationX * 4 + 2 - class71.localPlayer.x * -1234429701 / 32;
+               var11 = client.destinationY * 4 + 2 - class71.localPlayer.y / 32;
                class21.method377(var1, var2, var10, var11, Occluder.mapMarkers[0], var4);
             }
 
@@ -186,7 +186,7 @@ public abstract class Entity extends CacheableNode implements RSRenderable {
             Rasterizer2D.method704(var1, var2, 0, var4.field2643, var4.field2642);
          }
 
-         Client.field923[var3] = true;
+         client.field923[var3] = true;
       }
    }
 

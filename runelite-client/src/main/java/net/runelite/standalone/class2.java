@@ -30,7 +30,7 @@ public class class2 {
       garbageValue = "-1090851287"
    )
    static void method39(int var0) {
-      for(IntegerNode var1 = (IntegerNode)Client.serverActiveProperties.method6338(); var1 != null; var1 = (IntegerNode)Client.serverActiveProperties.method6339()) {
+      for(IntegerNode var1 = (IntegerNode) client.serverActiveProperties.method6338(); var1 != null; var1 = (IntegerNode) client.serverActiveProperties.method6339()) {
          if((long)var0 == (var1.hash >> 48 & 65535L)) {
             var1.method432();
          }

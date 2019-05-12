@@ -103,11 +103,11 @@ public class class125 extends WorldMapData {
       }
 
       int var3 = var0.method2652(2);
-      PlayerEntity var4 = Client.players[var1];
+      PlayerEntity var4 = client.players[var1];
       if(var3 == 0) {
          if(var2) {
             var4.field635 = false;
-         } else if(Client.localPlayerIndex == var1) {
+         } else if(client.localPlayerIndex == var1) {
             throw new RuntimeException();
          } else {
             PlayerList.coords[var1] = (var4.field631 << 28) + (class53.baseX + var4.pathX[0] >> 13 << 14) + (class312.baseY + var4.pathY[0] >> 13);
@@ -118,8 +118,8 @@ public class class125 extends WorldMapData {
             }
 
             PlayerList.facingEntities[var1] = var4.interacting;
-            Client.players[var1] = null;
-            Client.cachedPlayersChanged(var1);
+            client.players[var1] = null;
+            client.cachedPlayersChanged(var1);
             if(var0.method2652(1) != 0) {
                MilliTimer.method1064(var0, var1);
             }
@@ -155,7 +155,7 @@ public class class125 extends WorldMapData {
                ++var7;
             }
 
-            if(Client.localPlayerIndex != var1 || var4.x * -1234429701 >= 1536 && var4.y >= 1536 && var4.x * -1234429701 < 11776 && var4.y < 11776) {
+            if(client.localPlayerIndex != var1 || var4.x * -1234429701 >= 1536 && var4.y >= 1536 && var4.x * -1234429701 < 11776 && var4.y < 11776) {
                if(var2) {
                   var4.field635 = true;
                   var4.xInScene = var6;
@@ -219,7 +219,7 @@ public class class125 extends WorldMapData {
                var7 += 2;
             }
 
-            if(Client.localPlayerIndex == var1 && (var4.x * -1234429701 < 1536 || var4.y < 1536 || var4.x * -1234429701 >= 11776 || var4.y >= 11776)) {
+            if(client.localPlayerIndex == var1 && (var4.x * -1234429701 < 1536 || var4.y < 1536 || var4.x * -1234429701 >= 11776 || var4.y >= 11776)) {
                var4.method6011(var6, var7);
                var4.field635 = false;
             } else if(var2) {
@@ -252,7 +252,7 @@ public class class125 extends WorldMapData {
 
                var10 = var8 + var4.pathX[0];
                var11 = var9 + var4.pathY[0];
-               if(Client.localPlayerIndex != var1 || var4.x * -1234429701 >= 1536 && var4.y >= 1536 && var4.x * -1234429701 < 11776 && var4.y < 11776) {
+               if(client.localPlayerIndex != var1 || var4.x * -1234429701 >= 1536 && var4.y >= 1536 && var4.x * -1234429701 < 11776 && var4.y < 11776) {
                   if(var2) {
                      var4.field635 = true;
                      var4.xInScene = var10;
@@ -267,7 +267,7 @@ public class class125 extends WorldMapData {
                }
 
                var4.field631 = (byte)(var7 + var4.field631 & 3);
-               if(Client.localPlayerIndex == var1) {
+               if(client.localPlayerIndex == var1) {
                   ServerProt.level = var4.field631;
                }
 
@@ -278,7 +278,7 @@ public class class125 extends WorldMapData {
                var9 = var6 & 16383;
                var10 = (var8 + class53.baseX + var4.pathX[0] & 16383) - class53.baseX;
                var11 = (var9 + class312.baseY + var4.pathY[0] & 16383) - class312.baseY;
-               if(Client.localPlayerIndex == var1 && (var4.x * -1234429701 < 1536 || var4.y < 1536 || var4.x * -1234429701 >= 11776 || var4.y >= 11776)) {
+               if(client.localPlayerIndex == var1 && (var4.x * -1234429701 < 1536 || var4.y < 1536 || var4.x * -1234429701 >= 11776 || var4.y >= 11776)) {
                   var4.method6011(var10, var11);
                   var4.field635 = false;
                } else if(var2) {
@@ -291,7 +291,7 @@ public class class125 extends WorldMapData {
                }
 
                var4.field631 = (byte)(var7 + var4.field631 & 3);
-               if(Client.localPlayerIndex == var1) {
+               if(client.localPlayerIndex == var1) {
                   ServerProt.level = var4.field631;
                }
 
@@ -306,16 +306,16 @@ public class class125 extends WorldMapData {
       garbageValue = "572830405"
    )
    static final void method1856(ComponentType var0, int var1, int var2) {
-      if(Client.draggedWidget == null && !Client.isMenuOpen) {
+      if(client.draggedWidget == null && !client.isMenuOpen) {
          if(var0 != null && ChatLine.method5913(var0) != null) {
-            Client.draggedWidget = var0;
-            Client.field823 = ChatLine.method5913(var0);
-            Client.field824 = var1;
-            Client.field802 = var2;
+            client.draggedWidget = var0;
+            client.field823 = ChatLine.method5913(var0);
+            client.field824 = var1;
+            client.field802 = var2;
             WorldMapRegion.field267 = 0;
-            Client.draggingWidget = false;
-            Client.draggingWidgetChanged(-1);
-            int var3 = Client.menuOptionCount - 1;
+            client.draggingWidget = false;
+            client.draggingWidgetChanged(-1);
+            int var3 = client.menuOptionCount - 1;
             if(var3 != -1) {
                class288.method5941(var3);
             }

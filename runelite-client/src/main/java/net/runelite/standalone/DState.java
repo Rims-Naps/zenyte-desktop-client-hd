@@ -162,12 +162,12 @@ public final class DState {
    )
    static void method6065() {
       if(WorldMapType1.field216 != null) {
-         Client.field797 = Client.gameCycle;
+         client.field797 = client.gameCycle;
          WorldMapType1.field216.method98();
 
-         for(int var0 = 0; var0 < Client.players.length; ++var0) {
-            if(Client.players[var0] != null) {
-               WorldMapType1.field216.method91((Client.players[var0].x * -1234429701 >> 7) + class53.baseX, (Client.players[var0].y >> 7) + class312.baseY);
+         for(int var0 = 0; var0 < client.players.length; ++var0) {
+            if(client.players[var0] != null) {
+               WorldMapType1.field216.method91((client.players[var0].x * -1234429701 >> 7) + class53.baseX, (client.players[var0].y >> 7) + class312.baseY);
             }
          }
       }

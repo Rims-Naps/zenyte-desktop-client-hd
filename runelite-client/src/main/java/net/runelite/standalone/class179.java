@@ -70,7 +70,7 @@ public class class179 {
          }
       }
 
-      Client.field875 = 0;
+      client.field875 = 0;
 
       for(var5 = 0; var5 < 104; ++var5) {
          for(var6 = 0; var6 < 104; ++var6) {
@@ -79,10 +79,10 @@ public class class179 {
                int var9 = Resampler.method143(var7);
                int var10 = GrandExchangeOffer.method1736(var9).mapelement;
                if(var10 >= 0) {
-                  Client.mapIcons[Client.field875] = MapLabel.method2858(var10).method1483(false);
-                  Client.field712[Client.field875] = var5;
-                  Client.field805[Client.field875] = var6;
-                  ++Client.field875;
+                  client.mapIcons[client.field875] = MapLabel.method2858(var10).method1483(false);
+                  client.field712[client.field875] = var5;
+                  client.field805[client.field875] = var6;
+                  ++client.field875;
                }
             }
          }
