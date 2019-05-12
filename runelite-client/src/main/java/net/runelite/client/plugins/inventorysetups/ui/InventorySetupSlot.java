@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Tyler <https://github.com/tylerthardy>
+ * Copyright (c) 2018, https://runelitepl.us
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,16 +22,43 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.slayer;
+package net.runelite.client.plugins.inventorysetups.ui;
 
-import java.awt.image.BufferedImage;
-import net.runelite.client.plugins.Plugin;
-import net.runelite.client.ui.overlay.infobox.Counter;
+import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import net.runelite.client.game.AsyncBufferedImage;
 
-class TaskCounter extends Counter
+public class InventorySetupSlot extends JPanel
 {
-	TaskCounter(BufferedImage img, Plugin plugin, int amount)
+	private final JLabel imageLabel;
+
+	public InventorySetupSlot(Color color)
 	{
-		super(img, plugin, amount);
+		imageLabel = new JLabel();
+		imageLabel.setVerticalAlignment(SwingConstants.CENTER);
+		setPreferredSize(new Dimension(46, 42));
+		setBackground(color);
+		add(imageLabel);
+
+	}
+
+	public void setImageLabel(String toolTip, AsyncBufferedImage itemImage)
+	{
+		if (itemImage == null || toolTip == null)
+		{
+			imageLabel.setToolTipText("");
+			imageLabel.setIcon(null);
+			imageLabel.revalidate();
+			return;
+		}
+
+		imageLabel.setToolTipText(toolTip);
+		itemImage.addTo(imageLabel);
+
+		validate();
+		repaint();
 	}
 }

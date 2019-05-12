@@ -332,6 +332,8 @@ public interface Client extends GameEngine
 	 */
 	ItemComposition getItemDefinition(int id);
 
+	Widget createWidget();
+
 	/**
 	 * Creates an item icon sprite with passed variables.
 	 *

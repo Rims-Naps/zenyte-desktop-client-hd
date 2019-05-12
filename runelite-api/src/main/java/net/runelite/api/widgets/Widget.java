@@ -52,6 +52,7 @@ public interface Widget
 	 * @see WidgetID
 	 */
 	int getId();
+	void setId(int id);
 
 	/**
 	 * Gets the type of the widget.
@@ -105,6 +106,7 @@ public interface Widget
 	 * @return the parent ID, or -1 if this widget is not a child
 	 */
 	int getParentId();
+	void setParentId(int parentId);
 
 	/**
 	 * Gets a dynamic child by index
@@ -292,6 +294,7 @@ public interface Widget
 	 * The index of this widget in it's parent's children array
 	 */
 	int getIndex();
+	void setIndex(int index);
 
 	/**
 	 * Gets the location the widget is being drawn on the canvas.
@@ -601,6 +604,7 @@ public interface Widget
 	 * This is true if the widget is from an if3 interface, or is dynamically created
 	 */
 	boolean isIf3();
+	void setIsIf3(boolean isIf3);
 
 	/**
 	 * Recomputes this widget's x/y/w/h, excluding scroll

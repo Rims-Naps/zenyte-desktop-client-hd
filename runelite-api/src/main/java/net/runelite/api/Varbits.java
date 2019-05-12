@@ -59,6 +59,8 @@ public enum Varbits
 	RUNE_POUCH_AMOUNT2(1625),
 	RUNE_POUCH_AMOUNT3(1626),
 
+	SLAYER_REWARD_POINTS(4068),
+
 	/**
 	 * Prayers
 	 */

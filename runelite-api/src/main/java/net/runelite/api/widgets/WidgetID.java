@@ -134,6 +134,18 @@ public class WidgetID
 	public static final int KEPT_ON_DEATH_GROUP_ID = 4;
 	public static final int GUIDE_PRICE_GROUP_ID = 464;
 
+	static class KeptOnDeath
+	{
+		static final int KEPT_ITEMS_CONTAINER = 18;
+		static final int LOST_ITEMS_CONTAINER = 21;
+		static final int LOST_ITEMS_VALUE = 23;
+		static final int INFORMATION_CONTAINER = 29;
+		static final int MAX_ITEMS_KEPT_ON_DEATH = 30;
+		static final int SAFE_ZONE_CONTAINER = 31;
+
+		static final int CUSTOM_TEXT_CONTAINER = 33;
+	}
+
 	static class WorldMap
 	{
 		static final int MAPVIEW = 6;

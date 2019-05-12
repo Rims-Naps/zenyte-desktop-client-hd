@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Tyler <https://github.com/tylerthardy>
+ * Copyright (c) 2018, TheStonedTurtle <https://github.com/TheStonedTurtle>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,16 +22,48 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.slayer;
+package net.runelite.client.plugins.keptondeath;
 
-import java.awt.image.BufferedImage;
-import net.runelite.client.plugins.Plugin;
-import net.runelite.client.ui.overlay.infobox.Counter;
+import com.google.common.collect.ImmutableMap;
+import lombok.Getter;
+import net.runelite.api.ItemID;
 
-class TaskCounter extends Counter
+/**
+ * Certain Items receive a white outline by Jagex as they are always lost on death. This is sometimes incorrectly
+ * added to Items by Jagex as the item is actually kept in non-pvp areas of the game, such as the Rune Pouch.
+ *
+ * The white outline will be added to these items when they are lost on death.
+ */
+public enum AlwaysLostItem
 {
-	TaskCounter(BufferedImage img, Plugin plugin, int amount)
+	RUNE_POUCH(ItemID.RUNE_POUCH, true),
+	LOOTING_BAG(ItemID.LOOTING_BAG, false),
+	LOOTING_BAG_22586(ItemID.LOOTING_BAG_22586, false),
+	CLUE_BOX(ItemID.CLUE_BOX, false);
+
+	private final int itemID;
+	@Getter
+	private final boolean kept;
+
+	private static final ImmutableMap<Integer, AlwaysLostItem> ID_MAP;
+	static
 	{
-		super(img, plugin, amount);
+		ImmutableMap.Builder<Integer, AlwaysLostItem> map = ImmutableMap.builder();
+		for (AlwaysLostItem p : values())
+		{
+			map.put(p.itemID, p);
+		}
+		ID_MAP = map.build();
+	}
+
+	AlwaysLostItem(int itemID, boolean kept)
+	{
+		this.itemID = itemID;
+		this.kept = kept;
+	}
+
+	public static AlwaysLostItem getByItemID(int itemID)
+	{
+		return ID_MAP.get(itemID);
 	}
 }

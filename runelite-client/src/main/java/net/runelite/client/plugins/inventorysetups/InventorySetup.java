@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Tyler <https://github.com/tylerthardy>
+ * Copyright (c) 2018, https://runelitepl.us
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,16 +22,17 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.slayer;
+package net.runelite.client.plugins.inventorysetups;
 
-import java.awt.image.BufferedImage;
-import net.runelite.client.plugins.Plugin;
-import net.runelite.client.ui.overlay.infobox.Counter;
+import java.util.ArrayList;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-class TaskCounter extends Counter
+@AllArgsConstructor
+public class InventorySetup
 {
-	TaskCounter(BufferedImage img, Plugin plugin, int amount)
-	{
-		super(img, plugin, amount);
-	}
+	@Getter
+	private ArrayList<InventorySetupItem> inventory;
+	@Getter
+	private ArrayList<InventorySetupItem> equipment;
 }
