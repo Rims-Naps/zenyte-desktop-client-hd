@@ -46,8 +46,16 @@ public class class181 {
       signature = "(IB)Ljava/lang/String;",
       garbageValue = "-30"
    )
-   static String method3046(int var0) {
-      return "<img=" + var0 + ">";
+   static String getModIcon(int var0) {
+      return var0 == -1 ? "" : "<img=" + var0 + ">";
+   }
+
+   static String getIronManIcon(int var0) {
+      return var0 == -1 ? "" : "<irm=" + var0 + ">";
+   }
+
+   static String getMemberIcon(int var0) {
+      return var0 == -1 ? "" : "<member=" + var0 + ">";
    }
 
    @ObfuscatedName("kc")

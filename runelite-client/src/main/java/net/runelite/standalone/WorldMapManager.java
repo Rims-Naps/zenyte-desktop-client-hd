@@ -972,11 +972,39 @@ public final class WorldMapManager implements RSWorldMapManager {
                   ++var0;
                }
 
+
+               if(TcpConnectionMessage.memberIconSprites == null) {
+                  var2 = ModeGame.sprites;
+                  if(!class205.method4006(var2, 2501, 0)) {
+                     var1 = null;
+                  } else {
+                     var18 = new IndexedSprite[class96.indexedSpriteCount];
+
+                     for(var19 = 0; var19 < class96.indexedSpriteCount; ++var19) {
+                        var7 = var18[var19] = new IndexedSprite();
+                        var7.originalWidth = class96.indexedSpriteWidth;
+                        var7.originalHeight = class96.indexedSpriteHeight;
+                        var7.offsetX = class96.indexedSpriteOffsetXs[var19];
+                        var7.offsetY = GameCanvas.indexedSpriteOffsetYs[var19];
+                        var7.width = class96.indexSpriteWidths[var19];
+                        var7.height = class96.indexedSpriteHeights[var19];
+                        var7.palette = class96.indexedSpritePalette;
+                        var7.pixels = class241.spritePixels[var19];
+                     }
+
+                     class43.method648();
+                     var1 = var18;
+                  }
+
+                  TcpConnectionMessage.memberIconSprites = var1;
+               }
+
                if(var0 < 11) {
                   class203.loadingText = "Loading sprites - " + var0 * 100 / 12 + "%";
                   class203.loadingBarPercentage = 70;
                } else {
                   FontTypeFace.modIcons = TcpConnectionMessage.modIconSprites;
+                  FontTypeFace.memberIcons = TcpConnectionMessage.memberIconSprites;
                   class71.mapedge.method1303();
                   int var20 = (int)(Math.random() * 21.0D) - 10;
                   int var21 = (int)(Math.random() * 21.0D) - 10;

@@ -73,7 +73,7 @@ final class class53 implements Comparator {
       int var8;
       if(!client.isDynamicRegion) {
          var2 = var1.method5281();
-         var3 = var1.method5125();
+         var3 = var1.readUnsignedShort128();
          int var4 = var1.readUnsignedShort();
          Varcs.xteaKeys = new int[var4][4];
 
@@ -113,7 +113,7 @@ final class class53 implements Comparator {
 
          FrameMap.method6312(var3, var2, true);
       } else {
-         var2 = var1.method5125();
+         var2 = var1.readUnsignedShort128();
          var3 = var1.method5281();
          boolean var15 = var1.readUnsignedByte() == 1;
          var5 = var1.readUnsignedShort();

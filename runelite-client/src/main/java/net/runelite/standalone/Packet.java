@@ -600,7 +600,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(I)I",
       garbageValue = "2103175908"
    )
-   public int method5244() {
+   public int readUnsignedByteC() {
       return 0 - this.payload[++this.offset - 1] & 255;
    }
 
@@ -949,7 +949,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(I)I",
       garbageValue = "101346749"
    )
-   public int method5125() {
+   public int readUnsignedShort128() {
       this.offset += 2;
       return (this.payload[this.offset - 1] - 128 & 255) + ((this.payload[this.offset - 2] & 255) << 8);
    }

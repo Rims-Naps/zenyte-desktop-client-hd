@@ -154,7 +154,7 @@ public enum class302 implements Enumerated {
          }
 
          if((var5 & 16) != 0) {
-            var6 = var1.method5244();
+            var6 = var1.readUnsignedByteC();
             int var10;
             int var11;
             int var12;

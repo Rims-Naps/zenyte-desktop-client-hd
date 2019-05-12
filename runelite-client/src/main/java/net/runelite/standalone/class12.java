@@ -28,7 +28,7 @@ public class class12 {
          var6 = var5 >> 2;
          var7 = var5 & 3;
          var8 = client.field709[var6];
-         var9 = var1.method5125();
+         var9 = var1.readUnsignedShort128();
          if(var3 >= 0 && var38 >= 0 && var3 < 104 && var38 < 104) {
             WorldMapType1.method4931(ServerProt.level, var3, var38, var8, var9, var6, var7, 0, -1);
          }
@@ -64,7 +64,7 @@ public class class12 {
             byte var2 = var1.method5119();
             var3 = var1.method5281();
             byte var4 = var1.method5119();
-            var5 = var1.method5125();
+            var5 = var1.readUnsignedShort128();
             var6 = var1.readUnsignedShort();
             var7 = var1.method5115();
             var8 = var7 >> 2;
@@ -73,7 +73,7 @@ public class class12 {
             byte var11 = var1.method5118();
             var12 = var1.method5309();
             var13 = var1.method5119();
-            var14 = var1.method5244();
+            var14 = var1.readUnsignedByteC();
             int var15 = (var14 >> 4 & 7) + VarPlayerType.field3319;
             int var16 = (var14 & 7) + class318.field115;
             PlayerEntity var17;
@@ -152,7 +152,7 @@ public class class12 {
                var3 = var37 >> 2;
                var38 = var37 & 3;
                var5 = client.field709[var3];
-               var6 = var1.method5244();
+               var6 = var1.readUnsignedByteC();
                var7 = (var6 >> 4 & 7) + VarPlayerType.field3319;
                var8 = (var6 & 7) + class318.field115;
                var9 = var1.readUnsignedShort();
@@ -211,7 +211,7 @@ public class class12 {
             } else if(ZoneProt.field2335 == var0) {
                var37 = var1.readUnsignedShort();
                var3 = var1.method5115();
-               var38 = var1.method5125();
+               var38 = var1.readUnsignedShort128();
                var5 = var1.readUnsignedByte();
                var6 = (var5 >> 4 & 7) + VarPlayerType.field3319;
                var7 = (var5 & 7) + class318.field115;
@@ -225,7 +225,7 @@ public class class12 {
             } else if(ZoneProt.field2337 == var0) {
                var37 = var1.method5117() * 4;
                var3 = var1.readUnsignedShort();
-               var38 = var1.method5125();
+               var38 = var1.readUnsignedShort128();
                var5 = var1.method5117() * 4;
                var6 = var1.method5127();
                var7 = var1.readUnsignedByte();
@@ -252,7 +252,7 @@ public class class12 {
                Item var36;
                if(ZoneProt.field2333 != var0) {
                   if(ZoneProt.field2334 == var0) {
-                     var37 = var1.method5125();
+                     var37 = var1.readUnsignedShort128();
                      var3 = var1.method5281();
                      var38 = var1.method5115();
                      var5 = (var38 >> 4 & 7) + VarPlayerType.field3319;

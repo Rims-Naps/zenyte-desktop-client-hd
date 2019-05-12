@@ -6648,7 +6648,7 @@ public final class client extends GameEngine implements class245, RSClient {
             int var9;
             if(ServerProt.field2155 == var1.currentPacket) {
                var16 = var3.method5133();
-               var5 = var3.method5125();
+               var5 = var3.readUnsignedShort128();
                var18 = var5 >> 10 & 31;
                var7 = var5 >> 5 & 31;
                var8 = var5 & 31;
@@ -6664,8 +6664,8 @@ public final class client extends GameEngine implements class245, RSClient {
             }
 
             if(ServerProt.field2211 == var1.currentPacket) {
-               tradeMode = var3.method5244();
-               publicChatMode = var3.method5244();
+               tradeMode = var3.readUnsignedByteC();
+               publicChatMode = var3.readUnsignedByteC();
                var1.currentPacket = null;
                return true;
             }
@@ -6752,7 +6752,12 @@ public final class client extends GameEngine implements class245, RSClient {
                var20 = var3.method5299();
                var22 = (long)var3.readUnsignedShort();
                var24 = (long)var3.method5090();
-               ChatCrownType var46 = (ChatCrownType)PlayerList.method4757(class248.method4669(), var3.readUnsignedByte());
+               int compressed = var3.readUnsignedByte();
+               int staff = (compressed & 0x3);
+               int ironman = (compressed >> 2) & 0x7;
+               int member = ((compressed >> 5) & 0x7) - 1;
+               ChatCrownType staffRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), staff);
+               ChatCrownType ironmanRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), ironman);
                var12 = (var22 << 32) + var24;
                boolean var48 = false;
 
@@ -6771,11 +6776,12 @@ public final class client extends GameEngine implements class245, RSClient {
                   field755[field758] = var12;
                   field758 = (field758 + 1) % 100;
                   String var26 = FontTypeFace.method6234(MapElementType.method1507(ModeWhere.method1463(var3)));
-                  if(var46.icon * 1132360445 != -1) {
-                     class312.method6287(9, class181.method3046(var46.icon * 1132360445) + var37, var26, MapIconReference.method2082(var20));
+                  class312.method6287(9, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getIronManIcon(ironmanRank.icon) + class181.getMemberIcon(member) + var37, var26, MapIconReference.method2082(var20));
+                  /*if(staffRank.icon * 1132360445 != -1) {
+                     class312.method6287(9, class181.getModIcon(staffRank.icon * 1132360445) + var37, var26, MapIconReference.method2082(var20));
                   } else {
                      class312.method6287(9, var37, var26, MapIconReference.method2082(var20));
-                  }
+                  }*/
                }
 
                var1.currentPacket = null;
@@ -6826,7 +6832,7 @@ public final class client extends GameEngine implements class245, RSClient {
             }
 
             if(ServerProt.field2140 == var1.currentPacket) {
-               class318.field115 = var3.method5244();
+               class318.field115 = var3.readUnsignedByteC();
                VarPlayerType.field3319 = var3.readUnsignedByte();
 
                for(var16 = VarPlayerType.field3319; var16 < VarPlayerType.field3319 + 8; ++var16) {
@@ -7022,7 +7028,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
             if(ServerProt.field2148 == var1.currentPacket) {
                class318.field115 = var3.method5117();
-               VarPlayerType.field3319 = var3.method5244();
+               VarPlayerType.field3319 = var3.readUnsignedByteC();
 
                while(var3.offset < var1.currentPacketSize) {
                   var16 = var3.readUnsignedByte();
@@ -7163,7 +7169,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
             ComponentType var57;
             if(ServerProt.field2199 == var1.currentPacket) {
-               var16 = var3.method5125();
+               var16 = var3.readUnsignedShort128();
                var5 = var3.method5309();
                var18 = var3.method5133();
                var57 = ChatHistory.method6246(var18);
@@ -7477,7 +7483,7 @@ public final class client extends GameEngine implements class245, RSClient {
             if(ServerProt.field2153 == var1.currentPacket) {
                FontName.method507();
                var16 = var3.method5314();
-               var5 = var3.method5244();
+               var5 = var3.readUnsignedByteC();
                var18 = var3.readUnsignedByte();
                skillExperiences[var5] = var16;
                experiencedChanged(var5);
@@ -7560,7 +7566,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
             if(ServerProt.field2179 == var1.currentPacket) {
                var16 = var3.method5314();
-               var5 = var3.method5125();
+               var5 = var3.readUnsignedShort128();
                if(var5 == 65535) {
                   var5 = -1;
                }
@@ -7666,7 +7672,12 @@ public final class client extends GameEngine implements class245, RSClient {
                var37 = var3.readString();
                var20 = (long)var3.readUnsignedShort();
                var22 = (long)var3.method5090();
-               ChatCrownType var30 = (ChatCrownType)PlayerList.method4757(class248.method4669(), var3.readUnsignedByte());
+               int compressed = var3.readUnsignedByte();
+               int staff = (compressed & 0x3);
+               int ironman = (compressed >> 2) & 0x7;
+               int member = ((compressed >> 5) & 0x7) - 1;
+               ChatCrownType staffRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), staff);
+               ChatCrownType ironmanRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), ironman);
                long var31 = var22 + (var20 << 32);
                boolean var33 = false;
 
@@ -7686,17 +7697,18 @@ public final class client extends GameEngine implements class245, RSClient {
                   field758 = (field758 + 1) % 100;
                   String var34 = FontTypeFace.method6234(MapElementType.method1507(ModeWhere.method1463(var3)));
                   byte var14;
-                  if(var30.moderator) {
+                  if(staffRank.moderator) {
                      var14 = 7;
                   } else {
                      var14 = 3;
                   }
 
-                  if(var30.icon * 1132360445 != -1) {
-                     KeyFocusListener.method5934(var14, class181.method3046(var30.icon * 1132360445) + var37, var34);
+                  KeyFocusListener.method5934(var14, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getIronManIcon(ironmanRank.icon) + class181.getMemberIcon(member) + var37, var34);
+                  /*if(var30.icon * 1132360445 != -1) {
+                     KeyFocusListener.method5934(var14, class181.getModIcon(var30.icon * 1132360445) + var37, var34);
                   } else {
                      KeyFocusListener.method5934(var14, var37, var34);
-                  }
+                  }*/
                }
 
                var1.currentPacket = null;
@@ -7746,7 +7758,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
             if(ServerProt.field2207 == var1.currentPacket) {
                byte var55 = var3.method5118();
-               var5 = var3.method5125();
+               var5 = var3.readUnsignedShort128();
                class313.serverVarps[var5] = var55;
                if(class313.clientVarps[var5] != var55) {
                   class313.clientVarps[var5] = var55;
@@ -7774,7 +7786,7 @@ public final class client extends GameEngine implements class245, RSClient {
             }
 
             if(ServerProt.field2195 == var1.currentPacket) {
-               VarPlayerType.field3319 = var3.method5244();
+               VarPlayerType.field3319 = var3.readUnsignedByteC();
                class318.field115 = var3.method5117();
                var1.currentPacket = null;
                return true;
@@ -7841,7 +7853,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
             if(ServerProt.field2151 == var1.currentPacket) {
                var16 = var3.method5129();
-               var5 = var3.method5125();
+               var5 = var3.readUnsignedShort128();
                if(var5 == 65535) {
                   var5 = -1;
                }
@@ -10634,7 +10646,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
       for(int var2 = 0; var2 < var1.length; ++var2) {
          ChatCrownType var3 = var1[var2];
-         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.method3046(var3.icon * 1132360445))) {
+         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.getModIcon(var3.icon * 1132360445))) {
             var0 = var0.substring(6 + Integer.toString(var3.icon * 1132360445).length());
             break;
          }
@@ -10648,7 +10660,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
       for(int var2 = 0; var2 < var1.length; ++var2) {
          ChatCrownType var3 = var1[var2];
-         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.method3046(var3.icon * -914060219))) {
+         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.getModIcon(var3.icon * -914060219))) {
             var0 = var0.substring(6 + Integer.toString(var3.icon * 43960766).length());
             break;
          }
@@ -10662,7 +10674,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
       for(int var2 = 0; var2 < var1.length; ++var2) {
          ChatCrownType var3 = var1[var2];
-         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.method3046(var3.icon * 1132360445))) {
+         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.getModIcon(var3.icon * 1132360445))) {
             var0 = var0.substring(6 + Integer.toString(var3.icon * -1049852709).length());
             break;
          }
@@ -10676,7 +10688,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
       for(int var2 = 0; var2 < var1.length; ++var2) {
          ChatCrownType var3 = var1[var2];
-         if(var3.icon * -323107556 != -1 && var0.startsWith(class181.method3046(var3.icon * 1966222253))) {
+         if(var3.icon * -323107556 != -1 && var0.startsWith(class181.getModIcon(var3.icon * 1966222253))) {
             var0 = var0.substring(6 + Integer.toString(var3.icon * 2107301188).length());
             break;
          }

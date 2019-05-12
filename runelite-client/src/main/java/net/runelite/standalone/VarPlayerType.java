@@ -78,7 +78,7 @@ public class VarPlayerType extends CacheableNode {
 
       for(int var2 = 0; var2 < var1.length; ++var2) {
          ChatCrownType var3 = var1[var2];
-         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.method3046(var3.icon * 1132360445))) {
+         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.getModIcon(var3.icon * 1132360445))) {
             var0 = var0.substring(6 + Integer.toString(var3.icon * 1132360445).length());
             break;
          }

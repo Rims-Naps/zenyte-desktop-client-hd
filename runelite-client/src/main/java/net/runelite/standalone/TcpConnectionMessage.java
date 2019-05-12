@@ -16,6 +16,7 @@ public class TcpConnectionMessage extends Node {
       signature = "[Llv;"
    )
    static IndexedSprite[] modIconSprites;
+   static IndexedSprite[] memberIconSprites;
    @ObfuscatedName("h")
    @ObfuscatedSignature(
       signature = "[Lfa;"
