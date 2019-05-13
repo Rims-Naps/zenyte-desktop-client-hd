@@ -89,7 +89,6 @@ class DiscordState
 		{
 			return;
 		}
-
 		final DiscordPresence.DiscordPresenceBuilder presenceBuilder = DiscordPresence.builder()
 			.state(lastPresence.getState())
 			.details(lastPresence.getDetails())
@@ -171,10 +170,9 @@ class DiscordState
 				break;
 			}
 		}
-
 		// Replace snapshot with + to make tooltip shorter (so it will span only 1 line)
 		final String versionShortHand = properties.getVersion().replace("-SNAPSHOT", "+");
-
+		details = "www.zenyte.com";
 		final DiscordPresence.DiscordPresenceBuilder presenceBuilder = DiscordPresence.builder()
 			.state(MoreObjects.firstNonNull(state, ""))
 			.details(MoreObjects.firstNonNull(details, ""))
