@@ -126,7 +126,6 @@ public class InventorySetupPlugin extends Plugin
 		// load all the inventory setups from the config file
 		clientThread.invokeLater(() ->
 		{
-			System.out.println("test" + " - " + client.getGameState());
 			if (client.getGameState() != GameState.LOGIN_SCREEN)
 			{
 				return false;
@@ -265,7 +264,6 @@ public class InventorySetupPlugin extends Plugin
 
 	private void loadConfig()
 	{
-		System.out.println("load");
 		// serialize the internal data structure from the json in the configuration
 		final String json = configManager.getConfiguration(CONFIG_GROUP, CONFIG_KEY);
 		if (json == null || json.isEmpty())

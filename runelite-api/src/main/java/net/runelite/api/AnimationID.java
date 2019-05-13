@@ -33,6 +33,9 @@ package net.runelite.api;
 public final class AnimationID
 {
 	public static final int IDLE = -1;
+	public static final int LOW_LEVEL_MAGIC_ATTACK = 1162;
+	public static final int HIGH_LEVEL_MAGIC_ATTACK = 1167;
+	public static final int BLOWPIPE_ATTACK = 5061;
 	public static final int HERBLORE_PESTLE_AND_MORTAR = 364;
 	public static final int WOODCUTTING_BRONZE = 879;
 	public static final int WOODCUTTING_IRON = 877;
