@@ -172,7 +172,7 @@ class DiscordState
 		}
 		// Replace snapshot with + to make tooltip shorter (so it will span only 1 line)
 		final String versionShortHand = properties.getVersion().replace("-SNAPSHOT", "+");
-		details = "www.zenyte.com";
+		details = "zenyte.com";
 		final DiscordPresence.DiscordPresenceBuilder presenceBuilder = DiscordPresence.builder()
 			.state(MoreObjects.firstNonNull(state, ""))
 			.details(MoreObjects.firstNonNull(details, ""))
