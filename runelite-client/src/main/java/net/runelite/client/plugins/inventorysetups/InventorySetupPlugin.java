@@ -160,7 +160,6 @@ public class InventorySetupPlugin extends Plugin
 			return;
 		}
 
-		System.out.println(inventorySetups);
 		if (inventorySetups.containsKey(name))
 		{
 			String builder = "The setup " + name + " already exists. " +

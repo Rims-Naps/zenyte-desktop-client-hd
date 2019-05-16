@@ -53,7 +53,7 @@ public enum ChatCrownType implements Enumerated {
 
    ChatCrownType(int var3, int var4, boolean var5, boolean var6, boolean var7) {
       this.id = var3;
-      this.icon = var4 * 450411093;
+      this.icon = var4;
       this.moderator = var6;
       this.ignorable = var7;
    }

@@ -902,7 +902,6 @@ public class class258 {
                   return 1;
                } else if(var0 == 5023) {
                   var3 = class281.scriptStringStack[--class295.scriptStringStackSize];
-                  System.out.println(var3);
                   return 1;
                } else {
                   return 2;
