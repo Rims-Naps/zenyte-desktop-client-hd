@@ -42,9 +42,17 @@
 
 		<maven.javadoc.skip>true</maven.javadoc.skip>
 		<checkstyle.skip>true</checkstyle.skip>
+		<maven.deploy.skip>true</maven.deploy.skip>
 
 		<rs.version>179</rs.version>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>s3.artifacts.client</id>
+			<url>s3://zenyte-runelite/release</url>
+		</repository>
+	</distributionManagement>
 
 	<licenses>
 		<license>
@@ -172,7 +180,7 @@
 				<version>2.18</version>
 				<configuration>
 					<enableAssertions>true</enableAssertions>
-					<argLine>-Xmx512m</argLine>
+					<argLine>-Xmx512m -Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 				</configuration>
 			</plugin>
 			<plugin>
