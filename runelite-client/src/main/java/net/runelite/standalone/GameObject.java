@@ -1,5 +1,8 @@
 package net.runelite.standalone;
 
+import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.awt.geom.Area;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.Angle;
@@ -12,91 +15,90 @@ import net.runelite.rs.api.RSGameObject;
 import net.runelite.rs.api.RSModel;
 import net.runelite.rs.api.RSRenderable;
 
-import java.awt.*;
-import java.awt.geom.Area;
-
-@ObfuscatedName("em")
+@ObfuscatedName("er")
 public final class GameObject implements RSGameObject {
-   @ObfuscatedName("ag")
-   static Image field1892;
-   @ObfuscatedName("l")
+   @ObfuscatedName("gx")
+   static byte[][] field1932;
+   @ObfuscatedName("f")
    @ObfuscatedGetter(
-      intValue = 654530969
+      intValue = 647360359
    )
    int orientation;
-   @ObfuscatedName("r")
-   @ObfuscatedGetter(
-      intValue = -1216523107
-   )
-   int height;
    @ObfuscatedName("e")
    @ObfuscatedGetter(
-      intValue = -1770116491
+      intValue = -972042923
    )
-   int x;
-   @ObfuscatedName("w")
+   int cycle;
+   @ObfuscatedName("r")
    @ObfuscatedGetter(
-      intValue = -1083446131
+      longValue = 4048635491163491633L
    )
-   int offsetX;
+   public long hash;
    @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = -1722715155
+      intValue = 677592277
+   )
+   int relativeY;
+   @ObfuscatedName("x")
+   @ObfuscatedGetter(
+      intValue = -903852657
    )
    int y;
    @ObfuscatedName("m")
    @ObfuscatedGetter(
-      intValue = 1389634387
+      intValue = 84457517
    )
-   int cycle;
+   int offsetX;
    @ObfuscatedName("p")
    @ObfuscatedGetter(
-      intValue = -620931109
-   )
-   int drawPriority;
-   @ObfuscatedName("b")
-   @ObfuscatedGetter(
-      intValue = 957627089
+      intValue = -798171635
    )
    int relativeX;
-   @ObfuscatedName("n")
+   @ObfuscatedName("b")
    @ObfuscatedGetter(
-      intValue = -290340699
-   )
-   int relativeY;
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "Ldd;"
-   )
-   public Entity entity;
-   @ObfuscatedName("i")
-   @ObfuscatedGetter(
-      intValue = 192344141
+      intValue = 1327459531
    )
    int offsetY;
-   @ObfuscatedName("d")
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      longValue = 5315810707999832723L
-   )
-   public long hash;
-   @ObfuscatedName("j")
-   @ObfuscatedGetter(
-      intValue = -1367215323
-   )
-   int flags;
-   @ObfuscatedName("g")
-   @ObfuscatedGetter(
-      intValue = -1271604365
+      intValue = 930687481
    )
    int plane;
+   @ObfuscatedName("n")
+   @ObfuscatedGetter(
+      intValue = -964826023
+   )
+   int drawPriority;
+   @ObfuscatedName("t")
+   @ObfuscatedGetter(
+      intValue = 1401209023
+   )
+   int flags;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = -1690232561
+   )
+   int height;
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "Lem;"
+   )
+   public Entity entity;
+   @ObfuscatedName("g")
+   @ObfuscatedGetter(
+      intValue = 369246091
+   )
+   int x;
 
    GameObject() {
       this.hash = 0L;
       this.flags = 0;
+      this.rl$$init();
+      this.rl$$init1();
    }
 
    public Point getCanvasLocation(int var1) {
-      return Perspective.localToCanvas(class166.clientInstance, this.getLocalLocation(), this.getPlane(), var1);
+      return Perspective.localToCanvas(ItemContainer.clientInstance, this.getLocalLocation(), this.getPlane(), var1);
    }
 
    public int getRelativeX() {
@@ -152,6 +154,12 @@ public final class GameObject implements RSGameObject {
       return this.plane;
    }
 
+   private void rl$$init() {
+   }
+
+   private void rl$$init1() {
+   }
+
    public Point getSceneMinLocation() {
       return new Point(this.getRelativeX(), this.getRelativeY());
    }
@@ -161,12 +169,17 @@ public final class GameObject implements RSGameObject {
    }
 
    public Area getClickbox() {
-      return Perspective.getClickbox(class166.clientInstance, this.getModel(), this.getRsOrientation(), this.getLocalLocation());
+      return Perspective.getClickbox(ItemContainer.clientInstance, this.getModel(), this.getRsOrientation(), this.getLocalLocation());
    }
 
    public Polygon getConvexHull() {
       RSModel var1 = this.getModel();
-      return var1 == null?null:var1.getConvexHull(this.getX(), this.getY(), this.getRsOrientation());
+      if(var1 == null) {
+         return null;
+      } else {
+         int var2 = Perspective.getTileHeight(ItemContainer.clientInstance, new LocalPoint(this.getX(), this.getY()), ItemContainer.clientInstance.getPlane());
+         return var1.getConvexHull(this.getX(), this.getY(), this.getRsOrientation(), var2);
+      }
    }
 
    public Angle getOrientation() {
@@ -181,7 +194,7 @@ public final class GameObject implements RSGameObject {
    }
 
    public WorldPoint getWorldLocation() {
-      return WorldPoint.fromLocal(class166.clientInstance, this.getX(), this.getY(), this.getPlane());
+      return WorldPoint.fromLocal(ItemContainer.clientInstance, this.getX(), this.getY(), this.getPlane());
    }
 
    public Point getCanvasLocation() {
@@ -189,1016 +202,211 @@ public final class GameObject implements RSGameObject {
    }
 
    public Polygon getCanvasTilePoly() {
-      return Perspective.getCanvasTilePoly(class166.clientInstance, this.getLocalLocation());
+      return Perspective.getCanvasTilePoly(ItemContainer.clientInstance, this.getLocalLocation());
    }
 
    public Point getCanvasTextLocation(Graphics2D var1, String var2, int var3) {
-      return Perspective.getCanvasTextLocation(class166.clientInstance, var1, this.getLocalLocation(), var2, var3);
+      return Perspective.getCanvasTextLocation(ItemContainer.clientInstance, var1, this.getLocalLocation(), var2, var3);
    }
 
    public Point getMinimapLocation() {
-      return Perspective.localToMinimap(class166.clientInstance, this.getLocalLocation());
+      return Perspective.localToMinimap(ItemContainer.clientInstance, this.getLocalLocation());
    }
 
    public int getHeight() {
       return this.height;
    }
 
-   @ObfuscatedName("hy")
+   @ObfuscatedName("m")
    @ObfuscatedSignature(
-      signature = "(IIIIII)V",
-      garbageValue = "887536558"
+      signature = "(ILcs;ZB)I",
+      garbageValue = "-4"
    )
-   static final void method2036(int var0, int var1, int var2, int var3, int var4) {
-      long var5 = class131.sceneManager.method3821(var0, var1, var2);
-      int var7;
-      int var8;
-      int var9;
-      int var10;
-      int var12;
-      int var13;
-      if(0L != var5) {
-         var7 = class131.sceneManager.method3825(var0, var1, var2, var5);
-         var8 = var7 >> 6 & 3;
-         var9 = var7 & 31;
-         var10 = var3;
-         if(WorldMapDecoration.method2946(var5)) {
-            var10 = var4;
-         }
-
-         int[] var11 = TotalQuantityComparator.minimapSprite.pixels;
-         var12 = var1 * 4 + (103 - var2) * 2048 + 24624;
-         var13 = SubInterface.method2437(var5);
-         LocType var14 = class225.method4485(var13);
-         if(var14.mapSceneId != -1) {
-            IndexedSprite var15 = class0.mapscene[var14.mapSceneId];
-            if(var15 != null) {
-               int var16 = (var14.width * 4 - var15.width) / 2;
-               int var17 = (var14.length * 4 - var15.height) / 2;
-               var15.method824(var16 + var1 * 4 + 48, (104 - var2 - var14.length) * 4 + var17 + 48);
-            }
-         } else {
-            if(var9 == 0 || var9 == 2) {
-               if(var8 == 0) {
-                  var11[var12] = var10;
-                  var11[var12 + 512] = var10;
-                  var11[var12 + 1024] = var10;
-                  var11[var12 + 1536] = var10;
-               } else if(var8 == 1) {
-                  var11[var12] = var10;
-                  var11[var12 + 1] = var10;
-                  var11[var12 + 2] = var10;
-                  var11[var12 + 3] = var10;
-               } else if(var8 == 2) {
-                  var11[var12 + 3] = var10;
-                  var11[var12 + 512 + 3] = var10;
-                  var11[var12 + 1024 + 3] = var10;
-                  var11[var12 + 1536 + 3] = var10;
-               } else if(var8 == 3) {
-                  var11[var12 + 1536] = var10;
-                  var11[var12 + 1536 + 1] = var10;
-                  var11[var12 + 1536 + 2] = var10;
-                  var11[var12 + 1536 + 3] = var10;
-               }
-            }
-
-            if(var9 == 3) {
-               if(var8 == 0) {
-                  var11[var12] = var10;
-               } else if(var8 == 1) {
-                  var11[var12 + 3] = var10;
-               } else if(var8 == 2) {
-                  var11[var12 + 1536 + 3] = var10;
-               } else if(var8 == 3) {
-                  var11[var12 + 1536] = var10;
-               }
-            }
-
-            if(var9 == 2) {
-               if(var8 == 3) {
-                  var11[var12] = var10;
-                  var11[var12 + 512] = var10;
-                  var11[var12 + 1024] = var10;
-                  var11[var12 + 1536] = var10;
-               } else if(var8 == 0) {
-                  var11[var12] = var10;
-                  var11[var12 + 1] = var10;
-                  var11[var12 + 2] = var10;
-                  var11[var12 + 3] = var10;
-               } else if(var8 == 1) {
-                  var11[var12 + 3] = var10;
-                  var11[var12 + 512 + 3] = var10;
-                  var11[var12 + 1024 + 3] = var10;
-                  var11[var12 + 1536 + 3] = var10;
-               } else if(var8 == 2) {
-                  var11[var12 + 1536] = var10;
-                  var11[var12 + 1536 + 1] = var10;
-                  var11[var12 + 1536 + 2] = var10;
-                  var11[var12 + 1536 + 3] = var10;
-               }
-            }
-         }
-      }
-
-      var5 = class131.sceneManager.method3823(var0, var1, var2);
-      if(var5 != 0L) {
-         var7 = class131.sceneManager.method3825(var0, var1, var2, var5);
-         var8 = var7 >> 6 & 3;
-         var9 = var7 & 31;
-         var10 = SubInterface.method2437(var5);
-         LocType var24 = class225.method4485(var10);
-         int var19;
-         if(var24.mapSceneId != -1) {
-            IndexedSprite var18 = class0.mapscene[var24.mapSceneId];
-            if(var18 != null) {
-               var13 = (var24.width * 4 - var18.width) / 2;
-               var19 = (var24.length * 4 - var18.height) / 2;
-               var18.method824(var13 + var1 * 4 + 48, var19 + (104 - var2 - var24.length) * 4 + 48);
-            }
-         } else if(var9 == 9) {
-            var12 = 15658734;
-            if(WorldMapDecoration.method2946(var5)) {
-               var12 = 15597568;
-            }
-
-            int[] var23 = TotalQuantityComparator.minimapSprite.pixels;
-            var19 = var1 * 4 + (103 - var2) * 2048 + 24624;
-            if(var8 != 0 && var8 != 2) {
-               var23[var19] = var12;
-               var23[var19 + 1 + 512] = var12;
-               var23[var19 + 1024 + 2] = var12;
-               var23[var19 + 1536 + 3] = var12;
-            } else {
-               var23[var19 + 1536] = var12;
-               var23[var19 + 1 + 1024] = var12;
-               var23[var19 + 512 + 2] = var12;
-               var23[var19 + 3] = var12;
-            }
-         }
-      }
-
-      var5 = class131.sceneManager.method3920(var0, var1, var2);
-      if(var5 != 0L) {
-         var7 = SubInterface.method2437(var5);
-         LocType var20 = class225.method4485(var7);
-         if(var20.mapSceneId != -1) {
-            IndexedSprite var21 = class0.mapscene[var20.mapSceneId];
-            if(var21 != null) {
-               var10 = (var20.width * 4 - var21.width) / 2;
-               int var22 = (var20.length * 4 - var21.height) / 2;
-               var21.method824(var1 * 4 + var10 + 48, var22 + (104 - var2 - var20.length) * 4 + 48);
-            }
-         }
-      }
-
-   }
-
-   @ObfuscatedName("iu")
-   @ObfuscatedSignature(
-      signature = "(Lhn;IIZB)V",
-      garbageValue = "58"
-   )
-   static void method2037(ComponentType var0, int var1, int var2, boolean var3) {
-      int var4 = var0.width;
-      int var5 = var0.height;
-      if(var0.sizeXmode == 0) {
-         var0.width = var0.sizeX;
-      } else if(var0.sizeXmode == 1) {
-         var0.width = var1 - var0.sizeX;
-      } else if(var0.sizeXmode == 2) {
-         var0.width = var0.sizeX * var1 >> 14;
-      }
-
-      if(var0.sizeYmode == 0) {
-         var0.height = var0.sizeY;
-      } else if(var0.sizeYmode == 1) {
-         var0.height = var2 - var0.sizeY;
-      } else if(var0.sizeYmode == 2) {
-         var0.height = var2 * var0.sizeY >> 14;
-      }
-
-      if(var0.sizeXmode == 4) {
-         var0.width = var0.height * var0.field2684 / var0.field2668;
-      }
-
-      if(var0.sizeYmode == 4) {
-         var0.height = var0.width * var0.field2668 / var0.field2684;
-      }
-
-      if(var0.clientcode == 1337) {
-         client.field815 = var0;
-      }
-
-      if(var3 && var0.onResizeListener != null && (var4 != var0.width || var5 != var0.height)) {
-         ScriptEvent var6 = new ScriptEvent();
-         var6.source = var0;
-         var6.params = var0.onResizeListener;
-         client.field842.method4351(var6);
-      }
-
-   }
-
-   @ObfuscatedName("i")
-   @ObfuscatedSignature(
-      signature = "(Lkz;Lkz;Lkz;ZB)V",
-      garbageValue = "-30"
-   )
-   static void method2034(Font var0, Font var1, Font var2, boolean var3) {
-      if(var3) {
-         class316.field1143 = (FriendManager.canvasWidth - 765) / 2;
-         class316.loginWindowX = class316.field1143 + 202;
-         class260.field103 = class316.loginWindowX + 180;
-      }
-
-      int var7;
-      int var12;
-      int var13;
-      boolean var15;
-      int var16;
-      byte var22;
-      int var23;
-      int var26;
-      int var32;
-      int var34;
-      int var35;
-      int var36;
-      int var38;
-      int var40;
-      if(class316.worldSelectShown) {
-         if(AttackOpPriority.field1137 == null) {
-            AttackOpPriority.field1137 = class61.method887(JagException.sprites, "sl_back", "");
-         }
-
-         IndexedSprite[] var8;
-         Js5 var31;
-         if(CacheFile.slFlagSprites == null) {
-            var31 = JagException.sprites;
-            var32 = var31.method1510("sl_flags");
-            var7 = var31.method1532(var32, "");
-            if(!WorldMapRectangle.method128(var31, var32, var7)) {
-               var8 = null;
-            } else {
-               var8 = GraphicsDefaults.method4016();
-            }
-
-            CacheFile.slFlagSprites = var8;
-         }
-
-         if(class113.slArrowSprites == null) {
-            var31 = JagException.sprites;
-            var32 = var31.method1510("sl_arrows");
-            var7 = var31.method1532(var32, "");
-            if(!WorldMapRectangle.method128(var31, var32, var7)) {
-               var8 = null;
-            } else {
-               var8 = GraphicsDefaults.method4016();
-            }
-
-            class113.slArrowSprites = var8;
-         }
-
-         if(class98.slStarSprites == null) {
-            var31 = JagException.sprites;
-            var32 = var31.method1510("sl_stars");
-            var7 = var31.method1532(var32, "");
-            if(!WorldMapRectangle.method128(var31, var32, var7)) {
-               var8 = null;
-            } else {
-               var8 = GraphicsDefaults.method4016();
-            }
-
-            class98.slStarSprites = var8;
-         }
-
-         Rasterizer2D.method449(class316.field1143, 23, 765, 480, 0);
-         Rasterizer2D.method454(class316.field1143, 0, 125, 23, 12425273, 9135624);
-         Rasterizer2D.method454(class316.field1143 + 125, 0, 640, 23, 5197647, 2697513);
-         var0.method1862("Select a world", class316.field1143 + 62, 15, 0, -1);
-         if(class98.slStarSprites != null) {
-            class98.slStarSprites[1].method824(class316.field1143 + 140, 1);
-            var1.method1828("Members only world", class316.field1143 + 152, 10, 16777215, -1);
-            class98.slStarSprites[0].method824(class316.field1143 + 140, 12);
-            var1.method1828("Free world", class316.field1143 + 152, 21, 16777215, -1);
-         }
-
-         if(class113.slArrowSprites != null) {
-            var40 = class316.field1143 + 280;
-            if(World.field1016[0] == 0 && World.field1018[0] == 0) {
-               class113.slArrowSprites[2].method824(var40, 4);
-            } else {
-               class113.slArrowSprites[0].method824(var40, 4);
-            }
-
-            if(World.field1016[0] == 0 && World.field1018[0] == 1) {
-               class113.slArrowSprites[3].method824(var40 + 15, 4);
-            } else {
-               class113.slArrowSprites[1].method824(var40 + 15, 4);
-            }
-
-            var0.method1828("World", var40 + 32, 17, 16777215, -1);
-            var23 = class316.field1143 + 390;
-            if(World.field1016[0] == 1 && World.field1018[0] == 0) {
-               class113.slArrowSprites[2].method824(var23, 4);
-            } else {
-               class113.slArrowSprites[0].method824(var23, 4);
-            }
-
-            if(World.field1016[0] == 1 && World.field1018[0] == 1) {
-               class113.slArrowSprites[3].method824(var23 + 15, 4);
-            } else {
-               class113.slArrowSprites[1].method824(var23 + 15, 4);
-            }
-
-            var0.method1828("Players", var23 + 32, 17, 16777215, -1);
-            var32 = class316.field1143 + 500;
-            if(World.field1016[0] == 2 && World.field1018[0] == 0) {
-               class113.slArrowSprites[2].method824(var32, 4);
-            } else {
-               class113.slArrowSprites[0].method824(var32, 4);
-            }
-
-            if(World.field1016[0] == 2 && World.field1018[0] == 1) {
-               class113.slArrowSprites[3].method824(var32 + 15, 4);
-            } else {
-               class113.slArrowSprites[1].method824(var32 + 15, 4);
-            }
-
-            var0.method1828("Location", var32 + 32, 17, 16777215, -1);
-            var7 = class316.field1143 + 610;
-            if(World.field1016[0] == 3 && World.field1018[0] == 0) {
-               class113.slArrowSprites[2].method824(var7, 4);
-            } else {
-               class113.slArrowSprites[0].method824(var7, 4);
-            }
-
-            if(World.field1016[0] == 3 && World.field1018[0] == 1) {
-               class113.slArrowSprites[3].method824(var7 + 15, 4);
-            } else {
-               class113.slArrowSprites[1].method824(var7 + 15, 4);
-            }
-
-            var0.method1828("Type", var7 + 32, 17, 16777215, -1);
-         }
-
-         Rasterizer2D.method449(class316.field1143 + 708, 4, 50, 16, 0);
-         var1.method1862("Cancel", class316.field1143 + 708 + 25, 16, 16777215, -1);
-         class316.field1164 = -1;
-         if(AttackOpPriority.field1137 != null) {
-            var22 = 88;
-            byte var44 = 19;
-            var32 = 765 / (var22 + 1);
-            var7 = 480 / (var44 + 1);
-
-            do {
-               var26 = var7;
-               var34 = var32;
-               if(var7 * (var32 - 1) >= World.worldCount) {
-                  --var32;
-               }
-
-               if(var32 * (var7 - 1) >= World.worldCount) {
-                  --var7;
-               }
-
-               if(var32 * (var7 - 1) >= World.worldCount) {
-                  --var7;
-               }
-            } while(var26 != var7 || var34 != var32);
-
-            var26 = (765 - var32 * var22) / (var32 + 1);
-            if(var26 > 5) {
-               var26 = 5;
-            }
-
-            var34 = (480 - var44 * var7) / (var7 + 1);
-            if(var34 > 5) {
-               var34 = 5;
-            }
-
-            var35 = (765 - var22 * var32 - var26 * (var32 - 1)) / 2;
-            var36 = (480 - var44 * var7 - var34 * (var7 - 1)) / 2;
-            var12 = var36 + 23;
-            var13 = var35 + class316.field1143;
-            var38 = 0;
-            var15 = false;
-
-            for(var16 = 0; var16 < World.worldCount; ++var16) {
-               World var17 = World.worldList[var16];
-               boolean var18 = true;
-               String var19 = Integer.toString(var17.playerCount);
-               if(var17.playerCount == -1) {
-                  var19 = "OFF";
-                  var18 = false;
-               } else if(var17.playerCount > 1980) {
-                  var19 = "FULL";
-                  var18 = false;
-               }
-
-               int var21 = 0;
-               byte var20;
-               if(var17.method3721()) {
-                  if(var17.method3719()) {
-                     var20 = 7;
-                  } else {
-                     var20 = 6;
-                  }
-               } else if(var17.method3724()) {
-                  var21 = 16711680;
-                  if(var17.method3719()) {
-                     var20 = 5;
-                  } else {
-                     var20 = 4;
-                  }
-               } else if(var17.method3722()) {
-                  if(var17.method3719()) {
-                     var20 = 3;
-                  } else {
-                     var20 = 2;
-                  }
-               } else if(var17.method3719()) {
-                  var20 = 1;
-               } else {
-                  var20 = 0;
-               }
-
-               if(MouseInput.mouseLastX >= var13 && MouseInput.mouseLastY * -976212263 >= var12 && MouseInput.mouseLastX < var22 + var13 && MouseInput.mouseLastY * -976212263 < var44 + var12 && var18) {
-                  class316.field1164 = var16;
-                  AttackOpPriority.field1137[var20].method2288(var13, var12, 128, 16777215);
-                  var15 = true;
-               } else {
-                  AttackOpPriority.field1137[var20].method2273(var13, var12);
-               }
-
-               if(CacheFile.slFlagSprites != null) {
-                  CacheFile.slFlagSprites[(var17.method3719()?8:0) + var17.location].method824(var13 + 29, var12);
-               }
-
-               var0.method1862(Integer.toString(var17.id), var13 + 15, var44 / 2 + var12 + 5, var21, -1);
-               var1.method1862(var19, var13 + 60, var44 / 2 + var12 + 5, 268435455, -1);
-               var12 = var12 + var34 + var44;
-               ++var38;
-               if(var38 >= var7) {
-                  var12 = var36 + 23;
-                  var13 = var13 + var22 + var26;
-                  var38 = 0;
-               }
-            }
-
-            if(var15) {
-               var16 = var1.method1775(World.worldList[class316.field1164].activity) + 6;
-               int var43 = var1.verticalSpace + 8;
-               Rasterizer2D.method449(MouseInput.mouseLastX - var16 / 2, MouseInput.mouseLastY * -976212263 + 20 + 5, var16, var43, 16777120);
-               Rasterizer2D.method518(MouseInput.mouseLastX - var16 / 2, MouseInput.mouseLastY * -976212263 + 20 + 5, var16, var43, 0);
-               var1.method1862(World.worldList[class316.field1164].activity, MouseInput.mouseLastX, MouseInput.mouseLastY * -976212263 + var1.verticalSpace + 20 + 5 + 4, 0, -1);
-            }
-         }
-
-         WorldMapManager.rasterProvider.vmethod2955(0, 0);
+   static int method1096(int var0, class314 var1, boolean var2) {
+      boolean var3 = true;
+      ComponentType var4;
+      if(var0 >= 2000) {
+         var0 -= 1000;
+         var4 = ChatHistory.method6246(class281.intStack[--class281.intStackSize]);
+         var3 = false;
       } else {
-         if(var3) {
-            class316.leftBackground.method2273(class316.field1143, 0);
-            //class316.rightBackground.method2273(class316.field1143 + 382, 0);
-           // Varbit.logoSprite.method824(class316.field1143 + 382 - Varbit.logoSprite.width / 2, 18);
+         var4 = var2?ClientOptions.field1035:class290.field1119;
+      }
+
+      int var11;
+      if(var0 == 1300) {
+         var11 = class281.intStack[--class281.intStackSize] - 1;
+         if(var11 >= 0 && var11 <= 9) {
+            var4.method5664(var11, class281.scriptStringStack[--class295.scriptStringStackSize]);
+            return 1;
+         } else {
+            --class295.scriptStringStackSize;
+            return 1;
          }
-
-         if(client.gameState == 0 || client.gameState == 5) {
-            var22 = 20;
-            var0.method1862("Zenyte is loading - please wait...", class316.loginWindowX + 180, 245 - var22, 16777215, -1);
-            var23 = 253 - var22;
-            Rasterizer2D.method518(class316.loginWindowX + 180 - 152, var23, 304, 34, 9179409);
-            Rasterizer2D.method518(class316.loginWindowX + 180 - 151, var23 + 1, 302, 32, 0);
-            Rasterizer2D.method449(class316.loginWindowX + 180 - 150, var23 + 2, class316.loadingBarPercentage * 3, 30, 9179409);
-            Rasterizer2D.method449(class316.loadingBarPercentage * 3 + (class316.loginWindowX + 180 - 150), var23 + 2, 300 - class316.loadingBarPercentage * 3, 30, 0);
-            var0.method1862(class316.loadingText, class316.loginWindowX + 180, 276 - var22, 16777215, -1);
-         }
-
-         String var24;
-         String var25;
-         short var39;
-         short var41;
-         if(client.gameState == 20) {
-            class316.field1149.method824(class316.loginWindowX + 180 - class316.field1149.width / 2, 271 - class316.field1149.height / 2);
-            var39 = 201;
-            var0.method1862(class316.loginMessage1, class316.loginWindowX + 180, var39, 16776960, 0);
-            var40 = var39 + 15;
-            var0.method1862(class316.loginMessage2, class316.loginWindowX + 180, var40, 16776960, 0);
-            var40 += 15;
-            var0.method1862(class316.loginMessage3, class316.loginWindowX + 180, var40, 16776960, 0);
-            var40 += 15;
-            var40 += 7;
-            if(class316.loginIndex != 4) {
-               var0.method1828("Login: ", class316.loginWindowX + 180 - 110, var40, 16777215, 0);
-               var41 = 200;
-               var24 = GameEngine.options.hideUsername?FileSystem.method5641(class316.username):class316.username;
-
-               for(var25 = var24; var0.method1775(var25) > var41; var25 = var25.substring(0, var25.length() - 1)) {
-                  ;
-               }
-
-               var0.method1828(FontTypeFace.method1779(var25), class316.loginWindowX + 180 - 70, var40, 16777215, 0);
-               var40 += 15;
-               var0.method1828("Password: " + FileSystem.method5641(class316.password), class316.loginWindowX + 180 - 108, var40, 16777215, 0);
-               var40 += 15;
-            }
-         }
-
-         if(client.gameState == 10 || client.gameState == 11) {
-            class316.field1149.method824(class316.loginWindowX, 171);
-            short var6;
-            if(class316.loginIndex == 0) {
-               var39 = 251;
-               var0.method1862("Welcome to Zenyte", class316.loginWindowX + 180, var39, 16776960, 0);
-               var40 = var39 + 30;
-               var23 = class316.loginWindowX + 180 - 80;
-               var6 = 291;
-               class226.field3801.method824(var23 - 73, var6 - 20);
-               var0.method1774("New User", var23 - 73, var6 - 20, 144, 40, 16777215, 0, 1, 1, 0);
-               var23 = class316.loginWindowX + 180 + 80;
-               class226.field3801.method824(var23 - 73, var6 - 20);
-               var0.method1774("Existing User", var23 - 73, var6 - 20, 144, 40, 16777215, 0, 1, 1, 0);
-            } else if(class316.loginIndex == 1) {
-               var0.method1862(class316.Login_response0, class316.loginWindowX + 180, 201, 16776960, 0);
-               var39 = 236;
-               var0.method1862(class316.loginMessage1, class316.loginWindowX + 180, var39, 16777215, 0);
-               var40 = var39 + 15;
-               var0.method1862(class316.loginMessage2, class316.loginWindowX + 180, var40, 16777215, 0);
-               var40 += 15;
-               var0.method1862(class316.loginMessage3, class316.loginWindowX + 180, var40, 16777215, 0);
-               var40 += 15;
-               var23 = class316.loginWindowX + 180 - 80;
-               var6 = 321;
-               class226.field3801.method824(var23 - 73, var6 - 20);
-               var0.method1862("Continue", var23, var6 + 5, 16777215, 0);
-               var23 = class316.loginWindowX + 180 + 80;
-               class226.field3801.method824(var23 - 73, var6 - 20);
-               var0.method1862("Cancel", var23, var6 + 5, 16777215, 0);
-            } else if(class316.loginIndex == 2) {
-               var39 = 201;
-               var0.method1862(class316.loginMessage1, class260.field103, var39, 16776960, 0);
-               var40 = var39 + 15;
-               var0.method1862(class316.loginMessage2, class260.field103, var40, 16776960, 0);
-               var40 += 15;
-               var0.method1862(class316.loginMessage3, class260.field103, var40, 16776960, 0);
-               var40 += 15;
-               var40 += 7;
-               var0.method1828("Login: ", class260.field103 - 110, var40, 16777215, 0);
-               var41 = 200;
-               var24 = GameEngine.options.hideUsername?FileSystem.method5641(class316.username):class316.username;
-
-               for(var25 = var24; var0.method1775(var25) > var41; var25 = var25.substring(1)) {
-                  ;
-               }
-
-               var0.method1828(FontTypeFace.method1779(var25) + (class316.currentLoginField == 0 & client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class260.field103 - 70, var40, 16777215, 0);
-               var40 += 15;
-               var0.method1828("Password: " + FileSystem.method5641(class316.password) + (class316.currentLoginField == 1 & client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class260.field103 - 108, var40, 16777215, 0);
-               var40 += 15;
-               var39 = 277;
-               var26 = class260.field103 + -117;
-               boolean var10 = client.Login_isUsernameRemembered;
-               boolean var11 = class316.field1170;
-               IndexedSprite var28 = var10?(var11?UrlRequest.field1925:Frames.field1861):(var11?class316.field1148:class150.field2417);
-               var28.method824(var26, var39);
-               var26 = var26 + var28.width + 5;
-               var1.method1828("Remember username", var26, var39 + 13, 16776960, 0);
-               var26 = class260.field103 + 24;
-               boolean var14 = GameEngine.options.hideUsername;
-               var15 = class316.field1171;
-               IndexedSprite var30 = var14?(var15?UrlRequest.field1925:Frames.field1861):(var15?class316.field1148:class150.field2417);
-               var30.method824(var26, var39);
-               var26 = var26 + var30.width + 5;
-               var1.method1828("Hide username", var26, var39 + 13, 16776960, 0);
-               var40 = var39 + 15;
-               var16 = class260.field103 - 80;
-               short var27 = 321;
-               class226.field3801.method824(var16 - 73, var27 - 20);
-               var0.method1862("Login", var16, var27 + 5, 16777215, 0);
-               var16 = class260.field103 + 80;
-               class226.field3801.method824(var16 - 73, var27 - 20);
-               var0.method1862("Cancel", var16, var27 + 5, 16777215, 0);
-               var39 = 357;
-               switch(class316.field1161) {
-               case 2:
-                  class96.field2624 = "Having trouble logging in?";
-                  break;
-               default:
-                  class96.field2624 = "Forgotten your password? <col=ffffff>Click here.";
-               }
-
-               class316.field1177 = new Bounds(class260.field103, var39, var1.method1775(class96.field2624), 11);
-               var1.method1862(class96.field2624, class260.field103, var39, 16777215, 0);
-            } else if(class316.loginIndex == 3) {
-               var39 = 201;
-               var0.method1862("Invalid username or password.", class316.loginWindowX + 180, var39 + 20, 16776960, 0);
-               /*var40 = var39 + 20;
-               var1.method1862("For accounts created after 24th November 2010, please use your", class316.loginWindowX + 180, var40, 16776960, 0);
-               var40 += 15;
-               var1.method1862("email address to login. Otherwise please login with your username.", class316.loginWindowX + 180, var40, 16776960, 0);
-               var40 += 15;*/
-               var23 = class316.loginWindowX + 180;
-               var6 = 276;
-               class226.field3801.method824(var23 - 73, var6 - 20);
-               var2.method1862("Try again", var23, var6 + 5, 16777215, 0);
-               var23 = class316.loginWindowX + 180;
-               var6 = 326;
-               class226.field3801.method824(var23 - 73, var6 - 20);
-               var2.method1862("Forgotten password?", var23, var6 + 5, 16777215, 0);
-            } else {
-               short var9;
-               if(class316.loginIndex == 4) {
-                  var0.method1862("Authenticator", class316.loginWindowX + 180, 201, 16776960, 0);
-                  var39 = 236;
-                  var0.method1862(class316.loginMessage1, class316.loginWindowX + 180, var39, 16777215, 0);
-                  var40 = var39 + 15;
-                  var0.method1862(class316.loginMessage2, class316.loginWindowX + 180, var40, 16777215, 0);
-                  var40 += 15;
-                  var0.method1862(class316.loginMessage3, class316.loginWindowX + 180, var40, 16777215, 0);
-                  var40 += 15;
-                  var0.method1828("PIN: " + FileSystem.method5641(class113.field82) + (client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class316.loginWindowX + 180 - 108, var40, 16777215, 0);
-                  var40 -= 8;
-                  var0.method1828("Trust this computer", class316.loginWindowX + 180 - 9, var40, 16776960, 0);
-                  var40 += 15;
-                  var0.method1828("for 30 days: ", class316.loginWindowX + 180 - 9, var40, 16776960, 0);
-                  var23 = class316.loginWindowX + 180 - 9 + var0.method1775("for 30 days: ") + 15;
-                  var32 = var40 - var0.verticalSpace;
-                  IndexedSprite var42;
-                  if(class316.field1172) {
-                     var42 = Frames.field1861;
+      } else {
+         int var6;
+         if(var0 == 1301) {
+            class281.intStackSize -= 2;
+            var11 = class281.intStack[class281.intStackSize];
+            var6 = class281.intStack[class281.intStackSize + 1];
+            var4.dragParent = UnitPriceComparator.method2289(var11, var6);
+            return 1;
+         } else if(var0 == 1302) {
+            var4.dragRenderBehavior = class281.intStack[--class281.intStackSize] == 1;
+            return 1;
+         } else if(var0 == 1303) {
+            var4.dragDeadZone = class281.intStack[--class281.intStackSize];
+            return 1;
+         } else if(var0 == 1304) {
+            var4.dragDeadTime = class281.intStack[--class281.intStackSize];
+            return 1;
+         } else if(var0 == 1305) {
+            var4.opBase = class281.scriptStringStack[--class295.scriptStringStackSize];
+            return 1;
+         } else if(var0 == 1306) {
+            var4.targetVerb = class281.scriptStringStack[--class295.scriptStringStackSize];
+            return 1;
+         } else if(var0 == 1307) {
+            var4.ops = null;
+            return 1;
+         } else if(var0 == 1308) {
+            var4.field2831 = class281.intStack[--class281.intStackSize] == 1;
+            return 1;
+         } else {
+            int var7;
+            byte[] var9;
+            if(var0 != 1350) {
+               byte var5;
+               if(var0 == 1351) {
+                  class281.intStackSize -= 2;
+                  var5 = 10;
+                  var9 = new byte[]{(byte)class281.intStack[class281.intStackSize]};
+                  byte[] var10 = new byte[]{(byte)class281.intStack[class281.intStackSize + 1]};
+                  class281.method5820(var4, var5, var9, var10);
+                  return 1;
+               } else if(var0 == 1352) {
+                  class281.intStackSize -= 3;
+                  var11 = class281.intStack[class281.intStackSize] - 1;
+                  var6 = class281.intStack[class281.intStackSize + 1];
+                  var7 = class281.intStack[class281.intStackSize + 2];
+                  if(var11 >= 0 && var11 <= 9) {
+                     class186.method3568(var4, var11, var6, var7);
+                     return 1;
                   } else {
-                     var42 = class150.field2417;
+                     throw new RuntimeException();
                   }
+               } else if(var0 == 1353) {
+                  var5 = 10;
+                  var6 = class281.intStack[--class281.intStackSize];
+                  var7 = class281.intStack[--class281.intStackSize];
+                  class186.method3568(var4, var5, var6, var7);
+                  return 1;
+               } else if(var0 == 1354) {
+                  --class281.intStackSize;
+                  var11 = class281.intStack[class281.intStackSize] - 1;
+                  if(var11 >= 0 && var11 <= 9) {
+                     class191.method3805(var4, var11);
+                     return 1;
+                  } else {
+                     throw new RuntimeException();
+                  }
+               } else if(var0 == 1355) {
+                  var5 = 10;
+                  class191.method3805(var4, var5);
+                  return 1;
+               } else {
+                  return 2;
+               }
+            } else {
+               byte[] var8 = null;
+               var9 = null;
+               if(var3) {
+                  class281.intStackSize -= 10;
 
-                  var42.method824(var23, var32);
-                  var40 += 15;
-                  var26 = class316.loginWindowX + 180 - 80;
-                  var9 = 321;
-                  class226.field3801.method824(var26 - 73, var9 - 20);
-                  var0.method1862("Continue", var26, var9 + 5, 16777215, 0);
-                  var26 = class316.loginWindowX + 180 + 80;
-                  class226.field3801.method824(var26 - 73, var9 - 20);
-                  var0.method1862("Cancel", var26, var9 + 5, 16777215, 0);
-                  var1.method1862("<u=ff>Can\'t Log In?</u>", class316.loginWindowX + 180, var9 + 36, 255, 0);
-               } else if(class316.loginIndex == 5) {
-                  var0.method1862("Forgotten your password?", class316.loginWindowX + 180, 201, 16776960, 0);
-                  var39 = 221;
-                  var2.method1862(class316.loginMessage1, class316.loginWindowX + 180, var39, 16776960, 0);
-                  var40 = var39 + 15;
-                  var2.method1862(class316.loginMessage2, class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var2.method1862(class316.loginMessage3, class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var40 += 14;
-                  var0.method1828("Username/email: ", class316.loginWindowX + 180 - 145, var40, 16777215, 0);
-                  var41 = 174;
-                  var24 = GameEngine.options.hideUsername?FileSystem.method5641(class316.username):class316.username;
-
-                  for(var25 = var24; var0.method1775(var25) > var41; var25 = var25.substring(1)) {
+                  for(var7 = 0; var7 < 10 && class281.intStack[var7 + class281.intStackSize] >= 0; var7 += 2) {
                      ;
                   }
 
-                  var0.method1828(FontTypeFace.method1779(var25) + (client.gameCycle % 40 < 20?class31.method548(16776960) + "|":""), class316.loginWindowX + 180 - 34, var40, 16777215, 0);
-                  var40 += 15;
-                  var26 = class316.loginWindowX + 180 - 80;
-                  var9 = 321;
-                  class226.field3801.method824(var26 - 73, var9 - 20);
-                  var0.method1862("Recover", var26, var9 + 5, 16777215, 0);
-                  var26 = class316.loginWindowX + 180 + 80;
-                  class226.field3801.method824(var26 - 73, var9 - 20);
-                  var0.method1862("Back", var26, var9 + 5, 16777215, 0);
-               } else if(class316.loginIndex == 6) {
-                  var39 = 201;
-                  var0.method1862(class316.loginMessage1, class316.loginWindowX + 180, var39, 16776960, 0);
-                  var40 = var39 + 15;
-                  var0.method1862(class316.loginMessage2, class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var0.method1862(class316.loginMessage3, class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var23 = class316.loginWindowX + 180;
-                  var6 = 321;
-                  class226.field3801.method824(var23 - 73, var6 - 20);
-                  var0.method1862("Back", var23, var6 + 5, 16777215, 0);
-               } else if(class316.loginIndex == 7) {
-                  var39 = 216;
-                  var0.method1862("Your date of birth isn\'t set.", class316.loginWindowX + 180, var39, 16776960, 0);
-                  var40 = var39 + 15;
-                  var2.method1862("Please verify your account status by", class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var2.method1862("setting your date of birth.", class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var23 = class316.loginWindowX + 180 - 80;
-                  var6 = 321;
-                  class226.field3801.method824(var23 - 73, var6 - 20);
-                  var0.method1862("Set Date of Birth", var23, var6 + 5, 16777215, 0);
-                  var23 = class316.loginWindowX + 180 + 80;
-                  class226.field3801.method824(var23 - 73, var6 - 20);
-                  var0.method1862("Back", var23, var6 + 5, 16777215, 0);
-               } else if(class316.loginIndex == 8) {
-                  var39 = 216;
-                  var0.method1862("Sorry, but your account is not eligible to play.", class316.loginWindowX + 180, var39, 16776960, 0);
-                  var40 = var39 + 15;
-                  var2.method1862("For more information, please take a look at", class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var2.method1862("our privacy policy.", class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var23 = class316.loginWindowX + 180 - 80;
-                  var6 = 321;
-                  class226.field3801.method824(var23 - 73, var6 - 20);
-                  var0.method1862("Privacy Policy", var23, var6 + 5, 16777215, 0);
-                  var23 = class316.loginWindowX + 180 + 80;
-                  class226.field3801.method824(var23 - 73, var6 - 20);
-                  var0.method1862("Back", var23, var6 + 5, 16777215, 0);
-               } else if(class316.loginIndex == 12) {
-                  var39 = 201;
-                  String var5 = "";
-                  var24 = "";
-                  var25 = "";
-                  switch(class316.field1142) {
-                  case 0:
-                     var5 = "Your account has been disabled.";
-                     var24 = class7.field2909;
-                     var25 = "";
-                     break;
-                  case 1:
-                     var5 = "Account locked as we suspect it has been stolen.";
-                     var24 = class7.field2948;
-                     var25 = "";
-                     break;
-                  default:
-                     class158.method2698(false);
-                  }
+                  if(var7 > 0) {
+                     var8 = new byte[var7 / 2];
+                     var9 = new byte[var7 / 2];
 
-                  var0.method1862(var5, class316.loginWindowX + 180, var39, 16776960, 0);
-                  var40 = var39 + 15;
-                  var2.method1862(var24, class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var2.method1862(var25, class316.loginWindowX + 180, var40, 16776960, 0);
-                  var40 += 15;
-                  var26 = class316.loginWindowX + 180;
-                  var9 = 276;
-                  class226.field3801.method824(var26 - 73, var9 - 20);
-                  var0.method1862("Support Page", var26, var9 + 5, 16777215, 0);
-                  var26 = class316.loginWindowX + 180;
-                  var9 = 326;
-                  class226.field3801.method824(var26 - 73, var9 - 20);
-                  var0.method1862("Back", var26, var9 + 5, 16777215, 0);
-               }
-            }
-         }
-
-         /*if(class316.field1156 > 0) { //flames
-            var40 = class316.field1156;
-            var41 = 256;
-            class316.field1160 += var40 * 128;
-            if(class316.field1160 > OwnWorldComparator.field640.length) {
-               class316.field1160 -= OwnWorldComparator.field640.length;
-               var32 = (int)(Math.random() * 12.0D);
-               class0.method0(class116.runeSprites[var32]);
-            }
-
-            var32 = 0;
-            var7 = var40 * 128;
-            var26 = (var41 - var40) * 128;
-
-            for(var34 = 0; var34 < var26; ++var34) {
-               var35 = WorldMapDecoration.field182[var7 + var32] - OwnWorldComparator.field640[var32 + class316.field1160 & OwnWorldComparator.field640.length - 1] * var40 / 6;
-               if(var35 < 0) {
-                  var35 = 0;
-               }
-
-               WorldMapDecoration.field182[var32++] = var35;
-            }
-
-            for(var34 = var41 - var40; var34 < var41; ++var34) {
-               var35 = var34 * 128;
-
-               for(var36 = 0; var36 < 128; ++var36) {
-                  var12 = (int)(Math.random() * 100.0D);
-                  if(var12 < 50 && var36 > 10 && var36 < 118) {
-                     WorldMapDecoration.field182[var36 + var35] = 255;
-                  } else {
-                     WorldMapDecoration.field182[var35 + var36] = 0;
-                  }
-               }
-            }
-
-            if(class316.field1152 > 0) {
-               class316.field1152 -= var40 * 4;
-            }
-
-            if(class316.field1153 > 0) {
-               class316.field1153 -= var40 * 4;
-            }
-
-            if(class316.field1152 == 0 && class316.field1153 == 0) {
-               var34 = (int)(Math.random() * (double)(2000 / var40));
-               if(var34 == 0) {
-                  class316.field1152 = 1024;
-               }
-
-               if(var34 == 1) {
-                  class316.field1153 = 1024;
-               }
-            }
-
-            for(var34 = 0; var34 < var41 - var40; ++var34) {
-               class316.field1162[var34] = class316.field1162[var34 + var40];
-            }
-
-            for(var34 = var41 - var40; var34 < var41; ++var34) {
-               class316.field1162[var34] = (int)(Math.sin((double)class316.field1157 / 14.0D) * 16.0D + Math.sin((double)class316.field1157 / 15.0D) * 14.0D + Math.sin((double)class316.field1157 / 16.0D) * 12.0D);
-               ++class316.field1157;
-            }
-
-            class316.field1173 += var40;
-            var34 = (var40 + (client.gameCycle & 1)) / 2;
-            if(var34 > 0) {
-               for(var35 = 0; var35 < class316.field1173 * 100; ++var35) {
-                  var36 = (int)(Math.random() * 124.0D) + 2;
-                  var12 = (int)(Math.random() * 128.0D) + 128;
-                  WorldMapDecoration.field182[var36 + (var12 << 7)] = 192;
-               }
-
-               class316.field1173 = 0;
-               var35 = 0;
-
-               label744:
-               while(true) {
-                  if(var35 >= var41) {
-                     var35 = 0;
-
-                     while(true) {
-                        if(var35 >= 128) {
-                           break label744;
-                        }
-
-                        var36 = 0;
-
-                        for(var12 = -var34; var12 < var41; ++var12) {
-                           var13 = var12 * 128;
-                           if(var34 + var12 < var41) {
-                              var36 += WorldMapDecoration.field183[var35 + var13 + var34 * 128];
-                           }
-
-                           if(var12 - (var34 + 1) >= 0) {
-                              var36 -= WorldMapDecoration.field183[var13 + var35 - (var34 + 1) * 128];
-                           }
-
-                           if(var12 >= 0) {
-                              WorldMapDecoration.field182[var35 + var13] = var36 / (var34 * 2 + 1);
-                           }
-                        }
-
-                        ++var35;
+                     for(var7 -= 2; var7 >= 0; var7 -= 2) {
+                        var8[var7 / 2] = (byte)class281.intStack[var7 + class281.intStackSize];
+                        var9[var7 / 2] = (byte)class281.intStack[var7 + class281.intStackSize + 1];
                      }
                   }
-
-                  var36 = 0;
-                  var12 = var35 * 128;
-
-                  for(var13 = -var34; var13 < 128; ++var13) {
-                     if(var34 + var13 < 128) {
-                        var36 += WorldMapDecoration.field182[var13 + var12 + var34];
-                     }
-
-                     if(var13 - (var34 + 1) >= 0) {
-                        var36 -= WorldMapDecoration.field182[var12 + var13 - (var34 + 1)];
-                     }
-
-                     if(var13 >= 0) {
-                        WorldMapDecoration.field183[var13 + var12] = var36 / (var34 * 2 + 1);
-                     }
-                  }
-
-                  ++var35;
-               }
-            }
-
-            class316.field1156 = 0;
-         }*/
-
-         var39 = 256;
-         if(class316.field1152 > 0) {
-            for(var23 = 0; var23 < 256; ++var23) {
-               if(class316.field1152 > 768) {
-                  class4.field1047[var23] = class316.method5993(class316.field1151[var23], MouseRecorder.field583[var23], 1024 - class316.field1152);
-               } else if(class316.field1152 > 256) {
-                  class4.field1047[var23] = MouseRecorder.field583[var23];
                } else {
-                  class4.field1047[var23] = class316.method5993(MouseRecorder.field583[var23], class316.field1151[var23], 256 - class316.field1152);
+                  class281.intStackSize -= 2;
+                  var8 = new byte[]{(byte)class281.intStack[class281.intStackSize]};
+                  var9 = new byte[]{(byte)class281.intStack[class281.intStackSize + 1]};
                }
-            }
-         } else if(class316.field1153 > 0) {
-            for(var23 = 0; var23 < 256; ++var23) {
-               if(class316.field1153 > 768) {
-                  class4.field1047[var23] = class316.method5993(class316.field1151[var23], class139.field2048[var23], 1024 - class316.field1153);
-               } else if(class316.field1153 > 256) {
-                  class4.field1047[var23] = class139.field2048[var23];
+
+               var7 = class281.intStack[--class281.intStackSize] - 1;
+               if(var7 >= 0 && var7 <= 9) {
+                  class281.method5820(var4, var7, var8, var9);
+                  return 1;
                } else {
-                  class4.field1047[var23] = class316.method5993(class139.field2048[var23], class316.field1151[var23], 256 - class316.field1153);
+                  throw new RuntimeException();
                }
-            }
-         } else {
-            for(var23 = 0; var23 < 256; ++var23) {
-               class4.field1047[var23] = class316.field1151[var23];
             }
          }
-
-         Rasterizer2D.method469(class316.field1143, 9, class316.field1143 + 128, var39 + 7);
-         class316.leftBackground.method2273(class316.field1143, 0);
-         Rasterizer2D.method439();
-         var23 = 0;
-         var32 = WorldMapManager.rasterProvider.width * 9 + class316.field1143;
-
-         for(var7 = 1; var7 < var39 - 1; ++var7) {
-            var26 = class316.field1162[var7] * (var39 - var7) / var39;
-            var34 = var26 + 22;
-            if(var34 < 0) {
-               var34 = 0;
-            }
-
-            var23 += var34;
-
-            for(var35 = var34; var35 < 128; ++var35) {
-               var36 = WorldMapDecoration.field182[var23++];
-               if(var36 != 0) {
-                  var12 = var36;
-                  var13 = 256 - var36;
-                  var36 = class4.field1047[var36];
-                  var38 = WorldMapManager.rasterProvider.pixels[var32];
-                  WorldMapManager.rasterProvider.pixels[var32++] = ((var36 & 16711935) * var12 + (var38 & 16711935) * var13 & -16711936) + (var13 * (var38 & 65280) + var12 * (var36 & 65280) & 16711680) >> 8;
-               } else {
-                  ++var32;
-               }
-            }
-
-            var32 += var34 + WorldMapManager.rasterProvider.width - 128;
-         }
-
-         Rasterizer2D.method469(class316.field1143 + 765 - 128, 9, class316.field1143 + 765, var39 + 7);
-         //class316.rightBackground.method2273(class316.field1143 + 382, 0);
-         Rasterizer2D.method439();
-         var23 = 0;
-         var32 = WorldMapManager.rasterProvider.width * 9 + class316.field1143 + 637 + 24;
-
-         for(var7 = 1; var7 < var39 - 1; ++var7) {
-            var26 = class316.field1162[var7] * (var39 - var7) / var39;
-            var34 = 103 - var26;
-            var32 += var26;
-
-            for(var35 = 0; var35 < var34; ++var35) {
-               var36 = WorldMapDecoration.field182[var23++];
-               if(var36 != 0) {
-                  var12 = var36;
-                  var13 = 256 - var36;
-                  var36 = class4.field1047[var36];
-                  var38 = WorldMapManager.rasterProvider.pixels[var32];
-                  WorldMapManager.rasterProvider.pixels[var32++] = (var13 * (var38 & 65280) + var12 * (var36 & 65280) & 16711680) + ((var38 & 16711935) * var13 + (var36 & 16711935) * var12 & -16711936) >> 8;
-               } else {
-                  ++var32;
-               }
-            }
-
-            var23 += 128 - var34;
-            var32 += WorldMapManager.rasterProvider.width - var34 - var26;
-         }
-
-         class316.titlemuteSprite[GameEngine.options.muted?1:0].method824(class316.field1143 + 765 - 40, 463);
-         if(client.gameState > 5 && client.languageId == 0) {
-            if(class113.field77 != null) {
-               var40 = class316.field1143 + 5;
-               var41 = 463;
-               byte var37 = 100;
-               byte var33 = 35;
-               class113.field77.method824(var40, var41);
-               var0.method1862("World" + " " + client.world, var37 / 2 + var40, var33 / 2 + var41 - 2, 16777215, 0);
-               if(World.listFetcher != null) {
-                  var1.method1862("Loading...", var37 / 2 + var40, var33 / 2 + var41 + 12, 16777215, 0);
-               } else {
-                  var1.method1862("Click to switch", var37 / 2 + var40, var33 / 2 + var41 + 12, 16777215, 0);
-               }
-            } else {
-               class113.field77 = MapElementType.method2369(JagException.sprites, "sl_button", "");
-            }
-         }
-
       }
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("jo")
    @ObfuscatedSignature(
-      signature = "(I)[Llx;",
-      garbageValue = "-535730210"
+      signature = "(Lia;IIIIIII)V",
+      garbageValue = "-1186758236"
    )
-   public static class271[] method2038() {
-      return new class271[]{class271.field3865, class271.field3866, class271.field3867};
+   static final void method1097(ComponentType var0, int var1, int var2, int var3, int var4, int var5, int var6) {
+      if(client.field715) {
+         client.field864 = 32;
+      } else {
+         client.field864 = 0;
+      }
+
+      client.field715 = false;
+      int var7;
+      if(MouseInput.mouseCurrentButton == 1 || !TextureProvider.middleMouseMovesCamera && MouseInput.mouseCurrentButton == 4) {
+         if(var5 >= var1 && var5 < var1 + 16 && var6 >= var2 && var6 < var2 + 16) {
+            var0.scrollY -= 4;
+            WorldMapRegion.method5554(var0);
+         } else if(var5 >= var1 && var5 < var1 + 16 && var6 >= var3 + var2 - 16 && var6 < var3 + var2) {
+            var0.scrollY += 4;
+            WorldMapRegion.method5554(var0);
+         } else if(var5 >= var1 - client.field864 && var5 < client.field864 + var1 + 16 && var6 >= var2 + 16 && var6 < var3 + var2 - 16) {
+            var7 = var3 * (var3 - 32) / var4;
+            if(var7 < 8) {
+               var7 = 8;
+            }
+
+            int var8 = var6 - var2 - 16 - var7 / 2;
+            int var9 = var3 - 32 - var7;
+            var0.scrollY = var8 * (var4 - var3) / var9;
+            WorldMapRegion.method5554(var0);
+            client.field715 = true;
+         }
+      }
+
+      if(client.field847 != 0) {
+         var7 = var0.width;
+         if(var5 >= var1 - var7 && var6 >= var2 && var5 < var1 + 16 && var6 <= var3 + var2) {
+            var0.scrollY += client.field847 * 45;
+            WorldMapRegion.method5554(var0);
+         }
+      }
+
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(Liu;I)V",
-      garbageValue = "-1614523838"
+      signature = "(Liz;Liz;ZI)V",
+      garbageValue = "-2026760233"
    )
-   public static void method2035(Js5Index var0) {
-      StructType.field3411 = var0;
+   public static void method1098(Js5Index var0, Js5Index var1, boolean var2) {
+      LocType.objects_ref = var0;
+      LocType.field3453 = var1;
+      LocType.objectCompositionLowDetail = var2;
    }
 }

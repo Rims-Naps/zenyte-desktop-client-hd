@@ -3,14 +3,14 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fd")
+@ObfuscatedName("fy")
 public class Huffman {
-   @ObfuscatedName("r")
-   byte[] bits;
-   @ObfuscatedName("e")
-   int[] keys;
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    int[] masks;
+   @ObfuscatedName("s")
+   byte[] bits;
+   @ObfuscatedName("g")
+   int[] keys;
 
    public Huffman(byte[] var1) {
       int var2 = var1.length;
@@ -95,12 +95,62 @@ public class Huffman {
 
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "([BII[BII)I",
+      garbageValue = "2122794333"
+   )
+   public int method527(byte[] var1, int var2, int var3, byte[] var4, int var5) {
+      int var6 = 0;
+      int var7 = var5 << 3;
+
+      for(var3 += var2; var2 < var3; ++var2) {
+         int var8 = var1[var2] & 255;
+         int var9 = this.masks[var8];
+         byte var10 = this.bits[var8];
+         if(var10 == 0) {
+            throw new RuntimeException("");
+         }
+
+         int var11 = var7 >> 3;
+         int var12 = var7 & 7;
+         var6 &= -var12 >> 31;
+         int var13 = (var10 + var12 - 1 >> 3) + var11;
+         var12 += 24;
+         var4[var11] = (byte)(var6 |= var9 >>> var12);
+         if(var11 < var13) {
+            ++var11;
+            var12 -= 8;
+            var4[var11] = (byte)(var6 = var9 >>> var12);
+            if(var11 < var13) {
+               ++var11;
+               var12 -= 8;
+               var4[var11] = (byte)(var6 = var9 >>> var12);
+               if(var11 < var13) {
+                  ++var11;
+                  var12 -= 8;
+                  var4[var11] = (byte)(var6 = var9 >>> var12);
+                  if(var11 < var13) {
+                     ++var11;
+                     var12 -= 8;
+                     var4[var11] = (byte)(var6 = var9 << -var12);
+                  }
+               }
+            }
+         }
+
+         var7 += var10;
+      }
+
+      return (var7 + 7 >> 3) - var5;
+   }
+
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "([BI[BIIB)I",
-      garbageValue = "-64"
+      garbageValue = "20"
    )
-   public int method4771(byte[] var1, int var2, byte[] var3, int var4, int var5) {
+   public int method528(byte[] var1, int var2, byte[] var3, int var4, int var5) {
       if(var5 == 0) {
          return 0;
       } else {
@@ -235,82 +285,6 @@ public class Huffman {
          }
 
          return var7 + 1 - var2;
-      }
-   }
-
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "([BII[BIB)I",
-      garbageValue = "1"
-   )
-   public int method4773(byte[] var1, int var2, int var3, byte[] var4, int var5) {
-      int var6 = 0;
-      int var7 = var5 << 3;
-
-      for(var3 += var2; var2 < var3; ++var2) {
-         int var8 = var1[var2] & 255;
-         int var9 = this.masks[var8];
-         byte var10 = this.bits[var8];
-         if(var10 == 0) {
-            throw new RuntimeException("");
-         }
-
-         int var11 = var7 >> 3;
-         int var12 = var7 & 7;
-         var6 &= -var12 >> 31;
-         int var13 = (var12 + var10 - 1 >> 3) + var11;
-         var12 += 24;
-         var4[var11] = (byte)(var6 |= var9 >>> var12);
-         if(var11 < var13) {
-            ++var11;
-            var12 -= 8;
-            var4[var11] = (byte)(var6 = var9 >>> var12);
-            if(var11 < var13) {
-               ++var11;
-               var12 -= 8;
-               var4[var11] = (byte)(var6 = var9 >>> var12);
-               if(var11 < var13) {
-                  ++var11;
-                  var12 -= 8;
-                  var4[var11] = (byte)(var6 = var9 >>> var12);
-                  if(var11 < var13) {
-                     ++var11;
-                     var12 -= 8;
-                     var4[var11] = (byte)(var6 = var9 << -var12);
-                  }
-               }
-            }
-         }
-
-         var7 += var10;
-      }
-
-      return (var7 + 7 >> 3) - var5;
-   }
-
-   @ObfuscatedName("fv")
-   @ObfuscatedSignature(
-      signature = "(Ljg;IIII)V",
-      garbageValue = "-154189101"
-   )
-   static void method4772(Sequence var0, int var1, int var2, int var3) {
-      if(client.queuedSoundEffectCount < 50 && client.field881 != 0) {
-         if(var0.field3620 != null && var1 < var0.field3620.length) {
-            int var4 = var0.field3620[var1];
-            if(var4 != 0) {
-               int var5 = var4 >> 8;
-               int var6 = var4 >> 4 & 7;
-               int var7 = var4 & 15;
-               client.queuedSoundEffectIDs[client.queuedSoundEffectCount] = var5;
-               client.unknownSoundValues1[client.queuedSoundEffectCount] = var6;
-               client.unknownSoundValues2[client.queuedSoundEffectCount] = 0;
-               client.audioEffects[client.queuedSoundEffectCount] = null;
-               int var8 = (var2 - 64) / 128;
-               int var9 = (var3 - 64) / 128;
-               client.soundLocations[client.queuedSoundEffectCount] = var7 + (var9 << 8) + (var8 << 16);
-               ++client.queuedSoundEffectCount;
-            }
-         }
       }
    }
 }

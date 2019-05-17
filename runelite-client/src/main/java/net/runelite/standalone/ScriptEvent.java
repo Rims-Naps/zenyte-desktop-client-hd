@@ -6,76 +6,71 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSScriptEvent;
 
-@ObfuscatedName("bv")
+@ObfuscatedName("br")
 public class ScriptEvent extends Node implements RSScriptEvent {
-   @ObfuscatedName("hf")
+   @ObfuscatedName("f")
    @ObfuscatedGetter(
-      intValue = 964567305
-   )
-   static int cameraPitch;
-   @ObfuscatedName("l")
-   @ObfuscatedGetter(
-      intValue = 1828614909
+      intValue = 1496955721
    )
    int op;
-   @ObfuscatedName("r")
-   boolean field563;
    @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "Lhn;"
-   )
-   ComponentType source;
-   @ObfuscatedName("w")
    @ObfuscatedGetter(
-      intValue = -1287066149
+      intValue = -599757907
    )
-   int typedKeyCode;
+   int field581;
    @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = -1958354679
+      intValue = -2039703453
+   )
+   int typedKeyChar;
+   @ObfuscatedName("x")
+   @ObfuscatedGetter(
+      intValue = -1419270535
    )
    int mouseX;
    @ObfuscatedName("m")
    @ObfuscatedGetter(
-      intValue = 1258746033
+      intValue = -96271991
    )
-   int field573;
+   int typedKeyCode;
    @ObfuscatedName("p")
-   @ObfuscatedGetter(
-      intValue = -80903269
-   )
-   int field572;
-   @ObfuscatedName("b")
    @ObfuscatedSignature(
-      signature = "Lhn;"
+      signature = "Lia;"
    )
    ComponentType target;
+   @ObfuscatedName("b")
+   String opbase;
+   @ObfuscatedName("a")
+   Object[] params;
    @ObfuscatedName("n")
    @ObfuscatedGetter(
-      intValue = 386878879
+      intValue = -1169064191
    )
-   int typedKeyChar;
-   @ObfuscatedName("c")
+   int field582;
+   @ObfuscatedName("s")
+   boolean field573;
+   @ObfuscatedName("h")
    @ObfuscatedGetter(
-      intValue = -2135918399
+      intValue = -988996033
    )
    int mouseY;
-   @ObfuscatedName("i")
-   String opbase;
    @ObfuscatedName("g")
-   Object[] params;
+   @ObfuscatedSignature(
+      signature = "Lia;"
+   )
+   ComponentType source;
 
    public ScriptEvent() {
-      this.field573 = 76;
+      this.field581 = 76;
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(II)V",
-      garbageValue = "-1103064193"
+      signature = "([Ljava/lang/Object;I)V",
+      garbageValue = "760578548"
    )
-   public void method4035(int var1) {
-      this.field573 = var1;
+   public void method1146(Object[] var1) {
+      this.params = var1;
    }
 
    public void setArguments(Object[] var1) {
@@ -98,61 +93,71 @@ public class ScriptEvent extends Node implements RSScriptEvent {
       return this.opbase;
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "([Ljava/lang/Object;B)V",
-      garbageValue = "1"
+      signature = "(IB)V",
+      garbageValue = "15"
    )
-   public void method4033(Object[] var1) {
-      this.params = var1;
+   public void method1140(int var1) {
+      this.field581 = var1;
    }
 
-   @ObfuscatedName("q")
+   @ObfuscatedName("kv")
    @ObfuscatedSignature(
-      signature = "(IZIZI)V",
-      garbageValue = "-394444660"
+      signature = "(Ljava/lang/String;ZI)V",
+      garbageValue = "1305519110"
    )
-   static void method4036(int var0, boolean var1, int var2, boolean var3) {
-      if(World.worldList != null) {
-         class0.method1(0, World.worldList.length - 1, var0, var1, var2, var3);
-      }
+   static void method1139(String var0, boolean var1) {
+      var0 = var0.toLowerCase();
+      short[] var2 = new short[16];
+      int var3 = 0;
 
-   }
+      for(int var4 = 0; var4 < ObjType.field3508; ++var4) {
+         ObjType var5 = class79.method1074(var4);
+         if((!var1 || var5.stockmarket) && var5.certTemplate == -1 && var5.name.toLowerCase().indexOf(var0) != -1) {
+            if(var3 >= 250) {
+               Isaac.field2467 = -1;
+               OwnWorldComparator.field640 = null;
+               return;
+            }
 
-   @ObfuscatedName("p")
-   @ObfuscatedSignature(
-      signature = "(II)I",
-      garbageValue = "-296833582"
-   )
-   static int method4044(int var0) {
-      ChatLine var1 = (ChatLine)class202.messages.method2764((long)var0);
-      return var1 == null?-1:(var1.next == class202.field1247.sentinel?-1:((ChatLine)var1.next).id);
-   }
+            if(var3 >= var2.length) {
+               short[] var6 = new short[var2.length * 2];
 
-   @ObfuscatedName("ff")
-   @ObfuscatedSignature(
-      signature = "(III)V",
-      garbageValue = "-1174946118"
-   )
-   static void method4041(int var0, int var1) {
-      int[] var2 = new int[9];
+               for(int var7 = 0; var7 < var3; ++var7) {
+                  var6[var7] = var2[var7];
+               }
 
-      for(int var3 = 0; var3 < var2.length; ++var3) {
-         int var4 = var3 * 32 + 15 + 128;
-         int var5 = var4 * 3 + 600;
-         int var7 = Graphics3D.SINE[var4];
-         int var9 = var1 - 334;
-         if(var9 < 0) {
-            var9 = 0;
-         } else if(var9 > 100) {
-            var9 = 100;
+               var2 = var6;
+            }
+
+            var2[var3++] = (short)var4;
          }
-
-         int var10 = (client.field898 - client.field897) * var9 / 100 + client.field897;
-         int var8 = var10 * var5 / 256;
-         var2[var3] = var7 * var8 >> 16;
       }
 
-      SceneManager.method3906(var2, 500, 800, var0 * 334 / var1, 334);
+      OwnWorldComparator.field640 = var2;
+      class318.field114 = 0;
+      Isaac.field2467 = var3;
+      String[] var8 = new String[Isaac.field2467];
+
+      for(int var9 = 0; var9 < Isaac.field2467; ++var9) {
+         var8[var9] = class79.method1074(var2[var9]).name;
+      }
+
+      short[] var10 = OwnWorldComparator.field640;
+      ChatHistory.method6264(var8, var10, 0, var8.length - 1);
+   }
+
+   @ObfuscatedName("gm")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "-189012971"
+   )
+   static void method1145() {
+      TcpConnectionMessage var0 = class232.method4535(ClientProt.field2313, client.serverConnection.isaac);
+      var0.packetBuffer.writeByte(class31.method520());
+      var0.packetBuffer.writeShort(GrandExchangeOffer.canvasWidth);
+      var0.packetBuffer.writeShort(class258.canvasHeight);
+      client.serverConnection.method18(var0);
    }
 }

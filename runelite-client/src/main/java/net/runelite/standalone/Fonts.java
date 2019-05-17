@@ -4,36 +4,36 @@ import java.util.HashMap;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kc")
+@ObfuscatedName("ke")
 public class Fonts {
-   @ObfuscatedName("r")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Liu;"
+      signature = "Liz;"
    )
-   Js5Index field3750;
-   @ObfuscatedName("e")
-   HashMap map;
+   Js5Index field3758;
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "Liz;"
+   )
+   Js5Index field3759;
    @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "Liu;"
-   )
-   Js5Index field3751;
+   HashMap map;
 
    @ObfuscatedSignature(
-      signature = "(Liu;Liu;)V"
+      signature = "(Liz;Liz;)V"
    )
    public Fonts(Js5Index var1, Js5Index var2) {
-      this.field3751 = var1;
-      this.field3750 = var2;
+      this.field3758 = var1;
+      this.field3759 = var2;
       this.map = new HashMap();
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "([Lkm;I)Ljava/util/HashMap;",
-      garbageValue = "-1974155434"
+      signature = "([Lkw;I)Ljava/util/HashMap;",
+      garbageValue = "1733378551"
    )
-   public HashMap method4045(FontName[] var1) {
+   public HashMap method6418(FontName[] var1) {
       HashMap var2 = new HashMap();
       FontName[] var3 = var1;
 
@@ -42,36 +42,15 @@ public class Fonts {
          if(this.map.containsKey(var5)) {
             var2.put(var5, this.map.get(var5));
          } else {
-            Js5Index var7 = this.field3751;
-            Js5Index var8 = this.field3750;
-            String var9 = var5.field3748;
-            int var10 = var7.method1510(var9);
-            int var11 = var7.method1532(var10, "");
-            Font var12;
-            if(!WorldMapRectangle.method128(var7, var10, var11)) {
-               var12 = null;
-            } else {
-               byte[] var14 = var8.method1516(var10, var11, 1789634852);
-               Font var13;
-               if(var14 == null) {
-                  var13 = null;
-               } else {
-                  Font var15 = new Font(var14, class95.indexedSpriteOffsetXs, class95.indexedSpriteOffsetYs, class95.indexSpriteWidths, VarClientType.indexedSpriteHeights, class95.indexedSpritePalette, class95.spritePixels);
-                  class95.indexedSpriteOffsetXs = null;
-                  class95.indexedSpriteOffsetYs = null;
-                  class95.indexSpriteWidths = null;
-                  VarClientType.indexedSpriteHeights = null;
-                  class95.indexedSpritePalette = null;
-                  class95.spritePixels = null;
-                  var13 = var15;
-               }
-
-               var12 = var13;
-            }
-
-            if(var12 != null) {
-               this.map.put(var5, var12);
-               var2.put(var5, var12);
+            Js5Index var7 = this.field3758;
+            Js5Index var8 = this.field3759;
+            String var9 = var5.field3750;
+            int var10 = var7.method4132(var9);
+            int var11 = var7.method4137(var10, "");
+            Font var6 = CacheFile.method5606(var7, var8, var10, var11);
+            if(var6 != null) {
+               this.map.put(var5, var6);
+               var2.put(var5, var6);
             }
          }
       }

@@ -1,5 +1,8 @@
 package net.runelite.standalone;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
 import net.runelite.api.Actor;
@@ -30,117 +33,117 @@ import net.runelite.rs.api.RSItemLayer;
 import net.runelite.rs.api.RSNode;
 import net.runelite.rs.api.RSTile;
 
-@ObfuscatedName("dw")
+@ObfuscatedName("de")
 public final class Tile extends Node implements RSTile {
    public static RSDeque[][][] lastGroundItems;
    public static net.runelite.api.GameObject lastGameObject;
    @ObfuscatedName("f")
-   boolean drawEntities;
-   @ObfuscatedName("l")
    @ObfuscatedSignature(
-      signature = "Ldp;"
+      signature = "Ldh;"
    )
    SceneTileModel overlay;
-   @ObfuscatedName("v")
-   boolean draw;
-   @ObfuscatedName("r")
+   @ObfuscatedName("l")
    @ObfuscatedGetter(
-      intValue = 61030149
-   )
-   int x;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = -839377731
-   )
-   int y;
-   @ObfuscatedName("k")
-   @ObfuscatedGetter(
-      intValue = 1417475735
-   )
-   int wallCullOppositeDirection;
-   @ObfuscatedName("w")
-   @ObfuscatedSignature(
-      signature = "Leu;"
-   )
-   DecorativeObject decorativeObject;
-   @ObfuscatedName("q")
-   @ObfuscatedGetter(
-      intValue = -516271731
-   )
-   int renderLevel;
-   @ObfuscatedName("x")
-   @ObfuscatedGetter(
-      intValue = -931998313
+      intValue = -799286185
    )
    int physicalLevel;
-   @ObfuscatedName("m")
-   @ObfuscatedSignature(
-      signature = "[Lem;"
-   )
-   GameObject[] objects;
-   @ObfuscatedName("p")
+   @ObfuscatedName("v")
    @ObfuscatedGetter(
-      intValue = 746515257
-   )
-   int entityCount;
-   @ObfuscatedName("b")
-   @ObfuscatedSignature(
-      signature = "Leb;"
-   )
-   WallObject wallObject;
-   @ObfuscatedName("a")
-   @ObfuscatedGetter(
-      intValue = 2087141383
-   )
-   int wallCullDirection;
-   @ObfuscatedName("z")
-   @ObfuscatedGetter(
-      intValue = -1666767949
-   )
-   int wallDrawFlags;
-   @ObfuscatedName("n")
-   @ObfuscatedSignature(
-      signature = "Ldq;"
-   )
-   GroundObject groundObject;
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "Ldi;"
-   )
-   SceneTilePaint paint;
-   @ObfuscatedName("t")
-   @ObfuscatedGetter(
-      intValue = 1006703407
+      intValue = 1274390359
    )
    int wallUncullDirection;
+   @ObfuscatedName("e")
+   @ObfuscatedSignature(
+      signature = "[Ler;"
+   )
+   GameObject[] objects;
+   @ObfuscatedName("r")
+   int[] entityFlags;
+   @ObfuscatedName("k")
+   @ObfuscatedGetter(
+      intValue = -200015443
+   )
+   int wallCullDirection;
+   @ObfuscatedName("w")
+   @ObfuscatedGetter(
+      intValue = 2039042225
+   )
+   int wallDrawFlags;
+   @ObfuscatedName("q")
+   @ObfuscatedSignature(
+      signature = "Ldw;"
+   )
+   GroundObject groundObject;
+   @ObfuscatedName("x")
+   @ObfuscatedGetter(
+      intValue = -901714141
+   )
+   int renderLevel;
+   @ObfuscatedName("m")
+   @ObfuscatedSignature(
+      signature = "Lef;"
+   )
+   DecorativeObject decorativeObject;
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "Lep;"
+   )
+   WallObject wallObject;
+   @ObfuscatedName("b")
+   @ObfuscatedSignature(
+      signature = "Ldy;"
+   )
+   ItemLayer itemLayer;
+   @ObfuscatedName("o")
+   boolean draw;
+   @ObfuscatedName("a")
+   @ObfuscatedGetter(
+      intValue = 1819906267
+   )
+   int level;
+   @ObfuscatedName("n")
+   @ObfuscatedGetter(
+      intValue = -1960775337
+   )
+   int entityCount;
+   @ObfuscatedName("t")
+   @ObfuscatedGetter(
+      intValue = -2089434541
+   )
+   int flags;
    public net.runelite.api.WallObject previousWallObject;
    public net.runelite.api.DecorativeObject previousDecorativeObject;
    public net.runelite.api.GroundObject previousGroundObject;
    public net.runelite.api.GameObject[] previousGameObjects;
    @ObfuscatedName("i")
    @ObfuscatedSignature(
-      signature = "Ldt;"
-   )
-   ItemLayer itemLayer;
-   @ObfuscatedName("d")
-   int[] entityFlags;
-   @ObfuscatedName("j")
-   @ObfuscatedGetter(
-      intValue = -1613750531
-   )
-   int flags;
-   @ObfuscatedName("s")
-   @ObfuscatedSignature(
-      signature = "Ldw;"
+      signature = "Lde;"
    )
    Tile bridge;
+   @ObfuscatedName("y")
+   boolean drawEntities;
+   @ObfuscatedName("d")
+   @ObfuscatedGetter(
+      intValue = -1115844587
+   )
+   int wallCullOppositeDirection;
+   @ObfuscatedName("s")
+   @ObfuscatedGetter(
+      intValue = 1458265213
+   )
+   int x;
    @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "Leb;"
+   )
+   SceneTilePaint paint;
+   @ObfuscatedName("u")
    boolean visible;
    @ObfuscatedName("g")
    @ObfuscatedGetter(
-      intValue = -1756290485
+      intValue = -270087367
    )
-   int level;
+   int y;
 
    static {
       lastGroundItems = new RSDeque[4][104][104];
@@ -154,6 +157,7 @@ public final class Tile extends Node implements RSTile {
       this.renderLevel = this.level = var1;
       this.x = var2;
       this.y = var3;
+      this.rl$$init();
    }
 
    public int getPlane() {
@@ -201,18 +205,18 @@ public final class Tile extends Node implements RSTile {
                   GameObjectDespawned var7 = new GameObjectDespawned();
                   var7.setTile(this);
                   var7.setGameObject(var2);
-                  class166.clientInstance.getCallbacks().post(var7);
+                  ItemContainer.clientInstance.getCallbacks().post(var7);
                } else if(var3 != null && var2 == null) {
                   GameObjectSpawned var6 = new GameObjectSpawned();
                   var6.setTile(this);
                   var6.setGameObject(var3);
-                  class166.clientInstance.getCallbacks().post(var6);
+                  ItemContainer.clientInstance.getCallbacks().post(var6);
                } else if(var3 != null && var2 != null) {
                   GameObjectChanged var5 = new GameObjectChanged();
                   var5.setTile(this);
                   var5.setPrevious(var2);
                   var5.setGameObject(var3);
-                  class166.clientInstance.getCallbacks().post(var5);
+                  ItemContainer.clientInstance.getCallbacks().post(var5);
                }
             }
 
@@ -236,18 +240,18 @@ public final class Tile extends Node implements RSTile {
          WallObjectDespawned var6 = new WallObjectDespawned();
          var6.setTile(this);
          var6.setWallObject(var2);
-         class166.clientInstance.getCallbacks().post(var6);
+         ItemContainer.clientInstance.getCallbacks().post(var6);
       } else if(var3 != null && var2 == null) {
          WallObjectSpawned var5 = new WallObjectSpawned();
          var5.setTile(this);
          var5.setWallObject(var3);
-         class166.clientInstance.getCallbacks().post(var5);
+         ItemContainer.clientInstance.getCallbacks().post(var5);
       } else if(var3 != null && var2 != null) {
          WallObjectChanged var4 = new WallObjectChanged();
          var4.setTile(this);
          var4.setPrevious(var2);
          var4.setWallObject(var3);
-         class166.clientInstance.getCallbacks().post(var4);
+         ItemContainer.clientInstance.getCallbacks().post(var4);
       }
 
    }
@@ -264,18 +268,18 @@ public final class Tile extends Node implements RSTile {
          DecorativeObjectDespawned var6 = new DecorativeObjectDespawned();
          var6.setTile(this);
          var6.setDecorativeObject(var2);
-         class166.clientInstance.getCallbacks().post(var6);
+         ItemContainer.clientInstance.getCallbacks().post(var6);
       } else if(var3 != null && var2 == null) {
          DecorativeObjectSpawned var5 = new DecorativeObjectSpawned();
          var5.setTile(this);
          var5.setDecorativeObject(var3);
-         class166.clientInstance.getCallbacks().post(var5);
+         ItemContainer.clientInstance.getCallbacks().post(var5);
       } else if(var3 != null && var2 != null) {
          DecorativeObjectChanged var4 = new DecorativeObjectChanged();
          var4.setTile(this);
          var4.setPrevious(var2);
          var4.setDecorativeObject(var3);
-         class166.clientInstance.getCallbacks().post(var4);
+         ItemContainer.clientInstance.getCallbacks().post(var4);
       }
 
    }
@@ -292,18 +296,18 @@ public final class Tile extends Node implements RSTile {
          GroundObjectDespawned var6 = new GroundObjectDespawned();
          var6.setTile(this);
          var6.setGroundObject(var2);
-         class166.clientInstance.getCallbacks().post(var6);
+         ItemContainer.clientInstance.getCallbacks().post(var6);
       } else if(var3 != null && var2 == null) {
          GroundObjectSpawned var5 = new GroundObjectSpawned();
          var5.setTile(this);
          var5.setGroundObject(var3);
-         class166.clientInstance.getCallbacks().post(var5);
+         ItemContainer.clientInstance.getCallbacks().post(var5);
       } else if(var3 != null && var2 != null) {
          GroundObjectChanged var4 = new GroundObjectChanged();
          var4.setTile(this);
          var4.setPrevious(var2);
          var4.setGroundObject(var3);
-         class166.clientInstance.getCallbacks().post(var4);
+         ItemContainer.clientInstance.getCallbacks().post(var4);
       }
 
    }
@@ -315,8 +319,8 @@ public final class Tile extends Node implements RSTile {
    public void itemLayerChanged(int var1) {
       int var2 = this.getX();
       int var3 = this.getY();
-      int var4 = class166.clientInstance.getPlane();
-      RSDeque[][][] var5 = class166.clientInstance.getGroundItemDeque();
+      int var4 = ItemContainer.clientInstance.getPlane();
+      RSDeque[][][] var5 = ItemContainer.clientInstance.getGroundItemDeque();
       RSDeque var6 = lastGroundItems[var4][var2][var3];
       RSDeque var7 = var5[var4][var2][var3];
       ItemDespawned var11;
@@ -327,29 +331,29 @@ public final class Tile extends Node implements RSTile {
             for(RSNode var9 = var8.getNext(); var9 != var8; var9 = var9.getNext()) {
                RSItem var10 = (RSItem)var9;
                var11 = new ItemDespawned(this, var10);
-               class166.clientInstance.getCallbacks().post(var11);
+               ItemContainer.clientInstance.getCallbacks().post(var11);
             }
          }
 
          lastGroundItems[var4][var2][var3] = var7;
       }
 
-      RSItem var18 = class166.clientInstance.getLastItemDespawn();
+      RSItem var18 = ItemContainer.clientInstance.getLastItemDespawn();
       if(var18 != null) {
-         class166.clientInstance.setLastItemDespawn((RSItem)null);
+         ItemContainer.clientInstance.setLastItemDespawn((RSItem)null);
       }
 
       RSItemLayer var19 = (RSItemLayer)this.getItemLayer();
       if(var19 == null) {
          if(var18 != null) {
             ItemDespawned var20 = new ItemDespawned(this, var18);
-            class166.clientInstance.getCallbacks().post(var20);
+            ItemContainer.clientInstance.getCallbacks().post(var20);
          }
 
       } else if(var7 == null) {
          if(var18 != null) {
             var11 = new ItemDespawned(this, var18);
-            class166.clientInstance.getCallbacks().post(var11);
+            ItemContainer.clientInstance.getCallbacks().post(var11);
          }
 
       } else {
@@ -376,7 +380,7 @@ public final class Tile extends Node implements RSTile {
 
          if(var18 != null && var18 != var13 && var18 != var22) {
             ItemDespawned var23 = new ItemDespawned(this, var18);
-            class166.clientInstance.getCallbacks().post(var23);
+            ItemContainer.clientInstance.getCallbacks().post(var23);
          }
 
          if(var12 != null) {
@@ -385,7 +389,7 @@ public final class Tile extends Node implements RSTile {
                var16.setX(var2);
                var16.setY(var3);
                ItemSpawned var17 = new ItemSpawned(this, var16);
-               class166.clientInstance.getCallbacks().post(var17);
+               ItemContainer.clientInstance.getCallbacks().post(var17);
                var12 = var14?((RSNode)var12).getNext():((RSNode)var12).getPrevious();
             } while(var12 != var21 && (((RSItem)var12).getX() != var2 || ((RSItem)var12).getY() != var3));
 
@@ -397,8 +401,11 @@ public final class Tile extends Node implements RSTile {
       return new Point(this.getX(), this.getY());
    }
 
+   private void rl$$init() {
+   }
+
    public WorldPoint getWorldLocation() {
-      return WorldPoint.fromScene(class166.clientInstance, this.getX(), this.getY(), this.getPlane());
+      return WorldPoint.fromScene(ItemContainer.clientInstance, this.getX(), this.getY(), this.getPlane());
    }
 
    public LocalPoint getLocalLocation() {
@@ -409,7 +416,7 @@ public final class Tile extends Node implements RSTile {
       if(this.getPlane() != var1.getPlane()) {
          return false;
       } else {
-         net.runelite.api.CollisionData[] var2 = class166.clientInstance.getCollisionMaps();
+         net.runelite.api.CollisionData[] var2 = ItemContainer.clientInstance.getCollisionMaps();
          if(var2 == null) {
             return false;
          } else {
@@ -563,39 +570,109 @@ public final class Tile extends Node implements RSTile {
       return this.bridge;
    }
 
-   @ObfuscatedName("q")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(Lgl;IS)Ljava/lang/String;",
-      garbageValue = "3996"
+      signature = "(B)V",
+      garbageValue = "-120"
    )
-   static String method4296(Packet var0, int var1) {
+   public static void method3823() {
       try {
-         int var2 = var0.method6092();
-         if(var2 > var1) {
-            var2 = var1;
+         File var0 = new File(class69.homeDir, "random.dat");
+         int var2;
+         if(var0.exists()) {
+            class75.uidDat = new CacheFile(new FileOnDisk(var0, "rw", 25L), 24, 0);
+         } else {
+            label39:
+            for(int var1 = 0; var1 < class211.historicCacheDirectories.length; ++var1) {
+               for(var2 = 0; var2 < class133.historicCacheLocations.length; ++var2) {
+                  File var3 = new File(class133.historicCacheLocations[var2] + class211.historicCacheDirectories[var1] + File.separatorChar + "random.dat");
+                  if(var3.exists()) {
+                     class75.uidDat = new CacheFile(new FileOnDisk(var3, "rw", 25L), 24, 0);
+                     break label39;
+                  }
+               }
+            }
          }
 
-         byte[] var3 = new byte[var2];
-         var0.offset += class331.huffman.method4771(var0.payload, var0.offset, var3, 0, var2);
-         String var4 = Isaac.method4024(var3, 0, var2);
-         return var4;
-      } catch (Exception var6) {
-         return "Cabbage";
+         if(class75.uidDat == null) {
+            RandomAccessFile var4 = new RandomAccessFile(var0, "rw");
+            var2 = var4.read();
+            var4.seek(0L);
+            var4.write(var2);
+            var4.seek(0L);
+            var4.close();
+            class75.uidDat = new CacheFile(new FileOnDisk(var0, "rw", 25L), 24, 0);
+         }
+      } catch (IOException var5) {
+         ;
+      }
+
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "([BB)V",
+      garbageValue = "92"
+   )
+   static synchronized void method3822(byte[] var0) {
+      if(var0.length == 100 && class235.field2428 < 1000) {
+         class235.field2433[++class235.field2428 - 1] = var0;
+      } else if(var0.length == 5000 && class235.field2425 < 250) {
+         class235.field2429[++class235.field2425 - 1] = var0;
+      } else if(var0.length == 30000 && class235.field2427 < 50) {
+         class235.field2430[++class235.field2427 - 1] = var0;
+      } else {
+         if(class235.field2432 != null) {
+            for(int var1 = 0; var1 < class235.field2431.length; ++var1) {
+               if(var0.length == class235.field2431[var1] && class83.field1964[var1] < class235.field2432[var1].length) {
+                  class235.field2432[var1][class83.field1964[var1]++] = var0;
+                  return;
+               }
+            }
+         }
+
       }
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(S)J",
-      garbageValue = "3133"
+      signature = "(IIB)Lcs;",
+      garbageValue = "1"
    )
-   public static synchronized long method4297() {
-      long var0 = System.currentTimeMillis();
-      if(var0 < class11.field2420) {
-         class11.field2419 += class11.field2420 - var0;
-      }
+   static class314 method3824(int var0, int var1) {
+      class314 var2 = (class314)class314.field1269.method635((long)(var0 << 16));
+      if(var2 != null) {
+         return var2;
+      } else {
+         String var3 = String.valueOf(var0);
+         int var4 = class27.clientscripts.method4132(var3);
+         if(var4 == -1) {
+            return null;
+         } else {
+            byte[] var5 = class27.clientscripts.method4122(var4);
+            if(var5 != null) {
+               if(var5.length <= 1) {
+                  return null;
+               }
 
-      class11.field2420 = var0;
-      return class11.field2419 + var0;
+               var2 = class191.method3809(var5);
+               if(var2 != null) {
+                  class314.field1269.method628(var2, (long)(var0 << 16));
+                  return var2;
+               }
+            }
+
+            return null;
+         }
+      }
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(CB)C",
+      garbageValue = "-13"
+   )
+   static char method3825(char var0) {
+      return var0 != 181 && var0 != 131?Character.toTitleCase(var0):var0;
    }
 }

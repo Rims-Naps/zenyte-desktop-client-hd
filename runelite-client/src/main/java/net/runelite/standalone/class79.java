@@ -1,48 +1,83 @@
 package net.runelite.standalone;
 
-import java.math.BigInteger;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("bt")
+@ObfuscatedName("bg")
 public class class79 {
-   @ObfuscatedName("r")
-   static final BigInteger RSA_MODULUS;
-   @ObfuscatedName("g")
-   static final BigInteger RSA_EXPONENT;
-
-   static {
-      RSA_EXPONENT = new BigInteger("10001", 16);
-      RSA_MODULUS = new BigInteger("147926487101535673874481304996273029446680384572900776356741718541029295833056728580689225626839331109889051098340610277259374021239154392825073133579283354307195571644831952411288119469259428730829525599875738883869187086987379074879572536962975657340434949610404032466451957196559061637505086995393354666349");
-   }
-
-   @ObfuscatedName("r")
+   @ObfuscatedName("fn")
    @ObfuscatedSignature(
-      signature = "(IB)Ljk;",
-      garbageValue = "99"
+      signature = "Lfn;"
    )
-   public static Varbit method1158(int var0) {
-      Varbit var1 = (Varbit)Varbit.varbits.method951((long)var0);
+   static Task field563;
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(IS)Ljc;",
+      garbageValue = "16982"
+   )
+   public static ObjType method1074(int var0) {
+      ObjType var1 = (ObjType)ObjType.items.method635((long)var0);
       if(var1 != null) {
          return var1;
       } else {
-         byte[] var2 = Varbit.varbit_ref.method1516(14, var0, 1789634852);
-         var1 = new Varbit();
+         byte[] var2 = class48.item_ref.method4115(10, var0, 1470890922);
+         var1 = new ObjType();
+         var1.id = var0;
          if(var2 != null) {
-            var1.method3111(new Packet(var2));
+            var1.method2215(new Packet(var2));
          }
 
-         Varbit.varbits.method957(var1, (long)var0);
+         var1.method2226();
+         if(var1.certTemplate != -1) {
+            var1.method2217(method1074(var1.certTemplate), method1074(var1.certLink));
+         }
+
+         if(var1.boughtTemplate != -1) {
+            var1.method2224(method1074(var1.boughtTemplate), method1074(var1.boughtLink));
+         }
+
+         if(var1.placeholderTemplate != -1) {
+            var1.method2218(method1074(var1.placeholderTemplate), method1074(var1.placeholderLink));
+         }
+
+         if(!ObjType.isMembersWorld && var1.members) {
+            var1.name = "Members object";
+            var1.stockmarket = false;
+            var1.ops = null;
+            var1.iops = null;
+            var1.shiftClickIndex = -1;
+            var1.team = 0;
+            if(var1.params != null) {
+               boolean var3 = false;
+
+               for(Node var4 = var1.params.method2181(); var4 != null; var4 = var1.params.method2190()) {
+                  ParamType var5 = Overlay.method6404((int)var4.hash);
+                  if(var5.autoDisable) {
+                     var4.method432();
+                  } else {
+                     var3 = true;
+                  }
+               }
+
+               if(!var3) {
+                  var1.params = null;
+               }
+            }
+         }
+
+         ObjType.items.method628(var1, (long)var0);
          return var1;
       }
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("lk")
    @ObfuscatedSignature(
-      signature = "(I)I",
-      garbageValue = "-533880111"
+      signature = "(I)V",
+      garbageValue = "1832000360"
    )
-   static int method1159() {
-      return 11;
+   static void method1075() {
+      client.serverConnection.method18(class232.method4535(ClientProt.field2256, client.serverConnection.isaac));
+      client.camModeType = 0;
    }
 }

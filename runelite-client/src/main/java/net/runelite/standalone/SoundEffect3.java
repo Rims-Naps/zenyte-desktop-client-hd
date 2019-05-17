@@ -3,24 +3,24 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dc")
+@ObfuscatedName("dr")
 public class SoundEffect3 {
-   @ObfuscatedName("l")
+   @ObfuscatedName("f")
    static float[][] minimisedCoefficients;
-   @ObfuscatedName("w")
-   static float fowardMinimisedCoefficientMultiplier;
-   @ObfuscatedName("b")
-   static int[][] coefficients;
-   @ObfuscatedName("n")
-   static int fowardMultiplier;
-   @ObfuscatedName("e")
-   int[][][] phases;
    @ObfuscatedName("q")
+   static int fowardMultiplier;
+   @ObfuscatedName("m")
+   static float fowardMinimisedCoefficientMultiplier;
+   @ObfuscatedName("p")
+   static int[][] coefficients;
+   @ObfuscatedName("x")
    int[][][] magnitudes;
-   @ObfuscatedName("c")
+   @ObfuscatedName("a")
+   int[] pairs;
+   @ObfuscatedName("h")
    int[] unity;
    @ObfuscatedName("g")
-   int[] pairs;
+   int[][][] phases;
 
    static {
       minimisedCoefficients = new float[2][8];
@@ -34,15 +34,8 @@ public class SoundEffect3 {
       this.unity = new int[2];
    }
 
-   @ObfuscatedName("e")
-   float method1059(int var1, int var2, float var3) {
-      float var4 = (float)this.phases[var1][0][var2] + var3 * (float)(this.phases[var1][1][var2] - this.phases[var1][0][var2]);
-      var4 *= 1.2207031E-4F;
-      return method1072(var4);
-   }
-
-   @ObfuscatedName("q")
-   int method1073(int var1, float var2) {
+   @ObfuscatedName("x")
+   int method1859(int var1, float var2) {
       float var3;
       if(var1 == 0) {
          var3 = (float)this.unity[0] + (float)(this.unity[1] - this.unity[0]) * var2;
@@ -54,14 +47,14 @@ public class SoundEffect3 {
       if(this.pairs[var1] == 0) {
          return 0;
       } else {
-         var3 = this.method1057(var1, 0, var2);
-         minimisedCoefficients[var1][0] = -2.0F * var3 * (float)Math.cos((double)this.method1059(var1, 0, var2));
+         var3 = this.method1867(var1, 0, var2);
+         minimisedCoefficients[var1][0] = -2.0F * var3 * (float)Math.cos((double)this.method1858(var1, 0, var2));
          minimisedCoefficients[var1][1] = var3 * var3;
 
          int var4;
          for(var4 = 1; var4 < this.pairs[var1]; ++var4) {
-            var3 = this.method1057(var1, var4, var2);
-            float var5 = -2.0F * var3 * (float)Math.cos((double)this.method1059(var1, var4, var2));
+            var3 = this.method1867(var1, var4, var2);
+            float var5 = -2.0F * var3 * (float)Math.cos((double)this.method1858(var1, var4, var2));
             float var6 = var3 * var3;
             minimisedCoefficients[var1][var4 * 2 + 1] = minimisedCoefficients[var1][var4 * 2 - 1] * var6;
             minimisedCoefficients[var1][var4 * 2] = minimisedCoefficients[var1][var4 * 2 - 1] * var5 + minimisedCoefficients[var1][var4 * 2 - 2] * var6;
@@ -88,11 +81,18 @@ public class SoundEffect3 {
       }
    }
 
-   @ObfuscatedName("c")
+   @ObfuscatedName("a")
+   float method1867(int var1, int var2, float var3) {
+      float var4 = (float)this.magnitudes[var1][0][var2] + var3 * (float)(this.magnitudes[var1][1][var2] - this.magnitudes[var1][0][var2]);
+      var4 *= 0.0015258789F;
+      return 1.0F - (float)Math.pow(10.0D, (double)(-var4 / 20.0F));
+   }
+
+   @ObfuscatedName("h")
    @ObfuscatedSignature(
-      signature = "(Lgl;Lcj;)V"
+      signature = "(Lgx;Lcl;)V"
    )
-   final void method1061(Packet var1, AudioEnvelope var2) {
+   final void method1860(Packet var1, AudioEnvelope var2) {
       int var3 = var1.readUnsignedByte();
       this.pairs[0] = var3 >> 4;
       this.pairs[1] = var3 & 15;
@@ -123,7 +123,7 @@ public class SoundEffect3 {
          }
 
          if(var4 != 0 || this.unity[1] != this.unity[0]) {
-            var2.method2168(var1);
+            var2.method2331(var1);
          }
       } else {
          int[] var7 = this.unity;
@@ -134,14 +134,14 @@ public class SoundEffect3 {
    }
 
    @ObfuscatedName("g")
-   float method1057(int var1, int var2, float var3) {
-      float var4 = (float)this.magnitudes[var1][0][var2] + var3 * (float)(this.magnitudes[var1][1][var2] - this.magnitudes[var1][0][var2]);
-      var4 *= 0.0015258789F;
-      return 1.0F - (float)Math.pow(10.0D, (double)(-var4 / 20.0F));
+   float method1858(int var1, int var2, float var3) {
+      float var4 = (float)this.phases[var1][0][var2] + var3 * (float)(this.phases[var1][1][var2] - this.phases[var1][0][var2]);
+      var4 *= 1.2207031E-4F;
+      return method1864(var4);
    }
 
-   @ObfuscatedName("r")
-   static float method1072(float var0) {
+   @ObfuscatedName("s")
+   static float method1864(float var0) {
       float var1 = 32.703197F * (float)Math.pow(2.0D, (double)var0);
       return var1 * 3.1415927F / 11025.0F;
    }

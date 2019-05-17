@@ -8,36 +8,29 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSMouseWheelHandler;
 
-@ObfuscatedName("as")
-public final class MouseWheelHandler implements class81, MouseWheelListener, RSMouseWheelHandler {
-   @ObfuscatedName("g")
+@ObfuscatedName("al")
+public final class MouseWheelHandler implements class224, MouseWheelListener, RSMouseWheelHandler {
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      intValue = -1433733739
+      intValue = -1114257373
    )
    int rotation;
 
    MouseWheelHandler() {
       this.rotation = 0;
+      this.rl$$init();
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(Ljava/awt/Component;S)V",
-      garbageValue = "1300"
+      signature = "(Ljava/awt/Component;I)V",
+      garbageValue = "-1339676129"
    )
-   void method4537(Component var1) {
-      var1.removeMouseWheelListener(this);
+   void method938(Component var1) {
+      var1.addMouseWheelListener(this);
    }
 
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(B)I",
-      garbageValue = "49"
-   )
-   public synchronized int vmethod4533() {
-      int var1 = this.rotation;
-      this.rotation = 0;
-      return var1;
+   private void rl$$init() {
    }
 
    public synchronized void copy$mouseWheelMoved(MouseWheelEvent var1) {
@@ -45,19 +38,30 @@ public final class MouseWheelHandler implements class81, MouseWheelListener, RSM
    }
 
    public synchronized void mouseWheelMoved(MouseWheelEvent var1) {
-      var1 = class166.clientInstance.getCallbacks().mouseWheelMoved(var1);
+      var1 = ItemContainer.clientInstance.getCallbacks().mouseWheelMoved(var1);
       if(!var1.isConsumed()) {
          this.copy$mouseWheelMoved(var1);
       }
 
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
       signature = "(Ljava/awt/Component;I)V",
-      garbageValue = "1285201948"
+      garbageValue = "2102150784"
    )
-   void method4531(Component var1) {
-      var1.addMouseWheelListener(this);
+   void method939(Component var1) {
+      var1.removeMouseWheelListener(this);
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(B)I",
+      garbageValue = "-52"
+   )
+   public synchronized int vmethod4271() {
+      int var1 = this.rotation;
+      this.rotation = 0;
+      return var1;
    }
 }

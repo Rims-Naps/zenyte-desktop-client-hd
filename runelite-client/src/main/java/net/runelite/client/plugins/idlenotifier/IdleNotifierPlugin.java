@@ -47,6 +47,7 @@ import net.runelite.api.Varbits;
 import net.runelite.api.events.AnimationChanged;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
+import net.runelite.api.events.GraphicChanged;
 import net.runelite.api.events.HitsplatApplied;
 import net.runelite.api.events.InteractingChanged;
 import net.runelite.client.Notifier;
@@ -135,7 +136,7 @@ public class IdleNotifierPlugin extends Plugin
 			case COOKING_FIRE:
 			case COOKING_RANGE:
 			case COOKING_WINE:
-			/* Crafting(Gem Cutting, Glassblowing, Spinning, Battlestaves) */
+			/* Crafting(Gem Cutting, Glassblowing, Spinning, Battlestaves, Pottery) */
 			case GEM_CUTTING_OPAL:
 			case GEM_CUTTING_JADE:
 			case GEM_CUTTING_REDTOPAZ:
@@ -148,6 +149,8 @@ public class IdleNotifierPlugin extends Plugin
 			case CRAFTING_SPINNING:
 			case CRAFTING_BATTLESTAVES:
 			case CRAFTING_LEATHER:
+			case CRAFTING_POTTERS_WHEEL:
+			case CRAFTING_POTTERY_OVEN:
 			/* Fletching(Cutting, Stringing) */
 			case FLETCHING_BOW_CUTTING:
 			case FLETCHING_STRING_NORMAL_SHORTBOW:
@@ -196,12 +199,17 @@ public class IdleNotifierPlugin extends Plugin
 			case MINING_MOTHERLODE_INFERNAL:
 			case MINING_MOTHERLODE_3A:
 			/* Herblore */
+			case HERBLORE_PESTLE_AND_MORTAR:
 			case HERBLORE_POTIONMAKING:
 			case HERBLORE_MAKE_TAR:
 			/* Magic */
 			case MAGIC_CHARGING_ORBS:
 			case MAGIC_LUNAR_STRING_JEWELRY:
 			case MAGIC_MAKE_TABLET:
+			case MAGIC_ENCHANTING_JEWELRY:
+			case MAGIC_ENCHANTING_AMULET_1:
+			case MAGIC_ENCHANTING_AMULET_2:
+			case MAGIC_ENCHANTING_AMULET_3:
 			/* Prayer */
 			case USING_GILDED_ALTAR:
 			/* Farming */
@@ -324,6 +332,22 @@ public class IdleNotifierPlugin extends Plugin
 
 		if (hitsplat.getHitsplatType() == Hitsplat.HitsplatType.DAMAGE
 			|| hitsplat.getHitsplatType() == Hitsplat.HitsplatType.BLOCK)
+		{
+			lastCombatCountdown = HIGHEST_MONSTER_ATTACK_SPEED;
+		}
+	}
+
+	@Subscribe
+	public void onGraphicChanged(GraphicChanged event)
+	{
+		Actor actor = event.getActor();
+
+		if (actor != client.getLocalPlayer())
+		{
+			return;
+		}
+
+		if (actor.getGraphic() == GraphicID.SPLASH)
 		{
 			lastCombatCountdown = HIGHEST_MONSTER_ATTACK_SPEED;
 		}

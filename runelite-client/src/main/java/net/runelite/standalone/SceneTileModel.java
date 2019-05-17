@@ -3,55 +3,55 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.rs.api.RSSceneTileModel;
 
-@ObfuscatedName("dp")
+@ObfuscatedName("dh")
 public final class SceneTileModel implements RSSceneTileModel {
-   @ObfuscatedName("f")
-   static int[] vertexSceneX;
    @ObfuscatedName("v")
-   static int[] tmpScreenX;
-   @ObfuscatedName("k")
-   static final int[][] field1581;
-   @ObfuscatedName("a")
-   static int[] vertexSceneY;
-   @ObfuscatedName("z")
-   static final int[][] field1582;
-   @ObfuscatedName("t")
    static int[] vertexSceneZ;
-   @ObfuscatedName("h")
-   static int[] tmpScreenY;
-   @ObfuscatedName("l")
-   int[] triangleColorC;
-   @ObfuscatedName("r")
-   int[] vertexY;
-   @ObfuscatedName("e")
-   int[] vertexZ;
+   @ObfuscatedName("k")
+   static int[] vertexSceneY;
    @ObfuscatedName("w")
-   int[] field1568;
-   @ObfuscatedName("q")
-   int[] triangleColorA;
-   @ObfuscatedName("x")
+   static final int[][] field1600;
+   @ObfuscatedName("o")
+   static int[] tmpScreenX;
+   @ObfuscatedName("y")
+   static int[] vertexSceneX;
+   @ObfuscatedName("d")
+   static final int[][] field1599;
+   @ObfuscatedName("u")
+   static int[] tmpScreenY;
+   @ObfuscatedName("f")
+   int[] triangleColorC;
+   @ObfuscatedName("l")
    int overlay;
-   @ObfuscatedName("m")
+   @ObfuscatedName("e")
    int shape;
+   @ObfuscatedName("r")
+   int rotation;
+   @ObfuscatedName("q")
+   int[] field1579;
+   @ObfuscatedName("x")
+   int[] triangleColorA;
+   @ObfuscatedName("m")
+   int[] field1594;
    @ObfuscatedName("p")
-   boolean flatShade;
+   int[] field1585;
    @ObfuscatedName("b")
-   int[] field1569;
+   int[] triangleTextureId;
+   @ObfuscatedName("a")
+   int[] vertexX;
    @ObfuscatedName("n")
-   int[] field1567;
-   @ObfuscatedName("c")
-   int[] triangleColorB;
+   boolean flatShade;
+   @ObfuscatedName("t")
+   int underlay;
    public int rl$modelBufferOffset;
    public int rl$modelUvBufferOffset;
    public int rl$modelBufferLen;
-   @ObfuscatedName("i")
-   int[] triangleTextureId;
-   @ObfuscatedName("d")
-   int rotation;
-   @ObfuscatedName("j")
-   int underlay;
+   @ObfuscatedName("s")
+   int[] vertexY;
+   @ObfuscatedName("h")
+   int[] triangleColorB;
    @ObfuscatedName("g")
-   int[] vertexX;
+   int[] vertexZ;
 
    static {
       tmpScreenX = new int[6];
@@ -59,8 +59,8 @@ public final class SceneTileModel implements RSSceneTileModel {
       vertexSceneX = new int[6];
       vertexSceneY = new int[6];
       vertexSceneZ = new int[6];
-      field1581 = new int[][]{{1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 2, 6}, {1, 3, 5, 7, 2, 8}, {1, 3, 5, 7, 2, 8}, {1, 3, 5, 7, 11, 12}, {1, 3, 5, 7, 11, 12}, {1, 3, 5, 7, 13, 14}};
-      field1582 = new int[][]{{0, 1, 2, 3, 0, 0, 1, 3}, {1, 1, 2, 3, 1, 0, 1, 3}, {0, 1, 2, 3, 1, 0, 1, 3}, {0, 0, 1, 2, 0, 0, 2, 4, 1, 0, 4, 3}, {0, 0, 1, 4, 0, 0, 4, 3, 1, 1, 2, 4}, {0, 0, 4, 3, 1, 0, 1, 2, 1, 0, 2, 4}, {0, 1, 2, 4, 1, 0, 1, 4, 1, 0, 4, 3}, {0, 4, 1, 2, 0, 4, 2, 5, 1, 0, 4, 5, 1, 0, 5, 3}, {0, 4, 1, 2, 0, 4, 2, 3, 0, 4, 3, 5, 1, 0, 4, 5}, {0, 0, 4, 5, 1, 4, 1, 2, 1, 4, 2, 3, 1, 4, 3, 5}, {0, 0, 1, 5, 0, 1, 4, 5, 0, 1, 2, 4, 1, 0, 5, 3, 1, 5, 4, 3, 1, 4, 2, 3}, {1, 0, 1, 5, 1, 1, 4, 5, 1, 1, 2, 4, 0, 0, 5, 3, 0, 5, 4, 3, 0, 4, 2, 3}, {1, 0, 5, 4, 1, 0, 1, 5, 0, 0, 4, 3, 0, 4, 5, 3, 0, 5, 2, 3, 0, 1, 2, 5}};
+      field1599 = new int[][]{{1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 2, 6}, {1, 3, 5, 7, 2, 8}, {1, 3, 5, 7, 2, 8}, {1, 3, 5, 7, 11, 12}, {1, 3, 5, 7, 11, 12}, {1, 3, 5, 7, 13, 14}};
+      field1600 = new int[][]{{0, 1, 2, 3, 0, 0, 1, 3}, {1, 1, 2, 3, 1, 0, 1, 3}, {0, 1, 2, 3, 1, 0, 1, 3}, {0, 0, 1, 2, 0, 0, 2, 4, 1, 0, 4, 3}, {0, 0, 1, 4, 0, 0, 4, 3, 1, 1, 2, 4}, {0, 0, 4, 3, 1, 0, 1, 2, 1, 0, 2, 4}, {0, 1, 2, 4, 1, 0, 1, 4, 1, 0, 4, 3}, {0, 4, 1, 2, 0, 4, 2, 5, 1, 0, 4, 5, 1, 0, 5, 3}, {0, 4, 1, 2, 0, 4, 2, 3, 0, 4, 3, 5, 1, 0, 4, 5}, {0, 0, 4, 5, 1, 4, 1, 2, 1, 4, 2, 3, 1, 4, 3, 5}, {0, 0, 1, 5, 0, 1, 4, 5, 0, 1, 2, 4, 1, 0, 5, 3, 1, 5, 4, 3, 1, 4, 2, 3}, {1, 0, 1, 5, 1, 1, 4, 5, 1, 1, 2, 4, 0, 0, 5, 3, 0, 5, 4, 3, 0, 4, 2, 3}, {1, 0, 5, 4, 1, 0, 1, 5, 0, 0, 4, 3, 0, 4, 5, 3, 0, 5, 2, 3, 0, 1, 2, 5}};
    }
 
    SceneTileModel(int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, int var9, int var10, int var11, int var12, int var13, int var14, int var15, int var16, int var17, int var18, int var19) {
@@ -77,7 +77,7 @@ public final class SceneTileModel implements RSSceneTileModel {
       int var21 = var20 / 2;
       int var22 = var20 / 4;
       int var23 = var20 * 3 / 4;
-      int[] var24 = field1581[var1];
+      int[] var24 = field1599[var1];
       int var25 = var24.length;
       this.vertexX = new int[var25];
       this.vertexY = new int[var25];
@@ -212,11 +212,11 @@ public final class SceneTileModel implements RSSceneTileModel {
          var27[var30] = var36;
       }
 
-      int[] var38 = field1582[var1];
+      int[] var38 = field1600[var1];
       var31 = var38.length / 4;
-      this.field1569 = new int[var31];
-      this.field1568 = new int[var31];
-      this.field1567 = new int[var31];
+      this.field1585 = new int[var31];
+      this.field1594 = new int[var31];
+      this.field1579 = new int[var31];
       this.triangleColorA = new int[var31];
       this.triangleColorB = new int[var31];
       this.triangleColorC = new int[var31];
@@ -244,9 +244,9 @@ public final class SceneTileModel implements RSSceneTileModel {
             var37 = var37 - var2 & 3;
          }
 
-         this.field1569[var33] = var35;
-         this.field1568[var33] = var36;
-         this.field1567[var33] = var37;
+         this.field1585[var33] = var35;
+         this.field1594[var33] = var36;
+         this.field1579[var33] = var37;
          if(var34 == 0) {
             this.triangleColorA[var33] = var26[var35];
             this.triangleColorB[var33] = var26[var36];
@@ -292,6 +292,10 @@ public final class SceneTileModel implements RSSceneTileModel {
 
       var33 /= 14;
       var34 /= 14;
+      this.rl$$init();
+   }
+
+   private void rl$$init() {
    }
 
    public int getBufferOffset() {
@@ -343,15 +347,15 @@ public final class SceneTileModel implements RSSceneTileModel {
    }
 
    public int[] getFaceX() {
-      return this.field1569;
+      return this.field1585;
    }
 
    public int[] getFaceY() {
-      return this.field1568;
+      return this.field1594;
    }
 
    public int[] getFaceZ() {
-      return this.field1567;
+      return this.field1579;
    }
 
    public int[] getTriangleTextureId() {

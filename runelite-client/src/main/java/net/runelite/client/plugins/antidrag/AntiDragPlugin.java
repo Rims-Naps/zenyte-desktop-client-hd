@@ -35,10 +35,10 @@ import net.runelite.client.plugins.PluginDescriptor;
 import javax.inject.Inject;
 
 @PluginDescriptor(
-	name = "Anti Drag",
-	description = "Prevent dragging an item for a specified delay",
-	tags = {"antidrag", "delay", "inventory", "items"},
-    enabledByDefault = false
+		name = "Anti Drag",
+		description = "Prevent dragging an item for a specified delay",
+		tags = {"antidrag", "delay", "inventory", "items"},
+		enabledByDefault = false
 )
 public class AntiDragPlugin extends Plugin
 {
@@ -59,7 +59,7 @@ public class AntiDragPlugin extends Plugin
 	@Override
 	protected void startUp() throws Exception
 	{
-        client.setInventoryDragDelay(config.dragDelay());
+		client.setInventoryDragDelay(config.dragDelay());
 	}
 
 	@Override
@@ -68,11 +68,11 @@ public class AntiDragPlugin extends Plugin
 		client.setInventoryDragDelay(DEFAULT_DELAY);
 	}
 
-    @Subscribe
-    public void onConfigChanged(ConfigChanged event) {
-        if (event.getGroup().equals("antiDrag")) {
-            client.setInventoryDragDelay(config.dragDelay());
-        }
-    }
+	@Subscribe
+	public void onConfigChanged(ConfigChanged event) {
+		if (event.getGroup().equals("antiDrag")) {
+			client.setInventoryDragDelay(config.dragDelay());
+		}
+	}
 
 }

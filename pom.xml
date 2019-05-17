@@ -28,7 +28,7 @@
 
 	<groupId>net.runelite</groupId>
 	<artifactId>runelite-parent</artifactId>
-	<version>1.5.11</version>
+	<version>1.5.22.1</version>
 	<packaging>pom</packaging>
 
 	<name>RuneLite</name>
@@ -42,17 +42,9 @@
 
 		<maven.javadoc.skip>true</maven.javadoc.skip>
 		<checkstyle.skip>true</checkstyle.skip>
-		<maven.deploy.skip>true</maven.deploy.skip>
 
-		<rs.version>177</rs.version>
+		<rs.version>179</rs.version>
 	</properties>
-
-	<distributionManagement>
-		<repository>
-			<id>s3.artifacts.client</id>
-			<url>s3://zenyte-runelite/release</url>
-		</repository>
-	</distributionManagement>
 
 	<licenses>
 		<license>
@@ -67,7 +59,7 @@
 		<url>https://github.com/runelite/runelite</url>
 		<connection>scm:git:git://github.com/runelite/runelite</connection>
 		<developerConnection>scm:git:git@github.com:runelite/runelite</developerConnection>
-		<tag>runelite-parent-1.5.11</tag>
+		<tag>runelite-parent-1.5.22.1</tag>
 	</scm>
 
 	<developers>
@@ -122,9 +114,9 @@
 	<modules>
 		<module>runelite-api</module>
 		<module>runelite-client</module>
+		<module>runelite-script-assembler-plugin</module>
 		<module>runescape-api</module>
 		<module>http-api</module>
-		<module>http-service</module>
 	</modules>
 
 	<dependencyManagement>
@@ -180,7 +172,7 @@
 				<version>2.18</version>
 				<configuration>
 					<enableAssertions>true</enableAssertions>
-					<argLine>-Xmx512m -Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+					<argLine>-Xmx512m</argLine>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -194,6 +186,10 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.0.0-M1</version>
+				<configuration>
+					<!-- Fix Javadoc on Java 11+ - JDK-8212233 -->
+					<source>8</source>
+				</configuration>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -227,7 +223,22 @@
 					<configLocation>checkstyle.xml</configLocation>
 					<!-- exclude generated sources from checkstyle https://stackoverflow.com/a/30406454/7189686 -->
 					<sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+					<includeTestSourceDirectory>true</includeTestSourceDirectory>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.github.zlika</groupId>
+				<artifactId>reproducible-build-maven-plugin</artifactId>
+				<version>0.7</version>
+				<executions>
+					<execution>
+						<!-- Move from pre-integration-test to place before jarsigning -->
+						<phase>package</phase>
+						<goals>
+							<goal>strip-jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 		<pluginManagement>

@@ -1,141 +1,192 @@
 package net.runelite.standalone;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.IOException;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("aj")
-public class class124 extends WorldMapData {
-   @ObfuscatedName("sj")
-   static short[] field325;
-   @ObfuscatedName("x")
-   List field326;
-   @ObfuscatedName("d")
-   HashSet field327;
-   @ObfuscatedName("j")
-   HashSet field324;
-
-   @ObfuscatedName("bt")
+@ObfuscatedName("jr")
+public class class124 {
+   @ObfuscatedName("fn")
    @ObfuscatedSignature(
-      signature = "(Lgl;Lgl;Lgl;IZI)V",
-      garbageValue = "674403176"
+      signature = "(II)V",
+      garbageValue = "-1893789506"
    )
-   void method2088(Packet var1, Packet var2, Packet var3, int var4, boolean var5) {
-      this.method999(var1, var4);
-      int var6 = var3.readUnsignedShort();
-      this.field327 = new HashSet(var6);
-
-      int var7;
-      for(var7 = 0; var7 < var6; ++var7) {
-         class113 var8 = new class113();
-
-         try {
-            var8.method1961(var2, var3);
-         } catch (IllegalStateException var13) {
-            continue;
+   static void method1843(int var0) {
+      if(var0 != client.gameState) {
+         if(client.gameState == 0) {
+            ItemContainer.clientInstance.method4386();
          }
 
-         this.field327.add(var8);
-      }
-
-      var7 = var3.readUnsignedShort();
-      this.field324 = new HashSet(var7);
-
-      for(int var11 = 0; var11 < var7; ++var11) {
-         class115 var9 = new class115();
-
-         try {
-            var9.method1990(var2, var3);
-         } catch (IllegalStateException var12) {
-            continue;
-         }
-
-         this.field324.add(var9);
-      }
-
-      this.method2089(var2, var5);
-   }
-
-   @ObfuscatedName("cb")
-   @ObfuscatedSignature(
-      signature = "(Lgl;ZB)V",
-      garbageValue = "101"
-   )
-   void method2089(Packet var1, boolean var2) {
-      this.field326 = new LinkedList();
-      int var3 = var1.readUnsignedShort();
-
-      for(int var4 = 0; var4 < var3; ++var4) {
-         int var5 = var1.method6207();
-         Coordinates var6 = new Coordinates(var1.readInt());
-         boolean var7 = var1.readUnsignedByte() == 1;
-         if(var2 || !var7) {
-            this.field326.add(new class260(var5, var6));
-         }
-      }
-
-   }
-
-   @ObfuscatedName("gv")
-   @ObfuscatedSignature(
-      signature = "(Lbc;II)V",
-      garbageValue = "1751819809"
-   )
-   static final void method2092(PathingEntity var0, int var1) {
-      class166.method2813(var0.x, var0.y, var1);
-   }
-
-   @ObfuscatedName("i")
-   @ObfuscatedSignature(
-      signature = "(IZI)Ljava/lang/String;",
-      garbageValue = "-1872629249"
-   )
-   public static String method2096(int var0, boolean var1) {
-      if(var1 && var0 >= 0) {
-         int var3 = var0;
-         String var2;
-         if(var1 && var0 >= 0) {
-            int var4 = 2;
-
-            for(int var5 = var0 / 10; var5 != 0; ++var4) {
-               var5 /= 10;
+         if(var0 == 20 || var0 == 40 || var0 == 45) {
+            client.loginState = 0;
+            client.field843 = 0;
+            client.field683 = 0;
+            client.field773.method1589(var0);
+            if(var0 != 20) {
+               AuthProt.method6377(false);
             }
+         }
 
-            char[] var6 = new char[var4];
-            var6[0] = '+';
+         if(var0 != 20 && var0 != 40 && class235.field2434 != null) {
+            class235.field2434.vmethod6355();
+            class235.field2434 = null;
+         }
 
-            for(int var7 = var4 - 1; var7 > 0; --var7) {
-               int var8 = var3;
-               var3 /= 10;
-               int var9 = var8 - var3 * 10;
-               if(var9 >= 10) {
-                  var6[var7] = (char)(var9 + 87);
-               } else {
-                  var6[var7] = (char)(var9 + 48);
+         if(client.gameState == 25) {
+            client.field705 = 0;
+            client.field701 = 0;
+            client.field702 = 1;
+            client.field703 = 0;
+            client.field800 = 1;
+         }
+
+         if(var0 != 5 && var0 != 10) {
+            if(var0 == 20) {
+               LoginProt.method3820(class44.binary, ModeGame.sprites, true, client.gameState == 11?4:0);
+            } else if(var0 == 11) {
+               LoginProt.method3820(class44.binary, ModeGame.sprites, false, 4);
+            } else if(class203.field1149) {
+               class27.field1974 = null;
+               class203.field1175 = null;
+               PathingEntity.runeSprites = null;
+               class302.leftBackground = null;
+               class203.rightBackground = null;
+               class203.logoSprite = null;
+               class203.titlemuteSprite = null;
+               class203.field1154 = null;
+               class252.field2534 = null;
+               class258.field357 = null;
+               class211.slFlagSprites = null;
+               FriendManager.slArrowSprites = null;
+               ClientOptions.slStarSprites = null;
+               WorldMapDataGroup.field308 = null;
+               SoundTaskDataProvider.field417 = null;
+               WorldMapRegion.field266 = null;
+               MapLabel.field251 = null;
+               Size.field128 = null;
+               MouseInput.field498 = null;
+               class132.field3196 = null;
+               class203.field1164 = null;
+               WorldMapType3.field146 = null;
+               Entity.method1812(2);
+               if(class321.NetCache_socket != null) {
+                  try {
+                     Packet var1 = new Packet(4);
+                     var1.writeByte(2);
+                     var1.writeMedium(0);
+                     class321.NetCache_socket.vmethod6359(var1.payload, 0, 4);
+                  } catch (IOException var4) {
+                     try {
+                        class321.NetCache_socket.vmethod6355();
+                     } catch (Exception var3) {
+                        ;
+                     }
+
+                     ++class321.field3294;
+                     class321.NetCache_socket = null;
+                  }
                }
-            }
 
-            var2 = new String(var6);
+               class203.field1149 = false;
+            }
          } else {
-            var2 = Integer.toString(var0, 10);
+            LoginProt.method3820(class44.binary, ModeGame.sprites, true, 0);
          }
 
-         return var2;
-      } else {
-         return Integer.toString(var0);
+         client.gameState = var0;
+         client.gameStateChanged(-1);
       }
    }
 
-   @ObfuscatedName("jf")
+   @ObfuscatedName("jt")
    @ObfuscatedSignature(
-      signature = "(III)V",
-      garbageValue = "1672310506"
+      signature = "(Lia;Ljc;IIZI)V",
+      garbageValue = "346243723"
    )
-   static final void method2087(int var0, int var1) {
-      if(class232.method4564(var0)) {
-         WorldMapRegion.method4145(class36.interfaces[var0], var1);
+   static final void method1842(ComponentType var0, ObjType var1, int var2, int var3, boolean var4) {
+      String[] var5 = var1.iops;
+      byte var6 = -1;
+      String var7 = null;
+      if(var5 != null && var5[var3] != null) {
+         if(var3 == 0) {
+            var6 = 33;
+         } else if(var3 == 1) {
+            var6 = 34;
+         } else if(var3 == 2) {
+            var6 = 35;
+         } else if(var3 == 3) {
+            var6 = 36;
+         } else {
+            var6 = 37;
+         }
+
+         var7 = var5[var3];
+      } else if(var3 == 4) {
+         var6 = 37;
+         var7 = "Drop";
       }
+
+      if(var6 != -1 && var7 != null) {
+         ItemContainer.method3950(var7, class308.method6152(16748608) + var1.name, var6, var1.id, var2, var0.id, var4);
+      }
+
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "-1095623162"
+   )
+   static void method1839() {
+      class91.field506 = 99;
+      class91.tileUnderlayIds = new byte[4][104][104];
+      class91.tileOverlayIds = new byte[4][104][104];
+      class91.tileOverlayPath = new byte[4][104][104];
+      class91.overlayRotations = new byte[4][104][104];
+      InvType.field3314 = new int[4][105][105];
+      class91.field511 = new byte[4][105][105];
+      class83.field1963 = new int[105][105];
+      class177.floorHues = new int[104];
+      class91.floorSaturations = new int[104];
+      ChatCrownType.field3209 = new int[104];
+      ChatLineBuffer.floorMultiplier = new int[104];
+      class91.field513 = new int[104];
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/CharSequence;B)Ljava/lang/String;",
+      garbageValue = "-80"
+   )
+   public static String method1844(CharSequence var0) {
+      long var3 = 0L;
+      int var5 = var0.length();
+
+      for(int var6 = 0; var6 < var5; ++var6) {
+         var3 *= 37L;
+         char var7 = var0.charAt(var6);
+         if(var7 >= 'A' && var7 <= 'Z') {
+            var3 += (long)(var7 + 1 - 65);
+         } else if(var7 >= 'a' && var7 <= 'z') {
+            var3 += (long)(var7 + 1 - 97);
+         } else if(var7 >= '0' && var7 <= '9') {
+            var3 += (long)(var7 + 27 - 48);
+         }
+
+         if(var3 >= 177917621779460413L) {
+            break;
+         }
+      }
+
+      while(var3 % 37L == 0L && var3 != 0L) {
+         var3 /= 37L;
+      }
+
+      String var8 = MapIconReference.method2082(var3);
+      if(var8 == null) {
+         var8 = "";
+      }
+
+      return var8;
    }
 }

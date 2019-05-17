@@ -5,40 +5,35 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSFrame;
 import net.runelite.rs.api.RSFrames;
 
-@ObfuscatedName("el")
+@ObfuscatedName("ei")
 public class Frames extends CacheableNode implements RSFrames {
-   @ObfuscatedName("m")
-   @ObfuscatedSignature(
-      signature = "Lli;"
-   )
-   static IndexedSprite field1861;
-   @ObfuscatedName("n")
-   @ObfuscatedSignature(
-      signature = "Liu;"
-   )
-   static Js5Index field1858;
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "[Ldo;"
+      signature = "Liz;"
+   )
+   public static Js5Index skin_ref;
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "[Ldm;"
    )
    Frame[] skeletons;
 
    @ObfuscatedSignature(
-      signature = "(Liu;Liu;IZ)V",
+      signature = "(Liz;Liz;IZ)V",
       garbageValue = "0"
    )
    public Frames(Js5Index var1, Js5Index var2, int var3, boolean var4) {
       Deque var5 = new Deque();
-      int var6 = var1.method1574(var3);
+      int var6 = var1.method4112(var3);
       this.skeletons = new Frame[var6];
-      int[] var7 = var1.method1524(var3);
+      int[] var7 = var1.method4126(var3);
 
       for(int var8 = 0; var8 < var7.length; ++var8) {
-         byte[] var9 = var1.method1516(var3, var7[var8], 1789634852);
+         byte[] var9 = var1.method4115(var3, var7[var8], 984553520);
          FrameMap var10 = null;
          int var11 = (var9[0] & 255) << 8 | var9[1] & 255;
 
-         for(FrameMap var12 = (FrameMap)var5.method4373(); var12 != null; var12 = (FrameMap)var5.method4358()) {
+         for(FrameMap var12 = (FrameMap)var5.method3930(); var12 != null; var12 = (FrameMap)var5.method3924()) {
             if(var11 == var12.id) {
                var10 = var12;
                break;
@@ -46,9 +41,9 @@ public class Frames extends CacheableNode implements RSFrames {
          }
 
          if(var10 == null) {
-            byte[] var13 = var2.method1521(var11, 0);
+            byte[] var13 = var2.method4123(var11, 0);
             var10 = new FrameMap(var11, var13);
-            var5.method4351(var10);
+            var5.method3906(var10);
          }
 
          this.skeletons[var7[var8]] = new Frame(var9, var10);
@@ -56,16 +51,61 @@ public class Frames extends CacheableNode implements RSFrames {
 
    }
 
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(IB)Z",
+      garbageValue = "49"
+   )
+   public boolean method6060(int var1) {
+      return this.skeletons[var1].showing;
+   }
+
    public RSFrame[] getFrames() {
       return this.skeletons;
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("jd")
    @ObfuscatedSignature(
-      signature = "(II)Z",
-      garbageValue = "929319360"
+      signature = "([Lia;IIIZI)V",
+      garbageValue = "-2059684266"
    )
-   public boolean method1087(int var1) {
-      return this.skeletons[var1].showing;
+   static void method6063(ComponentType[] var0, int var1, int var2, int var3, boolean var4) {
+      for(int var5 = 0; var5 < var0.length; ++var5) {
+         ComponentType var6 = var0[var5];
+         if(var6 != null && var6.layer == var1) {
+            KeyFocusListener.method5936(var6, var2, var3, var4);
+            class285.method5883(var6, var2, var3);
+            if(var6.scrollX > var6.scrollWidth - var6.width) {
+               var6.scrollX = var6.scrollWidth - var6.width;
+            }
+
+            if(var6.scrollX < 0) {
+               var6.scrollX = 0;
+            }
+
+            if(var6.scrollY > var6.scrollHeight - var6.height) {
+               var6.scrollY = var6.scrollHeight - var6.height;
+            }
+
+            if(var6.scrollY < 0) {
+               var6.scrollY = 0;
+            }
+
+            if(var6.type == 0) {
+               ScriptState.method1043(var0, var6, var4);
+            }
+         }
+      }
+
+   }
+
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "(II)I",
+      garbageValue = "1569769951"
+   )
+   static int method6064(int var0) {
+      ChatLine var1 = (ChatLine)ChatHistory.messages.method2178((long)var0);
+      return var1 == null?-1:(var1.next == ChatHistory.field1261.sentinel?-1:((ChatLine)var1.next).id);
    }
 }

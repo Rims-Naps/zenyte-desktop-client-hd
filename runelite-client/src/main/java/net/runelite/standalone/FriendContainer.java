@@ -5,69 +5,54 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSFriendContainer;
 
-@ObfuscatedName("kl")
+@ObfuscatedName("kr")
 public class FriendContainer extends NameableContainer implements RSFriendContainer {
-   @ObfuscatedName("d")
+   @ObfuscatedName("b")
    @ObfuscatedGetter(
-      intValue = -2088850883
+      intValue = -672753831
    )
-   static int field3719;
-   @ObfuscatedName("e")
+   int field3724;
+   @ObfuscatedName("n")
    @ObfuscatedSignature(
-      signature = "Llq;"
+      signature = "Lhp;"
    )
-   final JagexLoginType field3716;
-   @ObfuscatedName("p")
+   public class220 field3725;
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "Lhk;"
+      signature = "Lll;"
    )
-   public class185 field3717;
-   @ObfuscatedName("i")
-   @ObfuscatedGetter(
-      intValue = -668014565
-   )
-   int field3718;
+   final JagexLoginType field3723;
 
    @ObfuscatedSignature(
-      signature = "(Llq;)V"
+      signature = "(Lll;)V"
    )
    public FriendContainer(JagexLoginType var1) {
       super(400);
-      this.field3718 = 1;
-      this.field3717 = new class185();
-      this.field3716 = var1;
+      this.field3724 = 1;
+      this.field3725 = new class220();
+      this.field3723 = var1;
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(II)[Ljr;",
-      garbageValue = "-1957564969"
+      signature = "(I)Lkn;",
+      garbageValue = "2122925855"
    )
-   Nameable[] vmethod5255(int var1) {
-      return new Friend[var1];
+   Nameable vmethod6437() {
+      return new Friend();
    }
 
-   @ObfuscatedName("e")
+   @ObfuscatedName("n")
    @ObfuscatedSignature(
-      signature = "(Lkg;ZI)Z",
-      garbageValue = "-709116424"
+      signature = "(Lgx;IB)V",
+      garbageValue = "1"
    )
-   public boolean method2421(Name var1, boolean var2) {
-      Friend var3 = (Friend)this.method5228(var1);
-      return var3 == null?false:!var2 || var3.world != 0;
-   }
-
-   @ObfuscatedName("d")
-   @ObfuscatedSignature(
-      signature = "(Lgl;IB)V",
-      garbageValue = "113"
-   )
-   public void method2422(Packet var1, int var2) {
+   public void method6440(Packet var1, int var2) {
       while(true) {
          if(var1.offset < var2) {
             boolean var3 = var1.readUnsignedByte() == 1;
-            Name var4 = new Name(var1.readString(), this.field3716);
-            Name var5 = new Name(var1.readString(), this.field3716);
+            Name var4 = new Name(var1.readString(), this.field3723);
+            Name var5 = new Name(var1.readString(), this.field3723);
             int var6 = var1.readUnsignedShort();
             int var7 = var1.readUnsignedByte();
             int var8 = var1.readUnsignedByte();
@@ -76,17 +61,17 @@ public class FriendContainer extends NameableContainer implements RSFriendContai
             if(var6 > 0) {
                var1.readString();
                var1.readUnsignedByte();
-               var1.readInt();
+               var1.method5091();
             }
 
             var1.readString();
-            if(var4 != null && var4.method4714()) {
-               Friend var11 = (Friend)this.method5229(var4);
+            if(var4 != null && var4.method1532()) {
+               Friend var11 = (Friend)this.method5363(var4);
                if(var3) {
-                  Friend var12 = (Friend)this.method5229(var5);
+                  Friend var12 = (Friend)this.method5363(var5);
                   if(var12 != null && var12 != var11) {
                      if(var11 != null) {
-                        this.method5280(var12);
+                        this.method5329(var12);
                      } else {
                         var11 = var12;
                      }
@@ -94,197 +79,140 @@ public class FriendContainer extends NameableContainer implements RSFriendContai
                }
 
                if(var11 != null) {
-                  this.method5230(var11, var4, var5);
+                  this.method5326(var11, var4, var5);
                   if(var6 != var11.world) {
                      boolean var14 = true;
 
-                     for(class309 var13 = (class309)this.field3717.method3624(); var13 != null; var13 = (class309)this.field3717.method3625()) {
-                        if(var13.field3734.equals(var4)) {
-                           if(var6 != 0 && var13.field3735 == 0) {
-                              var13.method2692();
+                     for(class253 var13 = (class253)this.field3725.method4233(); var13 != null; var13 = (class253)this.field3725.method4229()) {
+                        if(var13.field3741.equals(var4)) {
+                           if(var6 != 0 && var13.field3742 == 0) {
+                              var13.method466();
                               var14 = false;
-                           } else if(var6 == 0 && var13.field3735 != 0) {
-                              var13.method2692();
+                           } else if(var6 == 0 && var13.field3742 != 0) {
+                              var13.method466();
                               var14 = false;
                            }
                         }
                      }
 
                      if(var14) {
-                        this.field3717.method3623(new class309(var4, var6));
+                        this.field3725.method4234(new class253(var4, var6));
                      }
                   }
                } else {
-                  if(this.method5225() >= 400) {
+                  if(this.method5322() >= 400) {
                      continue;
                   }
 
-                  var11 = (Friend)this.method5233(var4, var5);
+                  var11 = (Friend)this.method5331(var4, var5);
                }
 
                if(var6 != var11.world) {
-                  var11.field3706 = ++this.field3718 - 1;
+                  var11.field3711 = ++this.field3724 - 1;
                   if(var11.world == -1 && var6 == 0) {
-                     var11.field3706 = -(var11.field3706 * -602300361) * 845682055;
+                     var11.field3711 = -(var11.field3711 * -67140027) * -2143445875;
                   }
 
                   var11.world = var6;
                }
 
                var11.rank = var7;
-               var11.field3723 = var9;
-               var11.field3724 = var10;
+               var11.field3729 = var9;
+               var11.field3730 = var10;
                continue;
             }
 
             throw new IllegalStateException();
          }
 
-         this.method5240();
+         this.method5369();
          return;
       }
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(I)Ljr;",
-      garbageValue = "-1755896640"
+      signature = "(IB)[Lkn;",
+      garbageValue = "-101"
    )
-   Nameable vmethod5242() {
-      return new Friend();
+   Nameable[] vmethod6438(int var1) {
+      return new Friend[var1];
    }
 
-   @ObfuscatedName("m")
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(ILcx;ZI)I",
-      garbageValue = "-496649045"
+      signature = "(Lkx;ZB)Z",
+      garbageValue = "-71"
    )
-   static int method2424(int var0, class106 var1, boolean var2) {
-      boolean var3 = true;
-      ComponentType var4;
-      if(var0 >= 2000) {
-         var0 -= 1000;
-         var4 = WorldMapType1.method2440(class48.intStack[--class228.intStackSize]);
-         var3 = false;
-      } else {
-         var4 = var2?class113.field75:class48.field1080;
+   public boolean method6451(Name var1, boolean var2) {
+      Friend var3 = (Friend)this.method5325(var1);
+      return var3 == null?false:!var2 || var3.world != 0;
+   }
+
+   @ObfuscatedName("kn")
+   @ObfuscatedSignature(
+      signature = "(Lia;I)V",
+      garbageValue = "1236878201"
+   )
+   static final void method6441(ComponentType var0) {
+      int var1 = var0.clientcode;
+      if(var1 == 324) {
+         if(client.field861 == -1) {
+            client.field861 = var0.graphic;
+            client.field908 = var0.field2736;
+         }
+
+         if(client.field918.isFemale) {
+            var0.graphic = client.field861;
+         } else {
+            var0.graphic = client.field908;
+         }
+
+      } else if(var1 == 325) {
+         if(client.field861 == -1) {
+            client.field861 = var0.graphic;
+            client.field908 = var0.field2736;
+         }
+
+         if(client.field918.isFemale) {
+            var0.graphic = client.field908;
+         } else {
+            var0.graphic = client.field861;
+         }
+
+      } else if(var1 == 327) {
+         var0.xan2d = 150;
+         var0.yan2d = (int)(Math.sin((double) client.gameCycle / 40.0D) * 256.0D) & 2047;
+         var0.modelType = 5;
+         var0.modelId = 0;
+      } else if(var1 == 328) {
+         var0.xan2d = 150;
+         var0.yan2d = (int)(Math.sin((double) client.gameCycle / 40.0D) * 256.0D) & 2047;
+         var0.modelType = 5;
+         var0.modelId = 1;
+      }
+   }
+
+   @ObfuscatedName("kh")
+   @ObfuscatedSignature(
+      signature = "(Lgx;II)V",
+      garbageValue = "-1673328168"
+   )
+   static void method6439(Packet var0, int var1) {
+      byte[] var2 = var0.payload;
+      if(client.field688 == null) {
+         client.field688 = new byte[24];
       }
 
-      int var11;
-      if(var0 == 1300) {
-         var11 = class48.intStack[--class228.intStackSize] - 1;
-         if(var11 >= 0 && var11 <= 9) {
-            var4.method236(var11, class48.scriptStringStack[--class48.scriptStringStackSize]);
-            return 1;
-         } else {
-            --class48.scriptStringStackSize;
-            return 1;
-         }
-      } else {
-         int var6;
-         if(var0 == 1301) {
-            class228.intStackSize -= 2;
-            var11 = class48.intStack[class228.intStackSize];
-            var6 = class48.intStack[class228.intStackSize + 1];
-            var4.dragParent = class192.method3785(var11, var6);
-            return 1;
-         } else if(var0 == 1302) {
-            var4.dragRenderBehavior = class48.intStack[--class228.intStackSize] == 1;
-            return 1;
-         } else if(var0 == 1303) {
-            var4.dragDeadZone = class48.intStack[--class228.intStackSize];
-            return 1;
-         } else if(var0 == 1304) {
-            var4.dragDeadTime = class48.intStack[--class228.intStackSize];
-            return 1;
-         } else if(var0 == 1305) {
-            var4.opBase = class48.scriptStringStack[--class48.scriptStringStackSize];
-            return 1;
-         } else if(var0 == 1306) {
-            var4.targetVerb = class48.scriptStringStack[--class48.scriptStringStackSize];
-            return 1;
-         } else if(var0 == 1307) {
-            var4.ops = null;
-            return 1;
-         } else {
-            int var7;
-            byte[] var9;
-            if(var0 != 1350) {
-               byte var5;
-               if(var0 == 1351) {
-                  class228.intStackSize -= 2;
-                  var5 = 10;
-                  var9 = new byte[]{(byte)class48.intStack[class228.intStackSize]};
-                  byte[] var10 = new byte[]{(byte)class48.intStack[class228.intStackSize + 1]};
-                  class60.method884(var4, var5, var9, var10);
-                  return 1;
-               } else if(var0 == 1352) {
-                  class228.intStackSize -= 3;
-                  var11 = class48.intStack[class228.intStackSize] - 1;
-                  var6 = class48.intStack[class228.intStackSize + 1];
-                  var7 = class48.intStack[class228.intStackSize + 2];
-                  if(var11 >= 0 && var11 <= 9) {
-                     FriendManager.method91(var4, var11, var6, var7);
-                     return 1;
-                  } else {
-                     throw new RuntimeException();
-                  }
-               } else if(var0 == 1353) {
-                  var5 = 10;
-                  var6 = class48.intStack[--class228.intStackSize];
-                  var7 = class48.intStack[--class228.intStackSize];
-                  FriendManager.method91(var4, var5, var6, var7);
-                  return 1;
-               } else if(var0 == 1354) {
-                  --class228.intStackSize;
-                  var11 = class48.intStack[class228.intStackSize] - 1;
-                  if(var11 >= 0 && var11 <= 9) {
-                     Size.method4703(var4, var11);
-                     return 1;
-                  } else {
-                     throw new RuntimeException();
-                  }
-               } else if(var0 == 1355) {
-                  var5 = 10;
-                  Size.method4703(var4, var5);
-                  return 1;
-               } else {
-                  return 2;
-               }
-            } else {
-               byte[] var8 = null;
-               var9 = null;
-               if(var3) {
-                  class228.intStackSize -= 10;
-
-                  for(var7 = 0; var7 < 10 && class48.intStack[var7 + class228.intStackSize] >= 0; var7 += 2) {
-                     ;
-                  }
-
-                  if(var7 > 0) {
-                     var8 = new byte[var7 / 2];
-                     var9 = new byte[var7 / 2];
-
-                     for(var7 -= 2; var7 >= 0; var7 -= 2) {
-                        var8[var7 / 2] = (byte)class48.intStack[var7 + class228.intStackSize];
-                        var9[var7 / 2] = (byte)class48.intStack[var7 + class228.intStackSize + 1];
-                     }
-                  }
-               } else {
-                  class228.intStackSize -= 2;
-                  var8 = new byte[]{(byte)class48.intStack[class228.intStackSize]};
-                  var9 = new byte[]{(byte)class48.intStack[class228.intStackSize + 1]};
-               }
-
-               var7 = class48.intStack[--class228.intStackSize] - 1;
-               if(var7 >= 0 && var7 <= 9) {
-                  class60.method884(var4, var7, var8, var9);
-                  return 1;
-               } else {
-                  throw new RuntimeException();
-               }
-            }
+      class11.method156(var2, var1, client.field688, 0, 24);
+      if(class75.uidDat != null) {
+         try {
+            class75.uidDat.method5575(0L);
+            class75.uidDat.method5583(var0.payload, var1, 24);
+         } catch (Exception var4) {
+            ;
          }
       }
+
    }
 }

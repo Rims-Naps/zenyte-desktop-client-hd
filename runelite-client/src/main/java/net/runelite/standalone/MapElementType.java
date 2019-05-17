@@ -6,152 +6,146 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSMapElementConfig;
 import net.runelite.rs.api.RSSpritePixels;
 
-@ObfuscatedName("ii")
+@ObfuscatedName("jd")
 public class MapElementType extends CacheableNode implements RSMapElementConfig {
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "[Lii;"
-   )
-   public static MapElementType[] mapElementTypes;
-   @ObfuscatedName("e")
-   @ObfuscatedGetter(
-      intValue = 1330461985
-   )
-   public static int field3331;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Lgv;"
+      signature = "Lgp;"
    )
    public static NodeCache areaSpriteCache;
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "Liu;"
-   )
-   public static Js5Index field3309;
-   @ObfuscatedName("f")
-   @ObfuscatedGetter(
-      intValue = -1417143615
-   )
-   int field3332;
-   @ObfuscatedName("l")
-   @ObfuscatedGetter(
-      intValue = -64380265
-   )
-   public int spriteId;
-   @ObfuscatedName("v")
-   @ObfuscatedGetter(
-      intValue = -257371127
-   )
-   int field3326;
-   @ObfuscatedName("k")
-   int[] field3329;
-   @ObfuscatedName("w")
-   public String text;
-   @ObfuscatedName("x")
-   @ObfuscatedGetter(
-      intValue = -58306061
-   )
-   int field3323;
-   @ObfuscatedName("m")
-   public String[] field3320;
-   @ObfuscatedName("b")
-   @ObfuscatedGetter(
-      intValue = -246759683
-   )
-   int field3311;
    @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Ljq;"
+      signature = "Liz;"
    )
-   public class182 horizontalAlignment;
-   @ObfuscatedName("z")
-   byte[] field3330;
-   @ObfuscatedName("n")
-   @ObfuscatedGetter(
-      intValue = 493981169
-   )
-   public int field3327;
-   @ObfuscatedName("c")
-   @ObfuscatedGetter(
-      intValue = 1743324841
-   )
-   public final int id;
-   @ObfuscatedName("t")
+   static Js5Index field3341;
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "Lix;"
+      signature = "[Ljd;"
    )
-   public class101 verticalAlignment;
-   @ObfuscatedName("i")
+   static MapElementType[] mapElementTypes;
+   @ObfuscatedName("g")
    @ObfuscatedGetter(
-      intValue = -1288246287
+      intValue = -1629647817
+   )
+   public static int field3322;
+   @ObfuscatedName("f")
+   @ObfuscatedGetter(
+      intValue = 829605459
+   )
+   public int spriteId;
+   @ObfuscatedName("l")
+   @ObfuscatedGetter(
+      intValue = -1866925643
+   )
+   int field3334;
+   @ObfuscatedName("v")
+   @ObfuscatedSignature(
+      signature = "Lip;"
+   )
+   public class302 verticalAlignment;
+   @ObfuscatedName("e")
+   public String[] ops;
+   @ObfuscatedName("r")
+   public String opbase;
+   @ObfuscatedName("k")
+   @ObfuscatedSignature(
+      signature = "Lji;"
+   )
+   public class299 horizontalAlignment;
+   @ObfuscatedName("w")
+   byte[] field3323;
+   @ObfuscatedName("q")
+   @ObfuscatedGetter(
+      intValue = -1752028429
+   )
+   public int textColor;
+   @ObfuscatedName("m")
+   public String text;
+   @ObfuscatedName("p")
+   @ObfuscatedGetter(
+      intValue = 516650577
+   )
+   int field3326;
+   @ObfuscatedName("b")
+   @ObfuscatedGetter(
+      intValue = -1928126979
    )
    public int textSize;
-   @ObfuscatedName("d")
-   public String field3321;
-   @ObfuscatedName("j")
-   int[] field3322;
-   @ObfuscatedName("s")
+   @ObfuscatedName("o")
    @ObfuscatedGetter(
-      intValue = -2058211947
+      intValue = -1929248031
+   )
+   int field3335;
+   @ObfuscatedName("t")
+   int[] field3333;
+   @ObfuscatedName("i")
+   @ObfuscatedGetter(
+      intValue = -837808071
    )
    public int category;
+   @ObfuscatedName("y")
+   @ObfuscatedGetter(
+      intValue = -1665691375
+   )
+   int field3332;
+   @ObfuscatedName("d")
+   int[] field3340;
    @ObfuscatedName("h")
    @ObfuscatedGetter(
-      intValue = -1724875489
+      intValue = -1736910617
    )
-   int field3325;
+   public final int id;
+   @ObfuscatedName("u")
+   @ObfuscatedGetter(
+      intValue = 149117509
+   )
+   int field3336;
 
    static {
       areaSpriteCache = new NodeCache(256);
    }
 
-   public MapElementType(int var1) {
+   MapElementType(int var1) {
       this.spriteId = -1;
-      this.field3311 = -1;
+      this.field3326 = -1;
       this.textSize = 0;
-      this.field3320 = new String[5];
-      this.field3323 = Integer.MAX_VALUE;
-      this.field3326 = Integer.MAX_VALUE;
-      this.field3325 = Integer.MIN_VALUE;
+      this.ops = new String[5];
+      this.field3334 = Integer.MAX_VALUE;
+      this.field3335 = Integer.MAX_VALUE;
+      this.field3336 = Integer.MIN_VALUE;
       this.field3332 = Integer.MIN_VALUE;
-      this.horizontalAlignment = class182.field3559;
-      this.verticalAlignment = class101.field3291;
+      this.horizontalAlignment = class299.field3560;
+      this.verticalAlignment = class302.field3303;
       this.category = -1;
       this.id = var1;
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "(Lgl;B)V",
-      garbageValue = "15"
+      signature = "(ZI)Lld;",
+      garbageValue = "-1658614587"
    )
-   public void method2375(Packet var1) {
-      while(true) {
-         int var2 = var1.readUnsignedByte();
-         if(var2 == 0) {
-            return;
-         }
-
-         this.method2366(var1, var2);
-      }
+   public SpritePixels method1483(boolean var1) {
+      int var2 = var1?this.field3326:this.spriteId;
+      return this.method1484(var2);
    }
 
-   @ObfuscatedName("e")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(Lgl;II)V",
-      garbageValue = "-1977714961"
+      signature = "(Lgx;II)V",
+      garbageValue = "1453732130"
    )
-   void method2366(Packet var1, int var2) {
+   void method1498(Packet var1, int var2) {
       if(var2 == 1) {
-         this.spriteId = var1.method6207();
+         this.spriteId = var1.method5287();
       } else if(var2 == 2) {
-         this.field3311 = var1.method6207();
+         this.field3326 = var1.method5287();
       } else if(var2 == 3) {
          this.text = var1.readString();
       } else if(var2 == 4) {
-         this.field3327 = var1.method6082();
+         this.textColor = var1.method5090();
       } else if(var2 == 5) {
-         var1.method6082();
+         var1.method5090();
       } else if(var2 == 6) {
          this.textSize = var1.readUnsignedByte();
       } else {
@@ -168,126 +162,89 @@ public class MapElementType extends CacheableNode implements RSMapElementConfig 
          } else if(var2 == 8) {
             var1.readUnsignedByte();
          } else if(var2 >= 10 && var2 <= 14) {
-            this.field3320[var2 - 10] = var1.readString();
+            this.ops[var2 - 10] = var1.readString();
          } else if(var2 == 15) {
             var3 = var1.readUnsignedByte();
-            this.field3322 = new int[var3 * 2];
+            this.field3333 = new int[var3 * 2];
 
             int var4;
             for(var4 = 0; var4 < var3 * 2; ++var4) {
-               this.field3322[var4] = var1.method6123();
+               this.field3333[var4] = var1.method5089();
             }
 
-            var1.readInt();
+            var1.method5091();
             var4 = var1.readUnsignedByte();
-            this.field3329 = new int[var4];
+            this.field3340 = new int[var4];
 
             int var5;
-            for(var5 = 0; var5 < this.field3329.length; ++var5) {
-               this.field3329[var5] = var1.readInt();
+            for(var5 = 0; var5 < this.field3340.length; ++var5) {
+               this.field3340[var5] = var1.method5091();
             }
 
-            this.field3330 = new byte[var3];
+            this.field3323 = new byte[var3];
 
             for(var5 = 0; var5 < var3; ++var5) {
-               this.field3330[var5] = var1.readSignedByte();
+               this.field3323[var5] = var1.method5230();
             }
          } else if(var2 != 16) {
             if(var2 == 17) {
-               this.field3321 = var1.readString();
+               this.opbase = var1.readString();
             } else if(var2 == 18) {
-               var1.method6207();
+               var1.method5287();
             } else if(var2 == 19) {
                this.category = var1.readUnsignedShort();
             } else if(var2 == 21) {
-               var1.readInt();
+               var1.method5091();
             } else if(var2 == 22) {
-               var1.readInt();
+               var1.method5091();
             } else if(var2 == 23) {
                var1.readUnsignedByte();
                var1.readUnsignedByte();
                var1.readUnsignedByte();
             } else if(var2 == 24) {
-               var1.method6123();
-               var1.method6123();
+               var1.method5089();
+               var1.method5089();
             } else if(var2 == 25) {
-               var1.method6207();
+               var1.method5287();
             } else if(var2 == 28) {
                var1.readUnsignedByte();
             } else if(var2 == 29) {
-               this.horizontalAlignment = (class182)class2.method20(class131.method2181(), var1.readUnsignedByte());
+               class299[] var6 = new class299[]{class299.field3560, class299.field3561, class299.field3564};
+               this.horizontalAlignment = (class299)PlayerList.method4757(var6, var1.readUnsignedByte());
             } else if(var2 == 30) {
-               class101[] var6 = new class101[]{class101.field3296, class101.field3291, class101.field3290};
-               this.verticalAlignment = (class101)class2.method20(var6, var1.readUnsignedByte());
+               class302[] var7 = new class302[]{class302.field3303, class302.field3302, class302.field3304};
+               this.verticalAlignment = (class302)PlayerList.method4757(var7, var1.readUnsignedByte());
             }
          }
       }
 
    }
 
-   @ObfuscatedName("q")
+   @ObfuscatedName("m")
    @ObfuscatedSignature(
-      signature = "(B)V",
-      garbageValue = "2"
+      signature = "(I)I",
+      garbageValue = "-917365689"
    )
-   public void method2365() {
-      if(this.field3322 != null) {
-         for(int var1 = 0; var1 < this.field3322.length; var1 += 2) {
-            if(this.field3322[var1] < this.field3323) {
-               this.field3323 = this.field3322[var1];
-            } else if(this.field3322[var1] > this.field3325) {
-               this.field3325 = this.field3322[var1];
-            }
-
-            if(this.field3322[var1 + 1] < this.field3326) {
-               this.field3326 = this.field3322[var1 + 1];
-            } else if(this.field3322[var1 + 1] > this.field3332) {
-               this.field3332 = this.field3322[var1 + 1];
-            }
-         }
-      }
-
+   public int method1499() {
+      return this.id;
    }
 
    @ObfuscatedName("p")
    @ObfuscatedSignature(
-      signature = "(B)I",
-      garbageValue = "4"
+      signature = "(II)Lld;",
+      garbageValue = "1417985569"
    )
-   public int method2368() {
-      return this.id;
-   }
-
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "(ZI)Lls;",
-      garbageValue = "-1865508122"
-   )
-   public SpritePixels method2386(boolean var1) {
-      int var2 = var1?this.field3311:this.spriteId;
-      return this.method2367(var2);
-   }
-
-   public RSSpritePixels getMapIcon(boolean var1) {
-      return this.method2386(var1);
-   }
-
-   @ObfuscatedName("i")
-   @ObfuscatedSignature(
-      signature = "(II)Lls;",
-      garbageValue = "1381751159"
-   )
-   SpritePixels method2367(int var1) {
+   SpritePixels method1484(int var1) {
       if(var1 < 0) {
          return null;
       } else {
-         SpritePixels var2 = (SpritePixels)areaSpriteCache.method951((long)var1);
+         SpritePixels var2 = (SpritePixels)areaSpriteCache.method635((long)var1);
          if(var2 != null) {
             return var2;
          } else {
-            var2 = class36.method576(field3309, var1, 0, (byte)47);
+            var2 = IDKType.method5403(field3341, var1, 0, -1912396604);
             if(var2 != null) {
-               areaSpriteCache.method957(var2, (long)var1);
+               areaSpriteCache.method628(var2, (long)var1);
             }
 
             return var2;
@@ -295,50 +252,85 @@ public class MapElementType extends CacheableNode implements RSMapElementConfig 
       }
    }
 
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(Liu;Ljava/lang/String;Ljava/lang/String;I)Lli;",
-      garbageValue = "1918616421"
-   )
-   public static IndexedSprite method2369(Js5Index var0, String var1, String var2) {
-      int var3 = var0.method1510(var1);
-      int var4 = var0.method1532(var3, var2);
-      return Signlink.method4455(var0, var3, var4);
+   public RSSpritePixels getMapIcon(boolean var1) {
+      return this.method1483(var1);
    }
 
-   @ObfuscatedName("js")
+   @ObfuscatedName("h")
    @ObfuscatedSignature(
-      signature = "(IIIILls;Lhx;B)V",
-      garbageValue = "-25"
+      signature = "(I)V",
+      garbageValue = "926188330"
    )
-   static final void method2387(int var0, int var1, int var2, int var3, SpritePixels var4, class96 var5) {
-      int var6 = var3 * var3 + var2 * var2;
-      if(var6 > 4225 && var6 < 90000) {
-         int var7 = client.mapAngle & 2047;
-         int var8 = Graphics3D.SINE[var7];
-         int var9 = Graphics3D.COSINE[var7];
-         int var10 = var9 * var2 + var3 * var8 >> 16;
-         int var11 = var3 * var9 - var8 * var2 >> 16;
-         double var12 = Math.atan2((double)var10, (double)var11);
-         int var14 = var5.field2626 / 2 - 25;
-         int var15 = (int)(Math.sin(var12) * (double)var14);
-         int var16 = (int)(Math.cos(var12) * (double)var14);
-         byte var17 = 20;
-         Size.mapedge.method2256(var15 + (var0 + var5.field2626 / 2 - var17 / 2), var5.field2621 / 2 + var1 - var17 / 2 - var16 - 10, var17, var17, 15, 15, var12, 256);
-      } else {
-         SubInterface.method2438(var0, var1, var2, var3, var4, var5);
+   void method1482() {
+      if(this.field3333 != null) {
+         for(int var1 = 0; var1 < this.field3333.length; var1 += 2) {
+            if(this.field3333[var1] < this.field3334) {
+               this.field3334 = this.field3333[var1];
+            } else if(this.field3333[var1] > this.field3336) {
+               this.field3336 = this.field3333[var1];
+            }
+
+            if(this.field3333[var1 + 1] < this.field3335) {
+               this.field3335 = this.field3333[var1 + 1];
+            } else if(this.field3333[var1 + 1] > this.field3332) {
+               this.field3332 = this.field3333[var1 + 1];
+            }
+         }
       }
 
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Liu;Liu;ZS)V",
-      garbageValue = "12625"
+      signature = "(Lgx;I)V",
+      garbageValue = "1214647872"
    )
-   public static void method2388(Js5Index var0, Js5Index var1, boolean var2) {
-      LocType.objects_ref = var0;
-      LocType.field3452 = var1;
-      LocType.objectCompositionLowDetail = var2;
+   void method1480(Packet var1) {
+      while(true) {
+         int var2 = var1.readUnsignedByte();
+         if(var2 == 0) {
+            return;
+         }
+
+         this.method1498(var1, var2);
+      }
+   }
+
+   @ObfuscatedName("n")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/String;B)Ljava/lang/String;",
+      garbageValue = "121"
+   )
+   public static String method1507(String var0) {
+      int var1 = var0.length();
+      char[] var2 = new char[var1];
+      byte var3 = 2;
+
+      for(int var4 = 0; var4 < var1; ++var4) {
+         char var5 = var0.charAt(var4);
+         if(var3 == 0) {
+            var5 = Character.toLowerCase(var5);
+         } else if(var3 == 2 || Character.isUpperCase(var5)) {
+            var5 = Tile.method3825(var5);
+         }
+
+         if(Character.isLetter(var5)) {
+            var3 = 0;
+         } else if(var5 != '.' && var5 != '?' && var5 != '!') {
+            if(Character.isSpaceChar(var5)) {
+               if(var3 != 2) {
+                  var3 = 1;
+               }
+            } else {
+               var3 = 1;
+            }
+         } else {
+            var3 = 2;
+         }
+
+         var2[var4] = var5;
+      }
+
+      return new String(var2);
    }
 }

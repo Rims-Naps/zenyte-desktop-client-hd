@@ -2,7 +2,7 @@ package net.runelite.client.plugins.chaticons;
 
 import com.google.inject.Provides;
 import net.runelite.api.Client;
-import net.runelite.api.events.SetMessage;
+import net.runelite.api.events.ChatMessage;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
@@ -32,7 +32,7 @@ public class ChatIconsPlugin extends Plugin {
     }
 
     @Subscribe
-    public void onSetMessage(SetMessage message) {
+    public void onChatMessage(ChatMessage message) {
         String name = message.getName();
         if (name == null) {
             return;

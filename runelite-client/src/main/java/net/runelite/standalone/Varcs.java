@@ -1,6 +1,10 @@
 package net.runelite.standalone;
 
 import java.io.EOFException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 import net.runelite.api.events.VarClientIntChanged;
 import net.runelite.api.events.VarClientStrChanged;
 import net.runelite.mapping.ObfuscatedGetter;
@@ -8,155 +12,265 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSVarcs;
 
-@ObfuscatedName("cd")
+@ObfuscatedName("cq")
 public class Varcs implements RSVarcs {
-   @ObfuscatedName("n")
+   @ObfuscatedName("rg")
    @ObfuscatedGetter(
-      intValue = 1137197725
+      intValue = 123379899
    )
-   static int field1243;
-   @ObfuscatedName("l")
-   String[] varCStrings;
-   @ObfuscatedName("e")
-   boolean[] varcSerials;
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      longValue = 6962625854855383849L
-   )
-   long field1245;
-   @ObfuscatedName("q")
-   boolean[] varcstringSerials;
-   @ObfuscatedName("b")
+   static int field1258;
+   @ObfuscatedName("gu")
+   static int[][] xteaKeys;
+   @ObfuscatedName("f")
    boolean changed;
-   @ObfuscatedName("c")
-   int[] varCInts;
+   @ObfuscatedName("x")
+   Map field1256;
+   @ObfuscatedName("p")
+   @ObfuscatedGetter(
+      longValue = 4713395565269692703L
+   )
+   long field1254;
+   @ObfuscatedName("h")
+   String[] varCStrings;
+   @ObfuscatedName("g")
+   boolean[] varcSerials;
 
    Varcs() {
       this.changed = false;
-      this.varCInts = new int[class98.configs.method1574(19)];
-      this.onVarCIntChanged(-1);
-      this.varCStrings = new String[class98.configs.method1574(15)];
-      this.onVarCStrChanged(-1);
-      this.varcSerials = new boolean[this.varCInts.length];
+      int var1 = class177.configs.method4112(19);
+      this.field1256 = new HashMap();
+      this.varcSerials = new boolean[var1];
 
-      int var1;
-      for(var1 = 0; var1 < this.varCInts.length; ++var1) {
-         VarClientType var2 = Js5.method2679(var1);
-         this.varcSerials[var1] = var2.serialize;
+      int var2;
+      for(var2 = 0; var2 < var1; ++var2) {
+         VarClientType var4 = (VarClientType)VarClientType.field3343.method635((long)var2);
+         VarClientType var3;
+         if(var4 != null) {
+            var3 = var4;
+         } else {
+            byte[] var5 = VarClientType.field3346.method4115(19, var2, -1549261100);
+            var4 = new VarClientType();
+            if(var5 != null) {
+               var4.method4262(new Packet(var5));
+            }
+
+            VarClientType.field3343.method628(var4, (long)var2);
+            var3 = var4;
+         }
+
+         this.varcSerials[var2] = var3.serialize;
       }
 
-      this.varcstringSerials = new boolean[this.varCStrings.length];
-
-      for(var1 = 0; var1 < this.varCStrings.length; ++var1) {
-         VarClientStringType var3 = WorldComparator.method6472(var1);
-         this.varcstringSerials[var1] = var3.serialize;
+      var2 = 0;
+      if(class177.configs.method2726(15)) {
+         var2 = class177.configs.method4112(15);
       }
 
-      for(var1 = 0; var1 < this.varCInts.length; ++var1) {
-         this.varCInts[var1] = -1;
-         this.onVarCIntChanged(var1);
-      }
-
-      this.method4738();
+      this.varCStrings = new String[var2];
+      this.method326();
+      this.rl$$init();
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "(II)I",
-      garbageValue = "-193547956"
+      signature = "(II)Ljava/lang/String;",
+      garbageValue = "1690505693"
    )
-   int method4736(int var1) {
-      return this.varCInts[var1];
+   String method353(int var1) {
+      return this.varCStrings[var1];
    }
 
    @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "(ILjava/lang/String;B)V",
-      garbageValue = "39"
+      signature = "(B)Z",
+      garbageValue = "10"
    )
-   void method4751(int var1, String var2) {
-      this.varCStrings[var1] = var2;
-      this.onVarCStrChanged(var1);
-      if(this.varcstringSerials[var1]) {
-         this.changed = true;
-      }
-
+   boolean method328() {
+      return this.changed;
    }
 
    @ObfuscatedName("q")
    @ObfuscatedSignature(
-      signature = "(II)Ljava/lang/String;",
-      garbageValue = "1425514174"
+      signature = "(I)V",
+      garbageValue = "2010296922"
    )
-   String method4734(int var1) {
-      return this.varCStrings[var1];
+   void method316() {
+      FileOnDisk var1 = this.method324(true);
+
+      try {
+         int var2 = 3;
+         int var3 = 0;
+         Iterator var4 = this.field1256.entrySet().iterator();
+
+         while(var4.hasNext()) {
+            Entry var5 = (Entry)var4.next();
+            int var6 = ((Integer)var5.getKey()).intValue();
+            if(this.varcSerials[var6]) {
+               Object var7 = var5.getValue();
+               var2 += 3;
+               if(var7 instanceof Integer) {
+                  var2 += 4;
+               } else if(var7 instanceof String) {
+                  var2 += OwnWorldComparator.method73((String)var7);
+               }
+
+               ++var3;
+            }
+         }
+
+         Packet var24 = new Packet(var2);
+         var24.writeByte(2);
+         var24.writeShort(var3);
+         Iterator var25 = this.field1256.entrySet().iterator();
+
+         while(var25.hasNext()) {
+            Entry var13 = (Entry)var25.next();
+            int var14 = ((Integer)var13.getKey()).intValue();
+            if(this.varcSerials[var14]) {
+               var24.writeShort(var14);
+               Object var8 = var13.getValue();
+               class101 var9 = class101.method1440(var8.getClass());
+               var24.writeByte(var9.field14);
+               class143 var10 = class101.method1448(var8.getClass());
+               var10.vmethod6420(var8, var24);
+            }
+         }
+
+         var1.method5050(var24.payload, 0, var24.offset);
+      } catch (Exception var22) {
+         ;
+      } finally {
+         try {
+            var1.method5051();
+         } catch (Exception var21) {
+            ;
+         }
+
+      }
+
+      this.changed = false;
+      this.field1254 = class318.method6317();
+   }
+
+   @ObfuscatedName("x")
+   @ObfuscatedSignature(
+      signature = "(II)Ljava/lang/String;",
+      garbageValue = "-388251738"
+   )
+   String method322(int var1) {
+      Object var2 = this.field1256.get(Integer.valueOf(var1));
+      return var2 instanceof String?(String)var2:"";
    }
 
    @ObfuscatedName("m")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-639739435"
+      signature = "(ZI)Lda;",
+      garbageValue = "1149735458"
    )
-   void method4738() {
-      FileOnDisk var1 = this.method4740(false);
+   FileOnDisk method324(boolean var1) {
+      return class244.method4645("2", TradingPost.field38.name, var1);
+   }
 
-      label204: {
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "(B)V",
+      garbageValue = "21"
+   )
+   void method331() {
+      int var1;
+      for(var1 = 0; var1 < this.varcSerials.length; ++var1) {
+         if(!this.varcSerials[var1]) {
+            this.field1256.remove(Integer.valueOf(var1));
+         }
+      }
+
+      for(var1 = 0; var1 < this.varCStrings.length; ++var1) {
+         this.varCStrings[var1] = null;
+      }
+
+   }
+
+   @ObfuscatedName("b")
+   @ObfuscatedSignature(
+      signature = "(B)V",
+      garbageValue = "43"
+   )
+   void method326() {
+      FileOnDisk var1 = this.method324(false);
+
+      label226: {
          try {
-            byte[] var2 = new byte[(int)var1.method148()];
+            byte[] var2 = new byte[(int)var1.method5053()];
 
             int var4;
             for(int var3 = 0; var3 < var2.length; var3 += var4) {
-               var4 = var1.method149(var2, var3, var2.length - var3);
+               var4 = var1.method5054(var2, var3, var2.length - var3);
                if(var4 == -1) {
                   throw new EOFException();
                }
             }
 
-            Packet var13 = new Packet(var2);
-            if(var13.payload.length - var13.offset < 1) {
+            Packet var14 = new Packet(var2);
+            if(var14.payload.length - var14.offset >= 1) {
+               int var15 = var14.readUnsignedByte();
+               if(var15 >= 0 && var15 <= 2) {
+                  int var7;
+                  int var8;
+                  int var9;
+                  int var16;
+                  if(var15 >= 2) {
+                     var16 = var14.readUnsignedShort();
+                     var7 = 0;
+
+                     while(true) {
+                        if(var7 >= var16) {
+                           break label226;
+                        }
+
+                        var8 = var14.readUnsignedShort();
+                        var9 = var14.readUnsignedByte();
+                        class101 var10 = (class101)PlayerList.method4757(class101.method1451(), var9);
+                        Object var11 = var10.method1443(var14);
+                        if(this.varcSerials[var8]) {
+                           this.field1256.put(Integer.valueOf(var8), var11);
+                        }
+
+                        ++var7;
+                     }
+                  } else {
+                     var16 = var14.readUnsignedShort();
+
+                     for(var7 = 0; var7 < var16; ++var7) {
+                        var8 = var14.readUnsignedShort();
+                        var9 = var14.method5091();
+                        if(this.varcSerials[var8]) {
+                           this.field1256.put(Integer.valueOf(var8), Integer.valueOf(var9));
+                        }
+                     }
+
+                     var7 = var14.readUnsignedShort();
+                     var8 = 0;
+
+                     while(true) {
+                        if(var8 >= var7) {
+                           break label226;
+                        }
+
+                        var14.readUnsignedShort();
+                        var14.readString();
+                        ++var8;
+                     }
+                  }
+               }
+
                return;
             }
-
-            int var14 = var13.readUnsignedByte();
-            if(var14 >= 0 && var14 <= 1) {
-               int var15 = var13.readUnsignedShort();
-
-               int var7;
-               int var8;
-               int var9;
-               for(var7 = 0; var7 < var15; ++var7) {
-                  var8 = var13.readUnsignedShort();
-                  var9 = var13.readInt();
-                  if(this.varcSerials[var8]) {
-                     this.varCInts[var8] = var9;
-                     this.onVarCIntChanged(var8);
-                  }
-               }
-
-               var7 = var13.readUnsignedShort();
-               var8 = 0;
-
-               while(true) {
-                  if(var8 >= var7) {
-                     break label204;
-                  }
-
-                  var9 = var13.readUnsignedShort();
-                  String var10 = var13.readString();
-                  if(this.varcstringSerials[var9]) {
-                     this.varCStrings[var9] = var10;
-                     this.onVarCStrChanged(var9);
-                  }
-
-                  ++var8;
-               }
-            }
-         } catch (Exception var24) {
-            break label204;
+         } catch (Exception var25) {
+            break label226;
          } finally {
             try {
-               var1.method146();
-            } catch (Exception var23) {
+               var1.method5051();
+            } catch (Exception var24) {
                ;
             }
 
@@ -168,237 +282,107 @@ public class Varcs implements RSVarcs {
       this.changed = false;
    }
 
-   @ObfuscatedName("p")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-788552448"
-   )
-   void method4741() {
-      FileOnDisk var1 = this.method4740(true);
-
-      try {
-         int var2 = 3;
-         int var3 = 0;
-
-         int var4;
-         for(var4 = 0; var4 < this.varCInts.length; ++var4) {
-            if(this.varcSerials[var4] && this.varCInts[var4] != -1) {
-               var2 += 6;
-               ++var3;
-            }
-         }
-
-         var2 += 2;
-         var4 = 0;
-
-         for(int var5 = 0; var5 < this.varCStrings.length; ++var5) {
-            if(this.varcstringSerials[var5] && this.varCStrings[var5] != null) {
-               var2 += 2 + AbstractSoundSystem.method338(this.varCStrings[var5]);
-               ++var4;
-            }
-         }
-
-         Packet var9 = new Packet(var2);
-         var9.method6114(1);
-         var9.method6063(var3);
-
-         int var6;
-         for(var6 = 0; var6 < this.varCInts.length; ++var6) {
-            if(this.varcSerials[var6] && this.varCInts[var6] != -1) {
-               var9.method6063(var6);
-               var9.method6230(this.varCInts[var6]);
-            }
-         }
-
-         var9.method6063(var4);
-
-         for(var6 = 0; var6 < this.varCStrings.length; ++var6) {
-            if(this.varcstringSerials[var6] && this.varCStrings[var6] != null) {
-               var9.method6063(var6);
-               var9.method6198(this.varCStrings[var6]);
-            }
-         }
-
-         var1.method145(var9.payload, 0, var9.offset);
-      } catch (Exception var17) {
-         ;
-      } finally {
-         try {
-            var1.method146();
-         } catch (Exception var16) {
-            ;
-         }
-
-      }
-
-      this.changed = false;
-      this.field1245 = Tile.method4297();
-   }
-
-   @ObfuscatedName("c")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-1414439942"
-   )
-   void method4753() {
-      int var1;
-      for(var1 = 0; var1 < this.varCInts.length; ++var1) {
-         if(!this.varcSerials[var1]) {
-            this.varCInts[var1] = -1;
-            this.onVarCIntChanged(var1);
-         }
-      }
-
-      for(var1 = 0; var1 < this.varCStrings.length; ++var1) {
-         if(!this.varcstringSerials[var1]) {
-            this.varCStrings[var1] = null;
-            this.onVarCStrChanged(var1);
-         }
-      }
-
-   }
-
-   public void onVarCStrChanged(int var1) {
-      class166.clientInstance.getCallbacks().post(new VarClientStrChanged(var1));
-   }
-
-   public void onVarCIntChanged(int var1) {
-      class166.clientInstance.getCallbacks().post(new VarClientIntChanged(var1));
-   }
-
-   public int[] getIntVarcs() {
-      return this.varCInts;
-   }
-
-   public String[] getStrVarcs() {
-      return this.varCStrings;
-   }
-
-   @ObfuscatedName("i")
-   @ObfuscatedSignature(
-      signature = "(ZI)Ldn;",
-      garbageValue = "-1669314567"
-   )
-   FileOnDisk method4740(boolean var1) {
-      return class70.method1076("2", client.field646.name, var1);
-   }
-
-   @ObfuscatedName("d")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-1253575751"
-   )
-   void method4735() {
-      if(this.changed && this.field1245 < Tile.method4297() - 60000L) {
-         this.method4741();
-      }
-
-   }
-
-   @ObfuscatedName("j")
-   @ObfuscatedSignature(
-      signature = "(B)Z",
-      garbageValue = "1"
-   )
-   boolean method4744() {
-      return this.changed;
-   }
-
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
       signature = "(III)V",
-      garbageValue = "-1482826901"
+      garbageValue = "-1962392844"
    )
-   void method4759(int var1, int var2) {
-      this.varCInts[var1] = var2;
-      this.onVarCIntChanged(var1);
+   void method317(int var1, int var2) {
+      this.field1256.put(Integer.valueOf(var1), Integer.valueOf(var2));
       if(this.varcSerials[var1]) {
          this.changed = true;
       }
 
+      this.onVarCIntChanged(var1, var2);
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("n")
    @ObfuscatedSignature(
-      signature = "(II)Ljw;",
-      garbageValue = "-205103429"
+      signature = "(B)V",
+      garbageValue = "-15"
    )
-   public static ObjType method4770(int var0) {
-      ObjType var1 = (ObjType)ObjType.items.method951((long)var0);
-      if(var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = ObjType.item_ref.method1516(10, var0, 1789634852);
-         var1 = new ObjType();
-         var1.id = var0;
-         if(var2 != null) {
-            var1.method6358(new Packet(var2));
-         }
-
-         var1.method6305();
-         if(var1.certTemplate != -1) {
-            var1.method6308(method4770(var1.certTemplate), method4770(var1.certLink));
-         }
-
-         if(var1.boughtTemplate != -1) {
-            var1.method6321(method4770(var1.boughtTemplate), method4770(var1.boughtLink));
-         }
-
-         if(var1.placeholderTemplate != -1) {
-            var1.method6310(method4770(var1.placeholderTemplate), method4770(var1.placeholderLink));
-         }
-
-         if(!PlayerComposition.isMembersWorld && var1.members) {
-            var1.name = "Members object";
-            var1.stockmarket = false;
-            var1.ops = null;
-            var1.iops = null;
-            var1.shiftClickIndex = -1;
-            var1.team = 0;
-            if(var1.params != null) {
-               boolean var3 = false;
-
-               for(Node var4 = var1.params.method2751(); var4 != null; var4 = var1.params.method2752()) {
-                  ParamType var5 = class134.method2203((int)var4.hash);
-                  if(var5.autoDisable) {
-                     var4.method6469();
-                  } else {
-                     var3 = true;
-                  }
-               }
-
-               if(!var3) {
-                  var1.params = null;
-               }
-            }
-         }
-
-         ObjType.items.method957(var1, (long)var0);
-         return var1;
+   void method327() {
+      if(this.changed && this.field1254 < class318.method6317() - 60000L) {
+         this.method316();
       }
+
    }
 
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "(CII)I",
-      garbageValue = "324290877"
-   )
-   static int method4762(char var0, int var1) {
-      int var2 = var0 << 4;
-      if(Character.isUpperCase(var0) || Character.isTitleCase(var0)) {
-         var0 = Character.toLowerCase(var0);
-         var2 = (var0 << 4) + 1;
-      }
+   public void onVarCStrChanged(int var1, String var2) {
+      ItemContainer.clientInstance.getCallbacks().post(new VarClientStrChanged(var1));
+   }
 
-      return var2;
+   public void onVarCIntChanged(int var1, int var2) {
+      ItemContainer.clientInstance.getCallbacks().post(new VarClientIntChanged(var1));
+   }
+
+   private void rl$$init() {
+   }
+
+   public Map getVarcMap() {
+      return this.field1256;
+   }
+
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "(IB)I",
+      garbageValue = "117"
+   )
+   int method318(int var1) {
+      Object var2 = this.field1256.get(Integer.valueOf(var1));
+      return var2 instanceof Integer?((Integer)var2).intValue():-1;
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(ILjava/lang/String;I)V",
+      garbageValue = "324873402"
+   )
+   void method321(int var1, String var2) {
+      this.varCStrings[var1] = var2;
    }
 
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Liu;I)V",
-      garbageValue = "-604810430"
+      signature = "(ILjava/lang/String;I)V",
+      garbageValue = "1542210738"
    )
-   public static void method4769(Js5Index var0) {
-      Enum.EnumDefinition_indexCache = var0;
+   void method319(int var1, String var2) {
+      this.field1256.put(Integer.valueOf(var1), var2);
+      this.onVarCStrChanged(var1, var2);
+   }
+
+   @ObfuscatedName("gr")
+   @ObfuscatedSignature(
+      signature = "(Ljava/lang/String;ZI)V",
+      garbageValue = "-595035793"
+   )
+   static final void method351(String var0, boolean var1) {
+      if(client.field764) {
+         byte var2 = 4;
+         int var3 = var2 + 6;
+         int var4 = var2 + 6;
+         int var5 = Occluder.font_p12full.method6211(var0, 250);
+         int var6 = Occluder.font_p12full.method6163(var0, 250) * 13;
+         Rasterizer2D.method692(var3 - var2, var4 - var2, var2 + var5 + var2, var6 + var2 + var2, 0);
+         Rasterizer2D.method696(var3 - var2, var4 - var2, var2 + var5 + var2, var2 + var2 + var6, 16777215);
+         Occluder.font_p12full.method6207(var0, var3, var4, var5, var6, 16777215, -1, 1, 1, 0);
+         MouseInput.method1914(var3 - var2, var4 - var2, var2 + var5 + var2, var2 + var6 + var2);
+         if(var1) {
+            Location.rasterProvider.vmethod4241(0, 0);
+         } else {
+            int var7 = var3;
+            int var8 = var4;
+            int var9 = var5;
+            int var10 = var6;
+
+            for(int var11 = 0; var11 < client.interfaceCount; ++var11) {
+               if(client.widgetPositionX[var11] + client.widgetBoundsWidth[var11] > var7 && client.widgetPositionX[var11] < var7 + var9 && client.widgetBoundsHeight[var11] + client.widgetPositionY[var11] > var8 && client.widgetPositionY[var11] < var8 + var10) {
+                  client.field923[var11] = true;
+               }
+            }
+         }
+
+      }
    }
 }

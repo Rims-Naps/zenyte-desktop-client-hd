@@ -4,38 +4,36 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gt")
+@ObfuscatedName("gb")
 public final class Isaac {
-   @ObfuscatedName("gk")
-   static byte[][] field2458;
-   @ObfuscatedName("df")
-   @ObfuscatedSignature(
-      signature = "Lih;"
-   )
-   static Js5 jingles;
-   @ObfuscatedName("l")
-   int[] mem;
-   @ObfuscatedName("w")
+   @ObfuscatedName("se")
    @ObfuscatedGetter(
-      intValue = 702603155
+      intValue = -10040823
    )
-   int field2455;
+   static int field2467;
+   @ObfuscatedName("f")
+   int[] mem;
    @ObfuscatedName("q")
    @ObfuscatedGetter(
-      intValue = 1444526381
+      intValue = 1132465277
+   )
+   int field2466;
+   @ObfuscatedName("x")
+   @ObfuscatedGetter(
+      intValue = -816921805
    )
    int count;
-   @ObfuscatedName("b")
+   @ObfuscatedName("m")
    @ObfuscatedGetter(
-      intValue = 1113218969
+      intValue = -1935004419
    )
-   int field2454;
-   @ObfuscatedName("n")
+   int field2465;
+   @ObfuscatedName("p")
    @ObfuscatedGetter(
-      intValue = 1665830875
+      intValue = 487301423
    )
-   int field2449;
-   @ObfuscatedName("c")
+   int field2463;
+   @ObfuscatedName("h")
    int[] rsl;
 
    public Isaac(int[] var1) {
@@ -46,59 +44,15 @@ public final class Isaac {
          this.rsl[var2] = var1[var2];
       }
 
-      this.method4021();
+      this.method4217();
    }
 
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "(B)I",
-      garbageValue = "-38"
-   )
-   final int method4017() {
-      if(this.count == 0) {
-         this.method4020();
-         this.count = 256;
-      }
-
-      return this.rsl[this.count - 1];
-   }
-
-   @ObfuscatedName("e")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
       signature = "(I)V",
-      garbageValue = "-1984089559"
+      garbageValue = "-1652692063"
    )
-   final void method4020() {
-      this.field2455 += ++this.field2449;
-
-      for(int var1 = 0; var1 < 256; ++var1) {
-         int var2 = this.mem[var1];
-         if((var1 & 2) == 0) {
-            if((var1 & 1) == 0) {
-               this.field2454 ^= this.field2454 << 13;
-            } else {
-               this.field2454 ^= this.field2454 >>> 6;
-            }
-         } else if((var1 & 1) == 0) {
-            this.field2454 ^= this.field2454 << 2;
-         } else {
-            this.field2454 ^= this.field2454 >>> 16;
-         }
-
-         this.field2454 += this.mem[var1 + 128 & 255];
-         int var3;
-         this.mem[var1] = var3 = this.mem[(var2 & 1020) >> 2] + this.field2454 + this.field2455;
-         this.rsl[var1] = this.field2455 = this.mem[(var3 >> 8 & 1020) >> 2] + var2;
-      }
-
-   }
-
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "818623933"
-   )
-   final void method4021() {
+   final void method4217() {
       int var9 = -1640531527;
       int var8 = -1640531527;
       int var7 = -1640531527;
@@ -222,49 +176,65 @@ public final class Isaac {
          this.mem[var1 + 7] = var9;
       }
 
-      this.method4020();
+      this.method4223();
       this.count = 256;
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(I)I",
-      garbageValue = "211796966"
+      signature = "(B)I",
+      garbageValue = "1"
    )
-   final int method4018() {
+   final int method4221() {
       if(0 == --this.count + 1) {
-         this.method4020();
+         this.method4223();
          this.count = 255;
       }
 
       return this.rsl[this.count];
    }
 
-   @ObfuscatedName("q")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "([BIII)Ljava/lang/String;",
-      garbageValue = "1880571754"
+      signature = "(I)I",
+      garbageValue = "99718613"
    )
-   public static String method4024(byte[] var0, int var1, int var2) {
-      char[] var3 = new char[var2];
-      int var4 = 0;
-
-      for(int var5 = 0; var5 < var2; ++var5) {
-         int var6 = var0[var5 + var1] & 255;
-         if(var6 != 0) {
-            if(var6 >= 128 && var6 < 160) {
-               char var7 = class50.cp1252AsciiExtension[var6 - 128];
-               if(var7 == 0) {
-                  var7 = '?';
-               }
-
-               var6 = var7;
-            }
-
-            var3[var4++] = (char)var6;
-         }
+   final int method4212() {
+      if(this.count == 0) {
+         this.method4223();
+         this.count = 256;
       }
 
-      return new String(var3, 0, var4);
+      return this.rsl[this.count - 1];
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "1230498181"
+   )
+   final void method4223() {
+      this.field2465 += ++this.field2466;
+
+      for(int var1 = 0; var1 < 256; ++var1) {
+         int var2 = this.mem[var1];
+         if((var1 & 2) == 0) {
+            if((var1 & 1) == 0) {
+               this.field2463 ^= this.field2463 << 13;
+            } else {
+               this.field2463 ^= this.field2463 >>> 6;
+            }
+         } else if((var1 & 1) == 0) {
+            this.field2463 ^= this.field2463 << 2;
+         } else {
+            this.field2463 ^= this.field2463 >>> 16;
+         }
+
+         this.field2463 += this.mem[128 + var1 & 255];
+         int var3;
+         this.mem[var1] = var3 = this.mem[(var2 & 1020) >> 2] + this.field2463 + this.field2465;
+         this.rsl[var1] = this.field2465 = this.mem[(var3 >> 8 & 1020) >> 2] + var2;
+      }
+
    }
 }

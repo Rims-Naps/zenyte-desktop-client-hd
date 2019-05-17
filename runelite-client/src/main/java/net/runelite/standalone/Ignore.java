@@ -6,25 +6,41 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSIgnore;
 import net.runelite.rs.api.RSName;
 
-@ObfuscatedName("ka")
+@ObfuscatedName("kq")
 public class Ignore extends Nameable implements RSIgnore {
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      intValue = -1574225871
+      intValue = 964897101
    )
-   int field3705;
+   int field3709;
 
-   @ObfuscatedName("aw")
+   Ignore() {
+      this.rl$$init();
+   }
+
+   @ObfuscatedName("au")
    @ObfuscatedSignature(
-      signature = "(Ljr;I)I",
-      garbageValue = "889054617"
+      signature = "(Lkn;I)I",
+      garbageValue = "-665156315"
    )
-   public int vmethod2733(Nameable var1) {
-      return this.method1946((Ignore)var1);
+   public int vmethod6266(Nameable var1) {
+      return this.method120((Ignore)var1);
+   }
+
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(Lkq;B)I",
+      garbageValue = "1"
+   )
+   int method120(Ignore var1) {
+      return this.field3709 - var1.field3709;
+   }
+
+   private void rl$$init() {
    }
 
    public int compareTo(Object var1) {
-      return this.method1946((Ignore)var1);
+      return this.method120((Ignore)var1);
    }
 
    public String getName() {
@@ -34,14 +50,5 @@ public class Ignore extends Nameable implements RSIgnore {
    public String getPrevName() {
       RSName var1 = this.getRsPrevName();
       return var1 == null?null:var1.getName();
-   }
-
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(Lka;I)I",
-      garbageValue = "-1395501104"
-   )
-   int method1946(Ignore var1) {
-      return this.field3705 - var1.field3705;
    }
 }

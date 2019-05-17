@@ -1,29 +1,20 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kj")
-public class class132 {
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "Lkj;"
+@ObfuscatedName("ij")
+public final class class132 {
+   @ObfuscatedName("ix")
+   @ObfuscatedGetter(
+      intValue = 597349947
    )
-   public static final class132 CONTAINS;
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "Lkj;"
+   static int field3198;
+   @ObfuscatedName("ay")
+   static int[] field3196;
+   @ObfuscatedName("bv")
+   @ObfuscatedGetter(
+      intValue = -163727267
    )
-   public static final class132 NOT_CONTAINS;
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "Lkj;"
-   )
-   public static final class132 UNSET;
-
-   static {
-      UNSET = new class132();
-      CONTAINS = new class132();
-      NOT_CONTAINS = new class132();
-   }
+   static int field3195;
 }

@@ -1,48 +1,81 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ee")
-public class class82 extends class127 {
-   @ObfuscatedName("sc")
-   @ObfuscatedSignature(
-      signature = "Lis;"
+@ObfuscatedName("ft")
+public class class82 {
+   @ObfuscatedName("q")
+   public static int[] field2122;
+   @ObfuscatedName("x")
+   public static int[][] field2115;
+   @ObfuscatedName("m")
+   public static int[] field2121;
+   @ObfuscatedName("gi")
+   static int[] mapRegions;
+   @ObfuscatedName("h")
+   @ObfuscatedGetter(
+      intValue = 1988086563
    )
-   public static class225 field1933;
-   @ObfuscatedName("c")
-   static byte[][][] tileOverlayIds;
-   @ObfuscatedName("d")
-   @ObfuscatedSignature(
-      signature = "Lkz;"
-   )
-   static Font field1931;
+   public static int field2119;
    @ObfuscatedName("g")
-   final boolean field1934;
+   public static int[][] field2117;
 
-   public class82(boolean var1) {
-      this.field1934 = var1;
+   static {
+      field2117 = new int[128][128];
+      field2115 = new int[128][128];
+      field2121 = new int[4096];
+      field2122 = new int[4096];
    }
 
-   public int compare(Object var1, Object var2) {
-      return this.method1174((ChatPlayer)var1, (ChatPlayer)var2);
-   }
-
-   @ObfuscatedName("g")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(Lkv;Lkv;I)I",
-      garbageValue = "-1022267585"
+      signature = "(ILiz;Ljava/lang/String;Ljava/lang/String;IZI)V",
+      garbageValue = "379187693"
    )
-   int method1174(ChatPlayer var1, ChatPlayer var2) {
-      return client.world == var1.world && var2.world == client.world?(this.field1934?var1.method2067().method4717(var2.method2067()):var2.method2067().method4717(var1.method2067())):this.method2141(var1, var2);
+   public static void method1101(int var0, Js5Index var1, String var2, String var3, int var4, boolean var5) {
+      int var6 = var1.method4132(var2);
+      int var7 = var1.method4137(var6, var3);
+      GZipDecompressor.method3620(var0, var1, var6, var7, var4, var5);
    }
 
-   @ObfuscatedName("e")
+   @ObfuscatedName("gc")
    @ObfuscatedSignature(
-      signature = "(ILcx;ZI)I",
-      garbageValue = "49958749"
+      signature = "(Lbw;ZS)V",
+      garbageValue = "2072"
    )
-   static int method1178(int var0, class106 var1, boolean var2) {
-      return var0 < 1000?class98.method1634(var0, var1, var2):(var0 < 1100?CollisionData.method225(var0, var1, var2):(var0 < 1200?class56.method850(var0, var1, var2):(var0 < 1300?MapCacheArchiveNames.method2147(var0, var1, var2):(var0 < 1400?FriendContainer.method2424(var0, var1, var2):(var0 < 1500?WorldMapType1.method2465(var0, var1, var2):(var0 < 1600?Location.method2961(var0, var1, var2):(var0 < 1700?class17.method340(var0, var1, var2):(var0 < 1800?ChatLine.method5653(var0, var1, var2):(var0 < 1900?PendingSpawn.method5556(var0, var1, var2):(var0 < 2000?ItemContainer.method1931(var0, var1, var2):(var0 < 2100?CollisionData.method225(var0, var1, var2):(var0 < 2200?class56.method850(var0, var1, var2):(var0 < 2300?MapCacheArchiveNames.method2147(var0, var1, var2):(var0 < 2400?FriendContainer.method2424(var0, var1, var2):(var0 < 2500?WorldMapType1.method2465(var0, var1, var2):(var0 < 2600?GZipDecompressor.method5447(var0, var1, var2):(var0 < 2700?class310.method5925(var0, var1, var2):(var0 < 2800?ServerConnection.method5898(var0, var1, var2):(var0 < 2900?GameCanvas.method896(var0, var1, var2):(var0 < 3000?ItemContainer.method1931(var0, var1, var2):(var0 < 3200?class218.method4412(var0, var1, var2):(var0 < 3300?Sequence.method4813(var0, var1, var2):(var0 < 3400?class331.method6494(var0, var1, var2):(var0 < 3500?class296.method5693(var0, var1, var2):(var0 < 3700?VarPlayerType.method5548(var0, var1, var2):(var0 < 4000?class321.method6057(var0, var1, var2):(var0 < 4100?FontName.method1974(var0, var1, var2):(var0 < 4200?class139.method2416(var0, var1, var2):(var0 < 4300?class228.method4530(var0, var1, var2):(var0 < 5100?VarClientType.method5426(var0, var1, var2):(var0 < 5400?class147.method2535(var0, var1, var2):(var0 < 5600?class133.method2183(var0, var1, var2):(var0 < 5700?class9.method140(var0, var1, var2):(var0 < 6300?Spotanim.method5319(var0, var1, var2):(var0 < 6600?class19.method379(var0, var1, var2):(var0 < 6700?class70.method1086(var0, var1, var2):2))))))))))))))))))))))))))))))))))));
+   static void method1102(PlayerEntity var0, boolean var1) {
+      if(var0 != null && var0.vmethod6005() && !var0.hidden) {
+         var0.isLowDetail = false;
+         if((client.lowMemory && PlayerList.highResolutionPlayerCount > 50 || PlayerList.highResolutionPlayerCount > 200) && var1 && var0.poseAnimation == var0.idlePoseAnimation) {
+            var0.isLowDetail = true;
+         }
+
+         int var2 = var0.x * -1234429701 >> 7;
+         int var3 = var0.y >> 7;
+         if(var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
+            long var4 = ChatHistory.method6263(0, 0, 0, false, var0.playerId);
+            if(var0.model != null && client.gameCycle >= var0.animationCycleStart && client.gameCycle < var0.animationCycleEnd) {
+               var0.isLowDetail = false;
+               var0.field633 = TcpConnectionMessage.method5618(var0.x * -1234429701, var0.y, ServerProt.level);
+               var0.field960 = client.gameCycle;
+               class312.sceneManager.method3783(ServerProt.level, var0.x * -1234429701, var0.y, var0.field633, 60, var0, var0.angle, var4, var0.field630, var0.field625, var0.field626, var0.field628);
+            } else {
+               if((var0.x * -1234429701 & 127) == 64 && (var0.y & 127) == 64) {
+                  if(client.field746[var2][var3] == client.field907) {
+                     return;
+                  }
+
+                  client.field746[var2][var3] = client.field907;
+               }
+
+               var0.field633 = TcpConnectionMessage.method5618(var0.x * -1234429701, var0.y, ServerProt.level);
+               var0.field960 = client.gameCycle;
+               class312.sceneManager.method3754(ServerProt.level, var0.x * -1234429701, var0.y, var0.field633, 60, var0, var0.angle, var4, var0.field941);
+            }
+         }
+      }
+
    }
 }

@@ -1,39 +1,26 @@
 package net.runelite.standalone;
 
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("kf")
+@ObfuscatedName("jv")
 public class class307 {
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "Lkf;"
-   )
-   public static final class307 field3805;
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "Lkf;"
-   )
-   static final class307 field3806;
    @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "Lkf;"
+      signature = "(B)Lfa;",
+      garbageValue = "-5"
    )
-   static final class307 field3808;
-   @ObfuscatedName("q")
-   @ObfuscatedGetter(
-      intValue = -1692794687
-   )
-   public final int field3807;
+   public static TcpConnectionMessage method6147() {
+      TcpConnectionMessage var0;
+      if(TcpConnectionMessage.field2348 == 0) {
+         var0 = new TcpConnectionMessage();
+      } else {
+         var0 = TcpConnectionMessage.packetBufferNodes[--TcpConnectionMessage.field2348];
+      }
 
-   static {
-      field3808 = new class307(0);
-      field3805 = new class307(1);
-      field3806 = new class307(2);
-   }
-
-   class307(int var1) {
-      this.field3807 = var1;
+      var0.clientPacket = null;
+      var0.field2347 = 0;
+      var0.packetBuffer = new Bit(5000);
+      return var0;
    }
 }

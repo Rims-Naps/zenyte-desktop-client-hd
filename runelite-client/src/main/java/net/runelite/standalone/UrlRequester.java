@@ -1,6 +1,5 @@
 package net.runelite.standalone;
 
-import java.awt.FontMetrics;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -11,31 +10,19 @@ import java.util.Queue;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ec")
+@ObfuscatedName("ex")
 public class UrlRequester implements Runnable {
-   @ObfuscatedName("l")
+   @ObfuscatedName("o")
    @ObfuscatedSignature(
-      signature = "Liu;"
+      signature = "Lgx;"
    )
-   public static Js5Index field1911;
-   @ObfuscatedName("ae")
-   static FontMetrics field1917;
-   @ObfuscatedName("ds")
-   @ObfuscatedSignature(
-      signature = "Lih;"
-   )
-   static Js5 clientscripts;
-   @ObfuscatedName("gr")
-   @ObfuscatedSignature(
-      signature = "[Lls;"
-   )
-   static SpritePixels[] headIconsPrayer;
-   @ObfuscatedName("r")
-   volatile boolean isClosed;
-   @ObfuscatedName("e")
-   Queue requests;
-   @ObfuscatedName("g")
+   public static Packet NetCache_responseArchiveBuffer;
+   @ObfuscatedName("a")
    final Thread thread;
+   @ObfuscatedName("s")
+   volatile boolean isClosed;
+   @ObfuscatedName("g")
+   Queue requests;
 
    public UrlRequester() {
       this.requests = new LinkedList();
@@ -44,24 +31,18 @@ public class UrlRequester implements Runnable {
       this.thread.start();
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "1163748948"
+      signature = "(Ljava/net/URL;I)Lez;",
+      garbageValue = "1962060263"
    )
-   public void method4075() {
-      this.isClosed = true;
-
-      try {
-         synchronized(this) {
-            this.notify();
-         }
-
-         this.thread.join();
-      } catch (InterruptedException var4) {
-         ;
+   public UrlRequest method5564(URL var1) {
+      UrlRequest var2 = new UrlRequest(var1);
+      synchronized(this) {
+         this.requests.add(var2);
+         this.notify();
+         return var2;
       }
-
    }
 
    public void run() {
@@ -111,36 +92,34 @@ public class UrlRequester implements Runnable {
 
             }
          } catch (Exception var17) {
-            ProjectileAnimation.method5582((String)null, var17, 1743975076);
+            VertexNormal.method4110((String)null, var17, (byte)-22);
          }
       }
 
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(Ljava/net/URL;I)Leg;",
-      garbageValue = "433596934"
+      signature = "(B)V",
+      garbageValue = "0"
    )
-   public UrlRequest method4079(URL var1) {
-      UrlRequest var2 = new UrlRequest(var1);
-      synchronized(this) {
-         this.requests.add(var2);
-         this.notify();
-         return var2;
+   public void method5562() {
+      this.isClosed = true;
+
+      try {
+         synchronized(this) {
+            this.notify();
+         }
+
+         this.thread.join();
+      } catch (InterruptedException var4) {
+         ;
       }
+
    }
 
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(Liu;Liu;Liu;Lhg;B)Z",
-      garbageValue = "84"
-   )
-   public static boolean method4081(Js5Index var0, Js5Index var1, Js5Index var2, class257 var3) {
-      class120.field2535 = var0;
-      class120.field2530 = var1;
-      class120.field2531 = var2;
-      class267.field2461 = var3;
-      return true;
+   @ObfuscatedName("h")
+   static int method5572(long var0) {
+      return (int)(var0 >>> 14 & 3L);
    }
 }

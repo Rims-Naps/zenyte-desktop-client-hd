@@ -29,7 +29,7 @@
 	<parent>
 		<groupId>net.runelite</groupId>
 		<artifactId>runelite-parent</artifactId>
-		<version>1.5.11</version>
+		<version>1.5.22.1</version>
 	</parent>
 
 	<artifactId>client</artifactId>
@@ -40,7 +40,6 @@
 		<jogl.version>2.3.2</jogl.version>
 
 		<jarsigner.skip>true</jarsigner.skip>
-		<maven.deploy.skip>false</maven.deploy.skip>
 	</properties>
 
 	<dependencies>
@@ -240,11 +239,11 @@
 			<version>${guice.version}</version>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>com.sun.jdk</groupId>
-            <artifactId>plugin</artifactId>
-            <version>0.0.1</version>
-        </dependency>
+		<dependency>
+			<groupId>com.sun.jdk</groupId>
+			<artifactId>plugin</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -293,7 +292,6 @@
 					<proguardInclude>${project.basedir}/proguard.conf</proguardInclude>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-install-plugin</artifactId>
@@ -399,6 +397,11 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<!-- Strip jar before signing -->
+			<plugin>
+				<groupId>io.github.zlika</groupId>
+				<artifactId>reproducible-build-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

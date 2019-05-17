@@ -26,6 +26,12 @@ package net.runelite.client.plugins.examine;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import java.time.Instant;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.regex.Pattern;
+import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
@@ -35,6 +41,8 @@ import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.MenuOptionClicked;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
+import static net.runelite.api.widgets.WidgetInfo.TO_CHILD;
+import static net.runelite.api.widgets.WidgetInfo.TO_GROUP;
 import net.runelite.api.widgets.WidgetItem;
 import net.runelite.client.chat.ChatColorType;
 import net.runelite.client.chat.ChatMessageBuilder;
@@ -46,16 +54,6 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.StackFormatter;
 import net.runelite.http.api.examine.ExamineClient;
-
-import javax.inject.Inject;
-import java.time.Instant;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.regex.Pattern;
-
-import static net.runelite.api.widgets.WidgetInfo.TO_CHILD;
-import static net.runelite.api.widgets.WidgetInfo.TO_GROUP;
 
 /**
  * Submits examine info to the api
@@ -164,16 +162,16 @@ public class ExaminePlugin extends Plugin
 		ExamineType type;
 		switch (event.getType())
 		{
-			case EXAMINE_ITEM:
+			case ITEM_EXAMINE:
 				type = ExamineType.ITEM;
 				break;
-			case EXAMINE_OBJECT:
+			case OBJECT_EXAMINE:
 				type = ExamineType.OBJECT;
 				break;
-			case EXAMINE_NPC:
+			case NPC_EXAMINE:
 				type = ExamineType.NPC;
 				break;
-			case SERVER:
+			case GAMEMESSAGE:
 				type = ExamineType.ITEM_BANK_EQ;
 				break;
 			default:
@@ -383,7 +381,7 @@ public class ExaminePlugin extends Plugin
 			}
 
 			chatMessageManager.queue(QueuedMessage.builder()
-				.type(ChatMessageType.EXAMINE_ITEM)
+				.type(ChatMessageType.ITEM_EXAMINE)
 				.runeLiteFormattedMessage(message.build())
 				.build());
 		}

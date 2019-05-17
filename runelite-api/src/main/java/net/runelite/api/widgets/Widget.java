@@ -52,6 +52,7 @@ public interface Widget
 	 * @see WidgetID
 	 */
 	int getId();
+	void setId(int id);
 
 	/**
 	 * Gets the type of the widget.
@@ -79,6 +80,7 @@ public interface Widget
 
 	/**
 	 * Gets the current click configuration of the widget.
+	 * @see WidgetConfig
 	 *
 	 * @see WidgetConfig
 	 */
@@ -104,6 +106,7 @@ public interface Widget
 	 * @return the parent ID, or -1 if this widget is not a child
 	 */
 	int getParentId();
+	void setParentId(int parentId);
 
 	/**
 	 * Gets a dynamic child by index
@@ -291,6 +294,7 @@ public interface Widget
 	 * The index of this widget in it's parent's children array
 	 */
 	int getIndex();
+	void setIndex(int index);
 
 	/**
 	 * Gets the location the widget is being drawn on the canvas.
@@ -552,6 +556,13 @@ public interface Widget
 	void setOnMouseOverListener(Object... args);
 
 	/**
+	 * Sets a script to be ran every frame when the mouse is in the widget bounds
+	 *
+	 * @param args A ScriptID, then the args for the script
+	 */
+	void setOnMouseRepeatListener(Object... args);
+
+	/**
 	 * Sets a script to be ran when the mouse leaves the widget bounds
 	 *
 	 * @param args A ScriptID, then the args for the script
@@ -564,6 +575,20 @@ public interface Widget
 	 * @param args A ScriptID, then the args for the script
 	 */
 	void setOnTimerListener(Object... args);
+
+	/**
+	 * Sets a script to be ran when the target mode has been activated for this widget
+	 *
+	 * @param args A ScriptID, then the args for the script
+	 */
+	void setOnTargetEnterListener(Object... args);
+
+	/**
+	 * Sets a script to be ran when the target mode has been deactivated for this widget
+	 *
+	 * @param args A ScriptID, then the args for the script
+	 */
+	void setOnTargetLeaveListener(Object... args);
 
 	/**
 	 * If this widget has any listeners on it
@@ -579,6 +604,7 @@ public interface Widget
 	 * This is true if the widget is from an if3 interface, or is dynamically created
 	 */
 	boolean isIf3();
+	void setIsIf3(boolean isIf3);
 
 	/**
 	 * Recomputes this widget's x/y/w/h, excluding scroll
@@ -769,4 +795,34 @@ public interface Widget
 	 * Sets if the rectangle is filled or just stroked
 	 */
 	void setFilled(boolean filled);
+
+	/**
+	 * Verb for spell targets
+	 */
+	String getTargetVerb();
+
+	/**
+	 * Verb for spell targets
+	 */
+	void setTargetVerb(String targetVerb);
+
+	/**
+	 * Can widgets under this widgets be clicked in this widgets bounding box
+	 */
+	boolean getNoClickThrough();
+
+	/**
+	 * Can widgets under this widgets be clicked in this widgets bounding box
+	 */
+	void setNoClickThrough(boolean noClickThrough);
+
+	/**
+	 * Can widgets under this widgets be scrolled in this widgets bounding box
+	 */
+	boolean getNoScrollThrough();
+
+	/**
+	 * Can widgets under this widgets be scrolled in this widgets bounding box
+	 */
+	void setNoScrollThrough(boolean noScrollThrough);
 }

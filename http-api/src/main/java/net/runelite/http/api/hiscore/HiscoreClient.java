@@ -87,14 +87,14 @@ public class HiscoreClient
 	private HiscoreResultBuilder lookupUsername(String username, HttpUrl hiscoreUrl) throws IOException
 	{
 		HttpUrl url = new HttpUrl.Builder()
-							  .scheme("http")
-							  .host("api.zenyte.com")
-							  .port(80)
-							  .addPathSegment("hiscores")
-							  .addPathSegment("user")
-							  .addPathSegment(username)
-							  .addPathSegment("runelite")
-							  .build();
+				.scheme("http")
+				.host("api.zenyte.com")
+				.port(80)
+				.addPathSegment("hiscores")
+				.addPathSegment("user")
+				.addPathSegment(username)
+				.addPathSegment("runelite")
+				.build();
 
 		log.debug("Built URL {}", url);
 

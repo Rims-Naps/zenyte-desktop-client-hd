@@ -2,36 +2,36 @@ package net.runelite.standalone;
 
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("dk")
+@ObfuscatedName("dd")
 public class Mapping {
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
+   int[] field1476;
+   @ObfuscatedName("a")
+   int field1475;
+   @ObfuscatedName("s")
    int mux;
-   @ObfuscatedName("e")
-   int[] submapFloors;
-   @ObfuscatedName("q")
-   int[] field1446;
    @ObfuscatedName("g")
-   int field1447;
+   int[] submapFloors;
 
    Mapping() {
-      class237.method4588(16);
-      this.field1447 = class237.method4603() != 0?class237.method4588(4) + 1:1;
-      if(class237.method4603() != 0) {
-         class237.method4588(8);
+      class227.method4306(16);
+      this.field1475 = class227.method4305() != 0?class227.method4306(4) + 1:1;
+      if(class227.method4305() != 0) {
+         class227.method4306(8);
       }
 
-      class237.method4588(2);
-      if(this.field1447 > 1) {
-         this.mux = class237.method4588(4);
+      class227.method4306(2);
+      if(this.field1475 > 1) {
+         this.mux = class227.method4306(4);
       }
 
-      this.submapFloors = new int[this.field1447];
-      this.field1446 = new int[this.field1447];
+      this.submapFloors = new int[this.field1475];
+      this.field1476 = new int[this.field1475];
 
-      for(int var1 = 0; var1 < this.field1447; ++var1) {
-         class237.method4588(8);
-         this.submapFloors[var1] = class237.method4588(8);
-         this.field1446[var1] = class237.method4588(8);
+      for(int var1 = 0; var1 < this.field1475; ++var1) {
+         class227.method4306(8);
+         this.submapFloors[var1] = class227.method4306(8);
+         this.field1476[var1] = class227.method4306(8);
       }
 
    }

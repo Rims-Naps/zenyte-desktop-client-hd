@@ -30,6 +30,13 @@ import com.google.common.annotations.VisibleForTesting;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import java.io.File;
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
+import java.util.Locale;
+import javax.annotation.Nullable;
+import javax.inject.Provider;
+import javax.inject.Singleton;
 import joptsimple.ArgumentAcceptingOptionSpec;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -63,14 +70,6 @@ import net.runelite.client.ui.overlay.tooltip.TooltipOverlay;
 import net.runelite.client.ui.overlay.worldmap.WorldMapOverlay;
 import net.runelite.client.ws.PartyService;
 import org.slf4j.LoggerFactory;
-
-import javax.annotation.Nullable;
-import javax.inject.Provider;
-import javax.inject.Singleton;
-import java.io.File;
-import java.lang.management.ManagementFactory;
-import java.lang.management.RuntimeMXBean;
-import java.util.Locale;
 
 @Singleton
 @Slf4j
@@ -184,9 +183,9 @@ public class RuneLite
 			System.exit(0);
 		}
 
-		final boolean developerMode = options.has("developer-mode");
+		final boolean developerMode = options.has("developer-mode") && RuneLiteProperties.getLauncherVersion() == null;
 
-		if (developerMode && RuneLiteProperties.getLauncherVersion() == null)
+		if (developerMode)
 		{
 			boolean assertions = false;
 			assert assertions = true;
@@ -224,7 +223,7 @@ public class RuneLite
 		final long end = System.currentTimeMillis();
 		final RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
 		final long uptime = rb.getUptime();
-		log.info("client initialization took {}ms. Uptime: {}ms", end - start, uptime);
+		log.info("Client initialization took {}ms. Uptime: {}ms", end - start, uptime);
 	}
 
 	public void start() throws Exception

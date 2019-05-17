@@ -5,43 +5,43 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSFrame;
 import net.runelite.rs.api.RSFrameMap;
 
-@ObfuscatedName("do")
+@ObfuscatedName("dm")
 public class Frame implements RSFrame {
-   @ObfuscatedName("r")
-   static int[] field1605;
-   @ObfuscatedName("e")
-   static int[] field1606;
-   @ObfuscatedName("q")
-   static int[] field1607;
+   @ObfuscatedName("x")
+   static int[] field1635;
+   @ObfuscatedName("a")
+   static int[] field1629;
+   @ObfuscatedName("s")
+   static int[] field1627;
    @ObfuscatedName("g")
-   static int[] field1612;
-   @ObfuscatedName("l")
+   static int[] field1628;
+   @ObfuscatedName("f")
    int transformCount;
-   @ObfuscatedName("w")
+   @ObfuscatedName("q")
+   int[] translator_y;
+   @ObfuscatedName("m")
    int[] translator_x;
    @ObfuscatedName("p")
-   boolean showing;
-   @ObfuscatedName("b")
    int[] transformTypes;
+   @ObfuscatedName("b")
+   int[] translator_z;
    @ObfuscatedName("n")
-   int[] translator_y;
-   @ObfuscatedName("c")
+   boolean showing;
+   @ObfuscatedName("h")
    @ObfuscatedSignature(
-      signature = "Ldb;"
+      signature = "Lev;"
    )
    FrameMap skin;
-   @ObfuscatedName("i")
-   int[] translator_z;
 
    static {
-      field1612 = new int[500];
-      field1605 = new int[500];
-      field1606 = new int[500];
-      field1607 = new int[500];
+      field1629 = new int[500];
+      field1627 = new int[500];
+      field1628 = new int[500];
+      field1635 = new int[500];
    }
 
    @ObfuscatedSignature(
-      signature = "([BLdb;)V"
+      signature = "([BLev;)V"
    )
    Frame(byte[] var1, FrameMap var2) {
       this.skin = null;
@@ -63,38 +63,38 @@ public class Frame implements RSFrame {
             if(this.skin.types[var8] != 0) {
                for(int var10 = var8 - 1; var10 > var6; --var10) {
                   if(this.skin.types[var10] == 0) {
-                     field1612[var7] = var10;
-                     field1605[var7] = 0;
-                     field1606[var7] = 0;
-                     field1607[var7] = 0;
+                     field1629[var7] = var10;
+                     field1627[var7] = 0;
+                     field1628[var7] = 0;
+                     field1635[var7] = 0;
                      ++var7;
                      break;
                   }
                }
             }
 
-            field1612[var7] = var8;
+            field1629[var7] = var8;
             short var11 = 0;
             if(this.skin.types[var8] == 3) {
                var11 = 128;
             }
 
             if((var9 & 1) != 0) {
-               field1605[var7] = var4.readSignedSmart();
+               field1627[var7] = var4.method5099();
             } else {
-               field1605[var7] = var11;
+               field1627[var7] = var11;
             }
 
             if((var9 & 2) != 0) {
-               field1606[var7] = var4.readSignedSmart();
+               field1628[var7] = var4.method5099();
             } else {
-               field1606[var7] = var11;
+               field1628[var7] = var11;
             }
 
             if((var9 & 4) != 0) {
-               field1607[var7] = var4.readSignedSmart();
+               field1635[var7] = var4.method5099();
             } else {
-               field1607[var7] = var11;
+               field1635[var7] = var11;
             }
 
             var6 = var8;
@@ -115,10 +115,10 @@ public class Frame implements RSFrame {
          this.translator_z = new int[var7];
 
          for(var8 = 0; var8 < var7; ++var8) {
-            this.transformTypes[var8] = field1612[var8];
-            this.translator_x[var8] = field1605[var8];
-            this.translator_y[var8] = field1606[var8];
-            this.translator_z[var8] = field1607[var8];
+            this.transformTypes[var8] = field1629[var8];
+            this.translator_x[var8] = field1627[var8];
+            this.translator_y[var8] = field1628[var8];
+            this.translator_z[var8] = field1635[var8];
          }
 
       }

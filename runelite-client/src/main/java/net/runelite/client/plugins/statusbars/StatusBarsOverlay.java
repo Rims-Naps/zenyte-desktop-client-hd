@@ -24,8 +24,6 @@
  */
 package net.runelite.client.plugins.statusbars;
 
-import com.google.common.base.Strings;
-import com.google.common.primitives.Ints;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -153,13 +151,13 @@ class StatusBarsOverlay extends Overlay
 		final int poisonState = client.getVar(VarPlayer.IS_POISONED);
 		final Color healthBar;
 
-		if (poisonState > 0 && poisonState < 50)
-		{
-			healthBar = POISONED_COLOR;
-		}
-		else if (poisonState >= 1000000)
+		if (poisonState >= 1000000)
 		{
 			healthBar = VENOMED_COLOR;
+		}
+		else if (poisonState > 0)
+		{
+			healthBar = POISONED_COLOR;
 		}
 		else
 		{
@@ -196,28 +194,16 @@ class StatusBarsOverlay extends Overlay
 
 					for (final StatChange c : statsChanges.getStatChanges())
 					{
-						final String strVar = c.getTheoretical();
-
-						if (Strings.isNullOrEmpty(strVar))
-						{
-							continue;
-						}
-
-						final Integer value = Ints.tryParse(strVar.startsWith("+") ? strVar.substring(1) : strVar);
-
-						if (value == null)
-						{
-							continue;
-						}
+						final int theoreticalBoost = c.getTheoretical();
 
 						if (c.getStat().getName().equals(Skill.HITPOINTS.getName()))
 						{
-							foodHealValue = value;
+							foodHealValue = theoreticalBoost;
 						}
 
 						if (c.getStat().getName().equals(Skill.PRAYER.getName()))
 						{
-							prayerHealValue = value;
+							prayerHealValue = theoreticalBoost;
 						}
 
 						if (foodHealValue != 0 && prayerHealValue != 0)

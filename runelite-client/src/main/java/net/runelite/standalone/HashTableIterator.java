@@ -4,57 +4,33 @@ import java.util.Iterator;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ha")
+@ObfuscatedName("hr")
 public class HashTableIterator implements Iterator {
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "Lgy;"
-   )
-   Node tail;
-   @ObfuscatedName("e")
-   int index;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Lgy;"
+      signature = "Lhy;"
    )
    Node head;
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lgr;"
+      signature = "Lgs;"
    )
    IterableHashTable table;
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "Lhy;"
+   )
+   Node tail;
+   @ObfuscatedName("g")
+   int index;
 
    @ObfuscatedSignature(
-      signature = "(Lgr;)V"
+      signature = "(Lgs;)V"
    )
    HashTableIterator(IterableHashTable var1) {
       this.head = null;
       this.table = var1;
-      this.method1760();
-   }
-
-   @ObfuscatedName("m")
-   void method1760() {
-      this.tail = this.table.buckets[0].next;
-      this.index = 1;
-      this.head = null;
-   }
-
-   public boolean hasNext() {
-      if(this.table.buckets[this.index - 1] != this.tail) {
-         return true;
-      } else {
-         while(this.index < this.table.size) {
-            if(this.table.buckets[this.index++].next != this.table.buckets[this.index - 1]) {
-               this.tail = this.table.buckets[this.index - 1].next;
-               return true;
-            }
-
-            this.tail = this.table.buckets[this.index - 1];
-         }
-
-         return false;
-      }
+      this.method5948();
    }
 
    public Object next() {
@@ -79,8 +55,36 @@ public class HashTableIterator implements Iterator {
       }
    }
 
+   public boolean hasNext() {
+      if(this.table.buckets[this.index - 1] != this.tail) {
+         return true;
+      } else {
+         while(this.index < this.table.size) {
+            if(this.table.buckets[this.index++].next != this.table.buckets[this.index - 1]) {
+               this.tail = this.table.buckets[this.index - 1].next;
+               return true;
+            }
+
+            this.tail = this.table.buckets[this.index - 1];
+         }
+
+         return false;
+      }
+   }
+
    public void remove() {
-      this.head.method6469();
+      if(this.head == null) {
+         throw new IllegalStateException();
+      } else {
+         this.head.method432();
+         this.head = null;
+      }
+   }
+
+   @ObfuscatedName("h")
+   void method5948() {
+      this.tail = this.table.buckets[0].next;
+      this.index = 1;
       this.head = null;
    }
 }

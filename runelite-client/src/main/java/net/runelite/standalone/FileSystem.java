@@ -4,58 +4,36 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ib")
+@ObfuscatedName("iw")
 public class FileSystem extends Node {
-   @ObfuscatedName("r")
-   byte[] field3212;
-   @ObfuscatedName("e")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "Lfp;"
-   )
-   IndexFile index;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "Lih;"
+      signature = "Lin;"
    )
    Js5 data;
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    @ObfuscatedGetter(
-      intValue = -853721713
+      intValue = 610796045
    )
    int type;
-
-   @ObfuscatedName("v")
+   @ObfuscatedName("s")
+   byte[] field3231;
+   @ObfuscatedName("g")
    @ObfuscatedSignature(
-      signature = "(Ljava/lang/CharSequence;B)Ljava/lang/String;",
-      garbageValue = "57"
+      signature = "Lfb;"
    )
-   public static String method5641(CharSequence var0) {
-      int var2 = var0.length();
-      char[] var3 = new char[var2];
+   IndexFile index;
 
-      for(int var4 = 0; var4 < var2; ++var4) {
-         var3[var4] = '*';
+   @ObfuscatedName("fh")
+   @ObfuscatedSignature(
+      signature = "(IIB)V",
+      garbageValue = "64"
+   )
+   static void method570(int var0, int var1) {
+      if(client.field882 != 0 && var0 != -1) {
+         WorldMapDataGroup.method957(WorldMapType1.jingles, var0, 0, client.field882, false);
+         client.field884 = true;
       }
 
-      String var1 = new String(var3);
-      return var1;
-   }
-
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(B)[Liz;",
-      garbageValue = "-99"
-   )
-   public static ModeGame[] method5639() {
-      return new ModeGame[]{ModeGame.STELLARDAWN, ModeGame.RUNESCAPE, ModeGame.GAME4, ModeGame.OLDSCAPE, ModeGame.GAME3, ModeGame.GAME5};
-   }
-
-   @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "(B)V",
-      garbageValue = "102"
-   )
-   public static void method5640() {
-      class186.classInfos = new CombatInfoList();
    }
 }

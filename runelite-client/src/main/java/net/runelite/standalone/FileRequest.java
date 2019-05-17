@@ -4,76 +4,75 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("it")
+@ObfuscatedName("ig")
 public class FileRequest extends CacheableNode {
-   @ObfuscatedName("w")
-   @ObfuscatedGetter(
-      intValue = 950982671
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "Lin;"
    )
-   static int field3222;
-   @ObfuscatedName("r")
+   public Js5 index;
+   @ObfuscatedName("s")
    @ObfuscatedGetter(
-      intValue = 1984455813
+      intValue = 751928619
    )
-   int crc;
-   @ObfuscatedName("e")
-   byte padding;
+   public int crc;
    @ObfuscatedName("g")
-   @ObfuscatedSignature(
-      signature = "Lih;"
-   )
-   Js5 index;
+   public byte padding;
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "(II)Ljv;",
-      garbageValue = "-203232767"
+      signature = "(I)V",
+      garbageValue = "-1297014009"
    )
-   public static NPCType method4030(int var0) {
-      NPCType var1 = (NPCType)NPCType.npcTypeCache.method951((long)var0);
-      if(var1 != null) {
-         return var1;
-      } else {
-         byte[] var2 = NPCType.NpcDefinition_indexCache.method1516(9, var0, 1789634852);
-         var1 = new NPCType();
-         var1.id = var0;
-         if(var2 != null) {
-            var1.method5857(new Packet(var2));
-         }
-
-         var1.method5832();
-         NPCType.npcTypeCache.method957(var1, (long)var0);
-         return var1;
-      }
+   public static void method1170() {
+      HeadbarType.field3386.method629();
+      HeadbarType.field3387.method629();
    }
 
-   @ObfuscatedName("m")
+   @ObfuscatedName("k")
    @ObfuscatedSignature(
-      signature = "(I)Lls;",
-      garbageValue = "1642096242"
+      signature = "(I)V",
+      garbageValue = "-1875544085"
    )
-   static SpritePixels method4031() {
-      SpritePixels var0 = new SpritePixels();
-      var0.maxWidth = class95.indexedSpriteWidth;
-      var0.maxHeight = class95.indexedSpriteHeight;
-      var0.offsetX = class95.indexedSpriteOffsetXs[0];
-      var0.offsetY = class95.indexedSpriteOffsetYs[0];
-      var0.width = class95.indexSpriteWidths[0];
-      var0.height = VarClientType.indexedSpriteHeights[0];
-      int var1 = var0.height * var0.width;
-      byte[] var2 = class95.spritePixels[0];
-      var0.pixels = new int[var1];
+   static final void method1172() {
+      class54.method868("You can\'t add yourself to your own ignore list");
+   }
 
-      for(int var3 = 0; var3 < var1; ++var3) {
-         var0.pixels[var3] = class95.indexedSpritePalette[var2[var3] & 255];
+   @ObfuscatedName("hu")
+   @ObfuscatedSignature(
+      signature = "(Lbj;B)V",
+      garbageValue = "33"
+   )
+   static final void method1171(PendingSpawn var0) {
+      long var1 = 0L;
+      int var3 = -1;
+      int var4 = 0;
+      int var5 = 0;
+      if(var0.type == 0) {
+         var1 = class312.sceneManager.method3720(var0.level, var0.x, var0.y);
       }
 
-      class95.indexedSpriteOffsetXs = null;
-      class95.indexedSpriteOffsetYs = null;
-      class95.indexSpriteWidths = null;
-      VarClientType.indexedSpriteHeights = null;
-      class95.indexedSpritePalette = null;
-      class95.spritePixels = null;
-      return var0;
+      if(var0.type == 1) {
+         var1 = class312.sceneManager.method3648(var0.level, var0.x, var0.y);
+      }
+
+      if(var0.type == 2) {
+         var1 = class312.sceneManager.method3649(var0.level, var0.x, var0.y);
+      }
+
+      if(var0.type == 3) {
+         var1 = class312.sceneManager.method3713(var0.level, var0.x, var0.y);
+      }
+
+      if(0L != var1) {
+         int var6 = class312.sceneManager.method3651(var0.level, var0.x, var0.y, var1);
+         var3 = Resampler.method143(var1);
+         var4 = var6 & 31;
+         var5 = var6 >> 6 & 3;
+      }
+
+      var0.field930 = var3;
+      var0.field936 = var4;
+      var0.field927 = var5;
    }
 }

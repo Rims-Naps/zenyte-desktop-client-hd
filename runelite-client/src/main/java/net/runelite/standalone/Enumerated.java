@@ -3,12 +3,12 @@ package net.runelite.standalone;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gp")
+@ObfuscatedName("gr")
 public interface Enumerated {
-   @ObfuscatedName("r")
+   @ObfuscatedName("x")
    @ObfuscatedSignature(
-      signature = "(B)I",
-      garbageValue = "1"
+      signature = "(I)I",
+      garbageValue = "-303219076"
    )
-   int vmethod5358();
+   int vmethod6373();
 }

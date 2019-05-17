@@ -2,9 +2,9 @@ package net.runelite.standalone;
 
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("gg")
+@ObfuscatedName("gv")
 public class ObjectNode extends Node {
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    public final Object value;
 
    public ObjectNode(Object var1) {

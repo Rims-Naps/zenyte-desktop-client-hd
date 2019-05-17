@@ -1,59 +1,68 @@
 package net.runelite.standalone;
 
-import java.util.Comparator;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ez")
-public class class220 implements Comparator {
-   @ObfuscatedName("eg")
-   @ObfuscatedGetter(
-      intValue = -1117226937
-   )
-   static int port1;
-   @ObfuscatedName("g")
-   final boolean field1929;
-
-   public class220(boolean var1) {
-      this.field1929 = var1;
-   }
-
-   public int compare(Object var1, Object var2) {
-      return this.method4427((ChatPlayer)var1, (ChatPlayer)var2);
-   }
-
-   public boolean equals(Object var1) {
-      return super.equals(var1);
-   }
-
-   @ObfuscatedName("g")
+@ObfuscatedName("hp")
+public class class220 {
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(Lkv;Lkv;B)I",
-      garbageValue = "-43"
+      signature = "Lhh;"
    )
-   int method4427(ChatPlayer var1, ChatPlayer var2) {
-      return this.field1929?var1.field3706 - var2.field3706:var2.field3706 - var1.field3706;
+   class26 field2518;
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "Lhh;"
+   )
+   class26 field2519;
+
+   public class220() {
+      this.field2518 = new class26();
+      this.field2518.field2520 = this.field2518;
+      this.field2518.field2521 = this.field2518;
    }
 
-   @ObfuscatedName("r")
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "(II)Lji;",
-      garbageValue = "-160716252"
+      signature = "(Lhh;)V"
    )
-   public static StructType method4431(int var0) {
-      StructType var1 = (StructType)StructType.structTypeCache.method951((long)var0);
-      if(var1 != null) {
-         return var1;
+   public void method4234(class26 var1) {
+      if(var1.field2521 != null) {
+         var1.method466();
+      }
+
+      var1.field2521 = this.field2518.field2521;
+      var1.field2520 = this.field2518;
+      var1.field2521.field2520 = var1;
+      var1.field2520.field2521 = var1;
+   }
+
+   @ObfuscatedName("s")
+   @ObfuscatedSignature(
+      signature = "()Lhh;"
+   )
+   public class26 method4233() {
+      class26 var1 = this.field2518.field2520;
+      if(var1 == this.field2518) {
+         this.field2519 = null;
+         return null;
       } else {
-         byte[] var2 = StructType.field3411.method1516(34, var0, 1789634852);
-         var1 = new StructType();
-         if(var2 != null) {
-            var1.method5702(new Packet(var2));
-         }
+         this.field2519 = var1.field2520;
+         return var1;
+      }
+   }
 
-         var1.method5699();
-         StructType.structTypeCache.method957(var1, (long)var0);
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "()Lhh;"
+   )
+   public class26 method4229() {
+      class26 var1 = this.field2519;
+      if(var1 == this.field2518) {
+         this.field2519 = null;
+         return null;
+      } else {
+         this.field2519 = var1.field2520;
          return var1;
       }
    }

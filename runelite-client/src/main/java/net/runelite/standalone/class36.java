@@ -1,47 +1,68 @@
 package net.runelite.standalone;
 
+import java.awt.Component;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSSpritePixels;
 
-@ObfuscatedName("ew")
-public class class36 extends class127 {
-   @ObfuscatedName("l")
+@ObfuscatedName("gw")
+public class class36 {
+   @ObfuscatedName("fl")
    @ObfuscatedSignature(
-      signature = "[[Lhn;"
+      signature = "Lex;"
    )
-   public static ComponentType[][] interfaces;
-   @ObfuscatedName("dd")
+   static UrlRequester urlRequester;
+   @ObfuscatedName("a")
    @ObfuscatedSignature(
-      signature = "Lih;"
+      signature = "Liz;"
    )
-   static Js5 defaults;
-   @ObfuscatedName("g")
-   final boolean field1950;
+   static Js5Index NpcDefinition_indexCache;
 
-   public class36(boolean var1) {
-      this.field1950 = var1;
+   @ObfuscatedName("a")
+   public static final void method553(long var0) {
+      if(var0 > 0L) {
+         if(0L == var0 % 10L) {
+            long var2 = var0 - 1L;
+
+            try {
+               Thread.sleep(var2);
+            } catch (InterruptedException var8) {
+               ;
+            }
+
+            try {
+               Thread.sleep(1L);
+            } catch (InterruptedException var7) {
+               ;
+            }
+         } else {
+            try {
+               Thread.sleep(var0);
+            } catch (InterruptedException var6) {
+               ;
+            }
+         }
+
+      }
    }
 
-   public int compare(Object var1, Object var2) {
-      return this.method570((ChatPlayer)var1, (ChatPlayer)var2);
+   @ObfuscatedName("a")
+   @ObfuscatedSignature(
+      signature = "(I)[Lfh;",
+      garbageValue = "-1651997320"
+   )
+   public static ZoneProt[] method556() {
+      return new ZoneProt[]{ZoneProt.field2339, ZoneProt.field2337, ZoneProt.field2340, ZoneProt.field2335, ZoneProt.field2332, ZoneProt.field2344, ZoneProt.field2338, ZoneProt.field2333, ZoneProt.field2334, ZoneProt.field2341};
    }
 
-   @ObfuscatedName("g")
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(Lkv;Lkv;B)I",
-      garbageValue = "-23"
+      signature = "(Ljava/awt/Component;B)V",
+      garbageValue = "-74"
    )
-   int method570(ChatPlayer var1, ChatPlayer var2) {
-      return var2.world != var1.world?(this.field1950?var1.world - var2.world:var2.world - var1.world):this.method2141(var1, var2);
-   }
-
-   @ObfuscatedName("r")
-   @ObfuscatedSignature(
-      signature = "(Liu;IIB)Lls;"
-   )
-   public static SpritePixels method576(Js5Index var0, int var1, int var2, byte var3) {
-      net.runelite.api.SpritePixels var4 = (net.runelite.api.SpritePixels)client.spriteOverrides.get(Integer.valueOf(var1));
-      return var4 != null?(SpritePixels)((RSSpritePixels)var4):(SpritePixels)client.copy$getSpriteAsSpritePixels(var0, var1, var2, var3);
+   static void method555(Component var0) {
+      var0.removeMouseListener(MouseInput.mouse);
+      var0.removeMouseMotionListener(MouseInput.mouse);
+      var0.removeFocusListener(MouseInput.mouse);
+      MouseInput.MouseHandler_currentButton = 0;
    }
 }

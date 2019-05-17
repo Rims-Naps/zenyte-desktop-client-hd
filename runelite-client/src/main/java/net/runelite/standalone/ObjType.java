@@ -6,236 +6,233 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSItemComposition;
 
-@ObfuscatedName("jw")
+@ObfuscatedName("jc")
 public class ObjType extends CacheableNode implements RSItemComposition {
-   @ObfuscatedName("l")
+   @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "Liu;"
-   )
-   static Js5Index item_ref;
-   @ObfuscatedName("m")
-   @ObfuscatedSignature(
-      signature = "Lgv;"
+      signature = "Lgp;"
    )
    public static NodeCache itemSpriteCache;
-   @ObfuscatedName("p")
-   @ObfuscatedSignature(
-      signature = "Lgv;"
+   @ObfuscatedName("q")
+   @ObfuscatedGetter(
+      intValue = -2024720123
    )
-   static NodeCache itemModelCache;
-   @ObfuscatedName("i")
+   public static int field3508;
+   @ObfuscatedName("m")
+   public static boolean isMembersWorld;
+   @ObfuscatedName("b")
    @ObfuscatedSignature(
-      signature = "Lgv;"
+      signature = "Lgp;"
    )
    static NodeCache items;
-   @ObfuscatedName("es")
-   @ObfuscatedGetter(
-      intValue = -2005222067
+   @ObfuscatedName("n")
+   @ObfuscatedSignature(
+      signature = "Lgp;"
    )
-   static int field3543;
+   static NodeCache itemModelCache;
    @ObfuscatedName("ak")
    @ObfuscatedGetter(
-      intValue = 304673599
-   )
-   int womanHead;
-   @ObfuscatedName("f")
-   short[] recolD;
-   @ObfuscatedName("aq")
-   @ObfuscatedGetter(
-      intValue = -1244741287
-   )
-   int resizeZ;
-   @ObfuscatedName("v")
-   public String name;
-   @ObfuscatedName("af")
-   @ObfuscatedGetter(
-      intValue = -1659927863
-   )
-   public int stackable;
-   @ObfuscatedName("bs")
-   @ObfuscatedGetter(
-      intValue = -1140902855
-   )
-   public int ambient;
-   @ObfuscatedName("al")
-   @ObfuscatedGetter(
-      intValue = -1237512463
-   )
-   int manHead2;
-   @ObfuscatedName("ae")
-   public String[] iops;
-   @ObfuscatedName("k")
-   @ObfuscatedGetter(
-      intValue = -350615705
-   )
-   public int zoom2d;
-   @ObfuscatedName("bz")
-   @ObfuscatedGetter(
-      intValue = -1111369339
-   )
-   public int contrast;
-   @ObfuscatedName("au")
-   @ObfuscatedGetter(
-      intValue = -2041245485
+      intValue = -636666147
    )
    int resizeY;
-   @ObfuscatedName("x")
+   @ObfuscatedName("aq")
    @ObfuscatedGetter(
-      intValue = -1493003689
+      intValue = -77129911
+   )
+   int manHead2;
+   @ObfuscatedName("l")
+   @ObfuscatedGetter(
+      intValue = -1420925049
    )
    int inventoryModel;
-   @ObfuscatedName("ba")
-   @ObfuscatedGetter(
-      intValue = -407877319
-   )
-   public int team;
-   @ObfuscatedName("ag")
-   @ObfuscatedGetter(
-      intValue = 801422165
-   )
-   int maleModel1;
-   @ObfuscatedName("aj")
-   @ObfuscatedGetter(
-      intValue = -807483627
-   )
-   int maleModel;
-   @ObfuscatedName("aw")
-   public String[] ops;
-   @ObfuscatedName("o")
-   @ObfuscatedGetter(
-      intValue = 238080791
-   )
-   public int yof2d;
-   @ObfuscatedName("bp")
-   public boolean stockmarket;
-   @ObfuscatedName("a")
-   short[] retexS;
-   @ObfuscatedName("ai")
-   @ObfuscatedGetter(
-      intValue = 2098726833
-   )
-   int femaleModel2;
-   @ObfuscatedName("z")
-   @ObfuscatedGetter(
-      intValue = -19908971
-   )
-   public int xan2d;
-   @ObfuscatedName("av")
-   @ObfuscatedGetter(
-      intValue = 1766518863
-   )
-   int resizeX;
-   @ObfuscatedName("bq")
-   @ObfuscatedGetter(
-      intValue = 182588047
-   )
-   int boughtTemplate;
-   @ObfuscatedName("t")
+   @ObfuscatedName("v")
    short[] retexD;
-   @ObfuscatedName("ay")
-   int[] countCo;
-   @ObfuscatedName("ah")
+   @ObfuscatedName("af")
    @ObfuscatedGetter(
-      intValue = -1004986717
-   )
-   public int certLink;
-   @ObfuscatedName("an")
-   @ObfuscatedGetter(
-      intValue = 817844065
+      intValue = -240283457
    )
    public int cost;
-   public int shiftClickActionIndex;
-   @ObfuscatedName("bv")
+   @ObfuscatedName("al")
    @ObfuscatedGetter(
-      intValue = 1272150055
+      intValue = 1946712565
    )
-   int boughtLink;
-   @ObfuscatedName("at")
+   int womanHead;
+   @ObfuscatedName("ae")
    @ObfuscatedGetter(
-      intValue = 431530187
-   )
-   int femaleModel1;
-   @ObfuscatedName("y")
-   @ObfuscatedGetter(
-      intValue = 189595019
-   )
-   public int zan2d;
-   @ObfuscatedName("am")
-   int[] countObj;
-   @ObfuscatedName("bf")
-   @ObfuscatedGetter(
-      intValue = -1571896469
-   )
-   public int placeholderTemplate;
-   @ObfuscatedName("as")
-   @ObfuscatedGetter(
-      intValue = 1799426671
-   )
-   int femaleOffset;
-   @ObfuscatedName("ax")
-   public boolean members;
-   @ObfuscatedName("ar")
-   @ObfuscatedGetter(
-      intValue = 975819811
-   )
-   int femaleModel;
-   @ObfuscatedName("ad")
-   @ObfuscatedGetter(
-      intValue = -1216566485
-   )
-   int manHead;
-   @ObfuscatedName("j")
-   @ObfuscatedGetter(
-      intValue = 2029901813
-   )
-   public int id;
-   @ObfuscatedName("aa")
-   @ObfuscatedGetter(
-      intValue = -1256715705
-   )
-   int maleModel2;
-   @ObfuscatedName("s")
-   @ObfuscatedGetter(
-      intValue = 2107051619
-   )
-   public int yan2d;
-   @ObfuscatedName("az")
-   @ObfuscatedGetter(
-      intValue = -1290686137
-   )
-   int shiftClickIndex;
-   @ObfuscatedName("bw")
-   @ObfuscatedGetter(
-      intValue = 1811802621
-   )
-   public int placeholderLink;
-   @ObfuscatedName("ap")
-   @ObfuscatedGetter(
-      intValue = 1506369793
-   )
-   public int certTemplate;
-   @ObfuscatedName("bi")
-   @ObfuscatedSignature(
-      signature = "Lgr;"
-   )
-   IterableHashTable params;
-   @ObfuscatedName("h")
-   short[] recolS;
-   @ObfuscatedName("u")
-   @ObfuscatedGetter(
-      intValue = 1971833575
-   )
-   public int xof2d;
-   @ObfuscatedName("ab")
-   @ObfuscatedGetter(
-      intValue = -1703116259
+      intValue = -522053309
    )
    int maleOffset;
-   @ObfuscatedName("ao")
+   @ObfuscatedName("k")
+   short[] retexS;
+   @ObfuscatedName("w")
    @ObfuscatedGetter(
-      intValue = -1594330045
+      intValue = 1464734291
+   )
+   public int xan2d;
+   @ObfuscatedName("bz")
+   public boolean stockmarket;
+   @ObfuscatedName("bg")
+   @ObfuscatedGetter(
+      intValue = -691708769
+   )
+   public int placeholderTemplate;
+   @ObfuscatedName("bd")
+   @ObfuscatedSignature(
+      signature = "Lgs;"
+   )
+   IterableHashTable params;
+   @ObfuscatedName("au")
+   @ObfuscatedGetter(
+      intValue = -515749673
+   )
+   int femaleModel1;
+   @ObfuscatedName("ag")
+   @ObfuscatedGetter(
+      intValue = 1014870201
+   )
+   public int stackable;
+   @ObfuscatedName("aj")
+   @ObfuscatedGetter(
+      intValue = -410003891
+   )
+   int femaleOffset;
+   @ObfuscatedName("aw")
+   @ObfuscatedGetter(
+      intValue = -1728655245
+   )
+   int shiftClickIndex;
+   @ObfuscatedName("bo")
+   @ObfuscatedGetter(
+      intValue = -2025634101
+   )
+   public int contrast;
+   @ObfuscatedName("o")
+   public String name;
+   @ObfuscatedName("bp")
+   @ObfuscatedGetter(
+      intValue = -742207739
+   )
+   int boughtTemplate;
+   @ObfuscatedName("ai")
+   @ObfuscatedGetter(
+      intValue = 1147738563
+   )
+   int manHead;
+   @ObfuscatedName("z")
+   @ObfuscatedGetter(
+      intValue = -45453355
+   )
+   public int yof2d;
+   @ObfuscatedName("av")
+   @ObfuscatedGetter(
+      intValue = -796459901
+   )
+   int femaleModel;
+   @ObfuscatedName("c")
+   @ObfuscatedGetter(
+      intValue = 41322359
+   )
+   public int zan2d;
+   @ObfuscatedName("t")
+   @ObfuscatedGetter(
+      intValue = 1567373911
+   )
+   public int id;
+   @ObfuscatedName("ay")
+   public boolean members;
+   @ObfuscatedName("an")
+   @ObfuscatedGetter(
+      intValue = 738599493
+   )
+   int maleModel;
+   public int shiftClickActionIndex;
+   @ObfuscatedName("be")
+   @ObfuscatedGetter(
+      intValue = -1461842305
+   )
+   public int team;
+   @ObfuscatedName("i")
+   @ObfuscatedGetter(
+      intValue = -61123767
+   )
+   public int yan2d;
+   @ObfuscatedName("bv")
+   @ObfuscatedGetter(
+      intValue = 1676762263
+   )
+   public int placeholderLink;
+   @ObfuscatedName("at")
+   @ObfuscatedGetter(
+      intValue = -1393904297
+   )
+   int maleModel1;
+   @ObfuscatedName("y")
+   short[] recolD;
+   @ObfuscatedName("am")
+   @ObfuscatedGetter(
+      intValue = -496370405
+   )
+   int resizeZ;
+   @ObfuscatedName("bf")
+   @ObfuscatedGetter(
+      intValue = 1783276773
+   )
+   public int ambient;
+   @ObfuscatedName("as")
+   @ObfuscatedGetter(
+      intValue = -581420823
+   )
+   int maleModel2;
+   @ObfuscatedName("ax")
+   @ObfuscatedGetter(
+      intValue = 944846259
+   )
+   public int certTemplate;
+   @ObfuscatedName("d")
+   @ObfuscatedGetter(
+      intValue = 1339319927
+   )
+   public int zoom2d;
+   @ObfuscatedName("ar")
+   @ObfuscatedGetter(
+      intValue = 953273737
+   )
+   int femaleModel2;
+   @ObfuscatedName("ad")
+   @ObfuscatedGetter(
+      intValue = -1652485973
+   )
+   public int certLink;
+   @ObfuscatedName("j")
+   @ObfuscatedGetter(
+      intValue = -1408460323
+   )
+   public int xof2d;
+   @ObfuscatedName("aa")
+   public String[] ops;
+   @ObfuscatedName("az")
+   @ObfuscatedGetter(
+      intValue = 81686335
    )
    int womanHead2;
+   @ObfuscatedName("ap")
+   @ObfuscatedGetter(
+      intValue = -1594097723
+   )
+   int resizeX;
+   @ObfuscatedName("ac")
+   int[] countObj;
+   @ObfuscatedName("bi")
+   @ObfuscatedGetter(
+      intValue = 2058235193
+   )
+   int boughtLink;
+   @ObfuscatedName("u")
+   short[] recolS;
+   @ObfuscatedName("ab")
+   public String[] iops;
+   @ObfuscatedName("ao")
+   int[] countCo;
 
    static {
       items = new NodeCache(64);
@@ -287,147 +284,10 @@ public class ObjType extends CacheableNode implements RSItemComposition {
 
    @ObfuscatedName("f")
    @ObfuscatedSignature(
-      signature = "(ZB)Ldu;",
-      garbageValue = "10"
+      signature = "(Ljc;Ljc;I)V",
+      garbageValue = "924288364"
    )
-   public final ModelData method6315(boolean var1) {
-      int var2 = this.maleModel;
-      int var3 = this.maleModel1;
-      int var4 = this.maleModel2;
-      if(var1) {
-         var2 = this.femaleModel;
-         var3 = this.femaleModel1;
-         var4 = this.femaleModel2;
-      }
-
-      if(var2 == -1) {
-         return null;
-      } else {
-         ModelData var5 = ModelData.method1479(GrandExchangeOffer.ItemDefinition_modelIndexCache, var2, 0);
-         if(var3 != -1) {
-            ModelData var6 = ModelData.method1479(GrandExchangeOffer.ItemDefinition_modelIndexCache, var3, 0);
-            if(var4 != -1) {
-               ModelData var7 = ModelData.method1479(GrandExchangeOffer.ItemDefinition_modelIndexCache, var4, 0);
-               ModelData[] var8 = new ModelData[]{var5, var6, var7};
-               var5 = new ModelData(var8, 3);
-            } else {
-               ModelData[] var10 = new ModelData[]{var5, var6};
-               var5 = new ModelData(var10, 2);
-            }
-         }
-
-         if(!var1 && this.maleOffset != 0) {
-            var5.method1463(0, this.maleOffset, 0);
-         }
-
-         if(var1 && this.femaleOffset != 0) {
-            var5.method1463(0, this.femaleOffset, 0);
-         }
-
-         int var9;
-         if(this.recolS != null) {
-            for(var9 = 0; var9 < this.recolS.length; ++var9) {
-               var5.method1411(this.recolS[var9], this.recolD[var9]);
-            }
-         }
-
-         if(this.retexS != null) {
-            for(var9 = 0; var9 < this.retexS.length; ++var9) {
-               var5.method1421(this.retexS[var9], this.retexD[var9]);
-            }
-         }
-
-         return var5;
-      }
-   }
-
-   @ObfuscatedName("e")
-   @ObfuscatedSignature(
-      signature = "(I)V",
-      garbageValue = "-1590833438"
-   )
-   void method6305() {
-      this.post();
-   }
-
-   @ObfuscatedName("k")
-   @ObfuscatedSignature(
-      signature = "(III)I",
-      garbageValue = "-452772638"
-   )
-   public int method6343(int var1, int var2) {
-      return AuthProt.method1664(this.params, var1, var2);
-   }
-
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
-      signature = "(Lgl;I)V",
-      garbageValue = "1116128472"
-   )
-   void method6358(Packet var1) {
-      while(true) {
-         int var2 = var1.readUnsignedByte();
-         if(var2 == 0) {
-            return;
-         }
-
-         this.method6307(var1, var2);
-      }
-   }
-
-   @ObfuscatedName("x")
-   @ObfuscatedSignature(
-      signature = "(II)Ljw;",
-      garbageValue = "-1362689437"
-   )
-   public ObjType method6356(int var1) {
-      if(this.countObj != null && var1 > 1) {
-         int var2 = -1;
-
-         for(int var3 = 0; var3 < 10; ++var3) {
-            if(var1 >= this.countCo[var3] && this.countCo[var3] != 0) {
-               var2 = this.countObj[var3];
-            }
-         }
-
-         if(var2 != -1) {
-            return Varcs.method4770(var2);
-         }
-      }
-
-      return this;
-   }
-
-   @ObfuscatedName("m")
-   @ObfuscatedSignature(
-      signature = "(Ljw;Ljw;B)V",
-      garbageValue = "2"
-   )
-   void method6310(ObjType var1, ObjType var2) {
-      this.inventoryModel = var1.inventoryModel;
-      this.zoom2d = var1.zoom2d;
-      this.xan2d = var1.xan2d;
-      this.yan2d = var1.yan2d;
-      this.zan2d = var1.zan2d;
-      this.xof2d = var1.xof2d;
-      this.yof2d = var1.yof2d;
-      this.recolS = var1.recolS;
-      this.recolD = var1.recolD;
-      this.retexS = var1.retexS;
-      this.retexD = var1.retexD;
-      this.stackable = var1.stackable;
-      this.name = var2.name;
-      this.cost = 0;
-      this.members = false;
-      this.stockmarket = false;
-   }
-
-   @ObfuscatedName("p")
-   @ObfuscatedSignature(
-      signature = "(Ljw;Ljw;B)V",
-      garbageValue = "1"
-   )
-   void method6321(ObjType var1, ObjType var2) {
+   void method2224(ObjType var1, ObjType var2) {
       this.inventoryModel = var1.inventoryModel;
       this.zoom2d = var1.zoom2d;
       this.xan2d = var1.xan2d;
@@ -465,12 +325,12 @@ public class ObjType extends CacheableNode implements RSItemComposition {
       this.cost = 0;
    }
 
-   @ObfuscatedName("a")
+   @ObfuscatedName("l")
    @ObfuscatedSignature(
-      signature = "(ZI)Z",
-      garbageValue = "-601287689"
+      signature = "(ZI)Ldk;",
+      garbageValue = "-665171259"
    )
-   public final boolean method6316(boolean var1) {
+   public final ModelData method2225(boolean var1) {
       int var2 = this.manHead;
       int var3 = this.manHead2;
       if(var1) {
@@ -479,27 +339,182 @@ public class ObjType extends CacheableNode implements RSItemComposition {
       }
 
       if(var2 == -1) {
-         return true;
+         return null;
       } else {
-         boolean var4 = true;
-         if(!GrandExchangeOffer.ItemDefinition_modelIndexCache.method1515(var2, 0)) {
-            var4 = false;
+         ModelData var4 = ModelData.method2779(class60.ItemDefinition_modelIndexCache, var2, 0);
+         if(var3 != -1) {
+            ModelData var5 = ModelData.method2779(class60.ItemDefinition_modelIndexCache, var3, 0);
+            ModelData[] var6 = new ModelData[]{var4, var5};
+            var4 = new ModelData(var6, 2);
          }
 
-         if(var3 != -1 && !GrandExchangeOffer.ItemDefinition_modelIndexCache.method1515(var3, 0)) {
-            var4 = false;
+         int var7;
+         if(this.recolS != null) {
+            for(var7 = 0; var7 < this.recolS.length; ++var7) {
+               var4.method2801(this.recolS[var7], this.recolD[var7]);
+            }
+         }
+
+         if(this.retexS != null) {
+            for(var7 = 0; var7 < this.retexS.length; ++var7) {
+               var4.method2850(this.retexS[var7], this.retexD[var7]);
+            }
          }
 
          return var4;
       }
    }
 
-   @ObfuscatedName("c")
+   @ObfuscatedName("e")
    @ObfuscatedSignature(
-      signature = "(Lgl;II)V",
-      garbageValue = "-801705677"
+      signature = "(ZI)Z",
+      garbageValue = "-790138685"
    )
-   void method6307(Packet var1, int var2) {
+   public final boolean method2222(boolean var1) {
+      int var2 = this.maleModel;
+      int var3 = this.maleModel1;
+      int var4 = this.maleModel2;
+      if(var1) {
+         var2 = this.femaleModel;
+         var3 = this.femaleModel1;
+         var4 = this.femaleModel2;
+      }
+
+      if(var2 == -1) {
+         return true;
+      } else {
+         boolean var5 = true;
+         if(!class60.ItemDefinition_modelIndexCache.method4117(var2, 0)) {
+            var5 = false;
+         }
+
+         if(var3 != -1 && !class60.ItemDefinition_modelIndexCache.method4117(var3, 0)) {
+            var5 = false;
+         }
+
+         if(var4 != -1 && !class60.ItemDefinition_modelIndexCache.method4117(var4, 0)) {
+            var5 = false;
+         }
+
+         return var5;
+      }
+   }
+
+   @ObfuscatedName("r")
+   @ObfuscatedSignature(
+      signature = "(ZB)Ldk;",
+      garbageValue = "79"
+   )
+   public final ModelData method2245(boolean var1) {
+      int var2 = this.maleModel;
+      int var3 = this.maleModel1;
+      int var4 = this.maleModel2;
+      if(var1) {
+         var2 = this.femaleModel;
+         var3 = this.femaleModel1;
+         var4 = this.femaleModel2;
+      }
+
+      if(var2 == -1) {
+         return null;
+      } else {
+         ModelData var5 = ModelData.method2779(class60.ItemDefinition_modelIndexCache, var2, 0);
+         if(var3 != -1) {
+            ModelData var6 = ModelData.method2779(class60.ItemDefinition_modelIndexCache, var3, 0);
+            if(var4 != -1) {
+               ModelData var7 = ModelData.method2779(class60.ItemDefinition_modelIndexCache, var4, 0);
+               ModelData[] var8 = new ModelData[]{var5, var6, var7};
+               var5 = new ModelData(var8, 3);
+            } else {
+               ModelData[] var10 = new ModelData[]{var5, var6};
+               var5 = new ModelData(var10, 2);
+            }
+         }
+
+         if(!var1 && this.maleOffset != 0) {
+            var5.method2814(0, this.maleOffset, 0);
+         }
+
+         if(var1 && this.femaleOffset != 0) {
+            var5.method2814(0, this.femaleOffset, 0);
+         }
+
+         int var9;
+         if(this.recolS != null) {
+            for(var9 = 0; var9 < this.recolS.length; ++var9) {
+               var5.method2801(this.recolS[var9], this.recolD[var9]);
+            }
+         }
+
+         if(this.retexS != null) {
+            for(var9 = 0; var9 < this.retexS.length; ++var9) {
+               var5.method2850(this.retexS[var9], this.retexD[var9]);
+            }
+         }
+
+         return var5;
+      }
+   }
+
+   @ObfuscatedName("q")
+   @ObfuscatedSignature(
+      signature = "(IB)Ldv;",
+      garbageValue = "4"
+   )
+   public final Model method2220(int var1) {
+      if(this.countObj != null && var1 > 1) {
+         int var2 = -1;
+
+         for(int var3 = 0; var3 < 10; ++var3) {
+            if(var1 >= this.countCo[var3] && this.countCo[var3] != 0) {
+               var2 = this.countObj[var3];
+            }
+         }
+
+         if(var2 != -1) {
+            return class79.method1074(var2).method2220(1);
+         }
+      }
+
+      Model var5 = (Model)itemModelCache.method635((long)this.id);
+      if(var5 != null) {
+         return var5;
+      } else {
+         ModelData var6 = ModelData.method2779(class60.ItemDefinition_modelIndexCache, this.inventoryModel, 0);
+         if(var6 == null) {
+            return null;
+         } else {
+            if(this.resizeX != 128 || this.resizeY != 128 || this.resizeZ != 128) {
+               var6.method2795(this.resizeX, this.resizeY, this.resizeZ);
+            }
+
+            int var4;
+            if(this.recolS != null) {
+               for(var4 = 0; var4 < this.recolS.length; ++var4) {
+                  var6.method2801(this.recolS[var4], this.recolD[var4]);
+               }
+            }
+
+            if(this.retexS != null) {
+               for(var4 = 0; var4 < this.retexS.length; ++var4) {
+                  var6.method2850(this.retexS[var4], this.retexD[var4]);
+               }
+            }
+
+            var5 = var6.method2852(this.ambient + 64, this.contrast * 5 + 768, -50, -10, -50);
+            var5.field1696 = true;
+            itemModelCache.method628(var5, (long)this.id);
+            return var5;
+         }
+      }
+   }
+
+   @ObfuscatedName("x")
+   @ObfuscatedSignature(
+      signature = "(Lgx;IB)V",
+      garbageValue = "0"
+   )
+   void method2216(Packet var1, int var2) {
       if(var2 == 1) {
          this.inventoryModel = var1.readUnsignedShort();
       } else if(var2 == 2) {
@@ -523,7 +538,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
       } else if(var2 == 11) {
          this.stackable = 1;
       } else if(var2 == 12) {
-         this.cost = var1.readInt();
+         this.cost = var1.method5091();
       } else if(var2 == 16) {
          this.members = true;
       } else if(var2 == 23) {
@@ -565,7 +580,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
                this.retexD[var4] = (short)var1.readUnsignedShort();
             }
          } else if(var2 == 42) {
-            this.shiftClickIndex = var1.readSignedByte();
+            this.shiftClickIndex = var1.method5230();
          } else if(var2 == 65) {
             this.stockmarket = true;
          } else if(var2 == 78) {
@@ -601,9 +616,9 @@ public class ObjType extends CacheableNode implements RSItemComposition {
          } else if(var2 == 112) {
             this.resizeZ = var1.readUnsignedShort();
          } else if(var2 == 113) {
-            this.ambient = var1.readSignedByte();
+            this.ambient = var1.method5230();
          } else if(var2 == 114) {
-            this.contrast = var1.readSignedByte();
+            this.contrast = var1.method5230();
          } else if(var2 == 115) {
             this.team = var1.readUnsignedByte();
          } else if(var2 == 139) {
@@ -615,18 +630,132 @@ public class ObjType extends CacheableNode implements RSItemComposition {
          } else if(var2 == 149) {
             this.placeholderTemplate = var1.readUnsignedShort();
          } else if(var2 == 249) {
-            this.params = class96.method1621(var1, this.params);
+            this.params = class51.method850(var1, this.params);
          }
       }
 
    }
 
+   @ObfuscatedName("m")
+   @ObfuscatedSignature(
+      signature = "(II)Ldk;",
+      garbageValue = "-573893718"
+   )
+   public final ModelData method2219(int var1) {
+      int var3;
+      if(this.countObj != null && var1 > 1) {
+         int var2 = -1;
+
+         for(var3 = 0; var3 < 10; ++var3) {
+            if(var1 >= this.countCo[var3] && this.countCo[var3] != 0) {
+               var2 = this.countObj[var3];
+            }
+         }
+
+         if(var2 != -1) {
+            return class79.method1074(var2).method2219(1);
+         }
+      }
+
+      ModelData var4 = ModelData.method2779(class60.ItemDefinition_modelIndexCache, this.inventoryModel, 0);
+      if(var4 == null) {
+         return null;
+      } else {
+         if(this.resizeX != 128 || this.resizeY != 128 || this.resizeZ != 128) {
+            var4.method2795(this.resizeX, this.resizeY, this.resizeZ);
+         }
+
+         if(this.recolS != null) {
+            for(var3 = 0; var3 < this.recolS.length; ++var3) {
+               var4.method2801(this.recolS[var3], this.recolD[var3]);
+            }
+         }
+
+         if(this.retexS != null) {
+            for(var3 = 0; var3 < this.retexS.length; ++var3) {
+               var4.method2850(this.retexS[var3], this.retexD[var3]);
+            }
+         }
+
+         return var4;
+      }
+   }
+
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+      signature = "(Ljc;Ljc;I)V",
+      garbageValue = "-585719410"
+   )
+   void method2218(ObjType var1, ObjType var2) {
+      this.inventoryModel = var1.inventoryModel;
+      this.zoom2d = var1.zoom2d;
+      this.xan2d = var1.xan2d;
+      this.yan2d = var1.yan2d;
+      this.zan2d = var1.zan2d;
+      this.xof2d = var1.xof2d;
+      this.yof2d = var1.yof2d;
+      this.recolS = var1.recolS;
+      this.recolD = var1.recolD;
+      this.retexS = var1.retexS;
+      this.retexD = var1.retexD;
+      this.stackable = var1.stackable;
+      this.name = var2.name;
+      this.cost = 0;
+      this.members = false;
+      this.stockmarket = false;
+   }
+
+   @ObfuscatedName("b")
+   @ObfuscatedSignature(
+      signature = "(II)Ljc;",
+      garbageValue = "96183287"
+   )
+   public ObjType method2221(int var1) {
+      if(this.countObj != null && var1 > 1) {
+         int var2 = -1;
+
+         for(int var3 = 0; var3 < 10; ++var3) {
+            if(var1 >= this.countCo[var3] && this.countCo[var3] != 0) {
+               var2 = this.countObj[var3];
+            }
+         }
+
+         if(var2 != -1) {
+            return class79.method1074(var2);
+         }
+      }
+
+      return this;
+   }
+
+   @ObfuscatedName("o")
+   @ObfuscatedSignature(
+      signature = "(IIS)I",
+      garbageValue = "-24705"
+   )
+   public int method2256(int var1, int var2) {
+      IterableHashTable var4 = this.params;
+      int var3;
+      if(var4 == null) {
+         var3 = var2;
+      } else {
+         IntegerNode var5 = (IntegerNode)var4.method2178((long)var1);
+         if(var5 == null) {
+            var3 = var2;
+         } else {
+            var3 = var5.value;
+         }
+      }
+
+      return var3;
+   }
+
    @ObfuscatedName("t")
    @ObfuscatedSignature(
-      signature = "(ZS)Ldu;",
-      garbageValue = "13056"
+      signature = "(ZI)Z",
+      garbageValue = "1934878119"
    )
-   public final ModelData method6348(boolean var1) {
+   public final boolean method2232(boolean var1) {
       int var2 = this.manHead;
       int var3 = this.manHead2;
       if(var1) {
@@ -635,26 +764,15 @@ public class ObjType extends CacheableNode implements RSItemComposition {
       }
 
       if(var2 == -1) {
-         return null;
+         return true;
       } else {
-         ModelData var4 = ModelData.method1479(GrandExchangeOffer.ItemDefinition_modelIndexCache, var2, 0);
-         if(var3 != -1) {
-            ModelData var5 = ModelData.method1479(GrandExchangeOffer.ItemDefinition_modelIndexCache, var3, 0);
-            ModelData[] var6 = new ModelData[]{var4, var5};
-            var4 = new ModelData(var6, 2);
+         boolean var4 = true;
+         if(!class60.ItemDefinition_modelIndexCache.method4117(var2, 0)) {
+            var4 = false;
          }
 
-         int var7;
-         if(this.recolS != null) {
-            for(var7 = 0; var7 < this.recolS.length; ++var7) {
-               var4.method1411(this.recolS[var7], this.recolD[var7]);
-            }
-         }
-
-         if(this.retexS != null) {
-            for(var7 = 0; var7 < this.retexS.length; ++var7) {
-               var4.method1421(this.retexS[var7], this.retexD[var7]);
-            }
+         if(var3 != -1 && !class60.ItemDefinition_modelIndexCache.method4117(var3, 0)) {
+            var4 = false;
          }
 
          return var4;
@@ -668,7 +786,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
    public void post() {
       PostItemComposition var1 = new PostItemComposition();
       var1.setItemComposition(this);
-      class166.clientInstance.getCallbacks().post(var1);
+      ItemContainer.clientInstance.getCallbacks().post(var1);
    }
 
    public int copy$getShiftClickActionIndex(int var1) {
@@ -736,15 +854,29 @@ public class ObjType extends CacheableNode implements RSItemComposition {
    }
 
    public int getShiftClickActionIndex() {
-      return this.method6319(982890618);
+      return this.method2228(-702567274);
    }
 
-   @ObfuscatedName("i")
+   @ObfuscatedName("y")
+   public int method2228(int var1) {
+      return this.shiftClickActionIndex == -2?this.copy$getShiftClickActionIndex(var1):this.shiftClickActionIndex;
+   }
+
+   @ObfuscatedName("s")
    @ObfuscatedSignature(
-      signature = "(Ljw;Ljw;I)V",
-      garbageValue = "-1496668389"
+      signature = "(B)V",
+      garbageValue = "127"
    )
-   void method6308(ObjType var1, ObjType var2) {
+   void method2226() {
+      this.post();
+   }
+
+   @ObfuscatedName("h")
+   @ObfuscatedSignature(
+      signature = "(Ljc;Ljc;I)V",
+      garbageValue = "478555269"
+   )
+   void method2217(ObjType var1, ObjType var2) {
       this.inventoryModel = var1.inventoryModel;
       this.zoom2d = var1.zoom2d;
       this.xan2d = var1.xan2d;
@@ -762,150 +894,62 @@ public class ObjType extends CacheableNode implements RSItemComposition {
       this.stackable = 1;
    }
 
-   @ObfuscatedName("y")
-   public int method6319(int var1) {
-      return this.shiftClickActionIndex == -2?this.copy$getShiftClickActionIndex(var1):this.shiftClickActionIndex;
-   }
-
-   @ObfuscatedName("d")
-   @ObfuscatedSignature(
-      signature = "(IS)Ldu;",
-      garbageValue = "-19539"
-   )
-   public final ModelData method6364(int var1) {
-      int var3;
-      if(this.countObj != null && var1 > 1) {
-         int var2 = -1;
-
-         for(var3 = 0; var3 < 10; ++var3) {
-            if(var1 >= this.countCo[var3] && this.countCo[var3] != 0) {
-               var2 = this.countObj[var3];
-            }
-         }
-
-         if(var2 != -1) {
-            return Varcs.method4770(var2).method6364(1);
-         }
-      }
-
-      ModelData var4 = ModelData.method1479(GrandExchangeOffer.ItemDefinition_modelIndexCache, this.inventoryModel, 0);
-      if(var4 == null) {
-         return null;
-      } else {
-         if(this.resizeX != 128 || this.resizeY != 128 || this.resizeZ != 128) {
-            var4.method1419(this.resizeX, this.resizeY, this.resizeZ);
-         }
-
-         if(this.recolS != null) {
-            for(var3 = 0; var3 < this.recolS.length; ++var3) {
-               var4.method1411(this.recolS[var3], this.recolD[var3]);
-            }
-         }
-
-         if(this.retexS != null) {
-            for(var3 = 0; var3 < this.retexS.length; ++var3) {
-               var4.method1421(this.retexS[var3], this.retexD[var3]);
-            }
-         }
-
-         return var4;
-      }
-   }
-
-   @ObfuscatedName("j")
-   @ObfuscatedSignature(
-      signature = "(II)Ldl;",
-      garbageValue = "-616764050"
-   )
-   public final Model method6333(int var1) {
-      if(this.countObj != null && var1 > 1) {
-         int var2 = -1;
-
-         for(int var3 = 0; var3 < 10; ++var3) {
-            if(var1 >= this.countCo[var3] && this.countCo[var3] != 0) {
-               var2 = this.countObj[var3];
-            }
-         }
-
-         if(var2 != -1) {
-            return Varcs.method4770(var2).method6333(1);
-         }
-      }
-
-      Model var5 = (Model)itemModelCache.method951((long)this.id);
-      if(var5 != null) {
-         return var5;
-      } else {
-         ModelData var6 = ModelData.method1479(GrandExchangeOffer.ItemDefinition_modelIndexCache, this.inventoryModel, 0);
-         if(var6 == null) {
-            return null;
-         } else {
-            if(this.resizeX != 128 || this.resizeY != 128 || this.resizeZ != 128) {
-               var6.method1419(this.resizeX, this.resizeY, this.resizeZ);
-            }
-
-            int var4;
-            if(this.recolS != null) {
-               for(var4 = 0; var4 < this.recolS.length; ++var4) {
-                  var6.method1411(this.recolS[var4], this.recolD[var4]);
-               }
-            }
-
-            if(this.retexS != null) {
-               for(var4 = 0; var4 < this.retexS.length; ++var4) {
-                  var6.method1421(this.retexS[var4], this.retexD[var4]);
-               }
-            }
-
-            var5 = var6.method1408(this.ambient + 64, this.contrast * 5 + 768, -50, -10, -50);
-            var5.field1664 = true;
-            itemModelCache.method957(var5, (long)this.id);
-            return var5;
-         }
-      }
-   }
-
-   @ObfuscatedName("s")
+   @ObfuscatedName("u")
    @ObfuscatedSignature(
       signature = "(ILjava/lang/String;I)Ljava/lang/String;",
-      garbageValue = "-1776442375"
+      garbageValue = "2067108094"
    )
-   public String method6318(int var1, String var2) {
-      return AuthProt.method1670(this.params, var1, var2);
-   }
-
-   @ObfuscatedName("h")
-   @ObfuscatedSignature(
-      signature = "(ZI)Z",
-      garbageValue = "1586509307"
-   )
-   public final boolean method6314(boolean var1) {
-      int var2 = this.maleModel;
-      int var3 = this.maleModel1;
-      int var4 = this.maleModel2;
-      if(var1) {
-         var2 = this.femaleModel;
-         var3 = this.femaleModel1;
-         var4 = this.femaleModel2;
+   public String method2227(int var1, String var2) {
+      IterableHashTable var4 = this.params;
+      String var3;
+      if(var4 == null) {
+         var3 = var2;
+      } else {
+         ObjectNode var5 = (ObjectNode)var4.method2178((long)var1);
+         if(var5 == null) {
+            var3 = var2;
+         } else {
+            var3 = (String)var5.value;
+         }
       }
 
-      if(var2 == -1) {
-         return true;
-      } else {
-         boolean var5 = true;
-         if(!GrandExchangeOffer.ItemDefinition_modelIndexCache.method1515(var2, 0)) {
-            var5 = false;
+      return var3;
+   }
+
+   @ObfuscatedName("g")
+   @ObfuscatedSignature(
+      signature = "(Lgx;I)V",
+      garbageValue = "-1429982553"
+   )
+   void method2215(Packet var1) {
+      while(true) {
+         int var2 = var1.readUnsignedByte();
+         if(var2 == 0) {
+            return;
          }
 
-         if(var3 != -1 && !GrandExchangeOffer.ItemDefinition_modelIndexCache.method1515(var3, 0)) {
-            var5 = false;
+         this.method2216(var1, var2);
+      }
+   }
+
+   @ObfuscatedName("x")
+   @ObfuscatedSignature(
+      signature = "(I)V",
+      garbageValue = "263162128"
+   )
+   public static void method2276() {
+      Object var0 = IndexStoreActionHandler.IndexStoreActionHandler_lock;
+      synchronized(IndexStoreActionHandler.IndexStoreActionHandler_lock) {
+         if(IndexStoreActionHandler.field3259 != 0) {
+            IndexStoreActionHandler.field3259 = 1;
+
+            try {
+               IndexStoreActionHandler.IndexStoreActionHandler_lock.wait();
+            } catch (InterruptedException var3) {
+               ;
+            }
          }
 
-         if(var4 != -1 && !GrandExchangeOffer.ItemDefinition_modelIndexCache.method1515(var4, 0)) {
-            var5 = false;
-         }
-
-         return var5;
       }
    }
 }

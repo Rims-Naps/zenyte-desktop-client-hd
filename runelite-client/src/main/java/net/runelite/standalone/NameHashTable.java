@@ -2,9 +2,9 @@ package net.runelite.standalone;
 
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("gw")
+@ObfuscatedName("gt")
 public class NameHashTable {
-   @ObfuscatedName("g")
+   @ObfuscatedName("a")
    int[] table;
 
    public NameHashTable(int[] var1) {
@@ -31,8 +31,8 @@ public class NameHashTable {
 
    }
 
-   @ObfuscatedName("g")
-   public int method568(int var1) {
+   @ObfuscatedName("a")
+   public int method3942(int var1) {
       int var2 = (this.table.length >> 1) - 1;
       int var3 = var1 & var2;
 
