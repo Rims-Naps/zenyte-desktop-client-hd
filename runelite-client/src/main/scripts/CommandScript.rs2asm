@@ -28,7 +28,7 @@ LABEL19:
    return                
 LABEL20:
    get_varc_string        335
-   string_length         
+   string_length
    istore                 2
    iconst                 0
    istore                 3
@@ -47,7 +47,7 @@ LABEL35:
    iconst                 1
    istore                 4
 LABEL37:
-   staffmodlevel         
+   staffmodlevel
    iconst                 0
    if_icmpgt              LABEL41
    jump                   LABEL43
@@ -62,7 +62,7 @@ LABEL43:
 LABEL47:
    sconst                 "`"
    iload                  1
-   string_indexof_char   
+   string_indexof_char
    iconst                 -1
    if_icmpne              LABEL53
    jump                   LABEL58
@@ -72,242 +72,68 @@ LABEL53:
    if_icmpeq              LABEL57
    jump                   LABEL58
 LABEL57:
-   return                
+   return
 LABEL58:
    iload                  0
    iconst                 84
-   if_icmpeq              LABEL62
-   jump                   LABEL179
-LABEL62:
-   invoke                 1984
-   iload                  2
-   iconst                 0
-   if_icmpgt              LABEL67
-   jump                   LABEL178
-LABEL67:
-   get_varc_string        335
-   sconst                 "/"
-   iconst                 0
-   string_indexof_string 
-   iconst                 0
-   if_icmpeq              LABEL77
-   iload                  4
-   iconst                 1
-   if_icmpeq              LABEL77
-   jump                   LABEL112
-LABEL77:
-   clan_getchatcount     
-   iconst                 0
-   if_icmpgt              LABEL81
-   jump                   LABEL108
-LABEL81:
-   iload                  2
-   iconst                 1
-   if_icmple              LABEL85
-   jump                   LABEL90
-LABEL85:
-   iload                  4
-   iconst                 0
-   if_icmpeq              LABEL89
-   jump                   LABEL90
-LABEL89:
-   return                
-LABEL90:
-   get_varbit             4394
-   iconst                 1
-   if_icmpeq              LABEL94
-   jump                   LABEL96
-LABEL94:
-   clan_leavechat        
-   jump                   LABEL107
-LABEL96:
-   iload                  4
-   iconst                 1
-   if_icmpeq              LABEL100
-   jump                   LABEL104
-LABEL100:
-   sconst                 "/"
-   get_varc_string        335
-   append                
-   set_varc_string        335
-LABEL104:
-   get_varc_string        335
-   iconst                 2
-   invoke                 96
-LABEL107:
-   jump                   LABEL111
-LABEL108:
-   get_varc_string        335
-   iconst                 0
-   invoke                 96
-LABEL111:
-   jump                   LABEL174
-LABEL112:
-   get_varc_string        335
-   sconst                 "::"
-   iconst                 0
-   string_indexof_string 
-   iconst                 0
-   if_icmpeq              LABEL119
-   jump                   LABEL171
-LABEL119:
-   iload                  2
-   iconst                 2
-   if_icmpgt              LABEL123
-   jump                   LABEL167
-LABEL123:
-   get_varc_string        335
-   sconst                 "::toggleroof"
-   iconst                 0
-   string_indexof_string 
-   iconst                 0
-   if_icmpeq              LABEL130
-   jump                   LABEL144
-LABEL130:
-   getremoveroofs        
-   iconst                 1
-   if_icmpeq              LABEL134
-   jump                   LABEL139
-LABEL134:
-   iconst                 0
-   setremoveroofs        
-   sconst                 "Roofs will only be removed selectively."
-   mes                   
-   jump                   LABEL143
-LABEL139:
-   iconst                 1
-   setremoveroofs        
-   sconst                 "Roofs are now all hidden."
-   mes                   
-LABEL143:
-   jump                   LABEL166
-LABEL144:
-   get_varc_string        335
-   sconst                 "::bank"
-   iconst                 0
-   string_indexof_string 
-   iconst                 0
-   if_icmpeq              LABEL151
-   sconst                 "runeliteCommand" ; load callback name
-   runelite_callback     ; invoke callback
-   jump                   LABEL155
-LABEL151:
-   sconst                 "Hey, everyone, I just tried to do something very silly!"
-   iconst                 0
-   invoke                 96
-   jump                   LABEL166
-LABEL155:
-   get_varc_string        335
-   invoke                 224
-   set_varc_string        335
-   get_varc_string        335
-   string_length         
-   istore                 2
-   get_varc_string        335
-   iconst                 2
-   iload                  2
-   substring             
-   docheat               
-LABEL166:
-   jump                   LABEL170
-LABEL167:
-   get_varc_string        335
-   iconst                 0
-   invoke                 96
-LABEL170:
-   jump                   LABEL174
-LABEL171:
-   get_varc_string        335
-   iconst                 0
-   invoke                 96
-LABEL174:
-   get_varc_string        335
-   invoke                 77
-   sconst                 ""
-   set_varc_string        335
-LABEL178:
-   jump                   LABEL247
-LABEL179:
+   if_icmpeq              LABEL127
    iload                  0
    iconst                 104
-   if_icmpeq              LABEL183
-   jump                   LABEL189
-LABEL183:
-   iload                  3
-   iconst                 1
-   if_icmpeq              LABEL187
-   jump                   LABEL188
-LABEL187:
-   invoke                 75
-LABEL188:
-   jump                   LABEL247
-LABEL189:
+   if_icmpeq              LABEL121
    iload                  0
    iconst                 105
-   if_icmpeq              LABEL193
-   jump                   LABEL199
-LABEL193:
-   iload                  3
-   iconst                 1
-   if_icmpeq              LABEL197
-   jump                   LABEL198
-LABEL197:
-   invoke                 76
-LABEL198:
-   jump                   LABEL247
-LABEL199:
+   if_icmpeq              LABEL115
    iload                  0
    iconst                 80
-   if_icmpeq              LABEL203
-   jump                   LABEL241
-LABEL203:
+   if_icmpeq              LABEL71
+   jump                   LABEL108
+LABEL71:
    get_varc_string        356
-   string_length         
+   string_length
    iconst                 0
-   if_icmpgt              LABEL208
-   jump                   LABEL228
-LABEL208:
+   if_icmpgt              LABEL76
+   jump                   LABEL96
+LABEL76:
    get_varc_string        356
-   friend_test           
+   friend_test
    iconst                 1
-   if_icmpeq              LABEL213
-   jump                   LABEL216
-LABEL213:
+   if_icmpeq              LABEL81
+   jump                   LABEL84
+LABEL81:
    get_varc_string        356
    invoke                 107
-   return                
-LABEL216:
+   return
+LABEL84:
    get_varc_int           60
-   clientclock           
-   if_icmpgt              LABEL220
-   jump                   LABEL221
-LABEL220:
-   return                
-LABEL221:
-   clientclock           
+   clientclock
+   if_icmpgt              LABEL88
+   jump                   LABEL89
+LABEL88:
+   return
+LABEL89:
+   clientclock
    iconst                 50
-   add                   
+   add
    set_varc_int           60
    sconst                 "That player was not found on your Friends list."
-   mes                   
-   return                
-LABEL228:
+   mes
+   return
+LABEL96:
    get_varc_int           60
-   clientclock           
-   if_icmpgt              LABEL232
-   jump                   LABEL233
-LABEL232:
-   return                
-LABEL233:
-   clientclock           
+   clientclock
+   if_icmpgt              LABEL100
+   jump                   LABEL101
+LABEL100:
+   return
+LABEL101:
+   clientclock
    iconst                 50
-   add                   
+   add
    set_varc_int           60
    sconst                 "You haven't received any messages to which you can reply."
-   mes                   
-   return                
-   jump                   LABEL247
-LABEL241:
+   mes
+   return
+LABEL108:
    get_varc_string        335
    iconst                 0
    iload                  0
@@ -317,8 +143,137 @@ LABEL241:
    iconst                 0                 ;
    sconst                 "blockChatInput"  ;
    runelite_callback     ;
-   if_icmpeq              LABEL247          ; don't add to input varcstr
+   if_icmpeq              LABEL225          ; don't add to input varcstr
    set_varc_string        335
-LABEL247:
+LABEL115:
+   iload                  3
+   iconst                 1
+   if_icmpeq              LABEL119
+   jump                   LABEL225
+LABEL119:
+   invoke                 76
+   jump                   LABEL225
+LABEL121:
+   iload                  3
+   iconst                 1
+   if_icmpeq              LABEL125
+   jump                   LABEL225
+LABEL125:
+   invoke                 75
+   jump                   LABEL225
+LABEL127:
+   invoke                 1984
+   iload                  2
+   iconst                 0
+   if_icmpgt              LABEL132
+   jump                   LABEL225
+LABEL132:
+   get_varc_string        335
+   sconst                 "/"
+   iconst                 0
+   string_indexof_string
+   iconst                 0
+   if_icmpeq              LABEL189
+   iload                  4
+   iconst                 1
+   if_icmpeq              LABEL189
+   get_varc_string        335
+   sconst                 "::"
+   iconst                 0
+   string_indexof_string
+   iconst                 0
+   if_icmpeq              LABEL151
+   get_varc_string        335
+   iconst                 0
+   invoke                 96
+   jump                   LABEL221
+LABEL151:
+   iload                  2
+   iconst                 2
+   if_icmpgt              LABEL158
+   get_varc_string        335
+   iconst                 0
+   invoke                 96
+   jump                   LABEL221
+LABEL158:
+   get_varc_string        335
+   sconst                 "::toggleroof"
+   iconst                 0
+   string_indexof_string
+   iconst                 0
+   if_icmpeq              LABEL176
+   get_varc_string        335
+   invoke                 224
+   set_varc_string        335
+   get_varc_string        335
+   string_length
+   istore                 2
+   get_varc_string        335
+   iconst                 2
+   iload                  2
+   substring
+   docheat
+   jump                   LABEL221
+LABEL176:
+   getremoveroofs
+   iconst                 1
+   if_icmpeq              LABEL184
+   iconst                 1
+   setremoveroofs
+   sconst                 "Roofs are now all hidden."
+   mes
+   jump                   LABEL221
+LABEL184:
+   iconst                 0
+   setremoveroofs
+   sconst                 "Roofs will only be removed selectively."
+   mes
+   jump                   LABEL221
+LABEL189:
+   clan_getchatcount
+   iconst                 0
+   if_icmpgt              LABEL196
+   get_varc_string        335
+   iconst                 0
+   invoke                 96
+   jump                   LABEL221
+LABEL196:
+   iload                  2
+   iconst                 1
+   if_icmple              LABEL200
+   jump                   LABEL205
+LABEL200:
+   iload                  4
+   iconst                 0
+   if_icmpeq              LABEL204
+   jump                   LABEL205
+LABEL204:
+   return
+LABEL205:
+   get_varbit             4394
+   iconst                 1
+   if_icmpeq              LABEL220
+   iload                  4
+   iconst                 1
+   if_icmpeq              LABEL212
+   jump                   LABEL216
+LABEL212:
+   sconst                 "/"
+   get_varc_string        335
+   append
+   set_varc_string        335
+LABEL216:
+   get_varc_string        335
+   iconst                 2
+   invoke                 96
+   jump                   LABEL221
+LABEL220:
+   clan_leavechat
+LABEL221:
+   get_varc_string        335
+   invoke                 77
+   sconst                 ""
+   set_varc_string        335
+LABEL225:
    invoke                 223
    return                
