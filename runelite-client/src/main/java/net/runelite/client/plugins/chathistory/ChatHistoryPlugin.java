@@ -58,7 +58,7 @@ import net.runelite.client.util.Text;
 )
 public class ChatHistoryPlugin extends Plugin implements KeyListener
 {
-	private static final String WELCOME_MESSAGE = "Welcome to Old School RuneScape.";
+	private static final String WELCOME_MESSAGE = "Welcome to Zenyte.";
 	private static final String CLEAR_HISTORY = "Clear history";
 	private static final String CLEAR_PRIVATE = "<col=ffff00>Private:";
 	private static final int CYCLE_HOTKEY = KeyEvent.VK_TAB;
