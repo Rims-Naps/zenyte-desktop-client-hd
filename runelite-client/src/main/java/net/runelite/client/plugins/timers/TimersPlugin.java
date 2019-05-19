@@ -688,7 +688,7 @@ public class TimersPlugin extends Plugin
 			return;
 		}
 
-		if (config.showHomeMinigameTeleports()
+		/*if (config.showHomeMinigameTeleports()
 			&& client.getLocalPlayer().getAnimation() == AnimationID.IDLE
 			&& (lastAnimation == AnimationID.BOOK_HOME_TELEPORT_5
 			|| lastAnimation == AnimationID.COW_HOME_TELEPORT_6))
@@ -701,7 +701,7 @@ public class TimersPlugin extends Plugin
 			{
 				createGameTimer(MINIGAME_TELEPORT);
 			}
-		}
+		}*/
 
 		lastAnimation = client.getLocalPlayer().getAnimation();
 	}
