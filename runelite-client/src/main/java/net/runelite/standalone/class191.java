@@ -30,7 +30,7 @@ public final class class191 {
       int var3 = var2.readUnsignedShort();
       int var4 = var2.payload.length - 2 - var3 - 12;
       var2.offset = var4;
-      int var5 = var2.method5091();
+      int var5 = var2.readInt();
       var1.localIntCount = var2.readUnsignedShort();
       var1.localStringCount = var2.readUnsignedShort();
       var1.intStackCount = var2.readUnsignedShort();
@@ -47,8 +47,8 @@ public final class class191 {
             var1.switches[var7] = var9;
 
             while(var8-- > 0) {
-               int var10 = var2.method5091();
-               int var11 = var2.method5091();
+               int var10 = var2.readInt();
+               int var11 = var2.readInt();
                var9.method2186(new IntegerNode(var11), (long)var10);
             }
          }
@@ -65,7 +65,7 @@ public final class class191 {
          if(var8 == 3) {
             var1.stringOperands[var7] = var2.readString();
          } else if(var8 < 100 && var8 != 21 && var8 != 38 && var8 != 39) {
-            var1.intOperands[var7] = var2.method5091();
+            var1.intOperands[var7] = var2.readInt();
          } else {
             var1.intOperands[var7] = var2.readUnsignedByte();
          }

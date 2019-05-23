@@ -1097,8 +1097,8 @@ public abstract class PathingEntity extends Entity implements RSActor {
    static void method2477(Js5 var0, int var1) {
       if(TotalQuantityComparator.NetCache_reference != null) {
          TotalQuantityComparator.NetCache_reference.offset = var1 * 8 + 5;
-         int var2 = TotalQuantityComparator.NetCache_reference.method5091();
-         int var3 = TotalQuantityComparator.NetCache_reference.method5091();
+         int var2 = TotalQuantityComparator.NetCache_reference.readInt();
+         int var3 = TotalQuantityComparator.NetCache_reference.readInt();
          var0.method2733(var2, var3);
       } else {
          MapLabel.method2857((Js5)null, 255, 255, 0, (byte)0, true);

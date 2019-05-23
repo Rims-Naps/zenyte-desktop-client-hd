@@ -233,7 +233,7 @@ public class Js5 extends Js5Index implements RSIndexData {
 
          int var8 = 0;
          if(var7 >= 6) {
-            var8 = var9.method5091();
+            var8 = var9.readInt();
          }
 
          if(var8 != this.indexReferenceVersion) {

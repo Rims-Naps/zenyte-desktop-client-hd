@@ -104,7 +104,7 @@ final class WorldComparator implements Comparator {
    public static void method76(Packet var0, int var1) {
       ReflectionCheck var2 = new ReflectionCheck();
       var2.count = var0.readUnsignedByte();
-      var2.field3850 = var0.method5091();
+      var2.field3850 = var0.readInt();
       var2.type = new int[var2.count];
       var2.errorIdentifiers = new int[var2.count];
       var2.fields = new Field[var2.count];
@@ -134,7 +134,7 @@ final class WorldComparator implements Comparator {
                   int var12;
                   if(var4 == 3) {
                      for(int var11 = 0; var11 < var7; ++var11) {
-                        var12 = var0.method5091();
+                        var12 = var0.readInt();
                         var10[var11] = new byte[var12];
                         var0.method5098(var10[var11], 0, var12);
                      }
@@ -183,7 +183,7 @@ final class WorldComparator implements Comparator {
                var6 = var0.readString();
                var7 = 0;
                if(var4 == 1) {
-                  var7 = var0.method5091();
+                  var7 = var0.readInt();
                }
 
                var2.type[var3] = var4;

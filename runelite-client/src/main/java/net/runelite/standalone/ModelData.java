@@ -1421,7 +1421,7 @@ public class ModelData extends Entity implements RSModelData {
          var2.readUnsignedShort();
          var2.readUnsignedShort();
          var2.readUnsignedShort();
-         var2.method5091();
+         var2.readInt();
       }
 
    }

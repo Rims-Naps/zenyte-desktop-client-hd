@@ -538,7 +538,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
       } else if(var2 == 11) {
          this.stackable = 1;
       } else if(var2 == 12) {
-         this.cost = var1.method5091();
+         this.cost = var1.readInt();
       } else if(var2 == 16) {
          this.members = true;
       } else if(var2 == 23) {

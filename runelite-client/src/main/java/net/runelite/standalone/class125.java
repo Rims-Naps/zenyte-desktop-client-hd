@@ -73,7 +73,7 @@ public class class125 extends WorldMapData {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          int var5 = var1.method5287();
-         CoordGrid var6 = new CoordGrid(var1.method5091());
+         CoordGrid var6 = new CoordGrid(var1.readInt());
          boolean var7 = var1.readUnsignedByte() == 1;
          if(var2 || !var7) {
             this.field332.add(new class69((CoordGrid)null, var6, var5, (MapLabel)null));

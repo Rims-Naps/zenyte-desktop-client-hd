@@ -44,7 +44,7 @@ final class class285 implements class143 {
       garbageValue = "4"
    )
    public Object vmethod6422(Packet var1) {
-      return Integer.valueOf(var1.method5091());
+      return Integer.valueOf(var1.readInt());
    }
 
    @ObfuscatedName("kq")

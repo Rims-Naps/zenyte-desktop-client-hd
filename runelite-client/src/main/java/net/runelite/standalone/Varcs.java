@@ -242,7 +242,7 @@ public class Varcs implements RSVarcs {
 
                      for(var7 = 0; var7 < var16; ++var7) {
                         var8 = var14.readUnsignedShort();
-                        var9 = var14.method5091();
+                        var9 = var14.readInt();
                         if(this.varcSerials[var8]) {
                            this.field1256.put(Integer.valueOf(var8), Integer.valueOf(var9));
                         }

@@ -436,6 +436,7 @@ public class ServerProt {
       signature = "Lfc;"
    )
    public static final ServerProt field2152;
+   public static final ServerProt SET_CLIENTSETTING;
    @ObfuscatedName("ct")
    @ObfuscatedGetter(
       intValue = -164635975
@@ -533,6 +534,7 @@ public class ServerProt {
       field2213 = new ServerProt(82, 8);
       field2214 = new ServerProt(83, 6);
       field2215 = new ServerProt(84, 2);
+      SET_CLIENTSETTING = new ServerProt(85, -2);
    }
 
    ServerProt(int var1, int var2) {

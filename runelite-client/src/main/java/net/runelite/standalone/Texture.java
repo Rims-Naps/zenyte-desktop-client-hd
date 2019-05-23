@@ -66,7 +66,7 @@ public class Texture extends Node implements RSTexture {
          this.field1622 = new int[var2];
 
          for(var3 = 0; var3 < var2; ++var3) {
-            this.field1622[var3] = var1.method5091();
+            this.field1622[var3] = var1.readInt();
          }
 
          this.field1612 = var1.readUnsignedByte();

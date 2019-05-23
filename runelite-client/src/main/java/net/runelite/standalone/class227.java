@@ -401,16 +401,16 @@ public class class227 extends Node {
    @ObfuscatedName("h")
    void method4307(byte[] var1) {
       Packet var2 = new Packet(var1);
-      this.field1347 = var2.method5091();
-      this.field1336 = var2.method5091();
-      this.field1338 = var2.method5091();
-      this.field1339 = var2.method5091();
+      this.field1347 = var2.readInt();
+      this.field1336 = var2.readInt();
+      this.field1338 = var2.readInt();
+      this.field1339 = var2.readInt();
       if(this.field1339 < 0) {
          this.field1339 = ~this.field1339;
          this.field1340 = true;
       }
 
-      int var3 = var2.method5091();
+      int var3 = var2.readInt();
       this.field1361 = new byte[var3][];
 
       for(int var4 = 0; var4 < var3; ++var4) {
