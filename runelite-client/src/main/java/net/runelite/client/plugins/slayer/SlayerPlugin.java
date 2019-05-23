@@ -673,12 +673,12 @@ public class SlayerPlugin extends Plugin
 			log.debug(debugString.toString());
 
 			int killCount = estimateKillCount(potentialNPCs, gains);
-			for (int i = 0; i < killCount; i++)
-			{
+			//for (int i = 0; i < killCount; i++)
+			//{
 				killedOne();
 				int delta = slayerExp - cachedXp;
 				currentTask.setElapsedXp(currentTask.getElapsedXp() + delta);
-			}
+			//}
 		}
 		cachedXp = slayerExp;
 	}
