@@ -26,10 +26,10 @@
 package net.runelite.client.plugins.slayer;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableMap;
 import java.util.ArrayList;
 import static java.util.Arrays.asList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import lombok.Getter;
@@ -102,7 +102,7 @@ enum Task
 	CRAZY_ARCHAEOLOGIST("Crazy Archaeologist", ItemID.FEDORA),
 	CROCODILES("Crocodiles", ItemID.SWAMP_LIZARD),
 	DAGANNOTH("Dagannoth", ItemID.DAGANNOTH,
-			asList("Dagannoth Rex", "Dagannoth Prime", "Dagannoth Supreme"), Collections.emptyList()),
+		asList("Dagannoth Rex", "Dagannoth Prime", "Dagannoth Supreme"), Collections.emptyList()),
 	DAGANNOTH_KINGS("Dagannoth Kings", ItemID.PET_DAGANNOTH_PRIME,
 		asList("Dagannoth Rex", "Dagannoth Prime", "Dagannoth Supreme"), Collections.emptyList()),
 	DARK_BEASTS("Dark beasts", ItemID.DARK_BEAST,
@@ -239,7 +239,7 @@ enum Task
 	ZUK("TzKal-Zuk", ItemID.TZREKZUK);
 	//</editor-fold>
 
-	private static final Map<String, Task> tasks = new HashMap<>();
+	private static final Map<String, Task> tasks;
 
 	private final String name;
 	private final int itemSpriteId;
@@ -252,10 +252,14 @@ enum Task
 
 	static
 	{
+		ImmutableMap.Builder<String, Task> builder = new ImmutableMap.Builder<>();
+
 		for (Task task : values())
 		{
-			tasks.put(task.getName().toLowerCase(), task);
+			builder.put(task.getName().toLowerCase(), task);
 		}
+
+		tasks = builder.build();
 	}
 
 	Task(String name, int itemSpriteId)
@@ -306,7 +310,7 @@ enum Task
 		this.checkAsTokens = true;
 	}
 
-	Task(String name, int itemSpriteId, List<String> targetNames, List<Integer> npcIds,  int weaknessThreshold, int weaknessItem)
+	Task(String name, int itemSpriteId, List<String> targetNames, List<Integer> npcIds, int weaknessThreshold, int weaknessItem)
 	{
 		Preconditions.checkArgument(itemSpriteId >= 0);
 		this.name = name;
