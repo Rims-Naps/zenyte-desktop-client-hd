@@ -4491,13 +4491,13 @@ public final class client extends GameEngine implements class245, RSClient {
                }
 
                class133.historicCacheLocations = new String[]{"c:/rscache/", "/rscache/", "c:/windows/", "c:/winnt/", "c:/", class69.homeDir, "/tmp/", ""};
-               class211.historicCacheDirectories = new String[]{".jagex_cache_" + class47.historicCacheId, ".file_store_" + class47.historicCacheId};
+               class211.historicCacheDirectories = new String[]{".zenyte_cache_" + class47.historicCacheId, ".file_store_" + class47.historicCacheId};
                int var17 = 0;
 
                label250:
                while(var17 < 4) {
                   String var34 = var17 == 0?"":"" + var17;
-                  class75.cacheLocator = new File(class69.homeDir, "jagex_cl_oldschool_" + var31 + var34 + ".dat");
+                  class75.cacheLocator = new File(class69.homeDir, "zenyte_cl_oldschool_" + var31 + var34 + ".dat");
                   String var6 = null;
                   String var7 = null;
                   boolean var8 = false;
@@ -4557,7 +4557,6 @@ public final class client extends GameEngine implements class245, RSClient {
                         }
                      }
                   }
-
                   if(var6 == null && var17 == 0) {
                      label225:
                      for(int var18 = 0; var18 < class211.historicCacheDirectories.length; ++var18) {
@@ -4571,9 +4570,8 @@ public final class client extends GameEngine implements class245, RSClient {
                         }
                      }
                   }
-
                   if(var6 == null) {
-                     var6 = class69.homeDir + File.separatorChar + "jagexcache" + var34 + File.separatorChar + "oldschool" + File.separatorChar + var31 + File.separatorChar;
+                     var6 = class69.homeDir + File.separatorChar + ".zenyte" + var34 + File.separatorChar + "cache" + File.separatorChar;
                      var8 = true;
                   }
 
@@ -4651,6 +4649,7 @@ public final class client extends GameEngine implements class245, RSClient {
             this.method4417(765, 503, 179);
          }
       } catch (RuntimeException var30) {
+         var30.printStackTrace();
          throw class284.method5855(var30, "client.init(" + ')');
       }
    }
