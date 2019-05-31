@@ -40,7 +40,7 @@ public final class class57 {
          } else if(World.listFetcher.method4256()) {
             byte[] var0 = World.listFetcher.method4257();
             Packet var1 = new Packet(var0);
-            var1.method5091();
+            var1.readInt();
             World.worldCount = var1.readUnsignedShort();
             class242.worldList = new World[World.worldCount];
 
@@ -48,7 +48,7 @@ public final class class57 {
             for(int var2 = 0; var2 < World.worldCount; var3.index = var2++) {
                var3 = class242.worldList[var2] = new World();
                var3.id = var1.readUnsignedShort();
-               var3.mask = var1.method5091();
+               var3.mask = var1.readInt();
                var3.address = var1.readString();
                var3.activity = var1.readString();
                var3.location = var1.readUnsignedByte();

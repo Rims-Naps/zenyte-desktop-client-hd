@@ -79,7 +79,7 @@ final class class53 implements Comparator {
 
          for(var5 = 0; var5 < var4; ++var5) {
             for(var6 = 0; var6 < 4; ++var6) {
-               Varcs.xteaKeys[var5][var6] = var1.method5091();
+               Varcs.xteaKeys[var5][var6] = var1.readInt();
             }
          }
 
@@ -138,7 +138,7 @@ final class class53 implements Comparator {
 
          for(var6 = 0; var6 < var5; ++var6) {
             for(var7 = 0; var7 < 4; ++var7) {
-               Varcs.xteaKeys[var6][var7] = var1.method5091();
+               Varcs.xteaKeys[var6][var7] = var1.readInt();
             }
          }
 

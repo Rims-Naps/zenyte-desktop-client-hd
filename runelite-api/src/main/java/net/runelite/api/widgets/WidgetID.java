@@ -133,6 +133,12 @@ public class WidgetID
 	public static final int BARROWS_PUZZLE_GROUP_ID = 25;
 	public static final int KEPT_ON_DEATH_GROUP_ID = 4;
 	public static final int GUIDE_PRICE_GROUP_ID = 464;
+	public static final int TOURNAMENT_INFO_GROUP_ID = 706;
+
+	static class TournamentInfo
+	{
+		static final int WIDGET = 2;
+	}
 
 	static class KeptOnDeath
 	{

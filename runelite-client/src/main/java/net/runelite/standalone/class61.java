@@ -120,7 +120,7 @@ public final class class61 extends Node {
    static final byte[] method920(byte[] var0) {
       Packet var1 = new Packet(var0);
       int var2 = var1.readUnsignedByte();
-      int var3 = var1.method5091();
+      int var3 = var1.readInt();
       if(var3 < 0 || Js5Index.field3251 != 0 && var3 > Js5Index.field3251) {
          throw new RuntimeException();
       } else if(var2 == 0) {
@@ -128,7 +128,7 @@ public final class class61 extends Node {
          var1.method5098(var4, 0, var3);
          return var4;
       } else {
-         int var6 = var1.method5091();
+         int var6 = var1.readInt();
          if(var6 < 0 || Js5Index.field3251 != 0 && var6 > Js5Index.field3251) {
             throw new RuntimeException();
          } else {

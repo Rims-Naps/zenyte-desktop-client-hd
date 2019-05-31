@@ -230,8 +230,8 @@ public class WorldMapData implements RSWorldMapData {
       this.fileId = var2;
       this.identifier = var1.readString();
       this.name = var1.readString();
-      this.field231 = new CoordGrid(var1.method5091());
-      this.field230 = var1.method5091();
+      this.field231 = new CoordGrid(var1.readInt());
+      this.field230 = var1.readInt();
       var1.readUnsignedByte();
       this.field233 = var1.readUnsignedByte() == 1;
       this.initialMapSurfaceZoom = var1.readUnsignedByte();

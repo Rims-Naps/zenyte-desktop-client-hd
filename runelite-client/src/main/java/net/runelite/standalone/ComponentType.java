@@ -722,12 +722,12 @@ public class ComponentType extends Node implements RSWidget {
       }
 
       if(this.type == 5) {
-         this.graphic = var1.method5091();
+         this.graphic = var1.readInt();
          this.angle2d = var1.readUnsignedShort();
          this.tile = var1.readUnsignedByte() == 1;
          this.trans = var1.readUnsignedByte();
          this.outline = var1.readUnsignedByte();
-         this.shadow = var1.method5091();
+         this.shadow = var1.readInt();
          this.vflip = var1.readUnsignedByte() == 1;
          this.hflip = var1.readUnsignedByte() == 1;
       }
@@ -772,18 +772,18 @@ public class ComponentType extends Node implements RSWidget {
          this.horizTextAlign = var1.readUnsignedByte();
          this.vertTextAlign = var1.readUnsignedByte();
          this.textShadow = var1.readUnsignedByte() == 1;
-         this.color = var1.method5091();
+         this.color = var1.readInt();
       }
 
       if(this.type == 3) {
-         this.color = var1.method5091();
+         this.color = var1.readInt();
          this.filled = var1.readUnsignedByte() == 1;
          this.trans = var1.readUnsignedByte();
       }
 
       if(this.type == 9) {
          this.lineWidth = var1.readUnsignedByte();
-         this.color = var1.method5091();
+         this.color = var1.readInt();
          this.lineDirection = var1.readUnsignedByte() == 1;
       }
 
@@ -964,7 +964,7 @@ public class ComponentType extends Node implements RSWidget {
          int[] var3 = new int[var2];
 
          for(int var4 = 0; var4 < var2; ++var4) {
-            var3[var4] = var1.method5091();
+            var3[var4] = var1.readInt();
          }
 
          return var3;
@@ -986,7 +986,7 @@ public class ComponentType extends Node implements RSWidget {
          for(int var4 = 0; var4 < var2; ++var4) {
             int var5 = var1.readUnsignedByte();
             if(var5 == 0) {
-               var3[var4] = new Integer(var1.method5091());
+               var3[var4] = new Integer(var1.readInt());
             } else if(var5 == 1) {
                var3[var4] = var1.readString();
             }
@@ -2099,7 +2099,7 @@ public class ComponentType extends Node implements RSWidget {
             if(var9 == 1) {
                this.xSprites[var8] = var1.method5089();
                this.field2720[var8] = var1.method5089();
-               this.field2760[var8] = var1.method5091();
+               this.field2760[var8] = var1.readInt();
             } else {
                this.field2760[var8] = -1;
             }
@@ -2138,18 +2138,18 @@ public class ComponentType extends Node implements RSWidget {
       }
 
       if(this.type == 1 || this.type == 3 || this.type == 4) {
-         this.color = var1.method5091();
+         this.color = var1.readInt();
       }
 
       if(this.type == 3 || this.type == 4) {
-         this.field2811 = var1.method5091();
-         this.field2819 = var1.method5091();
-         this.field2717 = var1.method5091();
+         this.field2811 = var1.readInt();
+         this.field2819 = var1.readInt();
+         this.field2717 = var1.readInt();
       }
 
       if(this.type == 5) {
-         this.graphic = var1.method5091();
-         this.field2736 = var1.method5091();
+         this.graphic = var1.readInt();
+         this.field2736 = var1.readInt();
       }
 
       if(this.type == 6) {
@@ -2190,7 +2190,7 @@ public class ComponentType extends Node implements RSWidget {
          }
 
          this.textShadow = var1.readUnsignedByte() == 1;
-         this.color = var1.method5091();
+         this.color = var1.readInt();
          this.paddingX = var1.method5089();
          this.paddingY = var1.method5089();
          var4 = var1.readUnsignedByte();

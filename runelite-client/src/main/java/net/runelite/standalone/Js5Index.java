@@ -160,7 +160,7 @@ public abstract class Js5Index implements RSIndexDataBase {
                   var14 = 0;
 
                   for(var15 = 0; var15 < var3; ++var15) {
-                     var14 += var11.method5091();
+                     var14 += var11.readInt();
                      var12[var15] += var14;
                   }
                }
@@ -179,7 +179,7 @@ public abstract class Js5Index implements RSIndexDataBase {
                   int var16 = 0;
 
                   for(int var17 = 0; var17 < var3; ++var17) {
-                     var16 += var11.method5091();
+                     var16 += var11.readInt();
                      System.arraycopy(var20, var14, var19[var17], var12[var17], var16);
                      var12[var17] += var16;
                      var14 += var16;
@@ -375,7 +375,7 @@ public abstract class Js5Index implements RSIndexDataBase {
       int var3 = var2.readUnsignedByte();
       if(var3 >= 5 && var3 <= 7) {
          if(var3 >= 6) {
-            var2.method5091();
+            var2.readInt();
          }
 
          int var4 = var2.readUnsignedByte();
@@ -415,18 +415,18 @@ public abstract class Js5Index implements RSIndexDataBase {
             this.groupNames = new int[var6 + 1];
 
             for(var7 = 0; var7 < this.groupCount; ++var7) {
-               this.groupNames[this.groupIds[var7]] = var2.method5091();
+               this.groupNames[this.groupIds[var7]] = var2.readInt();
             }
 
             this.groupNameTable = new NameHashTable(this.groupNames);
          }
 
          for(var7 = 0; var7 < this.groupCount; ++var7) {
-            this.groupCrcs[this.groupIds[var7]] = var2.method5091();
+            this.groupCrcs[this.groupIds[var7]] = var2.readInt();
          }
 
          for(var7 = 0; var7 < this.groupCount; ++var7) {
-            this.groupVersions[this.groupIds[var7]] = var2.method5091();
+            this.groupVersions[this.groupIds[var7]] = var2.readInt();
          }
 
          for(var7 = 0; var7 < this.groupCount; ++var7) {
@@ -484,7 +484,7 @@ public abstract class Js5Index implements RSIndexDataBase {
                this.groupFileNames[var8] = new int[this.files[var8].length];
 
                for(var10 = 0; var10 < var9; ++var10) {
-                  this.groupFileNames[var8][this.groupFileIds[var8][var10]] = var2.method5091();
+                  this.groupFileNames[var8][this.groupFileIds[var8][var10]] = var2.readInt();
                }
 
                this.groupFilesNameTable[var8] = new NameHashTable(this.groupFileNames[var8]);

@@ -63,8 +63,8 @@ public class AudioEnvelope {
    )
    final void method2337(Packet var1) {
       this.form = var1.readUnsignedByte();
-      this.start = var1.method5091();
-      this.end = var1.method5091();
+      this.start = var1.readInt();
+      this.end = var1.readInt();
       this.method2331(var1);
    }
 

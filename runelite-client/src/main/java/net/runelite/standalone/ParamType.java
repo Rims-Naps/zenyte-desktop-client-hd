@@ -61,7 +61,7 @@ public class ParamType extends CacheableNode {
          char var3 = (char)var5;
          this.type = var3;
       } else if(var2 == 2) {
-         this.defaultInt = var1.method5091();
+         this.defaultInt = var1.readInt();
       } else if(var2 == 4) {
          this.autoDisable = false;
       } else if(var2 == 5) {

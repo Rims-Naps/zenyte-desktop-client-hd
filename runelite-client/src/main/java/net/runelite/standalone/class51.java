@@ -35,7 +35,7 @@ public class class51 {
          if(var4) {
             var6 = new ObjectNode(var0.readString());
          } else {
-            var6 = new IntegerNode(var0.method5091());
+            var6 = new IntegerNode(var0.readInt());
          }
 
          var1.method2186((Node)var6, (long)var5);

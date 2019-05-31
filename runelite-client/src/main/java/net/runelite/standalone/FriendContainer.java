@@ -61,7 +61,7 @@ public class FriendContainer extends NameableContainer implements RSFriendContai
             if(var6 > 0) {
                var1.readString();
                var1.readUnsignedByte();
-               var1.method5091();
+               var1.readInt();
             }
 
             var1.readString();

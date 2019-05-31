@@ -143,7 +143,7 @@ public class Enum extends CacheableNode implements RSEnum {
       } else if(var2 == 3) {
          this.defaultString = var1.readString();
       } else if(var2 == 4) {
-         this.defaultInt = var1.method5091();
+         this.defaultInt = var1.readInt();
       } else {
          int var3;
          if(var2 == 5) {
@@ -152,7 +152,7 @@ public class Enum extends CacheableNode implements RSEnum {
             this.stringVals = new String[this.size];
 
             for(var3 = 0; var3 < this.size; ++var3) {
-               this.keys[var3] = var1.method5091();
+               this.keys[var3] = var1.readInt();
                this.stringVals[var3] = var1.readString();
             }
          } else if(var2 == 6) {
@@ -161,8 +161,8 @@ public class Enum extends CacheableNode implements RSEnum {
             this.intVals = new int[this.size];
 
             for(var3 = 0; var3 < this.size; ++var3) {
-               this.keys[var3] = var1.method5091();
-               this.intVals[var3] = var1.method5091();
+               this.keys[var3] = var1.readInt();
+               this.intVals[var3] = var1.readInt();
             }
          }
       }

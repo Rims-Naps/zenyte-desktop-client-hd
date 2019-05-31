@@ -34,8 +34,8 @@ public class GrandExchangeEvent {
       this.string2 = var1.readString();
       this.world = var1.readUnsignedShort();
       this.field49 = var1.method5299();
-      int var4 = var1.method5091();
-      int var5 = var1.method5091();
+      int var4 = var1.readInt();
+      int var5 = var1.readInt();
       this.grandExchangeOffer = new GrandExchangeOffer();
       this.grandExchangeOffer.method1721(2);
       this.grandExchangeOffer.method1728(var2);
