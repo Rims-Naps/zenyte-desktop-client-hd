@@ -35,7 +35,8 @@ public enum ChatCrownType implements Enumerated {
    @ObfuscatedSignature(
       signature = "Lis;"
    )
-   HARDCORE_IRONMAN(5, 10, false, false, true);
+   HARDCORE_IRONMAN(5, 10, false, false, true),
+   YOUTUBER(6, 15, false, false, true);
 
    @ObfuscatedName("e")
    static int[] field3209;
