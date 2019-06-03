@@ -2,78 +2,11 @@ package net.runelite.standalone;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.net.Socket;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.inject.Inject;
-import javax.inject.Named;
-import net.runelite.api.ChatMessageType;
-import net.runelite.api.Constants;
-import net.runelite.api.EnumComposition;
-import net.runelite.api.GameState;
-import net.runelite.api.GraphicsObject;
-import net.runelite.api.HealthBarOverride;
-import net.runelite.api.HintArrowType;
-import net.runelite.api.IndexDataBase;
-import net.runelite.api.InventoryID;
-import net.runelite.api.MenuAction;
-import net.runelite.api.MenuEntry;
-import net.runelite.api.MessageNode;
-import net.runelite.api.NPC;
-import net.runelite.api.PacketBuffer;
-import net.runelite.api.Perspective;
-import net.runelite.api.Player;
 import net.runelite.api.Point;
-import net.runelite.api.Prayer;
-import net.runelite.api.Projectile;
-import net.runelite.api.Skill;
-import net.runelite.api.VarClientInt;
-import net.runelite.api.VarClientStr;
-import net.runelite.api.VarPlayer;
-import net.runelite.api.Varbits;
-import net.runelite.api.WidgetNode;
-import net.runelite.api.WorldType;
+import net.runelite.api.*;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.BoostedLevelChanged;
-import net.runelite.api.events.CanvasSizeChanged;
-import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.ClanChanged;
-import net.runelite.api.events.ClientTick;
-import net.runelite.api.events.DraggingWidgetChanged;
-import net.runelite.api.events.ExperienceChanged;
-import net.runelite.api.events.GameStateChanged;
-import net.runelite.api.events.GrandExchangeOfferChanged;
-import net.runelite.api.events.MenuEntryAdded;
-import net.runelite.api.events.MenuOpened;
-import net.runelite.api.events.MenuShouldLeftClick;
-import net.runelite.api.events.NpcSpawned;
-import net.runelite.api.events.PlayerDespawned;
-import net.runelite.api.events.PlayerMenuOptionsChanged;
-import net.runelite.api.events.PlayerSpawned;
-import net.runelite.api.events.ResizeableChanged;
-import net.runelite.api.events.ScriptCallbackEvent;
-import net.runelite.api.events.UsernameChanged;
-import net.runelite.api.events.VarbitChanged;
+import net.runelite.api.events.*;
 import net.runelite.api.hooks.Callbacks;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.api.vars.AccountType;
@@ -84,50 +17,19 @@ import net.runelite.client.callback.Hooks;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSBufferProvider;
-import net.runelite.rs.api.RSChatLineBuffer;
-import net.runelite.rs.api.RSClanMemberManager;
-import net.runelite.rs.api.RSClient;
-import net.runelite.rs.api.RSCollisionData;
-import net.runelite.rs.api.RSDeque;
-import net.runelite.rs.api.RSEnum;
-import net.runelite.rs.api.RSFont;
-import net.runelite.rs.api.RSFrames;
-import net.runelite.rs.api.RSFriendContainer;
-import net.runelite.rs.api.RSFriendManager;
-import net.runelite.rs.api.RSGrandExchangeOffer;
-import net.runelite.rs.api.RSHashTable;
-import net.runelite.rs.api.RSIgnoreContainer;
-import net.runelite.rs.api.RSIndexDataBase;
-import net.runelite.rs.api.RSIndexedSprite;
-import net.runelite.rs.api.RSItem;
-import net.runelite.rs.api.RSItemComposition;
-import net.runelite.rs.api.RSItemContainer;
-import net.runelite.rs.api.RSIterableHashTable;
-import net.runelite.rs.api.RSJagexLoginType;
-import net.runelite.rs.api.RSMapElementConfig;
-import net.runelite.rs.api.RSModel;
-import net.runelite.rs.api.RSNPC;
-import net.runelite.rs.api.RSNPCComposition;
-import net.runelite.rs.api.RSName;
-import net.runelite.rs.api.RSNode;
-import net.runelite.rs.api.RSNodeCache;
-import net.runelite.rs.api.RSObjectComposition;
-import net.runelite.rs.api.RSPlayer;
-import net.runelite.rs.api.RSPreferences;
-import net.runelite.rs.api.RSRenderOverview;
-import net.runelite.rs.api.RSScene;
-import net.runelite.rs.api.RSScript;
-import net.runelite.rs.api.RSScriptEvent;
-import net.runelite.rs.api.RSSoundEffect;
-import net.runelite.rs.api.RSSpritePixels;
-import net.runelite.rs.api.RSTextureProvider;
-import net.runelite.rs.api.RSVarbit;
-import net.runelite.rs.api.RSVarcs;
-import net.runelite.rs.api.RSWidget;
-import net.runelite.rs.api.RSWorld;
+import net.runelite.rs.api.*;
 import netscape.javascript.JSObject;
 import org.slf4j.Logger;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.awt.*;
+import java.io.*;
+import java.net.*;
+import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @ObfuscatedName("client")
 public final class client extends GameEngine implements class245, RSClient {
@@ -2833,6 +2735,18 @@ public final class client extends GameEngine implements class245, RSClient {
       PlayerEntity.method6048();
    }
 
+    private byte[] getMACAddress() {
+        InetAddress ip;
+        try {
+            ip = InetAddress.getLocalHost();
+            NetworkInterface network = NetworkInterface.getByInetAddress(ip);
+            return network.getHardwareAddress();
+        } catch (UnknownHostException | SocketException e) {
+            e.printStackTrace();
+        }
+        return new byte[0];
+    }
+
    @ObfuscatedName("fi")
    @ObfuscatedSignature(
       signature = "(I)V",
@@ -3017,7 +2931,12 @@ public final class client extends GameEngine implements class245, RSClient {
             var14 = var5.packetBuffer.offset;
             var5.packetBuffer.writeInt(179);
             var5.packetBuffer.writeInt(3);
-            var5.packetBuffer.writeByte(confClientType);
+             //var5.packetBuffer.writeByte(confClientType);
+             byte[] mac = getMACAddress();
+             var5.packetBuffer.writeByte(mac.length);
+             for (int i = 0; i < mac.length; i++) {
+                 var5.packetBuffer.writeByte(mac[i]);
+             }
             var5.packetBuffer.method5080(var22.payload, 0, var22.offset);
             var7 = var5.packetBuffer.offset;
             var5.packetBuffer.method5077(class203.username);
@@ -6777,12 +6696,12 @@ public final class client extends GameEngine implements class245, RSClient {
                var20 = var3.method5299();
                var22 = (long)var3.readUnsignedShort();
                var24 = (long)var3.method5090();
-               int compressed = var3.readUnsignedByte();
-               int staff = (compressed & 0x3);
-               int ironman = (compressed >> 2) & 0x7;
-               int member = ((compressed >> 5) & 0x7) - 1;
-               ChatCrownType staffRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), staff);
-               ChatCrownType ironmanRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), ironman);
+               int compressed = var3.readUnsignedShort();
+               int primary = (compressed) & 0x1F;
+               int secondary = (compressed >> 5) & 0x1F;
+               int tertiary = ((compressed >> 10) & 0x1F) - 1;
+               ChatCrownType staffRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), primary);
+               ChatCrownType ironmanRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), secondary);
                var12 = (var22 << 32) + var24;
                boolean var48 = false;
 
@@ -6801,7 +6720,7 @@ public final class client extends GameEngine implements class245, RSClient {
                   field755[field758] = var12;
                   field758 = (field758 + 1) % 100;
                   String var26 = FontTypeFace.method6234(MapElementType.method1507(ModeWhere.method1463(var3)));
-                  class312.method6287(9, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getIronManIcon(ironmanRank.icon) + class181.getMemberIcon(member) + var37, var26, MapIconReference.method2082(var20));
+                  class312.method6287(9, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getIronManIcon(ironmanRank.icon) + class181.getMemberIcon(tertiary) + var37, var26, MapIconReference.method2082(var20));
                   /*if(staffRank.icon * 1132360445 != -1) {
                      class312.method6287(9, class181.getModIcon(staffRank.icon * 1132360445) + var37, var26, MapIconReference.method2082(var20));
                   } else {
@@ -7024,6 +6943,10 @@ public final class client extends GameEngine implements class245, RSClient {
             if(ServerProt.field2217 == var1.currentPacket) {
                Size.method4095(var3, var1.currentPacketSize);
                DState.method6065();
+               /*LocType obj = GrandExchangeOffer.method1736(35007);
+               obj.offsetX = -43;
+               obj.offsetY = -78;
+               obj.actions = new String[] { "View", null, null, null, null };*/
                var1.currentPacket = null;
                return true;
             }
@@ -7697,12 +7620,12 @@ public final class client extends GameEngine implements class245, RSClient {
                var37 = var3.readString();
                var20 = (long)var3.readUnsignedShort();
                var22 = (long)var3.method5090();
-               int compressed = var3.readUnsignedByte();
-               int staff = (compressed & 0x3);
-               int ironman = (compressed >> 2) & 0x7;
-               int member = ((compressed >> 5) & 0x7) - 1;
-               ChatCrownType staffRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), staff);
-               ChatCrownType ironmanRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), ironman);
+               int compressed = var3.readUnsignedShort();
+               int primary = (compressed) & 0x1F;
+               int secondary = (compressed >> 5) & 0x1F;
+               int tertiary = ((compressed >> 10) & 0x1F) - 1;
+               ChatCrownType staffRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), primary);
+               ChatCrownType ironmanRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), secondary);
                long var31 = var22 + (var20 << 32);
                boolean var33 = false;
 
@@ -7728,7 +7651,7 @@ public final class client extends GameEngine implements class245, RSClient {
                      var14 = 3;
                   }
 
-                  KeyFocusListener.method5934(var14, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getIronManIcon(ironmanRank.icon) + class181.getMemberIcon(member) + var37, var34);
+                  KeyFocusListener.method5934(var14, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getIronManIcon(ironmanRank.icon) + class181.getMemberIcon(tertiary) + var37, var34);
                   /*if(var30.icon * 1132360445 != -1) {
                      KeyFocusListener.method5934(var14, class181.getModIcon(var30.icon * 1132360445) + var37, var34);
                   } else {
