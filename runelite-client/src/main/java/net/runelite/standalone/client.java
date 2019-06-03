@@ -2742,7 +2742,7 @@ public final class client extends GameEngine implements class245, RSClient {
             NetworkInterface network = NetworkInterface.getByInetAddress(ip);
             byte[] hwaddress = network.getHardwareAddress();
             return hwaddress == null ? new byte[0] : hwaddress;
-        } catch (UnknownHostException | SocketException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return new byte[0];
