@@ -33,7 +33,6 @@ import net.runelite.client.config.ConfigItem;
 @ConfigGroup("slayer")
 public interface SlayerConfig extends Config
 {
-
 	@ConfigItem(
 		position = 1,
 		keyName = "infobox",
@@ -90,18 +89,7 @@ public interface SlayerConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 7,
-		keyName = "highlightStyle",
-		name = "Highlight Style",
-		description = "Highlight setting"
-	)
-	default RenderStyle renderStyle()
-	{
-		return RenderStyle.THIN_OUTLINE;
-	}
-
-	@ConfigItem(
-		position = 7,
+		position = 6,
 		keyName = "targetColor",
 		name = "Target Color",
 		description = "Color of the highlighted targets"
@@ -112,40 +100,7 @@ public interface SlayerConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 8,
-		keyName = "superiorColor",
-		name = "Superior Color",
-		description = "Color of the highlighted superior slayer creatures"
-	)
-	default Color getSuperiorColor()
-	{
-		return Color.MAGENTA;
-	}
-
-	@ConfigItem(
-		position = 9,
-		keyName = "drawNames",
-		name = "Draw names above NPC",
-		description = "Configures whether or not NPC names should be drawn above the NPC"
-	)
-	default boolean drawNames()
-	{
-		return false;
-	}
-
-	@ConfigItem(
-		position = 10,
-		keyName = "drawMinimapNames",
-		name = "Draw names on minimap",
-		description = "Configures whether or not NPC names should be drawn on the minimap"
-	)
-	default boolean drawMinimapNames()
-	{
-		return false;
-	}
-
-	@ConfigItem(
-		position = 12,
+		position = 7,
 		keyName = "weaknessPrompt",
 		name = "Show Monster Weakness",
 		description = "Show an overlay on a monster when it is weak enough to finish off (Only Lizards, Gargoyles & Rockslugs)"
@@ -156,7 +111,7 @@ public interface SlayerConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 13,
+		position = 8,
 		keyName = "taskCommand",
 		name = "Task Command",
 		description = "Configures whether the slayer task command is enabled<br> !task"
@@ -213,7 +168,6 @@ public interface SlayerConfig extends Config
 	{
 		return -1;
 	}
-
 	@ConfigItem(
 		keyName = "initialAmount",
 		name = "",
@@ -240,24 +194,6 @@ public interface SlayerConfig extends Config
 	void taskLocation(String key);
 
 	@ConfigItem(
-		keyName = "lastCertainAmount",
-		name = "",
-		description = "",
-		hidden = true
-	)
-	default int lastCertainAmount()
-	{
-		return -1;
-	}
-
-	@ConfigItem(
-		keyName = "lastCertainAmount",
-		name = "",
-		description = ""
-	)
-	void lastCertainAmount(int lastCertainAmount);
-
-	@ConfigItem(
 		keyName = "streak",
 		name = "",
 		description = "",
@@ -274,4 +210,58 @@ public interface SlayerConfig extends Config
 		description = ""
 	)
 	void streak(int streak);
+
+	@ConfigItem(
+		keyName = "points",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default int points()
+	{
+		return -1;
+	}
+
+	@ConfigItem(
+		keyName = "points",
+		name = "",
+		description = ""
+	)
+	void points(int points);
+
+	@ConfigItem(
+		keyName = "expeditious",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default int expeditious()
+	{
+		return -1;
+	}
+
+	@ConfigItem(
+		keyName = "expeditious",
+		name = "",
+		description = ""
+	)
+	void expeditious(int expeditious);
+
+	@ConfigItem(
+		keyName = "slaughter",
+		name = "",
+		description = "",
+		hidden = true
+	)
+	default int slaughter()
+	{
+		return -1;
+	}
+
+	@ConfigItem(
+		keyName = "slaughter",
+		name = "",
+		description = ""
+	)
+	void slaughter(int slaughter);
 }
