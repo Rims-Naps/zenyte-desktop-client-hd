@@ -43,7 +43,7 @@ public class OverlayIndex
 		try (DataInputStream in = new DataInputStream(indexStream))
 		{
 			int id;
-			while ((id = in.readInt()) != -1 && (id & 0xFFFF) != 73) //TODO fix script overlay 73 at some point (include the rs2asm of it with the ::bank edit)
+			while ((id = in.readInt()) != -1) //TODO fix script overlay 73 at some point (include the rs2asm of it with the ::bank edit)
 			{
 				overlays.add(id);
 			}
