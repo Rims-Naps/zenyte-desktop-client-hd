@@ -27,6 +27,7 @@ package net.runelite.client.plugins.devtools;
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -169,6 +170,8 @@ public class WidgetInfoTableModel extends AbstractTableModel
 		out.add(new WidgetField<>("YPositionMode", Widget::getYPositionMode, Widget::setYPositionMode, Integer.class));
 		out.add(new WidgetField<>("WidthMode", Widget::getWidthMode, Widget::setWidthMode, Integer.class));
 		out.add(new WidgetField<>("HeightMode", Widget::getHeightMode, Widget::setHeightMode, Integer.class));
+		out.add(new WidgetField<>("AccessMask", Widget::getClickMask, Widget::setClickMask, Integer.class));
+		out.add(new WidgetField<>("OnLoad", w -> Arrays.toString(w.getOnLoadListener()), Widget::setText, String.class));
 		out.add(new WidgetField<>("XTextAlignment", Widget::getXTextAlignment, Widget::setXTextAlignment, Integer.class));
 		out.add(new WidgetField<>("YTextAlignment", Widget::getYTextAlignment, Widget::setYTextAlignment, Integer.class));
 		out.add(new WidgetField<>("RelativeX", Widget::getRelativeX, Widget::setRelativeX, Integer.class));

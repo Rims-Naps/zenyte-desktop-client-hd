@@ -125,6 +125,7 @@
 		<module>runelite-script-assembler-plugin</module>
 		<module>runescape-api</module>
 		<module>http-api</module>
+		<module>cache</module>
 	</modules>
 
 	<dependencyManagement>

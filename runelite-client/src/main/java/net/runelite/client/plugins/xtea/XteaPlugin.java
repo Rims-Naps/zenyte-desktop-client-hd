@@ -79,7 +79,7 @@ public class XteaPlugin extends Plugin
 
 			sentRegions.add(region);
 
-			log.debug("Region {} keys {}, {}, {}, {}", region, keys[0], keys[1], keys[2], keys[3]);
+			//log.debug("Region {} keys {}, {}, {}, {}", region, keys[0], keys[1], keys[2], keys[3]);
 
 			XteaKey xteaKey = new XteaKey();
 			xteaKey.setRegion(region);
@@ -92,6 +92,6 @@ public class XteaPlugin extends Plugin
 			return;
 		}
 
-		xteaClient.submit(xteaRequest);
+		//xteaClient.submit(xteaRequest);
 	}
 }
