@@ -521,7 +521,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       String var1 = this.getDocumentBase().getHost().toLowerCase();
       if(!var1.equals("jagex.com") && !var1.endsWith(".jagex.com")) {
          if(!var1.equals("runescape.com") && !var1.endsWith(".runescape.com")) {
-            if(var1.endsWith("127.0.0.1") || var1.endsWith("192.154.213.172") ) {
+            if(var1.endsWith("127.0.0.1") || var1.endsWith("game.zenyte.com") ) {
                return true;
             } else {
                while(var1.length() > 0 && var1.charAt(var1.length() - 1) >= '0' && var1.charAt(var1.length() - 1) <= '9') {
