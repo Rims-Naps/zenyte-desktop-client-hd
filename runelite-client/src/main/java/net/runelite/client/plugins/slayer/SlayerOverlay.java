@@ -46,9 +46,7 @@ class SlayerOverlay extends WidgetItemOverlay
 		ItemID.SLAYER_RING_5,
 		ItemID.SLAYER_RING_6,
 		ItemID.SLAYER_RING_7,
-		ItemID.SLAYER_RING_8,
-		ItemID.BRACELET_OF_SLAUGHTER,
-		ItemID.EXPEDITIOUS_BRACELET
+		ItemID.SLAYER_RING_8
 	);
 
 	private final static Set<Integer> ALL_SLAYER_ITEMS = ImmutableSet.of(
@@ -106,26 +104,35 @@ class SlayerOverlay extends WidgetItemOverlay
 			return;
 		}
 
-		if (plugin.getCurrentTask() == null)
-		{
-			return;
-		}
-
-		int amount = plugin.getCurrentTask().getAmount();
+		int amount = plugin.getAmount();
 		if (amount <= 0)
 		{
 			return;
 		}
+
+		int slaughterCount = plugin.getSlaughterChargeCount();
+		int expeditiousCount = plugin.getExpeditiousChargeCount();
 
 		graphics.setFont(FontManager.getRunescapeSmallFont());
 
 		final Rectangle bounds = itemWidget.getCanvasBounds();
 		final TextComponent textComponent = new TextComponent();
 
-		textComponent.setText(String.valueOf(amount));
+		switch (itemId)
+		{
+			case ItemID.EXPEDITIOUS_BRACELET:
+				textComponent.setText(String.valueOf(expeditiousCount));
+				break;
+			case ItemID.BRACELET_OF_SLAUGHTER:
+				textComponent.setText(String.valueOf(slaughterCount));
+				break;
+			default:
+				textComponent.setText(String.valueOf(amount));
+				break;
+		}
 
-		// Draw the counter in the top left for equipment, and bottom left for jewelry
-		textComponent.setPosition(new Point(bounds.x, bounds.y + (SLAYER_JEWELRY.contains(itemId)
+		// Draw the counter in the bottom left for equipment, and top left for jewelry
+		textComponent.setPosition(new Point(bounds.x - 1, bounds.y - 1 + (SLAYER_JEWELRY.contains(itemId)
 			? bounds.height
 			: graphics.getFontMetrics().getHeight())));
 		textComponent.render(graphics);
