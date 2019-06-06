@@ -127,8 +127,6 @@ public class HiscoreClient
 
 		int count = 0;
 
-		System.out.println(responseStr);
-
 		for (CSVRecord record : parser.getRecords())
 		{
 			if (count++ >= HiscoreSkill.values().length)
