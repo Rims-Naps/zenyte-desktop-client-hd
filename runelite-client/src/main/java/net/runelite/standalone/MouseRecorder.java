@@ -239,7 +239,7 @@ public class MouseRecorder implements Runnable {
                   var8 = class203.field1176 - 80;
                   var9 = 291;
                   if(var4 == 1 && var19 >= var8 - 75 && var19 <= var8 + 75 && var20 >= var9 - 20 && var20 <= var9 + 20) {
-                     class129.method1898(WorldComparator.method84("secure", true) + "m=account-creation/g=oldscape/create_account_funnel.ws", true, false);
+                     class129.method1898("https://forums.zenyte.com/register/", true, false);
                   }
 
                   var8 = class203.field1176 + 80;
@@ -312,7 +312,7 @@ public class MouseRecorder implements Runnable {
                            if(var4 == 1 && var19 >= ItemContainer.field551.field3844 - var8 && var19 <= var8 + ItemContainer.field551.field3844 && var20 >= var23 - 15 && var20 < var23) {
                               switch(class203.field1172) {
                               case 1:
-                                 TextureProvider.method1169("Please enter your username.", "If you created your account after November", "2010, this will be the creation email address.");
+                                 TextureProvider.method1169("Please enter your username.", "", "");
                                  class203.loginIndex = 5;
                                  return;
                               case 2:
@@ -462,7 +462,7 @@ public class MouseRecorder implements Runnable {
                         var22 = class203.loginWindowX + 180;
                         var24 = 326;
                         if(var4 == 1 && var19 >= var22 - 75 && var19 <= var22 + 75 && var20 >= var24 - 20 && var20 <= var24 + 20) {
-                           TextureProvider.method1169("Please enter your username.", "If you created your account after November", "2010, this will be the creation email address.");
+                           TextureProvider.method1169("Please enter your username.", "", "");
                            class203.loginIndex = 5;
                            return;
                         }
