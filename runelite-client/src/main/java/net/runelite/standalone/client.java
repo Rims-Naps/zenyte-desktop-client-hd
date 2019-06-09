@@ -7266,9 +7266,9 @@ public final class client extends GameEngine implements class245, RSClient {
             }
 
             if(ServerProt.field2163 == var1.currentPacket) {
-               class258.friendManager.ignoreContainer.method5040(var3, var1.currentPacketSize);
-               class333.method6434();
-               lastFriendTransmit = cycleCntr;
+               //class258.friendManager.ignoreContainer.method5040(var3, var1.currentPacketSize);
+               //class333.method6434();
+               //lastFriendTransmit = cycleCntr;
                var1.currentPacket = null;
                return true;
             }
