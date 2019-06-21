@@ -704,7 +704,7 @@ public class Sequence extends CacheableNode implements RSSequence {
                     var2.overheadTextCyclesRemaining = 150;
                     var2.field953 = var17;
                     var2.overheadFiltered = var2 != class71.localPlayer && staffRank.ignorable && "" != client.field789 && var15.toLowerCase().indexOf(client.field789) == -1;
-                    if (staffRank.moderator) {
+                    if (staffRank.staff) {
                         var12 = var17 ? 91 : 1;
                     } else {
                         var12 = var17 ? 90 : 2;

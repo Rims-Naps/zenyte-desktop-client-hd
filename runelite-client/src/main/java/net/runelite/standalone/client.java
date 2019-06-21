@@ -7646,7 +7646,7 @@ public final class client extends GameEngine implements class245, RSClient {
                   field758 = (field758 + 1) % 100;
                   String var34 = FontTypeFace.method6234(MapElementType.method1507(ModeWhere.method1463(var3)));
                   byte var14;
-                  if(staffRank.moderator) {
+                  if(staffRank.staff) {
                      var14 = 7;
                   } else {
                      var14 = 3;
