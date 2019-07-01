@@ -1591,7 +1591,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
                   Packet var13 = new Packet(5);
                   var13.writeByte(15);
-                  var13.writeInt(179);
+                  var13.writeInt(180);
                   class258.rssocket.vmethod6359(var13.payload, 0, 5);
                   ++js5State;
                   FloorUnderlayDefinition.field3371 = class318.method6317();
@@ -2930,8 +2930,8 @@ public final class client extends GameEngine implements class245, RSClient {
 
             var5.packetBuffer.writeShort(0);
             var14 = var5.packetBuffer.offset;
-            var5.packetBuffer.writeInt(179);
-            var5.packetBuffer.writeInt(3);
+            var5.packetBuffer.writeInt(180);
+            var5.packetBuffer.writeInt(0);
              //var5.packetBuffer.writeByte(confClientType);
              byte[] mac = getMACAddress();
              var5.packetBuffer.writeByte(mac.length);
