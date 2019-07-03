@@ -6600,32 +6600,6 @@ public final class client extends GameEngine implements class245, RSClient {
                return true;
             }
 
-
-            if(ServerProt.SET_CLIENTSETTING == var1.currentPacket) {
-               String setting = var3.readString();
-               int value = var3.readInt();
-               switch(setting) {
-                  case "hide_roofs":
-                     class312.options.hideRoofs = value == 1;
-                     break;
-                  /*case "set_zoom":
-                     MapIconReference.varcs.varCInts[74] = value;
-                     MapIconReference.varcs.varCInts[75] = value;
-                     Packet.cameraZ = value;
-                     class39.cameraYaw = value;
-                     ScriptEvent.cameraPitch = value;
-                     Graphics3D.Rasterizer3D_zoom = value;
-                     class166.cameraX = value;
-                     class98.cameraY = value;
-                     setCameraX2(value);
-                     setCameraY2(value);
-                     setCameraZ2(value);
-                     break;*/
-               }
-               var1.currentPacket = null;
-               return true;
-            }
-
             if(ServerProt.field2212 == var1.currentPacket) {
                class302.method6070(true, var3);
                var1.currentPacket = null;
