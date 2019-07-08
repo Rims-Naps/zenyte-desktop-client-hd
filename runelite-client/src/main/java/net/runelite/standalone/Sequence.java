@@ -680,9 +680,8 @@ public class Sequence extends CacheableNode implements RSSequence {
             int compressed = var0.readUnsignedShort();
             int primary = (compressed) & 0x1F;
             int secondary = (compressed >> 5) & 0x1F;
-            int tertiary = ((compressed >> 10) & 0x1F) - 1;
+            int tertiary = ((compressed >> 10) & 0x1F);
             ChatCrownType staffRank = (ChatCrownType) PlayerList.method4757(class248.method4669(), primary);
-            ChatCrownType ironmanRank = (ChatCrownType) PlayerList.method4757(class248.method4669(), secondary);
             boolean var17 = var0.readUnsignedByteC() == 1;
             var8 = var0.readUnsignedByte();
             var9 = var0.offset;
@@ -709,7 +708,7 @@ public class Sequence extends CacheableNode implements RSSequence {
                     } else {
                         var12 = var17 ? 90 : 2;
                     }
-                    KeyFocusListener.method5934(var12, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getIronManIcon(ironmanRank.icon) + class181.getMemberIcon(tertiary) + var2.name.method1530(), var15);
+                    KeyFocusListener.method5934(var12, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getModIcon(secondary) + class181.getModIcon(tertiary) + var2.name.method1530(), var15);
                /*if(var19.icon * 1132360445 != -1) {
                   KeyFocusListener.method5934(var12, class181.getModIcon(var19.icon * 1132360445) + var2.name.method1530(), var15);
                } else {

@@ -1591,7 +1591,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
                   Packet var13 = new Packet(5);
                   var13.writeByte(15);
-                  var13.writeInt(180);
+                  var13.writeInt(179);
                   class258.rssocket.vmethod6359(var13.payload, 0, 5);
                   ++js5State;
                   FloorUnderlayDefinition.field3371 = class318.method6317();
@@ -2930,7 +2930,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
             var5.packetBuffer.writeShort(0);
             var14 = var5.packetBuffer.offset;
-            var5.packetBuffer.writeInt(180);
+            var5.packetBuffer.writeInt(179);
             var5.packetBuffer.writeInt(0);
              //var5.packetBuffer.writeByte(confClientType);
              byte[] mac = getMACAddress();
@@ -6674,9 +6674,8 @@ public final class client extends GameEngine implements class245, RSClient {
                int compressed = var3.readUnsignedShort();
                int primary = (compressed) & 0x1F;
                int secondary = (compressed >> 5) & 0x1F;
-               int tertiary = ((compressed >> 10) & 0x1F) - 1;
+               int tertiary = (compressed >> 10) & 0x1F;
                ChatCrownType staffRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), primary);
-               ChatCrownType ironmanRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), secondary);
                var12 = (var22 << 32) + var24;
                boolean var48 = false;
 
@@ -6695,12 +6694,7 @@ public final class client extends GameEngine implements class245, RSClient {
                   field755[field758] = var12;
                   field758 = (field758 + 1) % 100;
                   String var26 = FontTypeFace.method6234(MapElementType.method1507(ModeWhere.method1463(var3)));
-                  class312.method6287(9, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getIronManIcon(ironmanRank.icon) + class181.getMemberIcon(tertiary) + var37, var26, MapIconReference.method2082(var20));
-                  /*if(staffRank.icon * 1132360445 != -1) {
-                     class312.method6287(9, class181.getModIcon(staffRank.icon * 1132360445) + var37, var26, MapIconReference.method2082(var20));
-                  } else {
-                     class312.method6287(9, var37, var26, MapIconReference.method2082(var20));
-                  }*/
+                  class312.method6287(9, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getModIcon(secondary) + class181.getModIcon(tertiary) + var37, var26, MapIconReference.method2082(var20));
                }
 
                var1.currentPacket = null;
@@ -7598,9 +7592,8 @@ public final class client extends GameEngine implements class245, RSClient {
                int compressed = var3.readUnsignedShort();
                int primary = (compressed) & 0x1F;
                int secondary = (compressed >> 5) & 0x1F;
-               int tertiary = ((compressed >> 10) & 0x1F) - 1;
+               int tertiary = (compressed >> 10) & 0x1F;
                ChatCrownType staffRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), primary);
-               ChatCrownType ironmanRank = (ChatCrownType)PlayerList.method4757(class248.method4669(), secondary);
                long var31 = var22 + (var20 << 32);
                boolean var33 = false;
 
@@ -7625,13 +7618,7 @@ public final class client extends GameEngine implements class245, RSClient {
                   } else {
                      var14 = 3;
                   }
-
-                  KeyFocusListener.method5934(var14, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getIronManIcon(ironmanRank.icon) + class181.getMemberIcon(tertiary) + var37, var34);
-                  /*if(var30.icon * 1132360445 != -1) {
-                     KeyFocusListener.method5934(var14, class181.getModIcon(var30.icon * 1132360445) + var37, var34);
-                  } else {
-                     KeyFocusListener.method5934(var14, var37, var34);
-                  }*/
+                  KeyFocusListener.method5934(var14, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getModIcon(secondary) + class181.getModIcon(tertiary) + var37, var34);
                }
 
                var1.currentPacket = null;
