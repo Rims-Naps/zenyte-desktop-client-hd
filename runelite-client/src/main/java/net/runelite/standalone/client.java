@@ -1591,7 +1591,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
                   Packet var13 = new Packet(5);
                   var13.writeByte(15);
-                  var13.writeInt(179);
+                  var13.writeInt(180);
                   class258.rssocket.vmethod6359(var13.payload, 0, 5);
                   ++js5State;
                   FloorUnderlayDefinition.field3371 = class318.method6317();
@@ -2915,7 +2915,7 @@ public final class client extends GameEngine implements class245, RSClient {
                }
 
                var22.writeByte(class294.field3837.vmethod6373());
-               var22.method5077(class203.password);
+               var22.writeString(class203.password);
             }
 
             var22.method5109(class179.RSA_EXPONENT, class179.RSA_MODULUS);
@@ -2930,8 +2930,8 @@ public final class client extends GameEngine implements class245, RSClient {
 
             var5.packetBuffer.writeShort(0);
             var14 = var5.packetBuffer.offset;
-            var5.packetBuffer.writeInt(179);
-            var5.packetBuffer.writeInt(0);
+            var5.packetBuffer.writeInt(180);
+            var5.packetBuffer.writeInt(3);
              //var5.packetBuffer.writeByte(confClientType);
              byte[] mac = getMACAddress();
              var5.packetBuffer.writeByte(mac.length);
@@ -2940,12 +2940,12 @@ public final class client extends GameEngine implements class245, RSClient {
              }
             var5.packetBuffer.method5080(var22.payload, 0, var22.offset);
             var7 = var5.packetBuffer.offset;
-            var5.packetBuffer.method5077(class203.username);
+            var5.packetBuffer.writeString(class203.username);
             var5.packetBuffer.writeByte((isResized?1:0) << 1 | (lowMemory?1:0));
             var5.packetBuffer.writeShort(GrandExchangeOffer.canvasWidth);
             var5.packetBuffer.writeShort(class258.canvasHeight);
             class15.method311(var5.packetBuffer);
-            var5.packetBuffer.method5077(class52.sessionToken);
+            var5.packetBuffer.writeString(class52.sessionToken);
             var5.packetBuffer.writeInt(ClientOptions.field1034);
             Packet var32 = new Packet(WorldMapType2.machineInfo.method881());
             WorldMapType2.machineInfo.method882(var32);

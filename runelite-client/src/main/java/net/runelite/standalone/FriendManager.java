@@ -155,7 +155,7 @@ public class FriendManager implements RSFriendManager {
             } else {
                TcpConnectionMessage var3 = class232.method4535(ClientProt.field2309, client.serverConnection.isaac);
                var3.packetBuffer.writeByte(OwnWorldComparator.method73(var1));
-               var3.packetBuffer.method5077(var1);
+               var3.packetBuffer.writeString(var1);
                client.serverConnection.method18(var3);
             }
          }
@@ -185,7 +185,7 @@ public class FriendManager implements RSFriendManager {
                WorldMapType2.method3089();
                TcpConnectionMessage var3 = class232.method4535(ClientProt.field2273, client.serverConnection.isaac);
                var3.packetBuffer.writeByte(OwnWorldComparator.method73(var1));
-               var3.packetBuffer.method5077(var1);
+               var3.packetBuffer.writeString(var1);
                client.serverConnection.method18(var3);
             }
 
@@ -252,7 +252,7 @@ public class FriendManager implements RSFriendManager {
                WorldMapType2.method3089();
                TcpConnectionMessage var3 = class232.method4535(ClientProt.field2247, client.serverConnection.isaac);
                var3.packetBuffer.writeByte(OwnWorldComparator.method73(var1));
-               var3.packetBuffer.method5077(var1);
+               var3.packetBuffer.writeString(var1);
                client.serverConnection.method18(var3);
             }
 

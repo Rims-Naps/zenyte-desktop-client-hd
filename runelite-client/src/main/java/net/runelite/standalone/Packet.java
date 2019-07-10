@@ -215,7 +215,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(Ljava/lang/String;I)V",
       garbageValue = "-1722297640"
    )
-   public void method5077(String var1) {
+   public void writeString(String var1) {
       int var2 = var1.indexOf(0);
       if(var2 >= 0) {
          throw new IllegalArgumentException("");

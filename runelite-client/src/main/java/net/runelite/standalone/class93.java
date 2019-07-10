@@ -154,7 +154,7 @@ public abstract class class93 {
                         var0.method5075(((Number)var11).longValue());
                      } else if(var11 instanceof String) {
                         var0.writeByte(2);
-                        var0.method5077((String)var11);
+                        var0.writeString((String)var11);
                      } else {
                         var0.writeByte(4);
                      }

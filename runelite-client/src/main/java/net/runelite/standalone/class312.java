@@ -49,7 +49,7 @@ final class class312 implements class143 {
       garbageValue = "368926898"
    )
    void method6275(String var1, Packet var2) {
-      var2.method5077(var1);
+      var2.writeString(var1);
    }
 
    @ObfuscatedName("s")

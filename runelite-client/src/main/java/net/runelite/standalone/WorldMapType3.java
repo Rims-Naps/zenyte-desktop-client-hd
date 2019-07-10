@@ -252,7 +252,7 @@ public class WorldMapType3 implements WorldMapSectionBase {
 
       TcpConnectionMessage var1 = class232.method4535(ClientProt.field2279, client.serverConnection.isaac);
       var1.packetBuffer.writeByte(var0.length() + 1);
-      var1.packetBuffer.method5077(var0);
+      var1.packetBuffer.writeString(var0);
       client.serverConnection.method18(var1);
    }
 

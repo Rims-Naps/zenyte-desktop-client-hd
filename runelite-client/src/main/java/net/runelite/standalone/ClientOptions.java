@@ -145,7 +145,7 @@ public class ClientOptions implements RSPreferences {
          var1.writeInt(((Integer)var3.getValue()).intValue());
       }
 
-      var1.method5077(this.rememberedUsername != null?this.rememberedUsername:"");
+      var1.writeString(this.rememberedUsername != null?this.rememberedUsername:"");
       var1.method5076(this.hideUsername);
       return var1;
    }
@@ -214,7 +214,7 @@ public class ClientOptions implements RSPreferences {
    static final void method1090(String var0) {
       TcpConnectionMessage var1 = class232.method4535(ClientProt.field2228, client.serverConnection.isaac);
       var1.packetBuffer.writeByte(OwnWorldComparator.method73(var0));
-      var1.packetBuffer.method5077(var0);
+      var1.packetBuffer.writeString(var0);
       client.serverConnection.method18(var1);
    }
 

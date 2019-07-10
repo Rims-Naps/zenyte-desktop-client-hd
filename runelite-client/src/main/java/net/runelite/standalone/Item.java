@@ -170,14 +170,14 @@ public final class Item extends Entity implements RSItem {
                var3 = class281.scriptStringStack[--class295.scriptStringStackSize];
                var14 = class232.method4535(ClientProt.field2314, client.serverConnection.isaac);
                var14.packetBuffer.writeByte(var3.length() + 1);
-               var14.packetBuffer.method5077(var3);
+               var14.packetBuffer.writeString(var3);
                client.serverConnection.method18(var14);
                return 1;
             } else if(var0 == 3106) {
                var3 = class281.scriptStringStack[--class295.scriptStringStackSize];
                var14 = class232.method4535(ClientProt.field2227, client.serverConnection.isaac);
                var14.packetBuffer.writeByte(var3.length() + 1);
-               var14.packetBuffer.method5077(var3);
+               var14.packetBuffer.writeString(var3);
                client.serverConnection.method18(var14);
                return 1;
             } else {
@@ -236,9 +236,9 @@ public final class Item extends Entity implements RSItem {
                   } else {
                      TcpConnectionMessage var6 = class232.method4535(ClientProt.field2320, client.serverConnection.isaac);
                      var6.packetBuffer.writeShort(1 + OwnWorldComparator.method73(var7) + OwnWorldComparator.method73(var5));
-                     var6.packetBuffer.method5077(var7);
+                     var6.packetBuffer.writeString(var7);
                      var6.packetBuffer.writeByte(var15);
-                     var6.packetBuffer.method5077(var5);
+                     var6.packetBuffer.writeString(var5);
                      client.serverConnection.method18(var6);
                      return 1;
                   }

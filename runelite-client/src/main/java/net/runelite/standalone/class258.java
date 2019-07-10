@@ -678,7 +678,7 @@ public class class258 {
             int var5 = class281.intStack[class281.intStackSize + 1];
             TcpConnectionMessage var6 = class232.method4535(ClientProt.field2246, client.serverConnection.isaac);
             var6.packetBuffer.writeByte(OwnWorldComparator.method73(var3) + 2);
-            var6.packetBuffer.method5077(var3);
+            var6.packetBuffer.writeString(var3);
             var6.packetBuffer.writeByte(var4 - 1);
             var6.packetBuffer.writeByte(var5);
             client.serverConnection.method18(var6);
@@ -869,7 +869,7 @@ public class class258 {
                TcpConnectionMessage var11 = class232.method4535(ClientProt.field2244, client.serverConnection.isaac);
                var11.packetBuffer.writeShort(0);
                int var13 = var11.packetBuffer.offset;
-               var11.packetBuffer.method5077(var3);
+               var11.packetBuffer.writeString(var3);
                InvType.method1565(var11.packetBuffer, var12);
                var11.packetBuffer.method5082(var11.packetBuffer.offset - var13);
                client.serverConnection.method18(var11);
