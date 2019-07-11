@@ -13,7 +13,7 @@ public enum ChatCrownType implements Enumerated {
     IRONMAN(3, 2, false, true),
     ULTIMATE_IRONMAN(4, 3, false, true),
     HARDCORE_IRONMAN(5, 10, false, true),
-    YOUTUBER(6, 15, false, true),
+    YOUTUBER(6, 7, false, true),
     SUPPORT(7, 4, true, false),
     GLOBAL_MOD(8, 5, true, false),
     FORUM_MOD(9, 6, true, false),
