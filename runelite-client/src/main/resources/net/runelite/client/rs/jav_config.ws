@@ -51,14 +51,14 @@ param=10=5
 param=1=1
 param=19=196515767263-1oo20deqm6edn7ujlihl6rpadk9drhva.apps.googleusercontent.com
 param=4=35877
-param=6=1
+param=6=0
 param=13=.runescape.com
 param=2=https://payments.jagex.com/operator/v1/
 param=18=
 param=11=https://auth.jagex.com/
 param=9=ElZAIrq5NpKN6D3mDdihco3oPeYN2KFy2DCquj7JMmECPmLrDP3Bnw
 param=7=0
-param=17=http://www.runescape.com/g=oldscape/slr.ws?order=LPWM
+param=17=https://api.zenyte.com/worldinfo/all/slr
 param=14=0
 param=16=false
 param=15=0
