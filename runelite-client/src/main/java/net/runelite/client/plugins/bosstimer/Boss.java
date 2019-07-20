@@ -25,12 +25,13 @@
  */
 package net.runelite.client.plugins.bosstimer;
 
+import net.runelite.api.ItemID;
+import net.runelite.api.NpcID;
+
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
-import net.runelite.api.ItemID;
-import net.runelite.api.NpcID;
 
 enum Boss
 {
@@ -39,7 +40,7 @@ enum Boss
 	KREEARRA(NpcID.KREEARRA, 90, ChronoUnit.SECONDS, ItemID.PET_KREEARRA),
 	COMMANDER_ZILYANA(NpcID.COMMANDER_ZILYANA, 90, ChronoUnit.SECONDS, ItemID.PET_ZILYANA),
 	CALLISTO(NpcID.CALLISTO_6609, 30, ChronoUnit.SECONDS, ItemID.CALLISTO_CUB),
-	CHAOS_ELEMENTAL(NpcID.CHAOS_ELEMENTAL, 150, ChronoUnit.SECONDS, ItemID.PET_CHAOS_ELEMENTAL),
+    CHAOS_ELEMENTAL(NpcID.CHAOS_ELEMENTAL, 30, ChronoUnit.SECONDS, ItemID.PET_CHAOS_ELEMENTAL),
 	CHAOS_FANATIC(NpcID.CHAOS_FANATIC, 30, ChronoUnit.SECONDS, ItemID.ANCIENT_STAFF),
 	CRAZY_ARCHAEOLOGIST(NpcID.CRAZY_ARCHAEOLOGIST, 30, ChronoUnit.SECONDS, ItemID.FEDORA),
 	KING_BLACK_DRAGON(NpcID.KING_BLACK_DRAGON, 9, ChronoUnit.SECONDS, ItemID.PRINCE_BLACK_DRAGON),
@@ -72,8 +73,8 @@ enum Boss
 			bosses.put(boss.getId(), boss);
 		}
 	}
-
-	private Boss(int id, long period, ChronoUnit unit, int itemSpriteId)
+    
+    Boss(int id, long period, ChronoUnit unit, int itemSpriteId)
 	{
 		this.id = id;
 		this.spawnTime = Duration.of(period, unit);
