@@ -1,6 +1,6 @@
 title=Zenyte
 adverturl=http://www.runescape.com/g=oldscape/bare_advert.ws
-codebase=http://game.zenyte.com
+codebase=http://192.154.213.173
 cachedir=zenyte
 storebase=0
 initial_jar=gamepack_6060044.jar
@@ -46,7 +46,7 @@ msg=new_version_linktext=Open OldSchool Homepage
 msg=new_version_link=http://oldschool.runescape.com/
 param=3=true
 param=5=0
-param=12=1
+param=12=5
 param=10=5
 param=1=1
 param=19=196515767263-1oo20deqm6edn7ujlihl6rpadk9drhva.apps.googleusercontent.com
