@@ -26,6 +26,14 @@ package net.runelite.http.api.item;
 
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
+import net.runelite.http.api.RuneLiteAPI;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,13 +41,6 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Map;
-import javax.imageio.ImageIO;
-import net.runelite.http.api.RuneLiteAPI;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
-import okhttp3.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ItemClient
 {
@@ -175,9 +176,10 @@ public class ItemClient
 
 	public ItemPrice[] getPrices() throws IOException
 	{
-		HttpUrl.Builder urlBuilder = RuneLiteAPI.getApiBase().newBuilder()
-			.addPathSegment("item")
-			.addPathSegment("prices.js");
+		HttpUrl.Builder urlBuilder = RuneLiteAPI.getZenyteApi().newBuilder()
+											 .addPathSegment("runelite")
+											 .addPathSegment("items")
+											 .addPathSegment("prices");
 
 		HttpUrl url = urlBuilder.build();
 
