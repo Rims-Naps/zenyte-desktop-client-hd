@@ -25,19 +25,16 @@
 package net.runelite.http.api;
 
 import com.google.gson.Gson;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class RuneLiteAPI
 {
@@ -48,7 +45,9 @@ public class RuneLiteAPI
 	public static final OkHttpClient CLIENT;
 	public static final Gson GSON = new Gson();
 	public static String userAgent;
-
+	
+	private static final String ZENYTE_BASE = "https://api.zenyte.com";
+	
 	private static final String BASE = "https://api.runelite.net";
 	private static final String WSBASE = "https://api.runelite.net/ws";
 	private static final String STATICBASE = "https://static.runelite.net";
@@ -105,6 +104,10 @@ public class RuneLiteAPI
 	public static HttpUrl getApiBase()
 	{
 		return HttpUrl.parse(BASE + "/runelite-" + getVersion());
+	}
+	
+	public static HttpUrl getZenyteApi() {
+		return HttpUrl.parse(ZENYTE_BASE + "/");
 	}
 
 	public static HttpUrl getStaticBase()

@@ -86,17 +86,14 @@ public class HiscoreClient
 
 	private HiscoreResultBuilder lookupUsername(String username, HttpUrl hiscoreUrl) throws IOException
 	{
-		HttpUrl url = new HttpUrl.Builder()
-				.scheme("http")
-				.host("api.zenyte.com")
-				.port(80)
+        HttpUrl url = RuneLiteAPI.getZenyteApi().newBuilder()
 				.addPathSegment("hiscores")
 				.addPathSegment("user")
 				.addPathSegment(username)
 				.addPathSegment("runelite")
 				.build();
-
-		log.debug("Built URL {}", url);
+        
+        log.debug("Built URL {}", url);
 
 		Request okrequest = new Request.Builder()
 				.url(url)
