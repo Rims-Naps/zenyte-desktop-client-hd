@@ -263,7 +263,7 @@ LABEL203:
    jump                   LABEL228
 LABEL208:
    get_varc_string        356
-   friend_test
+   iconst                 1
    iconst                 1
    if_icmpeq              LABEL213
    jump                   LABEL216
