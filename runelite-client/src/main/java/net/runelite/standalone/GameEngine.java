@@ -1,33 +1,18 @@
 package net.runelite.standalone;
 
-import java.applet.Applet;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Insets;
-import java.awt.LayoutManager;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.ClipboardOwner;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.ActionEvent;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.awt.image.ImageObserver;
-import java.net.URL;
 import net.runelite.api.events.FocusChanged;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSGameEngine;
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.*;
+import java.net.URL;
 
 @ObfuscatedName("bf")
 public abstract class GameEngine extends Applet implements Runnable, FocusListener, WindowListener, RSGameEngine {
@@ -189,7 +174,6 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       try {
          var1 = Toolkit.getDefaultToolkit().getSystemEventQueue();
       } catch (Throwable var3) {
-         ;
       }
 
       this.eventQueue = var1;
@@ -223,7 +207,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       garbageValue = "90"
    )
    Container method4387() {
-      return (Container)(this.frame != null?this.frame:this);
+      return this.frame != null ? this.frame : this;
    }
 
    @ObfuscatedName("l")
@@ -275,7 +259,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
       this.canvas = new GameCanvas(this);
       var1.setBackground(Color.BLACK);
-      var1.setLayout((LayoutManager)null);
+      var1.setLayout(null);
       var1.add(this.canvas);
       this.canvas.setSize(GrandExchangeOffer.canvasWidth, class258.canvasHeight);
       this.canvas.setVisible(true);
@@ -379,7 +363,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
 
          class315.taskManager.method5829(this, 1);
       } catch (Exception var5) {
-         VertexNormal.method4110((String)null, var5, (byte)-38);
+         VertexNormal.method4110(null, var5, (byte) -38);
          this.method4413("crash");
       }
 
@@ -391,7 +375,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       garbageValue = "1979001925"
    )
    protected void method4360(String var1) {
-      this.clipboard.setContents(new StringSelection(var1), (ClipboardOwner)null);
+      this.clipboard.setContents(new StringSelection(var1), null);
    }
 
    @ObfuscatedName("au")
@@ -490,7 +474,6 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
          try {
             this.getAppletContext().showDocument(new URL(this.getCodeBase(), "error_game_" + var1 + ".ws"), "_self");
          } catch (Exception var3) {
-            ;
          }
 
       }
@@ -521,7 +504,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       String var1 = this.getDocumentBase().getHost().toLowerCase();
       if(!var1.equals("jagex.com") && !var1.endsWith(".jagex.com")) {
          if(!var1.equals("runescape.com") && !var1.endsWith(".runescape.com")) {
-            if(var1.endsWith("127.0.0.1") || var1.endsWith("game.zenyte.com") || var1.endsWith("192.154.213.173")) {
+            if (var1.endsWith("127.0.0.1") || var1.endsWith(".zenyte.com") || var1.endsWith("192.154.213.173")) {
                return true;
             } else {
                while(var1.length() > 0 && var1.charAt(var1.length() - 1) >= '0' && var1.charAt(var1.length() - 1) <= '9') {
@@ -582,7 +565,6 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
                var10.fillRect(var6, var7 + this.field458 - var4, this.field457, var4);
             }
          } catch (Exception var9) {
-            ;
          }
       }
 
@@ -614,20 +596,17 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
          try {
             this.canvas.removeFocusListener(this);
          } catch (Exception var5) {
-            ;
          }
 
          try {
             this.vmethod4384();
          } catch (Exception var4) {
-            ;
          }
 
          if(this.frame != null) {
             try {
                System.exit(0);
             } catch (Throwable var3) {
-               ;
             }
          }
 
@@ -635,7 +614,6 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
             try {
                class315.taskManager.method5822();
             } catch (Exception var2) {
-               ;
             }
          }
 
@@ -715,7 +693,6 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       Container var2 = this.method4387();
       if(var2 == null) {
          if(var1 != -721353868) {
-            ;
          }
       } else {
          Bounds var3 = this.method4488();
@@ -803,7 +780,6 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
                if(var2.startsWith("1.6.0_")) {
                   int var3;
                   for(var3 = 6; var3 < var2.length() && class211.method4099(var2.charAt(var3)); ++var3) {
-                     ;
                   }
 
                   String var4 = var2.substring(6, var3);
@@ -841,7 +817,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
             this.method4380(this.canvas);
          }
       } catch (Exception var7) {
-         VertexNormal.method4110((String)null, var7, (byte)-118);
+         VertexNormal.method4110(null, var7, (byte) -118);
          this.method4413("crash");
       }
 
@@ -949,7 +925,7 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
             var6.setFont(class54.field87);
             var6.setColor(Color.white);
             var6.drawString(var2, (304 - field446.stringWidth(var2)) / 2, 22);
-            var4.drawImage(class129.field280, GrandExchangeOffer.canvasWidth / 2 - 152, class258.canvasHeight / 2 - 18, (ImageObserver)null);
+            var4.drawImage(class129.field280, GrandExchangeOffer.canvasWidth / 2 - 152, class258.canvasHeight / 2 - 18, null);
          } catch (Exception var9) {
             int var7 = GrandExchangeOffer.canvasWidth / 2 - 152;
             int var8 = class258.canvasHeight / 2 - 18;
@@ -991,7 +967,6 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       field456[ContextMenuRow.field1133] = var1;
       ContextMenuRow.field1133 = ContextMenuRow.field1133 + 1 & 31;
       if(0L != var3 && var1 > var3) {
-         ;
       }
 
       synchronized(this) {
