@@ -10551,62 +10551,6 @@ public final class client extends GameEngine implements class245, RSClient {
 
    }
 
-   static String aaa(String var0) {
-      ChatCrownType[] var1 = class248.method4669();
-
-      for(int var2 = 0; var2 < var1.length; ++var2) {
-         ChatCrownType var3 = var1[var2];
-         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.getModIcon(var3.icon * 1132360445))) {
-            var0 = var0.substring(6 + Integer.toString(var3.icon * 1132360445).length());
-            break;
-         }
-      }
-
-      return var0;
-   }
-
-   static String aaq(String var0) {
-      ChatCrownType[] var1 = class248.method4669();
-
-      for(int var2 = 0; var2 < var1.length; ++var2) {
-         ChatCrownType var3 = var1[var2];
-         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.getModIcon(var3.icon * -914060219))) {
-            var0 = var0.substring(6 + Integer.toString(var3.icon * 43960766).length());
-            break;
-         }
-      }
-
-      return var0;
-   }
-
-   static String aab(String var0) {
-      ChatCrownType[] var1 = class248.method4669();
-
-      for(int var2 = 0; var2 < var1.length; ++var2) {
-         ChatCrownType var3 = var1[var2];
-         if(var3.icon * 1132360445 != -1 && var0.startsWith(class181.getModIcon(var3.icon * 1132360445))) {
-            var0 = var0.substring(6 + Integer.toString(var3.icon * -1049852709).length());
-            break;
-         }
-      }
-
-      return var0;
-   }
-
-   static String aav(String var0) {
-      ChatCrownType[] var1 = class248.method4669();
-
-      for(int var2 = 0; var2 < var1.length; ++var2) {
-         ChatCrownType var3 = var1[var2];
-         if(var3.icon * -323107556 != -1 && var0.startsWith(class181.getModIcon(var3.icon * 1966222253))) {
-            var0 = var0.substring(6 + Integer.toString(var3.icon * 2107301188).length());
-            break;
-         }
-      }
-
-      return var0;
-   }
-
    static void aai() {
       if(WorldMapType1.field216 != null) {
          field797 = gameCycle * 1081757137;
