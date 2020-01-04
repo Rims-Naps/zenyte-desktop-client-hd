@@ -174,14 +174,29 @@ public enum HotColdLocation
 	ZEAH_VANNAHS_FARM_STORE(new WorldPoint(1806, 3521, 0), ZEAH, "North of Vannah's Farm Store, between the chicken coop and willow trees."),
 	ZEAH_FARMING_GUILD_W(new WorldPoint(1209, 3737, 0), ZEAH, "West of the Farming Guild."),
 	ZEAH_DAIRY_COW(new WorldPoint(1320, 3718, 0), ZEAH, "North-east of the Kebos Lowlands, east of the dairy cow."),
-	ZEAH_CRIMSON_SWIFTS(new WorldPoint(1186, 3583, 0), ZEAH, "South-west of the Kebos Swamp, below the crimson swifts.");
+	ZEAH_CRIMSON_SWIFTS(new WorldPoint(1186, 3583, 0), ZEAH, "South-west of the Kebos Swamp, below the crimson swifts."),
 
+	NORTHEAST_OF_AL_KHARID_MINE(true, new WorldPoint(3332, 3313, 0), MISTHALIN, "Northeast of Al Kharid Mine"),
+	ICE_MOUNTAIN(true, new WorldPoint(3007, 3475, 0), MISTHALIN, "Atop Ice Mountain"),
+	DRAYNOR_MANOR_MUSHROOMS(true, new WorldPoint(3096, 3379, 0), MISTHALIN, "Patch of mushrooms just northwest of Draynor Manor"),
+	DRAYNOR_WHEAT_FIELD(true, new WorldPoint(3120, 3282, 0), MISTHALIN, "Inside the wheat field next to Draynor Village"),
+	LUMBRIDGE_COW_FIELD(true, new WorldPoint(3174, 3336, 0), MISTHALIN, "Cow field north of Lumbridge"),
+	;
+
+	HotColdLocation(WorldPoint worldPoint, HotColdArea hotColdArea, String areaDescription)
+	{
+		this(false, worldPoint, hotColdArea, areaDescription);
+	}
+
+	private final boolean beginnerClue;
 	private final WorldPoint worldPoint;
 	private final HotColdArea hotColdArea;
 	private final String area;
 
-	public Rectangle2D getRect()
+	public Rectangle getRect()
 	{
-		return new Rectangle(worldPoint.getX() - 4, worldPoint.getY() - 4, 9, 9);
+		final int digRadius = beginnerClue ? HotColdTemperature.BEGINNER_VISIBLY_SHAKING.getMaxDistance() :
+				HotColdTemperature.MASTER_VISIBLY_SHAKING.getMaxDistance();
+		return new Rectangle(worldPoint.getX() - digRadius, worldPoint.getY() - digRadius, digRadius * 2 + 1, digRadius * 2 + 1);
 	}
 }
