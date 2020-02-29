@@ -221,7 +221,7 @@ public class ClueScrollPlugin extends Plugin
 		}
 	}
 
-	/*@Subscribe
+	@Subscribe
 	public void onMenuOptionClicked(final MenuOptionClicked event)
 	{
 		if (event.getMenuOption() != null && event.getMenuOption().equals("Read"))
@@ -231,10 +231,10 @@ public class ClueScrollPlugin extends Plugin
 			if (itemComposition != null && itemComposition.getName().startsWith("Clue scroll"))
 			{
 				clueItemId = itemComposition.getId();
-				updateClue(MapClue.forItemId(clueItemId));
+
 			}
 		}
-	}*/
+	}
 
 	@Subscribe
 	public void onItemContainerChanged(final ItemContainerChanged event)
