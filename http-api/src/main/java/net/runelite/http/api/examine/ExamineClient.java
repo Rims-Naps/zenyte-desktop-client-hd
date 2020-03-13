@@ -24,15 +24,7 @@
  */
 package net.runelite.http.api.examine;
 
-import java.io.IOException;
-import net.runelite.http.api.RuneLiteAPI;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
 import okhttp3.MediaType;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,33 +51,33 @@ public class ExamineClient
 
 	private void submit(String type, int id, String text)
 	{
-		HttpUrl url = RuneLiteAPI.getApiBase().newBuilder()
-			.addPathSegment("examine")
-			.addPathSegment(type)
-			.addPathSegment(Integer.toString(id))
-			.build();
-
-		logger.debug("Built URI: {}", url);
-
-		Request request = new Request.Builder()
-			.url(url)
-			.post(RequestBody.create(TEXT, text))
-			.build();
-
-		RuneLiteAPI.CLIENT.newCall(request).enqueue(new Callback()
-		{
-			@Override
-			public void onFailure(Call call, IOException e)
-			{
-				logger.warn("Error submitting examine", e);
-			}
-
-			@Override
-			public void onResponse(Call call, Response response)
-			{
-				response.close();
-				logger.debug("Submitted examine info for {} {}: {}", type, id, text);
-			}
-		});
+//		HttpUrl url = RuneLiteAPI.getApiBase().newBuilder()
+//			.addPathSegment("examine")
+//			.addPathSegment(type)
+//			.addPathSegment(Integer.toString(id))
+//			.build();
+//
+//		logger.debug("Built URI: {}", url);
+//
+//		Request request = new Request.Builder()
+//			.url(url)
+//			.post(RequestBody.create(TEXT, text))
+//			.build();
+//
+//		RuneLiteAPI.CLIENT.newCall(request).enqueue(new Callback()
+//		{
+//			@Override
+//			public void onFailure(Call call, IOException e)
+//			{
+//				logger.warn("Error submitting examine", e);
+//			}
+//
+//			@Override
+//			public void onResponse(Call call, Response response)
+//			{
+//				response.close();
+//				logger.debug("Submitted examine info for {} {}: {}", type, id, text);
+//			}
+//		});
 	}
 }
