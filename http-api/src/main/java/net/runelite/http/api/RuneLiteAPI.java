@@ -62,11 +62,12 @@ public class RuneLiteAPI
 			InputStream in = RuneLiteAPI.class.getResourceAsStream("/runelite.properties");
 			properties.load(in);
 
-			version = properties.getProperty("runelite.version");
+//			version = properties.getProperty("runelite.version");
+			version = getVersion();
 			rsVersion = Integer.parseInt(properties.getProperty("rs.version"));
 			String commit = properties.getProperty("runelite.commit");
 			boolean dirty = Boolean.parseBoolean(properties.getProperty("runelite.dirty"));
-
+			
 			userAgent = "RuneLite/" + version + "-" + commit + (dirty ? "+" : "");
 		}
 		catch (NumberFormatException e)
@@ -101,9 +102,9 @@ public class RuneLiteAPI
 		return HttpUrl.parse(BASE);
 	}
 
-	public static HttpUrl getApiBase()
-	{
-		return HttpUrl.parse(BASE + "/runelite-" + getVersion());
+	public static HttpUrl getApiBase() {
+//		return HttpUrl.parse(BASE + "/runelite-" + getVersion());
+		return HttpUrl.parse(BASE + "/runelite-" + version);
 	}
 	
 	public static HttpUrl getZenyteApi() {
