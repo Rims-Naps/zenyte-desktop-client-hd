@@ -54,6 +54,7 @@ import net.runelite.client.ui.components.IconTextField;
 
 class SkillCalculator extends JPanel
 {
+	private static final int MAX_XP_RATE = 25;
 	private static final int MAX_XP = 200_000_000;
 	private static final DecimalFormat XP_FORMAT = new DecimalFormat("#.#");
 
@@ -74,6 +75,7 @@ class SkillCalculator extends JPanel
 	private int targetLevel = currentLevel + 1;
 	private int targetXP = Experience.getXpForLevel(targetLevel);
 	private float xpFactor = 1.0f;
+	private int currentXPRate = 1;
 
 	SkillCalculator(Client client, UICalculatorInputArea uiInput, SpriteManager spriteManager, ItemManager itemManager)
 	{
@@ -107,6 +109,7 @@ class SkillCalculator extends JPanel
 
 		uiInput.getUiFieldTargetLevel().addActionListener(e -> onFieldTargetLevelUpdated());
 		uiInput.getUiFieldTargetXP().addActionListener(e -> onFieldTargetXPUpdated());
+		uiInput.getUiFieldXPRate().addActionListener(e -> onFieldXPRateUpdated());
 	}
 
 	void openCalculator(CalculatorType calculatorType)
@@ -122,6 +125,7 @@ class SkillCalculator extends JPanel
 		currentLevel = Experience.getLevelForXp(currentXP);
 		targetLevel = enforceSkillBounds(currentLevel + 1);
 		targetXP = Experience.getXpForLevel(targetLevel);
+		currentXPRate = 1;
 
 		// Remove all components (action slots) from this panel.
 		removeAll();
@@ -306,7 +310,7 @@ class SkillCalculator extends JPanel
 			int actionCount = 0;
 			int neededXP = targetXP - currentXP;
 			SkillDataEntry action = slot.getAction();
-			double xp = (action.isIgnoreBonus()) ? action.getXp() : action.getXp() * xpFactor;
+			double xp = ((action.isIgnoreBonus()) ? action.getXp() : action.getXp() * xpFactor) * currentXPRate;
 
 			if (neededXP > 0)
 			{
@@ -339,6 +343,7 @@ class SkillCalculator extends JPanel
 		uiInput.setCurrentXPInput(currentXP);
 		uiInput.setTargetLevelInput(targetLevel);
 		uiInput.setTargetXPInput(targetXP);
+		uiInput.setXPRate(currentXPRate);
 		calculate();
 	}
 
@@ -376,9 +381,20 @@ class SkillCalculator extends JPanel
 		updateInputFields();
 	}
 
+	private void onFieldXPRateUpdated()
+	{
+		currentXPRate = enforceXPRateBounds(uiInput.getXPRate());
+		updateInputFields();
+	}
+
 	private static int enforceSkillBounds(int input)
 	{
 		return Math.min(Experience.MAX_VIRT_LEVEL, Math.max(1, input));
+	}
+
+	private static int enforceXPRateBounds(int input)
+	{
+		return Math.min(MAX_XP_RATE, Math.max(1, input));
 	}
 
 	private static int enforceXPBounds(int input)
