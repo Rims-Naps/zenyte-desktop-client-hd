@@ -500,7 +500,7 @@ public class TcpConnectionMessage extends Node {
                   var2.method6222(class203.loginMessage3, class203.loginWindowX + 180, var30, 16776960, 0);
                   var30 += 15;
                   var30 += 14;
-                  var0.method6165("Username/email: ", class203.loginWindowX + 180 - 145, var30, 16777215, 0);
+                  var0.method6165("Username: ", class203.loginWindowX + 180 - 145, var30, 16777215, 0);
                   var31 = 174;
                   var24 = class312.options.hideUsername?NPCType.method4812(class203.username):class203.username;
 

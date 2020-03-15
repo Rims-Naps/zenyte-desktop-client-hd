@@ -1002,7 +1002,7 @@ public class Packet extends Node implements RSBuffer {
    )
    static void method5318(boolean var0) {
       class203.loginMessage1 = "";
-      class203.loginMessage2 = "Enter your username/email & password.";
+      class203.loginMessage2 = "Enter your username & password.";
       class203.loginMessage3 = "";
       class203.loginIndex = 2;
       if(var0) {

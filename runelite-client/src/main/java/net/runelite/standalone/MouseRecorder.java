@@ -327,7 +327,7 @@ public class MouseRecorder implements Runnable {
                            class203.username = class203.username.trim();
                            client.onUsernameChanged(-1);
                            if(class203.username.length() == 0) {
-                              TextureProvider.method1169("", "Please enter your username/email address.", "");
+                              TextureProvider.method1169("", "Please enter your username address.", "");
                               return;
                            }
 
@@ -429,7 +429,7 @@ public class MouseRecorder implements Runnable {
                                     class203.username = class203.username.trim();
                                     client.onUsernameChanged(-1);
                                     if(class203.username.length() == 0) {
-                                       TextureProvider.method1169("", "Please enter your username/email address.", "");
+                                       TextureProvider.method1169("", "Please enter your username address.", "");
                                        return;
                                     }
 
