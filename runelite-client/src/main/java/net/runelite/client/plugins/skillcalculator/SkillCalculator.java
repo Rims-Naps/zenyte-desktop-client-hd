@@ -54,7 +54,7 @@ import net.runelite.client.ui.components.IconTextField;
 
 class SkillCalculator extends JPanel
 {
-	private static final int MAX_XP_RATE = 25;
+	private static final int MAX_XP_RATE = 50;
 	private static final int MAX_XP = 200_000_000;
 	private static final DecimalFormat XP_FORMAT = new DecimalFormat("#.#");
 
