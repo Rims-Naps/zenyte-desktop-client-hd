@@ -122,6 +122,8 @@ public class MapLabel {
          TextureProvider.method1169("Zenyte has been updated!", "Please download the new client from discord.", "");
       } else if (var0 == 40) {
          TextureProvider.method1169("An account by that name does not exist!", "Register it at zenyte.com today!", "");
+      } else if (var0 == 41) {
+         TextureProvider.method1169("The tournament has already ended!", "Come back when there's a new tournament.", "");
       } else if(var0 == 55) {
          class203.loginIndex = 8;
       } else {
