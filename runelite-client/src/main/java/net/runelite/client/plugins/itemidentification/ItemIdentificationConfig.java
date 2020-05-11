@@ -83,4 +83,15 @@ public interface ItemIdentificationConfig extends Config
 	{
 		return true;
 	}
+
+
+	@ConfigItem(
+			keyName = "showTeleportScrolls",
+			name = "Teleport Scrolls",
+			description = "Show identification on Teleport Scrolls"
+	)
+	default boolean showTeleportScrolls()
+	{
+		return true;
+	}
 }

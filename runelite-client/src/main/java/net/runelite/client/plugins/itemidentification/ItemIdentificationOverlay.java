@@ -77,6 +77,12 @@ class ItemIdentificationOverlay extends WidgetItemOverlay
 					return;
 				}
 				break;
+			case TELEPORT_SCROLL:
+				if (!config.showTeleportScrolls())
+				{
+					return;
+				}
+				break;
 		}
 
 		graphics.setFont(FontManager.getRunescapeSmallFont());
