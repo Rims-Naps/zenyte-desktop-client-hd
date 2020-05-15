@@ -38,7 +38,10 @@ import okhttp3.Response;
 @Singleton
 class ClientConfigLoader
 {
-	private static final String CONFIG_URL = "http://oldschool.runescape.com/jav_config.ws";
+	/**
+	 * Change to https://zenyte-launcher.s3-eu-west-1.amazonaws.com/mobile/local/jav_config.ws for local use
+	 */
+	private static final String CONFIG_URL = "https://zenyte-launcher.s3-eu-west-1.amazonaws.com/mobile/beta/jav_config.ws";
 	private final OkHttpClient httpClient;
 
 	@Inject
@@ -50,10 +53,15 @@ class ClientConfigLoader
 
 	RSConfig fetch() throws IOException
 	{
+		final Request request = new Request.Builder()
+				.url(CONFIG_URL)
+				.build();
 
 		final RSConfig config = new RSConfig();
 
-		try (BufferedReader in = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("jav_config.ws")))) {
+		try (final Response response = httpClient.newCall(request).execute(); final BufferedReader in = new BufferedReader(
+				new InputStreamReader(response.body().byteStream())))
+		{
 			String str;
 
 			while ((str = in.readLine()) != null)
