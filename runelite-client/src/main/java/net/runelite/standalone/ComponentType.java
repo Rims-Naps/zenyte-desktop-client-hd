@@ -1,9 +1,5 @@
 package net.runelite.standalone;
 
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import net.runelite.api.Point;
 import net.runelite.api.WidgetNode;
 import net.runelite.api.events.WidgetHiddenChanged;
@@ -14,11 +10,12 @@ import net.runelite.api.widgets.WidgetItem;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSFontTypeFace;
-import net.runelite.rs.api.RSHashTable;
-import net.runelite.rs.api.RSNode;
-import net.runelite.rs.api.RSSpritePixels;
-import net.runelite.rs.api.RSWidget;
+import net.runelite.rs.api.*;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
 @ObfuscatedName("ia")
 public class ComponentType extends Node implements RSWidget {
@@ -1980,6 +1977,36 @@ public class ComponentType extends Node implements RSWidget {
 
    public void setNoScrollThrough(boolean var1) {
       this.noScrollThrough = var1;
+   }
+
+   @Override
+   public int getLineHeight() {
+      return lineHeight;
+   }
+
+   @Override
+   public void setLineHeight(int height) {
+      lineHeight = height;
+   }
+
+   @Override
+   public int getLineWidth() {
+      return lineWidth;
+   }
+
+   @Override
+   public void setLineWidth(int width) {
+      lineWidth = width;
+   }
+
+   @Override
+   public boolean getLineDirection() {
+      return lineDirection;
+   }
+
+   @Override
+   public void setLineDirection(boolean direction) {
+      lineDirection = direction;
    }
 
    public boolean getNoScrollThrough() {

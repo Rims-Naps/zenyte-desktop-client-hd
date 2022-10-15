@@ -25,7 +25,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.awt.*;
 import java.io.*;
-import java.net.*;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.Socket;
+import java.net.URL;
 import java.util.List;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -2735,18 +2738,18 @@ public final class client extends GameEngine implements class245, RSClient {
       PlayerEntity.method6048();
    }
 
-    private byte[] getMACAddress() {
-        InetAddress ip;
-        try {
-            ip = InetAddress.getLocalHost();
-            NetworkInterface network = NetworkInterface.getByInetAddress(ip);
-            byte[] hwaddress = network.getHardwareAddress();
-            return hwaddress == null ? new byte[0] : hwaddress;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return new byte[0];
-    }
+   private byte[] getMACAddress() {
+      InetAddress ip;
+      try {
+         ip = InetAddress.getLocalHost();
+         NetworkInterface network = NetworkInterface.getByInetAddress(ip);
+         byte[] hwaddress = network.getHardwareAddress();
+         return hwaddress == null ? new byte[0] : hwaddress;
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+      return new byte[0];
+   }
 
    @ObfuscatedName("fi")
    @ObfuscatedSignature(
@@ -5743,7 +5746,7 @@ public final class client extends GameEngine implements class245, RSClient {
    }
 
    public void changeWorld(net.runelite.api.World var1) {
-      GroundObject.method4108((World)var1);
+      GroundObject.setWorldInfo((World)var1);
    }
 
    public RSNodeCache getHealthBarCache() {
@@ -7201,7 +7204,7 @@ public final class client extends GameEngine implements class245, RSClient {
                class124.method1843(45);
                var2.vmethod6355();
                var2 = null;
-               GroundObject.method4108(var38);
+               GroundObject.setWorldInfo(var38);
                var1.currentPacket = null;
                return false;
             }
@@ -7945,6 +7948,7 @@ public final class client extends GameEngine implements class245, RSClient {
                      }
                   }
 
+                  System.out.println(var17);
                   if(var17 != null) {
                      TcpConnectionMessage var18 = class232.method4535(ClientProt.field2254, serverConnection.isaac);
                      var18.packetBuffer.method5122(draggedWidget.index);

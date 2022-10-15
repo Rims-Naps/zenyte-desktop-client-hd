@@ -1,9 +1,10 @@
 package net.runelite.standalone;
 
-import java.awt.Component;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.awt.*;
 
 @ObfuscatedName("bn")
 public class MouseRecorder implements Runnable {
@@ -119,7 +120,7 @@ public class MouseRecorder implements Runnable {
 
                if(class203.field1187 != -1) {
                   World var15 = class242.worldList[class203.field1187];
-                  GroundObject.method4108(var15);
+                  GroundObject.setWorldInfo(var15);
                   WorldMapDataGroup.method958();
                } else {
                   if(class203.field1152 > 0 && FaceNormal.field1878 != null && MouseInput.mouseLastPressedX >= 0 && MouseInput.mouseLastPressedX <= FaceNormal.field1878.width && MouseInput.mouseLastPressedY >= class258.canvasHeight / 2 - 50 && MouseInput.mouseLastPressedY <= class258.canvasHeight / 2 + 50) {

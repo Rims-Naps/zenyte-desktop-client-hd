@@ -24,10 +24,11 @@
  */
 package net.runelite.api.widgets;
 
-import java.awt.Rectangle;
-import java.util.Collection;
 import net.runelite.api.FontTypeFace;
 import net.runelite.api.Point;
+
+import java.awt.*;
+import java.util.Collection;
 
 /**
  * Represents an on-screen UI element that is drawn on the canvas.
@@ -825,4 +826,16 @@ public interface Widget
 	 * Can widgets under this widgets be scrolled in this widgets bounding box
 	 */
 	void setNoScrollThrough(boolean noScrollThrough);
+
+	int getLineHeight();
+
+	void setLineHeight(int height);
+
+	int getLineWidth();
+
+	void setLineWidth(int width);
+
+	boolean getLineDirection();
+
+	void setLineDirection(boolean direction);
 }

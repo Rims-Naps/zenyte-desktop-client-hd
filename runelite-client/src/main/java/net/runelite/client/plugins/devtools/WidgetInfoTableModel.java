@@ -26,15 +26,16 @@ package net.runelite.client.plugins.devtools;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.inject.Inject;
+import net.runelite.api.widgets.Widget;
+import net.runelite.client.callback.ClientThread;
+
+import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
-import javax.swing.SwingUtilities;
-import javax.swing.table.AbstractTableModel;
-import net.runelite.api.widgets.Widget;
-import net.runelite.client.callback.ClientThread;
 
 public class WidgetInfoTableModel extends AbstractTableModel
 {
@@ -143,6 +144,7 @@ public class WidgetInfoTableModel extends AbstractTableModel
 		out.add(new WidgetField<>("ParentId", Widget::getParentId));
 		out.add(new WidgetField<>("SelfHidden", Widget::isSelfHidden, Widget::setHidden, Boolean.class));
 		out.add(new WidgetField<>("Hidden", Widget::isHidden));
+		out.add(new WidgetField<>("OnLoad", Widget::getOnLoadListener));
 		out.add(new WidgetField<>("Text", Widget::getText, Widget::setText, String.class));
 		out.add(new WidgetField<>("TextColor",
 			w -> Integer.toString(w.getTextColor(), 16),
@@ -178,6 +180,9 @@ public class WidgetInfoTableModel extends AbstractTableModel
 		out.add(new WidgetField<>("RelativeY", Widget::getRelativeY, Widget::setRelativeY, Integer.class));
 		out.add(new WidgetField<>("Width", Widget::getWidth, Widget::setWidth, Integer.class));
 		out.add(new WidgetField<>("Height", Widget::getHeight, Widget::setHeight, Integer.class));
+		out.add(new WidgetField<>("LineDirection", Widget::getLineDirection, Widget::setLineDirection, Boolean.class));
+		out.add(new WidgetField<>("LineWidth", Widget::getLineWidth, Widget::setLineWidth, Integer.class));
+		out.add(new WidgetField<>("LineHeight", Widget::getLineHeight, Widget::setLineHeight, Integer.class));
 		out.add(new WidgetField<>("CanvasLocation", Widget::getCanvasLocation));
 		out.add(new WidgetField<>("Bounds", Widget::getBounds));
 		out.add(new WidgetField<>("ScrollX", Widget::getScrollX, Widget::setScrollX, Integer.class));

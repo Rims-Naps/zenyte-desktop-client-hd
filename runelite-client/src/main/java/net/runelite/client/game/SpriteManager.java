@@ -27,22 +27,20 @@ package net.runelite.client.game;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.inject.Inject;
-import java.awt.image.BufferedImage;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
-import javax.annotation.Nullable;
-import javax.inject.Singleton;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.SpritePixels;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.util.ImageUtil;
+
+import javax.annotation.Nullable;
+import javax.inject.Singleton;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 @Slf4j
 @Singleton
@@ -76,6 +74,7 @@ public class SpriteManager
 		}
 
 		SpritePixels[] sp = client.getSprites(client.getIndexSprites(), archive, 0);
+		if (sp == null || file >= sp.length) return null;
 		BufferedImage img = sp[file].toBufferedImage();
 
 		cache.put(key, img);

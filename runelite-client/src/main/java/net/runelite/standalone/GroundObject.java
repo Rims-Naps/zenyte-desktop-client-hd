@@ -1,8 +1,5 @@
 package net.runelite.standalone;
 
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.geom.Area;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.LocalPoint;
@@ -12,6 +9,9 @@ import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSGroundObject;
 import net.runelite.rs.api.RSRenderable;
+
+import java.awt.*;
+import java.awt.geom.Area;
 
 @ObfuscatedName("dw")
 public final class GroundObject implements RSGroundObject {
@@ -640,7 +640,7 @@ public final class GroundObject implements RSGroundObject {
       signature = "(Lbu;B)V",
       garbageValue = "-54"
    )
-   static void method4108(World var0) {
+   static void setWorldInfo(World var0) {
       if(var0.method4949() != client.isMembers) {
          client.isMembers = var0.method4949();
          boolean var1 = var0.method4949();

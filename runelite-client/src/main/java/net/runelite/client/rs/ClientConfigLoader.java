@@ -26,22 +26,18 @@
 package net.runelite.client.rs;
 
 import com.google.common.annotations.VisibleForTesting;
+import okhttp3.OkHttpClient;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 @Singleton
 class ClientConfigLoader
 {
-	/**
-	 * Change to https://zenyte-launcher.s3-eu-west-1.amazonaws.com/mobile/local/jav_config.ws for local use
-	 */
-	private static final String CONFIG_URL = "https://zenyte-launcher.s3-eu-west-1.amazonaws.com/mobile/beta/jav_config.ws";
+	private static final String CONFIG_URL = "http://oldschool.runescape.com/jav_config.ws";
 	private final OkHttpClient httpClient;
 
 	@Inject
@@ -53,15 +49,10 @@ class ClientConfigLoader
 
 	RSConfig fetch() throws IOException
 	{
-		final Request request = new Request.Builder()
-				.url(CONFIG_URL)
-				.build();
 
 		final RSConfig config = new RSConfig();
 
-		try (final Response response = httpClient.newCall(request).execute(); final BufferedReader in = new BufferedReader(
-				new InputStreamReader(response.body().byteStream())))
-		{
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("jav_config.ws")))) {
 			String str;
 
 			while ((str = in.readLine()) != null)
