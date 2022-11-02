@@ -1,5 +1,6 @@
 package net.runelite.standalone;
 
+import net.runelite.client.RuneLite;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
@@ -319,7 +320,7 @@ public class TcpConnectionMessage extends Node {
 
          if(client.gameState == 0 || client.gameState == 5) {
             var4 = 20;
-            var0.method6222("Zenyte is loading - please wait...", class203.loginWindowX + 180, 245 - var4, 16777215, -1);
+            var0.method6222(RuneLite.SERVER_NAME + " is loading - please wait...", class203.loginWindowX + 180, 245 - var4, 16777215, -1);
             var5 = 253 - var4;
             Rasterizer2D.method696(class203.loginWindowX + 180 - 152, var5, 304, 34, 9179409);
             Rasterizer2D.method696(class203.loginWindowX + 180 - 151, var5 + 1, 302, 32, 0);
@@ -363,7 +364,7 @@ public class TcpConnectionMessage extends Node {
             short var6;
             if(class203.loginIndex == 0) {
                var29 = 251;
-               var0.method6222("Welcome to Zenyte", class203.loginWindowX + 180, var29, 16776960, 0);
+               var0.method6222("Welcome to " + RuneLite.SERVER_NAME, class203.loginWindowX + 180, var29, 16776960, 0);
                var30 = var29 + 30;
                var5 = class203.loginWindowX + 180 - 80;
                var6 = 291;
