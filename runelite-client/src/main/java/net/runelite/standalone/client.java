@@ -4297,7 +4297,7 @@ public final class client extends GameEngine implements class245, RSClient {
 
    public final void init() {
       try {
-         if(this.method4369()) {
+         if(this.canUseHost()) {
             Parameters[] var1 = MapIcon.method4082();
 
             for(int var2 = 0; var2 < var1.length; ++var2) {

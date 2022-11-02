@@ -500,30 +500,8 @@ public abstract class GameEngine extends Applet implements Runnable, FocusListen
       signature = "(I)Z",
       garbageValue = "-1495158229"
    )
-   protected final boolean method4369() {
-      String var1 = this.getDocumentBase().getHost().toLowerCase();
-      if(!var1.equals("jagex.com") && !var1.endsWith(".jagex.com")) {
-         if(!var1.equals("runescape.com") && !var1.endsWith(".runescape.com")) {
-            if (var1.endsWith("127.0.0.1") || var1.endsWith(".zenyte.com") || var1.endsWith(".jire.org") || var1.endsWith("192.154.213.173") || var1.endsWith("52.49.124.174") || var1.endsWith("85.148.194.73")) {
-               return true;
-            } else {
-               while(var1.length() > 0 && var1.charAt(var1.length() - 1) >= '0' && var1.charAt(var1.length() - 1) <= '9') {
-                  var1 = var1.substring(0, var1.length() - 1);
-               }
-
-               if(var1.endsWith("192.168.1.")) {
-                  return true;
-               } else {
-                  this.method4413("invalidhost");
-                  return false;
-               }
-            }
-         } else {
-            return true;
-         }
-      } else {
-         return true;
-      }
+   protected final boolean canUseHost() {
+      return true;
    }
 
    @ObfuscatedName("t")
