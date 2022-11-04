@@ -39,7 +39,6 @@
         <guice.version>5.1.0</guice.version>
         <jogl.version>2.3.2</jogl.version>
 
-        <jarsigner.skip>true</jarsigner.skip>
         <maven.deploy.skip>false</maven.deploy.skip>
     </properties>
 
@@ -266,34 +265,6 @@
         </resources>
         <plugins>
             <plugin>
-                <groupId>com.github.wvengen</groupId>
-                <artifactId>proguard-maven-plugin</artifactId>
-                <version>2.6.0</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.sf.proguard</groupId>
-                        <artifactId>proguard-base</artifactId>
-                        <version>6.2.2</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>proguard</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <proguardVersion>4.10</proguardVersion>
-                    <libs>
-                        <lib>${java.home}/lib/rt.jar</lib>
-                        <lib>${java.home}/lib/jce.jar</lib>
-                    </libs>
-                    <proguardInclude>${project.basedir}/proguard.conf</proguardInclude>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
                 <version>3.0.1</version>
@@ -303,7 +274,6 @@
                         <phase>clean</phase>
                         <configuration>
                             <file>../lib/plugin.jar</file>
-                            <repositoryLayout>default</repositoryLayout>
                             <groupId>com.sun.jdk</groupId>
                             <artifactId>plugin</artifactId>
                             <version>0.0.1</version>
@@ -404,26 +374,6 @@
             <plugin>
                 <groupId>io.github.zlika</groupId>
                 <artifactId>reproducible-build-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jarsigner-plugin</artifactId>
-                <version>3.0.0</version>
-                <executions>
-                    <execution>
-                        <id>sign</id>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <skip>${jarsigner.skip}</skip>
-                    <keystore>${jarsigner.keystore}</keystore>
-                    <alias>${jarsigner.alias}</alias>
-                    <storepass>${jarsigner.storepass}</storepass>
-                    <keypass>${jarsigner.keypass}</keypass>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>net.runelite</groupId>
