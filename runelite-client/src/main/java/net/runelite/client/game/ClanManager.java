@@ -27,30 +27,21 @@ package net.runelite.client.game;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
-import java.awt.image.DataBufferByte;
-import java.awt.image.IndexColorModel;
-import java.awt.image.WritableRaster;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
-import javax.annotation.Nonnull;
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import net.runelite.api.ClanMember;
-import net.runelite.api.ClanMemberRank;
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.api.IndexedSprite;
-import net.runelite.api.SpriteID;
+import net.runelite.api.*;
 import net.runelite.api.events.ClanChanged;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.Text;
+
+import javax.annotation.Nonnull;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import java.awt.*;
+import java.awt.image.*;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 @Singleton
 public class ClanManager
@@ -152,7 +143,10 @@ public class ClanManager
 		for (int i = 0; i < CLANCHAT_IMAGES.length; i++, curPosition++)
 		{
 			final int resource = CLANCHAT_IMAGES[i];
-			clanChatImages[i] = rgbaToIndexedBufferedImage(clanChatImageFromSprite(spriteManager.getSprite(resource, 0)));
+			BufferedImage sprite = spriteManager.getSprite(resource, 0);
+			if (sprite == null) continue;
+			BufferedImage bufferedImage = clanChatImageFromSprite(sprite);
+			clanChatImages[i] = rgbaToIndexedBufferedImage(bufferedImage);
 			newModIcons[curPosition] = createIndexedSprite(client, clanChatImages[i]);
 		}
 
