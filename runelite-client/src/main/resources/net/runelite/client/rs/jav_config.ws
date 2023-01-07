@@ -46,7 +46,7 @@ msg=new_version_linktext=Open OldSchool Homepage
 msg=new_version_link=http://oldschool.runescape.com/
 param=3=true
 param=5=0
-param=12=5
+param=12=1
 param=10=5
 param=1=1
 param=19=196515767263-1oo20deqm6edn7ujlihl6rpadk9drhva.apps.googleusercontent.com
