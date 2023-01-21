@@ -24,33 +24,17 @@
  */
 package net.runelite.client.util;
 
+import net.runelite.api.*;
+import net.runelite.api.events.*;
+import net.runelite.client.callback.ClientThread;
+import net.runelite.client.eventbus.EventBus;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import net.runelite.api.Client;
-import net.runelite.api.Constants;
-import net.runelite.api.GameState;
-import net.runelite.api.InventoryID;
-import net.runelite.api.Item;
-import net.runelite.api.ItemContainer;
-import net.runelite.api.NPC;
-import net.runelite.api.Node;
-import net.runelite.api.Player;
-import net.runelite.api.Scene;
-import net.runelite.api.Tile;
-import net.runelite.api.events.DecorativeObjectSpawned;
-import net.runelite.api.events.GameObjectSpawned;
-import net.runelite.api.events.GroundObjectSpawned;
-import net.runelite.api.events.ItemContainerChanged;
-import net.runelite.api.events.ItemSpawned;
-import net.runelite.api.events.NpcSpawned;
-import net.runelite.api.events.PlayerSpawned;
-import net.runelite.api.events.WallObjectSpawned;
-import net.runelite.client.callback.ClientThread;
-import net.runelite.client.eventbus.EventBus;
 
 @Singleton
 public class GameEventManager
@@ -142,7 +126,7 @@ public class GameEventManager
 
 			forEachTile((tile) ->
 			{
-				Optional.ofNullable(tile.getWallObject()).ifPresent(object ->
+				Optional.ofNullable(tile.getBoundaryObject()).ifPresent(object ->
 				{
 					final WallObjectSpawned objectSpawned = new WallObjectSpawned();
 					objectSpawned.setTile(tile);
@@ -150,7 +134,7 @@ public class GameEventManager
 					eventBus.post(objectSpawned);
 				});
 
-				Optional.ofNullable(tile.getDecorativeObject()).ifPresent(object ->
+				Optional.ofNullable(tile.getWallDecoration()).ifPresent(object ->
 				{
 					final DecorativeObjectSpawned objectSpawned = new DecorativeObjectSpawned();
 					objectSpawned.setTile(tile);
@@ -158,7 +142,7 @@ public class GameEventManager
 					eventBus.post(objectSpawned);
 				});
 
-				Optional.ofNullable(tile.getGroundObject()).ifPresent(object ->
+				Optional.ofNullable(tile.getFloorDecoration()).ifPresent(object ->
 				{
 					final GroundObjectSpawned objectSpawned = new GroundObjectSpawned();
 					objectSpawned.setTile(tile);
@@ -167,14 +151,14 @@ public class GameEventManager
 				});
 
 				Arrays.stream(tile.getGameObjects())
-					.filter(Objects::nonNull)
-					.forEach(object ->
-					{
-						final GameObjectSpawned objectSpawned = new GameObjectSpawned();
-						objectSpawned.setTile(tile);
-						objectSpawned.setGameObject(object);
-						eventBus.post(objectSpawned);
-					});
+						.filter(Objects::nonNull)
+						.forEach(object ->
+						{
+							final GameObjectSpawned objectSpawned = new GameObjectSpawned();
+							objectSpawned.setTile(tile);
+							objectSpawned.setGameObject(object);
+							eventBus.post(objectSpawned);
+						});
 
 				Optional.ofNullable(tile.getItemLayer()).ifPresent(itemLayer ->
 				{

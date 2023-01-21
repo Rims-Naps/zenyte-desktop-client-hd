@@ -31,7 +31,7 @@ public interface RSGroundObject extends GroundObject
 {
 	@Import("hash")
 	@Override
-	long getHash();
+	long getTag();
 
 	@Import("x")
 	int getX();

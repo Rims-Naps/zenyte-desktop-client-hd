@@ -29,41 +29,10 @@ import com.google.common.base.Stopwatch;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ObjectArrays;
 import com.google.inject.Provides;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-import javax.imageio.ImageIO;
-import javax.inject.Inject;
-import javax.swing.SwingUtilities;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.ChatMessageType;
-import net.runelite.api.ChatPlayer;
-import net.runelite.api.ClanMember;
-import net.runelite.api.Client;
-import net.runelite.api.Friend;
-import net.runelite.api.GameState;
-import net.runelite.api.MenuAction;
-import net.runelite.api.MenuEntry;
-import net.runelite.api.Varbits;
-import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.ConfigChanged;
-import net.runelite.api.events.GameStateChanged;
-import net.runelite.api.events.GameTick;
-import net.runelite.api.events.MenuEntryAdded;
-import net.runelite.api.events.PlayerMenuOptionClicked;
-import net.runelite.api.events.VarbitChanged;
-import net.runelite.api.events.WorldListLoad;
+import net.runelite.api.*;
+import net.runelite.api.events.*;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.chat.ChatColorType;
@@ -74,7 +43,6 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
-import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.worldhopper.ping.Ping;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
@@ -87,6 +55,19 @@ import net.runelite.http.api.worlds.WorldClient;
 import net.runelite.http.api.worlds.WorldResult;
 import net.runelite.http.api.worlds.WorldType;
 import org.apache.commons.lang3.ArrayUtils;
+
+import javax.imageio.ImageIO;
+import javax.inject.Inject;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 /*@PluginDescriptor(
 	name = "World Hopper",
@@ -189,11 +170,11 @@ public class WorldHopperPlugin extends Plugin
 		}
 
 		navButton = NavigationButton.builder()
-			.tooltip("World Switcher")
-			.icon(icon)
-			.priority(3)
-			.panel(panel)
-			.build();
+				.tooltip("World Switcher")
+				.icon(icon)
+				.priority(3)
+				.panel(panel)
+				.build();
 
 		if (config.showSidebar())
 		{
@@ -351,7 +332,7 @@ public class WorldHopperPlugin extends Plugin
 			ChatPlayer player = getChatPlayerFromName(event.getTarget());
 
 			if (player == null || player.getWorld() == 0 || player.getWorld() == client.getWorld()
-				|| worldResult == null)
+					|| worldResult == null)
 			{
 				return;
 			}
@@ -359,7 +340,7 @@ public class WorldHopperPlugin extends Plugin
 			World currentWorld = worldResult.findWorld(client.getWorld());
 			World targetWorld = worldResult.findWorld(player.getWorld());
 			if (targetWorld == null || currentWorld == null
-				|| (!currentWorld.getTypes().contains(WorldType.PVP) && targetWorld.getTypes().contains(WorldType.PVP)))
+					|| (!currentWorld.getTypes().contains(WorldType.PVP) && targetWorld.getTypes().contains(WorldType.PVP)))
 			{
 				// Disable Hop-to a PVP world from a regular world
 				return;
@@ -432,7 +413,7 @@ public class WorldHopperPlugin extends Plugin
 
 		for (net.runelite.api.World w : worldListLoad.getWorlds())
 		{
-			worldData.put(w.getId(), w.getPlayerCount());
+			worldData.put(w.getId(), w.getPopulation());
 		}
 
 		panel.updateListData(worldData);
@@ -595,14 +576,14 @@ public class WorldHopperPlugin extends Plugin
 		if (world == currentWorld)
 		{
 			String chatMessage = new ChatMessageBuilder()
-				.append(ChatColorType.NORMAL)
-				.append("Couldn't find a world to quick-hop to.")
-				.build();
+					.append(ChatColorType.NORMAL)
+					.append("Couldn't find a world to quick-hop to.")
+					.build();
 
 			chatMessageManager.queue(QueuedMessage.builder()
-				.type(ChatMessageType.CONSOLE)
-				.runeLiteFormattedMessage(chatMessage)
-				.build());
+					.type(ChatMessageType.CONSOLE)
+					.runeLiteFormattedMessage(chatMessage)
+					.build());
 		}
 		else
 		{
@@ -621,9 +602,9 @@ public class WorldHopperPlugin extends Plugin
 
 		final net.runelite.api.World rsWorld = client.createWorld();
 		rsWorld.setActivity(world.getActivity());
-		rsWorld.setAddress(world.getAddress());
+		rsWorld.setHost(world.getAddress());
 		rsWorld.setId(world.getId());
-		rsWorld.setPlayerCount(world.getPlayers());
+		rsWorld.setPopulation(world.getPlayers());
 		rsWorld.setLocation(world.getLocation());
 		rsWorld.setTypes(WorldUtil.toWorldTypes(world.getTypes()));
 
@@ -637,19 +618,19 @@ public class WorldHopperPlugin extends Plugin
 		if (config.showWorldHopMessage())
 		{
 			String chatMessage = new ChatMessageBuilder()
-				.append(ChatColorType.NORMAL)
-				.append("Quick-hopping to World ")
-				.append(ChatColorType.HIGHLIGHT)
-				.append(Integer.toString(world.getId()))
-				.append(ChatColorType.NORMAL)
-				.append("..")
-				.build();
+					.append(ChatColorType.NORMAL)
+					.append("Quick-hopping to World ")
+					.append(ChatColorType.HIGHLIGHT)
+					.append(Integer.toString(world.getId()))
+					.append(ChatColorType.NORMAL)
+					.append("..")
+					.build();
 
 			chatMessageManager
-				.queue(QueuedMessage.builder()
-					.type(ChatMessageType.CONSOLE)
-					.runeLiteFormattedMessage(chatMessage)
-					.build());
+					.queue(QueuedMessage.builder()
+							.type(ChatMessageType.CONSOLE)
+							.runeLiteFormattedMessage(chatMessage)
+							.build());
 		}
 
 		quickHopTargetWorld = rsWorld;
@@ -671,19 +652,19 @@ public class WorldHopperPlugin extends Plugin
 			if (++displaySwitcherAttempts >= DISPLAY_SWITCHER_MAX_ATTEMPTS)
 			{
 				String chatMessage = new ChatMessageBuilder()
-					.append(ChatColorType.NORMAL)
-					.append("Failed to quick-hop after ")
-					.append(ChatColorType.HIGHLIGHT)
-					.append(Integer.toString(displaySwitcherAttempts))
-					.append(ChatColorType.NORMAL)
-					.append(" attempts.")
-					.build();
+						.append(ChatColorType.NORMAL)
+						.append("Failed to quick-hop after ")
+						.append(ChatColorType.HIGHLIGHT)
+						.append(Integer.toString(displaySwitcherAttempts))
+						.append(ChatColorType.NORMAL)
+						.append(" attempts.")
+						.build();
 
 				chatMessageManager
-					.queue(QueuedMessage.builder()
-						.type(ChatMessageType.CONSOLE)
-						.runeLiteFormattedMessage(chatMessage)
-						.build());
+						.queue(QueuedMessage.builder()
+								.type(ChatMessageType.CONSOLE)
+								.runeLiteFormattedMessage(chatMessage)
+								.build());
 
 				resetQuickHopper();
 			}
@@ -721,13 +702,13 @@ public class WorldHopperPlugin extends Plugin
 
 		// Search clan members first, because if a friend is in the clan chat but their private
 		// chat is 'off', then the hop-to option will not get shown in the menu (issue #5679).
-		ClanMember[] clanMembers = client.getClanMembers();
+		FriendsChatMember[] clanMembers = client.getClanMembers();
 
 		if (clanMembers != null)
 		{
-			for (ClanMember clanMember : clanMembers)
+			for (FriendsChatMember clanMember : clanMembers)
 			{
-				if (clanMember != null && clanMember.getUsername().equals(cleanName))
+				if (clanMember != null && clanMember.getName().equals(cleanName))
 				{
 					return clanMember;
 				}

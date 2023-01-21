@@ -25,21 +25,13 @@
 package net.runelite.client.ui.overlay;
 
 import com.google.common.base.Strings;
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.RenderingHints;
-import java.awt.Stroke;
+import net.runelite.api.Point;
+import net.runelite.api.*;
+import net.runelite.api.coords.LocalPoint;
+
+import java.awt.*;
 import java.awt.geom.Area;
 import java.awt.image.BufferedImage;
-import net.runelite.api.Actor;
-import net.runelite.api.Client;
-import net.runelite.api.Perspective;
-import net.runelite.api.Point;
-import net.runelite.api.TileObject;
-import net.runelite.api.coords.LocalPoint;
 
 
 /**
@@ -121,7 +113,7 @@ public class OverlayUtil
 			renderPolygon(graphics, poly, color);
 		}
 
-		Point textLocation = actor.getCanvasTextLocation(graphics, text, actor.getLogicalHeight() + 40);
+		Point textLocation = actor.getCanvasTextLocation(graphics, text, actor.getDefaultHeight() + 40);
 		if (textLocation != null)
 		{
 			renderTextLocation(graphics, textLocation, text, color);

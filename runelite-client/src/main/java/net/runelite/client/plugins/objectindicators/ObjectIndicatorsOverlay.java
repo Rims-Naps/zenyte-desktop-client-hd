@@ -24,19 +24,14 @@
  */
 package net.runelite.client.plugins.objectindicators;
 
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.DecorativeObject;
 import net.runelite.api.GameObject;
 import net.runelite.api.TileObject;
-import net.runelite.client.ui.overlay.Overlay;
-import net.runelite.client.ui.overlay.OverlayLayer;
-import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.OverlayPriority;
-import net.runelite.client.ui.overlay.OverlayUtil;
+import net.runelite.client.ui.overlay.*;
+
+import javax.inject.Inject;
+import java.awt.*;
 
 class ObjectIndicatorsOverlay extends Overlay
 {
@@ -70,7 +65,7 @@ class ObjectIndicatorsOverlay extends Overlay
 
 			if (object instanceof GameObject)
 			{
-				polygon = ((GameObject) object).getConvexHull();
+				polygon = (Polygon) ((GameObject) object).getConvexHull();
 			}
 			else if (object instanceof DecorativeObject)
 			{

@@ -24,14 +24,14 @@
  */
 package net.runelite.api;
 
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.image.BufferedImage;
-import javax.annotation.Nullable;
 import net.runelite.api.annotations.VisibleForDevtools;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldArea;
 import net.runelite.api.coords.WorldPoint;
+
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * Represents a RuneScape actor/entity.
@@ -64,7 +64,7 @@ public interface Actor extends Renderable
 	 *
 	 * @return the actor, null if no interaction is occurring
 	 */
-	Actor getInteracting();
+	Actor getTargetIndex();
 
 	/**
 	 * Gets the health ratio of the actor.
@@ -216,7 +216,7 @@ public interface Actor extends Renderable
 	 *
 	 * @return the logical height
 	 */
-	int getLogicalHeight();
+	int getDefaultHeight();
 
 	/**
 	 * Gets the convex hull of the actors model.

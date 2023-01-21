@@ -35,14 +35,14 @@ public interface RSNode extends Node
 
 	@Import("hash")
 	@Override
-	long getHash();
+	long getKey();
 
 	@Import("previous")
 	@Override
 	RSNode getPrevious();
 
 	@Import("unlink")
-	void unlink();
+	void remove();
 
 	/**
 	 * Called when this node is unlinked

@@ -1,37 +1,20 @@
 package net.runelite.standalone;
 
+import net.runelite.api.Actor;
+import net.runelite.api.Point;
+import net.runelite.api.coords.LocalPoint;
+import net.runelite.api.coords.WorldPoint;
+import net.runelite.api.events.*;
+import net.runelite.mapping.ObfuscatedGetter;
+import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.api.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
-import net.runelite.api.Actor;
-import net.runelite.api.Point;
-import net.runelite.api.coords.LocalPoint;
-import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.DecorativeObjectChanged;
-import net.runelite.api.events.DecorativeObjectDespawned;
-import net.runelite.api.events.DecorativeObjectSpawned;
-import net.runelite.api.events.GameObjectChanged;
-import net.runelite.api.events.GameObjectDespawned;
-import net.runelite.api.events.GameObjectSpawned;
-import net.runelite.api.events.GroundObjectChanged;
-import net.runelite.api.events.GroundObjectDespawned;
-import net.runelite.api.events.GroundObjectSpawned;
-import net.runelite.api.events.ItemDespawned;
-import net.runelite.api.events.ItemSpawned;
-import net.runelite.api.events.WallObjectChanged;
-import net.runelite.api.events.WallObjectDespawned;
-import net.runelite.api.events.WallObjectSpawned;
-import net.runelite.mapping.ObfuscatedGetter;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSDeque;
-import net.runelite.rs.api.RSGameObject;
-import net.runelite.rs.api.RSItem;
-import net.runelite.rs.api.RSItemLayer;
-import net.runelite.rs.api.RSNode;
-import net.runelite.rs.api.RSTile;
 
 @ObfuscatedName("de")
 public final class Tile extends Node implements RSTile {
@@ -71,6 +54,11 @@ public final class Tile extends Node implements RSTile {
    int wallDrawFlags;
    @ObfuscatedName("q")
    @ObfuscatedSignature(
+           signature = "Ldw;"
+   )
+   GroundObject floorDecoration;
+   @ObfuscatedName("q")
+   @ObfuscatedSignature(
       signature = "Ldw;"
    )
    GroundObject groundObject;
@@ -79,6 +67,17 @@ public final class Tile extends Node implements RSTile {
       intValue = -901714141
    )
    int renderLevel;
+   @ObfuscatedName("p")
+   @ObfuscatedSignature(
+           signature = "Lep;"
+   )
+   WallObject boundaryObject;
+   @ObfuscatedName("m")
+   @ObfuscatedSignature(
+           signature = "Lef;"
+   )
+   DecorativeObject wallDecoration;
+
    @ObfuscatedName("m")
    @ObfuscatedSignature(
       signature = "Lef;"
@@ -170,6 +169,21 @@ public final class Tile extends Node implements RSTile {
 
    public net.runelite.api.ItemLayer getItemLayer() {
       return this.itemLayer;
+   }
+
+   @Override
+   public net.runelite.api.DecorativeObject getWallDecoration() {
+      return this.wallDecoration;
+   }
+
+   @Override
+   public net.runelite.api.GroundObject getFloorDecoration() {
+      return this.floorDecoration;
+   }
+
+   @Override
+   public net.runelite.api.WallObject getBoundaryObject() {
+      return this.boundaryObject;
    }
 
    public net.runelite.api.WallObject getWallObject() {

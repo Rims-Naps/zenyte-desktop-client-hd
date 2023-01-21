@@ -1,10 +1,11 @@
 package net.runelite.standalone;
 
-import java.awt.Color;
-import java.awt.image.BufferedImage;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSSpritePixels;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 @ObfuscatedName("ld")
 public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
@@ -716,8 +717,38 @@ public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
       this.method1390();
    }
 
+   @Override
+   public void setWidth(int maxWidth) {
+      this.maxWidth = maxWidth;
+   }
+
+   @Override
+   public void setHeight(int maxHeight) {
+      this.maxHeight = maxHeight;
+   }
+
+   @Override
+   public void setxOffset(int offsetX) {
+      this.offsetX = offsetX;
+   }
+
+   @Override
+   public void setyOffset(int offsetY) {
+      this.offsetY = offsetY;
+   }
+
    public void drawAt(int var1, int var2) {
       this.method1311(var1, var2);
+   }
+
+   @Override
+   public int getSubHeight() {
+      return this.height;
+   }
+
+   @Override
+   public int getSubWidth() {
+      return this.width;
    }
 
    @ObfuscatedName("y")

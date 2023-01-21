@@ -24,9 +24,10 @@
  */
 package net.runelite.rs.api;
 
-import java.awt.Polygon;
 import net.runelite.api.Model;
 import net.runelite.mapping.Import;
+
+import java.awt.*;
 
 public interface RSModel extends RSRenderable, Model
 {
@@ -121,6 +122,10 @@ public interface RSModel extends RSRenderable, Model
 	@Import("isClickable")
 	boolean isClickable();
 
+	@Import("bottomY")
+	@Override
+	int getBottomY();
+
 	@Import("radius")
 	@Override
 	int getRadius();
@@ -158,7 +163,7 @@ public interface RSModel extends RSRenderable, Model
 	int getXYZMag();
 
 	void interpolateFrames(RSFrames frames, int frameId, RSFrames nextFrames, int nextFrameId, int interval,
-								int intervalCount);
+						   int intervalCount);
 
 	/**
 	 * Compute the convex hull of this model
@@ -170,4 +175,37 @@ public interface RSModel extends RSRenderable, Model
 
 	float[][] getFaceTextureVCoordinates();
 	void setFaceTextureVCoordinates(float[][] rl$faceTextureVCoordinates);
+
+	int[] getVertexNormalsX();
+	void setVertexNormalsX(int[] vertexNormalsX);
+
+	int[] getVertexNormalsY();
+	void setVertexNormalsY(int[] vertexNormalsY);
+
+	int[] getVertexNormalsZ();
+	void setVertexNormalsZ(int[] vertexNormalsZ);
+
+	float[] getFaceTextureUVCoordinates();
+	void setFaceTextureUVCoordinates(float[] faceTextureUVCoordinates);
+
+	@Import("overrideAmount")
+	@Override
+	byte getOverrideAmount();
+
+	@Import("overrideHue")
+	@Override
+	byte getOverrideHue();
+
+	@Import("overrideSaturation")
+	@Override
+	byte getOverrideSaturation();
+
+	@Import("overrideLuminance")
+	@Override
+	byte getOverrideLuminance();
+
+	@Import("drawFace")
+	@Override
+	void drawFace(int face);
+
 }

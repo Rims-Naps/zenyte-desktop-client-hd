@@ -25,23 +25,10 @@
  */
 package net.runelite.client.plugins.opponentinfo;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Rectangle;
-import javax.inject.Inject;
-import net.runelite.api.Actor;
-import net.runelite.api.Client;
-import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
-import net.runelite.api.NPC;
-import net.runelite.api.Player;
-import net.runelite.api.Varbits;
+import net.runelite.api.*;
 import net.runelite.client.game.HiscoreManager;
 import net.runelite.client.game.NPCManager;
 import net.runelite.client.ui.overlay.Overlay;
-import static net.runelite.client.ui.overlay.OverlayManager.OPTION_CONFIGURE;
 import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
@@ -51,6 +38,13 @@ import net.runelite.client.ui.overlay.components.ProgressBarComponent;
 import net.runelite.client.ui.overlay.components.TitleComponent;
 import net.runelite.client.util.Text;
 import net.runelite.http.api.hiscore.HiscoreResult;
+
+import javax.inject.Inject;
+import java.awt.Point;
+import java.awt.*;
+
+import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
+import static net.runelite.client.ui.overlay.OverlayManager.OPTION_CONFIGURE;
 
 class OpponentInfoOverlay extends Overlay
 {
@@ -73,11 +67,11 @@ class OpponentInfoOverlay extends Overlay
 
 	@Inject
 	private OpponentInfoOverlay(
-		Client client,
-		OpponentInfoPlugin opponentInfoPlugin,
-		OpponentInfoConfig opponentInfoConfig,
-		HiscoreManager hiscoreManager,
-		NPCManager npcManager)
+			Client client,
+			OpponentInfoPlugin opponentInfoPlugin,
+			OpponentInfoConfig opponentInfoConfig,
+			HiscoreManager hiscoreManager,
+			NPCManager npcManager)
 	{
 		super(opponentInfoPlugin);
 		this.client = client;
@@ -129,9 +123,9 @@ class OpponentInfoOverlay extends Overlay
 				}
 			}
 
-			final Actor opponentsOpponent = opponent.getInteracting();
+			final Actor opponentsOpponent = opponent.getTargetIndex();
 			if (opponentsOpponent != null
-				&& (opponentsOpponent != client.getLocalPlayer() || client.getVar(Varbits.MULTICOMBAT_AREA) == 1))
+					&& (opponentsOpponent != client.getLocalPlayer() || client.getVar(Varbits.MULTICOMBAT_AREA) == 1))
 			{
 				opponentsOpponentName = Text.removeTags(opponentsOpponent.getName());
 			}
@@ -154,8 +148,8 @@ class OpponentInfoOverlay extends Overlay
 		int textWidth = Math.max(ComponentConstants.STANDARD_WIDTH, fontMetrics.stringWidth(opponentName));
 		panelComponent.setPreferredSize(new Dimension(textWidth, 0));
 		panelComponent.getChildren().add(TitleComponent.builder()
-			.text(opponentName)
-			.build());
+				.text(opponentName)
+				.build());
 
 		// Health bar
 		if (lastRatio >= 0 && lastHealthScale > 0)
@@ -217,8 +211,8 @@ class OpponentInfoOverlay extends Overlay
 			textWidth = Math.max(textWidth, fontMetrics.stringWidth(opponentsOpponentName));
 			panelComponent.setPreferredSize(new Dimension(textWidth, 0));
 			panelComponent.getChildren().add(TitleComponent.builder()
-				.text(opponentsOpponentName)
-				.build());
+					.text(opponentsOpponentName)
+					.build());
 		}
 
 		return panelComponent.render(graphics);

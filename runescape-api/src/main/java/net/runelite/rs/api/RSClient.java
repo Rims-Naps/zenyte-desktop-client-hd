@@ -24,7 +24,6 @@
  */
 package net.runelite.rs.api;
 
-import java.util.Map;
 import net.runelite.api.Client;
 import net.runelite.api.SpritePixels;
 import net.runelite.api.World;
@@ -32,6 +31,8 @@ import net.runelite.api.widgets.Widget;
 import net.runelite.mapping.Construct;
 import net.runelite.mapping.Import;
 import net.runelite.mapping.Protect;
+
+import java.util.Map;
 
 public interface RSClient extends RSGameEngine, Client
 {
@@ -613,7 +614,7 @@ public interface RSClient extends RSGameEngine, Client
 	String[] getStringStack();
 
 	@Import("friendManager")
-	RSFriendManager getFriendManager();
+	RSFriendSystem getFriendManager();
 
 	@Import("clanMemberManager")
 	RSClanMemberManager getClanMemberManager();
@@ -622,7 +623,7 @@ public interface RSClient extends RSGameEngine, Client
 	RSJagexLoginType getLoginType();
 
 	@Construct
-	RSName createName(String name, RSJagexLoginType type);
+	RSUsername createName(String name, RSJagexLoginType type);
 
 	@Import("getVarbit")
 	int getVarbit(int varbitId);
@@ -969,4 +970,9 @@ public interface RSClient extends RSGameEngine, Client
 	@Import("healthbarCache")
 	@Override
 	RSNodeCache getHealthBarCache();
+
+	boolean isUnlockedFps();
+
+	long getUnlockedFpsTarget();
+
 }

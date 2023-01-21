@@ -24,11 +24,6 @@
  */
 package net.runelite.client.plugins.slayer;
 
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.util.List;
-import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.NPC;
 import net.runelite.api.Perspective;
@@ -41,6 +36,11 @@ import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayUtil;
 import net.runelite.client.util.Text;
+
+import javax.inject.Inject;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.List;
 
 class TargetWeaknessOverlay extends Overlay
 {
@@ -123,7 +123,7 @@ class TargetWeaknessOverlay extends Overlay
 	private void renderTargetItem(Graphics2D graphics, NPC actor, BufferedImage image)
 	{
 		final LocalPoint actorPosition = actor.getLocalLocation();
-		final int offset = actor.getLogicalHeight() + 40;
+		final int offset = actor.getDefaultHeight() + 40;
 
 		if (actorPosition == null || image == null)
 		{

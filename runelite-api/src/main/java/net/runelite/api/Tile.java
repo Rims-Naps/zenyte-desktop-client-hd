@@ -24,9 +24,10 @@
  */
 package net.runelite.api;
 
-import java.util.List;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
+
+import java.util.List;
 
 /**
  * Represents a tile in the game.
@@ -38,7 +39,7 @@ public interface Tile
 	 *
 	 * @return the tile decoration
 	 */
-	DecorativeObject getDecorativeObject();
+	DecorativeObject getWallDecoration();
 
 	/**
 	 * Gets all game objects on the tile.
@@ -59,14 +60,14 @@ public interface Tile
 	 *
 	 * @return the ground object
 	 */
-	GroundObject getGroundObject();
+	GroundObject getFloorDecoration();
 
 	/**
 	 * Gets the wall of the tile.
 	 *
 	 * @return the wall object
 	 */
-	WallObject getWallObject();
+	WallObject getBoundaryObject();
 
 	/**
 	 * Gets the scene paint of the tile.

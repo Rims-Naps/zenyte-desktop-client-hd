@@ -30,53 +30,35 @@ package net.runelite.client.plugins.suppliestracker;
 
 
 import com.google.inject.Provides;
-import java.awt.image.BufferedImage;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-import java.util.regex.Pattern;
-import javax.inject.Inject;
-import javax.swing.SwingUtilities;
 import lombok.extern.slf4j.Slf4j;
-import static net.runelite.api.AnimationID.BLOWPIPE_ATTACK;
-import static net.runelite.api.AnimationID.HIGH_LEVEL_MAGIC_ATTACK;
-import static net.runelite.api.AnimationID.LOW_LEVEL_MAGIC_ATTACK;
-import net.runelite.api.Client;
-import net.runelite.api.EquipmentInventorySlot;
-import net.runelite.api.InventoryID;
-import net.runelite.api.Item;
-import net.runelite.api.ItemComposition;
-import net.runelite.api.ItemContainer;
-import net.runelite.api.ItemID;
-import static net.runelite.api.ItemID.*;
-import net.runelite.api.Player;
-import net.runelite.api.VarPlayer;
-import net.runelite.api.events.AnimationChanged;
-import net.runelite.api.events.GameTick;
-import net.runelite.api.events.ItemContainerChanged;
-import net.runelite.api.events.MenuOptionClicked;
-import net.runelite.api.events.VarbitChanged;
+import net.runelite.api.*;
+import net.runelite.api.events.*;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import static net.runelite.client.plugins.suppliestracker.ActionType.CAST;
-import static net.runelite.client.plugins.suppliestracker.ActionType.CONSUMABLE;
-import static net.runelite.client.plugins.suppliestracker.ActionType.TELEPORT;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.http.api.item.ItemPrice;
 
+import javax.inject.Inject;
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.util.*;
+import java.util.regex.Pattern;
+
+import static net.runelite.api.AnimationID.*;
+import static net.runelite.api.ItemID.*;
+import static net.runelite.client.plugins.suppliestracker.ActionType.*;
+
 
 @PluginDescriptor(
-	name = "Supplies Used Tracker",
-	description = "Tracks supplies used during the session",
-	tags = {"cost"},
-	enabledByDefault = false
+		name = "Supplies Used Tracker",
+		description = "Tracks supplies used during the session",
+		tags = {"cost"},
+		enabledByDefault = false
 )
 @Slf4j
 public class SuppliesTrackerPlugin extends Plugin
@@ -144,7 +126,7 @@ public class SuppliesTrackerPlugin extends Plugin
 	@Inject
 	private Client client;
 
-	
+
 	@Override
 	protected void startUp() throws Exception
 	{
@@ -154,11 +136,11 @@ public class SuppliesTrackerPlugin extends Plugin
 		final BufferedImage icon = ImageUtil.getResourceStreamFromClass(getClass(), "panel_icon.png");
 
 		navButton = NavigationButton.builder()
-			.tooltip("Supplies Tracker")
-			.icon(icon)
-			.priority(5)
-			.panel(panel)
-			.build();
+				.tooltip("Supplies Tracker")
+				.icon(icon)
+				.priority(5)
+				.panel(panel)
+				.build();
 
 		clientToolbar.addNavigation(navButton);
 	}
@@ -242,7 +224,7 @@ public class SuppliesTrackerPlugin extends Plugin
 			{
 				ticksInAnimation = BLOWPIPE_TICKS_NORMAL_PVM;
 				if (client.getLocalPlayer() != null &&
-						client.getLocalPlayer().getInteracting() instanceof Player) {
+						client.getLocalPlayer().getTargetIndex() instanceof Player) {
 					ticksInAnimation = BLOWPIPE_TICKS_NORMAL_PVP;
 				}
 			}
@@ -250,7 +232,7 @@ public class SuppliesTrackerPlugin extends Plugin
 			{
 				ticksInAnimation = BLOWPIPE_TICKS_RAPID_PVM;
 				if (client.getLocalPlayer() != null &&
-						client.getLocalPlayer().getInteracting() instanceof Player) {
+						client.getLocalPlayer().getTargetIndex() instanceof Player) {
 					ticksInAnimation = BLOWPIPE_TICKS_RAPID_PVP;
 				}
 			}
@@ -335,7 +317,7 @@ public class SuppliesTrackerPlugin extends Plugin
 					old = client.getItemContainer(InventoryID.INVENTORY);
 
 					if (old != null && old.getItems() != null && actionStack.stream().noneMatch(a ->
-						a.getType() == CAST))
+							a.getType() == CAST))
 					{
 						MenuAction newAction = new MenuAction(CAST, old.getItems());
 						actionStack.push(newAction);
@@ -347,7 +329,7 @@ public class SuppliesTrackerPlugin extends Plugin
 				old = client.getItemContainer(InventoryID.INVENTORY);
 
 				if (old != null && old.getItems() != null && actionStack.stream().noneMatch(a ->
-					a.getType() == CAST))
+						a.getType() == CAST))
 				{
 					MenuAction newAction = new MenuAction(CAST, old.getItems());
 					actionStack.push(newAction);
@@ -523,7 +505,7 @@ public class SuppliesTrackerPlugin extends Plugin
 
 			// Makes stack only contains one teleport type to stop from adding multiple of one teleport
 			if (old != null && old.getItems() != null && actionStack.stream().noneMatch(a ->
-				a.getType() == TELEPORT))
+					a.getType() == TELEPORT))
 			{
 				int teleid = event.getId();
 				MenuAction newAction = new MenuAction.ItemAction(TELEPORT, old.getItems(), teleid, event.getActionParam());
@@ -540,7 +522,7 @@ public class SuppliesTrackerPlugin extends Plugin
 			old = client.getItemContainer(InventoryID.INVENTORY);
 
 			if (old != null && old.getItems() != null && actionStack.stream().noneMatch(a ->
-				a.getType() == CAST))
+					a.getType() == CAST))
 			{
 				MenuAction newAction = new MenuAction(CAST, old.getItems());
 				actionStack.push(newAction);
@@ -617,56 +599,56 @@ public class SuppliesTrackerPlugin extends Plugin
 	 */
 	private void buildEntries(int itemId, int count)
 	{
-			final ItemComposition itemComposition = itemManager.getItemComposition(itemId);
-			String name = itemComposition.getName();
-			long calculatedPrice;
+		final ItemComposition itemComposition = itemManager.getItemComposition(itemId);
+		String name = itemComposition.getName();
+		long calculatedPrice;
 
-			for (String raidsConsumables: RAIDS_CONSUMABLES)
-			{
-				if (name.toLowerCase().contains(raidsConsumables)) return;
-			}
+		for (String raidsConsumables: RAIDS_CONSUMABLES)
+		{
+			if (name.toLowerCase().contains(raidsConsumables)) return;
+		}
 
-			// convert potions, pizzas/pies, and cakes to their full equivalents
-			// e.g. a half pizza becomes full pizza, 3 dose potion becomes 4, etc...
-			if (isPotion(name))
-			{
-				name = name.replaceAll(POTION_PATTERN, "(4)");
-				itemId = getPotionID(name);
-			}
-			if (isPizzaPie(name))
-			{
-				itemId = getFullVersionItemID(itemId);
-				name = itemManager.getItemComposition(itemId).getName();
-			}
-			if (isCake(name, itemId))
-			{
-				itemId = getFullVersionItemID(itemId);
-				name = itemManager.getItemComposition(itemId).getName();
-			}
+		// convert potions, pizzas/pies, and cakes to their full equivalents
+		// e.g. a half pizza becomes full pizza, 3 dose potion becomes 4, etc...
+		if (isPotion(name))
+		{
+			name = name.replaceAll(POTION_PATTERN, "(4)");
+			itemId = getPotionID(name);
+		}
+		if (isPizzaPie(name))
+		{
+			itemId = getFullVersionItemID(itemId);
+			name = itemManager.getItemComposition(itemId).getName();
+		}
+		if (isCake(name, itemId))
+		{
+			itemId = getFullVersionItemID(itemId);
+			name = itemManager.getItemComposition(itemId).getName();
+		}
 
-			int newQuantity;
-			if (suppliesEntry.containsKey(itemId))
-			{
-				newQuantity = suppliesEntry.get(itemId).getQuantity() + count;
-			}
-			else
-			{
-				newQuantity = count;
-			}
+		int newQuantity;
+		if (suppliesEntry.containsKey(itemId))
+		{
+			newQuantity = suppliesEntry.get(itemId).getQuantity() + count;
+		}
+		else
+		{
+			newQuantity = count;
+		}
 
-			// calculate price for amount of doses used
-			calculatedPrice = ((long) itemManager.getItemPrice(itemId)) * ((long) newQuantity);
-			calculatedPrice = scalePriceByDoses(name, itemId, calculatedPrice);
+		// calculate price for amount of doses used
+		calculatedPrice = ((long) itemManager.getItemPrice(itemId)) * ((long) newQuantity);
+		calculatedPrice = scalePriceByDoses(name, itemId, calculatedPrice);
 
-			// write the new quantity and calculated price for this entry
-			SuppliesTrackerItem newEntry = new SuppliesTrackerItem(
+		// write the new quantity and calculated price for this entry
+		SuppliesTrackerItem newEntry = new SuppliesTrackerItem(
 				itemId,
 				name,
 				newQuantity,
 				calculatedPrice);
 
-			suppliesEntry.put(itemId, newEntry);
-			SwingUtilities.invokeLater(() ->
+		suppliesEntry.put(itemId, newEntry);
+		SwingUtilities.invokeLater(() ->
 				panel.addItem(newEntry));
 	}
 

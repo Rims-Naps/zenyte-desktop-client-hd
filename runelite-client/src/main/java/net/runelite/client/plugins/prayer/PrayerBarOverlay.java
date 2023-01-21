@@ -25,21 +25,17 @@
  */
 package net.runelite.client.plugins.prayer;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import javax.inject.Inject;
-import javax.inject.Singleton;
-import net.runelite.api.Client;
-import net.runelite.api.Perspective;
-import net.runelite.api.Player;
 import net.runelite.api.Point;
-import net.runelite.api.Skill;
+import net.runelite.api.*;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import java.awt.*;
 
 @Singleton
 class PrayerBarOverlay extends Overlay
@@ -75,7 +71,7 @@ class PrayerBarOverlay extends Overlay
 			return null;
 		}
 
-		final int height = client.getLocalPlayer().getLogicalHeight() + 10;
+		final int height = client.getLocalPlayer().getDefaultHeight() + 10;
 		final LocalPoint localLocation = client.getLocalPlayer().getLocalLocation();
 		final Point canvasPoint = Perspective.localToCanvas(client, localLocation, client.getPlane(), height);
 
@@ -95,8 +91,8 @@ class PrayerBarOverlay extends Overlay
 		graphics.fillRect(barX, barY, progressFill, barHeight);
 
 		if ((plugin.isPrayersActive() || config.prayerFlickAlwaysOn())
-			&& (config.prayerFlickLocation().equals(PrayerFlickLocation.PRAYER_BAR)
-			|| config.prayerFlickLocation().equals(PrayerFlickLocation.BOTH)))
+				&& (config.prayerFlickLocation().equals(PrayerFlickLocation.PRAYER_BAR)
+				|| config.prayerFlickLocation().equals(PrayerFlickLocation.BOTH)))
 		{
 			double t = plugin.getTickProgress();
 

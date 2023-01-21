@@ -24,15 +24,6 @@
  */
 package net.runelite.client.plugins.demonicgorilla;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.geom.Arc2D;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.List;
-import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
@@ -42,6 +33,13 @@ import net.runelite.client.game.SkillIconManager;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
+
+import javax.inject.Inject;
+import java.awt.*;
+import java.awt.geom.Arc2D;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DemonicGorillaOverlay extends Overlay
 {
@@ -82,7 +80,7 @@ public class DemonicGorillaOverlay extends Overlay
 	{
 		for (DemonicGorilla gorilla : plugin.getGorillas().values())
 		{
-			if (gorilla.getNpc().getInteracting() == null)
+			if (gorilla.getNpc().getTargetIndex() == null)
 			{
 				continue;
 			}
@@ -91,7 +89,7 @@ public class DemonicGorillaOverlay extends Overlay
 			if (lp != null)
 			{
 				Point point = Perspective.localToCanvas(client, lp, client.getPlane(),
-					gorilla.getNpc().getLogicalHeight() + 16);
+						gorilla.getNpc().getDefaultHeight() + 16);
 				if (point != null)
 				{
 					point = new Point(point.getX(), point.getY());
@@ -113,34 +111,34 @@ public class DemonicGorillaOverlay extends Overlay
 						graphics.setStroke(new BasicStroke(2));
 						graphics.setColor(COLOR_ICON_BACKGROUND);
 						graphics.fillOval(
-							point.getX() - totalWidth / 2 + currentPosX - bgPadding,
-							point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
-							icon.getWidth() + bgPadding * 2,
-							icon.getHeight() + bgPadding * 2);
+								point.getX() - totalWidth / 2 + currentPosX - bgPadding,
+								point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
+								icon.getWidth() + bgPadding * 2,
+								icon.getHeight() + bgPadding * 2);
 
 						graphics.setColor(COLOR_ICON_BORDER);
 						graphics.drawOval(
-							point.getX() - totalWidth / 2 + currentPosX - bgPadding,
-							point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
-							icon.getWidth() + bgPadding * 2,
-							icon.getHeight() + bgPadding * 2);
+								point.getX() - totalWidth / 2 + currentPosX - bgPadding,
+								point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
+								icon.getWidth() + bgPadding * 2,
+								icon.getHeight() + bgPadding * 2);
 
 						graphics.drawImage(
-							icon,
-							point.getX() - totalWidth / 2 + currentPosX,
-							point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE,
-							null);
+								icon,
+								point.getX() - totalWidth / 2 + currentPosX,
+								point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE,
+								null);
 
 						graphics.setColor(COLOR_ICON_BORDER_FILL);
 						Arc2D.Double arc = new Arc2D.Double(
-							point.getX() - totalWidth / 2 + currentPosX - bgPadding,
-							point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
-							icon.getWidth() + bgPadding * 2,
-							icon.getHeight() + bgPadding * 2,
-							90.0,
-							-360.0 * (DemonicGorilla.ATTACKS_PER_SWITCH -
-								gorilla.getAttacksUntilSwitch()) / DemonicGorilla.ATTACKS_PER_SWITCH,
-							Arc2D.OPEN);
+								point.getX() - totalWidth / 2 + currentPosX - bgPadding,
+								point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
+								icon.getWidth() + bgPadding * 2,
+								icon.getHeight() + bgPadding * 2,
+								90.0,
+								-360.0 * (DemonicGorilla.ATTACKS_PER_SWITCH -
+										gorilla.getAttacksUntilSwitch()) / DemonicGorilla.ATTACKS_PER_SWITCH,
+								Arc2D.OPEN);
 						graphics.draw(arc);
 
 						currentPosX += icon.getWidth() + OVERLAY_ICON_MARGIN;

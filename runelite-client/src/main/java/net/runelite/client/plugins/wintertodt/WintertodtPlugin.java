@@ -26,36 +26,10 @@
 package net.runelite.client.plugins.wintertodt;
 
 import com.google.inject.Provides;
-import java.time.Duration;
-import java.time.Instant;
-import javax.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import static net.runelite.api.AnimationID.CONSTRUCTION;
-import static net.runelite.api.AnimationID.FIREMAKING;
-import static net.runelite.api.AnimationID.FLETCHING_BOW_CUTTING;
-import static net.runelite.api.AnimationID.IDLE;
-import static net.runelite.api.AnimationID.LOOKING_INTO;
-import static net.runelite.api.AnimationID.WOODCUTTING_3A_AXE;
-import static net.runelite.api.AnimationID.WOODCUTTING_ADAMANT;
-import static net.runelite.api.AnimationID.WOODCUTTING_BLACK;
-import static net.runelite.api.AnimationID.WOODCUTTING_BRONZE;
-import static net.runelite.api.AnimationID.WOODCUTTING_DRAGON;
-import static net.runelite.api.AnimationID.WOODCUTTING_INFERNAL;
-import static net.runelite.api.AnimationID.WOODCUTTING_IRON;
-import static net.runelite.api.AnimationID.WOODCUTTING_MITHRIL;
-import static net.runelite.api.AnimationID.WOODCUTTING_RUNE;
-import static net.runelite.api.AnimationID.WOODCUTTING_STEEL;
-import net.runelite.api.ChatMessageType;
-import net.runelite.api.Client;
-import net.runelite.api.InventoryID;
-import net.runelite.api.Item;
-import net.runelite.api.ItemContainer;
-import static net.runelite.api.ItemID.BRUMA_KINDLING;
-import static net.runelite.api.ItemID.BRUMA_ROOT;
-import net.runelite.api.MessageNode;
-import net.runelite.api.Player;
+import net.runelite.api.*;
 import net.runelite.api.events.AnimationChanged;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.GameTick;
@@ -69,10 +43,18 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ColorUtil;
 
+import javax.inject.Inject;
+import java.time.Duration;
+import java.time.Instant;
+
+import static net.runelite.api.AnimationID.*;
+import static net.runelite.api.ItemID.BRUMA_KINDLING;
+import static net.runelite.api.ItemID.BRUMA_ROOT;
+
 @PluginDescriptor(
-	name = "Wintertodt",
-	description = "Show helpful information for the Wintertodt boss",
-	tags = {"minigame", "firemaking", "boss"}
+		name = "Wintertodt",
+		description = "Show helpful information for the Wintertodt boss",
+		tags = {"minigame", "firemaking", "boss"}
 )
 @Slf4j
 public class WintertodtPlugin extends Plugin
@@ -223,35 +205,35 @@ public class WintertodtPlugin extends Plugin
 		MessageNode messageNode = chatMessage.getMessageNode();
 		final WintertodtInterruptType interruptType;
 
-		if (messageNode.getValue().startsWith("The cold of"))
+		if (messageNode.getText().startsWith("The cold of"))
 		{
 			interruptType = WintertodtInterruptType.COLD;
 		}
-		else if (messageNode.getValue().startsWith("The freezing cold attack"))
+		else if (messageNode.getText().startsWith("The freezing cold attack"))
 		{
 			interruptType = WintertodtInterruptType.SNOWFALL;
 		}
-		else if (messageNode.getValue().startsWith("The brazier is broken and shrapnel"))
+		else if (messageNode.getText().startsWith("The brazier is broken and shrapnel"))
 		{
 			interruptType = WintertodtInterruptType.BRAZIER;
 		}
-		else if (messageNode.getValue().startsWith("You have run out of bruma roots"))
+		else if (messageNode.getText().startsWith("You have run out of bruma roots"))
 		{
 			interruptType = WintertodtInterruptType.OUT_OF_ROOTS;
 		}
-		else if (messageNode.getValue().startsWith("Your inventory is too full"))
+		else if (messageNode.getText().startsWith("Your inventory is too full"))
 		{
 			interruptType = WintertodtInterruptType.INVENTORY_FULL;
 		}
-		else if (messageNode.getValue().startsWith("You fix the brazier"))
+		else if (messageNode.getText().startsWith("You fix the brazier"))
 		{
 			interruptType = WintertodtInterruptType.FIXED_BRAZIER;
 		}
-		else if (messageNode.getValue().startsWith("You light the brazier"))
+		else if (messageNode.getText().startsWith("You light the brazier"))
 		{
 			interruptType = WintertodtInterruptType.LIT_BRAZIER;
 		}
-		else if (messageNode.getValue().startsWith("The brazier has gone out."))
+		else if (messageNode.getText().startsWith("The brazier has gone out."))
 		{
 			interruptType = WintertodtInterruptType.BRAZIER_WENT_OUT;
 		}
@@ -272,7 +254,7 @@ public class WintertodtPlugin extends Plugin
 				wasDamaged = true;
 
 				// Recolor message for damage notification
-				messageNode.setRuneLiteFormatMessage(ColorUtil.wrapWithColorTag(messageNode.getValue(), config.damageNotificationColor()));
+				messageNode.setRuneLiteFormatMessage(ColorUtil.wrapWithColorTag(messageNode.getText(), config.damageNotificationColor()));
 				chatMessageManager.update(messageNode);
 				client.refreshChat();
 

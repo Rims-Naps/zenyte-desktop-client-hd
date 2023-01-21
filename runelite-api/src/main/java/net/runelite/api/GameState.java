@@ -72,6 +72,10 @@ public enum GameState
 		this.state = state;
 	}
 
+	public int getState() {
+		return state;
+	}
+
 	/**
 	 * Utility method that maps the rank value to its respective
 	 * {@link GameState} value.

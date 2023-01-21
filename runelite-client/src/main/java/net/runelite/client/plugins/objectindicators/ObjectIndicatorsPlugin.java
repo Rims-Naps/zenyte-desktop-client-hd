@@ -29,38 +29,12 @@ import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.Provides;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.Client;
-import static net.runelite.api.Constants.REGION_SIZE;
-import net.runelite.api.DecorativeObject;
-import net.runelite.api.GameObject;
-import net.runelite.api.GameState;
-import net.runelite.api.MenuAction;
-import net.runelite.api.MenuEntry;
-import net.runelite.api.ObjectComposition;
-import net.runelite.api.Scene;
-import net.runelite.api.Tile;
-import net.runelite.api.TileObject;
+import net.runelite.api.*;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.FocusChanged;
-import net.runelite.api.events.GameObjectDespawned;
-import net.runelite.api.events.GameObjectSpawned;
-import net.runelite.api.events.GameStateChanged;
-import net.runelite.api.events.MenuEntryAdded;
-import net.runelite.api.events.MenuOptionClicked;
-import net.runelite.api.events.DecorativeObjectSpawned;
-import net.runelite.api.events.DecorativeObjectDespawned;
+import net.runelite.api.events.*;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.input.KeyListener;
@@ -69,12 +43,18 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 
+import javax.inject.Inject;
+import java.awt.event.KeyEvent;
+import java.util.*;
+
+import static net.runelite.api.Constants.REGION_SIZE;
+
 @Slf4j
 @PluginDescriptor(
-	name = "Object Markers",
-	description = "Enable marking of objects using the Shift key",
-	tags = {"overlay", "objects", "mark", "marker"},
-	enabledByDefault = false
+		name = "Object Markers",
+		description = "Enable marking of objects using the Shift key",
+		tags = {"overlay", "objects", "mark", "marker"},
+		enabledByDefault = false
 )
 public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 {
@@ -293,7 +273,7 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 		}
 
 		final GameObject[] tileGameObjects = tile.getGameObjects();
-		final DecorativeObject tileDecorativeObject = tile.getDecorativeObject();
+		final DecorativeObject tileDecorativeObject = tile.getWallDecoration();
 
 		if (tileDecorativeObject != null && tileDecorativeObject.getId() == id)
 		{
@@ -340,11 +320,11 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 		final WorldPoint worldPoint = WorldPoint.fromLocalInstance(client, object.getLocalLocation());
 		final int regionId = worldPoint.getRegionID();
 		final ObjectPoint point = new ObjectPoint(
-			name,
-			regionId,
-			worldPoint.getX() & (REGION_SIZE - 1),
-			worldPoint.getY() & (REGION_SIZE - 1),
-			client.getPlane());
+				name,
+				regionId,
+				worldPoint.getX() & (REGION_SIZE - 1),
+				worldPoint.getY() & (REGION_SIZE - 1),
+				client.getPlane());
 
 		Set<ObjectPoint> objectPoints = points.computeIfAbsent(regionId, k -> new HashSet<>());
 

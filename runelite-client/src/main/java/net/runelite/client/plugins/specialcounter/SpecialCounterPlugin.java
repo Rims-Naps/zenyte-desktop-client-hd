@@ -24,21 +24,7 @@
  */
 package net.runelite.client.plugins.specialcounter;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import javax.inject.Inject;
-import net.runelite.api.Actor;
-import net.runelite.api.Client;
-import net.runelite.api.EquipmentInventorySlot;
-import net.runelite.api.GameState;
-import net.runelite.api.InventoryID;
-import net.runelite.api.Item;
-import net.runelite.api.ItemContainer;
-import net.runelite.api.NPC;
-import net.runelite.api.Player;
-import net.runelite.api.Skill;
-import net.runelite.api.VarPlayer;
+import net.runelite.api.*;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.NpcDespawned;
@@ -52,11 +38,16 @@ import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.ws.PartyService;
 import net.runelite.client.ws.WSClient;
 
+import javax.inject.Inject;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 @PluginDescriptor(
-	name = "Special Attack Counter",
-	description = "Track DWH, Arclight, Darklight, and BGS special attacks used on NPCs",
-	tags = {"combat", "npcs", "overlay"},
-	enabledByDefault = false
+		name = "Special Attack Counter",
+		description = "Track DWH, Arclight, Darklight, and BGS special attacks used on NPCs",
+		tags = {"combat", "npcs", "overlay"},
+		enabledByDefault = false
 )
 public class SpecialCounterPlugin extends Plugin
 {
@@ -177,7 +168,7 @@ public class SpecialCounterPlugin extends Plugin
 	private int checkInteracting()
 	{
 		Player localPlayer = client.getLocalPlayer();
-		Actor interacting = localPlayer.getInteracting();
+		Actor interacting = localPlayer.getTargetIndex();
 
 		if (interacting instanceof NPC)
 		{
@@ -285,7 +276,7 @@ public class SpecialCounterPlugin extends Plugin
 		if (counter == null)
 		{
 			counter = new SpecialCounter(itemManager.getImage(specialWeapon.getItemID()), this,
-				hit, specialWeapon);
+					hit, specialWeapon);
 			infoBoxManager.addInfoBox(counter);
 			specialCounter[specialWeapon.ordinal()] = counter;
 		}

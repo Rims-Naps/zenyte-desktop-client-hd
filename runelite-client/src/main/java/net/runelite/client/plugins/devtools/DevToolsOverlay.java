@@ -25,37 +25,10 @@
  */
 package net.runelite.client.plugins.devtools;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.geom.Rectangle2D;
-import java.util.List;
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import lombok.Getter;
 import lombok.Setter;
-import net.runelite.api.Client;
-import net.runelite.api.Constants;
-import net.runelite.api.DecorativeObject;
-import net.runelite.api.GameObject;
-import net.runelite.api.GraphicsObject;
-import net.runelite.api.GroundObject;
-import net.runelite.api.Item;
-import net.runelite.api.ItemLayer;
-import net.runelite.api.NPC;
-import net.runelite.api.NPCComposition;
-import net.runelite.api.Node;
-import net.runelite.api.Perspective;
-import net.runelite.api.Player;
 import net.runelite.api.Point;
-import net.runelite.api.Projectile;
-import net.runelite.api.Scene;
-import net.runelite.api.Tile;
-import net.runelite.api.WallObject;
+import net.runelite.api.*;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
@@ -67,6 +40,12 @@ import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayUtil;
 import net.runelite.client.ui.overlay.tooltip.Tooltip;
 import net.runelite.client.ui.overlay.tooltip.TooltipManager;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
+import java.util.List;
 
 @Singleton
 class DevToolsOverlay extends Overlay
@@ -298,7 +277,7 @@ class DevToolsOverlay extends Overlay
 
 					// Draw a polygon around the convex hull
 					// of the model vertices
-					Polygon p = gameObject.getConvexHull();
+					Polygon p = (Polygon) gameObject.getConvexHull();
 					if (p != null)
 					{
 						graphics.drawPolygon(p);
@@ -310,7 +289,7 @@ class DevToolsOverlay extends Overlay
 
 	private void renderGroundObject(Graphics2D graphics, Tile tile, Player player)
 	{
-		GroundObject groundObject = tile.getGroundObject();
+		GroundObject groundObject = tile.getFloorDecoration();
 		if (groundObject != null)
 		{
 			if (player.getLocalLocation().distanceTo(groundObject.getLocalLocation()) <= MAX_DISTANCE)
@@ -322,7 +301,7 @@ class DevToolsOverlay extends Overlay
 
 	private void renderWallObject(Graphics2D graphics, Tile tile, Player player)
 	{
-		WallObject wallObject = tile.getWallObject();
+		WallObject wallObject = tile.getBoundaryObject();
 		if (wallObject != null)
 		{
 			if (player.getLocalLocation().distanceTo(wallObject.getLocalLocation()) <= MAX_DISTANCE)
@@ -334,7 +313,7 @@ class DevToolsOverlay extends Overlay
 
 	private void renderDecorObject(Graphics2D graphics, Tile tile, Player player)
 	{
-		DecorativeObject decorObject = tile.getDecorativeObject();
+		DecorativeObject decorObject = tile.getWallDecoration();
 		if (decorObject != null)
 		{
 			if (player.getLocalLocation().distanceTo(decorObject.getLocalLocation()) <= MAX_DISTANCE)

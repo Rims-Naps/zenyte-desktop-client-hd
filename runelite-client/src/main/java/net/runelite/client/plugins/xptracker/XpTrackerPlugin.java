@@ -25,26 +25,11 @@
  */
 package net.runelite.client.plugins.xptracker;
 
-import static com.google.common.base.MoreObjects.firstNonNull;
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Binder;
 import com.google.inject.Provides;
-import java.awt.image.BufferedImage;
-import java.time.temporal.ChronoUnit;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Objects;
-import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.Actor;
-import net.runelite.api.Client;
-import net.runelite.api.Experience;
-import net.runelite.api.GameState;
-import net.runelite.api.NPC;
-import net.runelite.api.Player;
-import net.runelite.api.Skill;
-import net.runelite.api.VarPlayer;
-import net.runelite.api.WorldType;
+import net.runelite.api.*;
 import net.runelite.api.events.ExperienceChanged;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
@@ -55,7 +40,6 @@ import net.runelite.client.game.NPCManager;
 import net.runelite.client.game.SkillIconManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import static net.runelite.client.plugins.xptracker.XpWorldType.NORMAL;
 import net.runelite.client.task.Schedule;
 import net.runelite.client.ui.ClientToolbar;
 import net.runelite.client.ui.NavigationButton;
@@ -63,10 +47,20 @@ import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ImageUtil;
 import net.runelite.http.api.xp.XpClient;
 
+import javax.inject.Inject;
+import java.awt.image.BufferedImage;
+import java.time.temporal.ChronoUnit;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Objects;
+
+import static com.google.common.base.MoreObjects.firstNonNull;
+import static net.runelite.client.plugins.xptracker.XpWorldType.NORMAL;
+
 @PluginDescriptor(
-	name = "XP Tracker",
-	description = "Enable the XP Tracker panel",
-	tags = {"experience", "levels", "panel"}
+		name = "XP Tracker",
+		description = "Enable the XP Tracker panel",
+		tags = {"experience", "levels", "panel"}
 )
 @Slf4j
 public class XpTrackerPlugin extends Plugin
@@ -77,12 +71,12 @@ public class XpTrackerPlugin extends Plugin
 	private static final int XP_THRESHOLD = 10_000;
 
 	static final List<Skill> COMBAT = ImmutableList.of(
-		Skill.ATTACK,
-		Skill.STRENGTH,
-		Skill.DEFENCE,
-		Skill.RANGED,
-		Skill.HITPOINTS,
-		Skill.MAGIC);
+			Skill.ATTACK,
+			Skill.STRENGTH,
+			Skill.DEFENCE,
+			Skill.RANGED,
+			Skill.HITPOINTS,
+			Skill.MAGIC);
 
 	@Inject
 	private ClientToolbar clientToolbar;
@@ -134,11 +128,11 @@ public class XpTrackerPlugin extends Plugin
 		final BufferedImage icon = ImageUtil.getResourceStreamFromClass(getClass(), "/skill_icons/overall.png");
 
 		navButton = NavigationButton.builder()
-			.tooltip("XP Tracker")
-			.icon(icon)
-			.priority(2)
-			.panel(xpPanel)
-			.build();
+				.tooltip("XP Tracker")
+				.icon(icon)
+				.priority(2)
+				.panel(xpPanel)
+				.build();
 
 		clientToolbar.addNavigation(navButton);
 	}
@@ -165,9 +159,9 @@ public class XpTrackerPlugin extends Plugin
 			{
 				// Reset
 				log.debug("World change: {} -> {}, {} -> {}",
-					lastUsername, client.getUsername(),
-					firstNonNull(lastWorldType, "<unknown>"),
-					firstNonNull(type, "<unknown>"));
+						lastUsername, client.getUsername(),
+						firstNonNull(lastWorldType, "<unknown>"),
+						firstNonNull(type, "<unknown>"));
 
 				lastUsername = client.getUsername();
 				// xp is not available until after login is finished, so fetch it on the next gametick
@@ -320,7 +314,7 @@ public class XpTrackerPlugin extends Plugin
 		final XpStateSingle state = xpState.getSkill(skill);
 		state.setActionType(XpActionType.EXPERIENCE);
 
-		final Actor interacting = client.getLocalPlayer().getInteracting();
+		final Actor interacting = client.getLocalPlayer().getTargetIndex();
 		if (interacting instanceof NPC && COMBAT.contains(skill))
 		{
 			final NPC npc = (NPC) interacting;
@@ -491,8 +485,8 @@ public class XpTrackerPlugin extends Plugin
 	}
 
 	@Schedule(
-		period = 1,
-		unit = ChronoUnit.SECONDS
+			period = 1,
+			unit = ChronoUnit.SECONDS
 	)
 	public void tickSkillTimes()
 	{

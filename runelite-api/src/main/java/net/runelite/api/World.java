@@ -50,14 +50,14 @@ public interface World
 	 *
 	 * @return the player count
 	 */
-	int getPlayerCount();
+	int getPopulation();
 
 	/**
 	 * Sets the player count of the world.
 	 *
 	 * @param playerCount the new player count
 	 */
-	void setPlayerCount(int playerCount);
+	void setPopulation(int playerCount);
 
 	/**
 	 * Gets the world location value.
@@ -122,12 +122,12 @@ public interface World
 	 *
 	 * @return the world address
 	 */
-	String getAddress();
+	String getHost();
 
 	/**
 	 * Sets the address of the world.
 	 *
 	 * @param address the address
 	 */
-	void setAddress(String address);
+	void setHost(String address);
 }

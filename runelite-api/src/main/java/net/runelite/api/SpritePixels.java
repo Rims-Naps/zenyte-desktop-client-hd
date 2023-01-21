@@ -24,7 +24,7 @@
  */
 package net.runelite.api;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
@@ -47,14 +47,14 @@ public interface SpritePixels
 	 *
 	 * @return the width
 	 */
-	int getWidth();
+	int getSubWidth();
 
 	/**
 	 * Gets the height of the sprite image in pixels.
 	 *
 	 * @return the height
 	 */
-	int getHeight();
+	int getSubHeight();
 
 	/**
 	 * Gets an array of all pixels data in the sprite.
@@ -75,7 +75,7 @@ public interface SpritePixels
 	 *
 	 * @param img the passsed buffered image
 	 * @throws IllegalArgumentException if the width or height do not match
- 	 */
+	 */
 	void toBufferedImage(BufferedImage img) throws IllegalArgumentException;
 
 	/**

@@ -24,10 +24,7 @@
  */
 package net.runelite.api.hooks;
 
-import net.runelite.api.Renderable;
-import net.runelite.api.SceneTileModel;
-import net.runelite.api.SceneTilePaint;
-import net.runelite.api.Texture;
+import net.runelite.api.*;
 
 public interface DrawCallbacks
 {
@@ -44,7 +41,14 @@ public interface DrawCallbacks
 
 	void draw();
 
+	boolean drawFace(Model model, int face);
+
 	void drawScene(int cameraX, int cameraY, int cameraZ, int cameraPitch, int cameraYaw, int plane);
+
+	/**
+	 * Called after the scene has been drawn
+	 */
+	void postDrawScene();
 
 	void animate(Texture texture, int diff);
 }

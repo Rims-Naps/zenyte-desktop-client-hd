@@ -24,21 +24,21 @@
  */
 package net.runelite.client.plugins.fishing;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import javax.inject.Inject;
 import net.runelite.api.Client;
-import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
 import net.runelite.api.Skill;
 import net.runelite.client.plugins.xptracker.XpTrackerService;
 import net.runelite.client.ui.overlay.Overlay;
-import static net.runelite.client.ui.overlay.OverlayManager.OPTION_CONFIGURE;
 import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.PanelComponent;
 import net.runelite.client.ui.overlay.components.TitleComponent;
+
+import javax.inject.Inject;
+import java.awt.*;
+
+import static net.runelite.api.MenuAction.RUNELITE_OVERLAY_CONFIG;
+import static net.runelite.client.ui.overlay.OverlayManager.OPTION_CONFIGURE;
 
 class FishingOverlay extends Overlay
 {
@@ -72,36 +72,36 @@ class FishingOverlay extends Overlay
 		}
 
 		panelComponent.getChildren().clear();
-		if (client.getLocalPlayer().getInteracting() != null && client.getLocalPlayer().getInteracting().getName()
-			.contains(FISHING_SPOT))
+		if (client.getLocalPlayer().getTargetIndex() != null && client.getLocalPlayer().getTargetIndex().getName()
+				.contains(FISHING_SPOT))
 		{
 			panelComponent.getChildren().add(TitleComponent.builder()
-				.text("Fishing")
-				.color(Color.GREEN)
-				.build());
+					.text("Fishing")
+					.color(Color.GREEN)
+					.build());
 		}
 		else
 		{
 			panelComponent.getChildren().add(TitleComponent.builder()
-				.text("NOT fishing")
-				.color(Color.RED)
-				.build());
+					.text("NOT fishing")
+					.color(Color.RED)
+					.build());
 		}
 
 		int actions = xpTrackerService.getActions(Skill.FISHING);
 		if (actions > 0)
 		{
 			panelComponent.getChildren().add(LineComponent.builder()
-				.left("Caught fish:")
-				.right(Integer.toString(actions))
-				.build());
+					.left("Caught fish:")
+					.right(Integer.toString(actions))
+					.build());
 
 			if (actions > 2)
 			{
 				panelComponent.getChildren().add(LineComponent.builder()
-					.left("Fish/hr:")
-					.right(Integer.toString(xpTrackerService.getActionsHr(Skill.FISHING)))
-					.build());
+						.left("Fish/hr:")
+						.right(Integer.toString(xpTrackerService.getActionsHr(Skill.FISHING)))
+						.build());
 			}
 		}
 

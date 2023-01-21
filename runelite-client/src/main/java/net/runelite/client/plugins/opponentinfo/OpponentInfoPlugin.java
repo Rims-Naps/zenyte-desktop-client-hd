@@ -26,10 +26,6 @@
 package net.runelite.client.plugins.opponentinfo;
 
 import com.google.inject.Provides;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.EnumSet;
-import javax.inject.Inject;
 import lombok.AccessLevel;
 import lombok.Getter;
 import net.runelite.api.Actor;
@@ -46,10 +42,15 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.http.api.hiscore.HiscoreEndpoint;
 
+import javax.inject.Inject;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.EnumSet;
+
 @PluginDescriptor(
-	name = "Opponent Information",
-	description = "Show name and hitpoints information about the NPC you are fighting",
-	tags = {"combat", "health", "hitpoints", "npcs", "overlay"}
+		name = "Opponent Information",
+		description = "Show name and hitpoints information about the NPC you are fighting",
+		tags = {"combat", "health", "hitpoints", "npcs", "overlay"}
 )
 public class OpponentInfoPlugin extends Plugin
 {
@@ -150,8 +151,8 @@ public class OpponentInfoPlugin extends Plugin
 	public void onGameTick(GameTick gameTick)
 	{
 		if (lastOpponent != null
-			&& lastTime != null
-			&& client.getLocalPlayer().getInteracting() == null)
+				&& lastTime != null
+				&& client.getLocalPlayer().getTargetIndex() == null)
 		{
 			if (Duration.between(lastTime, Instant.now()).compareTo(WAIT) > 0)
 			{

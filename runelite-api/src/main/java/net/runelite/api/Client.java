@@ -24,12 +24,6 @@
  */
 package net.runelite.api;
 
-import java.awt.Canvas;
-import java.awt.Dimension;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Map;
-import javax.annotation.Nullable;
 import net.runelite.api.annotations.VisibleForDevtools;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
@@ -39,6 +33,12 @@ import net.runelite.api.vars.AccountType;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetInfo;
 import org.slf4j.Logger;
+
+import javax.annotation.Nullable;
+import java.awt.*;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Represents the RuneScape client.
@@ -1052,7 +1052,7 @@ public interface Client extends GameEngine
 	 *
 	 * @return the clan chat members, null if not in a clan
 	 */
-	ClanMember[] getClanMembers();
+	FriendsChatMember[] getClanMembers();
 
 	/**
 	 * Gets the clan owner of the currently joined clan chat
@@ -1161,7 +1161,7 @@ public interface Client extends GameEngine
 	 * factors towards {@code zero} when stretching.
 	 *
 	 * @param state new integer scaling state
-	*/
+	 */
 	void setStretchedIntegerScaling(boolean state);
 
 	/**
@@ -1606,4 +1606,25 @@ public interface Client extends GameEngine
 	void draw2010Menu();
 
 	NodeCache getHealthBarCache();
+
+	/**
+	 * Sets the image to be used for the login screen, provided as SpritePixels
+	 * If the image is larger than half the width of fixed mode,
+	 * it won't get mirrored to the other side of the screen
+	 */
+	void setLoginScreen(SpritePixels pixels);
+
+	/**
+	 * Sets whether the flames on the login screen should be rendered
+	 */
+	void setShouldRenderLoginScreenFire(boolean val);
+
+	/**
+	 * Gets whether the flames on the login screen should be rendered
+	 */
+	boolean shouldRenderLoginScreenFire();
+
+	void setUnlockedFps(boolean unlock);
+	void setUnlockedFpsTarget(int fps);
+
 }

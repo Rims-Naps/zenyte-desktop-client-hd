@@ -35,11 +35,11 @@ public interface RSSpritePixels extends SpritePixels
 
 	@Import("height")
 	@Override
-	int getHeight();
+	int getSubHeight();
 
 	@Import("width")
 	@Override
-	int getWidth();
+	int getSubWidth();
 
 	@Import("pixels")
 	@Override
@@ -49,14 +49,14 @@ public interface RSSpritePixels extends SpritePixels
 	void setRaster();
 
 	@Import("maxWidth")
-	void setMaxWidth(int maxWidth);
+	void setWidth(int maxWidth);
 
 	@Import("maxHeight")
-	void setMaxHeight(int maxHeight);
+	void setHeight(int maxHeight);
 
 	@Import("offsetX")
-	void setOffsetX(int offsetX);
+	void setxOffset(int offsetX);
 
 	@Import("offsetY")
-	void setOffsetY(int offsetY);
+	void setyOffset(int offsetY);
 }

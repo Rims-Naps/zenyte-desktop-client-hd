@@ -24,9 +24,10 @@
  */
 package net.runelite.api;
 
-import java.util.List;
 import net.runelite.api.model.Triangle;
 import net.runelite.api.model.Vertex;
+
+import java.util.List;
 
 /**
  * Represents the model of an object.
@@ -82,6 +83,8 @@ public interface Model extends Renderable
 
 	int getModelHeight();
 
+	int getBottomY();
+
 	void calculateBoundsCylinder();
 
 	byte[] getFaceRenderPriorities();
@@ -103,4 +106,19 @@ public interface Model extends Renderable
 	int getExtremeZ();
 
 	int getXYZMag();
+
+	void drawFace(int face);
+
+	int[] getVertexNormalsX();
+	int[] getVertexNormalsY();
+	int[] getVertexNormalsZ();
+
+	byte getOverrideAmount();
+	byte getOverrideHue();
+	byte getOverrideSaturation();
+	byte getOverrideLuminance();
+
+	float[] getFaceTextureUVCoordinates();
+
+
 }

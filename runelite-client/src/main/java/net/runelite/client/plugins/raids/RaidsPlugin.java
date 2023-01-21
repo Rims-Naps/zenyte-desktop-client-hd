@@ -26,26 +26,9 @@ package net.runelite.client.plugins.raids;
 
 import com.google.inject.Binder;
 import com.google.inject.Provides;
-import java.text.DecimalFormat;
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.inject.Inject;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.ChatMessageType;
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.api.InstanceTemplates;
-import net.runelite.api.NullObjectID;
-import static net.runelite.api.Perspective.SCENE_SIZE;
-import net.runelite.api.Point;
-import static net.runelite.api.SpriteID.TAB_QUESTS_BROWN_RAIDING_PARTY;
-import net.runelite.api.Tile;
-import net.runelite.api.VarPlayer;
-import net.runelite.api.Varbits;
+import net.runelite.api.*;
 import net.runelite.api.events.ChatMessage;
 import net.runelite.api.events.ConfigChanged;
 import net.runelite.api.events.VarbitChanged;
@@ -66,10 +49,21 @@ import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.Text;
 
+import javax.inject.Inject;
+import java.text.DecimalFormat;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static net.runelite.api.Perspective.SCENE_SIZE;
+import static net.runelite.api.SpriteID.TAB_QUESTS_BROWN_RAIDING_PARTY;
+
 @PluginDescriptor(
-	name = "Chambers Of Xeric",
-	description = "Show helpful information for the Chambers of Xeric raid",
-	tags = {"combat", "raid", "overlay", "pve", "pvm", "bosses"}
+		name = "Chambers Of Xeric",
+		description = "Show helpful information for the Chambers of Xeric raid",
+		tags = {"combat", "raid", "overlay", "pve", "pvm", "bosses"}
 )
 @Slf4j
 public class RaidsPlugin extends Plugin
@@ -218,26 +212,26 @@ public class RaidsPlugin extends Plugin
 					double percentage = personalPoints / (totalPoints / 100.0);
 
 					String chatMessage = new ChatMessageBuilder()
-						.append(ChatColorType.NORMAL)
-						.append("Total points: ")
-						.append(ChatColorType.HIGHLIGHT)
-						.append(POINTS_FORMAT.format(totalPoints))
-						.append(ChatColorType.NORMAL)
-						.append(", Personal points: ")
-						.append(ChatColorType.HIGHLIGHT)
-						.append(POINTS_FORMAT.format(personalPoints))
-						.append(ChatColorType.NORMAL)
-						.append(" (")
-						.append(ChatColorType.HIGHLIGHT)
-						.append(DECIMAL_FORMAT.format(percentage))
-						.append(ChatColorType.NORMAL)
-						.append("%)")
-						.build();
+							.append(ChatColorType.NORMAL)
+							.append("Total points: ")
+							.append(ChatColorType.HIGHLIGHT)
+							.append(POINTS_FORMAT.format(totalPoints))
+							.append(ChatColorType.NORMAL)
+							.append(", Personal points: ")
+							.append(ChatColorType.HIGHLIGHT)
+							.append(POINTS_FORMAT.format(personalPoints))
+							.append(ChatColorType.NORMAL)
+							.append(" (")
+							.append(ChatColorType.HIGHLIGHT)
+							.append(DECIMAL_FORMAT.format(percentage))
+							.append(ChatColorType.NORMAL)
+							.append("%)")
+							.build();
 
 					chatMessageManager.queue(QueuedMessage.builder()
-						.type(ChatMessageType.FRIENDSCHATNOTIFICATION)
-						.runeLiteFormattedMessage(chatMessage)
-						.build());
+							.type(ChatMessageType.FRIENDSCHATNOTIFICATION)
+							.runeLiteFormattedMessage(chatMessage)
+							.build());
 				}
 			}
 		}
@@ -305,14 +299,14 @@ public class RaidsPlugin extends Plugin
 		final String raidData = "[" + layout + "]: " + rooms;
 
 		chatMessageManager.queue(QueuedMessage.builder()
-			.type(ChatMessageType.FRIENDSCHATNOTIFICATION)
-			.runeLiteFormattedMessage(new ChatMessageBuilder()
-				.append(ChatColorType.HIGHLIGHT)
-				.append("Layout: ")
-				.append(ChatColorType.NORMAL)
-				.append(raidData)
-				.build())
-			.build());
+				.type(ChatMessageType.FRIENDSCHATNOTIFICATION)
+				.runeLiteFormattedMessage(new ChatMessageBuilder()
+						.append(ChatColorType.HIGHLIGHT)
+						.append("Layout: ")
+						.append(ChatColorType.NORMAL)
+						.append(raidData)
+						.build())
+				.build());
 	}
 
 	private void updateInfoBoxState()
@@ -416,12 +410,12 @@ public class RaidsPlugin extends Plugin
 		{
 			for (int y = 0; y < SCENE_SIZE; y++)
 			{
-				if (tiles[x][y] == null || tiles[x][y].getWallObject() == null)
+				if (tiles[x][y] == null || tiles[x][y].getBoundaryObject() == null)
 				{
 					continue;
 				}
 
-				if (tiles[x][y].getWallObject().getId() == NullObjectID.NULL_12231)
+				if (tiles[x][y].getBoundaryObject().getId() == NullObjectID.NULL_12231)
 				{
 					return tiles[x][y].getSceneLocation();
 				}

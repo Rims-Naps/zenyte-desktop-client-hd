@@ -27,12 +27,6 @@ package net.runelite.client.plugins.chatnotifications;
 
 import com.google.common.base.Strings;
 import com.google.inject.Provides;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import static java.util.regex.Pattern.quote;
-import java.util.stream.Collectors;
-import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.MessageNode;
 import net.runelite.api.events.ChatMessage;
@@ -48,11 +42,19 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.Text;
 
+import javax.inject.Inject;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import static java.util.regex.Pattern.quote;
+
 @PluginDescriptor(
-	name = "Chat Notifications",
-	description = "Highlight and notify you of chat messages",
-	tags = {"duel", "messages", "notifications", "trade", "username"},
-	enabledByDefault = false
+		name = "Chat Notifications",
+		description = "Highlight and notify you of chat messages",
+		tags = {"duel", "messages", "notifications", "trade", "username"},
+		enabledByDefault = false
 )
 public class ChatNotificationsPlugin extends Plugin
 {
@@ -117,8 +119,8 @@ public class ChatNotificationsPlugin extends Plugin
 		{
 			List<String> items = Text.fromCSV(config.highlightWordsString());
 			String joined = items.stream()
-				.map(Pattern::quote)
-				.collect(Collectors.joining("|"));
+					.map(Pattern::quote)
+					.collect(Collectors.joining("|"));
 			highlightMatcher = Pattern.compile("\\b(" + joined + ")\\b", Pattern.CASE_INSENSITIVE);
 		}
 	}
@@ -127,7 +129,7 @@ public class ChatNotificationsPlugin extends Plugin
 	public void onChatMessage(ChatMessage chatMessage)
 	{
 		MessageNode messageNode = chatMessage.getMessageNode();
-		String nodeValue = Text.removeTags(messageNode.getValue());
+		String nodeValue = Text.removeTags(messageNode.getText());
 		boolean update = false;
 
 		switch (chatMessage.getType())
@@ -162,10 +164,10 @@ public class ChatNotificationsPlugin extends Plugin
 
 		if (config.highlightOwnName() && usernameMatcher != null)
 		{
-			Matcher matcher = usernameMatcher.matcher(messageNode.getValue());
+			Matcher matcher = usernameMatcher.matcher(messageNode.getText());
 			if (matcher.find())
 			{
-				messageNode.setValue(matcher.replaceAll(usernameReplacer));
+				messageNode.setText(matcher.replaceAll(usernameReplacer));
 				update = true;
 
 				if (config.notifyOnOwnName())
@@ -192,7 +194,7 @@ public class ChatNotificationsPlugin extends Plugin
 			if (found)
 			{
 				matcher.appendTail(stringBuffer);
-				messageNode.setValue(stringBuffer.toString());
+				messageNode.setText(stringBuffer.toString());
 
 				if (config.notifyOnHighlight())
 				{
@@ -203,7 +205,7 @@ public class ChatNotificationsPlugin extends Plugin
 
 		if (update)
 		{
-			messageNode.setRuneLiteFormatMessage(messageNode.getValue());
+			messageNode.setRuneLiteFormatMessage(messageNode.getText());
 			chatMessageManager.update(messageNode);
 		}
 	}
@@ -218,7 +220,7 @@ public class ChatNotificationsPlugin extends Plugin
 		{
 			stringBuilder.append('[').append(sender).append("] ");
 		}
-		
+
 		if (!Strings.isNullOrEmpty(name))
 		{
 			stringBuilder.append(name).append(": ");

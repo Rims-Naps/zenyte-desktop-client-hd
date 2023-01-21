@@ -48,7 +48,7 @@ public interface WallObject extends TileObject
 	 *
 	 * @return the boundary configuration
 	 */
-	int getConfig();
+	int getFlags();
 
 	Renderable getRenderable1();
 	Renderable getRenderable2();

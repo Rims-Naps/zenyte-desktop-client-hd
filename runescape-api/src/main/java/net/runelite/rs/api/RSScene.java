@@ -60,4 +60,11 @@ public interface RSScene extends Scene
 
 	@Import("minLevel")
 	int getMinLevel();
+
+	byte[][][] getUnderlayIds();
+	void setUnderlayIds(byte[][][] underlayIds);
+
+	byte[][][] getOverlayIds();
+	void setOverlayIds(byte[][][] overlayIds);
+
 }

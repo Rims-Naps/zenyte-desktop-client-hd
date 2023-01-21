@@ -24,11 +24,7 @@
  */
 package net.runelite.client.plugins;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
@@ -58,4 +54,12 @@ public @interface PluginDescriptor
 	boolean developerPlugin() default false;
 
 	boolean loadWhenOutdated() default false;
+
+	/**
+	 * A list of plugin names that are mutually exclusive with this plugin. Any plugins
+	 * with a name or conflicts value that matches this will be disabled when this plugin
+	 * is started
+	 */
+	String[] conflicts() default {};
+
 }

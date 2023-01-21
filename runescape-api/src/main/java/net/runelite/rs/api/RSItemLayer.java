@@ -37,7 +37,7 @@ public interface RSItemLayer extends ItemLayer
 
 	@Import("hash")
 	@Override
-	long getHash();
+	long getTag();
 
 	@Import("height")
 	int getHeight();

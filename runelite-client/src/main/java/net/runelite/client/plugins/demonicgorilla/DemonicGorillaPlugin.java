@@ -24,41 +24,20 @@
  */
 package net.runelite.client.plugins.demonicgorilla;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import javax.inject.Inject;
-
 import lombok.Getter;
-import net.runelite.api.AnimationID;
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.api.HeadIcon;
-import net.runelite.api.Hitsplat;
-import net.runelite.api.NPC;
-import net.runelite.api.NpcID;
-import net.runelite.api.Player;
-import net.runelite.api.Projectile;
-import net.runelite.api.ProjectileID;
+import net.runelite.api.*;
 import net.runelite.api.coords.WorldArea;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.GameStateChanged;
-import net.runelite.api.events.GameTick;
-import net.runelite.api.events.HitsplatApplied;
-import net.runelite.api.events.NpcDespawned;
-import net.runelite.api.events.NpcSpawned;
-import net.runelite.api.events.PlayerDespawned;
-import net.runelite.api.events.PlayerSpawned;
-import net.runelite.api.events.ProjectileMoved;
+import net.runelite.api.events.*;
 import net.runelite.client.callback.ClientThread;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+
+import javax.inject.Inject;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @PluginDescriptor(
         name = "Demonic Gorillas",
@@ -178,7 +157,7 @@ public class DemonicGorillaPlugin extends Plugin {
     private void onGorillaAttack(DemonicGorilla gorilla, final DemonicGorilla.AttackStyle attackStyle) {
         gorilla.setInitiatedCombat(true);
 
-        Player target = (Player) gorilla.getNpc().getInteracting();
+        Player target = (Player) gorilla.getNpc().getTargetIndex();
 
         DemonicGorilla.AttackStyle protectedStyle = null;
         if (target != null) {
@@ -254,7 +233,7 @@ public class DemonicGorillaPlugin extends Plugin {
     private void checkGorillaAttacks() {
         int tickCounter = client.getTickCount();
         for (DemonicGorilla gorilla : gorillas.values()) {
-            Player interacting = (Player) gorilla.getNpc().getInteracting();
+            Player interacting = (Player) gorilla.getNpc().getTargetIndex();
             MemorizedPlayer mp = memorizedPlayers.get(interacting);
 
             if (gorilla.getLastTickInteracting() != null && interacting == null) {
@@ -345,7 +324,7 @@ public class DemonicGorillaPlugin extends Plugin {
             if (gorilla.getDisabledMeleeMovementForTicks() > 0) {
                 gorilla.setDisabledMeleeMovementForTicks(gorilla.getDisabledMeleeMovementForTicks() - 1);
             } else if (gorilla.isInitiatedCombat() &&
-                    gorilla.getNpc().getInteracting() != null &&
+                    gorilla.getNpc().getTargetIndex() != null &&
                     !gorilla.isChangedAttackStyleThisTick() &&
                     gorilla.getNextPosibleAttackStyles().size() >= 2 &&
                     gorilla.getNextPosibleAttackStyles().stream()
@@ -441,7 +420,7 @@ public class DemonicGorillaPlugin extends Plugin {
             }
             gorilla.setLastTickAnimation(gorilla.getNpc().getAnimation());
             gorilla.setLastWorldArea(gorilla.getNpc().getWorldArea());
-            gorilla.setLastTickInteracting(gorilla.getNpc().getInteracting());
+            gorilla.setLastTickInteracting(gorilla.getNpc().getTargetIndex());
             gorilla.setTakenDamageRecently(false);
             gorilla.setChangedPrayerThisTick(false);
             gorilla.setChangedAttackStyleLastTick(gorilla.isChangedAttackStyleThisTick());

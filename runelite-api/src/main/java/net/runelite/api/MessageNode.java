@@ -34,7 +34,7 @@ public interface MessageNode
 	 *
 	 * @return
 	 */
-	int getId();
+	int getCount();
 
 	/**
 	 * Gets the type of message.
@@ -76,14 +76,14 @@ public interface MessageNode
 	 *
 	 * @return the message contents
 	 */
-	String getValue();
+	String getText();
 
 	/**
 	 * Sets the message contents.
 	 *
 	 * @param value the new message contents
 	 */
-	void setValue(String value);
+	void setText(String value);
 
 	/**
 	 * Gets the overriden message format.
@@ -96,7 +96,7 @@ public interface MessageNode
 	 * Sets the overriden message format.
 	 * <p>
 	 * If this value is not null, the message contents as returned by
-	 * {@link #getValue()} will be replaced with the format set here
+	 * {@link #getText()} will be replaced with the format set here
 	 * when a message is processed.
 	 *
 	 * @param runeLiteFormatMessage the new message format

@@ -24,16 +24,14 @@
  */
 package net.runelite.client.plugins.roguesden;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import javax.inject.Inject;
 import net.runelite.api.Client;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
+
+import javax.inject.Inject;
+import java.awt.*;
 
 public class RoguesDenOverlay extends Overlay
 {
@@ -65,7 +63,7 @@ public class RoguesDenOverlay extends Overlay
 		{
 			if (tile.getPlane() == client.getPlane() && obstacle.getLocalLocation().distanceTo(playerLocation) < MAX_DISTANCE)
 			{
-				Polygon p = tile.getGameObjects()[0].getConvexHull();
+				Polygon p = (Polygon) tile.getGameObjects()[0].getConvexHull();
 				if (p != null)
 				{
 					graphics.setColor(Color.CYAN);

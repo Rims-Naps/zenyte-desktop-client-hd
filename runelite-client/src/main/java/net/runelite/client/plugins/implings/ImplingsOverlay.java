@@ -24,23 +24,18 @@
  */
 package net.runelite.client.plugins.implings;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.util.List;
-import javax.inject.Inject;
-import net.runelite.api.Actor;
-import net.runelite.api.Client;
-import net.runelite.api.NPC;
 import net.runelite.api.Point;
-import net.runelite.api.Perspective;
+import net.runelite.api.*;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayUtil;
+
+import javax.inject.Inject;
+import java.awt.*;
+import java.util.List;
 
 /**
  * @author robin
@@ -135,7 +130,7 @@ public class ImplingsOverlay extends Overlay
 			OverlayUtil.renderPolygon(graphics, poly, color);
 		}
 
-		Point textLocation = actor.getCanvasTextLocation(graphics, text, actor.getLogicalHeight());
+		Point textLocation = actor.getCanvasTextLocation(graphics, text, actor.getDefaultHeight());
 		if (textLocation != null)
 		{
 			OverlayUtil.renderTextLocation(graphics, textLocation, text, color);

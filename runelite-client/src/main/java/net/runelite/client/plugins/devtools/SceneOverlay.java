@@ -24,22 +24,8 @@
  */
 package net.runelite.client.plugins.devtools;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.GeneralPath;
-import java.util.List;
-import java.util.stream.Stream;
-import javax.inject.Inject;
-import net.runelite.api.Actor;
-import net.runelite.api.Client;
-import net.runelite.api.NPC;
-import net.runelite.api.Perspective;
-import net.runelite.api.Player;
 import net.runelite.api.Point;
+import net.runelite.api.*;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldArea;
 import net.runelite.api.coords.WorldPoint;
@@ -47,6 +33,13 @@ import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayUtil;
+
+import javax.inject.Inject;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.GeneralPath;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class SceneOverlay extends Overlay
 {
@@ -66,9 +59,9 @@ public class SceneOverlay extends Overlay
 	private static final int INTERACTING_SHIFT = -16;
 
 	private static final Polygon ARROW_HEAD = new Polygon(
-		new int[]{0, -3, 3},
-		new int[]{0, -5, -5},
-		3
+			new int[]{0, -3, 3},
+			new int[]{0, -5, -5},
+			3
 	);
 
 
@@ -136,8 +129,8 @@ public class SceneOverlay extends Overlay
 			for (int y = lp1.getY(); y <= lp2.getY(); y += LOCAL_TILE_SIZE)
 			{
 				Point p = Perspective.localToCanvas(client,
-					new LocalPoint(lp1.getX() - LOCAL_TILE_SIZE / 2, y - LOCAL_TILE_SIZE / 2),
-					client.getPlane());
+						new LocalPoint(lp1.getX() - LOCAL_TILE_SIZE / 2, y - LOCAL_TILE_SIZE / 2),
+						client.getPlane());
 				if (p != null)
 				{
 					if (first)
@@ -161,8 +154,8 @@ public class SceneOverlay extends Overlay
 			for (int x = lp1.getX(); x <= lp2.getX(); x += LOCAL_TILE_SIZE)
 			{
 				Point p = Perspective.localToCanvas(client,
-					new LocalPoint(x - LOCAL_TILE_SIZE / 2, lp1.getY() - LOCAL_TILE_SIZE / 2),
-					client.getPlane());
+						new LocalPoint(x - LOCAL_TILE_SIZE / 2, lp1.getY() - LOCAL_TILE_SIZE / 2),
+						client.getPlane());
 				if (p != null)
 				{
 					if (first)
@@ -201,8 +194,8 @@ public class SceneOverlay extends Overlay
 			for (int y = lp1.getY(); y <= lp2.getY(); y += LOCAL_TILE_SIZE)
 			{
 				Point p = Perspective.localToCanvas(client,
-					new LocalPoint(lp1.getX() - LOCAL_TILE_SIZE / 2, y - LOCAL_TILE_SIZE / 2),
-					client.getPlane());
+						new LocalPoint(lp1.getX() - LOCAL_TILE_SIZE / 2, y - LOCAL_TILE_SIZE / 2),
+						client.getPlane());
 				if (p != null)
 				{
 					if (first)
@@ -226,8 +219,8 @@ public class SceneOverlay extends Overlay
 			for (int x = lp1.getX(); x <= lp2.getX(); x += LOCAL_TILE_SIZE)
 			{
 				Point p = Perspective.localToCanvas(client,
-					new LocalPoint(x - LOCAL_TILE_SIZE / 2, lp1.getY() - LOCAL_TILE_SIZE / 2),
-					client.getPlane());
+						new LocalPoint(x - LOCAL_TILE_SIZE / 2, lp1.getY() - LOCAL_TILE_SIZE / 2),
+						client.getPlane());
 				if (p != null)
 				{
 					if (first)
@@ -262,8 +255,8 @@ public class SceneOverlay extends Overlay
 			}
 
 			lp = new LocalPoint(
-				lp.getX() + dx * Perspective.LOCAL_TILE_SIZE + dx * Perspective.LOCAL_TILE_SIZE * (area.getWidth() - 1) / 2,
-				lp.getY() + dy * Perspective.LOCAL_TILE_SIZE + dy * Perspective.LOCAL_TILE_SIZE * (area.getHeight() - 1) / 2);
+					lp.getX() + dx * Perspective.LOCAL_TILE_SIZE + dx * Perspective.LOCAL_TILE_SIZE * (area.getWidth() - 1) / 2,
+					lp.getY() + dy * Perspective.LOCAL_TILE_SIZE + dy * Perspective.LOCAL_TILE_SIZE * (area.getHeight() - 1) / 2);
 
 			Polygon poly = Perspective.getCanvasTilePoly(client, lp);
 			if (poly == null)
@@ -288,7 +281,7 @@ public class SceneOverlay extends Overlay
 		List<NPC> npcs = client.getNpcs();
 		for (NPC npc : npcs)
 		{
-			if (player.getInteracting() != npc && npc.getInteracting() != player)
+			if (player.getTargetIndex() != npc && npc.getTargetIndex() != player)
 			{
 				continue;
 			}
@@ -361,18 +354,18 @@ public class SceneOverlay extends Overlay
 	private void renderInteracting(Graphics2D graphics)
 	{
 		Stream.concat(
-			client.getPlayers().stream(),
-			client.getNpcs().stream()
+				client.getPlayers().stream(),
+				client.getNpcs().stream()
 		).forEach(fa ->
 		{
-			Actor ta = fa.getInteracting();
+			Actor ta = fa.getTargetIndex();
 			if (ta == null)
 			{
 				return;
 			}
 
 			LocalPoint fl = fa.getLocalLocation();
-			Point fs = Perspective.localToCanvas(client, fl, client.getPlane(), fa.getLogicalHeight() / 2);
+			Point fs = Perspective.localToCanvas(client, fl, client.getPlane(), fa.getDefaultHeight() / 2);
 			if (fs == null)
 			{
 				return;
@@ -381,7 +374,7 @@ public class SceneOverlay extends Overlay
 			int fsy = fs.getY() - INTERACTING_SHIFT;
 
 			LocalPoint tl = ta.getLocalLocation();
-			Point ts = Perspective.localToCanvas(client, tl, client.getPlane(), ta.getLogicalHeight() / 2);
+			Point ts = Perspective.localToCanvas(client, tl, client.getPlane(), ta.getDefaultHeight() / 2);
 			if (ts == null)
 			{
 				return;

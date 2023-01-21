@@ -24,13 +24,6 @@
  */
 package net.runelite.client.plugins.instancemap;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
-import javax.inject.Inject;
-import javax.inject.Singleton;
 import lombok.Getter;
 import lombok.Setter;
 import net.runelite.api.Client;
@@ -45,6 +38,12 @@ import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayPosition;
 import net.runelite.client.ui.overlay.OverlayPriority;
 import net.runelite.client.ui.overlay.components.BackgroundComponent;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
 import static net.runelite.api.SpriteID.WINDOW_CLOSE_BUTTON_RED_X;
 import static net.runelite.api.SpriteID.WINDOW_CLOSE_BUTTON_RED_X_HOVERED;
 
@@ -179,7 +178,7 @@ class InstanceMapOverlay extends Overlay
 			}
 
 			closeButtonBounds = new Rectangle(image.getWidth() - closeButton.getWidth() - 5, 6,
-				closeButton.getWidth(), closeButton.getHeight());
+					closeButton.getWidth(), closeButton.getHeight());
 		}
 
 		graphics.drawImage(image, 0, 0, null);
@@ -192,7 +191,7 @@ class InstanceMapOverlay extends Overlay
 		}
 
 		graphics.drawImage(isCloseButtonHovered ? getCloseButtonHoveredImage() : getCloseButtonImage(),
-			(int) closeButtonBounds.getX(), (int) closeButtonBounds.getY(), null);
+				(int) closeButtonBounds.getX(), (int) closeButtonBounds.getY(), null);
 
 		return new Dimension(image.getWidth(), image.getHeight());
 	}
@@ -214,7 +213,7 @@ class InstanceMapOverlay extends Overlay
 	 * @param graphics graphics to be drawn to
 	 */
 	private void drawPlayerDot(Graphics2D graphics, Player player,
-		Color dotColor, Color outlineColor)
+							   Color dotColor, Color outlineColor)
 	{
 		LocalPoint playerLoc = player.getLocalLocation();
 
@@ -242,8 +241,8 @@ class InstanceMapOverlay extends Overlay
 
 	private static BufferedImage minimapToBufferedImage(SpritePixels spritePixels)
 	{
-		int width = spritePixels.getWidth();
-		int height = spritePixels.getHeight();
+		int width = spritePixels.getSubWidth();
+		int height = spritePixels.getSubHeight();
 		int[] pixels = spritePixels.getPixels();
 		BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		img.setRGB(0, 0, width, height, pixels, 0, width);
