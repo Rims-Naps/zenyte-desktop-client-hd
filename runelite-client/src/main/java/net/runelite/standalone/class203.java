@@ -1,9 +1,10 @@
 package net.runelite.standalone;
 
-import java.text.DecimalFormat;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.text.DecimalFormat;
 
 @ObfuscatedName("cc")
 public class class203 {
@@ -27,7 +28,7 @@ public class class203 {
    @ObfuscatedGetter(
       intValue = -1693868597
    )
-   static int field1176;
+   static int loginBoxCenter;
    @ObfuscatedName("q")
    @ObfuscatedSignature(
       signature = "[Llv;"
@@ -137,7 +138,7 @@ public class class203 {
    @ObfuscatedGetter(
       intValue = 192153295
    )
-   static int field1168;
+   static int xPadding;
    @ObfuscatedName("cg")
    @ObfuscatedGetter(
       intValue = 1445383135
@@ -157,8 +158,8 @@ public class class203 {
    static int field1172;
 
    static {
-      field1168 = 0;
-      loginWindowX = field1168 + 202;
+      xPadding = 0;
+      loginWindowX = xPadding + 202;
       field1159 = new int[256];
       field1160 = 0;
       field1161 = 0;

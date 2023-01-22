@@ -31,7 +31,7 @@ public interface RSMessageNode extends MessageNode
 {
 	@Import("id")
 	@Override
-	int getCount();
+	int getId();
 
 	@Import("type")
 	int getRSType();
@@ -54,9 +54,9 @@ public interface RSMessageNode extends MessageNode
 
 	@Import("value")
 	@Override
-	String getText();
+	String getValue();
 
 	@Import("value")
 	@Override
-	void setText(String value);
+	void setValue(String value);
 }

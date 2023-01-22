@@ -161,7 +161,7 @@ public class Spotanim extends CacheableNode {
             }
          }
 
-         var2 = var3.method2852(this.field3361 + 64, this.field3362 + 850, -30, -50, -30);
+         var2 = var3.toModel(this.field3361 + 64, this.field3362 + 850, -30, -50, -30);
          SpotAnimationDefinition_cachedModels.method628(var2, (long)this.id);
       }
 

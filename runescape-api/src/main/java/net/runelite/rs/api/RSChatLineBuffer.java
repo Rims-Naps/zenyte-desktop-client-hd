@@ -34,7 +34,7 @@ public interface RSChatLineBuffer extends ChatLineBuffer
 {
 	@Import("lines")
 	@Override
-	MessageNode[] getMessages();
+	MessageNode[] getLines();
 
 	@Import("length")
 	@Override

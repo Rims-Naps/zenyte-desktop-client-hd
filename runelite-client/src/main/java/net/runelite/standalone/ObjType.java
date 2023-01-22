@@ -501,7 +501,7 @@ public class ObjType extends CacheableNode implements RSItemComposition {
                }
             }
 
-            var5 = var6.method2852(this.ambient + 64, this.contrast * 5 + 768, -50, -10, -50);
+            var5 = var6.toModel(this.ambient + 64, this.contrast * 5 + 768, -50, -10, -50);
             var5.field1696 = true;
             itemModelCache.method628(var5, (long)this.id);
             return var5;

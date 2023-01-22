@@ -1,10 +1,11 @@
 package net.runelite.standalone;
 
-import java.security.SecureRandom;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSObjectComposition;
+
+import java.security.SecureRandom;
 
 @ObfuscatedName("jy")
 public class LocType extends CacheableNode implements RSObjectComposition {
@@ -373,7 +374,7 @@ public class LocType extends CacheableNode implements RSObjectComposition {
             return null;
          }
 
-         var9 = var10.method2852(this.ambient + 64, this.contrast + 768, -50, -10, -50);
+         var9 = var10.toModel(this.ambient + 64, this.contrast + 768, -50, -10, -50);
          field3457.method628(var9, var7);
       }
 
@@ -405,7 +406,7 @@ public class LocType extends CacheableNode implements RSObjectComposition {
       signature = "(II[[IIIII)Lem;",
       garbageValue = "836618577"
    )
-   public final Entity method387(int var1, int var2, int[][] var3, int var4, int var5, int var6) {
+   public final Entity getEntity(int var1, int var2, int[][] var3, int var4, int var5, int var6) {
       long var7;
       if(this.objectTypes == null) {
          var7 = (long)(var2 + (this.field3476 << 10));
@@ -421,11 +422,11 @@ public class LocType extends CacheableNode implements RSObjectComposition {
          }
 
          if(!this.nonFlatShading) {
-            var9 = var10.method2852(this.ambient + 64, this.contrast + 768, -50, -10, -50);
+            var9 = var10.toModel(this.ambient + 64, this.contrast + 768, -50, -10, -50);
          } else {
-            var10.field1566 = (short)(this.ambient + 64);
+            var10.ambient = (short)(this.ambient + 64);
             var10.contrast = (short)(this.contrast + 768);
-            var10.method2796();
+            var10.calculateVertexNormals();
             var9 = var10;
          }
 
@@ -486,7 +487,7 @@ public class LocType extends CacheableNode implements RSObjectComposition {
             return null;
          }
 
-         var11 = var12.method2852(this.ambient + 64, this.contrast + 768, -50, -10, -50);
+         var11 = var12.toModel(this.ambient + 64, this.contrast + 768, -50, -10, -50);
          field3457.method628(var11, var9);
       }
 

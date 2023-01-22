@@ -26,8 +26,6 @@ package net.runelite.http.api;
 
 import com.google.gson.Gson;
 import okhttp3.*;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +44,7 @@ public class RuneLiteAPI
 	public static final Gson GSON = new Gson();
 	public static String userAgent;
 	
-	private static final String ZENYTE_BASE = "https://api.zenyte.com";
+	private static final String INFERNO_BASE = "http://3.84.251.214:8080";
 	
 	private static final String BASE = "https://api.runelite.net";
 	private static final String WSBASE = "https://api.runelite.net/ws";
@@ -68,7 +66,7 @@ public class RuneLiteAPI
 			String commit = properties.getProperty("runelite.commit");
 			boolean dirty = Boolean.parseBoolean(properties.getProperty("runelite.dirty"));
 			
-			userAgent = "RuneLite/" + version + "-" + commit + (dirty ? "+" : "");
+			userAgent = "Api";
 		}
 		catch (NumberFormatException e)
 		{
@@ -89,7 +87,8 @@ public class RuneLiteAPI
 				{
 					Request userAgentRequest = chain.request()
 						.newBuilder()
-						.header("User-Agent", userAgent)
+							.addHeader("Authorization", "Bearer eZ02dvQi-JwZ7-s3o7-rxIw-9TLNqtjR2Yuj")
+						.addHeader("User-Agent", userAgent)
 						.build();
 					return chain.proceed(userAgentRequest);
 				}
@@ -107,8 +106,8 @@ public class RuneLiteAPI
 		return HttpUrl.parse(BASE + "/runelite-" + version);
 	}
 	
-	public static HttpUrl getZenyteApi() {
-		return HttpUrl.parse(ZENYTE_BASE + "/");
+	public static HttpUrl getInfernoApi() {
+		return HttpUrl.parse(INFERNO_BASE + "/");
 	}
 
 	public static HttpUrl getStaticBase()
@@ -123,12 +122,12 @@ public class RuneLiteAPI
 
 	public static String getVersion() {
 		String version = "1.5.22";
-		try {
+		/*try {
 			Document document = Jsoup.connect("https://raw.githubusercontent.com/runelite/runelite/master/http-api/pom.xml").get();
 			version = document.select("parent").select("version").text();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		return version;
 	}
 

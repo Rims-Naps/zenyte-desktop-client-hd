@@ -25,8 +25,8 @@
 package net.runelite.client.plugins.playerindicators;
 
 import com.google.inject.Provides;
+import net.runelite.api.ClanMemberRank;
 import net.runelite.api.Client;
-import net.runelite.api.FriendsChatRank;
 import net.runelite.api.MenuEntry;
 import net.runelite.api.Player;
 import net.runelite.api.events.MenuEntryAdded;
@@ -41,13 +41,13 @@ import net.runelite.client.util.ColorUtil;
 import javax.inject.Inject;
 import java.awt.*;
 
-import static net.runelite.api.FriendsChatRank.UNRANKED;
+import static net.runelite.api.ClanMemberRank.UNRANKED;
 import static net.runelite.api.MenuAction.*;
 
 @PluginDescriptor(
-		name = "Player Indicators",
-		description = "Highlight players on-screen and/or on the minimap",
-		tags = {"highlight", "minimap", "overlay", "players"}
+	name = "Player Indicators",
+	description = "Highlight players on-screen and/or on the minimap",
+	tags = {"highlight", "minimap", "overlay", "players"}
 )
 public class PlayerIndicatorsPlugin extends Plugin
 {
@@ -106,16 +106,16 @@ public class PlayerIndicatorsPlugin extends Plugin
 
 		int identifier = menuEntryAdded.getIdentifier();
 		if (type == FOLLOW.getId() || type == TRADE.getId()
-				|| type == SPELL_CAST_ON_PLAYER.getId() || type == ITEM_USE_ON_PLAYER.getId()
-				|| type == PLAYER_FIRST_OPTION.getId()
-				|| type == PLAYER_SECOND_OPTION.getId()
-				|| type == PLAYER_THIRD_OPTION.getId()
-				|| type == PLAYER_FOURTH_OPTION.getId()
-				|| type == PLAYER_FIFTH_OPTION.getId()
-				|| type == PLAYER_SIXTH_OPTION.getId()
-				|| type == PLAYER_SEVENTH_OPTION.getId()
-				|| type == PLAYER_EIGTH_OPTION.getId()
-				|| type == RUNELITE.getId())
+			|| type == SPELL_CAST_ON_PLAYER.getId() || type == ITEM_USE_ON_PLAYER.getId()
+			|| type == PLAYER_FIRST_OPTION.getId()
+			|| type == PLAYER_SECOND_OPTION.getId()
+			|| type == PLAYER_THIRD_OPTION.getId()
+			|| type == PLAYER_FOURTH_OPTION.getId()
+			|| type == PLAYER_FIFTH_OPTION.getId()
+			|| type == PLAYER_SIXTH_OPTION.getId()
+			|| type == PLAYER_SEVENTH_OPTION.getId()
+			|| type == PLAYER_EIGTH_OPTION.getId()
+			|| type == RUNELITE.getId())
 		{
 			final Player localPlayer = client.getLocalPlayer();
 			Player[] players = client.getCachedPlayers();
@@ -142,7 +142,7 @@ public class PlayerIndicatorsPlugin extends Plugin
 			{
 				color = config.getClanMemberColor();
 
-				FriendsChatRank rank = clanManager.getRank(player.getName());
+				ClanMemberRank rank = clanManager.getRank(player.getName());
 				if (rank != UNRANKED)
 				{
 					image = clanManager.getIconNumber(rank);

@@ -25,7 +25,7 @@
  */
 package net.runelite.client.plugins.playerindicators;
 
-import net.runelite.api.FriendsChatRank;
+import net.runelite.api.ClanMemberRank;
 import net.runelite.api.Player;
 import net.runelite.api.Point;
 import net.runelite.client.game.ClanManager;
@@ -52,7 +52,7 @@ public class PlayerIndicatorsOverlay extends Overlay
 
 	@Inject
 	private PlayerIndicatorsOverlay(PlayerIndicatorsConfig config, PlayerIndicatorsService playerIndicatorsService,
-									ClanManager clanManager)
+		ClanManager clanManager)
 	{
 		this.config = config;
 		this.playerIndicatorsService = playerIndicatorsService;
@@ -81,10 +81,10 @@ public class PlayerIndicatorsOverlay extends Overlay
 		{
 			case MODEL_CENTER:
 			case MODEL_RIGHT:
-				zOffset = actor.getDefaultHeight() / 2;
+				zOffset = actor.getLogicalHeight() / 2;
 				break;
 			default:
-				zOffset = actor.getDefaultHeight() + ACTOR_OVERHEAD_TEXT_MARGIN;
+				zOffset = actor.getLogicalHeight() + ACTOR_OVERHEAD_TEXT_MARGIN;
 		}
 
 		final String name = Text.sanitize(actor.getName());
@@ -109,9 +109,9 @@ public class PlayerIndicatorsOverlay extends Overlay
 
 		if (config.showClanRanks() && actor.isClanMember())
 		{
-			final FriendsChatRank rank = clanManager.getRank(name);
+			final ClanMemberRank rank = clanManager.getRank(name);
 
-			if (rank != FriendsChatRank.UNRANKED)
+			if (rank != ClanMemberRank.UNRANKED)
 			{
 				final BufferedImage clanchatImage = clanManager.getClanImage(rank);
 

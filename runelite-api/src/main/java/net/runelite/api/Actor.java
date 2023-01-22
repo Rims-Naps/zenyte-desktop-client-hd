@@ -64,7 +64,7 @@ public interface Actor extends Renderable
 	 *
 	 * @return the actor, null if no interaction is occurring
 	 */
-	Actor getTargetIndex();
+	Actor getInteracting();
 
 	/**
 	 * Gets the health ratio of the actor.
@@ -216,7 +216,7 @@ public interface Actor extends Renderable
 	 *
 	 * @return the logical height
 	 */
-	int getDefaultHeight();
+	int getLogicalHeight();
 
 	/**
 	 * Gets the convex hull of the actors model.

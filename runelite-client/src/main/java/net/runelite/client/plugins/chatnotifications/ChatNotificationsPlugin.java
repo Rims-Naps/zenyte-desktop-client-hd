@@ -51,10 +51,10 @@ import java.util.stream.Collectors;
 import static java.util.regex.Pattern.quote;
 
 @PluginDescriptor(
-		name = "Chat Notifications",
-		description = "Highlight and notify you of chat messages",
-		tags = {"duel", "messages", "notifications", "trade", "username"},
-		enabledByDefault = false
+	name = "Chat Notifications",
+	description = "Highlight and notify you of chat messages",
+	tags = {"duel", "messages", "notifications", "trade", "username"},
+	enabledByDefault = false
 )
 public class ChatNotificationsPlugin extends Plugin
 {
@@ -119,8 +119,8 @@ public class ChatNotificationsPlugin extends Plugin
 		{
 			List<String> items = Text.fromCSV(config.highlightWordsString());
 			String joined = items.stream()
-					.map(Pattern::quote)
-					.collect(Collectors.joining("|"));
+				.map(Pattern::quote)
+				.collect(Collectors.joining("|"));
 			highlightMatcher = Pattern.compile("\\b(" + joined + ")\\b", Pattern.CASE_INSENSITIVE);
 		}
 	}
@@ -129,7 +129,7 @@ public class ChatNotificationsPlugin extends Plugin
 	public void onChatMessage(ChatMessage chatMessage)
 	{
 		MessageNode messageNode = chatMessage.getMessageNode();
-		String nodeValue = Text.removeTags(messageNode.getText());
+		String nodeValue = Text.removeTags(messageNode.getValue());
 		boolean update = false;
 
 		switch (chatMessage.getType())
@@ -164,10 +164,10 @@ public class ChatNotificationsPlugin extends Plugin
 
 		if (config.highlightOwnName() && usernameMatcher != null)
 		{
-			Matcher matcher = usernameMatcher.matcher(messageNode.getText());
+			Matcher matcher = usernameMatcher.matcher(messageNode.getValue());
 			if (matcher.find())
 			{
-				messageNode.setText(matcher.replaceAll(usernameReplacer));
+				messageNode.setValue(matcher.replaceAll(usernameReplacer));
 				update = true;
 
 				if (config.notifyOnOwnName())
@@ -194,7 +194,7 @@ public class ChatNotificationsPlugin extends Plugin
 			if (found)
 			{
 				matcher.appendTail(stringBuffer);
-				messageNode.setText(stringBuffer.toString());
+				messageNode.setValue(stringBuffer.toString());
 
 				if (config.notifyOnHighlight())
 				{
@@ -205,7 +205,7 @@ public class ChatNotificationsPlugin extends Plugin
 
 		if (update)
 		{
-			messageNode.setRuneLiteFormatMessage(messageNode.getText());
+			messageNode.setRuneLiteFormatMessage(messageNode.getValue());
 			chatMessageManager.update(messageNode);
 		}
 	}
@@ -220,7 +220,7 @@ public class ChatNotificationsPlugin extends Plugin
 		{
 			stringBuilder.append('[').append(sender).append("] ");
 		}
-
+		
 		if (!Strings.isNullOrEmpty(name))
 		{
 			stringBuilder.append(name).append(": ");

@@ -141,13 +141,13 @@ public class EnvironmentManager
 	public void update()
 	{
 		WorldPoint camPosition = localPointToWorldTile(hdPlugin.camTarget[0], hdPlugin.camTarget[1]);
-		int camPositionX = camPosition.getX();
-		int camPositionY = camPosition.getY();
-		int camPositionZ = camPosition.getPlane();
+		int camTargetX = camPosition.getX();
+		int camTargetY = camPosition.getY();
+		int camTargetZ = camPosition.getPlane();
 
 		for (Environment environment : sceneEnvironments)
 		{
-			if (environment.getArea().containsPoint(camPositionX, camPositionY, camPositionZ))
+			if (environment.getArea().containsPoint(camTargetX, camTargetY, camTargetZ))
 			{
 				if (environment != currentEnvironment)
 				{
@@ -157,7 +157,7 @@ public class EnvironmentManager
 					} else {
 						hdPlugin.setInHouse(false);
 					}
-					changeEnvironment(environment, camPositionX, camPositionY, false);
+					changeEnvironment(environment, camTargetX, camTargetY, false);
 				}
 				break;
 			}
@@ -165,7 +165,7 @@ public class EnvironmentManager
 
 		if (lastSkyColor != config.defaultSkyColor() || lastEnvironmentLighting != config.atmosphericLighting())
 		{
-			changeEnvironment(currentEnvironment, camPositionX, camPositionY, true);
+			changeEnvironment(currentEnvironment, camTargetX, camTargetY, true);
 		}
 
 		// modify all environment values during transition
@@ -213,8 +213,8 @@ public class EnvironmentManager
 		currentFogColorInt = HDUtils.colorRGBToInt(currentFogColor);
 
 		// update some things for use next frame
-		prevCamTargetX = camPositionX;
-		prevCamTargetY = camPositionY;
+		prevCamTargetX = camTargetX;
+		prevCamTargetY = camTargetY;
 		lastFrameTime = System.currentTimeMillis();
 		lastSkyColor = config.defaultSkyColor();
 		lastEnvironmentLighting = config.atmosphericLighting();
@@ -388,9 +388,12 @@ public class EnvironmentManager
 
 		log.debug("adding environments for scene {},{} - {},{}..", sceneMinX, sceneMinY, sceneMaxX, sceneMaxY);
 
-		for (Environment environment : Environment.values()) {
-			for (Rect rect : environment.getArea().getRects()) {
-				if (rect.getMinX() > sceneMaxX || sceneMinX > rect.getMaxX() || rect.getMinY() > sceneMaxY || sceneMinY > rect.getMaxY()) {
+		for (Environment environment: Environment.values())
+		{
+			for (Rect rect : environment.getArea().getRects())
+			{
+				if (rect.getMinX() > sceneMaxX || sceneMinX > rect.getMaxX() || rect.getMinY() > sceneMaxY || sceneMinY > rect.getMaxY())
+				{
 					continue;
 				}
 				log.debug("added environment {} to sceneArea list", environment.name());

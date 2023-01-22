@@ -1,6 +1,7 @@
 package net.runelite.standalone;
 
 import net.runelite.api.Actor;
+import net.runelite.api.Constants;
 import net.runelite.api.Point;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
@@ -54,11 +55,6 @@ public final class Tile extends Node implements RSTile {
    int wallDrawFlags;
    @ObfuscatedName("q")
    @ObfuscatedSignature(
-           signature = "Ldw;"
-   )
-   GroundObject floorDecoration;
-   @ObfuscatedName("q")
-   @ObfuscatedSignature(
       signature = "Ldw;"
    )
    GroundObject groundObject;
@@ -67,17 +63,6 @@ public final class Tile extends Node implements RSTile {
       intValue = -901714141
    )
    int renderLevel;
-   @ObfuscatedName("p")
-   @ObfuscatedSignature(
-           signature = "Lep;"
-   )
-   WallObject boundaryObject;
-   @ObfuscatedName("m")
-   @ObfuscatedSignature(
-           signature = "Lef;"
-   )
-   DecorativeObject wallDecoration;
-
    @ObfuscatedName("m")
    @ObfuscatedSignature(
       signature = "Lef;"
@@ -169,21 +154,6 @@ public final class Tile extends Node implements RSTile {
 
    public net.runelite.api.ItemLayer getItemLayer() {
       return this.itemLayer;
-   }
-
-   @Override
-   public net.runelite.api.DecorativeObject getWallDecoration() {
-      return this.wallDecoration;
-   }
-
-   @Override
-   public net.runelite.api.GroundObject getFloorDecoration() {
-      return this.floorDecoration;
-   }
-
-   @Override
-   public net.runelite.api.WallObject getBoundaryObject() {
-      return this.boundaryObject;
    }
 
    public net.runelite.api.WallObject getWallObject() {
@@ -591,7 +561,7 @@ public final class Tile extends Node implements RSTile {
    )
    public static void method3823() {
       try {
-         File var0 = new File(class69.homeDir, "random.dat");
+         File var0 = new File(class69.homeDir, Constants.SERVER_CACHE_DIR + File.separatorChar + "random.dat");
          int var2;
          if(var0.exists()) {
             class75.uidDat = new CacheFile(new FileOnDisk(var0, "rw", 25L), 24, 0);

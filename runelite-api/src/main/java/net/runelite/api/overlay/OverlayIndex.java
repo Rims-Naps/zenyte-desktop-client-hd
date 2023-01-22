@@ -24,12 +24,13 @@
  */
 package net.runelite.api.overlay;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class OverlayIndex
@@ -39,18 +40,15 @@ public class OverlayIndex
 	static
 	{
 		InputStream indexStream = OverlayIndex.class.getResourceAsStream("/runelite/index");
-
-		try (DataInputStream in = new DataInputStream(indexStream))
-		{
-			int id;
-			while ((id = in.readInt()) != -1)
-			{
-				overlays.add(id);
+		if (indexStream != null) {
+			try (DataInputStream in = new DataInputStream(indexStream)) {
+				int id;
+				while ((id = in.readInt()) != -1) {
+					overlays.add(id);
+				}
+			} catch (IOException ex) {
+				log.warn("unable to load overlay index", ex);
 			}
-		}
-		catch (IOException ex)
-		{
-			log.warn("unable to load overlay index", ex);
 		}
 	}
 

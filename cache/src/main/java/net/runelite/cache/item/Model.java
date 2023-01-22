@@ -314,7 +314,7 @@ class Model extends Renderable
 
 						for (var9 = 0; var9 < var7; ++var9)
 						{
-							this.method2706(graphics, var8[var9]);
+							this.drawFace(graphics, var8[var9]);
 						}
 					}
 				}
@@ -400,7 +400,7 @@ class Model extends Renderable
 				{
 					while (var14 == 0 && var9 > var26)
 					{
-						this.method2706(graphics, var28[var10++]);
+						this.drawFace(graphics, var28[var10++]);
 						if (var10 == var11 && var28 != field1874[11])
 						{
 							var10 = 0;
@@ -421,7 +421,7 @@ class Model extends Renderable
 
 					while (var14 == 3 && var9 > var7)
 					{
-						this.method2706(graphics, var28[var10++]);
+						this.drawFace(graphics, var28[var10++]);
 						if (var10 == var11 && var28 != field1874[11])
 						{
 							var10 = 0;
@@ -442,7 +442,7 @@ class Model extends Renderable
 
 					while (var14 == 5 && var9 > var27)
 					{
-						this.method2706(graphics, var28[var10++]);
+						this.drawFace(graphics, var28[var10++]);
 						if (var10 == var11 && var28 != field1874[11])
 						{
 							var10 = 0;
@@ -466,13 +466,13 @@ class Model extends Renderable
 
 					for (var17 = 0; var17 < var15; ++var17)
 					{
-						this.method2706(graphics, var30[var17]);
+						this.drawFace(graphics, var30[var17]);
 					}
 				}
 
 				while (var9 != -1000)
 				{
-					this.method2706(graphics, var28[var10++]);
+					this.drawFace(graphics, var28[var10++]);
 					if (var10 == var11 && var28 != field1874[11])
 					{
 						var10 = 0;
@@ -495,35 +495,35 @@ class Model extends Renderable
 		}
 	}
 
-	private void method2706(Graphics3D graphics, int var1)
+	private void drawFace(Graphics3D graphics, int face)
 	{
-		if (field1885[var1])
+		if (field1885[face])
 		{
-			this.method2707(graphics, var1);
+			this.method2707(graphics, face);
 		}
 		else
 		{
-			int var2 = this.indices1[var1];
-			int var3 = this.indices2[var1];
-			int var4 = this.indices3[var1];
-			graphics.rasterClipEnable = field1887[var1];
+			int var2 = this.indices1[face];
+			int var3 = this.indices2[face];
+			int var4 = this.indices3[face];
+			graphics.rasterClipEnable = field1887[face];
 			if (this.field1882 == null)
 			{
 				graphics.rasterAlpha = 0;
 			}
 			else
 			{
-				graphics.rasterAlpha = this.field1882[var1] & 255;
+				graphics.rasterAlpha = this.field1882[face] & 255;
 			}
 
-			if (this.field1841 != null && this.field1841[var1] != -1)
+			if (this.field1841 != null && this.field1841[face] != -1)
 			{
 				int var5;
 				int var6;
 				int var7;
-				if (this.field1840 != null && this.field1840[var1] != -1)
+				if (this.field1840 != null && this.field1840[face] != -1)
 				{
-					int var8 = this.field1840[var1] & 255;
+					int var8 = this.field1840[face] & 255;
 					var5 = this.field1844[var8];
 					var6 = this.field1865[var8];
 					var7 = this.field1846[var8];
@@ -535,23 +535,23 @@ class Model extends Renderable
 					var7 = var4;
 				}
 
-				if (this.field1823[var1] == -1)
+				if (this.field1823[face] == -1)
 				{
-					graphics.rasterTextureAffine(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1856[var1], this.field1856[var1], this.field1856[var1], yViewportBuffer[var5], yViewportBuffer[var6], yViewportBuffer[var7], field1839[var5], field1839[var6], field1839[var7], field1869[var5], field1869[var6], field1869[var7], this.field1841[var1]);
+					graphics.rasterTextureAffine(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1856[face], this.field1856[face], this.field1856[face], yViewportBuffer[var5], yViewportBuffer[var6], yViewportBuffer[var7], field1839[var5], field1839[var6], field1839[var7], field1869[var5], field1869[var6], field1869[var7], this.field1841[face]);
 				}
 				else
 				{
-					graphics.rasterTextureAffine(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1856[var1], this.field1854[var1], this.field1823[var1], yViewportBuffer[var5], yViewportBuffer[var6], yViewportBuffer[var7], field1839[var5], field1839[var6], field1839[var7], field1869[var5], field1869[var6], field1869[var7], this.field1841[var1]);
+					graphics.rasterTextureAffine(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1856[face], this.field1854[face], this.field1823[face], yViewportBuffer[var5], yViewportBuffer[var6], yViewportBuffer[var7], field1839[var5], field1839[var6], field1839[var7], field1869[var5], field1869[var6], field1869[var7], this.field1841[face]);
 				}
 			}
-			else if (this.field1823[var1] == -1)
+			else if (this.field1823[face] == -1)
 			{
 				int[] field1889 = graphics.colorPalette;
-				graphics.rasterFlat(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], field1889[this.field1856[var1]]);
+				graphics.rasterFlat(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], field1889[this.field1856[face]]);
 			}
 			else
 			{
-				graphics.rasterGouraud(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1856[var1], this.field1854[var1], this.field1823[var1]);
+				graphics.rasterGouraud(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1856[face], this.field1854[face], this.field1823[face]);
 			}
 
 		}

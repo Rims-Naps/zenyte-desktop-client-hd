@@ -25,30 +25,6 @@
  */
 package net.runelite.client.plugins.feed;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.font.FontRenderContext;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Comparator;
-import java.util.function.Supplier;
-import javax.imageio.ImageIO;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.border.EmptyBorder;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
@@ -59,11 +35,21 @@ import net.runelite.http.api.RuneLiteAPI;
 import net.runelite.http.api.feed.FeedItem;
 import net.runelite.http.api.feed.FeedItemType;
 import net.runelite.http.api.feed.FeedResult;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import okhttp3.*;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.font.FontRenderContext;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Comparator;
+import java.util.function.Supplier;
 
 @Slf4j
 class FeedPanel extends PluginPanel
@@ -98,7 +84,7 @@ class FeedPanel extends PluginPanel
 
 	static
 	{
-		RUNELITE_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(FeedPanel.class, "zenyte.png"));
+		RUNELITE_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(FeedPanel.class, "inferno.png"));
 		OSRS_ICON = new ImageIcon(ImageUtil.getResourceStreamFromClass(FeedPanel.class, "osrs.png"));
 	}
 

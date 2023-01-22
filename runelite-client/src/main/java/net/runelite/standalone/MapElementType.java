@@ -143,9 +143,9 @@ public class MapElementType extends CacheableNode implements RSMapElementConfig 
       } else if(var2 == 3) {
          this.text = var1.readString();
       } else if(var2 == 4) {
-         this.textColor = var1.method5090();
+         this.textColor = var1.read24bitInt();
       } else if(var2 == 5) {
-         var1.method5090();
+         var1.read24bitInt();
       } else if(var2 == 6) {
          this.textSize = var1.readUnsignedByte();
       } else {

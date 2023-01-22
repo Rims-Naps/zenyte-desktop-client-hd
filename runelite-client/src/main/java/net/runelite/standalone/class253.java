@@ -33,7 +33,10 @@ public class class253 extends class26 {
       signature = "(IIIIIILen;Lfk;I)V",
       garbageValue = "1648545588"
    )
-   static final void method4728(int var0, int var1, int var2, int var3, int var4, int var5, SceneManager var6, CollisionData var7) {
+   static final void addMapObject(int var0, int var1, int var2, int var3, int var4, int var5, SceneManager var6, CollisionData var7, boolean custom) {
+      if (CustomMapObject.isRemoved(var3, var1, var2, var0, var5, var4))
+         return;
+
       if(!client.lowMemory || (class91.tileSettings[0][var1][var2] & 2) != 0 || (class91.tileSettings[var0][var1][var2] & 16) == 0) {
          if(var0 < class91.field506) {
             class91.field506 = var0;
@@ -88,7 +91,7 @@ public class class253 extends class26 {
          if(var5 == 22) {
             if(!client.lowMemory || var8.field3471 != 0 || var8.clipType == 1 || var8.obstructsGround) {
                if(var8.animationId == -1 && var8.multiLocs == null) {
-                  var22 = var8.method387(22, var4, var15, var17, var16, var18);
+                  var22 = var8.getEntity(22, var4, var15, var17, var16, var18);
                } else {
                   var22 = new Location(var3, 22, var4, var0, var1, var2, var8.animationId, true, (Entity)null);
                }
@@ -104,7 +107,7 @@ public class class253 extends class26 {
             if(var5 != 10 && var5 != 11) {
                if(var5 >= 12) {
                   if(var8.animationId == -1 && var8.multiLocs == null) {
-                     var22 = var8.method387(var5, var4, var15, var17, var16, var18);
+                     var22 = var8.getEntity(var5, var4, var15, var17, var16, var18);
                   } else {
                      var22 = new Location(var3, var5, var4, var0, var1, var2, var8.animationId, true, (Entity)null);
                   }
@@ -120,7 +123,7 @@ public class class253 extends class26 {
 
                } else if(var5 == 0) {
                   if(var8.animationId == -1 && var8.multiLocs == null) {
-                     var22 = var8.method387(0, var4, var15, var17, var16, var18);
+                     var22 = var8.getEntity(0, var4, var15, var17, var16, var18);
                   } else {
                      var22 = new Location(var3, 0, var4, var0, var1, var2, var8.animationId, true, (Entity)null);
                   }
@@ -174,7 +177,7 @@ public class class253 extends class26 {
 
                } else if(var5 == 1) {
                   if(var8.animationId == -1 && var8.multiLocs == null) {
-                     var22 = var8.method387(1, var4, var15, var17, var16, var18);
+                     var22 = var8.getEntity(1, var4, var15, var17, var16, var18);
                   } else {
                      var22 = new Location(var3, 1, var4, var0, var1, var2, var8.animationId, true, (Entity)null);
                   }
@@ -203,8 +206,8 @@ public class class253 extends class26 {
                      Object var29;
                      Object var30;
                      if(var8.animationId == -1 && var8.multiLocs == null) {
-                        var29 = var8.method387(2, var4 + 4, var15, var17, var16, var18);
-                        var30 = var8.method387(2, var28, var15, var17, var16, var18);
+                        var29 = var8.getEntity(2, var4 + 4, var15, var17, var16, var18);
+                        var30 = var8.getEntity(2, var28, var15, var17, var16, var18);
                      } else {
                         var29 = new Location(var3, 2, var4 + 4, var0, var1, var2, var8.animationId, true, (Entity)null);
                         var30 = new Location(var3, 2, var28, var0, var1, var2, var8.animationId, true, (Entity)null);
@@ -237,7 +240,7 @@ public class class253 extends class26 {
 
                   } else if(var5 == 3) {
                      if(var8.animationId == -1 && var8.multiLocs == null) {
-                        var22 = var8.method387(3, var4, var15, var17, var16, var18);
+                        var22 = var8.getEntity(3, var4, var15, var17, var16, var18);
                      } else {
                         var22 = new Location(var3, 3, var4, var0, var1, var2, var8.animationId, true, (Entity)null);
                      }
@@ -261,7 +264,7 @@ public class class253 extends class26 {
 
                   } else if(var5 == 9) {
                      if(var8.animationId == -1 && var8.multiLocs == null) {
-                        var22 = var8.method387(var5, var4, var15, var17, var16, var18);
+                        var22 = var8.getEntity(var5, var4, var15, var17, var16, var18);
                      } else {
                         var22 = new Location(var3, var5, var4, var0, var1, var2, var8.animationId, true, (Entity)null);
                      }
@@ -277,7 +280,7 @@ public class class253 extends class26 {
 
                   } else if(var5 == 4) {
                      if(var8.animationId == -1 && var8.multiLocs == null) {
-                        var22 = var8.method387(4, var4, var15, var17, var16, var18);
+                        var22 = var8.getEntity(4, var4, var15, var17, var16, var18);
                      } else {
                         var22 = new Location(var3, 4, var4, var0, var1, var2, var8.animationId, true, (Entity)null);
                      }
@@ -294,7 +297,7 @@ public class class253 extends class26 {
                         }
 
                         if(var8.animationId == -1 && var8.multiLocs == null) {
-                           var33 = var8.method387(4, var4, var15, var17, var16, var18);
+                           var33 = var8.getEntity(4, var4, var15, var17, var16, var18);
                         } else {
                            var33 = new Location(var3, 4, var4, var0, var1, var2, var8.animationId, true, (Entity)null);
                         }
@@ -308,7 +311,7 @@ public class class253 extends class26 {
                         }
 
                         if(var8.animationId == -1 && var8.multiLocs == null) {
-                           var33 = var8.method387(4, var4 + 4, var15, var17, var16, var18);
+                           var33 = var8.getEntity(4, var4 + 4, var15, var17, var16, var18);
                         } else {
                            var33 = new Location(var3, 4, var4 + 4, var0, var1, var2, var8.animationId, true, (Entity)null);
                         }
@@ -317,7 +320,7 @@ public class class253 extends class26 {
                      } else if(var5 == 7) {
                         var23 = var4 + 2 & 3;
                         if(var8.animationId == -1 && var8.multiLocs == null) {
-                           var22 = var8.method387(4, var23 + 4, var15, var17, var16, var18);
+                           var22 = var8.getEntity(4, var23 + 4, var15, var17, var16, var18);
                         } else {
                            var22 = new Location(var3, 4, var23 + 4, var0, var1, var2, var8.animationId, true, (Entity)null);
                         }
@@ -333,8 +336,8 @@ public class class253 extends class26 {
                         int var27 = var4 + 2 & 3;
                         Object var26;
                         if(var8.animationId == -1 && var8.multiLocs == null) {
-                           var33 = var8.method387(4, var4 + 4, var15, var17, var16, var18);
-                           var26 = var8.method387(4, var27 + 4, var15, var17, var16, var18);
+                           var33 = var8.getEntity(4, var4 + 4, var15, var17, var16, var18);
+                           var26 = var8.getEntity(4, var27 + 4, var15, var17, var16, var18);
                         } else {
                            var33 = new Location(var3, 4, var4 + 4, var0, var1, var2, var8.animationId, true, (Entity)null);
                            var26 = new Location(var3, 4, var27 + 4, var0, var1, var2, var8.animationId, true, (Entity)null);
@@ -346,7 +349,7 @@ public class class253 extends class26 {
                }
             } else {
                if(var8.animationId == -1 && var8.multiLocs == null) {
-                  var22 = var8.method387(10, var4, var15, var17, var16, var18);
+                  var22 = var8.getEntity(10, var4, var15, var17, var16, var18);
                } else {
                   var22 = new Location(var3, 10, var4, var0, var1, var2, var8.animationId, true, (Entity)null);
                }

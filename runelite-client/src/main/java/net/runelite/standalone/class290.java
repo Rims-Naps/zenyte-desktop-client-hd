@@ -35,7 +35,7 @@ public class class290 {
       garbageValue = "-1199433318"
    )
    static int method5962(int var0) {
-      ChatLineBuffer var1 = (ChatLineBuffer)ChatHistory.chatLineMap.get(Integer.valueOf(var0));
+      ChatLineBuffer var1 = (ChatLineBuffer)ChatHistory.chatLineMap.get(var0);
       return var1 == null?0:var1.method4818();
    }
 }

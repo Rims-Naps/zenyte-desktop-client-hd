@@ -10,10 +10,8 @@ public class class135 extends class71 {
       signature = "Lln;"
    )
    static class16 field106;
-   @ObfuscatedName("es")
-   static String host;
 
-   @ObfuscatedName("a")
+    @ObfuscatedName("a")
    @ObfuscatedSignature(
       signature = "(Lgx;I)V",
       garbageValue = "-1919621281"
@@ -307,6 +305,7 @@ public class class135 extends class71 {
                }
             }
 
+            CustomMapObject.applyToScene();
             HeadbarType.method2072(true);
             FontName.method513();
             GroundObject.method4109(class312.sceneManager, client.collisionMaps);

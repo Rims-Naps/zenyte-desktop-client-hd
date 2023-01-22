@@ -37,6 +37,7 @@ import joptsimple.util.EnumConverter;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
+import net.runelite.api.Constants;
 import net.runelite.client.account.SessionManager;
 import net.runelite.client.chat.ChatMessageManager;
 import net.runelite.client.chat.CommandManager;
@@ -76,9 +77,7 @@ import java.util.Locale;
 @Slf4j
 public class RuneLite
 {
-	public static final String SERVER_NAME = "Zenyte";
-
-	public static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".zenyte");
+	public static final File RUNELITE_DIR = new File(System.getProperty("user.home"), Constants.SERVER_CACHE_DIR);
 	public static final File PROFILES_DIR = new File(RUNELITE_DIR, "profiles");
 	public static final File SCREENSHOT_DIR = new File(RUNELITE_DIR, "screenshots");
 

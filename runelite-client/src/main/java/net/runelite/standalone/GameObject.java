@@ -1,8 +1,5 @@
 package net.runelite.standalone;
 
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.geom.Area;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.Angle;
@@ -14,6 +11,9 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSGameObject;
 import net.runelite.rs.api.RSModel;
 import net.runelite.rs.api.RSRenderable;
+
+import java.awt.*;
+import java.awt.geom.Area;
 
 @ObfuscatedName("er")
 public final class GameObject implements RSGameObject {
@@ -122,6 +122,16 @@ public final class GameObject implements RSGameObject {
       return this.entity;
    }
 
+   @Override
+   public int getModelOrientation() {
+      return 0;
+   }
+
+   @Override
+   public int getConfig() {
+      return 0;
+   }
+
    public int getRsOrientation() {
       return this.orientation;
    }
@@ -158,6 +168,16 @@ public final class GameObject implements RSGameObject {
    }
 
    private void rl$$init1() {
+   }
+
+   @Override
+   public int sizeX() {
+      return 0;
+   }
+
+   @Override
+   public int sizeY() {
+      return 0;
    }
 
    public Point getSceneMinLocation() {
@@ -237,7 +257,8 @@ public final class GameObject implements RSGameObject {
       if(var0 == 1300) {
          var11 = class281.intStack[--class281.intStackSize] - 1;
          if(var11 >= 0 && var11 <= 9) {
-            var4.method5664(var11, class281.scriptStringStack[--class295.scriptStringStackSize]);
+            String op = class281.scriptStringStack[--class295.scriptStringStackSize];
+            var4.method5664(var11, op);
             return 1;
          } else {
             --class295.scriptStringStackSize;

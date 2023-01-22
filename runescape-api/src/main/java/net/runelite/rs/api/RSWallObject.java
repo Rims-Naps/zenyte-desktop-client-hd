@@ -31,7 +31,7 @@ public interface RSWallObject extends WallObject
 {
 	@Import("hash")
 	@Override
-	long getTag();
+	long getHash();
 
 	@Import("x")
 	@Override
@@ -59,7 +59,7 @@ public interface RSWallObject extends WallObject
 
 	@Import("config")
 	@Override
-	int getFlags();
+	int getConfig();
 
 	void setPlane(int plane);
 }

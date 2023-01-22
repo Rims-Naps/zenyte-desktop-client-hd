@@ -1,10 +1,11 @@
 package net.runelite.standalone;
 
-import java.math.BigInteger;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSBuffer;
+
+import java.math.BigInteger;
 
 @ObfuscatedName("gx")
 public class Packet extends Node implements RSBuffer {
@@ -570,7 +571,7 @@ public class Packet extends Node implements RSBuffer {
       signature = "(B)I",
       garbageValue = "2"
    )
-   public int method5090() {
+   public int read24bitInt() {
       this.offset += 3;
       return ((this.payload[this.offset - 3] & 255) << 16) + (this.payload[this.offset - 1] & 255) + ((this.payload[this.offset - 2] & 255) << 8);
    }

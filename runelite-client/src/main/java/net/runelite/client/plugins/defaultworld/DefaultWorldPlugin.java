@@ -43,9 +43,9 @@ import javax.inject.Inject;
 import java.io.IOException;
 
 @PluginDescriptor(
-		name = "Default World",
-		description = "Enable a default world to be selected when launching the client",
-		tags = {"home"}
+	name = "Default World",
+	description = "Enable a default world to be selected when launching the client",
+	tags = {"home"}
 )
 @Slf4j
 public class DefaultWorldPlugin extends Plugin
@@ -119,9 +119,9 @@ public class DefaultWorldPlugin extends Plugin
 			{
 				final net.runelite.api.World rsWorld = client.createWorld();
 				rsWorld.setActivity(world.getActivity());
-				rsWorld.setHost(world.getAddress());
+				rsWorld.setAddress(world.getAddress());
 				rsWorld.setId(world.getId());
-				rsWorld.setPopulation(world.getPlayers());
+				rsWorld.setPlayerCount(world.getPlayers());
 				rsWorld.setLocation(world.getLocation());
 				rsWorld.setTypes(WorldUtil.toWorldTypes(world.getTypes()));
 

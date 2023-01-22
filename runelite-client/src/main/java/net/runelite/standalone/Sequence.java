@@ -519,7 +519,7 @@ public class Sequence extends CacheableNode implements RSSequence {
             this.field3628 = new int[var3];
 
             for (var4 = 0; var4 < var3; ++var4) {
-                this.field3628[var4] = var1.method5090();
+                this.field3628[var4] = var1.read24bitInt();
             }
         }
 
@@ -634,9 +634,9 @@ public class Sequence extends CacheableNode implements RSSequence {
             if (var2.overhead.charAt(0) == '~') {
                 var2.overhead = var2.overhead.substring(1);
                 var2.overheadTextChanged(-1);
-                KeyFocusListener.method5934(2, var2.name.method1530(), var2.overhead);
+                KeyFocusListener.pushMessage(2, var2.name.getChatName(), var2.overhead);
             } else if (var2 == class71.localPlayer) {
-                KeyFocusListener.method5934(2, var2.name.method1530(), var2.overhead);
+                KeyFocusListener.pushMessage(2, var2.name.getChatName(), var2.overhead);
             }
 
             var2.field953 = false;
@@ -708,7 +708,7 @@ public class Sequence extends CacheableNode implements RSSequence {
                     } else {
                         var12 = var17 ? 90 : 2;
                     }
-                    KeyFocusListener.method5934(var12, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getModIcon(secondary) + class181.getModIcon(tertiary) + var2.name.method1530(), var15);
+                    KeyFocusListener.pushMessage(var12, (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class181.getModIcon(secondary) + class181.getModIcon(tertiary) + var2.name.getChatName(), var15);
                /*if(var19.icon * 1132360445 != -1) {
                   KeyFocusListener.method5934(var12, class181.getModIcon(var19.icon * 1132360445) + var2.name.method1530(), var15);
                } else {

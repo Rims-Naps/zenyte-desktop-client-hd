@@ -1,10 +1,11 @@
 package net.runelite.standalone;
 
-import java.util.Comparator;
-import java.util.Iterator;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.util.Comparator;
+import java.util.Iterator;
 
 @ObfuscatedName("r")
 final class class54 implements Comparator {
@@ -39,7 +40,7 @@ final class class54 implements Comparator {
       garbageValue = "-2138585237"
    )
    static final void method868(String var0) {
-      KeyFocusListener.method5934(30, "", var0);
+      KeyFocusListener.pushMessage(30, "", var0);
    }
 
    @ObfuscatedName("q")

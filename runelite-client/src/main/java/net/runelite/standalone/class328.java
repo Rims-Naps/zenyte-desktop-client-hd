@@ -1,9 +1,9 @@
 package net.runelite.standalone;
 
-import java.applet.Applet;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import netscape.javascript.JSObject;
+
+import java.applet.Applet;
 
 @ObfuscatedName("ao")
 public class class328 {
@@ -13,6 +13,7 @@ public class class328 {
       garbageValue = "-62"
    )
    public static Object method6407(Applet var0, String var1) throws Throwable {
-      return JSObject.getWindow(var0).call(var1, (Object[])null);
+//      return JSObject.getWindow(var0).call(var1, (Object[])null);
+      return null;
    }
 }

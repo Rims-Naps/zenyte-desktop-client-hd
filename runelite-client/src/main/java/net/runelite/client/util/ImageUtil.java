@@ -24,28 +24,22 @@
  */
 package net.runelite.client.util;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
-import java.awt.image.BufferedImage;
-import java.awt.image.DirectColorModel;
-import java.awt.image.PixelGrabber;
-import java.awt.image.RescaleOp;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import javax.imageio.ImageIO;
-import javax.swing.GrayFilter;
-import java.util.List;
-import java.util.function.Predicate;
-
 import com.google.common.primitives.Ints;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.IndexedSprite;
 import net.runelite.api.SpritePixels;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * Various Image/BufferedImage utilities.
@@ -53,6 +47,27 @@ import net.runelite.api.SpritePixels;
 @Slf4j
 public class ImageUtil
 {
+
+	public static BufferedImage recolorImage(BufferedImage image, final Color color)
+	{
+		int width = image.getWidth();
+		int height = image.getHeight();
+		WritableRaster raster = image.getRaster();
+
+		for (int xx = 0; xx < width; xx++)
+		{
+			for (int yy = 0; yy < height; yy++)
+			{
+				int[] pixels = raster.getPixel(xx, yy, (int[]) null);
+				pixels[0] = color.getRed();
+				pixels[1] = color.getGreen();
+				pixels[2] = color.getBlue();
+				raster.setPixel(xx, yy, pixels);
+			}
+		}
+		return image;
+	}
+
 	/**
 	 * Creates a {@link BufferedImage} from an {@link Image}.
 	 *

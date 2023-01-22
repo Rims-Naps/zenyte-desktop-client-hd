@@ -271,7 +271,7 @@ public class PlayerComposition implements RSPlayerComposition {
                   }
                }
 
-               var8 = var18.method2852(64, 850, -30, -50, -30);
+               var8 = var18.toModel(64, 850, -30, -50, -30);
                field2662.method628(var8, var5);
                this.field2658 = var5;
             }

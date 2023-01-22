@@ -87,13 +87,13 @@ public class Overlay extends CacheableNode {
    )
    void method6390(Packet var1, int var2, int var3) {
       if(var2 == 1) {
-         this.color = var1.method5090();
+         this.color = var1.read24bitInt();
       } else if(var2 == 2) {
          this.texture = var1.readUnsignedByte();
       } else if(var2 == 5) {
          this.isHidden = false;
       } else if(var2 == 7) {
-         this.otherRgbColor = var1.method5090();
+         this.otherRgbColor = var1.read24bitInt();
       } else if(var2 == 8) {
          ;
       }

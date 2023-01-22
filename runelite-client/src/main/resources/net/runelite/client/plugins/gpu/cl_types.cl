@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, Adam <Adam@sigterm.info>
+ * Copyright (c) 2021, Adam <Adam@sigterm.info>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,25 +22,34 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.api;
 
-/**
- * Represents a clan member.
- */
-public interface FriendsChatMember extends ChatPlayer
-{
+struct uniform {
+  int cameraYaw;
+  int cameraPitch;
+  int centerX;
+  int centerY;
+  int zoom;
+  int cameraX;
+  int cameraY;
+  int cameraZ;
+  int4 sinCosTable[2048];
+};
 
-	/**
-	 * Gets the world the member is in.
-	 *
-	 * @return the world
-	 */
-	int getWorld();
+struct shared_data {
+  int totalNum[12]; // number of faces with a given priority
+  int totalDistance[12]; // sum of distances to faces of a given priority
+  int totalMappedNum[18]; // number of faces with a given adjusted priority
+  int min10; // minimum distance to a face of priority 10
+  int dfs[0]; // packed face id and distance, size 512 for small, 4096 for large
+};
 
-	/**
-	 * Gets the rank of the clan member.
-	 *
-	 * @return the rank
-	 */
-	FriendsChatRank getRank();
-}
+struct modelinfo {
+  int offset;   // offset into buffer
+  int uvOffset; // offset into uv buffer
+  int size;     // length in faces
+  int idx;      // write idx in target buffer
+  int flags;    // radius, orientation
+  int x;        // scene position x
+  int y;        // scene position y
+  int z;        // scene position z
+};

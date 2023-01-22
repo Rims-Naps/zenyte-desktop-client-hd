@@ -46,11 +46,11 @@ public class BlastMineRockOverlay extends Overlay
 	private static final int MAX_DISTANCE = 16;
 	private static final int WARNING_DISTANCE = 2;
 	private static final ImmutableSet<Integer> WALL_OBJECTS = ImmutableSet.of(
-			NullObjectID.NULL_28570, NullObjectID.NULL_28571, NullObjectID.NULL_28572, NullObjectID.NULL_28573, NullObjectID.NULL_28574,
-			NullObjectID.NULL_28575, NullObjectID.NULL_28576, NullObjectID.NULL_28577, NullObjectID.NULL_28578,
-			ObjectID.HARD_ROCK, ObjectID.HARD_ROCK_28580, ObjectID.CAVITY, ObjectID.CAVITY_28582,
-			ObjectID.POT_OF_DYNAMITE, ObjectID.POT_OF_DYNAMITE_28584, ObjectID.POT_OF_DYNAMITE_28585, ObjectID.POT_OF_DYNAMITE_28586,
-			ObjectID.SHATTERED_ROCKFACE, ObjectID.SHATTERED_ROCKFACE_28588);
+		NullObjectID.NULL_28570, NullObjectID.NULL_28571, NullObjectID.NULL_28572, NullObjectID.NULL_28573, NullObjectID.NULL_28574,
+		NullObjectID.NULL_28575, NullObjectID.NULL_28576, NullObjectID.NULL_28577, NullObjectID.NULL_28578,
+		ObjectID.HARD_ROCK, ObjectID.HARD_ROCK_28580, ObjectID.CAVITY, ObjectID.CAVITY_28582,
+		ObjectID.POT_OF_DYNAMITE, ObjectID.POT_OF_DYNAMITE_28584, ObjectID.POT_OF_DYNAMITE_28585, ObjectID.POT_OF_DYNAMITE_28586,
+		ObjectID.SHATTERED_ROCKFACE, ObjectID.SHATTERED_ROCKFACE_28588);
 
 	private final Client client;
 	private final BlastMinePlugin plugin;
@@ -88,8 +88,8 @@ public class BlastMineRockOverlay extends Overlay
 		for (final BlastMineRock rock : rocks.values())
 		{
 			if (viewport == null ||
-					rock.getGameObject().getCanvasLocation() == null ||
-					rock.getGameObject().getWorldLocation().distanceTo(client.getLocalPlayer().getWorldLocation()) > MAX_DISTANCE)
+				rock.getGameObject().getCanvasLocation() == null ||
+				rock.getGameObject().getWorldLocation().distanceTo(client.getLocalPlayer().getWorldLocation()) > MAX_DISTANCE)
 			{
 				continue;
 			}
@@ -161,7 +161,7 @@ public class BlastMineRockOverlay extends Overlay
 		final int z = client.getPlane();
 		int x = rock.getGameObject().getLocalLocation().getX() / Perspective.LOCAL_TILE_SIZE;
 		int y = rock.getGameObject().getLocalLocation().getY() / Perspective.LOCAL_TILE_SIZE;
-		final int orientation = tiles[z][x][y].getBoundaryObject().getOrientationA();
+		final int orientation = tiles[z][x][y].getWallObject().getOrientationA();
 
 		switch (orientation) //calculate explosion around the tile in front of the wall
 		{
@@ -188,8 +188,8 @@ public class BlastMineRockOverlay extends Overlay
 				if (gameObject == null || !WALL_OBJECTS.contains(gameObject.getId()))
 				{
 					final LocalPoint localTile = new LocalPoint(
-							(x + i) * Perspective.LOCAL_TILE_SIZE + Perspective.LOCAL_TILE_SIZE / 2,
-							(y + j) * Perspective.LOCAL_TILE_SIZE + Perspective.LOCAL_TILE_SIZE / 2);
+						(x + i) * Perspective.LOCAL_TILE_SIZE + Perspective.LOCAL_TILE_SIZE / 2,
+						(y + j) * Perspective.LOCAL_TILE_SIZE + Perspective.LOCAL_TILE_SIZE / 2);
 					final Polygon poly = Perspective.getCanvasTilePoly(client, localTile);
 
 					if (poly != null)

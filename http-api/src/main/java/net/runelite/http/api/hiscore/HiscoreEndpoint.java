@@ -30,7 +30,7 @@ import okhttp3.HttpUrl;
 
 public enum HiscoreEndpoint
 {
-	CUSTOM("Zenyte", "http://api.zenyte.com/hiscores/user/"),
+	CUSTOM("Zenyte", "http://localhost:8080/hiscores"),
 	NORMAL("Normal", "https://services.runescape.com/m=hiscore_oldschool/index_lite.ws"),
 	IRONMAN("Ironman", "https://services.runescape.com/m=hiscore_oldschool_ironman/index_lite.ws"),
 	HARDCORE_IRONMAN("Hardcore Ironman", "https://services.runescape.com/m=hiscore_oldschool_hardcore_ironman/index_lite.ws"),

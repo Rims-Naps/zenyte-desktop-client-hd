@@ -80,7 +80,7 @@ public class DemonicGorillaOverlay extends Overlay
 	{
 		for (DemonicGorilla gorilla : plugin.getGorillas().values())
 		{
-			if (gorilla.getNpc().getTargetIndex() == null)
+			if (gorilla.getNpc().getInteracting() == null)
 			{
 				continue;
 			}
@@ -89,7 +89,7 @@ public class DemonicGorillaOverlay extends Overlay
 			if (lp != null)
 			{
 				Point point = Perspective.localToCanvas(client, lp, client.getPlane(),
-						gorilla.getNpc().getDefaultHeight() + 16);
+					gorilla.getNpc().getLogicalHeight() + 16);
 				if (point != null)
 				{
 					point = new Point(point.getX(), point.getY());
@@ -111,34 +111,34 @@ public class DemonicGorillaOverlay extends Overlay
 						graphics.setStroke(new BasicStroke(2));
 						graphics.setColor(COLOR_ICON_BACKGROUND);
 						graphics.fillOval(
-								point.getX() - totalWidth / 2 + currentPosX - bgPadding,
-								point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
-								icon.getWidth() + bgPadding * 2,
-								icon.getHeight() + bgPadding * 2);
+							point.getX() - totalWidth / 2 + currentPosX - bgPadding,
+							point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
+							icon.getWidth() + bgPadding * 2,
+							icon.getHeight() + bgPadding * 2);
 
 						graphics.setColor(COLOR_ICON_BORDER);
 						graphics.drawOval(
-								point.getX() - totalWidth / 2 + currentPosX - bgPadding,
-								point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
-								icon.getWidth() + bgPadding * 2,
-								icon.getHeight() + bgPadding * 2);
+							point.getX() - totalWidth / 2 + currentPosX - bgPadding,
+							point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
+							icon.getWidth() + bgPadding * 2,
+							icon.getHeight() + bgPadding * 2);
 
 						graphics.drawImage(
-								icon,
-								point.getX() - totalWidth / 2 + currentPosX,
-								point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE,
-								null);
+							icon,
+							point.getX() - totalWidth / 2 + currentPosX,
+							point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE,
+							null);
 
 						graphics.setColor(COLOR_ICON_BORDER_FILL);
 						Arc2D.Double arc = new Arc2D.Double(
-								point.getX() - totalWidth / 2 + currentPosX - bgPadding,
-								point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
-								icon.getWidth() + bgPadding * 2,
-								icon.getHeight() + bgPadding * 2,
-								90.0,
-								-360.0 * (DemonicGorilla.ATTACKS_PER_SWITCH -
-										gorilla.getAttacksUntilSwitch()) / DemonicGorilla.ATTACKS_PER_SWITCH,
-								Arc2D.OPEN);
+							point.getX() - totalWidth / 2 + currentPosX - bgPadding,
+							point.getY() - icon.getHeight() / 2 - OVERLAY_ICON_DISTANCE - bgPadding,
+							icon.getWidth() + bgPadding * 2,
+							icon.getHeight() + bgPadding * 2,
+							90.0,
+							-360.0 * (DemonicGorilla.ATTACKS_PER_SWITCH -
+								gorilla.getAttacksUntilSwitch()) / DemonicGorilla.ATTACKS_PER_SWITCH,
+							Arc2D.OPEN);
 						graphics.draw(arc);
 
 						currentPosX += icon.getWidth() + OVERLAY_ICON_MARGIN;

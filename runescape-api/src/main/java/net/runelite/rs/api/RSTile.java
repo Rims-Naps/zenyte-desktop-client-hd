@@ -39,15 +39,15 @@ public interface RSTile extends Tile
 
 	@Import("decorativeObject")
 	@Override
-	DecorativeObject getWallDecoration();
+	DecorativeObject getDecorativeObject();
 
 	@Import("groundObject")
 	@Override
-	GroundObject getFloorDecoration();
+	GroundObject getGroundObject();
 
 	@Import("wallObject")
 	@Override
-	WallObject getBoundaryObject();
+	WallObject getWallObject();
 
 	@Import("paint")
 	@Override

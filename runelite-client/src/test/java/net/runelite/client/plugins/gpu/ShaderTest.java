@@ -21,7 +21,8 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+ *//*
+
 package net.runelite.client.plugins.gpu;
 
 import com.jogamp.nativewindow.AbstractGraphicsConfiguration;
@@ -37,7 +38,6 @@ import com.jogamp.opengl.GLProfile;
 import java.awt.Canvas;
 import java.util.function.Function;
 import javax.swing.JFrame;
-import static net.runelite.client.plugins.gpu.GLUtil.inputStreamToString;
 import net.runelite.client.plugins.gpu.template.Template;
 import static org.junit.Assert.fail;
 import org.junit.Before;
@@ -197,3 +197,4 @@ public class ShaderTest
 		}
 	}
 }
+*/

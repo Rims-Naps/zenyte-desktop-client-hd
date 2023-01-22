@@ -4,9 +4,10 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSRunException;
+import net.runelite.rs.api.RSVertexNormal;
 
 @ObfuscatedName("dp")
-public class VertexNormal {
+public class VertexNormal implements RSVertexNormal {
    @ObfuscatedName("x")
    @ObfuscatedGetter(
       intValue = 384760089
@@ -76,5 +77,20 @@ public class VertexNormal {
          class69.worldMap.method2965();
       }
 
+   }
+
+   @Override
+   public int getX() {
+      return x;
+   }
+
+   @Override
+   public int getY() {
+      return y;
+   }
+
+   @Override
+   public int getZ() {
+      return z;
    }
 }

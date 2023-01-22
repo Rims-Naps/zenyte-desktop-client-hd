@@ -533,10 +533,10 @@ class SceneUploader
 
 		ObjectProperties objectProperties;
 
-		WallObject wallObject = tile.getBoundaryObject();
+		WallObject wallObject = tile.getWallObject();
 		if (wallObject != null)
 		{
-			objectProperties = ObjectProperties.getObjectProperties(tile.getBoundaryObject().getId());
+			objectProperties = ObjectProperties.getObjectProperties(tile.getWallObject().getId());
 
 			Renderable renderable1 = wallObject.getRenderable1();
 			if (renderable1 instanceof Model)
@@ -553,10 +553,10 @@ class SceneUploader
 			}
 		}
 
-		GroundObject groundObject = tile.getFloorDecoration();
+		GroundObject groundObject = tile.getGroundObject();
 		if (groundObject != null)
 		{
-			objectProperties = ObjectProperties.getObjectProperties(tile.getFloorDecoration().getId());
+			objectProperties = ObjectProperties.getObjectProperties(tile.getGroundObject().getId());
 
 			Renderable renderable = groundObject.getRenderable();
 			if (renderable instanceof Model)
@@ -566,10 +566,10 @@ class SceneUploader
 			}
 		}
 
-		DecorativeObject decorativeObject = tile.getWallDecoration();
+		DecorativeObject decorativeObject = tile.getDecorativeObject();
 		if (decorativeObject != null)
 		{
-			objectProperties = ObjectProperties.getObjectProperties(tile.getWallDecoration().getId());
+			objectProperties = ObjectProperties.getObjectProperties(tile.getDecorativeObject().getId());
 
 			Renderable renderable = decorativeObject.getRenderable();
 			if (renderable instanceof Model)

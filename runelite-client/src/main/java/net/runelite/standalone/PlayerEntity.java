@@ -1,9 +1,5 @@
 package net.runelite.standalone;
 
-import java.awt.Polygon;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import net.runelite.api.HeadIcon;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
@@ -18,6 +14,11 @@ import net.runelite.rs.api.RSModel;
 import net.runelite.rs.api.RSName;
 import net.runelite.rs.api.RSPlayer;
 import net.runelite.rs.api.RSPlayerComposition;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 @ObfuscatedName("bw")
 public final class PlayerEntity extends PathingEntity implements RSPlayer {
@@ -387,7 +388,7 @@ public final class PlayerEntity extends PathingEntity implements RSPlayer {
       this.method6023();
       this.method6006();
       if(this == class71.localPlayer) {
-         JagException.localPlayerUsername = this.name.method1530();
+         JagException.localPlayerUsername = this.name.getChatName();
       }
 
       this.combatLevel = var1.readUnsignedByte();

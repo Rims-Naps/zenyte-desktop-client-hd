@@ -1052,7 +1052,7 @@ public interface Client extends GameEngine
 	 *
 	 * @return the clan chat members, null if not in a clan
 	 */
-	FriendsChatMember[] getClanMembers();
+	ClanMember[] getClanMembers();
 
 	/**
 	 * Gets the clan owner of the currently joined clan chat
@@ -1161,7 +1161,7 @@ public interface Client extends GameEngine
 	 * factors towards {@code zero} when stretching.
 	 *
 	 * @param state new integer scaling state
-	 */
+	*/
 	void setStretchedIntegerScaling(boolean state);
 
 	/**

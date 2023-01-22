@@ -1,9 +1,10 @@
 package net.runelite.standalone;
 
-import java.util.concurrent.ScheduledExecutorService;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.util.concurrent.ScheduledExecutorService;
 
 @ObfuscatedName("cz")
 public class AbstractSoundSystem {
@@ -497,7 +498,7 @@ public class AbstractSoundSystem {
                   var19 = var4[var18];
                }
 
-               class253.method4728(var12, var16, var17, var6, var15, var14, var3, var19);
+               class253.addMapObject(var12, var16, var17, var6, var15, var14, var3, var19, false);
             }
          }
       }

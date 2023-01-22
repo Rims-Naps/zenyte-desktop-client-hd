@@ -6,7 +6,6 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSProjectile;
-import netscape.javascript.JSObject;
 
 @ObfuscatedName("ct")
 public final class ProjectileAnimation extends Entity implements RSProjectile {
@@ -385,7 +384,7 @@ public final class ProjectileAnimation extends Entity implements RSProjectile {
 
          client var4 = ItemContainer.clientInstance;
          String var5 = "document.cookie=\"" + var3 + "\"";
-         JSObject.getWindow(var4).eval(var5);
+//         JSObject.getWindow(var4).eval(var5);
       } catch (Throwable var6) {
          ;
       }

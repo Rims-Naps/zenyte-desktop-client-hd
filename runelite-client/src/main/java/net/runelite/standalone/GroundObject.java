@@ -650,7 +650,7 @@ public final class GroundObject implements RSGroundObject {
          }
       }
 
-      class135.host = var0.address;
+      StaticFields.socketAddress = var0.address;
       client.world = var0.id;
       client.flags = var0.mask;
       class323.port1 = client.socketType == 0?43594:var0.id + 40000;

@@ -129,7 +129,7 @@ class SceneUploader
 			}
 		}
 
-		WallObject wallObject = tile.getBoundaryObject();
+		WallObject wallObject = tile.getWallObject();
 		if (wallObject != null)
 		{
 			Renderable renderable1 = wallObject.getRenderable1();
@@ -145,7 +145,7 @@ class SceneUploader
 			}
 		}
 
-		GroundObject groundObject = tile.getFloorDecoration();
+		GroundObject groundObject = tile.getGroundObject();
 		if (groundObject != null)
 		{
 			Renderable renderable = groundObject.getRenderable();
@@ -155,7 +155,7 @@ class SceneUploader
 			}
 		}
 
-		DecorativeObject decorativeObject = tile.getWallDecoration();
+		DecorativeObject decorativeObject = tile.getDecorativeObject();
 		if (decorativeObject != null)
 		{
 			Renderable renderable = decorativeObject.getRenderable();

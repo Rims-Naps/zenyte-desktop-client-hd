@@ -39,6 +39,6 @@ public interface AntiDragConfig extends Config
 	)
 	default int dragDelay()
 	{
-		return 600 / 20; // one game tick
+		return 10/*600 / 20*/; // one game tick
 	}
 }

@@ -614,7 +614,7 @@ public interface RSClient extends RSGameEngine, Client
 	String[] getStringStack();
 
 	@Import("friendManager")
-	RSFriendSystem getFriendManager();
+	RSFriendManager getFriendManager();
 
 	@Import("clanMemberManager")
 	RSClanMemberManager getClanMemberManager();
@@ -623,7 +623,7 @@ public interface RSClient extends RSGameEngine, Client
 	RSJagexLoginType getLoginType();
 
 	@Construct
-	RSUsername createName(String name, RSJagexLoginType type);
+	RSName createName(String name, RSJagexLoginType type);
 
 	@Import("getVarbit")
 	int getVarbit(int varbitId);

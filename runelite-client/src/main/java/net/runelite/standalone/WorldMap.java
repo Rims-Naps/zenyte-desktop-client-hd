@@ -1,11 +1,5 @@
 package net.runelite.standalone;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import net.runelite.api.Point;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.mapping.ObfuscatedGetter;
@@ -14,6 +8,8 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSRenderOverview;
 import net.runelite.rs.api.RSWorldMapData;
 import net.runelite.rs.api.RSWorldMapManager;
+
+import java.util.*;
 
 @ObfuscatedName("lq")
 public class WorldMap implements RSRenderOverview {
@@ -452,7 +448,7 @@ public class WorldMap implements RSRenderOverview {
          }
 
          this.method2884(var1, var2, var3, var4, var8, var9);
-         if(class177.method2854() && this.field3967 && this.field4002 != null) {
+         if(/*class177.method2854() && */this.field3967 && this.field4002 != null) {
             this.field4003.method6165("Coord: " + this.field4002, Rasterizer2D.draw_region_x + 10, Rasterizer2D.drawingAreaTop + 20, 16776960, -1);
          }
 
@@ -1275,7 +1271,7 @@ public class WorldMap implements RSRenderOverview {
          if(this.field4002 != null && var3) {
             int var9;
             int var10;
-            if(class177.method2854() && KeyFocusListener.keyPressed[82] && KeyFocusListener.keyPressed[81]) {
+            if(/*class177.method2854() && */KeyFocusListener.keyPressed[82] && KeyFocusListener.keyPressed[81]) {
                int var13 = this.field4002.x;
                var9 = this.field4002.y;
                var10 = this.field4002.z;

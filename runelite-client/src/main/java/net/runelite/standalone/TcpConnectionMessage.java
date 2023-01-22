@@ -1,6 +1,6 @@
 package net.runelite.standalone;
 
-import net.runelite.client.RuneLite;
+import net.runelite.api.Constants;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
@@ -65,11 +65,11 @@ public class TcpConnectionMessage extends Node {
       signature = "(Lkt;Lkt;Lkt;ZB)V",
       garbageValue = "95"
    )
-   static void method5617(Font var0, Font var1, Font var2, boolean var3) {
+   static void drawTitle(Font var0, Font var1, Font var2, boolean var3) {
       if(var3) {
-         class203.field1168 = (GrandExchangeOffer.canvasWidth - 765) / 2;
-         class203.loginWindowX = class203.field1168 + 202;
-         class203.field1176 = class203.loginWindowX + 180;
+         class203.xPadding = (GrandExchangeOffer.canvasWidth - 765) / 2;
+         class203.loginWindowX = class203.xPadding + 202;
+         class203.loginBoxCenter = class203.loginWindowX + 180;
       }
 
       byte var4;
@@ -109,19 +109,19 @@ public class TcpConnectionMessage extends Node {
             client.field925 = WorldMapRegion.method5496(ModeGame.sprites, "rightarrow", "");
          }
 
-         Rasterizer2D.method692(class203.field1168, 23, 765, 480, 0);
-         Rasterizer2D.method761(class203.field1168, 0, 125, 23, 12425273, 9135624);
-         Rasterizer2D.method761(class203.field1168 + 125, 0, 640, 23, 5197647, 2697513);
-         var0.method6222("Select a world", class203.field1168 + 62, 15, 0, -1);
+         Rasterizer2D.method692(class203.xPadding, 23, 765, 480, 0);
+         Rasterizer2D.method761(class203.xPadding, 0, 125, 23, 12425273, 9135624);
+         Rasterizer2D.method761(class203.xPadding + 125, 0, 640, 23, 5197647, 2697513);
+         var0.method6222("Select a world", class203.xPadding + 62, 15, 0, -1);
          if(ClientOptions.slStarSprites != null) {
-            ClientOptions.slStarSprites[1].method4282(class203.field1168 + 140, 1);
-            var1.method6165("Members only world", class203.field1168 + 152, 10, 16777215, -1);
-            ClientOptions.slStarSprites[0].method4282(class203.field1168 + 140, 12);
-            var1.method6165("Free world", class203.field1168 + 152, 21, 16777215, -1);
+            ClientOptions.slStarSprites[1].method4282(class203.xPadding + 140, 1);
+            var1.method6165("Members only world", class203.xPadding + 152, 10, 16777215, -1);
+            ClientOptions.slStarSprites[0].method4282(class203.xPadding + 140, 12);
+            var1.method6165("Free world", class203.xPadding + 152, 21, 16777215, -1);
          }
 
          if(FriendManager.slArrowSprites != null) {
-            var30 = class203.field1168 + 280;
+            var30 = class203.xPadding + 280;
             if(World.field1018[0] == 0 && World.field1016[0] == 0) {
                FriendManager.slArrowSprites[2].method4282(var30, 4);
             } else {
@@ -135,7 +135,7 @@ public class TcpConnectionMessage extends Node {
             }
 
             var0.method6165("World", var30 + 32, 17, 16777215, -1);
-            var5 = class203.field1168 + 390;
+            var5 = class203.xPadding + 390;
             if(World.field1018[0] == 1 && World.field1016[0] == 0) {
                FriendManager.slArrowSprites[2].method4282(var5, 4);
             } else {
@@ -149,7 +149,7 @@ public class TcpConnectionMessage extends Node {
             }
 
             var0.method6165("Players", var5 + 32, 17, 16777215, -1);
-            var32 = class203.field1168 + 500;
+            var32 = class203.xPadding + 500;
             if(World.field1018[0] == 2 && World.field1016[0] == 0) {
                FriendManager.slArrowSprites[2].method4282(var32, 4);
             } else {
@@ -163,7 +163,7 @@ public class TcpConnectionMessage extends Node {
             }
 
             var0.method6165("Location", var32 + 32, 17, 16777215, -1);
-            var7 = class203.field1168 + 610;
+            var7 = class203.xPadding + 610;
             if(World.field1018[0] == 3 && World.field1016[0] == 0) {
                FriendManager.slArrowSprites[2].method4282(var7, 4);
             } else {
@@ -179,8 +179,8 @@ public class TcpConnectionMessage extends Node {
             var0.method6165("Type", var7 + 32, 17, 16777215, -1);
          }
 
-         Rasterizer2D.method692(class203.field1168 + 708, 4, 50, 16, 0);
-         var1.method6222("Cancel", class203.field1168 + 708 + 25, 16, 16777215, -1);
+         Rasterizer2D.method692(class203.xPadding + 708, 4, 50, 16, 0);
+         var1.method6222("Cancel", class203.xPadding + 708 + 25, 16, 16777215, -1);
          class203.field1187 = -1;
          if(class258.field357 != null) {
             var4 = 88;
@@ -227,7 +227,7 @@ public class TcpConnectionMessage extends Node {
             }
 
             var13 = var35 + 23;
-            var14 = var10 + class203.field1168;
+            var14 = var10 + class203.xPadding;
             int var15 = 0;
             boolean var16 = false;
             int var17 = class203.field1152;
@@ -313,14 +313,14 @@ public class TcpConnectionMessage extends Node {
          Location.rasterProvider.vmethod4241(0, 0);
       } else {
          if(var3) {
-            class302.leftBackground.method1331(class203.field1168, 0);
+            class302.leftBackground.method1331(class203.xPadding, 0);
             //class203.rightBackground.method1331(class203.field1168 + 382, 0);
-            //class203.logoSprite.method4282(class203.field1168 + 382 - class203.logoSprite.width / 2, 18);
+            //class203.logoSprite.method4282(class203.xPadding + 382 - class203.logoSprite.width / 2, 18);
          }
 
          if(client.gameState == 0 || client.gameState == 5) {
             var4 = 20;
-            var0.method6222(RuneLite.SERVER_NAME + " is loading - please wait...", class203.loginWindowX + 180, 245 - var4, 16777215, -1);
+            var0.method6222(Constants.SERVER_NAME + " is loading - please wait...", class203.loginWindowX + 180, 245 - var4, 16777215, -1);
             var5 = 253 - var4;
             Rasterizer2D.method696(class203.loginWindowX + 180 - 152, var5, 304, 34, 9179409);
             Rasterizer2D.method696(class203.loginWindowX + 180 - 151, var5 + 1, 302, 32, 0);
@@ -364,7 +364,7 @@ public class TcpConnectionMessage extends Node {
             short var6;
             if(class203.loginIndex == 0) {
                var29 = 251;
-               var0.method6222("Welcome to " + RuneLite.SERVER_NAME, class203.loginWindowX + 180, var29, 16776960, 0);
+               var0.method6222("Welcome to " + Constants.SERVER_NAME, class203.loginWindowX + 180, var29, 16776960, 0);
                var30 = var29 + 30;
                var5 = class203.loginWindowX + 180 - 80;
                var6 = 291;
@@ -391,14 +391,14 @@ public class TcpConnectionMessage extends Node {
                var0.method6222("Cancel", var5, var6 + 5, 16777215, 0);
             } else if(class203.loginIndex == 2) {
                var29 = 201;
-               var0.method6222(class203.loginMessage1, class203.field1176, var29, 16776960, 0);
+               var0.method6222(class203.loginMessage1, class203.loginBoxCenter, var29, 16776960, 0);
                var30 = var29 + 15;
-               var0.method6222(class203.loginMessage2, class203.field1176, var30, 16776960, 0);
+               var0.method6222(class203.loginMessage2, class203.loginBoxCenter, var30, 16776960, 0);
                var30 += 15;
-               var0.method6222(class203.loginMessage3, class203.field1176, var30, 16776960, 0);
+               var0.method6222(class203.loginMessage3, class203.loginBoxCenter, var30, 16776960, 0);
                var30 += 15;
                var30 += 7;
-               var0.method6165("Login: ", class203.field1176 - 110, var30, 16777215, 0);
+               var0.method6165("Login: ", class203.loginBoxCenter - 110, var30, 16777215, 0);
                var31 = 200;
                var24 = class312.options.hideUsername?NPCType.method4812(class203.username):class203.username;
 
@@ -406,27 +406,27 @@ public class TcpConnectionMessage extends Node {
                   ;
                }
 
-               var0.method6165(FontTypeFace.method6234(var25) + (class203.currentLoginField == 0 & client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.field1176 - 70, var30, 16777215, 0);
+               var0.method6165(FontTypeFace.method6234(var25) + (class203.currentLoginField == 0 & client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.loginBoxCenter - 70, var30, 16777215, 0);
                var30 += 15;
-               var0.method6165("Password: " + NPCType.method4812(class203.password) + (class203.currentLoginField == 1 & client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.field1176 - 108, var30, 16777215, 0);
+               var0.method6165("Password: " + NPCType.method4812(class203.password) + (class203.currentLoginField == 1 & client.gameCycle % 40 < 20?class308.method6152(16776960) + "|":""), class203.loginBoxCenter - 108, var30, 16777215, 0);
                var30 += 15;
                var29 = 277;
-               var8 = class203.field1176 + -117;
+               var8 = class203.loginBoxCenter + -117;
                IndexedSprite var28 = MouseRecorder.method125(client.Login_isUsernameRemembered, class203.field1180);
                var28.method4282(var8, var29);
                var8 = var8 + var28.width + 5;
                var1.method6165("Remember username", var8, var29 + 13, 16776960, 0);
-               var8 = class203.field1176 + 24;
+               var8 = class203.loginBoxCenter + 24;
                var28 = MouseRecorder.method125(class312.options.hideUsername, class203.field1181);
                var28.method4282(var8, var29);
                var8 = var8 + var28.width + 5;
                var1.method6165("Hide username", var8, var29 + 13, 16776960, 0);
                var30 = var29 + 15;
-               var10 = class203.field1176 - 80;
+               var10 = class203.loginBoxCenter - 80;
                short var11 = 321;
                class203.field1175.method4282(var10 - 73, var11 - 20);
                var0.method6222("Login", var10, var11 + 5, 16777215, 0);
-               var10 = class203.field1176 + 80;
+               var10 = class203.loginBoxCenter + 80;
                class203.field1175.method4282(var10 - 73, var11 - 20);
                var0.method6222("Cancel", var10, var11 + 5, 16777215, 0);
                var29 = 357;
@@ -438,8 +438,8 @@ public class TcpConnectionMessage extends Node {
                   ItemContainer.field553 = "Forgotten your password? <col=ffffff>Click here.";
                }
 
-               ItemContainer.field551 = new Bounds(class203.field1176, var29, var1.method6160(ItemContainer.field553), 11);
-               var1.method6222(ItemContainer.field553, class203.field1176, var29, 16777215, 0);
+               ItemContainer.field551 = new Bounds(class203.loginBoxCenter, var29, var1.method6160(ItemContainer.field553), 11);
+               var1.method6222(ItemContainer.field553, class203.loginBoxCenter, var29, 16777215, 0);
             } else if(class203.loginIndex == 3) {
                var29 = 201;
                var0.method6222("Invalid username or password.", class203.loginWindowX + 180, var29, 16776960, 0);
@@ -756,11 +756,11 @@ public class TcpConnectionMessage extends Node {
             }
          }
 
-         Rasterizer2D.method684(class203.field1168, 9, class203.field1168 + 128, var29 + 7);
-         class302.leftBackground.method1331(class203.field1168, 0);
+         Rasterizer2D.method684(class203.xPadding, 9, class203.xPadding + 128, var29 + 7);
+         class302.leftBackground.method1331(class203.xPadding, 0);
          Rasterizer2D.method683();
          var5 = 0;
-         var32 = Location.rasterProvider.width * 9 + class203.field1168;
+         var32 = Location.rasterProvider.width * 9 + class203.xPadding;
 
          for(var7 = 1; var7 < var29 - 1; ++var7) {
             var8 = class203.field1159[var7] * (var29 - var7) / var29;
@@ -787,11 +787,11 @@ public class TcpConnectionMessage extends Node {
             var32 += var34 + Location.rasterProvider.width - 128;
          }
 
-         Rasterizer2D.method684(class203.field1168 + 765 - 128, 9, class203.field1168 + 765, var29 + 7);
+         Rasterizer2D.method684(class203.xPadding + 765 - 128, 9, class203.xPadding + 765, var29 + 7);
          //class203.rightBackground.method1331(class203.field1168 + 382, 0);
          Rasterizer2D.method683();
          var5 = 0;
-         var32 = Location.rasterProvider.width * 9 + class203.field1168 + 637 + 24;
+         var32 = Location.rasterProvider.width * 9 + class203.xPadding + 637 + 24;
 
          for(var7 = 1; var7 < var29 - 1; ++var7) {
             var8 = class203.field1159[var7] * (var29 - var7) / var29;
@@ -815,10 +815,10 @@ public class TcpConnectionMessage extends Node {
             var32 += Location.rasterProvider.width - var34 - var8;
          }
 
-         class203.titlemuteSprite[class312.options.muted?1:0].method4282(class203.field1168 + 765 - 40, 463);
+         class203.titlemuteSprite[class312.options.muted?1:0].method4282(class203.xPadding + 765 - 40, 463);
          if(client.gameState > 5 && client.languageId == 0) {
             if(WorldMapDataGroup.field308 != null) {
-               var30 = class203.field1168 + 5;
+               var30 = class203.xPadding + 5;
                var31 = 463;
                byte var36 = 100;
                byte var33 = 35;

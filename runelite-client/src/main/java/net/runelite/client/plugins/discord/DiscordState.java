@@ -26,18 +26,21 @@ package net.runelite.client.plugins.discord;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ComparisonChain;
+import lombok.Data;
+import net.runelite.api.Constants;
+import net.runelite.client.RuneLiteProperties;
+import net.runelite.client.discord.DiscordPresence;
+import net.runelite.client.discord.DiscordService;
+import net.runelite.client.ws.PartyService;
+
+import javax.inject.Inject;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import javax.inject.Inject;
-import lombok.Data;
-import net.runelite.client.RuneLiteProperties;
-import net.runelite.client.discord.DiscordPresence;
-import net.runelite.client.discord.DiscordService;
-import net.runelite.client.ws.PartyService;
+
 import static net.runelite.client.ws.PartyService.PARTY_MAX;
 
 /**
@@ -172,7 +175,7 @@ class DiscordState
 		}
 		// Replace snapshot with + to make tooltip shorter (so it will span only 1 line)
 		final String versionShortHand = properties.getVersion().replace("-SNAPSHOT", "+");
-		details = "zenyte.com";
+		details = Constants.SERVER_WEBSITE_LOWERCASE;
 		final DiscordPresence.DiscordPresenceBuilder presenceBuilder = DiscordPresence.builder()
 			.state(MoreObjects.firstNonNull(state, ""))
 			.details(MoreObjects.firstNonNull(details, ""))

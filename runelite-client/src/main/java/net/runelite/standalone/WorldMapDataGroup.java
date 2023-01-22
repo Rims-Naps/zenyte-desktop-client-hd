@@ -62,9 +62,9 @@ public class WorldMapDataGroup {
    )
    static void method958() {
       class203.worldSelectShown = false;
-      class302.leftBackground.method1331(class203.field1168, 0);
+      class302.leftBackground.method1331(class203.xPadding, 0);
       //class203.rightBackground.method1331(class203.field1168 + 382, 0);
-      //class203.logoSprite.method4282(class203.field1168 + 382 - class203.logoSprite.width / 2, 18);
+      //class203.logoSprite.method4282(class203.xPadding + 382 - class203.logoSprite.width / 2, 18);
    }
 
    @ObfuscatedName("a")

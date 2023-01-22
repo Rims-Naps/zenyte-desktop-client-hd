@@ -850,20 +850,6 @@ public enum Environment
 	FISHER_KINGS_REALM(Area.FISHER_KINGS_REALM, new Properties()),
 	ENCHANTED_VALLEY(Area.ENCHANTED_VALLEY, new Properties()),
 
-	// Custom OSNR maps
-	GAMBLE(Area.GAMBLE, new Properties()),
-	WORLD_BOSS(Area.WORLD_BOSS, new Properties()
-			.setFogColor("#273225")),
-	OSNR_TUTORIAL_ISLAND(Area.OSNR_TUTORIAL_ISLAND, new Properties()),
-
-	OSNR_TOURNAMENT(Area.OSNR_TOURNAMENT, new Properties()),
-	OSNR_TOURNAMENT_TOURNEY(Area.OSNR_TOURNAMENT_TOURNEY, new Properties()),
-
-	DONATOR_ZONE_LDI(Area.DONATOR_ZONE_LDI, new Properties()),
-	DONATOR_ZONE_UDI(Area.DONATOR_ZONE_UDI, new Properties()),
-	DONATOR_ZONE_RDI(Area.DONATOR_ZONE_RDI, new Properties()),
-	DONATOR_ZONE_DI(Area.DONATOR_ZONE_DI, new Properties()),
-	DONATOR_ZONE_DIE(Area.DONATOR_ZONE_DIE, new Properties()),
 
 
 	UNKNOWN_OVERWORLD_SNOWY(Area.UNKNOWN_OVERWORLD_SNOWY, new Properties()

@@ -1,14 +1,15 @@
 package net.runelite.standalone;
 
-import java.awt.Desktop;
-import java.awt.Desktop.Action;
-import java.net.URI;
 import net.runelite.api.HeadIcon;
 import net.runelite.api.events.NpcActionChanged;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSNPCComposition;
+
+import java.awt.*;
+import java.awt.Desktop.Action;
+import java.net.URI;
 
 @ObfuscatedName("jg")
 public class NPCType extends CacheableNode implements RSNPCComposition {
@@ -241,7 +242,7 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
                }
             }
 
-            var5 = var11.method2852(this.ambient + 64, this.contrast * 5 + 850, -30, -50, -30);
+            var5 = var11.toModel(this.ambient + 64, this.contrast * 5 + 850, -30, -50, -30);
             npcModelCache.method628(var5, (long)this.id);
          }
 
@@ -628,7 +629,12 @@ public class NPCType extends CacheableNode implements RSNPCComposition {
       signature = "(I)V",
       garbageValue = "-896105625"
    )
-   void method4776() {
+   void postLoad() {
+      if (id == 7317) {
+         ops[0] = "Talk-to";
+         ops[2] = "Join";
+         ops[3] = "Trade";
+      }
    }
 
    @ObfuscatedName("e")

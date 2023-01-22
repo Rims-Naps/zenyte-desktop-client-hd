@@ -71,7 +71,7 @@ class PrayerBarOverlay extends Overlay
 			return null;
 		}
 
-		final int height = client.getLocalPlayer().getDefaultHeight() + 10;
+		final int height = client.getLocalPlayer().getLogicalHeight() + 10;
 		final LocalPoint localLocation = client.getLocalPlayer().getLocalLocation();
 		final Point canvasPoint = Perspective.localToCanvas(client, localLocation, client.getPlane(), height);
 
@@ -91,8 +91,8 @@ class PrayerBarOverlay extends Overlay
 		graphics.fillRect(barX, barY, progressFill, barHeight);
 
 		if ((plugin.isPrayersActive() || config.prayerFlickAlwaysOn())
-				&& (config.prayerFlickLocation().equals(PrayerFlickLocation.PRAYER_BAR)
-				|| config.prayerFlickLocation().equals(PrayerFlickLocation.BOTH)))
+			&& (config.prayerFlickLocation().equals(PrayerFlickLocation.PRAYER_BAR)
+			|| config.prayerFlickLocation().equals(PrayerFlickLocation.BOTH)))
 		{
 			double t = plugin.getTickProgress();
 

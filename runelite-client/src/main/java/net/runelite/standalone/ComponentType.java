@@ -685,7 +685,7 @@ public class ComponentType extends Node implements RSWidget {
       signature = "(Lgx;B)V",
       garbageValue = "-3"
    )
-   void method5651(Packet var1) {
+   public void method5651(Packet var1) {
       var1.readUnsignedByte();
       this.isIf3 = true;
       this.type = var1.readUnsignedByte();
@@ -784,7 +784,7 @@ public class ComponentType extends Node implements RSWidget {
          this.lineDirection = var1.readUnsignedByte() == 1;
       }
 
-      this.activeProperties = var1.method5090();
+      this.activeProperties = var1.read24bitInt();
       this.opBase = var1.readString();
       int var2 = var1.readUnsignedByte();
       if(var2 > 0) {
@@ -885,7 +885,7 @@ public class ComponentType extends Node implements RSWidget {
                   return null;
                }
 
-               var7 = var8.method2852(64, 768, -50, -10, -50);
+               var7 = var8.toModel(64, 768, -50, -10, -50);
             }
 
             if(var5 == 2) {
@@ -895,7 +895,7 @@ public class ComponentType extends Node implements RSWidget {
                   return null;
                }
 
-               var7 = var8.method2852(64, 768, -50, -10, -50);
+               var7 = var8.toModel(64, 768, -50, -10, -50);
             }
 
             if(var5 == 3) {
@@ -909,7 +909,7 @@ public class ComponentType extends Node implements RSWidget {
                   return null;
                }
 
-               var7 = var8.method2852(64, 768, -50, -10, -50);
+               var7 = var8.toModel(64, 768, -50, -10, -50);
             }
 
             if(var5 == 4) {
@@ -920,7 +920,7 @@ public class ComponentType extends Node implements RSWidget {
                   return null;
                }
 
-               var7 = var8.method2852(var9.ambient + 64, var9.contrast * 5 + 768, -50, -10, -50);
+               var7 = var8.toModel(var9.ambient + 64, var9.contrast * 5 + 768, -50, -10, -50);
             }
 
             componentModelCache.method628(var7, (long)(var6 + (var5 << 16)));
@@ -2026,7 +2026,7 @@ public class ComponentType extends Node implements RSWidget {
       signature = "(Lgx;I)V",
       garbageValue = "-1392065342"
    )
-   void method5645(Packet var1) {
+   public void method5645(Packet var1) {
       this.isIf3 = false;
       this.type = var1.readUnsignedByte();
       this.buttonType = var1.readUnsignedByte();

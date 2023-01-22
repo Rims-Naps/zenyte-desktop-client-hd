@@ -141,8 +141,8 @@ public class Perspective
 				int pointX = client.getViewportWidth() / 2 + x * client.getScale() / y;
 				int pointY = client.getViewportHeight() / 2 + var8 * client.getScale() / y;
 				return new Point(
-						pointX + client.getViewportXOffset(),
-						pointY + client.getViewportYOffset());
+					pointX + client.getViewportXOffset(),
+					pointY + client.getViewportYOffset());
 			}
 		}
 
@@ -373,11 +373,11 @@ public class Perspective
 	 * localLocation.
 	 */
 	public static Point getCanvasTextLocation(
-			@Nonnull Client client,
-			@Nonnull Graphics2D graphics,
-			@Nonnull LocalPoint localLocation,
-			@Nullable String text,
-			int zOffset)
+		@Nonnull Client client,
+		@Nonnull Graphics2D graphics,
+		@Nonnull LocalPoint localLocation,
+		@Nullable String text,
+		int zOffset)
 	{
 		if (text == null)
 		{
@@ -411,10 +411,10 @@ public class Perspective
 	 * localLocation.
 	 */
 	public static Point getCanvasImageLocation(
-			@Nonnull Client client,
-			@Nonnull LocalPoint localLocation,
-			@Nonnull BufferedImage image,
-			int zOffset)
+		@Nonnull Client client,
+		@Nonnull LocalPoint localLocation,
+		@Nonnull BufferedImage image,
+		int zOffset)
 	{
 		int plane = client.getPlane();
 
@@ -441,9 +441,9 @@ public class Perspective
 	 * localLocation.
 	 */
 	public static Point getMiniMapImageLocation(
-			@Nonnull Client client,
-			@Nonnull LocalPoint localLocation,
-			@Nonnull BufferedImage image)
+		@Nonnull Client client,
+		@Nonnull LocalPoint localLocation,
+		@Nonnull BufferedImage image)
 	{
 		Point p = Perspective.localToMinimap(client, localLocation);
 
@@ -468,10 +468,10 @@ public class Perspective
 	 * @return a {@link Point} on screen corresponding to the given localLocation.
 	 */
 	public static Point getCanvasSpriteLocation(
-			@Nonnull Client client,
-			@Nonnull LocalPoint localLocation,
-			@Nonnull SpritePixels sprite,
-			int zOffset)
+		@Nonnull Client client,
+		@Nonnull LocalPoint localLocation,
+		@Nonnull SpritePixels sprite,
+		int zOffset)
 	{
 		int plane = client.getPlane();
 
@@ -482,8 +482,8 @@ public class Perspective
 			return null;
 		}
 
-		int xOffset = p.getX() - sprite.getSubWidth() / 2;
-		int yOffset = p.getY() - sprite.getSubHeight() / 2;
+		int xOffset = p.getX() - sprite.getWidth() / 2;
+		int yOffset = p.getY() - sprite.getHeight() / 2;
 
 		return new Point(xOffset, yOffset);
 	}
@@ -509,8 +509,8 @@ public class Perspective
 		}
 
 		List<Triangle> triangles = model.getTriangles().stream()
-				.map(triangle -> triangle.rotate(orientation))
-				.collect(Collectors.toList());
+			.map(triangle -> triangle.rotate(orientation))
+			.collect(Collectors.toList());
 
 		List<Vertex> vertices = model.getVertices().stream()
 				.map(v -> v.rotate(orientation))
@@ -538,13 +538,13 @@ public class Perspective
 	private static boolean isOffscreen(@Nonnull Client client, @Nonnull Point point)
 	{
 		return (point.getX() < 0 || point.getX() >= client.getViewportWidth())
-				&& (point.getY() < 0 || point.getY() >= client.getViewportHeight());
+			&& (point.getY() < 0 || point.getY() >= client.getViewportHeight());
 	}
 
 	private static @Nonnull Area get2DGeometry(
-			@Nonnull Client client,
-			@Nonnull List<Triangle> triangles,
-			@Nonnull LocalPoint point
+		@Nonnull Client client,
+		@Nonnull List<Triangle> triangles,
+		@Nonnull LocalPoint point
 	)
 	{
 		int radius = 5;
@@ -556,9 +556,9 @@ public class Perspective
 		{
 			Vertex _a = triangle.getA();
 			Point a = localToCanvas(client,
-					point.getX() - _a.getX(),
-					point.getY() - _a.getZ(),
-					tileHeight + _a.getY());
+				point.getX() - _a.getX(),
+				point.getY() - _a.getZ(),
+				tileHeight + _a.getY());
 			if (a == null)
 			{
 				continue;
@@ -566,9 +566,9 @@ public class Perspective
 
 			Vertex _b = triangle.getB();
 			Point b = localToCanvas(client,
-					point.getX() - _b.getX(),
-					point.getY() - _b.getZ(),
-					tileHeight + _b.getY());
+				point.getX() - _b.getX(),
+				point.getY() - _b.getZ(),
+				tileHeight + _b.getY());
 			if (b == null)
 			{
 				continue;
@@ -576,9 +576,9 @@ public class Perspective
 
 			Vertex _c = triangle.getC();
 			Point c = localToCanvas(client,
-					point.getX() - _c.getX(),
-					point.getY() - _c.getZ(),
-					tileHeight + _c.getY());
+				point.getX() - _c.getX(),
+				point.getY() - _c.getZ(),
+				tileHeight + _c.getY());
 			if (c == null)
 			{
 				continue;
@@ -597,8 +597,8 @@ public class Perspective
 			int maxY = Math.max(Math.max(a.getY(), b.getY()), c.getY()) + 4;
 
 			Rectangle clickableRect = new Rectangle(
-					minX - radius, minY - radius,
-					maxX - minX + radius, maxY - minY + radius
+				minX - radius, minY - radius,
+				maxX - minX + radius, maxY - minY + radius
 			);
 
 			if (geometry.contains(clickableRect))
@@ -613,9 +613,9 @@ public class Perspective
 	}
 
 	private static Area getAABB(
-			@Nonnull Client client,
-			@Nonnull List<Vertex> vertices,
-			@Nonnull LocalPoint point
+		@Nonnull Client client,
+		@Nonnull List<Vertex> vertices,
+		@Nonnull LocalPoint point
 	)
 	{
 		int maxX = 0;
@@ -745,10 +745,10 @@ public class Perspective
 	 * localLocation.
 	 */
 	public static Point getCanvasTextMiniMapLocation(
-			@Nonnull Client client,
-			@Nonnull Graphics2D graphics,
-			@Nonnull LocalPoint localLocation,
-			@Nonnull String text)
+		@Nonnull Client client,
+		@Nonnull Graphics2D graphics,
+		@Nonnull LocalPoint localLocation,
+		@Nonnull String text)
 	{
 		Point p = Perspective.localToMinimap(client, localLocation);
 

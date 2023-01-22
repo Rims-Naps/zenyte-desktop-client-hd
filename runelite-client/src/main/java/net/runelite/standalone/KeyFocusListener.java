@@ -1,14 +1,15 @@
 package net.runelite.standalone;
 
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import net.runelite.api.events.FocusChanged;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSKeyFocusListener;
+
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 @ObfuscatedName("az")
 public final class KeyFocusListener implements KeyListener, FocusListener, RSKeyFocusListener {
@@ -243,7 +244,7 @@ public final class KeyFocusListener implements KeyListener, FocusListener, RSKey
       signature = "(ILjava/lang/String;Ljava/lang/String;B)V",
       garbageValue = "1"
    )
-   static void method5934(int var0, String var1, String var2) {
+   static void pushMessage(int var0, String var1, String var2) {
       class312.method6287(var0, var1, var2, (String)null);
    }
 

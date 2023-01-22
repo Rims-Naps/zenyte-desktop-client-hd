@@ -66,4 +66,14 @@ public interface RSModelData extends RSRenderable
 
 	@Import("textureRenderTypes")
 	byte[] getTextureRenderTypes();
+
+	@Import("verticesCount")
+	int getVerticesCount();
+
+	@Import("vertexNormals")
+	RSVertexNormal[] getVertexNormals();
+
+	@Import("vertexVertices")
+	RSVertexNormal[] getVertexVertices();
+
 }

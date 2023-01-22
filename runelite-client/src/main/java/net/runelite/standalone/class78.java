@@ -1,10 +1,6 @@
 package net.runelite.standalone;
 
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Random;
+import net.runelite.api.Constants;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
@@ -21,7 +17,7 @@ public class class78 {
       if(class203.username.length() == 0) {
          TextureProvider.method1169("Please enter your username.", "", "");
       } else {
-         class129.method1898("https://forums.zenyte.com/lostpassword/", true, false);
+         class129.method1898(Constants.SERVER_WEBSITE_URL, true, false);
       }
    }
 

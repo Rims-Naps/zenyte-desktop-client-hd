@@ -1,5 +1,6 @@
 package net.runelite.standalone;
 
+import net.runelite.api.Constants;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
@@ -69,7 +70,7 @@ public class MouseRecorder implements Runnable {
                   break;
                }
 
-               int var1 = class203.field1168 + 280;
+               int var1 = class203.xPadding + 280;
                if(MouseInput.mouseLastPressedX >= var1 && MouseInput.mouseLastPressedX <= var1 + 14 && MouseInput.mouseLastPressedY >= 4 && MouseInput.mouseLastPressedY <= 18) {
                   WallObject.method1973(0, 0);
                   break;
@@ -80,7 +81,7 @@ public class MouseRecorder implements Runnable {
                   break;
                }
 
-               var2 = class203.field1168 + 390;
+               var2 = class203.xPadding + 390;
                if(MouseInput.mouseLastPressedX >= var2 && MouseInput.mouseLastPressedX <= var2 + 14 && MouseInput.mouseLastPressedY >= 4 && MouseInput.mouseLastPressedY <= 18) {
                   WallObject.method1973(1, 0);
                   break;
@@ -91,7 +92,7 @@ public class MouseRecorder implements Runnable {
                   break;
                }
 
-               var3 = class203.field1168 + 500;
+               var3 = class203.xPadding + 500;
                if(MouseInput.mouseLastPressedX >= var3 && MouseInput.mouseLastPressedX <= var3 + 14 && MouseInput.mouseLastPressedY >= 4 && MouseInput.mouseLastPressedY <= 18) {
                   WallObject.method1973(2, 0);
                   break;
@@ -102,7 +103,7 @@ public class MouseRecorder implements Runnable {
                   break;
                }
 
-               var4 = class203.field1168 + 610;
+               var4 = class203.xPadding + 610;
                if(MouseInput.mouseLastPressedX >= var4 && MouseInput.mouseLastPressedX <= var4 + 14 && MouseInput.mouseLastPressedY >= 4 && MouseInput.mouseLastPressedY <= 18) {
                   WallObject.method1973(3, 0);
                   break;
@@ -113,7 +114,7 @@ public class MouseRecorder implements Runnable {
                   break;
                }
 
-               if(MouseInput.mouseLastPressedX >= class203.field1168 + 708 && MouseInput.mouseLastPressedY >= 4 && MouseInput.mouseLastPressedX <= class203.field1168 + 708 + 50 && MouseInput.mouseLastPressedY <= 20) {
+               if(MouseInput.mouseLastPressedX >= class203.xPadding + 708 && MouseInput.mouseLastPressedY >= 4 && MouseInput.mouseLastPressedX <= class203.xPadding + 708 + 50 && MouseInput.mouseLastPressedY <= 20) {
                   WorldMapDataGroup.method958();
                   break;
                }
@@ -149,7 +150,7 @@ public class MouseRecorder implements Runnable {
          }
 
       } else {
-         if((MouseInput.mouseLastButton == 1 || !TextureProvider.middleMouseMovesCamera && MouseInput.mouseLastButton == 4) && MouseInput.mouseLastPressedX >= class203.field1168 + 765 - 50 && MouseInput.mouseLastPressedY >= 453) {
+         if((MouseInput.mouseLastButton == 1 || !TextureProvider.middleMouseMovesCamera && MouseInput.mouseLastButton == 4) && MouseInput.mouseLastPressedX >= class203.xPadding + 765 - 50 && MouseInput.mouseLastPressedY >= 453) {
             class312.options.muted = !class312.options.muted;
             class72.method1041();
             if(!class312.options.muted) {
@@ -199,7 +200,7 @@ public class MouseRecorder implements Runnable {
             if(client.gameState == 10 || client.gameState == 11) {
                if(client.languageId == 0) {
                   if(MouseInput.mouseLastButton == 1 || !TextureProvider.middleMouseMovesCamera && MouseInput.mouseLastButton == 4) {
-                     var4 = class203.field1168 + 5;
+                     var4 = class203.xPadding + 5;
                      short var5 = 463;
                      byte var6 = 100;
                      byte var7 = 35;
@@ -237,13 +238,13 @@ public class MouseRecorder implements Runnable {
                      }
                   }
 
-                  var8 = class203.field1176 - 80;
+                  var8 = class203.loginBoxCenter - 80;
                   var9 = 291;
                   if(var4 == 1 && var19 >= var8 - 75 && var19 <= var8 + 75 && var20 >= var9 - 20 && var20 <= var9 + 20) {
-                     class129.method1898("https://forums.zenyte.com/register/", true, false);
+                     class129.method1898(Constants.SERVER_WEBSITE_URL, true, false);
                   }
 
-                  var8 = class203.field1176 + 80;
+                  var8 = class203.loginBoxCenter + 80;
                   if(var4 == 1 && var19 >= var8 - 75 && var19 <= var8 + 75 && var20 >= var9 - 20 && var20 <= var9 + 20 || var21) {
                      if((client.flags & 33554432) != 0) {
                         class203.Login_response0 = "";
@@ -322,7 +323,7 @@ public class MouseRecorder implements Runnable {
                            }
                         }
 
-                        var8 = class203.field1176 - 80;
+                        var8 = class203.loginBoxCenter - 80;
                         var9 = 321;
                         if(var4 == 1 && var19 >= var8 - 75 && var19 <= var8 + 75 && var20 >= var9 - 20 && var20 <= var9 + 20) {
                            class203.username = class203.username.trim();
@@ -354,7 +355,7 @@ public class MouseRecorder implements Runnable {
                            class203.field1182 = true;
                         }
 
-                        var8 = class203.field1176 + -117;
+                        var8 = class203.loginBoxCenter + -117;
                         var9 = 277;
                         class203.field1180 = var19 >= var8 && var19 < var8 + class132.field3195 && var20 >= var9 && var20 < var9 + class71.field187;
                         if(var4 == 1 && class203.field1180) {
@@ -365,7 +366,7 @@ public class MouseRecorder implements Runnable {
                            }
                         }
 
-                        var8 = class203.field1176 + 24;
+                        var8 = class203.loginBoxCenter + 24;
                         var9 = 277;
                         class203.field1181 = var19 >= var8 && var19 < var8 + class132.field3195 && var20 >= var9 && var20 < var9 + class71.field187;
                         if(var4 == 1 && class203.field1181) {
@@ -671,13 +672,13 @@ public class MouseRecorder implements Runnable {
                         }
                      }
 
-                     var22 = class203.field1176 - 80;
+                     var22 = class203.loginBoxCenter - 80;
                      var24 = 321;
                      if(var4 == 1 && var19 >= var22 - 75 && var19 <= var22 + 75 && var20 >= var24 - 20 && var20 <= var24 + 20) {
                         Packet.method5318(false);
                      }
 
-                     var22 = class203.field1176 + 80;
+                     var22 = class203.loginBoxCenter + 80;
                      if(var4 == 1 && var19 >= var22 - 75 && var19 <= var22 + 75 && var20 >= var24 - 20 && var20 <= var24 + 20) {
                         class203.loginIndex = 0;
                      }

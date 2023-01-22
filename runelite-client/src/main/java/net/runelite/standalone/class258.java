@@ -908,7 +908,8 @@ public class class258 {
                }
             } else {
                if(class71.localPlayer != null && class71.localPlayer.name != null) {
-                  var3 = class71.localPlayer.name.method1530();
+                  ChatCrownType staffRank = (ChatCrownType) PlayerList.method4757(class248.method4669(), client.staffModLevel);
+                  var3 = (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class71.localPlayer.name.getChatName();
                } else {
                   var3 = "";
                }
@@ -924,7 +925,7 @@ public class class258 {
    @ObfuscatedSignature(
       signature = "(Lbr;II)V"
    )
-   static void method4859(ScriptEvent var0, int var1, int var2) {
+   public static void method4859(ScriptEvent var0, int var1, int var2) {
       Object[] var3 = var0.getArguments();
       if(var3 != null && var3.length > 0 && var3[0] instanceof JavaScriptCallback) {
          try {

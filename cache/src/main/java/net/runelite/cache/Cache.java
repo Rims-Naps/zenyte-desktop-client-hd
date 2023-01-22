@@ -24,14 +24,11 @@
  */
 package net.runelite.cache;
 
+import net.runelite.cache.fs.Store;
+import org.apache.commons.cli.*;
+
 import java.io.File;
 import java.io.IOException;
-import net.runelite.cache.fs.Store;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
 
 public class Cache
 {
@@ -45,6 +42,7 @@ public class Cache
 		options.addOption(null, "npcs", true, "directory to dump npcs to");
 		options.addOption(null, "objects", true, "directory to dump objects to");
 		options.addOption(null, "sprites", true, "directory to dump sprites to");
+		options.addOption(null, "scripts", true, "directory to dump sprites to");
 
 		CommandLineParser parser = new DefaultParser();
 		CommandLine cmd;
@@ -114,6 +112,16 @@ public class Cache
 
 			System.out.println("Dumping sprites to " + spritedir);
 			dumpSprites(store, new File(spritedir));
+		}
+		else if (cmd.hasOption("scripts")) {
+			String dumpPath = cmd.getOptionValue("scripts");
+			if (dumpPath == null) {
+				System.err.println("No valid dump path specified.");
+				return;
+			}
+
+			ScriptDumper dumper = new ScriptDumper(store);
+			dumper.dump(new File(dumpPath), 10001);
 		}
 		else
 		{

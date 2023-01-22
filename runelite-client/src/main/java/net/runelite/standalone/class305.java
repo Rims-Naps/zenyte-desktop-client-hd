@@ -174,7 +174,7 @@ public class class305 {
             this.field2618.offset += var4;
             return 1;
          } else if(var7 == 81) {
-            int var5 = this.field2618.method5090();
+            int var5 = this.field2618.read24bitInt();
             var4 -= 3;
             int var6 = this.field2612[var1];
             this.field2616 += (long)var6 * (long)(this.field2611 - var5);

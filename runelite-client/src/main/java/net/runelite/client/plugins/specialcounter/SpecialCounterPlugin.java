@@ -44,10 +44,10 @@ import java.util.Map;
 import java.util.Set;
 
 @PluginDescriptor(
-		name = "Special Attack Counter",
-		description = "Track DWH, Arclight, Darklight, and BGS special attacks used on NPCs",
-		tags = {"combat", "npcs", "overlay"},
-		enabledByDefault = false
+	name = "Special Attack Counter",
+	description = "Track DWH, Arclight, Darklight, and BGS special attacks used on NPCs",
+	tags = {"combat", "npcs", "overlay"},
+	enabledByDefault = false
 )
 public class SpecialCounterPlugin extends Plugin
 {
@@ -168,7 +168,7 @@ public class SpecialCounterPlugin extends Plugin
 	private int checkInteracting()
 	{
 		Player localPlayer = client.getLocalPlayer();
-		Actor interacting = localPlayer.getTargetIndex();
+		Actor interacting = localPlayer.getInteracting();
 
 		if (interacting instanceof NPC)
 		{
@@ -276,7 +276,7 @@ public class SpecialCounterPlugin extends Plugin
 		if (counter == null)
 		{
 			counter = new SpecialCounter(itemManager.getImage(specialWeapon.getItemID()), this,
-					hit, specialWeapon);
+				hit, specialWeapon);
 			infoBoxManager.addInfoBox(counter);
 			specialCounter[specialWeapon.ordinal()] = counter;
 		}

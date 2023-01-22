@@ -29,7 +29,7 @@ public class Nameable implements Comparable, RSNameable {
       garbageValue = "1600014077"
    )
    public String method2754() {
-      return this.prevName == null?"":this.prevName.method1530();
+      return this.prevName == null?"":this.prevName.getChatName();
    }
 
    @ObfuscatedName("au")
@@ -95,7 +95,7 @@ public class Nameable implements Comparable, RSNameable {
       garbageValue = "-182933370"
    )
    public String method2763() {
-      return this.name == null?"":this.name.method1530();
+      return this.name == null?"":this.name.getChatName();
    }
 
    @ObfuscatedName("ik")

@@ -30,7 +30,7 @@ public class class51 {
 
       for(var3 = 0; var3 < var2; ++var3) {
          boolean var4 = var0.readUnsignedByte() == 1;
-         int var5 = var0.method5090();
+         int var5 = var0.read24bitInt();
          Object var6;
          if(var4) {
             var6 = new ObjectNode(var0.readString());

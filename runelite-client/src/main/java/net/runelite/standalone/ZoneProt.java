@@ -102,7 +102,7 @@ public class ZoneProt {
             var1.method4778(new Packet(var2));
          }
 
-         var1.method4776();
+         var1.postLoad();
          NPCType.npcTypeCache.method628(var1, (long)var0);
          return var1;
       }

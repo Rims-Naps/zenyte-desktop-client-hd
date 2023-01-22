@@ -199,7 +199,7 @@ public final class SpotAnimation extends Entity implements RSGraphicsObject {
                      var25 = var9[var24];
                   }
 
-                  class253.method4728(var1, var22, var23, var11, var20 + var7 & 3, var19, var8, var25);
+                  class253.addMapObject(var1, var22, var23, var11, var20 + var7 & 3, var19, var8, var25, false);
                }
             }
          }

@@ -170,11 +170,11 @@ public class WorldHopperPlugin extends Plugin
 		}
 
 		navButton = NavigationButton.builder()
-				.tooltip("World Switcher")
-				.icon(icon)
-				.priority(3)
-				.panel(panel)
-				.build();
+			.tooltip("World Switcher")
+			.icon(icon)
+			.priority(3)
+			.panel(panel)
+			.build();
 
 		if (config.showSidebar())
 		{
@@ -332,7 +332,7 @@ public class WorldHopperPlugin extends Plugin
 			ChatPlayer player = getChatPlayerFromName(event.getTarget());
 
 			if (player == null || player.getWorld() == 0 || player.getWorld() == client.getWorld()
-					|| worldResult == null)
+				|| worldResult == null)
 			{
 				return;
 			}
@@ -340,7 +340,7 @@ public class WorldHopperPlugin extends Plugin
 			World currentWorld = worldResult.findWorld(client.getWorld());
 			World targetWorld = worldResult.findWorld(player.getWorld());
 			if (targetWorld == null || currentWorld == null
-					|| (!currentWorld.getTypes().contains(WorldType.PVP) && targetWorld.getTypes().contains(WorldType.PVP)))
+				|| (!currentWorld.getTypes().contains(WorldType.PVP) && targetWorld.getTypes().contains(WorldType.PVP)))
 			{
 				// Disable Hop-to a PVP world from a regular world
 				return;
@@ -413,7 +413,7 @@ public class WorldHopperPlugin extends Plugin
 
 		for (net.runelite.api.World w : worldListLoad.getWorlds())
 		{
-			worldData.put(w.getId(), w.getPopulation());
+			worldData.put(w.getId(), w.getPlayerCount());
 		}
 
 		panel.updateListData(worldData);
@@ -576,14 +576,14 @@ public class WorldHopperPlugin extends Plugin
 		if (world == currentWorld)
 		{
 			String chatMessage = new ChatMessageBuilder()
-					.append(ChatColorType.NORMAL)
-					.append("Couldn't find a world to quick-hop to.")
-					.build();
+				.append(ChatColorType.NORMAL)
+				.append("Couldn't find a world to quick-hop to.")
+				.build();
 
 			chatMessageManager.queue(QueuedMessage.builder()
-					.type(ChatMessageType.CONSOLE)
-					.runeLiteFormattedMessage(chatMessage)
-					.build());
+				.type(ChatMessageType.CONSOLE)
+				.runeLiteFormattedMessage(chatMessage)
+				.build());
 		}
 		else
 		{
@@ -602,9 +602,9 @@ public class WorldHopperPlugin extends Plugin
 
 		final net.runelite.api.World rsWorld = client.createWorld();
 		rsWorld.setActivity(world.getActivity());
-		rsWorld.setHost(world.getAddress());
+		rsWorld.setAddress(world.getAddress());
 		rsWorld.setId(world.getId());
-		rsWorld.setPopulation(world.getPlayers());
+		rsWorld.setPlayerCount(world.getPlayers());
 		rsWorld.setLocation(world.getLocation());
 		rsWorld.setTypes(WorldUtil.toWorldTypes(world.getTypes()));
 
@@ -618,19 +618,19 @@ public class WorldHopperPlugin extends Plugin
 		if (config.showWorldHopMessage())
 		{
 			String chatMessage = new ChatMessageBuilder()
-					.append(ChatColorType.NORMAL)
-					.append("Quick-hopping to World ")
-					.append(ChatColorType.HIGHLIGHT)
-					.append(Integer.toString(world.getId()))
-					.append(ChatColorType.NORMAL)
-					.append("..")
-					.build();
+				.append(ChatColorType.NORMAL)
+				.append("Quick-hopping to World ")
+				.append(ChatColorType.HIGHLIGHT)
+				.append(Integer.toString(world.getId()))
+				.append(ChatColorType.NORMAL)
+				.append("..")
+				.build();
 
 			chatMessageManager
-					.queue(QueuedMessage.builder()
-							.type(ChatMessageType.CONSOLE)
-							.runeLiteFormattedMessage(chatMessage)
-							.build());
+				.queue(QueuedMessage.builder()
+					.type(ChatMessageType.CONSOLE)
+					.runeLiteFormattedMessage(chatMessage)
+					.build());
 		}
 
 		quickHopTargetWorld = rsWorld;
@@ -652,19 +652,19 @@ public class WorldHopperPlugin extends Plugin
 			if (++displaySwitcherAttempts >= DISPLAY_SWITCHER_MAX_ATTEMPTS)
 			{
 				String chatMessage = new ChatMessageBuilder()
-						.append(ChatColorType.NORMAL)
-						.append("Failed to quick-hop after ")
-						.append(ChatColorType.HIGHLIGHT)
-						.append(Integer.toString(displaySwitcherAttempts))
-						.append(ChatColorType.NORMAL)
-						.append(" attempts.")
-						.build();
+					.append(ChatColorType.NORMAL)
+					.append("Failed to quick-hop after ")
+					.append(ChatColorType.HIGHLIGHT)
+					.append(Integer.toString(displaySwitcherAttempts))
+					.append(ChatColorType.NORMAL)
+					.append(" attempts.")
+					.build();
 
 				chatMessageManager
-						.queue(QueuedMessage.builder()
-								.type(ChatMessageType.CONSOLE)
-								.runeLiteFormattedMessage(chatMessage)
-								.build());
+					.queue(QueuedMessage.builder()
+						.type(ChatMessageType.CONSOLE)
+						.runeLiteFormattedMessage(chatMessage)
+						.build());
 
 				resetQuickHopper();
 			}
@@ -702,13 +702,13 @@ public class WorldHopperPlugin extends Plugin
 
 		// Search clan members first, because if a friend is in the clan chat but their private
 		// chat is 'off', then the hop-to option will not get shown in the menu (issue #5679).
-		FriendsChatMember[] clanMembers = client.getClanMembers();
+		ClanMember[] clanMembers = client.getClanMembers();
 
 		if (clanMembers != null)
 		{
-			for (FriendsChatMember clanMember : clanMembers)
+			for (ClanMember clanMember : clanMembers)
 			{
-				if (clanMember != null && clanMember.getName().equals(cleanName))
+				if (clanMember != null && clanMember.getUsername().equals(cleanName))
 				{
 					return clanMember;
 				}

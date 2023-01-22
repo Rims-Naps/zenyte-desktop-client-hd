@@ -97,7 +97,7 @@ public class VarClientType extends CacheableNode {
       }
 
       if(!var4) {
-         KeyFocusListener.method5934(4, "", "Unable to find " + var1);
+         KeyFocusListener.pushMessage(4, "", "Unable to find " + var1);
       }
 
    }

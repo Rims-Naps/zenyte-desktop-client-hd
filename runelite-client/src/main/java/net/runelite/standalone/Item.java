@@ -43,7 +43,6 @@ public final class Item extends Entity implements RSItem {
       if(this.rl$sceneX != -1 && ItemContainer.clientInstance.getLastItemDespawn() == null) {
          ItemContainer.clientInstance.setLastItemDespawn(this);
       }
-
    }
 
    private void rl$$init() {
@@ -139,7 +138,7 @@ public final class Item extends Entity implements RSItem {
       String var3;
       if(var0 == 3100) {
          var3 = class281.scriptStringStack[--class295.scriptStringStackSize];
-         KeyFocusListener.method5934(0, "", var3);
+         KeyFocusListener.pushMessage(0, "", var3);
          return 1;
       } else if(var0 == 3101) {
          class281.intStackSize -= 2;

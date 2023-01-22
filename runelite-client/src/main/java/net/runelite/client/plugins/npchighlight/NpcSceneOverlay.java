@@ -106,8 +106,8 @@ public class NpcSceneOverlay extends Overlay
 		final Color color = config.getHighlightColor();
 
 		final LocalPoint centerLp = new LocalPoint(
-				lp.getX() + Perspective.LOCAL_TILE_SIZE * (npc.getNpcSize() - 1) / 2,
-				lp.getY() + Perspective.LOCAL_TILE_SIZE * (npc.getNpcSize() - 1) / 2);
+			lp.getX() + Perspective.LOCAL_TILE_SIZE * (npc.getNpcSize() - 1) / 2,
+			lp.getY() + Perspective.LOCAL_TILE_SIZE * (npc.getNpcSize() - 1) / 2);
 
 		final Polygon poly = Perspective.getCanvasTileAreaPoly(client, centerLp, npc.getNpcSize());
 
@@ -126,13 +126,13 @@ public class NpcSceneOverlay extends Overlay
 		final int textHeight = graphics.getFontMetrics().getAscent();
 
 		final Point canvasPoint = Perspective
-				.localToCanvas(client, centerLp, respawnLocation.getPlane());
+			.localToCanvas(client, centerLp, respawnLocation.getPlane());
 
 		if (canvasPoint != null)
 		{
 			final Point canvasCenterPoint = new Point(
-					canvasPoint.getX() - textWidth / 2,
-					canvasPoint.getY() + textHeight / 2);
+				canvasPoint.getX() - textWidth / 2,
+				canvasPoint.getY() + textHeight / 2);
 
 			OverlayUtil.renderTextLocation(graphics, canvasCenterPoint, timeLeftStr, TEXT_COLOR);
 		}
@@ -172,7 +172,7 @@ public class NpcSceneOverlay extends Overlay
 		if (config.drawNames())
 		{
 			String npcName = Text.removeTags(actor.getName());
-			Point textLocation = actor.getCanvasTextLocation(graphics, npcName, actor.getDefaultHeight() + 40);
+			Point textLocation = actor.getCanvasTextLocation(graphics, npcName, actor.getLogicalHeight() + 40);
 
 			if (textLocation != null)
 			{

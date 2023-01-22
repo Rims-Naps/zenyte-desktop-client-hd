@@ -126,7 +126,7 @@ public class GameEventManager
 
 			forEachTile((tile) ->
 			{
-				Optional.ofNullable(tile.getBoundaryObject()).ifPresent(object ->
+				Optional.ofNullable(tile.getWallObject()).ifPresent(object ->
 				{
 					final WallObjectSpawned objectSpawned = new WallObjectSpawned();
 					objectSpawned.setTile(tile);
@@ -134,7 +134,7 @@ public class GameEventManager
 					eventBus.post(objectSpawned);
 				});
 
-				Optional.ofNullable(tile.getWallDecoration()).ifPresent(object ->
+				Optional.ofNullable(tile.getDecorativeObject()).ifPresent(object ->
 				{
 					final DecorativeObjectSpawned objectSpawned = new DecorativeObjectSpawned();
 					objectSpawned.setTile(tile);
@@ -142,7 +142,7 @@ public class GameEventManager
 					eventBus.post(objectSpawned);
 				});
 
-				Optional.ofNullable(tile.getFloorDecoration()).ifPresent(object ->
+				Optional.ofNullable(tile.getGroundObject()).ifPresent(object ->
 				{
 					final GroundObjectSpawned objectSpawned = new GroundObjectSpawned();
 					objectSpawned.setTile(tile);
@@ -151,14 +151,14 @@ public class GameEventManager
 				});
 
 				Arrays.stream(tile.getGameObjects())
-						.filter(Objects::nonNull)
-						.forEach(object ->
-						{
-							final GameObjectSpawned objectSpawned = new GameObjectSpawned();
-							objectSpawned.setTile(tile);
-							objectSpawned.setGameObject(object);
-							eventBus.post(objectSpawned);
-						});
+					.filter(Objects::nonNull)
+					.forEach(object ->
+					{
+						final GameObjectSpawned objectSpawned = new GameObjectSpawned();
+						objectSpawned.setTile(tile);
+						objectSpawned.setGameObject(object);
+						eventBus.post(objectSpawned);
+					});
 
 				Optional.ofNullable(tile.getItemLayer()).ifPresent(itemLayer ->
 				{

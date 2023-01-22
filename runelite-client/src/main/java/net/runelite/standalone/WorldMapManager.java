@@ -1,14 +1,11 @@
 package net.runelite.standalone;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSWorldMapManager;
+
+import java.util.*;
 
 @ObfuscatedName("av")
 public final class WorldMapManager implements RSWorldMapManager {
@@ -452,7 +449,7 @@ public final class WorldMapManager implements RSWorldMapManager {
       signature = "(IIIZI)V",
       garbageValue = "744248380"
    )
-   static void method2322(int var0, int var1, int var2, boolean var3) {
+   static void teleportCommand(int var0, int var1, int var2, boolean var3) {
       TcpConnectionMessage var4 = class232.method4535(ClientProt.field2280, client.serverConnection.isaac);
       var4.packetBuffer.method5131(client.field731);
       var4.packetBuffer.method5121(var1);

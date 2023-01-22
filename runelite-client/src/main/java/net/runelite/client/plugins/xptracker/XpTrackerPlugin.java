@@ -58,9 +58,9 @@ import static com.google.common.base.MoreObjects.firstNonNull;
 import static net.runelite.client.plugins.xptracker.XpWorldType.NORMAL;
 
 @PluginDescriptor(
-		name = "XP Tracker",
-		description = "Enable the XP Tracker panel",
-		tags = {"experience", "levels", "panel"}
+	name = "XP Tracker",
+	description = "Enable the XP Tracker panel",
+	tags = {"experience", "levels", "panel"}
 )
 @Slf4j
 public class XpTrackerPlugin extends Plugin
@@ -71,12 +71,12 @@ public class XpTrackerPlugin extends Plugin
 	private static final int XP_THRESHOLD = 10_000;
 
 	static final List<Skill> COMBAT = ImmutableList.of(
-			Skill.ATTACK,
-			Skill.STRENGTH,
-			Skill.DEFENCE,
-			Skill.RANGED,
-			Skill.HITPOINTS,
-			Skill.MAGIC);
+		Skill.ATTACK,
+		Skill.STRENGTH,
+		Skill.DEFENCE,
+		Skill.RANGED,
+		Skill.HITPOINTS,
+		Skill.MAGIC);
 
 	@Inject
 	private ClientToolbar clientToolbar;
@@ -128,11 +128,11 @@ public class XpTrackerPlugin extends Plugin
 		final BufferedImage icon = ImageUtil.getResourceStreamFromClass(getClass(), "/skill_icons/overall.png");
 
 		navButton = NavigationButton.builder()
-				.tooltip("XP Tracker")
-				.icon(icon)
-				.priority(2)
-				.panel(xpPanel)
-				.build();
+			.tooltip("XP Tracker")
+			.icon(icon)
+			.priority(2)
+			.panel(xpPanel)
+			.build();
 
 		clientToolbar.addNavigation(navButton);
 	}
@@ -159,9 +159,9 @@ public class XpTrackerPlugin extends Plugin
 			{
 				// Reset
 				log.debug("World change: {} -> {}, {} -> {}",
-						lastUsername, client.getUsername(),
-						firstNonNull(lastWorldType, "<unknown>"),
-						firstNonNull(type, "<unknown>"));
+					lastUsername, client.getUsername(),
+					firstNonNull(lastWorldType, "<unknown>"),
+					firstNonNull(type, "<unknown>"));
 
 				lastUsername = client.getUsername();
 				// xp is not available until after login is finished, so fetch it on the next gametick
@@ -314,7 +314,7 @@ public class XpTrackerPlugin extends Plugin
 		final XpStateSingle state = xpState.getSkill(skill);
 		state.setActionType(XpActionType.EXPERIENCE);
 
-		final Actor interacting = client.getLocalPlayer().getTargetIndex();
+		final Actor interacting = client.getLocalPlayer().getInteracting();
 		if (interacting instanceof NPC && COMBAT.contains(skill))
 		{
 			final NPC npc = (NPC) interacting;
@@ -485,8 +485,8 @@ public class XpTrackerPlugin extends Plugin
 	}
 
 	@Schedule(
-			period = 1,
-			unit = ChronoUnit.SECONDS
+		period = 1,
+		unit = ChronoUnit.SECONDS
 	)
 	public void tickSkillTimes()
 	{

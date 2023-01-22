@@ -130,7 +130,7 @@ public class ImplingsOverlay extends Overlay
 			OverlayUtil.renderPolygon(graphics, poly, color);
 		}
 
-		Point textLocation = actor.getCanvasTextLocation(graphics, text, actor.getDefaultHeight());
+		Point textLocation = actor.getCanvasTextLocation(graphics, text, actor.getLogicalHeight());
 		if (textLocation != null)
 		{
 			OverlayUtil.renderTextLocation(graphics, textLocation, text, color);

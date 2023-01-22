@@ -156,7 +156,7 @@ public class class121 extends Node {
             }
 
             if(var5 > 0 && var6.children[var5 - 1] == null) {
-               throw new RuntimeException("" + (var5 - 1));
+               throw new RuntimeException("Error creating cc: " + (var5 - 1));
             } else {
                ComponentType var12 = new ComponentType();
                var12.type = var4;
@@ -321,7 +321,7 @@ public class class121 extends Node {
             } else if(var0 == 3613) {
                var3 = class281.intStack[--class281.intStackSize];
                if(MapIconReference.clanMemberManager != null && var3 < MapIconReference.clanMemberManager.method5322()) {
-                  class281.scriptStringStack[++class295.scriptStringStackSize - 1] = MapIconReference.clanMemberManager.method5397(var3).method2752().method1530();
+                  class281.scriptStringStack[++class295.scriptStringStackSize - 1] = MapIconReference.clanMemberManager.method5397(var3).method2752().getChatName();
                } else {
                   class281.scriptStringStack[++class295.scriptStringStackSize - 1] = "";
                }

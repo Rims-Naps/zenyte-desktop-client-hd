@@ -1,10 +1,5 @@
 package net.runelite.standalone;
 
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Iterator;
 import net.runelite.api.events.RemovedFriend;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
@@ -13,6 +8,12 @@ import net.runelite.rs.api.RSFriendContainer;
 import net.runelite.rs.api.RSFriendManager;
 import net.runelite.rs.api.RSIgnoreContainer;
 import net.runelite.rs.api.RSName;
+
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Iterator;
 
 @ObfuscatedName("bc")
 public class FriendManager implements RSFriendManager {
@@ -89,11 +90,11 @@ public class FriendManager implements RSFriendManager {
       for(class253 var1 = (class253)this.friendContainer.field3725.method4233(); var1 != null; var1 = (class253)this.friendContainer.field3725.method4229()) {
          if((long)var1.field3743 < class318.method6317() / 1000L - 5L) {
             if(var1.field3742 > 0) {
-               KeyFocusListener.method5934(5, "", var1.field3741 + " has logged in.");
+               KeyFocusListener.pushMessage(5, "", var1.field3741 + " has logged in.");
             }
 
             if(var1.field3742 == 0) {
-               KeyFocusListener.method5934(5, "", var1.field3741 + " has logged out.");
+               KeyFocusListener.pushMessage(5, "", var1.field3741 + " has logged out.");
             }
 
             var1.method466();

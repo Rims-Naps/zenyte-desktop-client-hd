@@ -24,9 +24,6 @@
  */
 package net.runelite.cache;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import net.runelite.cache.fs.Archive;
 import net.runelite.cache.fs.Index;
 import net.runelite.cache.fs.Storage;
@@ -36,6 +33,10 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
 public class TitleDumper
 {
@@ -57,6 +58,7 @@ public class TitleDumper
 			Storage storage = store.getStorage();
 			Index index = store.getIndex(IndexType.BINARY);
 			Archive archive = index.findArchiveByName("title.jpg");
+			System.out.println(archive.getArchiveId());
 			byte[] contents = archive.decompress(storage.loadArchive(archive));
 
 			Files.write(outFile.toPath(), contents);

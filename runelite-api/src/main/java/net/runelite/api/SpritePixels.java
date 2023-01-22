@@ -47,14 +47,14 @@ public interface SpritePixels
 	 *
 	 * @return the width
 	 */
-	int getSubWidth();
+	int getWidth();
 
 	/**
 	 * Gets the height of the sprite image in pixels.
 	 *
 	 * @return the height
 	 */
-	int getSubHeight();
+	int getHeight();
 
 	/**
 	 * Gets an array of all pixels data in the sprite.
@@ -75,7 +75,7 @@ public interface SpritePixels
 	 *
 	 * @param img the passsed buffered image
 	 * @throws IllegalArgumentException if the width or height do not match
-	 */
+ 	 */
 	void toBufferedImage(BufferedImage img) throws IllegalArgumentException;
 
 	/**

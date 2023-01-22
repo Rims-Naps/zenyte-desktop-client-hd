@@ -37,8 +37,7 @@ import javax.inject.Inject;
 @PluginDescriptor(
 		name = "Anti Drag",
 		description = "Prevent dragging an item for a specified delay",
-		tags = {"antidrag", "delay", "inventory", "items"},
-		enabledByDefault = false
+		tags = {"antidrag", "delay", "inventory", "items"}
 )
 public class AntiDragPlugin extends Plugin
 {

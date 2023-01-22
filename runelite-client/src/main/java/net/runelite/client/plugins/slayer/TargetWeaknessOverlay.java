@@ -123,7 +123,7 @@ class TargetWeaknessOverlay extends Overlay
 	private void renderTargetItem(Graphics2D graphics, NPC actor, BufferedImage image)
 	{
 		final LocalPoint actorPosition = actor.getLocalLocation();
-		final int offset = actor.getDefaultHeight() + 40;
+		final int offset = actor.getLogicalHeight() + 40;
 
 		if (actorPosition == null || image == null)
 		{

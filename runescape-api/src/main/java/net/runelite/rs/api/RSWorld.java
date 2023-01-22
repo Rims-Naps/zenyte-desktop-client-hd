@@ -30,18 +30,18 @@ import net.runelite.mapping.Import;
 public interface RSWorld extends World
 {
 	@Import("mask")
-	int getProperties();
+	int getMask();
 
 	@Import("mask")
-	void setProperties(int mask);
+	void setMask(int mask);
 
 	@Import("playerCount")
 	@Override
-	int getPopulation();
+	int getPlayerCount();
 
 	@Import("playerCount")
 	@Override
-	void setPopulation(int playerCount);
+	void setPlayerCount(int playerCount);
 
 	@Import("location")
 	@Override
@@ -77,9 +77,9 @@ public interface RSWorld extends World
 
 	@Import("address")
 	@Override
-	String getHost();
+	String getAddress();
 
 	@Import("address")
 	@Override
-	void setHost(String address);
+	void setAddress(String address);
 }

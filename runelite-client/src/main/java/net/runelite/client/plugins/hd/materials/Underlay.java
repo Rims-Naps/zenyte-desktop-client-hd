@@ -388,8 +388,7 @@ public enum Underlay
 		GROUND_MATERIAL_MAP = ArrayListMultimap.create();
 		for (Underlay underlay : values())
 		{
-			int id = underlay.id;
-			GROUND_MATERIAL_MAP.put(id, underlay);
+			GROUND_MATERIAL_MAP.put(underlay.id, underlay);
 		}
 	}
 

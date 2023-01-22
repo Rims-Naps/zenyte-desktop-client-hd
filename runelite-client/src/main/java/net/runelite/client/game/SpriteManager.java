@@ -74,7 +74,6 @@ public class SpriteManager
 		}
 
 		SpritePixels[] sp = client.getSprites(client.getIndexSprites(), archive, 0);
-		if (sp == null || file >= sp.length) return null;
 		BufferedImage img = sp[file].toBufferedImage();
 
 		cache.put(key, img);

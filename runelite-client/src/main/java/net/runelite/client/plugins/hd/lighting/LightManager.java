@@ -421,13 +421,13 @@ public class LightManager
 						continue;
 					}
 
-					DecorativeObject decorativeObject = tile.getWallDecoration();
+					DecorativeObject decorativeObject = tile.getDecorativeObject();
 					if (decorativeObject != null && decorativeObject.getRenderable() != null)
 					{
 						addObjectLight(decorativeObject, tile.getRenderLevel());
 					}
 
-					WallObject wallObject = tile.getBoundaryObject();
+					WallObject wallObject = tile.getWallObject();
 					if (wallObject != null && wallObject.getRenderable1() != null)
 					{
 						int orientation = 0;
@@ -463,7 +463,7 @@ public class LightManager
 						addObjectLight(wallObject, tile.getRenderLevel(), 1, 1, orientation);
 					}
 
-					GroundObject groundObject = tile.getFloorDecoration();
+					GroundObject groundObject = tile.getGroundObject();
 					if (groundObject != null && groundObject.getRenderable() != null)
 					{
 						addObjectLight(groundObject, tile.getRenderLevel());

@@ -57,8 +57,4 @@ public class Rect
 	{
 		return pointX <= maxX && pointX >= minX && pointY <= maxY && pointY >= minY && (plane == -1 || plane == pointZ);
 	}
-
-	public Rect edenified() {
-		return new Rect(minX + 4992, minY + 2048, maxX + 4992, maxY + 2048);
-	}
 }

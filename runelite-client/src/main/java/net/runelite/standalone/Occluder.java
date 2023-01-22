@@ -147,7 +147,7 @@ public final class Occluder {
       class96.indexedSpritePalette = new int[var2];
 
       for(var3 = 1; var3 < var2; ++var3) {
-         class96.indexedSpritePalette[var3] = var1.method5090();
+         class96.indexedSpritePalette[var3] = var1.read24bitInt();
          if(class96.indexedSpritePalette[var3] == 0) {
             class96.indexedSpritePalette[var3] = 1;
          }

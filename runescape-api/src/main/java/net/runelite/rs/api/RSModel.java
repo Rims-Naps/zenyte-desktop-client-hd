@@ -163,7 +163,7 @@ public interface RSModel extends RSRenderable, Model
 	int getXYZMag();
 
 	void interpolateFrames(RSFrames frames, int frameId, RSFrames nextFrames, int nextFrameId, int interval,
-						   int intervalCount);
+								int intervalCount);
 
 	/**
 	 * Compute the convex hull of this model

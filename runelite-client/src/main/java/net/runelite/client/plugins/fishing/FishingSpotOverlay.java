@@ -123,7 +123,7 @@ class FishingSpotOverlay extends Overlay
 				Polygon poly = npc.getCanvasTilePoly();
 
 				if (spot == FishingSpot.COMMON_TENCH
-						&& npc.getWorldLocation().distanceTo2D(client.getLocalPlayer().getWorldLocation()) <= ONE_TICK_AERIAL_FISHING)
+					&& npc.getWorldLocation().distanceTo2D(client.getLocalPlayer().getWorldLocation()) <= ONE_TICK_AERIAL_FISHING)
 				{
 					color = Color.GREEN;
 				}
@@ -139,14 +139,14 @@ class FishingSpotOverlay extends Overlay
 				BufferedImage fishImage = itemManager.getImage(spot.getFishSpriteId());;
 
 				if (spot == FishingSpot.COMMON_TENCH
-						&& npc.getWorldLocation().distanceTo2D(client.getLocalPlayer().getWorldLocation()) <= ONE_TICK_AERIAL_FISHING)
+					&& npc.getWorldLocation().distanceTo2D(client.getLocalPlayer().getWorldLocation()) <= ONE_TICK_AERIAL_FISHING)
 				{
 					fishImage = ImageUtil.outlineImage(itemManager.getImage(spot.getFishSpriteId()), Color.GREEN);
 				}
 
 				if (fishImage != null)
 				{
-					Point imageLocation = npc.getCanvasImageLocation(fishImage, npc.getDefaultHeight());
+					Point imageLocation = npc.getCanvasImageLocation(fishImage, npc.getLogicalHeight());
 					if (imageLocation != null)
 					{
 						OverlayUtil.renderImageLocation(graphics, imageLocation, fishImage);
@@ -157,10 +157,10 @@ class FishingSpotOverlay extends Overlay
 			if (config.showSpotNames())
 			{
 				String text = spot.getName();
-				Point textLocation = npc.getCanvasTextLocation(graphics, text, npc.getDefaultHeight() + 40);
+				Point textLocation = npc.getCanvasTextLocation(graphics, text, npc.getLogicalHeight() + 40);
 
 				if (spot == FishingSpot.COMMON_TENCH
-						&& npc.getWorldLocation().distanceTo2D(client.getLocalPlayer().getWorldLocation()) <= ONE_TICK_AERIAL_FISHING)
+					&& npc.getWorldLocation().distanceTo2D(client.getLocalPlayer().getWorldLocation()) <= ONE_TICK_AERIAL_FISHING)
 				{
 					color = Color.GREEN;
 				}

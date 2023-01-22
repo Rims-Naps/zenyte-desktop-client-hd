@@ -52,9 +52,9 @@ import static net.runelite.api.ItemID.BRUMA_KINDLING;
 import static net.runelite.api.ItemID.BRUMA_ROOT;
 
 @PluginDescriptor(
-		name = "Wintertodt",
-		description = "Show helpful information for the Wintertodt boss",
-		tags = {"minigame", "firemaking", "boss"}
+	name = "Wintertodt",
+	description = "Show helpful information for the Wintertodt boss",
+	tags = {"minigame", "firemaking", "boss"}
 )
 @Slf4j
 public class WintertodtPlugin extends Plugin
@@ -205,35 +205,35 @@ public class WintertodtPlugin extends Plugin
 		MessageNode messageNode = chatMessage.getMessageNode();
 		final WintertodtInterruptType interruptType;
 
-		if (messageNode.getText().startsWith("The cold of"))
+		if (messageNode.getValue().startsWith("The cold of"))
 		{
 			interruptType = WintertodtInterruptType.COLD;
 		}
-		else if (messageNode.getText().startsWith("The freezing cold attack"))
+		else if (messageNode.getValue().startsWith("The freezing cold attack"))
 		{
 			interruptType = WintertodtInterruptType.SNOWFALL;
 		}
-		else if (messageNode.getText().startsWith("The brazier is broken and shrapnel"))
+		else if (messageNode.getValue().startsWith("The brazier is broken and shrapnel"))
 		{
 			interruptType = WintertodtInterruptType.BRAZIER;
 		}
-		else if (messageNode.getText().startsWith("You have run out of bruma roots"))
+		else if (messageNode.getValue().startsWith("You have run out of bruma roots"))
 		{
 			interruptType = WintertodtInterruptType.OUT_OF_ROOTS;
 		}
-		else if (messageNode.getText().startsWith("Your inventory is too full"))
+		else if (messageNode.getValue().startsWith("Your inventory is too full"))
 		{
 			interruptType = WintertodtInterruptType.INVENTORY_FULL;
 		}
-		else if (messageNode.getText().startsWith("You fix the brazier"))
+		else if (messageNode.getValue().startsWith("You fix the brazier"))
 		{
 			interruptType = WintertodtInterruptType.FIXED_BRAZIER;
 		}
-		else if (messageNode.getText().startsWith("You light the brazier"))
+		else if (messageNode.getValue().startsWith("You light the brazier"))
 		{
 			interruptType = WintertodtInterruptType.LIT_BRAZIER;
 		}
-		else if (messageNode.getText().startsWith("The brazier has gone out."))
+		else if (messageNode.getValue().startsWith("The brazier has gone out."))
 		{
 			interruptType = WintertodtInterruptType.BRAZIER_WENT_OUT;
 		}
@@ -254,7 +254,7 @@ public class WintertodtPlugin extends Plugin
 				wasDamaged = true;
 
 				// Recolor message for damage notification
-				messageNode.setRuneLiteFormatMessage(ColorUtil.wrapWithColorTag(messageNode.getText(), config.damageNotificationColor()));
+				messageNode.setRuneLiteFormatMessage(ColorUtil.wrapWithColorTag(messageNode.getValue(), config.damageNotificationColor()));
 				chatMessageManager.update(messageNode);
 				client.refreshChat();
 

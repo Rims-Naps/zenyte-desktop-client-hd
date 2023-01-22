@@ -25,7 +25,7 @@
 package net.runelite.api.events;
 
 import lombok.Value;
-import net.runelite.api.FriendsChatMember;
+import net.runelite.api.ClanMember;
 
 @Value
 public class ClanMemberJoined
@@ -33,5 +33,5 @@ public class ClanMemberJoined
 	/**
 	 * The ClanMember that joined
 	 */
-	private FriendsChatMember member;
+	private ClanMember member;
 }

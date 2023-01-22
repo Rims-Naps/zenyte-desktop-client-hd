@@ -178,7 +178,7 @@ class InstanceMapOverlay extends Overlay
 			}
 
 			closeButtonBounds = new Rectangle(image.getWidth() - closeButton.getWidth() - 5, 6,
-					closeButton.getWidth(), closeButton.getHeight());
+				closeButton.getWidth(), closeButton.getHeight());
 		}
 
 		graphics.drawImage(image, 0, 0, null);
@@ -191,7 +191,7 @@ class InstanceMapOverlay extends Overlay
 		}
 
 		graphics.drawImage(isCloseButtonHovered ? getCloseButtonHoveredImage() : getCloseButtonImage(),
-				(int) closeButtonBounds.getX(), (int) closeButtonBounds.getY(), null);
+			(int) closeButtonBounds.getX(), (int) closeButtonBounds.getY(), null);
 
 		return new Dimension(image.getWidth(), image.getHeight());
 	}
@@ -213,7 +213,7 @@ class InstanceMapOverlay extends Overlay
 	 * @param graphics graphics to be drawn to
 	 */
 	private void drawPlayerDot(Graphics2D graphics, Player player,
-							   Color dotColor, Color outlineColor)
+		Color dotColor, Color outlineColor)
 	{
 		LocalPoint playerLoc = player.getLocalLocation();
 
@@ -241,8 +241,8 @@ class InstanceMapOverlay extends Overlay
 
 	private static BufferedImage minimapToBufferedImage(SpritePixels spritePixels)
 	{
-		int width = spritePixels.getSubWidth();
-		int height = spritePixels.getSubHeight();
+		int width = spritePixels.getWidth();
+		int height = spritePixels.getHeight();
 		int[] pixels = spritePixels.getPixels();
 		BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		img.setRGB(0, 0, width, height, pixels, 0, width);

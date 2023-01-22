@@ -48,9 +48,9 @@ import java.time.Instant;
 import java.util.EnumSet;
 
 @PluginDescriptor(
-		name = "Opponent Information",
-		description = "Show name and hitpoints information about the NPC you are fighting",
-		tags = {"combat", "health", "hitpoints", "npcs", "overlay"}
+	name = "Opponent Information",
+	description = "Show name and hitpoints information about the NPC you are fighting",
+	tags = {"combat", "health", "hitpoints", "npcs", "overlay"}
 )
 public class OpponentInfoPlugin extends Plugin
 {
@@ -151,8 +151,8 @@ public class OpponentInfoPlugin extends Plugin
 	public void onGameTick(GameTick gameTick)
 	{
 		if (lastOpponent != null
-				&& lastTime != null
-				&& client.getLocalPlayer().getTargetIndex() == null)
+			&& lastTime != null
+			&& client.getLocalPlayer().getInteracting() == null)
 		{
 			if (Duration.between(lastTime, Instant.now()).compareTo(WAIT) > 0)
 			{

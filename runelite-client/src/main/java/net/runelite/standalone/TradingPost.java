@@ -1,11 +1,12 @@
 package net.runelite.standalone;
 
+import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("p")
 public class TradingPost {
@@ -95,7 +96,11 @@ public class TradingPost {
          }
       }
 
-      return new String(var3, 0, var4);
+      String result = new String(var3, 0, var4);
+      /*if (result.startsWith("Z") && result.equals("Zenyte")) {
+         result = Constants.SERVER_NAME;
+      }*/
+      return result;
    }
 
    @ObfuscatedName("gk")
@@ -364,8 +369,8 @@ public class TradingPost {
                var3 = 0;
             }
 
-            if(var3 != client.field882) {
-               if(client.field882 == 0 && client.field680 != -1) {
+            if(var3 != client.musicVolume) {
+               if(client.musicVolume == 0 && client.field680 != -1) {
                   WorldMapDataGroup.method957(class75.music, client.field680, 0, var3, false);
                   client.field884 = false;
                } else if(var3 == 0) {
@@ -375,7 +380,7 @@ public class TradingPost {
                   class167.method2641(var3);
                }
 
-               client.field882 = var3;
+               client.musicVolume = var3;
             }
          }
 

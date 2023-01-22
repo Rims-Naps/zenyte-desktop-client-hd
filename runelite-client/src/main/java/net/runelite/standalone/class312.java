@@ -27,7 +27,7 @@ final class class312 implements class143 {
    )
    static ContextMenuRow topContextMenuRow;
    @ObfuscatedName("bk")
-   static String field31;
+   static String worldListUrl;
    @ObfuscatedName("go")
    @ObfuscatedSignature(
       signature = "Len;"
@@ -92,13 +92,13 @@ final class class312 implements class143 {
       garbageValue = "512495857"
    )
    static void method6287(int var0, String var1, String var2, String var3) {
-      ChatLineBuffer var4 = (ChatLineBuffer)ChatHistory.chatLineMap.get(Integer.valueOf(var0));
-      if(var4 == null) {
-         var4 = new ChatLineBuffer();
-         ChatHistory.chatLineMap.put(Integer.valueOf(var0), var4);
+      ChatLineBuffer buffer = (ChatLineBuffer)ChatHistory.chatLineMap.get(Integer.valueOf(var0));
+      if(buffer == null) {
+         buffer = new ChatLineBuffer();
+         ChatHistory.chatLineMap.put(var0, buffer);
       }
 
-      ChatLine var5 = var4.method4816(var0, var1, var2, var3);
+      ChatLine var5 = buffer.method4816(var0, var1, var2, var3);
       ChatHistory.messages.method2186(var5, (long)var5.id);
       ChatHistory.field1261.method4672(var5);
       client.chatCycle = client.cycleCntr;

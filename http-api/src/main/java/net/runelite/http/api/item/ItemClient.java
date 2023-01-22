@@ -176,7 +176,10 @@ public class ItemClient
 
 	public ItemPrice[] getPrices() throws IOException
 	{
-		HttpUrl.Builder urlBuilder = RuneLiteAPI.getZenyteApi().newBuilder()
+		if (true) {
+			return null;
+		}
+		HttpUrl.Builder urlBuilder = RuneLiteAPI.getInfernoApi().newBuilder()
 											 .addPathSegment("runelite")
 											 .addPathSegment("items")
 											 .addPathSegment("prices");

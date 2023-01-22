@@ -41,7 +41,7 @@ public interface TileObject
 	 *
 	 * @return the object hash
 	 */
-	long getTag();
+	long getHash();
 
 	/**
 	 * Gets the x-axis coordinate of the object in local context.

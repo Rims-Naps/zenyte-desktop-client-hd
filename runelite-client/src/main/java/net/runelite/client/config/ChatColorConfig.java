@@ -24,8 +24,10 @@
  */
 package net.runelite.client.config;
 
-import java.awt.Color;
+import net.runelite.api.Constants;
 import net.runelite.client.ui.JagexColors;
+
+import java.awt.*;
 
 @ConfigGroup("textrecolor")
 public interface ChatColorConfig extends Config
@@ -404,7 +406,7 @@ public interface ChatColorConfig extends Config
 		position = 75,
 		keyName = "transparentServerMessage",
 		name = "Server message (transparent)",
-		description = "Color of Server Messages (eg. 'Welcome to Zenyte') (transparent)"
+		description = "Color of Server Messages (eg. 'Welcome to " + Constants.SERVER_NAME + "') (transparent)"
 	)
 	Color transparentServerMessage();
 

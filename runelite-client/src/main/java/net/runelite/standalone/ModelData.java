@@ -2,8 +2,8 @@ package net.runelite.standalone;
 
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSModel;
 import net.runelite.rs.api.RSModelData;
+import net.runelite.rs.api.RSVertexNormal;
 
 @ObfuscatedName("dk")
 public class ModelData extends Entity implements RSModelData {
@@ -28,7 +28,7 @@ public class ModelData extends Entity implements RSModelData {
    @ObfuscatedName("r")
    short[] faceColor;
    @ObfuscatedName("af")
-   public short field1566;
+   public short ambient;
    @ObfuscatedName("k")
    short[] texTriangleY;
    @ObfuscatedName("w")
@@ -45,7 +45,7 @@ public class ModelData extends Entity implements RSModelData {
    @ObfuscatedSignature(
       signature = "[Ldp;"
    )
-   VertexNormal[] field1576;
+   VertexNormal[] vertexVertices;
    @ObfuscatedName("b")
    byte[] faceRenderPriorities;
    @ObfuscatedName("aw")
@@ -58,7 +58,7 @@ public class ModelData extends Entity implements RSModelData {
    @ObfuscatedSignature(
       signature = "[Ldp;"
    )
-   VertexNormal[] normals;
+   VertexNormal[] vertexNormals;
    @ObfuscatedName("n")
    byte[] faceAlphas;
    @ObfuscatedName("c")
@@ -348,10 +348,10 @@ public class ModelData extends Entity implements RSModelData {
       this.triangleSkinValues = var1.triangleSkinValues;
       this.field1561 = var1.field1561;
       this.field1560 = var1.field1560;
-      this.normals = var1.normals;
+      this.vertexNormals = var1.vertexNormals;
       this.faceNormals = var1.faceNormals;
-      this.field1576 = var1.field1576;
-      this.field1566 = var1.field1566;
+      this.vertexVertices = var1.vertexVertices;
+      this.ambient = var1.ambient;
       this.contrast = var1.contrast;
       this.rl$$init();
    }
@@ -398,7 +398,7 @@ public class ModelData extends Entity implements RSModelData {
             var11.triangleSkinValues = this.triangleSkinValues;
             var11.field1561 = this.field1561;
             var11.field1560 = this.field1560;
-            var11.field1566 = this.field1566;
+            var11.ambient = this.ambient;
             var11.contrast = this.contrast;
             var11.vertexY = new int[var11.vertexCount];
             int var12;
@@ -532,8 +532,8 @@ public class ModelData extends Entity implements RSModelData {
 
    @ObfuscatedName("k")
    void method2797() {
-      this.normals = null;
-      this.field1576 = null;
+      this.vertexNormals = null;
+      this.vertexVertices = null;
       this.faceNormals = null;
       this.field1549 = false;
    }
@@ -699,7 +699,7 @@ public class ModelData extends Entity implements RSModelData {
       signature = "(IIIII)Ldv;"
    )
    public final Model copy$light(int var1, int var2, int var3, int var4, int var5) {
-      this.method2796();
+      this.calculateVertexNormals();
       int var6 = (int)Math.sqrt((double)(var5 * var5 + var3 * var3 + var4 * var4));
       int var7 = var6 * var2 >> 8;
       Model var8 = new Model();
@@ -800,26 +800,26 @@ public class ModelData extends Entity implements RSModelData {
                }
             } else {
                int var15 = this.faceColor[var16] & '\uffff';
-               if(this.field1576 != null && this.field1576[this.trianglePointsX[var16]] != null) {
-                  var13 = this.field1576[this.trianglePointsX[var16]];
+               if(this.vertexVertices != null && this.vertexVertices[this.trianglePointsX[var16]] != null) {
+                  var13 = this.vertexVertices[this.trianglePointsX[var16]];
                } else {
-                  var13 = this.normals[this.trianglePointsX[var16]];
+                  var13 = this.vertexNormals[this.trianglePointsX[var16]];
                }
 
                var14 = (var4 * var13.y + var5 * var13.z + var3 * var13.x) / (var7 * var13.magnitude) + var1;
                var8.field1672[var16] = method2844(var15, var14);
-               if(this.field1576 != null && this.field1576[this.trianglePointsY[var16]] != null) {
-                  var13 = this.field1576[this.trianglePointsY[var16]];
+               if(this.vertexVertices != null && this.vertexVertices[this.trianglePointsY[var16]] != null) {
+                  var13 = this.vertexVertices[this.trianglePointsY[var16]];
                } else {
-                  var13 = this.normals[this.trianglePointsY[var16]];
+                  var13 = this.vertexNormals[this.trianglePointsY[var16]];
                }
 
                var14 = (var4 * var13.y + var5 * var13.z + var3 * var13.x) / (var7 * var13.magnitude) + var1;
                var8.field1673[var16] = method2844(var15, var14);
-               if(this.field1576 != null && this.field1576[this.trianglePointsZ[var16]] != null) {
-                  var13 = this.field1576[this.trianglePointsZ[var16]];
+               if(this.vertexVertices != null && this.vertexVertices[this.trianglePointsZ[var16]] != null) {
+                  var13 = this.vertexVertices[this.trianglePointsZ[var16]];
                } else {
-                  var13 = this.normals[this.trianglePointsZ[var16]];
+                  var13 = this.vertexNormals[this.trianglePointsZ[var16]];
                }
 
                var14 = (var4 * var13.y + var5 * var13.z + var3 * var13.x) / (var7 * var13.magnitude) + var1;
@@ -835,26 +835,26 @@ public class ModelData extends Entity implements RSModelData {
                var8.field1674[var16] = -2;
             }
          } else {
-            if(this.field1576 != null && this.field1576[this.trianglePointsX[var16]] != null) {
-               var13 = this.field1576[this.trianglePointsX[var16]];
+            if(this.vertexVertices != null && this.vertexVertices[this.trianglePointsX[var16]] != null) {
+               var13 = this.vertexVertices[this.trianglePointsX[var16]];
             } else {
-               var13 = this.normals[this.trianglePointsX[var16]];
+               var13 = this.vertexNormals[this.trianglePointsX[var16]];
             }
 
             var14 = (var4 * var13.y + var5 * var13.z + var3 * var13.x) / (var7 * var13.magnitude) + var1;
             var8.field1672[var16] = method2846(var14);
-            if(this.field1576 != null && this.field1576[this.trianglePointsY[var16]] != null) {
-               var13 = this.field1576[this.trianglePointsY[var16]];
+            if(this.vertexVertices != null && this.vertexVertices[this.trianglePointsY[var16]] != null) {
+               var13 = this.vertexVertices[this.trianglePointsY[var16]];
             } else {
-               var13 = this.normals[this.trianglePointsY[var16]];
+               var13 = this.vertexNormals[this.trianglePointsY[var16]];
             }
 
             var14 = (var4 * var13.y + var5 * var13.z + var3 * var13.x) / (var7 * var13.magnitude) + var1;
             var8.field1673[var16] = method2846(var14);
-            if(this.field1576 != null && this.field1576[this.trianglePointsZ[var16]] != null) {
-               var13 = this.field1576[this.trianglePointsZ[var16]];
+            if(this.vertexVertices != null && this.vertexVertices[this.trianglePointsZ[var16]] != null) {
+               var13 = this.vertexVertices[this.trianglePointsZ[var16]];
             } else {
-               var13 = this.normals[this.trianglePointsZ[var16]];
+               var13 = this.vertexNormals[this.trianglePointsZ[var16]];
             }
 
             var14 = (var4 * var13.y + var5 * var13.z + var3 * var13.x) / (var7 * var13.magnitude) + var1;
@@ -889,6 +889,110 @@ public class ModelData extends Entity implements RSModelData {
    }
 
    public void computeTextureUVCoordinates() {
+      final short[] faceTextures = getFaceTextures();
+      if (faceTextures == null)
+      {
+         return;
+      }
+
+      final int[] vertexPositionsX = getVertexX();
+      final int[] vertexPositionsY = getVertexY();
+      final int[] vertexPositionsZ = getVertexZ();
+
+      final int[] trianglePointsX = getTrianglePointsX();
+      final int[] trianglePointsY = getTrianglePointsY();
+      final int[] trianglePointsZ = getTrianglePointsZ();
+
+      final short[] texTriangleX = getTexTriangleX();
+      final short[] texTriangleY = getTexTriangleY();
+      final short[] texTriangleZ = getTexTriangleZ();
+
+      final byte[] textureCoords = getTextureCoords();
+
+      int faceCount = getTriangleFaceCount();
+      float[] faceTextureUCoordinates = new float[faceCount * 6];
+
+      for (int i = 0; i < faceCount; i++)
+      {
+         int trianglePointX = trianglePointsX[i];
+         int trianglePointY = trianglePointsY[i];
+         int trianglePointZ = trianglePointsZ[i];
+
+         short textureIdx = faceTextures[i];
+
+         if (textureIdx != -1)
+         {
+            int triangleVertexIdx1;
+            int triangleVertexIdx2;
+            int triangleVertexIdx3;
+
+            if (textureCoords != null && textureCoords[i] != -1)
+            {
+               int textureCoordinate = textureCoords[i] & 255;
+               triangleVertexIdx1 = texTriangleX[textureCoordinate];
+               triangleVertexIdx2 = texTriangleY[textureCoordinate];
+               triangleVertexIdx3 = texTriangleZ[textureCoordinate];
+            }
+            else
+            {
+               triangleVertexIdx1 = trianglePointX;
+               triangleVertexIdx2 = trianglePointY;
+               triangleVertexIdx3 = trianglePointZ;
+            }
+
+            float triangleX = (float) vertexPositionsX[triangleVertexIdx1];
+            float triangleY = (float) vertexPositionsY[triangleVertexIdx1];
+            float triangleZ = (float) vertexPositionsZ[triangleVertexIdx1];
+
+            float f_882_ = (float) vertexPositionsX[triangleVertexIdx2] - triangleX;
+            float f_883_ = (float) vertexPositionsY[triangleVertexIdx2] - triangleY;
+            float f_884_ = (float) vertexPositionsZ[triangleVertexIdx2] - triangleZ;
+            float f_885_ = (float) vertexPositionsX[triangleVertexIdx3] - triangleX;
+            float f_886_ = (float) vertexPositionsY[triangleVertexIdx3] - triangleY;
+            float f_887_ = (float) vertexPositionsZ[triangleVertexIdx3] - triangleZ;
+            float f_888_ = (float) vertexPositionsX[trianglePointX] - triangleX;
+            float f_889_ = (float) vertexPositionsY[trianglePointX] - triangleY;
+            float f_890_ = (float) vertexPositionsZ[trianglePointX] - triangleZ;
+            float f_891_ = (float) vertexPositionsX[trianglePointY] - triangleX;
+            float f_892_ = (float) vertexPositionsY[trianglePointY] - triangleY;
+            float f_893_ = (float) vertexPositionsZ[trianglePointY] - triangleZ;
+            float f_894_ = (float) vertexPositionsX[trianglePointZ] - triangleX;
+            float f_895_ = (float) vertexPositionsY[trianglePointZ] - triangleY;
+            float f_896_ = (float) vertexPositionsZ[trianglePointZ] - triangleZ;
+
+            float f_897_ = f_883_ * f_887_ - f_884_ * f_886_;
+            float f_898_ = f_884_ * f_885_ - f_882_ * f_887_;
+            float f_899_ = f_882_ * f_886_ - f_883_ * f_885_;
+            float f_900_ = f_886_ * f_899_ - f_887_ * f_898_;
+            float f_901_ = f_887_ * f_897_ - f_885_ * f_899_;
+            float f_902_ = f_885_ * f_898_ - f_886_ * f_897_;
+            float f_903_ = 1.0F / (f_900_ * f_882_ + f_901_ * f_883_ + f_902_ * f_884_);
+
+            float u0 = (f_900_ * f_888_ + f_901_ * f_889_ + f_902_ * f_890_) * f_903_;
+            float u1 = (f_900_ * f_891_ + f_901_ * f_892_ + f_902_ * f_893_) * f_903_;
+            float u2 = (f_900_ * f_894_ + f_901_ * f_895_ + f_902_ * f_896_) * f_903_;
+
+            f_900_ = f_883_ * f_899_ - f_884_ * f_898_;
+            f_901_ = f_884_ * f_897_ - f_882_ * f_899_;
+            f_902_ = f_882_ * f_898_ - f_883_ * f_897_;
+            f_903_ = 1.0F / (f_900_ * f_885_ + f_901_ * f_886_ + f_902_ * f_887_);
+
+            float v0 = (f_900_ * f_888_ + f_901_ * f_889_ + f_902_ * f_890_) * f_903_;
+            float v1 = (f_900_ * f_891_ + f_901_ * f_892_ + f_902_ * f_893_) * f_903_;
+            float v2 = (f_900_ * f_894_ + f_901_ * f_895_ + f_902_ * f_896_) * f_903_;
+
+            int idx = i * 6;
+            faceTextureUCoordinates[idx] = u0;
+            faceTextureUCoordinates[idx + 1] = v0;
+            faceTextureUCoordinates[idx + 2] = u1;
+            faceTextureUCoordinates[idx + 3] = v1;
+            faceTextureUCoordinates[idx + 4] = u2;
+            faceTextureUCoordinates[idx + 5] = v2;
+         }
+      }
+
+      faceTextureUVCoordinates = faceTextureUCoordinates;
+
       short[] var1 = this.getFaceTextures();
       if(var1 != null) {
          int[] var2 = this.getVertexX();
@@ -1020,18 +1124,33 @@ public class ModelData extends Entity implements RSModelData {
       return this.textureRenderTypes;
    }
 
+   @Override
+   public int getVerticesCount() {
+      return vertexCount;
+   }
+
+   @Override
+   public RSVertexNormal[] getVertexNormals() {
+      return vertexNormals;
+   }
+
+   @Override
+   public RSVertexNormal[] getVertexVertices() {
+      return this.vertexVertices;
+   }
+
    public int getTriangleFaceCount() {
       return this.triangleFaceCount;
    }
 
    @ObfuscatedName("y")
-   public void method2796() {
-      if(this.normals == null) {
-         this.normals = new VertexNormal[this.vertexCount];
+   public void calculateVertexNormals() {
+      if(this.vertexNormals == null) {
+         this.vertexNormals = new VertexNormal[this.vertexCount];
 
          int var1;
          for(var1 = 0; var1 < this.vertexCount; ++var1) {
-            this.normals[var1] = new VertexNormal();
+            this.vertexNormals[var1] = new VertexNormal();
          }
 
          for(var1 = 0; var1 < this.triangleFaceCount; ++var1) {
@@ -1069,17 +1188,17 @@ public class ModelData extends Entity implements RSModelData {
             }
 
             if(var15 == 0) {
-               VertexNormal var16 = this.normals[var2];
+               VertexNormal var16 = this.vertexNormals[var2];
                var16.x += var11;
                var16.y += var12;
                var16.z += var13;
                ++var16.magnitude;
-               var16 = this.normals[var3];
+               var16 = this.vertexNormals[var3];
                var16.x += var11;
                var16.y += var12;
                var16.z += var13;
                ++var16.magnitude;
-               var16 = this.normals[var4];
+               var16 = this.vertexNormals[var4];
                var16.x += var11;
                var16.y += var12;
                var16.z += var13;
@@ -1099,24 +1218,71 @@ public class ModelData extends Entity implements RSModelData {
       }
    }
 
+   private int[] vertexNormalsX;
+   private int[] vertexNormalsY;
+   private int[] vertexNormalsZ;
+
+   public void vertexNormals()
+   {
+      RSVertexNormal[] vertexNormals = getVertexNormals();
+      RSVertexNormal[] vertexVertices = getVertexVertices();
+
+      if (vertexNormals != null && vertexNormalsX == null)
+      {
+         int verticesCount = getVerticesCount();
+
+         vertexNormalsX = new int[verticesCount];
+         vertexNormalsY = new int[verticesCount];
+         vertexNormalsZ = new int[verticesCount];
+
+         for (int i = 0; i < verticesCount; ++i)
+         {
+            RSVertexNormal vertexNormal;
+
+            if (vertexVertices != null && (vertexNormal = vertexVertices[i]) != null)
+            {
+               vertexNormalsX[i] = vertexNormal.getX();
+               vertexNormalsY[i] = vertexNormal.getY();
+               vertexNormalsZ[i] = vertexNormal.getZ();
+            }
+            else if ((vertexNormal = vertexNormals[i]) != null)
+            {
+               vertexNormalsX[i] = vertexNormal.getX();
+               vertexNormalsY[i] = vertexNormal.getY();
+               vertexNormalsZ[i] = vertexNormal.getZ();
+            }
+         }
+      }
+   }
+
+   private float[] faceTextureUVCoordinates;
+
    @ObfuscatedName("aa")
    @ObfuscatedSignature(
       signature = "(IIIII)Ldv;"
    )
-   public final Model method2852(int var1, int var2, int var3, int var4, int var5) {
+   public final Model toModel(int ambient, int contrast, int var3, int var4, int var5) {
       ItemContainer.clientInstance.getLogger().trace("Lighting model {}", this);
-      Model var6 = this.copy$light(var1, var2, var3, var4, var5);
-      if(var6 == null) {
+      Model model = this.copy$light(ambient, contrast, var3, var4, var5);
+      if(model == null) {
          return null;
       } else {
-         if(this.faceTextureUCoordinates == null) {
-            this.computeTextureUVCoordinates();
+         if (faceTextureUVCoordinates == null || this.faceTextureUCoordinates == null)
+         {
+            computeTextureUVCoordinates();
          }
 
-         RSModel var7 = (RSModel)var6;
-         var7.setFaceTextureUCoordinates(this.faceTextureUCoordinates);
-         var7.setFaceTextureVCoordinates(this.faceTextureVCoordinates);
-         return var6;
+         vertexNormals();
+
+         model.setVertexNormalsX(vertexNormalsX);
+         model.setVertexNormalsY(vertexNormalsY);
+         model.setVertexNormalsZ(vertexNormalsZ);
+         model.setFaceTextureUVCoordinates(faceTextureUVCoordinates);
+
+         model.setFaceTextureUCoordinates(this.faceTextureUCoordinates);
+         model.setFaceTextureVCoordinates(this.faceTextureVCoordinates);
+
+         return model;
       }
    }
 
@@ -1463,9 +1629,9 @@ public class ModelData extends Entity implements RSModelData {
       var1.triangleSkinValues = this.triangleSkinValues;
       var1.field1561 = this.field1561;
       var1.field1560 = this.field1560;
-      var1.normals = this.normals;
+      var1.vertexNormals = this.vertexNormals;
       var1.faceNormals = this.faceNormals;
-      var1.field1566 = this.field1566;
+      var1.ambient = this.ambient;
       var1.contrast = this.contrast;
       return var1;
    }
@@ -1773,9 +1939,9 @@ public class ModelData extends Entity implements RSModelData {
    )
    static void method2788(ModelData var0, ModelData var1, int var2, int var3, int var4, boolean var5) {
       var0.method2833();
-      var0.method2796();
+      var0.calculateVertexNormals();
       var1.method2833();
-      var1.method2796();
+      var1.calculateVertexNormals();
       ++field1558;
       int var6 = 0;
       int[] var7 = var1.vertexX;
@@ -1783,7 +1949,7 @@ public class ModelData extends Entity implements RSModelData {
 
       int var9;
       for(var9 = 0; var9 < var0.vertexCount; ++var9) {
-         VertexNormal var10 = var0.normals[var9];
+         VertexNormal var10 = var0.vertexNormals[var9];
          if(var10.magnitude != 0) {
             int var11 = var0.vertexY[var9] - var3;
             if(var11 <= var1.field1569) {
@@ -1792,24 +1958,24 @@ public class ModelData extends Entity implements RSModelData {
                   int var13 = var0.vertexZ[var9] - var4;
                   if(var13 >= var1.field1565 && var13 <= var1.field1559) {
                      for(int var14 = 0; var14 < var8; ++var14) {
-                        VertexNormal var15 = var1.normals[var14];
+                        VertexNormal var15 = var1.vertexNormals[var14];
                         if(var12 == var7[var14] && var13 == var1.vertexZ[var14] && var11 == var1.vertexY[var14] && var15.magnitude != 0) {
-                           if(var0.field1576 == null) {
-                              var0.field1576 = new VertexNormal[var0.vertexCount];
+                           if(var0.vertexVertices == null) {
+                              var0.vertexVertices = new VertexNormal[var0.vertexCount];
                            }
 
-                           if(var1.field1576 == null) {
-                              var1.field1576 = new VertexNormal[var8];
+                           if(var1.vertexVertices == null) {
+                              var1.vertexVertices = new VertexNormal[var8];
                            }
 
-                           VertexNormal var16 = var0.field1576[var9];
+                           VertexNormal var16 = var0.vertexVertices[var9];
                            if(var16 == null) {
-                              var16 = var0.field1576[var9] = new VertexNormal(var10);
+                              var16 = var0.vertexVertices[var9] = new VertexNormal(var10);
                            }
 
-                           VertexNormal var17 = var1.field1576[var14];
+                           VertexNormal var17 = var1.vertexVertices[var14];
                            if(var17 == null) {
-                              var17 = var1.field1576[var14] = new VertexNormal(var15);
+                              var17 = var1.vertexVertices[var14] = new VertexNormal(var15);
                            }
 
                            var16.x += var15.x;

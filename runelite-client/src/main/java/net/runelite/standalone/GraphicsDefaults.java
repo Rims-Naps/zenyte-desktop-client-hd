@@ -93,7 +93,7 @@ public class GraphicsDefaults {
 
          switch(var4) {
          case 1:
-            var3.method5090();
+            var3.read24bitInt();
             break;
          case 2:
             this.field3826 = var3.method5287();

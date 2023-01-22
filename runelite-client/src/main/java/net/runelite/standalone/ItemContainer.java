@@ -12,7 +12,7 @@ public class ItemContainer extends Node implements RSItemContainer {
    @ObfuscatedSignature(
       signature = "Lclient;"
    )
-   static client clientInstance;
+   public static client clientInstance;
    @ObfuscatedName("gd")
    @ObfuscatedSignature(
       signature = "[Lld;"

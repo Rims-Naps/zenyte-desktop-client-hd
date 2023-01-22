@@ -1,9 +1,10 @@
 package net.runelite.standalone;
 
-import java.util.Comparator;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.util.Comparator;
 
 @ObfuscatedName("e")
 final class class53 implements Comparator {
@@ -221,8 +222,8 @@ final class class53 implements Comparator {
    static void method866(int var0) {
       if(var0 == -1 && !client.field884) {
          class75.method1055();
-      } else if(var0 != -1 && var0 != client.field680 && client.field882 != 0 && !client.field884) {
-         GZipDecompressor.method3620(2, class75.music, var0, 0, client.field882, false);
+      } else if(var0 != -1 && var0 != client.field680 && client.musicVolume != 0 && !client.field884) {
+         GZipDecompressor.method3620(2, class75.music, var0, 0, client.musicVolume, false);
       }
 
       client.field680 = var0;

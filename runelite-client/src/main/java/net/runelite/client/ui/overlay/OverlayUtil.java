@@ -113,7 +113,7 @@ public class OverlayUtil
 			renderPolygon(graphics, poly, color);
 		}
 
-		Point textLocation = actor.getCanvasTextLocation(graphics, text, actor.getDefaultHeight() + 40);
+		Point textLocation = actor.getCanvasTextLocation(graphics, text, actor.getLogicalHeight() + 40);
 		if (textLocation != null)
 		{
 			renderTextLocation(graphics, textLocation, text, color);

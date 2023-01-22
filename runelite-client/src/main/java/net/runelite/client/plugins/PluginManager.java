@@ -33,32 +33,10 @@ import com.google.common.graph.Graphs;
 import com.google.common.graph.MutableGraph;
 import com.google.common.reflect.ClassPath;
 import com.google.common.reflect.ClassPath.ClassInfo;
-import com.google.inject.Binder;
-import com.google.inject.CreationException;
-import com.google.inject.Injector;
-import com.google.inject.Key;
 import com.google.inject.Module;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.stream.Collectors;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Provider;
-import javax.inject.Singleton;
-import javax.swing.SwingUtilities;
+import com.google.inject.*;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.client.events.SessionClose;
-import net.runelite.client.events.SessionOpen;
 import net.runelite.client.RuneLite;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
@@ -67,10 +45,25 @@ import net.runelite.client.config.RuneLiteConfig;
 import net.runelite.client.eventbus.EventBus;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.PluginChanged;
+import net.runelite.client.events.SessionClose;
+import net.runelite.client.events.SessionOpen;
 import net.runelite.client.task.Schedule;
 import net.runelite.client.task.ScheduledMethod;
 import net.runelite.client.task.Scheduler;
 import net.runelite.client.util.GameEventManager;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Provider;
+import javax.inject.Singleton;
+import javax.swing.*;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.stream.Collectors;
 
 @Singleton
 @Slf4j
@@ -306,6 +299,19 @@ public class PluginManager
 			return false;
 		}
 
+		List<Plugin> conflicts = conflictsForPlugin(plugin);
+		for (Plugin conflict : conflicts)
+		{
+			if (isPluginEnabled(conflict))
+			{
+				setPluginEnabled(conflict, false);
+			}
+			if (activePlugins.contains(conflict))
+			{
+				stopPlugin(conflict);
+			}
+		}
+
 		activePlugins.add(plugin);
 
 		try
@@ -388,6 +394,18 @@ public class PluginManager
 	{
 		final String keyName = plugin.getClass().getSimpleName().toLowerCase();
 		configManager.setConfiguration(runeliteGroupName, keyName, String.valueOf(enabled));
+
+		if (enabled)
+		{
+			List<Plugin> conflicts = conflictsForPlugin(plugin);
+			for (Plugin conflict : conflicts)
+			{
+				if (isPluginEnabled(conflict))
+				{
+					setPluginEnabled(conflict, false);
+				}
+			}
+		}
 	}
 
 	public boolean isPluginEnabled(Plugin plugin)
@@ -542,4 +560,41 @@ public class PluginManager
 		}
 		return l;
 	}
+
+	public List<Plugin> conflictsForPlugin(Plugin plugin)
+	{
+		Set<String> conflicts;
+		{
+			PluginDescriptor desc = plugin.getClass().getAnnotation(PluginDescriptor.class);
+			conflicts = new HashSet<>(Arrays.asList(desc.conflicts()));
+			conflicts.add(desc.name());
+		}
+
+		return plugins.stream()
+				.filter(p ->
+				{
+					if (p == plugin)
+					{
+						return false;
+					}
+
+					PluginDescriptor desc = p.getClass().getAnnotation(PluginDescriptor.class);
+					if (conflicts.contains(desc.name()))
+					{
+						return true;
+					}
+
+					for (String conflict : desc.conflicts())
+					{
+						if (conflicts.contains(conflict))
+						{
+							return true;
+						}
+					}
+
+					return false;
+				})
+				.collect(Collectors.toList());
+	}
+
 }

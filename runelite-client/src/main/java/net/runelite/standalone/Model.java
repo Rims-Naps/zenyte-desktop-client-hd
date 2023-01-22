@@ -1,11 +1,8 @@
 package net.runelite.standalone;
 
-import java.awt.Polygon;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
+import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.api.model.Jarvis;
 import net.runelite.api.model.Triangle;
 import net.runelite.api.model.Vertex;
@@ -15,6 +12,11 @@ import net.runelite.rs.api.RSFrame;
 import net.runelite.rs.api.RSFrameMap;
 import net.runelite.rs.api.RSFrames;
 import net.runelite.rs.api.RSModel;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 @ObfuscatedName("dv")
 public class Model extends Entity implements RSModel {
@@ -250,9 +252,9 @@ public class Model extends Entity implements RSModel {
       this.verticesX = new int[this.verticesCount];
       this.verticesY = new int[this.verticesCount];
       this.verticesZ = new int[this.verticesCount];
-      this.indices1 = new int[this.indicesCount];
-      this.indices2 = new int[this.indicesCount];
-      this.indices3 = new int[this.indicesCount];
+      this.indices1 = new int[this.indicesCount]; // triangle X
+      this.indices2 = new int[this.indicesCount]; // triangle Y
+      this.indices3 = new int[this.indicesCount]; // triangle Z
       this.field1672 = new int[this.indicesCount];
       this.field1673 = new int[this.indicesCount];
       this.field1674 = new int[this.indicesCount];
@@ -776,6 +778,10 @@ public class Model extends Entity implements RSModel {
       Model var7 = this.copy$contourGround(var1, var2, var3, var4, var5, var6);
       if(var7 != null && var7 != this) {
          RSModel var8 = (RSModel)var7;
+         var8.setVertexNormalsX(rl$vertexNormalsX);
+         var8.setVertexNormalsY(rl$vertexNormalsY);
+         var8.setVertexNormalsZ(rl$vertexNormalsZ);
+         var8.setFaceTextureUVCoordinates(faceTextureUVCoords);
          var8.setFaceTextureUCoordinates(this.rl$faceTextureUCoordinates);
          var8.setFaceTextureVCoordinates(this.rl$faceTextureVCoordinates);
       }
@@ -1073,6 +1079,10 @@ public class Model extends Entity implements RSModel {
 
    public void rl$buildSharedModel(boolean var1, net.runelite.api.Model var2, byte[] var3) {
       RSModel var4 = (RSModel)var2;
+      var4.setVertexNormalsX(rl$vertexNormalsX);
+      var4.setVertexNormalsY(rl$vertexNormalsY);
+      var4.setVertexNormalsZ(rl$vertexNormalsZ);
+      var4.setFaceTextureUVCoordinates(faceTextureUVCoords);
       var4.setFaceTextureUCoordinates(this.rl$faceTextureUCoordinates);
       var4.setFaceTextureVCoordinates(this.rl$faceTextureVCoordinates);
    }
@@ -1197,6 +1207,70 @@ public class Model extends Entity implements RSModel {
       this.rl$faceTextureVCoordinates = var1;
    }
 
+   private int[] rl$vertexNormalsX;
+   private int[] rl$vertexNormalsY;
+   private int[] rl$vertexNormalsZ;
+
+   @Override
+   public int[] getVertexNormalsX() {
+      return rl$vertexNormalsX;
+   }
+
+   @Override
+   public void setVertexNormalsX(int[] vertexNormalsX) {
+      this.rl$vertexNormalsX = vertexNormalsX;
+   }
+
+   @Override
+   public int[] getVertexNormalsY() {
+      return rl$vertexNormalsY;
+   }
+
+   @Override
+   public void setVertexNormalsY(int[] vertexNormalsY) {
+      this.rl$vertexNormalsY = vertexNormalsY;
+   }
+
+   @Override
+   public int[] getVertexNormalsZ() {
+      return this.rl$vertexNormalsZ;
+   }
+
+   @Override
+   public void setVertexNormalsZ(int[] vertexNormalsZ) {
+      this.rl$vertexNormalsZ = vertexNormalsZ;
+   }
+
+   @Override
+   public float[] getFaceTextureUVCoordinates() {
+      return faceTextureUVCoords;
+   }
+
+   @Override
+   public void setFaceTextureUVCoordinates(float[] faceTextureUVCoordinates) {
+      this.faceTextureUVCoords = faceTextureUVCoordinates;
+   }
+
+   @Override
+   public byte getOverrideAmount() {
+      return 0;
+   }
+
+   @Override
+   public byte getOverrideHue() {
+      return 0;
+   }
+
+   @Override
+   public byte getOverrideSaturation() {
+      return 0;
+   }
+
+   @Override
+   public byte getOverrideLuminance() {
+      return 0;
+   }
+
    public int[] getVerticesZ() {
       return this.verticesZ;
    }
@@ -1309,11 +1383,11 @@ public class Model extends Entity implements RSModel {
    private void rl$$init() {
    }
 
-   public void rl$init(RSModel[] var1, int var2) {
+   public void rl$init(RSModel[] models, int length) {
       int var3 = 0;
 
-      for(int var4 = 0; var4 < var2; ++var4) {
-         RSModel var5 = var1[var4];
+      for(int var4 = 0; var4 < length; ++var4) {
+         RSModel var5 = models[var4];
          if(var5 != null) {
             var3 += var5.getTrianglesCount();
          }
@@ -1323,8 +1397,8 @@ public class Model extends Entity implements RSModel {
       float[][] var13 = new float[var3][];
       int var6 = 0;
 
-      for(int var7 = 0; var7 < var2; ++var7) {
-         RSModel var8 = var1[var7];
+      for(int var7 = 0; var7 < length; ++var7) {
+         RSModel var8 = models[var7];
          if(var8 != null) {
             float[][] var9 = var8.getFaceTextureUCoordinates();
             float[][] var10 = var8.getFaceTextureVCoordinates();
@@ -1342,8 +1416,102 @@ public class Model extends Entity implements RSModel {
 
       this.setFaceTextureUCoordinates(var12);
       this.setFaceTextureVCoordinates(var13);
+
+      if (getFaceTextures() != null)
+      {
+         int count = getTrianglesCount();
+         float[] uv = new float[count * 6];
+         int idx = 0;
+
+         for (int i = 0; i < length; ++i)
+         {
+            RSModel model = models[i];
+            if (model != null)
+            {
+               float[] modelUV = model.getFaceTextureUVCoordinates();
+
+               if (modelUV != null)
+               {
+                  System.arraycopy(modelUV, 0, uv, idx, model.getTrianglesCount() * 6);
+               }
+
+               idx += model.getTrianglesCount() * 6;
+            }
+         }
+
+         faceTextureUVCoords = uv;
+      }
+      vertexNormals();
    }
 
+   private float[] faceTextureUVCoords;
+
+   public void vertexNormals()
+   {
+      if (rl$vertexNormalsX == null)
+      {
+         int verticesCount = getVerticesCount();
+
+         rl$vertexNormalsX = new int[verticesCount];
+         rl$vertexNormalsY = new int[verticesCount];
+         rl$vertexNormalsZ = new int[verticesCount];
+
+         int[] trianglesX = getTrianglesX();
+         int[] trianglesY = getTrianglesY();
+         int[] trianglesZ = getTrianglesZ();
+         int[] verticesX = getVerticesX();
+         int[] verticesY = getVerticesY();
+         int[] verticesZ = getVerticesZ();
+
+         for (int i = 0; i < getTrianglesCount(); ++i)
+         {
+            int var9 = trianglesX[i];
+            int var10 = trianglesY[i];
+            int var11 = trianglesZ[i];
+
+            int var12 = verticesX[var10] - verticesX[var9];
+            int var13 = verticesY[var10] - verticesY[var9];
+            int var14 = verticesZ[var10] - verticesZ[var9];
+            int var15 = verticesX[var11] - verticesX[var9];
+            int var16 = verticesY[var11] - verticesY[var9];
+            int var17 = verticesZ[var11] - verticesZ[var9];
+
+            int var18 = var13 * var17 - var16 * var14;
+            int var19 = var14 * var15 - var17 * var12;
+
+            int var20;
+            for (var20 = var12 * var16 - var15 * var13; var18 > 8192 || var19 > 8192 || var20 > 8192 || var18 < -8192 || var19 < -8192 || var20 < -8192; var20 >>= 1)
+            {
+               var18 >>= 1;
+               var19 >>= 1;
+            }
+
+            int var21 = (int) Math.sqrt(var18 * var18 + var19 * var19 + var20 * var20);
+            if (var21 <= 0)
+            {
+               var21 = 1;
+            }
+
+            var18 = var18 * 256 / var21;
+            var19 = var19 * 256 / var21;
+            var20 = var20 * 256 / var21;
+
+            rl$vertexNormalsX[var9] += var18;
+            rl$vertexNormalsY[var9] += var19;
+            rl$vertexNormalsZ[var9] += var20;
+
+            rl$vertexNormalsX[var10] += var18;
+            rl$vertexNormalsY[var10] += var19;
+            rl$vertexNormalsZ[var10] += var20;
+
+            rl$vertexNormalsX[var11] += var18;
+            rl$vertexNormalsY[var11] += var19;
+            rl$vertexNormalsZ[var11] += var20;
+         }
+      }
+   }
+
+   @Override
    public List getTriangles() {
       int[] var1 = this.getTrianglesX();
       int[] var2 = this.getTrianglesY();
@@ -1477,6 +1645,11 @@ public class Model extends Entity implements RSModel {
 
    public boolean isClickable() {
       return this.field1696;
+   }
+
+   @Override
+   public int getBottomY() {
+      return this.bottomY;
    }
 
    public int getXYZMag() {
@@ -1871,7 +2044,7 @@ public class Model extends Entity implements RSModel {
                   var9 = field1709[var7];
 
                   for(var10 = 0; var10 < var8; ++var10) {
-                     this.method3848(var9[var10]);
+                     this.drawFace(var9[var10]);
                   }
                }
             }
@@ -1937,7 +2110,7 @@ public class Model extends Entity implements RSModel {
 
             for(var15 = 0; var15 < 10; ++var15) {
                while(var15 == 0 && var10 > var7) {
-                  this.method3848(var28[var11++]);
+                  this.drawFace(var28[var11++]);
                   if(var11 == var12 && var28 != field1715[11]) {
                      var11 = 0;
                      var12 = field1722[11];
@@ -1953,7 +2126,7 @@ public class Model extends Entity implements RSModel {
                }
 
                while(var15 == 3 && var10 > var8) {
-                  this.method3848(var28[var11++]);
+                  this.drawFace(var28[var11++]);
                   if(var11 == var12 && var28 != field1715[11]) {
                      var11 = 0;
                      var12 = field1722[11];
@@ -1969,7 +2142,7 @@ public class Model extends Entity implements RSModel {
                }
 
                while(var15 == 5 && var10 > var27) {
-                  this.method3848(var28[var11++]);
+                  this.drawFace(var28[var11++]);
                   if(var11 == var12 && var28 != field1715[11]) {
                      var11 = 0;
                      var12 = field1722[11];
@@ -1988,12 +2161,12 @@ public class Model extends Entity implements RSModel {
                int[] var30 = field1715[var15];
 
                for(var18 = 0; var18 < var16; ++var18) {
-                  this.method3848(var30[var18]);
+                  this.drawFace(var30[var18]);
                }
             }
 
             while(var10 != -1000) {
-               this.method3848(var28[var11++]);
+               this.drawFace(var28[var11++]);
                if(var11 == var12 && var28 != field1715[11]) {
                   var11 = 0;
                   var28 = field1715[11];
@@ -2102,26 +2275,32 @@ public class Model extends Entity implements RSModel {
    }
 
    @ObfuscatedName("ab")
-   final void method3848(int var1) {
-      if(field1679[var1]) {
-         this.method3849(var1);
+   @Override
+   public final void drawFace(int face) {
+      DrawCallbacks callbacks = ItemContainer.clientInstance.getDrawCallbacks();
+      if (callbacks != null && callbacks.drawFace(this, face)) {
+         return;
+      }
+
+      if(field1679[face]) {
+         this.method3849(face);
       } else {
-         int var2 = this.indices1[var1];
-         int var3 = this.indices2[var1];
-         int var4 = this.indices3[var1];
-         Graphics3D.rasterClipEnable = field1699[var1];
+         int var2 = this.indices1[face];
+         int var3 = this.indices2[face];
+         int var4 = this.indices3[face];
+         Graphics3D.rasterClipEnable = field1699[face];
          if(this.field1676 == null) {
             Graphics3D.rasterAlpha = 0;
          } else {
-            Graphics3D.rasterAlpha = this.field1676[var1] & 255;
+            Graphics3D.rasterAlpha = this.field1676[face] & 255;
          }
 
-         if(this.field1678 != null && this.field1678[var1] != -1) {
+         if(this.field1678 != null && this.field1678[face] != -1) {
             int var5;
             int var6;
             int var7;
-            if(this.field1729 != null && this.field1729[var1] != -1) {
-               int var8 = this.field1729[var1] & 255;
+            if(this.field1729 != null && this.field1729[face] != -1) {
+               int var8 = this.field1729[face] & 255;
                var5 = this.field1728[var8];
                var6 = this.field1682[var8];
                var7 = this.field1683[var8];
@@ -2131,15 +2310,15 @@ public class Model extends Entity implements RSModel {
                var7 = var4;
             }
 
-            if(this.field1674[var1] == -1) {
-               Graphics3D.method2100(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1672[var1], this.field1672[var1], this.field1672[var1], yViewportBuffer[var5], yViewportBuffer[var6], yViewportBuffer[var7], field1662[var5], field1662[var6], field1662[var7], field1703[var5], field1703[var6], field1703[var7], this.field1678[var1]);
+            if(this.field1674[face] == -1) {
+               Graphics3D.method2100(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1672[face], this.field1672[face], this.field1672[face], yViewportBuffer[var5], yViewportBuffer[var6], yViewportBuffer[var7], field1662[var5], field1662[var6], field1662[var7], field1703[var5], field1703[var6], field1703[var7], this.field1678[face]);
             } else {
-               Graphics3D.method2100(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1672[var1], this.field1673[var1], this.field1674[var1], yViewportBuffer[var5], yViewportBuffer[var6], yViewportBuffer[var7], field1662[var5], field1662[var6], field1662[var7], field1703[var5], field1703[var6], field1703[var7], this.field1678[var1]);
+               Graphics3D.method2100(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1672[face], this.field1673[face], this.field1674[face], yViewportBuffer[var5], yViewportBuffer[var6], yViewportBuffer[var7], field1662[var5], field1662[var6], field1662[var7], field1703[var5], field1703[var6], field1703[var7], this.field1678[face]);
             }
-         } else if(this.field1674[var1] == -1) {
-            Graphics3D.method2098(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], field1726[this.field1672[var1]]);
+         } else if(this.field1674[face] == -1) {
+            Graphics3D.method2098(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], field1726[this.field1672[face]]);
          } else {
-            Graphics3D.method2159(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1672[var1], this.field1673[var1], this.field1674[var1]);
+            Graphics3D.method2159(modelViewportXs[var2], modelViewportXs[var3], modelViewportXs[var4], modelViewportYs[var2], modelViewportYs[var3], modelViewportYs[var4], this.field1672[face], this.field1673[face], this.field1674[face]);
          }
 
       }

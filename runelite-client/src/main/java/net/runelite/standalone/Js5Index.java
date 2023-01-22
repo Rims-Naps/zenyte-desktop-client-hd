@@ -5,9 +5,6 @@ import com.google.common.hash.Hashing;
 import com.google.common.io.BaseEncoding;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.CharStreams;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import net.runelite.api.overlay.OverlayIndex;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
@@ -15,6 +12,10 @@ import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSIndexData;
 import net.runelite.rs.api.RSIndexDataBase;
 import org.slf4j.Logger;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 @ObfuscatedName("iz")
 public abstract class Js5Index implements RSIndexDataBase {
@@ -548,8 +549,10 @@ public abstract class Js5Index implements RSIndexDataBase {
    public byte[] method4135(String var1, String var2) {
       var1 = var1.toLowerCase();
       var2 = var2.toLowerCase();
-      int var3 = this.groupNameTable.method3942(class219.method4226(var1));
-      int var4 = this.groupFilesNameTable[var3].method3942(class219.method4226(var2));
+      int a = class219.method4226(var1);
+      int var3 = this.groupNameTable.method3942(a);
+      int b = class219.method4226(var2);
+      int var4 = this.groupFilesNameTable[var3].method3942(b);
       return this.method4115(var3, var4, -1200488193);
    }
 

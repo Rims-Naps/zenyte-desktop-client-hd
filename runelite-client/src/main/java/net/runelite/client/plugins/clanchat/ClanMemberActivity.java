@@ -26,13 +26,13 @@ package net.runelite.client.plugins.clanchat;
 
 import lombok.AllArgsConstructor;
 import lombok.Value;
-import net.runelite.api.FriendsChatMember;
+import net.runelite.api.ClanMember;
 
 @Value
 @AllArgsConstructor
 class ClanMemberActivity
 {
 	private ClanActivityType activityType;
-	private FriendsChatMember member;
+	private ClanMember member;
 	private Integer tick;
 }

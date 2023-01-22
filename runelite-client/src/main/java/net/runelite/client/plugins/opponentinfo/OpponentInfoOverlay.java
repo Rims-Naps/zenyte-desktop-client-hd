@@ -67,11 +67,11 @@ class OpponentInfoOverlay extends Overlay
 
 	@Inject
 	private OpponentInfoOverlay(
-			Client client,
-			OpponentInfoPlugin opponentInfoPlugin,
-			OpponentInfoConfig opponentInfoConfig,
-			HiscoreManager hiscoreManager,
-			NPCManager npcManager)
+		Client client,
+		OpponentInfoPlugin opponentInfoPlugin,
+		OpponentInfoConfig opponentInfoConfig,
+		HiscoreManager hiscoreManager,
+		NPCManager npcManager)
 	{
 		super(opponentInfoPlugin);
 		this.client = client;
@@ -123,9 +123,9 @@ class OpponentInfoOverlay extends Overlay
 				}
 			}
 
-			final Actor opponentsOpponent = opponent.getTargetIndex();
+			final Actor opponentsOpponent = opponent.getInteracting();
 			if (opponentsOpponent != null
-					&& (opponentsOpponent != client.getLocalPlayer() || client.getVar(Varbits.MULTICOMBAT_AREA) == 1))
+				&& (opponentsOpponent != client.getLocalPlayer() || client.getVar(Varbits.MULTICOMBAT_AREA) == 1))
 			{
 				opponentsOpponentName = Text.removeTags(opponentsOpponent.getName());
 			}
@@ -148,8 +148,8 @@ class OpponentInfoOverlay extends Overlay
 		int textWidth = Math.max(ComponentConstants.STANDARD_WIDTH, fontMetrics.stringWidth(opponentName));
 		panelComponent.setPreferredSize(new Dimension(textWidth, 0));
 		panelComponent.getChildren().add(TitleComponent.builder()
-				.text(opponentName)
-				.build());
+			.text(opponentName)
+			.build());
 
 		// Health bar
 		if (lastRatio >= 0 && lastHealthScale > 0)
@@ -211,8 +211,8 @@ class OpponentInfoOverlay extends Overlay
 			textWidth = Math.max(textWidth, fontMetrics.stringWidth(opponentsOpponentName));
 			panelComponent.setPreferredSize(new Dimension(textWidth, 0));
 			panelComponent.getChildren().add(TitleComponent.builder()
-					.text(opponentsOpponentName)
-					.build());
+				.text(opponentsOpponentName)
+				.build());
 		}
 
 		return panelComponent.render(graphics);

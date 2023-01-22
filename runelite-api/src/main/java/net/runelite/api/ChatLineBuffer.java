@@ -36,10 +36,10 @@ public interface ChatLineBuffer
 	 *
 	 * @return messages in the chatbox
 	 */
-	MessageNode[] getMessages();
+	MessageNode[] getLines();
 
 	/**
-	 * Gets the length of the {@link #getMessages()} array.
+	 * Gets the length of the {@link #getLines()} array.
 	 *
 	 * @return the length
 	 */

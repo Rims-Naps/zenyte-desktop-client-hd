@@ -1,10 +1,5 @@
 package net.runelite.standalone;
 
-import java.applet.Applet;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
-import java.awt.geom.Area;
-import java.net.URL;
 import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.LocalPoint;
@@ -16,7 +11,10 @@ import net.runelite.rs.api.RSDecorativeObject;
 import net.runelite.rs.api.RSModel;
 import net.runelite.rs.api.RSNPCComposition;
 import net.runelite.rs.api.RSRenderable;
-import netscape.javascript.JSObject;
+
+import java.awt.*;
+import java.awt.geom.Area;
+import java.net.URL;
 
 @ObfuscatedName("ef")
 public final class DecorativeObject implements RSDecorativeObject {
@@ -407,10 +405,10 @@ public final class DecorativeObject implements RSDecorativeObject {
          }
       } else if(var1 == 1) {
          try {
-            Applet var7 = class2.field443;
-            Object[] var5 = new Object[]{(new URL(class2.field443.getCodeBase(), var0)).toString()};
-            Object var3 = JSObject.getWindow(var7).call(var2, var5);
-            return var3 != null;
+//            Applet var7 = class2.field443;
+//            Object[] var5 = new Object[]{(new URL(class2.field443.getCodeBase(), var0)).toString()};
+//            Object var3 = JSObject.getWindow(var7).call(var2, var5);
+            return false;
          } catch (Throwable var9) {
             return false;
          }

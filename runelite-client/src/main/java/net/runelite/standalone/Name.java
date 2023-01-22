@@ -100,7 +100,7 @@ public class Name implements Comparable, RSName {
       signature = "(B)Ljava/lang/String;",
       garbageValue = "-10"
    )
-   public String method1530() {
+   public String getChatName() {
       return this.name;
    }
 
@@ -118,15 +118,15 @@ public class Name implements Comparable, RSName {
    }
 
    public String toString() {
-      return this.method1530();
+      return this.getChatName();
    }
 
    public String aas() {
-      return this.method1530();
+      return this.getChatName();
    }
 
    public String aal() {
-      return this.method1530();
+      return this.getChatName();
    }
 
    public int compareTo(Object var1) {

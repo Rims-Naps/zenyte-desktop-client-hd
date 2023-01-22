@@ -6,20 +6,14 @@ import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.client.callback.Hooks;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.api.RSDecorativeObject;
-import net.runelite.rs.api.RSGameObject;
-import net.runelite.rs.api.RSGroundObject;
-import net.runelite.rs.api.RSItemLayer;
-import net.runelite.rs.api.RSNPC;
-import net.runelite.rs.api.RSPlayer;
-import net.runelite.rs.api.RSProjectile;
-import net.runelite.rs.api.RSScene;
-import net.runelite.rs.api.RSSceneTileModel;
-import net.runelite.rs.api.RSTile;
-import net.runelite.rs.api.RSWallObject;
+import net.runelite.rs.api.*;
 
 @ObfuscatedName("en")
 public class SceneManager implements RSScene {
+
+   private static byte[][][] rl$underlayIds;
+   private static byte[][][] rl$overlayIds;
+
    @ObfuscatedName("ak")
    static final int[] WALL_UNCULL_FLAGS_1;
    @ObfuscatedName("bn")
@@ -1873,6 +1867,26 @@ public class SceneManager implements RSScene {
       return this.minLevel;
    }
 
+   @Override
+   public byte[][][] getUnderlayIds() {
+      return rl$underlayIds;
+   }
+
+   @Override
+   public void setUnderlayIds(byte[][][] underlayIds) {
+      rl$underlayIds = underlayIds;
+   }
+
+   @Override
+   public byte[][][] getOverlayIds() {
+      return rl$overlayIds;
+   }
+
+   @Override
+   public void setOverlayIds(byte[][][] overlayIds) {
+      rl$overlayIds = overlayIds;
+   }
+
    public void updateOccluders() {
       this.method3654();
    }
@@ -2157,10 +2171,10 @@ public class SceneManager implements RSScene {
                         var10 = (ModelData)var8.entity2;
                         this.method3753(var10, var4, var5, var6, 1, 1);
                         ModelData.method2788(var9, var10, 0, 0, 0, false);
-                        var8.entity2 = var10.method2852(var10.field1566, var10.contrast, var1, var2, var3);
+                        var8.entity2 = var10.toModel(var10.ambient, var10.contrast, var1, var2, var3);
                      }
 
-                     var8.entity1 = var9.method2852(var9.field1566, var9.contrast, var1, var2, var3);
+                     var8.entity1 = var9.toModel(var9.ambient, var9.contrast, var1, var2, var3);
                   }
 
                   for(int var12 = 0; var12 < var7.entityCount; ++var12) {
@@ -2168,7 +2182,7 @@ public class SceneManager implements RSScene {
                      if(var14 != null && var14.entity instanceof ModelData) {
                         ModelData var11 = (ModelData)var14.entity;
                         this.method3753(var11, var4, var5, var6, var14.offsetX - var14.relativeX + 1, var14.offsetY - var14.relativeY + 1);
-                        var14.entity = var11.method2852(var11.field1566, var11.contrast, var1, var2, var3);
+                        var14.entity = var11.toModel(var11.ambient, var11.contrast, var1, var2, var3);
                      }
                   }
 
@@ -2176,7 +2190,7 @@ public class SceneManager implements RSScene {
                   if(var13 != null && var13.entity instanceof ModelData) {
                      var10 = (ModelData)var13.entity;
                      this.method3653(var10, var4, var5, var6);
-                     var13.entity = var10.method2852(var10.field1566, var10.contrast, var1, var2, var3);
+                     var13.entity = var10.toModel(var10.ambient, var10.contrast, var1, var2, var3);
                   }
                }
             }
@@ -2413,6 +2427,11 @@ public class SceneManager implements RSScene {
 
                      ItemContainer.clientInstance.setCheckClick(false);
                      ItemContainer.clientInstance.getCallbacks().drawScene();
+
+                     if (ItemContainer.clientInstance.getDrawCallbacks() != null)
+                     {
+                        ItemContainer.clientInstance.getDrawCallbacks().postDrawScene();
+                     }
                      return;
                   }
                }
@@ -2469,6 +2488,11 @@ public class SceneManager implements RSScene {
 
                      ItemContainer.clientInstance.setCheckClick(false);
                      ItemContainer.clientInstance.getCallbacks().drawScene();
+
+                     if (ItemContainer.clientInstance.getDrawCallbacks() != null)
+                     {
+                        ItemContainer.clientInstance.getDrawCallbacks().postDrawScene();
+                     }
                      return;
                   }
                }
@@ -2482,6 +2506,11 @@ public class SceneManager implements RSScene {
 
       ItemContainer.clientInstance.setCheckClick(false);
       ItemContainer.clientInstance.getCallbacks().drawScene();
+
+      if (ItemContainer.clientInstance.getDrawCallbacks() != null)
+      {
+         ItemContainer.clientInstance.getDrawCallbacks().postDrawScene();
+      }
    }
 
    @ObfuscatedName("ac")
@@ -2910,7 +2939,7 @@ public class SceneManager implements RSScene {
                   DecorativeObject.method913(var0, var0.logicalHeight + 15);
                   FontTypeFace var11 = (FontTypeFace) client.fontsMap.get(FontName.FontName_plain12);
                   byte var12 = 9;
-                  var11.method6222(var10.name.method1530(), var2 + client.screenX, var3 + client.screenY - var12, 16777215, 0);
+                  var11.method6222(var10.name.getChatName(), var2 + client.screenX, var3 + client.screenY - var12, 16777215, 0);
                   var9 = 18;
                }
             }

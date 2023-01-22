@@ -62,7 +62,7 @@ public class FloorUnderlayDefinition extends CacheableNode {
    )
    void method1884(Packet var1, int var2, int var3) {
       if(var2 == 1) {
-         this.rgbColor = var1.method5090();
+         this.rgbColor = var1.read24bitInt();
       }
 
    }

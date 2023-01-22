@@ -27,6 +27,7 @@ package net.runelite.client.plugins.hd.environments;
 import lombok.Getter;
 import net.runelite.api.Constants;
 
+@Getter
 public enum Area
 {
 	// items higher on the list take precedent over those below
@@ -786,18 +787,6 @@ public enum Area
 	FISHER_KINGS_REALM(2575, 4623, 2816, 4798),
 	ENCHANTED_VALLEY(3010, 4478, 3073, 4540),
 
-	GAMBLE(false, 33420),
-	WORLD_BOSS(false, 33422),
-	OSNR_TUTORIAL_ISLAND(false, 33424),
-
-	OSNR_TOURNAMENT(false, 33426),
-	OSNR_TOURNAMENT_TOURNEY(false, 33428),
-
-	DONATOR_ZONE_LDI(false, base4(33430)),
-	DONATOR_ZONE_UDI(false, base4(33433)),
-	DONATOR_ZONE_RDI(false, base4(33436)),
-	DONATOR_ZONE_DI(false, 33439),
-	DONATOR_ZONE_DIE(false, 33441),
 
 
 	UNKNOWN_OVERWORLD_SNOWY(),
@@ -813,54 +802,41 @@ public enum Area
 	),
 
 	OVERWORLD(700, 2300, 4200, 4095),
-
 	ALL(0, 0, Integer.MAX_VALUE, Integer.MAX_VALUE),
 	NONE(0, 0, 0, 0),
 	;
 
-	@Getter
 	private final Rect[] rects;
 
 	Area(Rect... rects)
 	{
-		this.rects = edenified(rects);
+		this.rects = rects;
 	}
 
 	Area(int pointAX, int pointAY, int pointBX, int pointBY)
 	{
-		this(new Rect(pointAX, pointAY, pointBX, pointBY));
+		this.rects = new Rect[]{new Rect(pointAX, pointAY, pointBX, pointBY)};
 	}
 
 	Area(int pointAX, int pointAY, int pointBX, int pointBY, int plane)
 	{
-		this(new Rect(pointAX, pointAY, pointBX, pointBY, plane));
+		this.rects = new Rect[]{new Rect(pointAX, pointAY, pointBX, pointBY, plane)};
 	}
 
-	Area(int regionId) {
-		this(true, regionId);
-	}
-
-	Area(boolean edenify, int... regionIds) {
+	Area(int regionId)
+	{
 		final int REGIONS_PER_COLUMN = 256;
 
-		Rect[] rects = new Rect[regionIds.length];
-		for (int i = 0; i < regionIds.length; i++) {
-			int regionId = regionIds[i];
-			int baseX = (int) Math.floor((float) regionId / REGIONS_PER_COLUMN) * Constants.REGION_SIZE;
-			int baseY = (regionId % REGIONS_PER_COLUMN) * Constants.REGION_SIZE;
-			int oppositeX = baseX + Constants.REGION_SIZE;
-			int oppositeY = baseY + Constants.REGION_SIZE;
-
-			Rect rect = new Rect(baseX, baseY, oppositeX, oppositeY);
-			rects[i] = rect;
-		}
-
-		this.rects = edenify ? edenified(rects) : rects;
+		int baseX = (int)Math.floor((float)regionId / REGIONS_PER_COLUMN) * Constants.REGION_SIZE;
+		int baseY = (regionId % REGIONS_PER_COLUMN) * Constants.REGION_SIZE;
+		int oppositeX = baseX + Constants.REGION_SIZE;
+		int oppositeY = baseY + Constants.REGION_SIZE;
+		this.rects = new Rect[]{new Rect(baseX, baseY, oppositeX, oppositeY)};
 	}
 
 	public boolean containsPoint(int pointX, int pointY, int pointZ)
 	{
-		for (Rect rect : this.rects)
+		for (Rect rect : this.getRects())
 		{
 			if (rect.containsPoint(pointX, pointY, pointZ))
 			{
@@ -869,19 +845,4 @@ public enum Area
 		}
 		return false;
 	}
-
-	private static Rect[] edenified(Rect... rects) {
-		Rect[] fullRects = new Rect[rects.length * 2];
-		for (int i = 0; i < rects.length; i++) {
-			Rect rect = rects[i];
-			fullRects[i] = rect;
-			fullRects[i + rects.length] = rect.edenified();
-		}
-		return fullRects;
-	}
-
-	private static int[] base4(int baseRegion) {
-		return new int[]{baseRegion, baseRegion + 1, baseRegion + 256, baseRegion + 256 + 1};
-	}
-
 }

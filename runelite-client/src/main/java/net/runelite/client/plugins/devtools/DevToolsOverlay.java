@@ -289,7 +289,7 @@ class DevToolsOverlay extends Overlay
 
 	private void renderGroundObject(Graphics2D graphics, Tile tile, Player player)
 	{
-		GroundObject groundObject = tile.getFloorDecoration();
+		GroundObject groundObject = tile.getGroundObject();
 		if (groundObject != null)
 		{
 			if (player.getLocalLocation().distanceTo(groundObject.getLocalLocation()) <= MAX_DISTANCE)
@@ -301,7 +301,7 @@ class DevToolsOverlay extends Overlay
 
 	private void renderWallObject(Graphics2D graphics, Tile tile, Player player)
 	{
-		WallObject wallObject = tile.getBoundaryObject();
+		WallObject wallObject = tile.getWallObject();
 		if (wallObject != null)
 		{
 			if (player.getLocalLocation().distanceTo(wallObject.getLocalLocation()) <= MAX_DISTANCE)
@@ -313,7 +313,7 @@ class DevToolsOverlay extends Overlay
 
 	private void renderDecorObject(Graphics2D graphics, Tile tile, Player player)
 	{
-		DecorativeObject decorObject = tile.getWallDecoration();
+		DecorativeObject decorObject = tile.getDecorativeObject();
 		if (decorObject != null)
 		{
 			if (player.getLocalLocation().distanceTo(decorObject.getLocalLocation()) <= MAX_DISTANCE)

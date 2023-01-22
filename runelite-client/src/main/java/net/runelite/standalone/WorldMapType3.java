@@ -206,9 +206,9 @@ public class WorldMapType3 implements WorldMapSectionBase {
          class312.options.hideRoofs = !class312.options.hideRoofs;
          class72.method1041();
          if(class312.options.hideRoofs) {
-            KeyFocusListener.method5934(99, "", "Roofs are now all hidden");
+            KeyFocusListener.pushMessage(99, "", "Roofs are now all hidden");
          } else {
-            KeyFocusListener.method5934(99, "", "Roofs will only be removed selectively");
+            KeyFocusListener.pushMessage(99, "", "Roofs will only be removed selectively");
          }
       }
 

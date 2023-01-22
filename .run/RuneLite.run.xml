@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="RuneLite" type="Application" factoryName="Application" nameIsGenerated="true">
+  <configuration default="false" name="Run Client (make sure to run Install Client first)" type="Application" factoryName="Application" singleton="false">
     <option name="MAIN_CLASS_NAME" value="net.runelite.client.RuneLite" />
-    <module name="client" />
-    <option name="VM_PARAMETERS" value="--add-modules jdk.jsobject --add-exports=javafx.web/com.sun.javafx.webkit=ALL-UNNAMED" />
+    <module name="OpenOSRS.runelite-client" />
+    <option name="VM_PARAMETERS" value="-Xmx4g" />
     <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
     <extension name="coverage">
       <pattern>

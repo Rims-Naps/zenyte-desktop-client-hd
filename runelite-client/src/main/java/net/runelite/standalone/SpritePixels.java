@@ -717,38 +717,8 @@ public final class SpritePixels extends Rasterizer2D implements RSSpritePixels {
       this.method1390();
    }
 
-   @Override
-   public void setWidth(int maxWidth) {
-      this.maxWidth = maxWidth;
-   }
-
-   @Override
-   public void setHeight(int maxHeight) {
-      this.maxHeight = maxHeight;
-   }
-
-   @Override
-   public void setxOffset(int offsetX) {
-      this.offsetX = offsetX;
-   }
-
-   @Override
-   public void setyOffset(int offsetY) {
-      this.offsetY = offsetY;
-   }
-
    public void drawAt(int var1, int var2) {
       this.method1311(var1, var2);
-   }
-
-   @Override
-   public int getSubHeight() {
-      return this.height;
-   }
-
-   @Override
-   public int getSubWidth() {
-      return this.width;
    }
 
    @ObfuscatedName("y")

@@ -1,12 +1,11 @@
 package net.runelite.standalone;
 
-import java.awt.Canvas;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.event.FocusListener;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 import net.runelite.rs.api.RSGameCanvas;
+
+import java.awt.*;
+import java.awt.event.FocusListener;
 
 @ObfuscatedName("ad")
 public final class GameCanvas extends Canvas implements RSGameCanvas {
@@ -123,11 +122,11 @@ public final class GameCanvas extends Canvas implements RSGameCanvas {
       GZipDecompressor.cameraPitch = var3;
       client.onCameraPitchChanged(-1);
       class142.cameraYaw = var4;
-      if(client.camModeType == 1 && client.staffModLevel >= 2 && client.gameCycle % 50 == 0 && (class71.localPlayer.x * -1234429701 >> 7 != client.field725 >> 7 || class69.field135 >> 7 != class71.localPlayer.y >> 7)) {
+      if(client.camModeType == 1/* && client.staffModLevel >= 2*/ && client.gameCycle % 50 == 0 && (class71.localPlayer.x * -1234429701 >> 7 != client.field725 >> 7 || class69.field135 >> 7 != class71.localPlayer.y >> 7)) {
          var12 = class71.localPlayer.field631;
          var13 = (client.field725 >> 7) + class53.baseX;
          var14 = (class69.field135 >> 7) + class312.baseY;
-         WorldMapManager.method2322(var13, var14, var12, true);
+         WorldMapManager.teleportCommand(var13, var14, var12, true);
       }
 
    }

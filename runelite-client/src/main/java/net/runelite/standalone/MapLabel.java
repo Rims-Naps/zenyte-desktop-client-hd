@@ -1,6 +1,6 @@
 package net.runelite.standalone;
 
-import net.runelite.client.RuneLite;
+import net.runelite.api.Constants;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
@@ -71,7 +71,7 @@ public class MapLabel {
          class203.field1172 = 2;
          TextureProvider.method1169("Your account has not logged out from its last", "session or the server is too busy right now.", "Please try again in a few minutes.");
       } else if(var0 == 68 || !client.field656 && var0 == 6) {
-         TextureProvider.method1169(RuneLite.SERVER_NAME + " has been updated!", "Please reload this page.", "");
+         TextureProvider.method1169(Constants.SERVER_NAME + " has been updated!", "Please reload this page.", "");
       } else if(var0 == 7) {
          TextureProvider.method1169("This world is full.", "Please use a different world.", "");
       } else if(var0 == 8) {
@@ -118,13 +118,15 @@ public class MapLabel {
       } else if(var0 == 37) {
          TextureProvider.method1169("Your account is currently inaccessible.", "Please try again in a few minutes.", "");
       } else if(var0 == 38) {
-         TextureProvider.method1169("You need to vote to play!", "Visit zenyte.com and vote,", "and then come back here!");
+         TextureProvider.method1169("You need to vote to play!", "Visit " + Constants.SERVER_WEBSITE_LOWERCASE + " and vote,", "and then come back here!");
       } else if (var0 == 39) {
-         TextureProvider.method1169(RuneLite.SERVER_NAME + " has been updated!", "Please download the new client from discord.", "");
+         TextureProvider.method1169(Constants.SERVER_NAME + " has been updated!", "Please download the new client from discord.", "");
       } else if (var0 == 40) {
-         TextureProvider.method1169("An account by that name does not exist!", "Register it at zenyte.com today!", "");
+         TextureProvider.method1169("An account by that name does not exist!", "Register it at " + Constants.SERVER_WEBSITE_LOWERCASE + " today!", "");
       } else if (var0 == 41) {
          TextureProvider.method1169("The tournament has already ended!", "Come back when there's a new tournament.", "");
+      } else if (var0 == 42) {
+         TextureProvider.method1169("Your account cannot access this world.", "Please use a different world.", "");
       } else if(var0 == 55) {
          class203.loginIndex = 8;
       } else {

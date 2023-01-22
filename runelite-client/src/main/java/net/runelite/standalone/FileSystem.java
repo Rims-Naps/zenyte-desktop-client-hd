@@ -30,8 +30,8 @@ public class FileSystem extends Node {
       garbageValue = "64"
    )
    static void method570(int var0, int var1) {
-      if(client.field882 != 0 && var0 != -1) {
-         WorldMapDataGroup.method957(WorldMapType1.jingles, var0, 0, client.field882, false);
+      if(client.musicVolume != 0 && var0 != -1) {
+         WorldMapDataGroup.method957(WorldMapType1.jingles, var0, 0, client.musicVolume, false);
          client.field884 = true;
       }
 

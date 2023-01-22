@@ -51,10 +51,10 @@ import static net.runelite.api.Constants.REGION_SIZE;
 
 @Slf4j
 @PluginDescriptor(
-		name = "Object Markers",
-		description = "Enable marking of objects using the Shift key",
-		tags = {"overlay", "objects", "mark", "marker"},
-		enabledByDefault = false
+	name = "Object Markers",
+	description = "Enable marking of objects using the Shift key",
+	tags = {"overlay", "objects", "mark", "marker"},
+	enabledByDefault = false
 )
 public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 {
@@ -273,7 +273,7 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 		}
 
 		final GameObject[] tileGameObjects = tile.getGameObjects();
-		final DecorativeObject tileDecorativeObject = tile.getWallDecoration();
+		final DecorativeObject tileDecorativeObject = tile.getDecorativeObject();
 
 		if (tileDecorativeObject != null && tileDecorativeObject.getId() == id)
 		{
@@ -320,11 +320,11 @@ public class ObjectIndicatorsPlugin extends Plugin implements KeyListener
 		final WorldPoint worldPoint = WorldPoint.fromLocalInstance(client, object.getLocalLocation());
 		final int regionId = worldPoint.getRegionID();
 		final ObjectPoint point = new ObjectPoint(
-				name,
-				regionId,
-				worldPoint.getX() & (REGION_SIZE - 1),
-				worldPoint.getY() & (REGION_SIZE - 1),
-				client.getPlane());
+			name,
+			regionId,
+			worldPoint.getX() & (REGION_SIZE - 1),
+			worldPoint.getY() & (REGION_SIZE - 1),
+			client.getPlane());
 
 		Set<ObjectPoint> objectPoints = points.computeIfAbsent(regionId, k -> new HashSet<>());
 

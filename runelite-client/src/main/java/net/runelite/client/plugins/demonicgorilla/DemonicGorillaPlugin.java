@@ -157,7 +157,7 @@ public class DemonicGorillaPlugin extends Plugin {
     private void onGorillaAttack(DemonicGorilla gorilla, final DemonicGorilla.AttackStyle attackStyle) {
         gorilla.setInitiatedCombat(true);
 
-        Player target = (Player) gorilla.getNpc().getTargetIndex();
+        Player target = (Player) gorilla.getNpc().getInteracting();
 
         DemonicGorilla.AttackStyle protectedStyle = null;
         if (target != null) {
@@ -233,7 +233,7 @@ public class DemonicGorillaPlugin extends Plugin {
     private void checkGorillaAttacks() {
         int tickCounter = client.getTickCount();
         for (DemonicGorilla gorilla : gorillas.values()) {
-            Player interacting = (Player) gorilla.getNpc().getTargetIndex();
+            Player interacting = (Player) gorilla.getNpc().getInteracting();
             MemorizedPlayer mp = memorizedPlayers.get(interacting);
 
             if (gorilla.getLastTickInteracting() != null && interacting == null) {
@@ -324,7 +324,7 @@ public class DemonicGorillaPlugin extends Plugin {
             if (gorilla.getDisabledMeleeMovementForTicks() > 0) {
                 gorilla.setDisabledMeleeMovementForTicks(gorilla.getDisabledMeleeMovementForTicks() - 1);
             } else if (gorilla.isInitiatedCombat() &&
-                    gorilla.getNpc().getTargetIndex() != null &&
+                    gorilla.getNpc().getInteracting() != null &&
                     !gorilla.isChangedAttackStyleThisTick() &&
                     gorilla.getNextPosibleAttackStyles().size() >= 2 &&
                     gorilla.getNextPosibleAttackStyles().stream()
@@ -420,7 +420,7 @@ public class DemonicGorillaPlugin extends Plugin {
             }
             gorilla.setLastTickAnimation(gorilla.getNpc().getAnimation());
             gorilla.setLastWorldArea(gorilla.getNpc().getWorldArea());
-            gorilla.setLastTickInteracting(gorilla.getNpc().getTargetIndex());
+            gorilla.setLastTickInteracting(gorilla.getNpc().getInteracting());
             gorilla.setTakenDamageRecently(false);
             gorilla.setChangedPrayerThisTick(false);
             gorilla.setChangedAttackStyleLastTick(gorilla.isChangedAttackStyleThisTick());

@@ -17,43 +17,43 @@ import java.awt.geom.Area;
 public final class ItemLayer implements RSItemLayer {
    @ObfuscatedName("f")
    @ObfuscatedSignature(
-           signature = "Lem;"
+      signature = "Lem;"
    )
    Entity top;
    @ObfuscatedName("x")
    @ObfuscatedSignature(
-           signature = "Lem;"
+      signature = "Lem;"
    )
    Entity bottom;
    @ObfuscatedName("m")
    @ObfuscatedGetter(
-           intValue = -683834749
+      intValue = -683834749
    )
    int height;
    @ObfuscatedName("p")
    @ObfuscatedGetter(
-           longValue = 4919486212967381457L
+      longValue = 4919486212967381457L
    )
    long hash;
    @ObfuscatedName("a")
    @ObfuscatedGetter(
-           intValue = -1922326197
+      intValue = -1922326197
    )
    int tileHeight;
    public int itemLayerPlane;
    @ObfuscatedName("s")
    @ObfuscatedGetter(
-           intValue = 1126674869
+      intValue = 1126674869
    )
    int x;
    @ObfuscatedName("h")
    @ObfuscatedSignature(
-           signature = "Lem;"
+      signature = "Lem;"
    )
    Entity middle;
    @ObfuscatedName("g")
    @ObfuscatedGetter(
-           intValue = -571565015
+      intValue = -571565015
    )
    int y;
 
@@ -63,10 +63,10 @@ public final class ItemLayer implements RSItemLayer {
    }
 
    public Point getCanvasLocation(int var1) {
-      return Perspective.localToCanvas(ItemContainer.client, this.getLocalLocation(), this.getPlane(), var1);
+      return Perspective.localToCanvas(ItemContainer.clientInstance, this.getLocalLocation(), this.getPlane(), var1);
    }
 
-   public long getTag() {
+   public long getHash() {
       return this.hash;
    }
 
@@ -101,12 +101,12 @@ public final class ItemLayer implements RSItemLayer {
    }
 
    public int getId() {
-      long var1 = this.getTag();
+      long var1 = this.getHash();
       return (int)(var1 >>> 17 & 4294967295L);
    }
 
    public WorldPoint getWorldLocation() {
-      return WorldPoint.fromLocal(ItemContainer.client, this.getX(), this.getY(), this.getPlane());
+      return WorldPoint.fromLocal(ItemContainer.clientInstance, this.getX(), this.getY(), this.getPlane());
    }
 
    public Point getCanvasLocation() {
@@ -114,15 +114,15 @@ public final class ItemLayer implements RSItemLayer {
    }
 
    public Polygon getCanvasTilePoly() {
-      return Perspective.getCanvasTilePoly(ItemContainer.client, this.getLocalLocation());
+      return Perspective.getCanvasTilePoly(ItemContainer.clientInstance, this.getLocalLocation());
    }
 
    public Point getCanvasTextLocation(Graphics2D var1, String var2, int var3) {
-      return Perspective.getCanvasTextLocation(ItemContainer.client, var1, this.getLocalLocation(), var2, var3);
+      return Perspective.getCanvasTextLocation(ItemContainer.clientInstance, var1, this.getLocalLocation(), var2, var3);
    }
 
    public Point getMinimapLocation() {
-      return Perspective.localToMinimap(ItemContainer.client, this.getLocalLocation());
+      return Perspective.localToMinimap(ItemContainer.clientInstance, this.getLocalLocation());
    }
 
    public RSRenderable getBottom() {
@@ -143,8 +143,8 @@ public final class ItemLayer implements RSItemLayer {
 
    @ObfuscatedName("h")
    @ObfuscatedSignature(
-           signature = "(Ljava/lang/CharSequence;IZI)I",
-           garbageValue = "276016292"
+      signature = "(Ljava/lang/CharSequence;IZI)I",
+      garbageValue = "276016292"
    )
    static int method525(CharSequence var0, int var1, boolean var2) {
       if(var1 >= 2 && var1 <= 36) {

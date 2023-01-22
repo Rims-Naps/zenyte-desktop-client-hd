@@ -1,8 +1,10 @@
 package net.runelite.standalone;
 
-import java.io.IOException;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 @ObfuscatedName("jr")
 public class class124 {
@@ -151,6 +153,15 @@ public class class124 {
       ChatCrownType.field3209 = new int[104];
       ChatLineBuffer.floorMultiplier = new int[104];
       class91.field513 = new int[104];
+
+      SceneManager scene = class312.sceneManager;
+
+      byte[][][] underlays = class91.tileUnderlayIds;
+      byte[][][] overlays = class91.tileOverlayIds;
+
+      scene.setUnderlayIds(Arrays.copyOf(underlays, underlays.length));
+      scene.setOverlayIds(Arrays.copyOf(overlays, overlays.length));
+      //scene.setTileShapes(Arrays.copyOf(tileShapes, tileShapes.length));
    }
 
    @ObfuscatedName("g")

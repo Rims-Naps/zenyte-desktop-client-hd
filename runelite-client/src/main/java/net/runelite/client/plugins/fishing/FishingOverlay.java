@@ -72,36 +72,36 @@ class FishingOverlay extends Overlay
 		}
 
 		panelComponent.getChildren().clear();
-		if (client.getLocalPlayer().getTargetIndex() != null && client.getLocalPlayer().getTargetIndex().getName()
-				.contains(FISHING_SPOT))
+		if (client.getLocalPlayer().getInteracting() != null && client.getLocalPlayer().getInteracting().getName()
+			.contains(FISHING_SPOT))
 		{
 			panelComponent.getChildren().add(TitleComponent.builder()
-					.text("Fishing")
-					.color(Color.GREEN)
-					.build());
+				.text("Fishing")
+				.color(Color.GREEN)
+				.build());
 		}
 		else
 		{
 			panelComponent.getChildren().add(TitleComponent.builder()
-					.text("NOT fishing")
-					.color(Color.RED)
-					.build());
+				.text("NOT fishing")
+				.color(Color.RED)
+				.build());
 		}
 
 		int actions = xpTrackerService.getActions(Skill.FISHING);
 		if (actions > 0)
 		{
 			panelComponent.getChildren().add(LineComponent.builder()
-					.left("Caught fish:")
-					.right(Integer.toString(actions))
-					.build());
+				.left("Caught fish:")
+				.right(Integer.toString(actions))
+				.build());
 
 			if (actions > 2)
 			{
 				panelComponent.getChildren().add(LineComponent.builder()
-						.left("Fish/hr:")
-						.right(Integer.toString(xpTrackerService.getActionsHr(Skill.FISHING)))
-						.build());
+					.left("Fish/hr:")
+					.right(Integer.toString(xpTrackerService.getActionsHr(Skill.FISHING)))
+					.build());
 			}
 		}
 

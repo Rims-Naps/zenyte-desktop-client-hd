@@ -25,13 +25,19 @@
  */
 package net.runelite.api;
 
-import java.awt.Dimension;
+import java.awt.*;
 
 /**
  * A utility class containing constant values.
  */
 public class Constants
 {
+
+	public static final String SERVER_NAME = "Zenyte";
+	public static final String SERVER_CACHE_DIR = ".zenyte";
+	public static final String SERVER_WEBSITE_URL = "https://zenyte.com";
+	public static final String SERVER_WEBSITE_LOWERCASE = "zenyte.com";
+
 	/**
 	 * The original width of the game when running in fixed mode.
 	 */

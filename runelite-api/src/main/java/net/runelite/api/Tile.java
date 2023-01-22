@@ -39,7 +39,7 @@ public interface Tile
 	 *
 	 * @return the tile decoration
 	 */
-	DecorativeObject getWallDecoration();
+	DecorativeObject getDecorativeObject();
 
 	/**
 	 * Gets all game objects on the tile.
@@ -60,14 +60,14 @@ public interface Tile
 	 *
 	 * @return the ground object
 	 */
-	GroundObject getFloorDecoration();
+	GroundObject getGroundObject();
 
 	/**
 	 * Gets the wall of the tile.
 	 *
 	 * @return the wall object
 	 */
-	WallObject getBoundaryObject();
+	WallObject getWallObject();
 
 	/**
 	 * Gets the scene paint of the tile.

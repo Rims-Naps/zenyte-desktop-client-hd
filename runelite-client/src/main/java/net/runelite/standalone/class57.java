@@ -1,8 +1,9 @@
 package net.runelite.standalone;
 
-import java.net.URL;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.net.URL;
 
 @ObfuscatedName("af")
 public final class class57 {
@@ -36,7 +37,7 @@ public final class class57 {
    static boolean method910() {
       try {
          if(World.listFetcher == null) {
-            World.listFetcher = class36.urlRequester.method5564(new URL(class312.field31));
+            World.listFetcher = class36.urlRequester.method5564(new URL(class312.worldListUrl));
          } else if(World.listFetcher.method4256()) {
             byte[] var0 = World.listFetcher.method4257();
             Packet var1 = new Packet(var0);

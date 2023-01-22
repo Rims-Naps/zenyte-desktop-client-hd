@@ -1,9 +1,13 @@
 package net.runelite.standalone;
 
-import java.io.IOException;
+import net.runelite.api.Constants;
+import net.runelite.client.util.ImageUtil;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 @ObfuscatedName("fv")
 public class LoginProt implements class291 {
@@ -77,6 +81,16 @@ public class LoginProt implements class291 {
       this.id = var1;
    }
 
+   static SpritePixels loadLogin() {
+      BufferedImage image = ImageUtil.getResourceStreamFromClass(LoginProt.class, "/login.jpg");
+
+      if (image.getHeight() > Constants.GAME_FIXED_HEIGHT) {
+         final double scalar = Constants.GAME_FIXED_HEIGHT / (double) image.getHeight();
+         image = ImageUtil.resizeImage(image, (int) (image.getWidth() * scalar), Constants.GAME_FIXED_HEIGHT);
+      }
+      return (SpritePixels) ImageUtil.getImageSpritePixels(image, ItemContainer.clientInstance);
+   }
+
    @ObfuscatedName("a")
    @ObfuscatedSignature(
       signature = "(Liz;Liz;ZII)V",
@@ -91,8 +105,11 @@ public class LoginProt implements class291 {
       } else {
          class203.loginIndex = var3;
          Rasterizer2D.method688();
+
          byte[] var4 = var0.method4135("title.jpg", "");
          class302.leftBackground = class331.method6416(var4);
+         //class302.leftBackground = loadLogin();
+
          //class203.rightBackground = class302.leftBackground.method1300();
          if((client.flags & 536870912) != 0) {
             class203.logoSprite = WorldMapRegion.method5496(var1, "logo_deadman_mode", "");
@@ -206,12 +223,12 @@ public class LoginProt implements class291 {
          }
 
          class203.field1149 = true;
-         class203.field1168 = (GrandExchangeOffer.canvasWidth - 765) / 2;
-         class203.loginWindowX = class203.field1168 + 202;
-         class203.field1176 = class203.loginWindowX + 180;
-         class302.leftBackground.method1331(class203.field1168, 0);
+         class203.xPadding = (GrandExchangeOffer.canvasWidth - 765) / 2;
+         class203.loginWindowX = class203.xPadding + 202;
+         class203.loginBoxCenter = class203.loginWindowX + 180;
+         class302.leftBackground.method1331(class203.xPadding, 0);
          //class203.rightBackground.method1331(class203.field1168 + 382, 0);
-         //class203.logoSprite.method4282(class203.field1168 + 382 - class203.logoSprite.width / 2, 18);
+         //class203.logoSprite.method4282(class203.xPadding + 382 - class203.logoSprite.width / 2, 18);
       }
    }
 

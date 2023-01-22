@@ -48,5 +48,5 @@ public interface Node
 	 *
 	 * @return the hash value
 	 */
-	long getKey();
+	long getHash();
 }

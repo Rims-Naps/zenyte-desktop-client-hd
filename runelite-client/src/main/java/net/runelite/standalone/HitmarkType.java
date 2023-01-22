@@ -311,7 +311,7 @@ public class HitmarkType extends CacheableNode {
       if(var2 == 1) {
          this.field3435 = var1.method5287();
       } else if(var2 == 2) {
-         this.field3440 = var1.method5090();
+         this.field3440 = var1.read24bitInt();
       } else if(var2 == 3) {
          this.field3450 = var1.method5287();
       } else if(var2 == 4) {
