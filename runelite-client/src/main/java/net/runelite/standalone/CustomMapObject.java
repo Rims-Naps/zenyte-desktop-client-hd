@@ -42,6 +42,7 @@ public class CustomMapObject {
     }
 
     public static void applyToScene() {
+        if (true) return;
         for(int z = 0; z < 4; z++) {
             for(int localX = 0; localX < 104; localX++) {
                 for(int localY = 0; localY < 104; localY++) {
