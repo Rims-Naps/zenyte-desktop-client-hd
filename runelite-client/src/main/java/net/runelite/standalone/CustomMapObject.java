@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CustomMapObject {
+public final class CustomMapObject {
+
+    public static final boolean ENABLED = false;
 
     private static final Map<Integer, List<CustomMapObject>>
             REMOVE_MAP = new HashMap<>(),
@@ -27,33 +29,36 @@ public class CustomMapObject {
     }
 
     public static boolean isRemoved(int id, int localX, int localY, int z, int type, int direction) {
-        int x = class53.baseX + localX;
-        int y = class312.baseY + localY;
-        int hash = y + (x << 14) + (z << 28);
-        List<CustomMapObject> objs = REMOVE_MAP.get(hash);
-        if (objs != null) {
-            for (CustomMapObject obj : objs) {
-                if (obj.id != id || obj.x != x || obj.y != y || obj.type != type || obj.direction != direction)
-                    continue;
-                return true;
+        if (ENABLED) {
+            int x = class53.baseX + localX;
+            int y = class312.baseY + localY;
+            int hash = y + (x << 14) + (z << 28);
+            List<CustomMapObject> objs = REMOVE_MAP.get(hash);
+            if (objs != null) {
+                for (CustomMapObject obj : objs) {
+                    if (obj.id != id || obj.x != x || obj.y != y || obj.type != type || obj.direction != direction)
+                        continue;
+                    return true;
+                }
             }
         }
         return false;
     }
 
     public static void applyToScene() {
-        if (true) return;
-        for(int z = 0; z < 4; z++) {
-            for(int localX = 0; localX < 104; localX++) {
-                for(int localY = 0; localY < 104; localY++) {
-                    int x = class53.baseX + localX;
-                    int y = class312.baseY + localY;
-                    int hash = y + (x << 14) + (z << 28);
-                    List<CustomMapObject> objs = SPAWN_MAP.get(hash);
-                    if (objs != null) {
-                        for (CustomMapObject obj : objs) {
-                            class253.addMapObject(z, localX, localY, obj.id, obj.direction, obj.type,
-                                    class312.sceneManager, client.collisionMaps[z], true);
+        if (ENABLED) {
+            for (int z = 0; z < 4; z++) {
+                for (int localX = 0; localX < 104; localX++) {
+                    for (int localY = 0; localY < 104; localY++) {
+                        int x = class53.baseX + localX;
+                        int y = class312.baseY + localY;
+                        int hash = y + (x << 14) + (z << 28);
+                        List<CustomMapObject> objs = SPAWN_MAP.get(hash);
+                        if (objs != null) {
+                            for (CustomMapObject obj : objs) {
+                                class253.addMapObject(z, localX, localY, obj.id, obj.direction, obj.type,
+                                        class312.sceneManager, client.collisionMaps[z], true);
+                            }
                         }
                     }
                 }
