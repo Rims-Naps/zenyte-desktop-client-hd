@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 11
-          distribution: oracle
+          distribution: corretto
       - name: build
         run: mvn package -DskipTests -f pom.xml
       - uses: actions/upload-artifact@v3
