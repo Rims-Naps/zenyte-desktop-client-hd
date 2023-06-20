@@ -91,7 +91,7 @@
     <repositories>
         <repository>
             <id>maven-central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
+            <url>https://repo1.maven.apache.org/maven2</url>
         </repository>
         <repository>
             <id>runelite</id>

@@ -908,8 +908,13 @@ public class class258 {
                }
             } else {
                if(class71.localPlayer != null && class71.localPlayer.name != null) {
-                  ChatCrownType staffRank = (ChatCrownType) PlayerList.method4757(class248.method4669(), client.staffModLevel);
-                  var3 = (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class71.localPlayer.name.getChatName();
+                  try {
+                     ChatCrownType staffRank = (ChatCrownType) PlayerList.method4757(class248.method4669(), client.staffModLevel);
+                     var3 = (staffRank.icon == -1 ? "" : class181.getModIcon(staffRank.icon)) + class71.localPlayer.name.getChatName();
+                  } catch (Exception e) {
+                     e.printStackTrace();
+                     var3 = class71.localPlayer.name.getChatName();
+                  }
                } else {
                   var3 = "";
                }
