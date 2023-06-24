@@ -63,7 +63,7 @@ public class StoreLocation
 
 	private static File setupCacheDir() throws IOException
 	{
-		File file = new File("D:\\RSPS\\Zenyte\\zenyte-server\\data\\cache");
+		File file = new File("D:\\RSPS\\Ruin\\ruin-server\\data\\cache");
 
 		if (file.exists())
 		{

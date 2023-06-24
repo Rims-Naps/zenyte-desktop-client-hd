@@ -4,6 +4,7 @@ import net.runelite.api.Perspective;
 import net.runelite.api.Point;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
+import net.runelite.client.RuneLite;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
@@ -653,7 +654,7 @@ public final class GroundObject implements RSGroundObject {
       StaticFields.socketAddress = var0.address;
       client.world = var0.id;
       client.flags = var0.mask;
-      class323.port1 = client.socketType == 0?43594:var0.id + 40000;
+      class323.port1 = client.socketType == 0? RuneLite.PORT:var0.id + 40000;
       class54.port2 = client.socketType == 0?443:var0.id + 50000;
       GameSocket.myWorldPort = class323.port1;
    }

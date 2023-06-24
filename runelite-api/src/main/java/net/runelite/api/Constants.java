@@ -33,10 +33,10 @@ import java.awt.*;
 public class Constants
 {
 
-	public static final String SERVER_NAME = "Zenyte";
-	public static final String SERVER_CACHE_DIR = ".zenyte";
-	public static final String SERVER_WEBSITE_URL = "https://zenyte.com";
-	public static final String SERVER_WEBSITE_LOWERCASE = "zenyte.com";
+	public static final String SERVER_NAME = "Ruin";
+	public static final String SERVER_CACHE_DIR = ".ruin";
+	public static final String SERVER_WEBSITE_URL = "https://ruin.com";
+	public static final String SERVER_WEBSITE_LOWERCASE = "ruin.com";
 
 	/**
 	 * The original width of the game when running in fixed mode.

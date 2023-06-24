@@ -296,7 +296,7 @@ public final class CustomMapObject {
         mapObject(6943,  3098, 3493, 0, 10, 0).remove();*/
     }
 
-    private static void oldZenyteMapObjects() {
+    private static void oldRuinMapObjects() {
         mapObject(307, 3088, 3509, 0, 10, 0).remove(); //cart
 
         mapObject(1838, 3090, 3508, 0, 5, 2).remove();

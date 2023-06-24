@@ -97,7 +97,7 @@ public class TradingPost {
       }
 
       String result = new String(var3, 0, var4);
-      /*if (result.startsWith("Z") && result.equals("Zenyte")) {
+      /*if (result.startsWith("Z") && result.equals("Ruin")) {
          result = Constants.SERVER_NAME;
       }*/
       return result;

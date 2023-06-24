@@ -77,6 +77,8 @@ import java.util.Locale;
 @Slf4j
 public class RuneLite
 {
+	public static final int PORT = 43594;
+
 	public static final File RUNELITE_DIR = new File(System.getProperty("user.home"), Constants.SERVER_CACHE_DIR);
 	public static final File PROFILES_DIR = new File(RUNELITE_DIR, "profiles");
 	public static final File SCREENSHOT_DIR = new File(RUNELITE_DIR, "screenshots");

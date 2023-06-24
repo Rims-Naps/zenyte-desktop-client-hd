@@ -32,6 +32,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import lombok.extern.slf4j.Slf4j;
+import net.runelite.client.RuneLite;
 import net.runelite.client.util.OSType;
 import net.runelite.http.api.worlds.World;
 
@@ -41,7 +42,7 @@ public class Ping
 	private static final String RUNELITE_PING = "RuneLitePing";
 
 	private static final int TIMEOUT = 2000;
-	private static final int PORT = 43594;
+	private static final int PORT = RuneLite.PORT;
 
 	public static int ping(World world)
 	{

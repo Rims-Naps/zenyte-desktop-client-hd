@@ -804,7 +804,7 @@ LABEL725:
 LABEL728:
    jump                   LABEL732
 LABEL729:
-   sconst                 "The Bank of Zenyte"
+   sconst                 "The Bank of Ruin"
    sconst                 "setBankTitle"  ;
    runelite_callback     ;
    iload                  6

@@ -45,12 +45,15 @@
         <maven.deploy.skip>true</maven.deploy.skip>
 
         <rs.version>179</rs.version>
+
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
 
     <distributionManagement>
         <repository>
             <id>s3.artifacts.client</id>
-            <url>s3://zenyte-runelite/release</url>
+            <url>s3://ruin-runelite/release</url>
         </repository>
     </distributionManagement>
 

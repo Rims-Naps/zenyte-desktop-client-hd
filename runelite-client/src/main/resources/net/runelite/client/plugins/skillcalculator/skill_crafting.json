@@ -610,13 +610,13 @@
     {
       "level": 89,
       "icon": 19538,
-      "name": "Zenyte Ring",
+      "name": "Ruin Ring",
       "xp": 150
     },
     {
       "level": 89,
       "icon": 19493,
-      "name": "Zenyte",
+      "name": "Ruin",
       "xp": 200
     },
     {
@@ -628,19 +628,19 @@
     {
       "level": 92,
       "icon": 19535,
-      "name": "Zenyte Necklace",
+      "name": "Ruin Necklace",
       "xp": 165
     },
     {
       "level": 95,
       "icon": 19492,
-      "name": "Zenyte Bracelet",
+      "name": "Ruin Bracelet",
       "xp": 180
     },
     {
       "level": 98,
       "icon": 19501,
-      "name": "Zenyte Amulet (U)",
+      "name": "Ruin Amulet (U)",
       "xp": 200
     }
   ]

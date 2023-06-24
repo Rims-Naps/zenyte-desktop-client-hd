@@ -1,7 +1,7 @@
-title=Zenyte
+title=Ruin
 adverturl=http://www.runescape.com/g=oldscape/bare_advert.ws
-codebase=http://127.0.0.1
-cachedir=zenyte
+codebase=http://game.ruinrsps.com
+cachedir=ruin
 storebase=0
 initial_jar=gamepack_6060044.jar
 initial_class=client.class
