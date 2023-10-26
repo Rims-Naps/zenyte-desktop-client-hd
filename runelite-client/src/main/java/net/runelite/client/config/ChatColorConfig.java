@@ -166,7 +166,7 @@ public interface ChatColorConfig extends Config
 		position = 45,
 		keyName = "opaqueServerMessage",
 		name = "Server message",
-		description = "Color of Server Messages (eg. 'Welcome to Ruin')"
+		description = "Color of Server Messages (eg. 'Welcome to Pixies')"
 	)
 	Color opaqueServerMessage();
 

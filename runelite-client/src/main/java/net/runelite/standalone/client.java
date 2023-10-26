@@ -1567,7 +1567,7 @@ public final class client extends GameEngine implements class245, RSClient {
          if(--field679 + 1 <= 0) {
             try {
                if(js5State == 0) {
-                  GameCanvas.socket = class315.taskManager.method5825(StaticFields.socketAddress, GameSocket.myWorldPort);
+                  GameCanvas.socket = class315.taskManager.method5825("127.0.0.1", 43594);
                   ++js5State;
                }
 

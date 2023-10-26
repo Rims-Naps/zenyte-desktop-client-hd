@@ -610,13 +610,13 @@
     {
       "level": 89,
       "icon": 19538,
-      "name": "Ruin Ring",
+      "name": "Pixies Ring",
       "xp": 150
     },
     {
       "level": 89,
       "icon": 19493,
-      "name": "Ruin",
+      "name": "Pixies",
       "xp": 200
     },
     {
@@ -628,19 +628,19 @@
     {
       "level": 92,
       "icon": 19535,
-      "name": "Ruin Necklace",
+      "name": "Pixies Necklace",
       "xp": 165
     },
     {
       "level": 95,
       "icon": 19492,
-      "name": "Ruin Bracelet",
+      "name": "Pixies Bracelet",
       "xp": 180
     },
     {
       "level": 98,
       "icon": 19501,
-      "name": "Ruin Amulet (U)",
+      "name": "Pixies Amulet (U)",
       "xp": 200
     }
   ]

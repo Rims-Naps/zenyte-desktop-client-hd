@@ -33,10 +33,10 @@ import java.awt.*;
 public class Constants
 {
 
-	public static final String SERVER_NAME = "Ruin";
-	public static final String SERVER_CACHE_DIR = ".ruin";
-	public static final String SERVER_WEBSITE_URL = "https://ruin.com";
-	public static final String SERVER_WEBSITE_LOWERCASE = "ruin.com";
+	public static final String SERVER_NAME = "Pixies";
+	public static final String SERVER_CACHE_DIR = ".Pixies";
+	public static final String SERVER_WEBSITE_URL = "https://Pixies.com";
+	public static final String SERVER_WEBSITE_LOWERCASE = "Pixies.com";
 
 	/**
 	 * The original width of the game when running in fixed mode.
