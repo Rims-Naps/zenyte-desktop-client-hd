@@ -39,6 +39,20 @@
         <cache.version>165</cache.version>
 
         <antlr4.version>4.6</antlr4.version>
+
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>11</java.version>
+        <lombok.version>1.18.24</lombok.version>
+
+        <maven.javadoc.skip>true</maven.javadoc.skip>
+        <checkstyle.skip>true</checkstyle.skip>
+        <maven.deploy.skip>true</maven.deploy.skip>
+
+        <rs.version>179</rs.version>
+
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
 
     <dependencies>
@@ -103,6 +117,12 @@
             <artifactId>cache</artifactId>
             <version>${cache.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.runelite.pushingpixels</groupId>
+            <artifactId>substance</artifactId>
+            <version>8.0.02</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

@@ -8,3 +8,8 @@ project.properties
 .classpath
 toolkit
 .gradle/
+.idea/workspace.xml
+.idea/google-java-format.xml
+.idea/cody_history.xml
+.idea/checkstyle-idea.xml
+.idea/aws.xml
